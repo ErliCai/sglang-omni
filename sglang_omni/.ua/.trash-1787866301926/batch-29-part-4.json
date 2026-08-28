@@ -1,0 +1,1168 @@
+{
+  "nodes": [
+    {
+      "id": "file:serve/realtime/events.py",
+      "type": "file",
+      "name": "events.py",
+      "filePath": "serve/realtime/events.py",
+      "summary": "定义 Realtime 客户端与服务端事件、会话配置和轮次检测协议，并提供事件创建与解析。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "session-config",
+        "protocol"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/realtime/events.py:make_event",
+      "type": "function",
+      "name": "make_event",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        92,
+        100
+      ],
+      "summary": "创建make 事件逻辑，服务于serve、realtime-events的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "make-event",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/realtime/events.py:parse_client_event",
+      "type": "function",
+      "name": "parse_client_event",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        112,
+        127
+      ],
+      "summary": "解析解析 客户端 事件逻辑，服务于serve、realtime-events的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "parse-client-event",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:EventBase",
+      "type": "class",
+      "name": "EventBase",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        16,
+        17
+      ],
+      "summary": "定义事件 Base协议模型，校验并序列化serve、realtime-events相关字段。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "event-base",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:TurnDetectionType",
+      "type": "class",
+      "name": "TurnDetectionType",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        20,
+        26
+      ],
+      "summary": "定义轮次 检测 类型协议模型，校验并序列化serve、realtime-events相关字段。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "turn-detection-type",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:TurnDetection",
+      "type": "class",
+      "name": "TurnDetection",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        29,
+        34
+      ],
+      "summary": "实现轮次 检测，封装serve、realtime-events中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "turn-detection",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:SessionConfig",
+      "type": "class",
+      "name": "SessionConfig",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        37,
+        46
+      ],
+      "summary": "定义会话 Config协议模型，校验并序列化serve、realtime-events相关字段。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "session-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:SessionObject",
+      "type": "class",
+      "name": "SessionObject",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        49,
+        59
+      ],
+      "summary": "定义会话 Object协议模型，校验并序列化serve、realtime-events相关字段。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "session-object",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:ClientEvent",
+      "type": "class",
+      "name": "ClientEvent",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        62,
+        64
+      ],
+      "summary": "定义客户端 事件协议模型，校验并序列化serve、realtime-events相关字段。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "client-event",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:SessionUpdate",
+      "type": "class",
+      "name": "SessionUpdate",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        67,
+        69
+      ],
+      "summary": "实现会话 Update，封装serve、realtime-events中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "session-update",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:InputAudioBufferAppend",
+      "type": "class",
+      "name": "InputAudioBufferAppend",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        72,
+        74
+      ],
+      "summary": "实现Input 音频 Buffer Append，封装serve、realtime-events中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "input-audio-buffer-append",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:InputAudioBufferClear",
+      "type": "class",
+      "name": "InputAudioBufferClear",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        77,
+        78
+      ],
+      "summary": "实现Input 音频 Buffer Clear，封装serve、realtime-events中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "input-audio-buffer-clear",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:ResponseCancel",
+      "type": "class",
+      "name": "ResponseCancel",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        81,
+        82
+      ],
+      "summary": "实现响应 取消，封装serve、realtime-events中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "response-cancel",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/events.py:ConversationItemTruncate",
+      "type": "class",
+      "name": "ConversationItemTruncate",
+      "filePath": "serve/realtime/events.py",
+      "lineRange": [
+        85,
+        89
+      ],
+      "summary": "实现Conversation Item Truncate，封装serve、realtime-events中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "realtime-events",
+        "conversation-item-truncate",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/realtime/manager.py",
+      "type": "file",
+      "name": "manager.py",
+      "filePath": "serve/realtime/manager.py",
+      "summary": "创建、查询和关闭并发 Realtime 会话，并在服务停止时统一清理。",
+      "tags": [
+        "serve",
+        "realtime-manager",
+        "session-lifecycle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/realtime/manager.py:RealtimeSessionManager",
+      "type": "class",
+      "name": "RealtimeSessionManager",
+      "filePath": "serve/realtime/manager.py",
+      "lineRange": [
+        13,
+        44
+      ],
+      "summary": "管理活动 RealtimeSession 的创建、查找、移除和批量关闭。",
+      "tags": [
+        "serve",
+        "realtime-manager",
+        "realtime-session-manager",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:serve/realtime/session.py",
+      "type": "file",
+      "name": "session.py",
+      "filePath": "serve/realtime/session.py",
+      "summary": "实现完整 OpenAI Realtime 会话状态机，处理音频缓冲、VAD、转写、响应生成、取消和事件推送。",
+      "tags": [
+        "serve",
+        "realtime-session",
+        "vad",
+        "websocket",
+        "generation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/realtime/session.py:new_id",
+      "type": "function",
+      "name": "new_id",
+      "filePath": "serve/realtime/session.py",
+      "lineRange": [
+        54,
+        55
+      ],
+      "summary": "创建new ID逻辑，服务于serve、realtime-session的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "realtime-session",
+        "new-id",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/session.py:ConversationItem",
+      "type": "class",
+      "name": "ConversationItem",
+      "filePath": "serve/realtime/session.py",
+      "lineRange": [
+        59,
+        62
+      ],
+      "summary": "表示实时会话对话历史中的用户或助手项目。",
+      "tags": [
+        "serve",
+        "realtime-session",
+        "conversation-item",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/session.py:ResponseOutput",
+      "type": "class",
+      "name": "ResponseOutput",
+      "filePath": "serve/realtime/session.py",
+      "lineRange": [
+        66,
+        68
+      ],
+      "summary": "保存一次实时响应的文本、音频和完成状态。",
+      "tags": [
+        "serve",
+        "realtime-session",
+        "response-output",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/session.py:RealtimeSession",
+      "type": "class",
+      "name": "RealtimeSession",
+      "filePath": "serve/realtime/session.py",
+      "lineRange": [
+        71,
+        907
+      ],
+      "summary": "协调 WebSocket 事件、音频缓冲、VAD、ASR 和生成任务的完整会话生命周期。",
+      "tags": [
+        "serve",
+        "realtime-session",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:serve/realtime/vad.py",
+      "type": "file",
+      "name": "vad.py",
+      "filePath": "serve/realtime/vad.py",
+      "summary": "封装流式语音活动检测，累计帧、换算时间偏移并产生语音开始和结束事件。",
+      "tags": [
+        "serve",
+        "voice-activity-detection",
+        "streaming-audio"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/realtime/vad.py:offsets_to_ms",
+      "type": "function",
+      "name": "offsets_to_ms",
+      "filePath": "serve/realtime/vad.py",
+      "lineRange": [
+        121,
+        122
+      ],
+      "summary": "换算偏移 to 毫秒逻辑，服务于serve、voice-activity-detection的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-activity-detection",
+        "offsets-to-ms",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/vad.py:VADConfig",
+      "type": "class",
+      "name": "VADConfig",
+      "filePath": "serve/realtime/vad.py",
+      "lineRange": [
+        18,
+        26
+      ],
+      "summary": "保存语音活动检测阈值、前缀填充和静音时长配置。",
+      "tags": [
+        "serve",
+        "voice-activity-detection",
+        "vadconfig",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/vad.py:VADEvent",
+      "type": "class",
+      "name": "VADEvent",
+      "filePath": "serve/realtime/vad.py",
+      "lineRange": [
+        29,
+        31
+      ],
+      "summary": "表示检测到的语音开始或结束及其时间偏移。",
+      "tags": [
+        "serve",
+        "voice-activity-detection",
+        "vadevent",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/vad.py:Emit",
+      "type": "class",
+      "name": "Emit",
+      "filePath": "serve/realtime/vad.py",
+      "lineRange": [
+        35,
+        37
+      ],
+      "summary": "封装 VAD 应发送的事件和可选音频片段。",
+      "tags": [
+        "serve",
+        "voice-activity-detection",
+        "emit",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/vad.py:StreamingVAD",
+      "type": "class",
+      "name": "StreamingVAD",
+      "filePath": "serve/realtime/vad.py",
+      "lineRange": [
+        40,
+        118
+      ],
+      "summary": "增量处理音频帧并根据阈值状态机产生语音边界事件。",
+      "tags": [
+        "serve",
+        "voice-activity-detection",
+        "streaming-vad",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:serve/speech_errors.py",
+      "type": "file",
+      "name": "speech_errors.py",
+      "filePath": "serve/speech_errors.py",
+      "summary": "把语音服务异常转换为 OpenAI 兼容 HTTP 或 WebSocket 错误负载，并提供常用错误工厂。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "openai-error",
+        "websocket"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/speech_errors.py:openai_error_payload",
+      "type": "function",
+      "name": "openai_error_payload",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        28,
+        44
+      ],
+      "summary": "构建openai 错误 负载逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "openai-error-payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_errors.py:openai_error_response",
+      "type": "function",
+      "name": "openai_error_response",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        47,
+        65
+      ],
+      "summary": "构建openai 错误 响应逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "openai-error-response",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_errors.py:speech_error_response",
+      "type": "function",
+      "name": "speech_error_response",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        68,
+        75
+      ],
+      "summary": "处理语音 错误 响应逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "speech-error-response",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_errors.py:speech_websocket_error_payload",
+      "type": "function",
+      "name": "speech_websocket_error_payload",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        78,
+        89
+      ],
+      "summary": "处理语音 WebSocket 错误 负载逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "speech-websocket-error-payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_errors.py:bad_request",
+      "type": "function",
+      "name": "bad_request",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        92,
+        99
+      ],
+      "summary": "创建错误 请求逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "bad-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_errors.py:internal_error",
+      "type": "function",
+      "name": "internal_error",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        102,
+        109
+      ],
+      "summary": "创建内部 错误逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "internal-error",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_errors.py:service_unavailable",
+      "type": "function",
+      "name": "service_unavailable",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        112,
+        119
+      ],
+      "summary": "创建服务 不可用逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "service-unavailable",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_errors.py:speech_generation_error",
+      "type": "function",
+      "name": "speech_generation_error",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        122,
+        126
+      ],
+      "summary": "处理语音 生成 错误逻辑，服务于serve、speech-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "speech-generation-error",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/speech_errors.py:SpeechAPIError",
+      "type": "class",
+      "name": "SpeechAPIError",
+      "filePath": "serve/speech_errors.py",
+      "lineRange": [
+        15,
+        25
+      ],
+      "summary": "携带 HTTP 状态、OpenAI 错误类型、参数和错误码的语音服务异常。",
+      "tags": [
+        "serve",
+        "speech-errors",
+        "speech-apierror",
+        "class"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "function:serve/realtime/events.py:make_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "function:serve/realtime/events.py:make_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "function:serve/realtime/events.py:parse_client_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "function:serve/realtime/events.py:parse_client_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:EventBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:EventBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:TurnDetectionType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:TurnDetectionType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:TurnDetection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:TurnDetection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:SessionConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:SessionConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:SessionObject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:SessionObject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:ClientEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:ClientEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:SessionUpdate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:SessionUpdate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:InputAudioBufferAppend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:InputAudioBufferAppend",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:InputAudioBufferClear",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:InputAudioBufferClear",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:ResponseCancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:ResponseCancel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:ConversationItemTruncate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/events.py",
+      "target": "class:serve/realtime/events.py:ConversationItemTruncate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/manager.py",
+      "target": "class:serve/realtime/manager.py:RealtimeSessionManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/manager.py",
+      "target": "class:serve/realtime/manager.py:RealtimeSessionManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "function:serve/realtime/session.py:new_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "function:serve/realtime/session.py:new_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "class:serve/realtime/session.py:ConversationItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "class:serve/realtime/session.py:ConversationItem",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "class:serve/realtime/session.py:ResponseOutput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "class:serve/realtime/session.py:ResponseOutput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "class:serve/realtime/session.py:RealtimeSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/session.py",
+      "target": "class:serve/realtime/session.py:RealtimeSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "function:serve/realtime/vad.py:offsets_to_ms",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "function:serve/realtime/vad.py:offsets_to_ms",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:VADConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:VADConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:VADEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:VADEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:Emit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:Emit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:StreamingVAD",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/vad.py",
+      "target": "class:serve/realtime/vad.py:StreamingVAD",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:openai_error_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:openai_error_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:openai_error_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:openai_error_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:speech_error_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:speech_error_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:speech_websocket_error_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:speech_websocket_error_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:bad_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:bad_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:internal_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:internal_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:service_unavailable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:service_unavailable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:speech_generation_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "function:serve/speech_errors.py:speech_generation_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "class:serve/speech_errors.py:SpeechAPIError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_errors.py",
+      "target": "class:serve/speech_errors.py:SpeechAPIError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_errors.py:openai_error_response",
+      "target": "function:serve/speech_errors.py:openai_error_payload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_errors.py:speech_error_response",
+      "target": "function:serve/speech_errors.py:openai_error_response",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_errors.py:bad_request",
+      "target": "class:serve/speech_errors.py:SpeechAPIError",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_errors.py:internal_error",
+      "target": "class:serve/speech_errors.py:SpeechAPIError",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_errors.py:service_unavailable",
+      "target": "class:serve/speech_errors.py:SpeechAPIError",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_errors.py:speech_generation_error",
+      "target": "function:serve/speech_errors.py:service_unavailable",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_errors.py:speech_generation_error",
+      "target": "function:serve/speech_errors.py:internal_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:serve/realtime/manager.py:RealtimeSessionManager",
+      "target": "class:serve/realtime/session.py:RealtimeSession",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:serve/realtime/session.py:RealtimeSession",
+      "target": "class:serve/realtime/audio_buffer.py:RealtimeAudioBuffer",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:serve/realtime/session.py:RealtimeSession",
+      "target": "class:serve/realtime/vad.py:StreamingVAD",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

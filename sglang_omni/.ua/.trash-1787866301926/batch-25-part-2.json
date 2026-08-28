@@ -1,0 +1,1714 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/voxtral_tts/pipeline/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/voxtral_tts/pipeline/__init__.py",
+      "summary": "标记 Voxtral-TTS pipeline 子包。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline",
+        "package-marker"
+      ],
+      "complexity": "simple",
+      "languageNotes": "空 Python 包入口，用于组织 pipeline 组件。"
+    },
+    {
+      "id": "file:models/voxtral_tts/pipeline/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/voxtral_tts/pipeline/engine_builder.py",
+      "summary": "为 Voxtral-TTS 构建 SGLang engine、runner、scheduler adapters 与生成默认参数。",
+      "tags": [
+        "Voxtral-TTS",
+        "engine-builder",
+        "SGLang"
+      ],
+      "complexity": "simple",
+      "languageNotes": "builder 类连接模型初始化和请求生命周期扩展点。"
+    },
+    {
+      "id": "class:models/voxtral_tts/pipeline/engine_builder.py:VoxtralTtsEngineBuilder",
+      "type": "class",
+      "name": "VoxtralTtsEngineBuilder",
+      "filePath": "models/voxtral_tts/pipeline/engine_builder.py",
+      "lineRange": [
+        14,
+        75
+      ],
+      "summary": "封装 Voxtral SGLang engine、runner 与 scheduler 构建流程。",
+      "tags": [
+        "Voxtral-TTS",
+        "engine-builder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/voxtral_tts/pipeline/next_stage.py",
+      "type": "file",
+      "name": "next_stage.py",
+      "filePath": "models/voxtral_tts/pipeline/next_stage.py",
+      "summary": "定义 Voxtral-TTS preprocessing、generation 与 vocoder stage 的下一跳路由。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-routing",
+        "stage-transition"
+      ],
+      "complexity": "simple",
+      "languageNotes": "纯 Python 路由函数依据 pipeline 数据选择下一 stage。"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/next_stage.py:preprocessing_next",
+      "type": "function",
+      "name": "preprocessing_next",
+      "filePath": "models/voxtral_tts/pipeline/next_stage.py",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "返回 Voxtral 预处理后的 generation stage 路由。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-routing",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/next_stage.py:generation_next",
+      "type": "function",
+      "name": "generation_next",
+      "filePath": "models/voxtral_tts/pipeline/next_stage.py",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "返回 Voxtral 生成后的 vocoder stage 路由。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-routing",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/next_stage.py:vocoder_next",
+      "type": "function",
+      "name": "vocoder_next",
+      "filePath": "models/voxtral_tts/pipeline/next_stage.py",
+      "lineRange": [
+        22,
+        24
+      ],
+      "summary": "标记 Voxtral vocoder 为 pipeline 终止 stage。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-routing",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/voxtral_tts/pipeline/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "summary": "创建 Voxtral-TTS 预处理、生成和 vocoder executors，并加载 voice embedding、tokenizer 与模型配置。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "vocoder"
+      ],
+      "complexity": "complex",
+      "languageNotes": "集成 mistral-common、PyTorch、SGLang 和本地 checkpoint 资源。"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:_import_mistral_common_for_voxtral",
+      "type": "function",
+      "name": "_import_mistral_common_for_voxtral",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        35,
+        42
+      ],
+      "summary": "加载 Voxtral 预处理所需的 mistral-common API。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:_validate_voxtral_speech_params",
+      "type": "function",
+      "name": "_validate_voxtral_speech_params",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        45,
+        81
+      ],
+      "summary": "验证 Voxtral 语音生成参数和值域。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:_ensure_non_empty_audio_codes",
+      "type": "function",
+      "name": "_ensure_non_empty_audio_codes",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        84,
+        88
+      ],
+      "summary": "检查生成结果包含至少一个有效音频 code。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        94,
+        145
+      ],
+      "summary": "创建 Voxtral 文本、voice 和 processor 预处理 executor。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:_enable_inductor_gemm_autotune",
+      "type": "function",
+      "name": "_enable_inductor_gemm_autotune",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        151,
+        166
+      ],
+      "summary": "为 PyTorch Inductor 启用 GEMM autotune 配置。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:create_generation_executor",
+      "type": "function",
+      "name": "create_generation_executor",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        169,
+        188
+      ],
+      "summary": "创建连接 Voxtral SGLang 生成 engine 的 executor。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:_write_voxtral_sglang_config",
+      "type": "function",
+      "name": "_write_voxtral_sglang_config",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        191,
+        216
+      ],
+      "summary": "为 SGLang 运行时生成临时 Voxtral 模型配置。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:_load_voxtral_voice_embeddings",
+      "type": "function",
+      "name": "_load_voxtral_voice_embeddings",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        219,
+        238
+      ],
+      "summary": "从 checkpoint 加载 Voxtral voice embedding 表。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:_load_audio_tokenizer",
+      "type": "function",
+      "name": "_load_audio_tokenizer",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        244,
+        293
+      ],
+      "summary": "加载 Voxtral audio tokenizer 及其模型权重。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/stages.py:create_vocoder_executor",
+      "type": "function",
+      "name": "create_vocoder_executor",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        396,
+        411
+      ],
+      "summary": "创建 Voxtral vocoder pipeline executor。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/pipeline/stages.py:_VoxtralTTSVocoder",
+      "type": "class",
+      "name": "_VoxtralTTSVocoder",
+      "filePath": "models/voxtral_tts/pipeline/stages.py",
+      "lineRange": [
+        296,
+        393
+      ],
+      "summary": "将生成的离散音频 codes 解码为目标采样率波形。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-stage",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/voxtral_tts/pipeline/state_io.py",
+      "type": "file",
+      "name": "state_io.py",
+      "filePath": "models/voxtral_tts/pipeline/state_io.py",
+      "summary": "在 Voxtral-TTS pipeline payload 中读取和保存类型化请求状态。",
+      "tags": [
+        "Voxtral-TTS",
+        "state-io",
+        "payload"
+      ],
+      "complexity": "simple",
+      "languageNotes": "以轻量 Python helper 统一 stage 间状态访问。"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/state_io.py:load_state",
+      "type": "function",
+      "name": "load_state",
+      "filePath": "models/voxtral_tts/pipeline/state_io.py",
+      "lineRange": [
+        11,
+        12
+      ],
+      "summary": "从 pipeline payload 读取 VoxtralTTSState。",
+      "tags": [
+        "Voxtral-TTS",
+        "state-io",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/pipeline/state_io.py:store_state",
+      "type": "function",
+      "name": "store_state",
+      "filePath": "models/voxtral_tts/pipeline/state_io.py",
+      "lineRange": [
+        15,
+        16
+      ],
+      "summary": "把 VoxtralTTSState 保存到 pipeline payload。",
+      "tags": [
+        "Voxtral-TTS",
+        "state-io",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/voxtral_tts/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/voxtral_tts/request_builders.py",
+      "summary": "把 Voxtral-TTS 状态转换为 SGLang 请求，回填生成结果并提供 scheduler adapters。",
+      "tags": [
+        "Voxtral-TTS",
+        "request-builder",
+        "scheduler"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "处理 voice embedding cache key、请求数据和结果生命周期。"
+    },
+    {
+      "id": "function:models/voxtral_tts/request_builders.py:_voice_cache_key",
+      "type": "function",
+      "name": "_voice_cache_key",
+      "filePath": "models/voxtral_tts/request_builders.py",
+      "lineRange": [
+        28,
+        32
+      ],
+      "summary": "为 voice embedding 生成稳定 cache key。",
+      "tags": [
+        "Voxtral-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/request_builders.py:build_sglang_voxtral_request",
+      "type": "function",
+      "name": "build_sglang_voxtral_request",
+      "filePath": "models/voxtral_tts/request_builders.py",
+      "lineRange": [
+        35,
+        80
+      ],
+      "summary": "把 Voxtral 状态转换为 SGLang GenerateReqInput。",
+      "tags": [
+        "Voxtral-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/voxtral_tts/request_builders.py:apply_sglang_voxtral_result",
+      "type": "function",
+      "name": "apply_sglang_voxtral_result",
+      "filePath": "models/voxtral_tts/request_builders.py",
+      "lineRange": [
+        83,
+        99
+      ],
+      "summary": "将 SGLang 生成结果写回 Voxtral 请求状态。",
+      "tags": [
+        "Voxtral-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/request_builders.py:make_voxtral_scheduler_adapters",
+      "type": "function",
+      "name": "make_voxtral_scheduler_adapters",
+      "filePath": "models/voxtral_tts/request_builders.py",
+      "lineRange": [
+        102,
+        117
+      ],
+      "summary": "创建 Voxtral scheduler 请求生命周期 adapters。",
+      "tags": [
+        "Voxtral-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/request_builders.py:VoxtralSGLangRequestData",
+      "type": "class",
+      "name": "VoxtralSGLangRequestData",
+      "filePath": "models/voxtral_tts/request_builders.py",
+      "lineRange": [
+        20,
+        25
+      ],
+      "summary": "保存 Voxtral SGLang 请求、状态和 voice embedding。",
+      "tags": [
+        "Voxtral-TTS",
+        "request-builder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/voxtral_tts/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "models/voxtral_tts/sglang_model.py",
+      "summary": "把 Voxtral-TTS 文本生成模型接入 SGLang，定义 attention、decoder layers、forward 与权重加载。",
+      "tags": [
+        "Voxtral-TTS",
+        "SGLang-model",
+        "decoder"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "复用 SGLang attention/KV cache 并适配 Voxtral 多词表输出。"
+    },
+    {
+      "id": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangAttention",
+      "type": "class",
+      "name": "VoxtralSGLangAttention",
+      "filePath": "models/voxtral_tts/sglang_model.py",
+      "lineRange": [
+        35,
+        84
+      ],
+      "summary": "把 Voxtral decoder attention 适配到 SGLang RadixAttention。",
+      "tags": [
+        "Voxtral-TTS",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangDecoderLayer",
+      "type": "class",
+      "name": "VoxtralSGLangDecoderLayer",
+      "filePath": "models/voxtral_tts/sglang_model.py",
+      "lineRange": [
+        87,
+        128
+      ],
+      "summary": "实现 SGLang 兼容的 Voxtral text decoder layer。",
+      "tags": [
+        "Voxtral-TTS",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangTextModel",
+      "type": "class",
+      "name": "VoxtralSGLangTextModel",
+      "filePath": "models/voxtral_tts/sglang_model.py",
+      "lineRange": [
+        131,
+        168
+      ],
+      "summary": "堆叠 Voxtral decoder layers 并管理 embeddings/final norm。",
+      "tags": [
+        "Voxtral-TTS",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangTTSModel",
+      "type": "class",
+      "name": "VoxtralSGLangTTSModel",
+      "filePath": "models/voxtral_tts/sglang_model.py",
+      "lineRange": [
+        171,
+        338
+      ],
+      "summary": "实现 Voxtral-TTS SGLang forward、logits 与权重加载接口。",
+      "tags": [
+        "Voxtral-TTS",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "type": "file",
+      "name": "voxtral_tts_audio_generation.py",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "summary": "实现 Voxtral-TTS 自回归音频 code 生成网络及 checkpoint 权重重映射。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "Llama-decoder"
+      ],
+      "complexity": "complex",
+      "languageNotes": "基于 PyTorch 构建因果 Llama decoder、RoPE、RMSNorm 与多词表 embedding。"
+    },
+    {
+      "id": "function:models/voxtral_tts/voxtral_tts_audio_generation.py:_remap_checkpoint_key",
+      "type": "function",
+      "name": "_remap_checkpoint_key",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        354,
+        369
+      ],
+      "summary": "把外部 checkpoint 参数名映射到本地音频生成模型。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/voxtral_tts_audio_generation.py:_interleave_qk_weight",
+      "type": "function",
+      "name": "_interleave_qk_weight",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        372,
+        382
+      ],
+      "summary": "重排 query/key 权重以匹配 interleaved RoPE 布局。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:MultiVocabEmbeddings",
+      "type": "class",
+      "name": "MultiVocabEmbeddings",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        56,
+        96
+      ],
+      "summary": "为多组离散音频词表分别查表并组合 embeddings。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:LlamaConfig",
+      "type": "class",
+      "name": "LlamaConfig",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        105,
+        117
+      ],
+      "summary": "保存音频 Llama decoder 的层数、维度、heads 与 RoPE 配置。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:RMSNorm",
+      "type": "class",
+      "name": "RMSNorm",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        120,
+        142
+      ],
+      "summary": "实现音频 decoder 使用的 RMS normalization。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:RotaryPositionEmbedding",
+      "type": "class",
+      "name": "RotaryPositionEmbedding",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        145,
+        197
+      ],
+      "summary": "生成并应用音频 decoder 的 RoPE 位置编码。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:CausalSelfAttention",
+      "type": "class",
+      "name": "CausalSelfAttention",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        200,
+        256
+      ],
+      "summary": "实现音频 code 生成的因果 self-attention。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:GatedFFN",
+      "type": "class",
+      "name": "GatedFFN",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        259,
+        269
+      ],
+      "summary": "实现音频 decoder 的门控 feed-forward network。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:DecoderBlock",
+      "type": "class",
+      "name": "DecoderBlock",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        272,
+        301
+      ],
+      "summary": "组合因果 attention、GatedFFN、normalization 与 residual。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:CausalLlamaDecoder",
+      "type": "class",
+      "name": "CausalLlamaDecoder",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        304,
+        327
+      ],
+      "summary": "堆叠因果 decoder blocks 生成音频隐藏状态。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:VoxtralTTSAudioGeneration",
+      "type": "class",
+      "name": "VoxtralTTSAudioGeneration",
+      "filePath": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "lineRange": [
+        390,
+        633
+      ],
+      "summary": "执行多词表 Voxtral 音频 codes 自回归生成与权重加载。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-generation",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/weight_loader.py",
+      "type": "file",
+      "name": "weight_loader.py",
+      "filePath": "models/weight_loader.py",
+      "summary": "统一解析模型路径和 dtype，从本地或远端 safetensors/bin checkpoint 加载模块权重。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "safetensors"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "支持单文件、分片 index、prefix 过滤和远端失败重试。"
+    },
+    {
+      "id": "function:models/weight_loader.py:resolve_dtype",
+      "type": "function",
+      "name": "resolve_dtype",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        16,
+        33
+      ],
+      "summary": "把字符串或 dtype 输入解析为 PyTorch dtype。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:resolve_model_path",
+      "type": "function",
+      "name": "resolve_model_path",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        37,
+        45
+      ],
+      "summary": "把本地路径或模型 ID 解析为可读取 checkpoint 目录。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_load_bin_shard",
+      "type": "function",
+      "name": "_load_bin_shard",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        48,
+        49
+      ],
+      "summary": "读取单个 PyTorch bin 权重分片。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_read_safetensors_keys",
+      "type": "function",
+      "name": "_read_safetensors_keys",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        52,
+        61
+      ],
+      "summary": "仅读取 safetensors 文件的参数 key 列表。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_load_safetensors_sharded",
+      "type": "function",
+      "name": "_load_safetensors_sharded",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        64,
+        84
+      ],
+      "summary": "按 index 迭代加载 safetensors 权重分片。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_load_safetensors_single",
+      "type": "function",
+      "name": "_load_safetensors_single",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        87,
+        99
+      ],
+      "summary": "加载单个 safetensors checkpoint。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_load_bin_sharded",
+      "type": "function",
+      "name": "_load_bin_sharded",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        102,
+        121
+      ],
+      "summary": "按 index 迭代加载 PyTorch bin 权重分片。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_load_bin_single",
+      "type": "function",
+      "name": "_load_bin_single",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        124,
+        130
+      ],
+      "summary": "加载单个 PyTorch bin checkpoint。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_normalize_prefixes",
+      "type": "function",
+      "name": "_normalize_prefixes",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        133,
+        136
+      ],
+      "summary": "规范化用于筛选权重名称的 prefixes。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_load_weights_from_resolved_path",
+      "type": "function",
+      "name": "_load_weights_from_resolved_path",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        139,
+        162
+      ],
+      "summary": "根据解析路径自动选择 checkpoint 格式并迭代权重。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:_should_retry_remote_weight_load",
+      "type": "function",
+      "name": "_should_retry_remote_weight_load",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        165,
+        170
+      ],
+      "summary": "判断权重加载错误是否适合从远端重新下载。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:load_weights_by_prefix",
+      "type": "function",
+      "name": "load_weights_by_prefix",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        173,
+        212
+      ],
+      "summary": "按参数名前缀加载并返回匹配的 checkpoint 权重。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/weight_loader.py:load_module",
+      "type": "function",
+      "name": "load_module",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        215,
+        244
+      ],
+      "summary": "实例化模块并应用 checkpoint 权重与 dtype/device。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/weight_loader.py:default_weight_loader",
+      "type": "function",
+      "name": "default_weight_loader",
+      "filePath": "models/weight_loader.py",
+      "lineRange": [
+        248,
+        266
+      ],
+      "summary": "以默认复制规则把 checkpoint tensor 写入模型参数。",
+      "tags": [
+        "weight-loading",
+        "checkpoint",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/voxtral_tts/pipeline/engine_builder.py",
+      "target": "class:models/voxtral_tts/pipeline/engine_builder.py:VoxtralTtsEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/engine_builder.py",
+      "target": "class:models/voxtral_tts/pipeline/engine_builder.py:VoxtralTtsEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/next_stage.py",
+      "target": "function:models/voxtral_tts/pipeline/next_stage.py:preprocessing_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/next_stage.py",
+      "target": "function:models/voxtral_tts/pipeline/next_stage.py:preprocessing_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/next_stage.py",
+      "target": "function:models/voxtral_tts/pipeline/next_stage.py:generation_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/next_stage.py",
+      "target": "function:models/voxtral_tts/pipeline/next_stage.py:generation_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/next_stage.py",
+      "target": "function:models/voxtral_tts/pipeline/next_stage.py:vocoder_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/next_stage.py",
+      "target": "function:models/voxtral_tts/pipeline/next_stage.py:vocoder_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_import_mistral_common_for_voxtral",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_import_mistral_common_for_voxtral",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_validate_voxtral_speech_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_validate_voxtral_speech_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_ensure_non_empty_audio_codes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_ensure_non_empty_audio_codes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_enable_inductor_gemm_autotune",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_enable_inductor_gemm_autotune",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:create_generation_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:create_generation_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_write_voxtral_sglang_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_write_voxtral_sglang_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_load_voxtral_voice_embeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_load_voxtral_voice_embeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_load_audio_tokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:_load_audio_tokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:create_vocoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "function:models/voxtral_tts/pipeline/stages.py:create_vocoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "class:models/voxtral_tts/pipeline/stages.py:_VoxtralTTSVocoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/stages.py",
+      "target": "class:models/voxtral_tts/pipeline/stages.py:_VoxtralTTSVocoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/state_io.py",
+      "target": "function:models/voxtral_tts/pipeline/state_io.py:load_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/state_io.py",
+      "target": "function:models/voxtral_tts/pipeline/state_io.py:load_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/state_io.py",
+      "target": "function:models/voxtral_tts/pipeline/state_io.py:store_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/pipeline/state_io.py",
+      "target": "function:models/voxtral_tts/pipeline/state_io.py:store_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:_voice_cache_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:_voice_cache_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:build_sglang_voxtral_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:build_sglang_voxtral_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:apply_sglang_voxtral_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:apply_sglang_voxtral_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:make_voxtral_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "function:models/voxtral_tts/request_builders.py:make_voxtral_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "class:models/voxtral_tts/request_builders.py:VoxtralSGLangRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/request_builders.py",
+      "target": "class:models/voxtral_tts/request_builders.py:VoxtralSGLangRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangDecoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangDecoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangTextModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangTextModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangTTSModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/sglang_model.py",
+      "target": "class:models/voxtral_tts/sglang_model.py:VoxtralSGLangTTSModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "function:models/voxtral_tts/voxtral_tts_audio_generation.py:_remap_checkpoint_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "function:models/voxtral_tts/voxtral_tts_audio_generation.py:_remap_checkpoint_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "function:models/voxtral_tts/voxtral_tts_audio_generation.py:_interleave_qk_weight",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "function:models/voxtral_tts/voxtral_tts_audio_generation.py:_interleave_qk_weight",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:MultiVocabEmbeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:MultiVocabEmbeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:LlamaConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:LlamaConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:RMSNorm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:RMSNorm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:RotaryPositionEmbedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:RotaryPositionEmbedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:CausalSelfAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:CausalSelfAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:GatedFFN",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:GatedFFN",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:DecoderBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:DecoderBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:CausalLlamaDecoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:CausalLlamaDecoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:VoxtralTTSAudioGeneration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "target": "class:models/voxtral_tts/voxtral_tts_audio_generation.py:VoxtralTTSAudioGeneration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:resolve_dtype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:resolve_dtype",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:resolve_model_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:resolve_model_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_bin_shard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_bin_shard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_read_safetensors_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_read_safetensors_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_safetensors_sharded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_safetensors_sharded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_safetensors_single",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_safetensors_single",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_bin_sharded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_bin_sharded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_bin_single",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_bin_single",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_normalize_prefixes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_normalize_prefixes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_weights_from_resolved_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_load_weights_from_resolved_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_should_retry_remote_weight_load",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:_should_retry_remote_weight_load",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:load_weights_by_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:load_weights_by_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:load_module",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:load_module",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:default_weight_loader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/weight_loader.py",
+      "target": "function:models/weight_loader.py:default_weight_loader",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

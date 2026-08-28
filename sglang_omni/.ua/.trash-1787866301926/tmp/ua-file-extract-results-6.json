@@ -1,0 +1,1378 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "proto/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 79,
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "proto/admin.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 100,
+      "nonEmptyLines": 85,
+      "functions": [
+        {
+          "name": "is_update_action",
+          "startLine": 93,
+          "endLine": 100,
+          "params": [
+            "action"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AdminOperation",
+          "startLine": 21,
+          "endLine": 48,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "op_id",
+            "action",
+            "payload",
+            "target_stages",
+            "timeout_s"
+          ]
+        },
+        {
+          "name": "AdminResult",
+          "startLine": 52,
+          "endLine": 90,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "op_id",
+            "stage",
+            "action",
+            "success",
+            "message",
+            "data",
+            "error",
+            "rank",
+            "role"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AdminOperation",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "AdminResult",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "is_update_action",
+          "line": 93,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 41
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 42
+        },
+        {
+          "caller": "from_dict",
+          "callee": "str",
+          "lineNumber": 43
+        },
+        {
+          "caller": "from_dict",
+          "callee": "str",
+          "lineNumber": 44
+        },
+        {
+          "caller": "from_dict",
+          "callee": "dict",
+          "lineNumber": 45
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 45
+        },
+        {
+          "caller": "from_dict",
+          "callee": "list",
+          "lineNumber": 46
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 80
+        },
+        {
+          "caller": "from_dict",
+          "callee": "str",
+          "lineNumber": 81
+        },
+        {
+          "caller": "from_dict",
+          "callee": "str",
+          "lineNumber": 82
+        },
+        {
+          "caller": "from_dict",
+          "callee": "str",
+          "lineNumber": 83
+        },
+        {
+          "caller": "from_dict",
+          "callee": "bool",
+          "lineNumber": 84
+        },
+        {
+          "caller": "from_dict",
+          "callee": "str",
+          "lineNumber": 85
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 85
+        },
+        {
+          "caller": "from_dict",
+          "callee": "dict",
+          "lineNumber": 86
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 86
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 87
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 88
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "proto/kv_transfer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 62,
+      "classes": [
+        {
+          "name": "KVBufferSpec",
+          "startLine": 13,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "name",
+            "bytes_per_page"
+          ]
+        },
+        {
+          "name": "KVPoolLayout",
+          "startLine": 21,
+          "endLine": 39,
+          "methods": [
+            "compatible_with"
+          ],
+          "properties": [
+            "layout_id",
+            "page_size",
+            "buffers"
+          ]
+        },
+        {
+          "name": "KVTransferPrepareMessage",
+          "startLine": 43,
+          "endLine": 61,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "transfer_id",
+            "from_stage",
+            "to_stage",
+            "source_pool_id",
+            "target_pool_id",
+            "source_page_indices",
+            "source_layout",
+            "metadata"
+          ]
+        },
+        {
+          "name": "KVTransferReadyMessage",
+          "startLine": 65,
+          "endLine": 83,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "transfer_id",
+            "from_stage",
+            "to_stage",
+            "success",
+            "destination_pool_id",
+            "destination_page_indices",
+            "destination_ref",
+            "error"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "KVBufferSpec",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "KVPoolLayout",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "KVTransferPrepareMessage",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "KVTransferReadyMessage",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "compatible_with",
+          "callee": "len",
+          "lineNumber": 33
+        },
+        {
+          "caller": "compatible_with",
+          "callee": "len",
+          "lineNumber": 33
+        },
+        {
+          "caller": "compatible_with",
+          "callee": "all",
+          "lineNumber": 35
+        },
+        {
+          "caller": "compatible_with",
+          "callee": "zip",
+          "lineNumber": 38
+        },
+        {
+          "caller": "to_dict",
+          "callee": "msgspec.to_builtins",
+          "lineNumber": 57
+        },
+        {
+          "caller": "from_dict",
+          "callee": "msgspec.convert",
+          "lineNumber": 61
+        },
+        {
+          "caller": "to_dict",
+          "callee": "msgspec.to_builtins",
+          "lineNumber": 79
+        },
+        {
+          "caller": "from_dict",
+          "callee": "msgspec.convert",
+          "lineNumber": 83
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "proto/messages.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 420,
+      "nonEmptyLines": 354,
+      "functions": [
+        {
+          "name": "parse_message",
+          "startLine": 356,
+          "endLine": 402,
+          "params": [
+            "d"
+          ]
+        },
+        {
+          "name": "_require_str",
+          "startLine": 405,
+          "endLine": 408,
+          "params": [
+            "value",
+            "name"
+          ]
+        },
+        {
+          "name": "_require_bool",
+          "startLine": 411,
+          "endLine": 414,
+          "params": [
+            "value",
+            "name"
+          ]
+        },
+        {
+          "name": "_require_non_negative_int",
+          "startLine": 417,
+          "endLine": 420,
+          "params": [
+            "value",
+            "name"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DataReadyMessage",
+          "startLine": 18,
+          "endLine": 103,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "from_stage",
+            "to_stage",
+            "data_ref",
+            "chunk_id",
+            "is_done",
+            "error",
+            "replica_bindings"
+          ]
+        },
+        {
+          "name": "DataAckMessage",
+          "startLine": 106,
+          "endLine": 158,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "from_stage",
+            "to_stage",
+            "object_id",
+            "success",
+            "error"
+          ]
+        },
+        {
+          "name": "AbortMessage",
+          "startLine": 162,
+          "endLine": 172,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id"
+          ]
+        },
+        {
+          "name": "CompleteMessage",
+          "startLine": 176,
+          "endLine": 203,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "from_stage",
+            "success",
+            "result",
+            "error"
+          ]
+        },
+        {
+          "name": "StreamMessage",
+          "startLine": 207,
+          "endLine": 242,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "from_stage",
+            "chunk",
+            "stage_id",
+            "stage_name",
+            "modality",
+            "chunk_id"
+          ]
+        },
+        {
+          "name": "SubmitMessage",
+          "startLine": 246,
+          "endLine": 271,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "data",
+            "replica_bindings"
+          ]
+        },
+        {
+          "name": "ShutdownMessage",
+          "startLine": 275,
+          "endLine": 283,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ProfilerStartMessage",
+          "startLine": 287,
+          "endLine": 311,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "run_id",
+            "trace_path_template",
+            "event_dir",
+            "enable_torch"
+          ]
+        },
+        {
+          "name": "ProfilerStopMessage",
+          "startLine": 315,
+          "endLine": 325,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "run_id"
+          ]
+        },
+        {
+          "name": "AdminMessage",
+          "startLine": 329,
+          "endLine": 339,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "operation"
+          ]
+        },
+        {
+          "name": "AdminResultMessage",
+          "startLine": 343,
+          "endLine": 353,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "result"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DataReadyMessage",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "DataAckMessage",
+          "line": 106,
+          "isDefault": false
+        },
+        {
+          "name": "AbortMessage",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "CompleteMessage",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "StreamMessage",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "SubmitMessage",
+          "line": 245,
+          "isDefault": false
+        },
+        {
+          "name": "ShutdownMessage",
+          "line": 274,
+          "isDefault": false
+        },
+        {
+          "name": "ProfilerStartMessage",
+          "line": 286,
+          "isDefault": false
+        },
+        {
+          "name": "ProfilerStopMessage",
+          "line": 314,
+          "isDefault": false
+        },
+        {
+          "name": "AdminMessage",
+          "line": 328,
+          "isDefault": false
+        },
+        {
+          "name": "AdminResultMessage",
+          "line": 342,
+          "isDefault": false
+        },
+        {
+          "name": "parse_message",
+          "line": 356,
+          "isDefault": false
+        },
+        {
+          "name": "_require_str",
+          "line": 405,
+          "isDefault": false
+        },
+        {
+          "name": "_require_bool",
+          "line": 411,
+          "isDefault": false
+        },
+        {
+          "name": "_require_non_negative_int",
+          "line": 417,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 31
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 32
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 33
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_bool",
+          "lineNumber": 34
+        },
+        {
+          "caller": "to_dict",
+          "callee": "ValueError",
+          "lineNumber": 36
+        },
+        {
+          "caller": "to_dict",
+          "callee": "ValueError",
+          "lineNumber": 39
+        },
+        {
+          "caller": "to_dict",
+          "callee": "ValueError",
+          "lineNumber": 41
+        },
+        {
+          "caller": "to_dict",
+          "callee": "isinstance",
+          "lineNumber": 42
+        },
+        {
+          "caller": "to_dict",
+          "callee": "TypeError",
+          "lineNumber": 43
+        },
+        {
+          "caller": "to_dict",
+          "callee": "type",
+          "lineNumber": 45
+        },
+        {
+          "caller": "to_dict",
+          "callee": "self.data_ref.copy",
+          "lineNumber": 54
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_non_negative_int",
+          "lineNumber": 56
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 61
+        },
+        {
+          "caller": "to_dict",
+          "callee": "dict",
+          "lineNumber": 64
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 69
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 70
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 71
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 71
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_bool",
+          "lineNumber": 74
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 77
+        },
+        {
+          "caller": "from_dict",
+          "callee": "ValueError",
+          "lineNumber": 79
+        },
+        {
+          "caller": "from_dict",
+          "callee": "ValueError",
+          "lineNumber": 82
+        },
+        {
+          "caller": "from_dict",
+          "callee": "ValueError",
+          "lineNumber": 84
+        },
+        {
+          "caller": "from_dict",
+          "callee": "isinstance",
+          "lineNumber": 85
+        },
+        {
+          "caller": "from_dict",
+          "callee": "TypeError",
+          "lineNumber": 86
+        },
+        {
+          "caller": "from_dict",
+          "callee": "type",
+          "lineNumber": 88
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 90
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_non_negative_int",
+          "lineNumber": 92
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 94
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 102
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 117
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 118
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 119
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 120
+        },
+        {
+          "caller": "to_dict",
+          "callee": "isinstance",
+          "lineNumber": 121
+        },
+        {
+          "caller": "to_dict",
+          "callee": "TypeError",
+          "lineNumber": 122
+        },
+        {
+          "caller": "to_dict",
+          "callee": "ValueError",
+          "lineNumber": 125
+        },
+        {
+          "caller": "to_dict",
+          "callee": "_require_str",
+          "lineNumber": 127
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 142
+        },
+        {
+          "caller": "from_dict",
+          "callee": "isinstance",
+          "lineNumber": 143
+        },
+        {
+          "caller": "from_dict",
+          "callee": "TypeError",
+          "lineNumber": 144
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 145
+        },
+        {
+          "caller": "from_dict",
+          "callee": "ValueError",
+          "lineNumber": 148
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 150
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 151
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 152
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 152
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 153
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 153
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 154
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 154
+        },
+        {
+          "caller": "from_dict",
+          "callee": "_require_str",
+          "lineNumber": 155
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 155
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 172
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 197
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 201
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 202
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 234
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 237
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 238
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 239
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 240
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 241
+        },
+        {
+          "caller": "to_dict",
+          "callee": "isinstance",
+          "lineNumber": 255
+        },
+        {
+          "caller": "to_dict",
+          "callee": "self.data.to_dict",
+          "lineNumber": 256
+        },
+        {
+          "caller": "to_dict",
+          "callee": "dict",
+          "lineNumber": 259
+        },
+        {
+          "caller": "from_dict",
+          "callee": "isinstance",
+          "lineNumber": 265
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 265
+        },
+        {
+          "caller": "from_dict",
+          "callee": "StagePayload.from_dict",
+          "lineNumber": 266
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 267
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 270
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 283
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 306
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 309
+        },
+        {
+          "caller": "from_dict",
+          "callee": "bool",
+          "lineNumber": 310
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 310
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 325
+        },
+        {
+          "caller": "from_dict",
+          "callee": "d.get",
+          "lineNumber": 325
+        },
+        {
+          "caller": "to_dict",
+          "callee": "self.operation.to_dict",
+          "lineNumber": 335
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 339
+        },
+        {
+          "caller": "from_dict",
+          "callee": "AdminOperation.from_dict",
+          "lineNumber": 339
+        },
+        {
+          "caller": "to_dict",
+          "callee": "self.result.to_dict",
+          "lineNumber": 349
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 353
+        },
+        {
+          "caller": "from_dict",
+          "callee": "AdminResult.from_dict",
+          "lineNumber": 353
+        },
+        {
+          "caller": "parse_message",
+          "callee": "d.get",
+          "lineNumber": 374
+        },
+        {
+          "caller": "parse_message",
+          "callee": "DataReadyMessage.from_dict",
+          "lineNumber": 376
+        },
+        {
+          "caller": "parse_message",
+          "callee": "DataAckMessage.from_dict",
+          "lineNumber": 378
+        },
+        {
+          "caller": "parse_message",
+          "callee": "KVTransferPrepareMessage.from_dict",
+          "lineNumber": 380
+        },
+        {
+          "caller": "parse_message",
+          "callee": "KVTransferReadyMessage.from_dict",
+          "lineNumber": 382
+        },
+        {
+          "caller": "parse_message",
+          "callee": "AbortMessage.from_dict",
+          "lineNumber": 384
+        },
+        {
+          "caller": "parse_message",
+          "callee": "CompleteMessage.from_dict",
+          "lineNumber": 386
+        },
+        {
+          "caller": "parse_message",
+          "callee": "StreamMessage.from_dict",
+          "lineNumber": 388
+        },
+        {
+          "caller": "parse_message",
+          "callee": "SubmitMessage.from_dict",
+          "lineNumber": 390
+        },
+        {
+          "caller": "parse_message",
+          "callee": "ShutdownMessage.from_dict",
+          "lineNumber": 392
+        },
+        {
+          "caller": "parse_message",
+          "callee": "ProfilerStartMessage.from_dict",
+          "lineNumber": 394
+        },
+        {
+          "caller": "parse_message",
+          "callee": "ProfilerStopMessage.from_dict",
+          "lineNumber": 396
+        },
+        {
+          "caller": "parse_message",
+          "callee": "AdminMessage.from_dict",
+          "lineNumber": 398
+        },
+        {
+          "caller": "parse_message",
+          "callee": "AdminResultMessage.from_dict",
+          "lineNumber": 400
+        },
+        {
+          "caller": "parse_message",
+          "callee": "ValueError",
+          "lineNumber": 402
+        },
+        {
+          "caller": "_require_str",
+          "callee": "isinstance",
+          "lineNumber": 406
+        },
+        {
+          "caller": "_require_str",
+          "callee": "TypeError",
+          "lineNumber": 407
+        },
+        {
+          "caller": "_require_bool",
+          "callee": "type",
+          "lineNumber": 412
+        },
+        {
+          "caller": "_require_bool",
+          "callee": "TypeError",
+          "lineNumber": 413
+        },
+        {
+          "caller": "_require_non_negative_int",
+          "callee": "type",
+          "lineNumber": 418
+        },
+        {
+          "caller": "_require_non_negative_int",
+          "callee": "TypeError",
+          "lineNumber": 419
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 15,
+        "functionCount": 4,
+        "classCount": 11
+      }
+    },
+    {
+      "path": "proto/request.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 95,
+      "nonEmptyLines": 76,
+      "classes": [
+        {
+          "name": "RequestState",
+          "startLine": 9,
+          "endLine": 16,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "RequestInfo",
+          "startLine": 20,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "request_id",
+            "state",
+            "current_stage",
+            "terminal_stages",
+            "result",
+            "error"
+          ]
+        },
+        {
+          "name": "OmniRequest",
+          "startLine": 35,
+          "endLine": 56,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "inputs",
+            "params",
+            "metadata"
+          ]
+        },
+        {
+          "name": "StagePayload",
+          "startLine": 60,
+          "endLine": 95,
+          "methods": [
+            "to_dict",
+            "from_dict"
+          ],
+          "properties": [
+            "request_id",
+            "request",
+            "data",
+            "prefetched_chunks",
+            "prefetched_stream_done"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RequestState",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "RequestInfo",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "OmniRequest",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "StagePayload",
+          "line": 59,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 52
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 53
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 55
+        },
+        {
+          "caller": "to_dict",
+          "callee": "self.request.to_dict",
+          "lineNumber": 80
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 86
+        },
+        {
+          "caller": "from_dict",
+          "callee": "isinstance",
+          "lineNumber": 87
+        },
+        {
+          "caller": "from_dict",
+          "callee": "request.get",
+          "lineNumber": 87
+        },
+        {
+          "caller": "from_dict",
+          "callee": "OmniRequest.from_dict",
+          "lineNumber": 88
+        },
+        {
+          "caller": "from_dict",
+          "callee": "OmniRequest.from_dict",
+          "lineNumber": 90
+        },
+        {
+          "caller": "from_dict",
+          "callee": "cls",
+          "lineNumber": 91
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 92
+        },
+        {
+          "caller": "from_dict",
+          "callee": "data.get",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "proto/stage.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 8,
+      "classes": [
+        {
+          "name": "StageInfo",
+          "startLine": 8,
+          "endLine": 12,
+          "methods": [],
+          "properties": [
+            "name",
+            "control_endpoint"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "StageInfo",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

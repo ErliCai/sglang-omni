@@ -1,0 +1,2239 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/ming_omni/pipeline/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/ming_omni/pipeline/__init__.py",
+      "summary": "标记 Ming-Omni 核心流水线辅助模块包。",
+      "tags": [
+        "ming-omni",
+        "pipeline",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/pipeline/engine_io.py",
+      "type": "file",
+      "name": "engine_io.py",
+      "filePath": "models/ming_omni/pipeline/engine_io.py",
+      "summary": "在 Ming-Omni 流水线状态与编码器、Thinker 引擎请求之间转换，并把各引擎结果写回状态。",
+      "tags": [
+        "ming-omni",
+        "engine-io",
+        "request-adapter",
+        "pipeline-state"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/engine_io.py:build_encoder_request",
+      "type": "function",
+      "name": "build_encoder_request",
+      "filePath": "models/ming_omni/pipeline/engine_io.py",
+      "lineRange": [
+        18,
+        34
+      ],
+      "summary": "从流水线状态构造音频或图像编码器请求，并携带输入元数据。",
+      "tags": [
+        "ming-omni",
+        "engine-io",
+        "build-encoder-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/engine_io.py:apply_encoder_result",
+      "type": "function",
+      "name": "apply_encoder_result",
+      "filePath": "models/ming_omni/pipeline/engine_io.py",
+      "lineRange": [
+        37,
+        54
+      ],
+      "summary": "把编码器特征和长度写入对应模态的流水线状态字段。",
+      "tags": [
+        "ming-omni",
+        "engine-io",
+        "apply-encoder-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/engine_io.py:build_thinker_request",
+      "type": "function",
+      "name": "build_thinker_request",
+      "filePath": "models/ming_omni/pipeline/engine_io.py",
+      "lineRange": [
+        57,
+        91
+      ],
+      "summary": "合并多模态输入并构造与后端无关的 Thinker 请求。",
+      "tags": [
+        "ming-omni",
+        "engine-io",
+        "build-thinker-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/engine_io.py:build_sglang_thinker_request",
+      "type": "function",
+      "name": "build_sglang_thinker_request",
+      "filePath": "models/ming_omni/pipeline/engine_io.py",
+      "lineRange": [
+        94,
+        166
+      ],
+      "summary": "把 Thinker 输入和采样配置转换为 SGLang 自回归请求数据。",
+      "tags": [
+        "ming-omni",
+        "engine-io",
+        "build-sglang-thinker-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/engine_io.py:apply_thinker_result",
+      "type": "function",
+      "name": "apply_thinker_result",
+      "filePath": "models/ming_omni/pipeline/engine_io.py",
+      "lineRange": [
+        169,
+        193
+      ],
+      "summary": "归一化 SGLang Thinker 输出并写回文本、词元、隐藏状态和结束信息。",
+      "tags": [
+        "ming-omni",
+        "engine-io",
+        "apply-thinker-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/pipeline/merge.py",
+      "type": "file",
+      "name": "merge.py",
+      "filePath": "models/ming_omni/pipeline/merge.py",
+      "summary": "合并音频与图像编码结果，构建多模态 Thinker 输入，并把最终文本或语音结果解码为统一事件。",
+      "tags": [
+        "ming-omni",
+        "multimodal-merge",
+        "thinker-input",
+        "event-decoding"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/merge.py:_as_tensor",
+      "type": "function",
+      "name": "_as_tensor",
+      "filePath": "models/ming_omni/pipeline/merge.py",
+      "lineRange": [
+        19,
+        27
+      ],
+      "summary": "把可选数组或张量转换为指定设备上的 Torch 张量。",
+      "tags": [
+        "ming-omni",
+        "multimodal-merge",
+        "as-tensor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/merge.py:_non_empty",
+      "type": "function",
+      "name": "_non_empty",
+      "filePath": "models/ming_omni/pipeline/merge.py",
+      "lineRange": [
+        30,
+        31
+      ],
+      "summary": "判断可选序列或张量是否包含至少一个元素。",
+      "tags": [
+        "ming-omni",
+        "multimodal-merge",
+        "non-empty",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/merge.py:merge_for_thinker",
+      "type": "function",
+      "name": "merge_for_thinker",
+      "filePath": "models/ming_omni/pipeline/merge.py",
+      "lineRange": [
+        34,
+        61
+      ],
+      "summary": "合并各编码器结果并更新可供 Thinker 消费的多模态状态。",
+      "tags": [
+        "ming-omni",
+        "multimodal-merge",
+        "merge-for-thinker",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/merge.py:build_thinker_inputs",
+      "type": "function",
+      "name": "build_thinker_inputs",
+      "filePath": "models/ming_omni/pipeline/merge.py",
+      "lineRange": [
+        64,
+        142
+      ],
+      "summary": "把文本词元、音频特征和图像特征插入统一序列，构造 Thinker 输入张量。",
+      "tags": [
+        "ming-omni",
+        "multimodal-merge",
+        "build-thinker-inputs",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/merge.py:decode_events",
+      "type": "function",
+      "name": "decode_events",
+      "filePath": "models/ming_omni/pipeline/merge.py",
+      "lineRange": [
+        145,
+        214
+      ],
+      "summary": "根据请求输出模态把 Thinker 文本、Talker 音频或错误转换为终端事件。",
+      "tags": [
+        "ming-omni",
+        "multimodal-merge",
+        "decode-events",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/ming_omni/pipeline/next_stage.py",
+      "type": "file",
+      "name": "next_stage.py",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "summary": "根据 Ming-Omni 状态中的模态输入和输出需求选择各阶段的后继路由。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "pipeline-state"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/next_stage.py:preprocessing_next",
+      "type": "function",
+      "name": "preprocessing_next",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "lineRange": [
+        22,
+        34
+      ],
+      "summary": "按实际存在的音频和图像输入选择预处理后的编码器或聚合阶段。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "preprocessing-next",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/next_stage.py:encoder_next",
+      "type": "function",
+      "name": "encoder_next",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "lineRange": [
+        37,
+        40
+      ],
+      "summary": "将任一模态编码器结果路由到多模态聚合阶段。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "encoder-next",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/next_stage.py:aggregate_next",
+      "type": "function",
+      "name": "aggregate_next",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "lineRange": [
+        43,
+        46
+      ],
+      "summary": "将聚合完成的多模态状态路由到 Thinker。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "aggregate-next",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/next_stage.py:thinker_next",
+      "type": "function",
+      "name": "thinker_next",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "lineRange": [
+        49,
+        52
+      ],
+      "summary": "将 Thinker 结果路由到普通解码阶段。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "thinker-next",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/next_stage.py:thinker_next_speech",
+      "type": "function",
+      "name": "thinker_next_speech",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "lineRange": [
+        55,
+        58
+      ],
+      "summary": "将需要语音输出的 Thinker 结果路由到 Talker。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "thinker-next-speech",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/next_stage.py:decode_next",
+      "type": "function",
+      "name": "decode_next",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "lineRange": [
+        61,
+        64
+      ],
+      "summary": "标记解码阶段为终端，不再选择后继阶段。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "decode-next",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/next_stage.py:talker_next",
+      "type": "function",
+      "name": "talker_next",
+      "filePath": "models/ming_omni/pipeline/next_stage.py",
+      "lineRange": [
+        67,
+        70
+      ],
+      "summary": "将 Talker 结果路由到最终解码合并阶段。",
+      "tags": [
+        "ming-omni",
+        "stage-routing",
+        "talker-next",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/pipeline/sampling.py",
+      "type": "file",
+      "name": "sampling.py",
+      "filePath": "models/ming_omni/pipeline/sampling.py",
+      "summary": "把 Ming-Omni 请求参数规范化为 Thinker 使用的采样关键字和 SGLang 采样对象。",
+      "tags": [
+        "ming-omni",
+        "sampling",
+        "generation-params"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_kwargs",
+      "type": "function",
+      "name": "build_ming_sampling_kwargs",
+      "filePath": "models/ming_omni/pipeline/sampling.py",
+      "lineRange": [
+        9,
+        20
+      ],
+      "summary": "从请求参数提取 Ming Thinker 支持的采样字段和默认值。",
+      "tags": [
+        "ming-omni",
+        "sampling",
+        "build-ming-sampling-kwargs",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_params",
+      "type": "function",
+      "name": "build_ming_sampling_params",
+      "filePath": "models/ming_omni/pipeline/sampling.py",
+      "lineRange": [
+        23,
+        35
+      ],
+      "summary": "把规范化采样关键字构造为 SGLang 采样参数对象。",
+      "tags": [
+        "ming-omni",
+        "sampling",
+        "build-ming-sampling-params",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/pipeline/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "summary": "实现 Ming-Omni 预处理、模态聚合、音频与图像编码、SGLang Thinker、Talker 和解码执行器工厂。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "executor-factory",
+        "sglang-runtime"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:_event_to_dict",
+      "type": "function",
+      "name": "_event_to_dict",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        37,
+        43
+      ],
+      "summary": "把 MingOmniEvent 转换为可序列化输出字典。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "event-to-dict",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        46,
+        52
+      ],
+      "summary": "创建 Ming 多模态预处理执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-preprocessing-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_aggregate_executor",
+      "type": "function",
+      "name": "create_aggregate_executor",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        55,
+        59
+      ],
+      "summary": "创建合并音频、图像特征和提示序列的聚合执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-aggregate-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_audio_encoder_executor",
+      "type": "function",
+      "name": "create_audio_encoder_executor",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        62,
+        87
+      ],
+      "summary": "加载 MingAudioEncoder 并创建单遍音频编码执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-audio-encoder-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_image_encoder_executor",
+      "type": "function",
+      "name": "create_image_encoder_executor",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        90,
+        128
+      ],
+      "summary": "加载 MingImageEncoder 并创建单遍图像编码执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-image-encoder-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor",
+      "type": "function",
+      "name": "create_sglang_thinker_executor",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        131,
+        233
+      ],
+      "summary": "配置 SGLang 服务参数并创建 Ming Thinker 自回归引擎执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-sglang-thinker-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:_ensure_ming_config_registered",
+      "type": "function",
+      "name": "_ensure_ming_config_registered",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        242,
+        284
+      ],
+      "summary": "确保 Ming Hugging Face 配置和 SGLang 模型架构已注册。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "ensure-ming-config-registered",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:_resolve_local_model_path",
+      "type": "function",
+      "name": "_resolve_local_model_path",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        287,
+        302
+      ],
+      "summary": "解析本地模型目录或从模型仓库获取所需配置与权重。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "resolve-local-model-path",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "function",
+      "name": "create_sglang_thinker_executor_from_config",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        305,
+        336
+      ],
+      "summary": "从阶段工厂配置解析参数并创建 Thinker 执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-sglang-thinker-executor-from-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_talker_executor",
+      "type": "function",
+      "name": "create_talker_executor",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        339,
+        359
+      ],
+      "summary": "创建负责独立语音合成的 Ming Talker 执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-talker-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/stages.py:create_decode_executor",
+      "type": "function",
+      "name": "create_decode_executor",
+      "filePath": "models/ming_omni/pipeline/stages.py",
+      "lineRange": [
+        362,
+        415
+      ],
+      "summary": "创建把最终状态转换为多模态事件列表的解码执行器。",
+      "tags": [
+        "ming-omni",
+        "pipeline-stages",
+        "create-decode-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/ming_omni/pipeline/state_io.py",
+      "type": "file",
+      "name": "state_io.py",
+      "filePath": "models/ming_omni/pipeline/state_io.py",
+      "summary": "在 StagePayload 数据与 MingOmniPipelineState 之间进行加载和写回。",
+      "tags": [
+        "ming-omni",
+        "state-io",
+        "stage-payload"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/state_io.py:load_state",
+      "type": "function",
+      "name": "load_state",
+      "filePath": "models/ming_omni/pipeline/state_io.py",
+      "lineRange": [
+        10,
+        11
+      ],
+      "summary": "从 StagePayload 数据构造 MingOmniPipelineState。",
+      "tags": [
+        "ming-omni",
+        "state-io",
+        "load-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/state_io.py:store_state",
+      "type": "function",
+      "name": "store_state",
+      "filePath": "models/ming_omni/pipeline/state_io.py",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "把 MingOmniPipelineState 序列化回 StagePayload。",
+      "tags": [
+        "ming-omni",
+        "state-io",
+        "store-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/pipeline/usage.py",
+      "type": "file",
+      "name": "usage.py",
+      "filePath": "models/ming_omni/pipeline/usage.py",
+      "summary": "从不同形态的请求与结果中统计提示词元和完成词元，构造文本生成用量。",
+      "tags": [
+        "ming-omni",
+        "usage-accounting",
+        "token-count"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/usage.py:_mapping_get",
+      "type": "function",
+      "name": "_mapping_get",
+      "filePath": "models/ming_omni/pipeline/usage.py",
+      "lineRange": [
+        10,
+        13
+      ],
+      "summary": "以统一方式从映射或对象属性读取用量字段。",
+      "tags": [
+        "ming-omni",
+        "usage-accounting",
+        "mapping-get",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/usage.py:_count_ids",
+      "type": "function",
+      "name": "_count_ids",
+      "filePath": "models/ming_omni/pipeline/usage.py",
+      "lineRange": [
+        16,
+        24
+      ],
+      "summary": "统计列表、张量或嵌套词元 ID 的元素数量。",
+      "tags": [
+        "ming-omni",
+        "usage-accounting",
+        "count-ids",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/pipeline/usage.py:build_text_usage",
+      "type": "function",
+      "name": "build_text_usage",
+      "filePath": "models/ming_omni/pipeline/usage.py",
+      "lineRange": [
+        27,
+        46
+      ],
+      "summary": "根据提示和完成词元构造标准文本生成用量字典。",
+      "tags": [
+        "ming-omni",
+        "usage-accounting",
+        "build-text-usage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/ming_omni/stages.py",
+      "summary": "提供轻量导入的 Ming-Omni 阶段工厂与阶段间负载投影，裁剪状态并隔离编码器、Thinker、Talker 和流式阶段数据。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "payload-projection",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:project_preprocessing_to_audio_encoder",
+      "type": "function",
+      "name": "project_preprocessing_to_audio_encoder",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        18,
+        19
+      ],
+      "summary": "把预处理负载裁剪为音频编码器所需字段。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-preprocessing-to-audio-encoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:project_preprocessing_to_image_encoder",
+      "type": "function",
+      "name": "project_preprocessing_to_image_encoder",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        22,
+        23
+      ],
+      "summary": "把预处理负载裁剪为图像编码器所需字段。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-preprocessing-to-image-encoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:project_preprocessing_to_mm_aggregate",
+      "type": "function",
+      "name": "project_preprocessing_to_mm_aggregate",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        26,
+        34
+      ],
+      "summary": "把预处理主状态投影到多模态聚合阶段。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-preprocessing-to-mm-aggregate",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:project_encoder_to_mm_aggregate",
+      "type": "function",
+      "name": "project_encoder_to_mm_aggregate",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        37,
+        43
+      ],
+      "summary": "把音频或图像编码结果投影到多模态聚合阶段。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-encoder-to-mm-aggregate",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:project_thinker_to_decode",
+      "type": "function",
+      "name": "project_thinker_to_decode",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        46,
+        47
+      ],
+      "summary": "把 Thinker 输出裁剪为最终解码所需负载。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-thinker-to-decode",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:project_thinker_to_talker",
+      "type": "function",
+      "name": "project_thinker_to_talker",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        50,
+        51
+      ],
+      "summary": "把 Thinker 文本和请求语音配置投影给非流式 Talker。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-thinker-to-talker",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:project_thinker_to_segmenter",
+      "type": "function",
+      "name": "project_thinker_to_segmenter",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        54,
+        59
+      ],
+      "summary": "把 Thinker 流式文本配置投影给文本分段器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-thinker-to-segmenter",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "type": "function",
+      "name": "_project_thinker_output",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        62,
+        75
+      ],
+      "summary": "按目标阶段复制并精简 Thinker 输出状态。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-thinker-output",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "type": "function",
+      "name": "_project_preprocessing_to_encoder",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        78,
+        90
+      ],
+      "summary": "按编码器类型提取预处理输入、特征元数据和状态。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-preprocessing-to-encoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_payload_with_state",
+      "type": "function",
+      "name": "_payload_with_state",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        93,
+        100
+      ],
+      "summary": "用指定状态和流式元数据创建新的 StagePayload。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "payload-with-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_project_encoder_input_metadata",
+      "type": "function",
+      "name": "_project_encoder_input_metadata",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        103,
+        118
+      ],
+      "summary": "复制编码器输入的形状、长度和模态标识元数据。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-encoder-input-metadata",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_project_prompt_for_usage",
+      "type": "function",
+      "name": "_project_prompt_for_usage",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        121,
+        127
+      ],
+      "summary": "保留 Thinker 用量统计所需的提示词元信息。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "project-prompt-for-usage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_slim_thinker_out",
+      "type": "function",
+      "name": "_slim_thinker_out",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        130,
+        140
+      ],
+      "summary": "移除下游阶段不需要的大型 Thinker 张量。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "slim-thinker-out",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_copy_mutable_containers",
+      "type": "function",
+      "name": "_copy_mutable_containers",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        143,
+        154
+      ],
+      "summary": "复制状态中的可变容器，避免并行分支共享修改。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "copy-mutable-containers",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:_single_encoder_stage_name",
+      "type": "function",
+      "name": "_single_encoder_stage_name",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        157,
+        162
+      ],
+      "summary": "从负载中解析唯一的来源编码器阶段名称。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "single-encoder-stage-name",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        165,
+        174
+      ],
+      "summary": "延迟导入并创建 Ming 预处理阶段执行器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-preprocessing-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_aggregate_executor",
+      "type": "function",
+      "name": "create_aggregate_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        177,
+        183
+      ],
+      "summary": "延迟导入并创建多模态聚合阶段执行器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-aggregate-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_streaming_segmenter_executor",
+      "type": "function",
+      "name": "create_streaming_segmenter_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        186,
+        210
+      ],
+      "summary": "创建把 Thinker 文本增量切分并路由给 Talker 的调度器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-streaming-segmenter-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_audio_encoder_executor",
+      "type": "function",
+      "name": "create_audio_encoder_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        213,
+        241
+      ],
+      "summary": "校验张量并行支持后创建音频编码执行器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-audio-encoder-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_image_encoder_executor",
+      "type": "function",
+      "name": "create_image_encoder_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        244,
+        281
+      ],
+      "summary": "校验张量并行配置后创建图像编码执行器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-image-encoder-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "function",
+      "name": "create_sglang_thinker_executor_from_config",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        284,
+        320
+      ],
+      "summary": "校验 Thinker 张量并行参数并创建 SGLang 引擎执行器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-sglang-thinker-executor-from-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_talker_executor",
+      "type": "function",
+      "name": "create_talker_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        323,
+        355
+      ],
+      "summary": "创建 Ming 非流式 Talker TTS 执行器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-talker-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_streaming_talker_executor",
+      "type": "function",
+      "name": "create_streaming_talker_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        358,
+        380
+      ],
+      "summary": "创建消费文本片段并输出音频块的流式 Talker 调度器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-streaming-talker-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/stages.py:create_decode_executor",
+      "type": "function",
+      "name": "create_decode_executor",
+      "filePath": "models/ming_omni/stages.py",
+      "lineRange": [
+        383,
+        388
+      ],
+      "summary": "创建 Ming 最终事件解码执行器。",
+      "tags": [
+        "ming-omni",
+        "stage-factories",
+        "create-decode-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:build_encoder_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:build_encoder_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:apply_encoder_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:apply_encoder_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:build_thinker_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:build_thinker_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:build_sglang_thinker_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:build_sglang_thinker_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:apply_thinker_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/engine_io.py",
+      "target": "function:models/ming_omni/pipeline/engine_io.py:apply_thinker_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:_as_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:_as_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:_non_empty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:_non_empty",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:merge_for_thinker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:merge_for_thinker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:build_thinker_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:build_thinker_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:decode_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/merge.py",
+      "target": "function:models/ming_omni/pipeline/merge.py:decode_events",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:preprocessing_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:preprocessing_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:encoder_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:encoder_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:aggregate_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:aggregate_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:thinker_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:thinker_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:thinker_next_speech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:thinker_next_speech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:decode_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:decode_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:talker_next",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/next_stage.py",
+      "target": "function:models/ming_omni/pipeline/next_stage.py:talker_next",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/sampling.py",
+      "target": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_kwargs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/sampling.py",
+      "target": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_kwargs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/sampling.py",
+      "target": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/sampling.py",
+      "target": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:_event_to_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:_event_to_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_aggregate_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_aggregate_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_audio_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_audio_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_image_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_image_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:_ensure_ming_config_registered",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:_ensure_ming_config_registered",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:_resolve_local_model_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:_resolve_local_model_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_talker_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_talker_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_decode_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/stages.py",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_decode_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/state_io.py",
+      "target": "function:models/ming_omni/pipeline/state_io.py:load_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/state_io.py",
+      "target": "function:models/ming_omni/pipeline/state_io.py:load_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/state_io.py",
+      "target": "function:models/ming_omni/pipeline/state_io.py:store_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/state_io.py",
+      "target": "function:models/ming_omni/pipeline/state_io.py:store_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/usage.py",
+      "target": "function:models/ming_omni/pipeline/usage.py:_mapping_get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/usage.py",
+      "target": "function:models/ming_omni/pipeline/usage.py:_mapping_get",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/usage.py",
+      "target": "function:models/ming_omni/pipeline/usage.py:_count_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/usage.py",
+      "target": "function:models/ming_omni/pipeline/usage.py:_count_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/usage.py",
+      "target": "function:models/ming_omni/pipeline/usage.py:build_text_usage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/pipeline/usage.py",
+      "target": "function:models/ming_omni/pipeline/usage.py:build_text_usage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_preprocessing_to_audio_encoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_preprocessing_to_audio_encoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_preprocessing_to_image_encoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_preprocessing_to_image_encoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_preprocessing_to_mm_aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_preprocessing_to_mm_aggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_encoder_to_mm_aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_encoder_to_mm_aggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_thinker_to_decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_thinker_to_decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_thinker_to_talker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_thinker_to_talker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_thinker_to_segmenter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:project_thinker_to_segmenter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_payload_with_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_payload_with_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_encoder_input_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_encoder_input_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_prompt_for_usage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_project_prompt_for_usage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_slim_thinker_out",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_slim_thinker_out",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_copy_mutable_containers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_copy_mutable_containers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_single_encoder_stage_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:_single_encoder_stage_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_aggregate_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_aggregate_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_streaming_segmenter_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_streaming_segmenter_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_audio_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_audio_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_image_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_image_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_talker_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_talker_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_streaming_talker_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_streaming_talker_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_decode_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/stages.py",
+      "target": "function:models/ming_omni/stages.py:create_decode_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/merge.py:merge_for_thinker",
+      "target": "function:models/ming_omni/pipeline/merge.py:build_thinker_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/merge.py:build_thinker_inputs",
+      "target": "function:models/ming_omni/pipeline/merge.py:_as_tensor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/merge.py:build_thinker_inputs",
+      "target": "function:models/ming_omni/pipeline/merge.py:_non_empty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_params",
+      "target": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_kwargs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor_from_config",
+      "target": "function:models/ming_omni/pipeline/stages.py:_ensure_ming_config_registered",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor_from_config",
+      "target": "function:models/ming_omni/pipeline/stages.py:_resolve_local_model_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor_from_config",
+      "target": "function:models/ming_omni/pipeline/stages.py:create_sglang_thinker_executor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/stages.py:create_talker_executor",
+      "target": "function:models/ming_omni/pipeline/stages.py:_resolve_local_model_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/usage.py:build_text_usage",
+      "target": "function:models/ming_omni/pipeline/usage.py:_mapping_get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/usage.py:build_text_usage",
+      "target": "function:models/ming_omni/pipeline/usage.py:_count_ids",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_preprocessing_to_audio_encoder",
+      "target": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_preprocessing_to_image_encoder",
+      "target": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_preprocessing_to_mm_aggregate",
+      "target": "function:models/ming_omni/stages.py:_project_encoder_input_metadata",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_preprocessing_to_mm_aggregate",
+      "target": "function:models/ming_omni/stages.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_encoder_to_mm_aggregate",
+      "target": "function:models/ming_omni/stages.py:_single_encoder_stage_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_encoder_to_mm_aggregate",
+      "target": "function:models/ming_omni/stages.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_thinker_to_decode",
+      "target": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_thinker_to_talker",
+      "target": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "target": "function:models/ming_omni/stages.py:_project_prompt_for_usage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "target": "function:models/ming_omni/stages.py:_slim_thinker_out",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "target": "function:models/ming_omni/stages.py:_copy_mutable_containers",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "target": "function:models/ming_omni/stages.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "target": "function:models/ming_omni/stages.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:_project_prompt_for_usage",
+      "target": "function:models/ming_omni/stages.py:_copy_mutable_containers",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:_slim_thinker_out",
+      "target": "function:models/ming_omni/stages.py:_copy_mutable_containers",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/engine_io.py:build_thinker_request",
+      "target": "function:models/ming_omni/pipeline/merge.py:build_thinker_inputs",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/engine_io.py:build_sglang_thinker_request",
+      "target": "function:models/ming_omni/pipeline/sampling.py:build_ming_sampling_params",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_omni/pipeline/stages.py:create_decode_executor",
+      "target": "function:models/ming_omni/pipeline/merge.py:decode_events",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_thinker_to_decode",
+      "target": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_thinker_to_talker",
+      "target": "function:models/ming_omni/stages.py:_project_thinker_output",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_preprocessing_to_audio_encoder",
+      "target": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_omni/stages.py:project_preprocessing_to_image_encoder",
+      "target": "function:models/ming_omni/stages.py:_project_preprocessing_to_encoder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

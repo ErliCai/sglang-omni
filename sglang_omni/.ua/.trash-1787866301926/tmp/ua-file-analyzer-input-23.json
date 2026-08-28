@@ -1,0 +1,185 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "models/moss_tts_local/stages.py",
+      "language": "python",
+      "sizeLines": 724,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/state_pool.py",
+      "language": "python",
+      "sizeLines": 312,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 920,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/__init__.py",
+      "language": "python",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/config.py",
+      "language": "python",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/encoder_service.py",
+      "language": "python",
+      "sizeLines": 590,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/engine_builder.py",
+      "language": "python",
+      "sizeLines": 301,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/stages.py",
+      "language": "python",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/__init__.py",
+      "language": "python",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/bootstrap.py",
+      "language": "python",
+      "sizeLines": 300,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/audio_encoder.py",
+      "language": "python",
+      "sizeLines": 251,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/audio_layer_graph.py",
+      "language": "python",
+      "sizeLines": 251,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 723,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "language": "python",
+      "sizeLines": 1065,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/common.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/image_encoder.py",
+      "language": "python",
+      "sizeLines": 202,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/preprocessor.py",
+      "language": "python",
+      "sizeLines": 728,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/sglang_thinker.py",
+      "language": "python",
+      "sizeLines": 247,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/streaming_detokenizer.py",
+      "language": "python",
+      "sizeLines": 318,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/talker.py",
+      "language": "python",
+      "sizeLines": 1817,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/talker_input.py",
+      "language": "python",
+      "sizeLines": 273,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/talker_prefill.py",
+      "language": "python",
+      "sizeLines": 405,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/thinker.py",
+      "language": "python",
+      "sizeLines": 376,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "models/moss_tts_local/stages.py": [],
+    "models/moss_tts_local/state_pool.py": [],
+    "models/moss_tts_local/streaming_vocoder.py": [],
+    "models/moss_tts_local/vocoder_cuda_graph.py": [],
+    "models/qwen3_asr/__init__.py": [
+      "models/qwen3_asr/config.py"
+    ],
+    "models/qwen3_asr/config.py": [],
+    "models/qwen3_asr/encoder_service.py": [],
+    "models/qwen3_asr/engine_builder.py": [],
+    "models/qwen3_asr/stages.py": [],
+    "models/qwen3_omni/__init__.py": [],
+    "models/qwen3_omni/bootstrap.py": [],
+    "models/qwen3_omni/components/__init__.py": [],
+    "models/qwen3_omni/components/audio_encoder.py": [],
+    "models/qwen3_omni/components/audio_layer_graph.py": [],
+    "models/qwen3_omni/components/code2wav_cuda_graph.py": [],
+    "models/qwen3_omni/components/code2wav_scheduler.py": [],
+    "models/qwen3_omni/components/common.py": [],
+    "models/qwen3_omni/components/image_encoder.py": [],
+    "models/qwen3_omni/components/preprocessor.py": [],
+    "models/qwen3_omni/components/sglang_thinker.py": [],
+    "models/qwen3_omni/components/streaming_detokenizer.py": [],
+    "models/qwen3_omni/components/talker.py": [],
+    "models/qwen3_omni/components/talker_input.py": [],
+    "models/qwen3_omni/components/talker_prefill.py": [],
+    "models/qwen3_omni/components/thinker.py": []
+  },
+  "neighborMap": {}
+}

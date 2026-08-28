@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {"id":"file:models/arkasr/audio_lengths.py","type":"file","name":"audio_lengths.py","filePath":"models/arkasr/audio_lengths.py","summary":"计算 ArkASR 音频 mel 帧经过卷积下采样与合并后对应的多模态 token 数量，支持标量和批量张量。","tags":["audio-lengths","token-counting","utility"],"complexity":"simple"},
+    {"id":"function:models/arkasr/audio_lengths.py:arkasr_num_audio_tokens","type":"function","name":"arkasr_num_audio_tokens","filePath":"models/arkasr/audio_lengths.py","lineRange":[13,16],"summary":"把单个 mel 帧数换算为至少一个的 ArkASR 音频 token 数。","tags":["audio-token","length-calculation","utility"],"complexity":"simple"},
+    {"id":"function:models/arkasr/audio_lengths.py:arkasr_audio_token_lengths","type":"function","name":"arkasr_audio_token_lengths","filePath":"models/arkasr/audio_lengths.py","lineRange":[19,32],"summary":"对整数或 tensor 批量计算下采样与 merge 后的音频 token 长度。","tags":["audio-token","tensor-operation","batching"],"complexity":"simple"},
+
+    {"id":"file:models/arkasr/audio_tower.py","type":"file","name":"audio_tower.py","filePath":"models/arkasr/audio_tower.py","summary":"实现 ArkASR 的 Whisper 风格音频编码塔及 MLP adapter，使用 RoPE attention 将声学特征映射到语言模型隐藏空间。","tags":["audio-encoder","whisper","multimodal"],"complexity":"complex","languageNotes":"在 Whisper encoder 中以 RoPE 替代绝对位置处理，并结合 frame mask、SDPA 与相邻帧合并适配语言模型。"},
+    {"id":"function:models/arkasr/audio_tower.py:apply_rotary_pos_emb","type":"function","name":"apply_rotary_pos_emb","filePath":"models/arkasr/audio_tower.py","lineRange":[49,65],"summary":"把预计算 RoPE cache 应用到多头 attention 的 query 或 key 张量。","tags":["rope","positional-encoding","tensor-operation"],"complexity":"simple"},
+    {"id":"class:models/arkasr/audio_tower.py:ArkRotaryEmbedding","type":"class","name":"ArkRotaryEmbedding","filePath":"models/arkasr/audio_tower.py","lineRange":[21,46],"summary":"根据序列长度、dtype 和设备动态生成 ArkASR attention 使用的旋转位置编码。","tags":["rope","positional-encoding","embedding"],"complexity":"simple"},
+    {"id":"class:models/arkasr/audio_tower.py:WhisperRoPESdpaAttention","type":"class","name":"WhisperRoPESdpaAttention","filePath":"models/arkasr/audio_tower.py","lineRange":[68,108],"summary":"扩展 Whisper attention，以 RoPE 和 scaled dot-product attention 完成带 mask 的多头自注意力。","tags":["self-attention","rope","sdpa"],"complexity":"simple"},
+    {"id":"class:models/arkasr/audio_tower.py:WhisperSpecialEncoderLayer","type":"class","name":"WhisperSpecialEncoderLayer","filePath":"models/arkasr/audio_tower.py","lineRange":[111,151],"summary":"组合 RoPE 自注意力、LayerNorm、前馈网络和残差连接的 Whisper encoder layer。","tags":["encoder-layer","self-attention","residual"],"complexity":"simple"},
+    {"id":"class:models/arkasr/audio_tower.py:ArkAudioTower","type":"class","name":"ArkAudioTower","filePath":"models/arkasr/audio_tower.py","lineRange":[154,247],"summary":"对 log-mel 特征执行卷积下采样、RoPE Transformer 编码和 mask 传播，产出可变长音频表示。","tags":["audio-encoder","whisper","feature-extraction"],"complexity":"moderate"},
+    {"id":"class:models/arkasr/audio_tower.py:ArkAudioMLPAdapter","type":"class","name":"ArkAudioMLPAdapter","filePath":"models/arkasr/audio_tower.py","lineRange":[250,298],"summary":"封装音频塔并通过可配置 MLP 与帧合并将声学表示投影到语言模型维度。","tags":["mlp-adapter","multimodal","feature-projection"],"complexity":"simple"},
+
+    {"id":"file:models/arkasr/configuration_arkasr.py","type":"file","name":"configuration_arkasr.py","filePath":"models/arkasr/configuration_arkasr.py","summary":"定义 ArkASR Hugging Face 组合配置与 processor，统一管理 Whisper 音频编码器、文本模型和特征提取器。","tags":["configuration","huggingface","processor"],"complexity":"moderate"},
+    {"id":"class:models/arkasr/configuration_arkasr.py:ArkasrConfig","type":"class","name":"ArkasrConfig","filePath":"models/arkasr/configuration_arkasr.py","lineRange":[29,65],"summary":"保存 Whisper 子配置、语言模型配置、audio token、merge factor 与架构开关，并支持字典序列化。","tags":["model-config","multimodal","serialization"],"complexity":"simple"},
+    {"id":"class:models/arkasr/configuration_arkasr.py:ArkasrProcessor","type":"class","name":"ArkasrProcessor","filePath":"models/arkasr/configuration_arkasr.py","lineRange":[68,91],"summary":"组合 AutoFeatureExtractor 与 AutoTokenizer，从预训练目录构建 ArkASR 输入处理器。","tags":["processor","feature-extractor","tokenizer"],"complexity":"simple"},
+
+    {"id":"file:models/arkasr/request_builders.py","type":"file","name":"request_builders.py","filePath":"models/arkasr/request_builders.py","summary":"为 ArkASR 创建 SGLang scheduler 适配器，完成音频预处理、prompt 构造、延迟 admission、采样配置及转写结果封装。","tags":["request-builder","scheduler-adapter","speech-recognition"],"complexity":"complex","languageNotes":"通过闭包返回 request_builder 与 result_adapter，并可把音频编码异步提交到独立服务后延迟接纳请求。"},
+    {"id":"function:models/arkasr/request_builders.py:_decode_token_ids","type":"function","name":"_decode_token_ids","filePath":"models/arkasr/request_builders.py","lineRange":[54,64],"summary":"使用 tokenizer 解码输出 token，并兼容不同 decode 参数签名。","tags":["tokenizer","decoding","compatibility"],"complexity":"simple"},
+    {"id":"function:models/arkasr/request_builders.py:_build_suppressed_token_ids","type":"function","name":"_build_suppressed_token_ids","filePath":"models/arkasr/request_builders.py","lineRange":[67,88],"summary":"从 tokenizer 词表收集转写时应抑制的语言、时间戳及其他特殊 token ID。","tags":["token-filtering","tokenizer","speech-recognition"],"complexity":"simple"},
+    {"id":"function:models/arkasr/request_builders.py:make_arkasr_scheduler_adapters","type":"function","name":"make_arkasr_scheduler_adapters","filePath":"models/arkasr/request_builders.py","lineRange":[91,257],"summary":"生成 ArkASR 请求构建与结果适配闭包，将音频特征、multimodal padding、采样参数和转写输出接入 SGLang。","tags":["adapter-factory","request-builder","sglang"],"complexity":"complex"},
+    {"id":"class:models/arkasr/request_builders.py:ArkASRRequestData","type":"class","name":"ArkASRRequestData","filePath":"models/arkasr/request_builders.py","lineRange":[46,51],"summary":"保存 ArkASR 请求的 prompt token、已生成 token、音频时长、语言和引擎起始时间。","tags":["request-state","speech-recognition","data-model"],"complexity":"simple"},
+
+    {"id":"file:models/arkasr/sglang_model.py","type":"file","name":"sglang_model.py","filePath":"models/arkasr/sglang_model.py","summary":"实现 ArkASR 条件生成模型，将批量音频编码塔和 MLP adapter 接入 Qwen2 SGLang 文本骨干，并管理多模态 padding 与权重加载。","tags":["model-integration","audio-encoder","conditional-generation"],"complexity":"complex","languageNotes":"按有效 mel 长度动态组批编码，再把可变长度音频 embedding 交给 SGLang 通用多模态融合例程。"},
+    {"id":"class:models/arkasr/sglang_model.py:ArkasrForConditionalGeneration","type":"class","name":"ArkasrForConditionalGeneration","filePath":"models/arkasr/sglang_model.py","lineRange":[35,253],"summary":"组合 ArkAudioMLPAdapter 与 Qwen2ForCausalLM，负责音频批编码、token padding、多模态前向和检查点权重映射。","tags":["conditional-generation","multimodal","sglang-model"],"complexity":"complex"}
+  ],
+  "edges": [
+    {"source":"file:models/arkasr/configuration_arkasr.py","target":"file:models/arkasr/audio_lengths.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/arkasr/request_builders.py","target":"file:models/arkasr/audio_lengths.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/arkasr/sglang_model.py","target":"file:models/arkasr/audio_lengths.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/arkasr/sglang_model.py","target":"file:models/arkasr/audio_tower.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/arkasr/sglang_model.py","target":"file:models/arkasr/configuration_arkasr.py","type":"imports","direction":"forward","weight":0.7},
+
+    {"source":"file:models/arkasr/audio_lengths.py","target":"function:models/arkasr/audio_lengths.py:arkasr_num_audio_tokens","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_lengths.py","target":"function:models/arkasr/audio_lengths.py:arkasr_num_audio_tokens","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/audio_lengths.py","target":"function:models/arkasr/audio_lengths.py:arkasr_audio_token_lengths","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_lengths.py","target":"function:models/arkasr/audio_lengths.py:arkasr_audio_token_lengths","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/audio_tower.py","target":"function:models/arkasr/audio_tower.py:apply_rotary_pos_emb","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_tower.py","target":"function:models/arkasr/audio_tower.py:apply_rotary_pos_emb","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:ArkRotaryEmbedding","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:ArkRotaryEmbedding","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:WhisperRoPESdpaAttention","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:WhisperRoPESdpaAttention","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:WhisperSpecialEncoderLayer","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:WhisperSpecialEncoderLayer","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:ArkAudioTower","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:ArkAudioTower","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:ArkAudioMLPAdapter","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/audio_tower.py","target":"class:models/arkasr/audio_tower.py:ArkAudioMLPAdapter","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/configuration_arkasr.py","target":"class:models/arkasr/configuration_arkasr.py:ArkasrConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/configuration_arkasr.py","target":"class:models/arkasr/configuration_arkasr.py:ArkasrConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/configuration_arkasr.py","target":"class:models/arkasr/configuration_arkasr.py:ArkasrProcessor","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/configuration_arkasr.py","target":"class:models/arkasr/configuration_arkasr.py:ArkasrProcessor","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/request_builders.py","target":"function:models/arkasr/request_builders.py:_decode_token_ids","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/request_builders.py","target":"function:models/arkasr/request_builders.py:_decode_token_ids","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/request_builders.py","target":"function:models/arkasr/request_builders.py:_build_suppressed_token_ids","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/request_builders.py","target":"function:models/arkasr/request_builders.py:_build_suppressed_token_ids","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/request_builders.py","target":"function:models/arkasr/request_builders.py:make_arkasr_scheduler_adapters","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/request_builders.py","target":"function:models/arkasr/request_builders.py:make_arkasr_scheduler_adapters","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/request_builders.py","target":"class:models/arkasr/request_builders.py:ArkASRRequestData","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/request_builders.py","target":"class:models/arkasr/request_builders.py:ArkASRRequestData","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/sglang_model.py","target":"class:models/arkasr/sglang_model.py:ArkasrForConditionalGeneration","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/sglang_model.py","target":"class:models/arkasr/sglang_model.py:ArkasrForConditionalGeneration","type":"exports","direction":"forward","weight":0.8}
+  ]
+}

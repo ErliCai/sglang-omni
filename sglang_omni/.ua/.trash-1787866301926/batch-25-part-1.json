@@ -1,0 +1,1442 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_tts/streaming_vocoder.py",
+      "type": "file",
+      "name": "streaming_vocoder.py",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "summary": "实现 Qwen3-TTS 流式 vocoder scheduler，管理增量 codec codes、CUDA Graph 解码、资源保留与波形输出。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "CUDA-Graph"
+      ],
+      "complexity": "complex",
+      "languageNotes": "以 Python 状态机协调 PyTorch GPU tensor、异步 decode handle 和分批音频输出。"
+    },
+    {
+      "id": "function:models/qwen3_tts/streaming_vocoder.py:_bad_row_message",
+      "type": "function",
+      "name": "_bad_row_message",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        73,
+        77
+      ],
+      "summary": "把无效 codec code row 信息格式化为诊断消息。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/streaming_vocoder.py:_raise_for_bad_rows",
+      "type": "function",
+      "name": "_raise_for_bad_rows",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        80,
+        84
+      ],
+      "summary": "检测无效 code rows 并抛出带上下文的异常。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSStreamState",
+      "type": "class",
+      "name": "_Qwen3TTSStreamState",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        39,
+        53
+      ],
+      "summary": "保存 Qwen3-TTS 流式会话的 codes、已输出位置和 codec 协议状态。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSInvalidCodeRows",
+      "type": "class",
+      "name": "_Qwen3TTSInvalidCodeRows",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        56,
+        61
+      ],
+      "summary": "描述 vocoder 输入中无效 code rows 的位置和原因。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSDecodePlan",
+      "type": "class",
+      "name": "_Qwen3TTSDecodePlan",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        65,
+        70
+      ],
+      "summary": "表示一次增量 vocoder 解码的 slot、范围与输出计划。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:_DecodeSlot",
+      "type": "class",
+      "name": "_DecodeSlot",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        88,
+        106
+      ],
+      "summary": "管理可复用 decode slot 的静态 tensor 与占用状态。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:_RetainedDecodeResources",
+      "type": "class",
+      "name": "_RetainedDecodeResources",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        110,
+        117
+      ],
+      "summary": "保留异步解码完成前必须存活的 GPU 资源。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSDecodeHandle",
+      "type": "class",
+      "name": "_Qwen3TTSDecodeHandle",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        129,
+        243
+      ],
+      "summary": "封装异步 decode 任务、CUDA event、资源释放和结果获取。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSInitialDecodeGraphs",
+      "type": "class",
+      "name": "_Qwen3TTSInitialDecodeGraphs",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        249,
+        338
+      ],
+      "summary": "捕获并重放 Qwen3-TTS 初始音频块的 decode graphs。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_tts/streaming_vocoder.py:Qwen3TTSStreamingVocoderScheduler",
+      "type": "class",
+      "name": "Qwen3TTSStreamingVocoderScheduler",
+      "filePath": "models/qwen3_tts/streaming_vocoder.py",
+      "lineRange": [
+        341,
+        1507
+      ],
+      "summary": "协调 Qwen3-TTS 流式 codes 校验、分块解码、graph replay 与波形提交。",
+      "tags": [
+        "Qwen3-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/registry.py",
+      "type": "file",
+      "name": "registry.py",
+      "filePath": "models/registry.py",
+      "summary": "发现并导入内置模型 pipeline 配置，维护 architecture 到配置类的延迟注册表。",
+      "tags": [
+        "model-registry",
+        "pipeline-config",
+        "discovery"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 Python importlib 与包遍历实现动态配置注册。"
+    },
+    {
+      "id": "function:models/registry.py:_iter_config_architectures",
+      "type": "function",
+      "name": "_iter_config_architectures",
+      "filePath": "models/registry.py",
+      "lineRange": [
+        13,
+        24
+      ],
+      "summary": "遍历配置模块中声明的 architecture 名称。",
+      "tags": [
+        "model-registry",
+        "pipeline-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/registry.py:import_pipeline_configs",
+      "type": "function",
+      "name": "import_pipeline_configs",
+      "filePath": "models/registry.py",
+      "lineRange": [
+        28,
+        84
+      ],
+      "summary": "扫描模型包并导入所有可用 pipeline 配置类。",
+      "tags": [
+        "model-registry",
+        "pipeline-config",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/registry.py:_PipelineConfigRegistry",
+      "type": "class",
+      "name": "_PipelineConfigRegistry",
+      "filePath": "models/registry.py",
+      "lineRange": [
+        88,
+        132
+      ],
+      "summary": "维护 architecture 到 pipeline 配置类的延迟加载映射。",
+      "tags": [
+        "model-registry",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/voxtral_tts/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/voxtral_tts/__init__.py",
+      "summary": "导出 Voxtral-TTS pipeline 配置并完成模型包注册。",
+      "tags": [
+        "Voxtral-TTS",
+        "package-api",
+        "registration"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python 包入口暴露 VoxtralTTSPipelineConfig。"
+    },
+    {
+      "id": "file:models/voxtral_tts/acoustic_transformer.py",
+      "type": "file",
+      "name": "acoustic_transformer.py",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "summary": "实现 Voxtral-TTS flow-matching acoustic Transformer 及其多模态配置、attention、time embedding 与生成过程。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "flow-matching"
+      ],
+      "complexity": "complex",
+      "languageNotes": "基于 PyTorch 构建双向 attention，并处理文本、音频与时间条件。"
+    },
+    {
+      "id": "function:models/voxtral_tts/acoustic_transformer.py:_repeat_interleave",
+      "type": "function",
+      "name": "_repeat_interleave",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        119,
+        120
+      ],
+      "summary": "沿指定维度重复 tensor 元素。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/acoustic_transformer.py:repeat_kv",
+      "type": "function",
+      "name": "repeat_kv",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        123,
+        129
+      ],
+      "summary": "扩展 key/value heads 以匹配 query attention heads。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/voxtral_tts/acoustic_transformer.py:from_nested_dict",
+      "type": "function",
+      "name": "from_nested_dict",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        132,
+        154
+      ],
+      "summary": "把嵌套字典递归转换为类型化 acoustic 参数对象。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:AudioSpecialTokens",
+      "type": "class",
+      "name": "AudioSpecialTokens",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        39,
+        57
+      ],
+      "summary": "定义 Voxtral 音频序列使用的特殊 token IDs。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:AcousticTransformerArgs",
+      "type": "class",
+      "name": "AcousticTransformerArgs",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        66,
+        76
+      ],
+      "summary": "配置 acoustic Transformer 的维度、层数、heads 与位置编码。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:MultimodalAudioModelArgs",
+      "type": "class",
+      "name": "MultimodalAudioModelArgs",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        80,
+        111
+      ],
+      "summary": "汇总文本、音频和 flow-matching 多模态模型参数。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:FeedForward",
+      "type": "class",
+      "name": "FeedForward",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        162,
+        170
+      ],
+      "summary": "实现 acoustic Transformer 的门控 feed-forward network。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:BidirectionalAttention",
+      "type": "class",
+      "name": "BidirectionalAttention",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        173,
+        232
+      ],
+      "summary": "实现带 RoPE 的双向多头 acoustic attention。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:AcousticTransformerBlock",
+      "type": "class",
+      "name": "AcousticTransformerBlock",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        235,
+        255
+      ],
+      "summary": "组合 acoustic attention、feed-forward、normalization 与 residual。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:TimeEmbedding",
+      "type": "class",
+      "name": "TimeEmbedding",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        263,
+        275
+      ],
+      "summary": "把 flow-matching 时间步编码为条件 embedding。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/acoustic_transformer.py:FlowMatchingAudioTransformer",
+      "type": "class",
+      "name": "FlowMatchingAudioTransformer",
+      "filePath": "models/voxtral_tts/acoustic_transformer.py",
+      "lineRange": [
+        278,
+        481
+      ],
+      "summary": "根据文本、音频条件和时间步预测 flow-matching 音频 latent。",
+      "tags": [
+        "Voxtral-TTS",
+        "acoustic-transformer",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/voxtral_tts/audio_tokenizer.py",
+      "type": "file",
+      "name": "audio_tokenizer.py",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "summary": "实现 Voxtral-TTS 音频 tokenizer 的 semantic/acoustic codebooks、因果卷积、Transformer 与 codec 编解码。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "audio-codec"
+      ],
+      "complexity": "complex",
+      "languageNotes": "组合 PyTorch convolution、attention 与多词表 embedding 处理离散音频 codes。"
+    },
+    {
+      "id": "function:models/voxtral_tts/audio_tokenizer.py:pad1d",
+      "type": "function",
+      "name": "pad1d",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        202,
+        219
+      ],
+      "summary": "为一维音频 tensor 安全应用指定 padding。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:AudioTokenizerArgs",
+      "type": "class",
+      "name": "AudioTokenizerArgs",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        39,
+        113
+      ],
+      "summary": "定义 Voxtral audio tokenizer 的 codec 与 Transformer 参数。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:SemanticCodebook",
+      "type": "class",
+      "name": "SemanticCodebook",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        119,
+        149
+      ],
+      "summary": "编码和解码语义音频 codebook 表示。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:AcousticCodebook",
+      "type": "class",
+      "name": "AcousticCodebook",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        152,
+        166
+      ],
+      "summary": "管理声学音频 codebook embedding 与投影。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:MistralAudioCodebook",
+      "type": "class",
+      "name": "MistralAudioCodebook",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        169,
+        196
+      ],
+      "summary": "组合语义和声学 codebooks 的 Mistral 音频词表。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:CausalConv1d",
+      "type": "class",
+      "name": "CausalConv1d",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        222,
+        260
+      ],
+      "summary": "封装显式因果 padding 的一维卷积。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:CausalConvTranspose1d",
+      "type": "class",
+      "name": "CausalConvTranspose1d",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        263,
+        294
+      ],
+      "summary": "封装流式友好的因果转置卷积。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:Attention",
+      "type": "class",
+      "name": "Attention",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        300,
+        397
+      ],
+      "summary": "实现 audio tokenizer 使用的多头 self-attention。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:TransformerBlock",
+      "type": "class",
+      "name": "TransformerBlock",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        403,
+        442
+      ],
+      "summary": "组合 audio tokenizer attention、MLP 与 residual。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:Transformer",
+      "type": "class",
+      "name": "Transformer",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        445,
+        457
+      ],
+      "summary": "堆叠 audio tokenizer Transformer blocks。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:MultiVocabEmbeddings",
+      "type": "class",
+      "name": "MultiVocabEmbeddings",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        463,
+        478
+      ],
+      "summary": "为多组离散音频词表分别查表并组合 embeddings。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/audio_tokenizer.py:VoxtralTTSAudioTokenizer",
+      "type": "class",
+      "name": "VoxtralTTSAudioTokenizer",
+      "filePath": "models/voxtral_tts/audio_tokenizer.py",
+      "lineRange": [
+        484,
+        675
+      ],
+      "summary": "完成 Voxtral 波形与 semantic/acoustic codes 间的编解码。",
+      "tags": [
+        "Voxtral-TTS",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/voxtral_tts/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/voxtral_tts/config.py",
+      "summary": "定义 Voxtral-TTS pipeline 的 stage 拓扑、能力声明和默认运行配置。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-config",
+        "deployment"
+      ],
+      "complexity": "simple",
+      "languageNotes": "以类型化配置模型描述 preprocessing、generation 与 vocoder stages。"
+    },
+    {
+      "id": "class:models/voxtral_tts/config.py:VoxtralTTSPipelineConfig",
+      "type": "class",
+      "name": "VoxtralTTSPipelineConfig",
+      "filePath": "models/voxtral_tts/config.py",
+      "lineRange": [
+        23,
+        60
+      ],
+      "summary": "定义 Voxtral-TTS pipeline stages、路由和服务能力。",
+      "tags": [
+        "Voxtral-TTS",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/voxtral_tts/io.py",
+      "type": "file",
+      "name": "io.py",
+      "filePath": "models/voxtral_tts/io.py",
+      "summary": "定义 Voxtral-TTS 请求在 pipeline stages 间共享的状态载荷。",
+      "tags": [
+        "Voxtral-TTS",
+        "state-model",
+        "pipeline-io"
+      ],
+      "complexity": "simple",
+      "languageNotes": "dataclass 状态承载文本、voice、speech 参数与中间音频数据。"
+    },
+    {
+      "id": "class:models/voxtral_tts/io.py:VoxtralTTSState",
+      "type": "class",
+      "name": "VoxtralTTSState",
+      "filePath": "models/voxtral_tts/io.py",
+      "lineRange": [
+        12,
+        24
+      ],
+      "summary": "承载 Voxtral 请求文本、voice、生成参数和中间结果。",
+      "tags": [
+        "Voxtral-TTS",
+        "state-model",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/voxtral_tts/model_config.py",
+      "type": "file",
+      "name": "model_config.py",
+      "filePath": "models/voxtral_tts/model_config.py",
+      "summary": "解析 Voxtral-TTS 文本模型、音频模型和联合模型配置。",
+      "tags": [
+        "Voxtral-TTS",
+        "model-config",
+        "Transformers"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "扩展 Transformers 配置结构并把嵌套字典转换为类型化参数。"
+    },
+    {
+      "id": "class:models/voxtral_tts/model_config.py:VoxtralTextConfig",
+      "type": "class",
+      "name": "VoxtralTextConfig",
+      "filePath": "models/voxtral_tts/model_config.py",
+      "lineRange": [
+        12,
+        23
+      ],
+      "summary": "定义 Voxtral 文本 decoder 的 Transformers 配置。",
+      "tags": [
+        "Voxtral-TTS",
+        "model-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/model_config.py:VoxtralAudioModelArgs",
+      "type": "class",
+      "name": "VoxtralAudioModelArgs",
+      "filePath": "models/voxtral_tts/model_config.py",
+      "lineRange": [
+        27,
+        34
+      ],
+      "summary": "定义 Voxtral 音频生成模型与 tokenizer 参数。",
+      "tags": [
+        "Voxtral-TTS",
+        "model-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/voxtral_tts/model_config.py:VoxtralModelConfig",
+      "type": "class",
+      "name": "VoxtralModelConfig",
+      "filePath": "models/voxtral_tts/model_config.py",
+      "lineRange": [
+        38,
+        107
+      ],
+      "summary": "组合 Voxtral text/audio 配置并提供 checkpoint 兼容解析。",
+      "tags": [
+        "Voxtral-TTS",
+        "model-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/voxtral_tts/model_runner.py",
+      "type": "file",
+      "name": "model_runner.py",
+      "filePath": "models/voxtral_tts/model_runner.py",
+      "summary": "实现 Voxtral-TTS SGLang model runner 的 prefill、decode、输入 embedding 与输出处理。",
+      "tags": [
+        "Voxtral-TTS",
+        "model-runner",
+        "SGLang"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "连接 pipeline 请求状态与 SGLang 推理批次。"
+    },
+    {
+      "id": "class:models/voxtral_tts/model_runner.py:VoxtralTTSModelRunner",
+      "type": "class",
+      "name": "VoxtralTTSModelRunner",
+      "filePath": "models/voxtral_tts/model_runner.py",
+      "lineRange": [
+        15,
+        162
+      ],
+      "summary": "协调 Voxtral prefill/decode、embedding 注入和结果后处理。",
+      "tags": [
+        "Voxtral-TTS",
+        "model-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "function:models/qwen3_tts/streaming_vocoder.py:_bad_row_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "function:models/qwen3_tts/streaming_vocoder.py:_bad_row_message",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "function:models/qwen3_tts/streaming_vocoder.py:_raise_for_bad_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "function:models/qwen3_tts/streaming_vocoder.py:_raise_for_bad_rows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSStreamState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSStreamState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSInvalidCodeRows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSInvalidCodeRows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSDecodePlan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSDecodePlan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_DecodeSlot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_DecodeSlot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_RetainedDecodeResources",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_RetainedDecodeResources",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSDecodeHandle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSDecodeHandle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSInitialDecodeGraphs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:_Qwen3TTSInitialDecodeGraphs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:Qwen3TTSStreamingVocoderScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/streaming_vocoder.py",
+      "target": "class:models/qwen3_tts/streaming_vocoder.py:Qwen3TTSStreamingVocoderScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/registry.py",
+      "target": "function:models/registry.py:_iter_config_architectures",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/registry.py",
+      "target": "function:models/registry.py:_iter_config_architectures",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/registry.py",
+      "target": "function:models/registry.py:import_pipeline_configs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/registry.py",
+      "target": "function:models/registry.py:import_pipeline_configs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/registry.py",
+      "target": "class:models/registry.py:_PipelineConfigRegistry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/registry.py",
+      "target": "class:models/registry.py:_PipelineConfigRegistry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/__init__.py",
+      "target": "file:models/voxtral_tts/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "function:models/voxtral_tts/acoustic_transformer.py:_repeat_interleave",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "function:models/voxtral_tts/acoustic_transformer.py:_repeat_interleave",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "function:models/voxtral_tts/acoustic_transformer.py:repeat_kv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "function:models/voxtral_tts/acoustic_transformer.py:repeat_kv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "function:models/voxtral_tts/acoustic_transformer.py:from_nested_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "function:models/voxtral_tts/acoustic_transformer.py:from_nested_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:AudioSpecialTokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:AudioSpecialTokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:AcousticTransformerArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:AcousticTransformerArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:MultimodalAudioModelArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:MultimodalAudioModelArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:FeedForward",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:FeedForward",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:BidirectionalAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:BidirectionalAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:AcousticTransformerBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:AcousticTransformerBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:TimeEmbedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:TimeEmbedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:FlowMatchingAudioTransformer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/acoustic_transformer.py",
+      "target": "class:models/voxtral_tts/acoustic_transformer.py:FlowMatchingAudioTransformer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "function:models/voxtral_tts/audio_tokenizer.py:pad1d",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "function:models/voxtral_tts/audio_tokenizer.py:pad1d",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:AudioTokenizerArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:AudioTokenizerArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:SemanticCodebook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:SemanticCodebook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:AcousticCodebook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:AcousticCodebook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:MistralAudioCodebook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:MistralAudioCodebook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:CausalConv1d",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:CausalConv1d",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:CausalConvTranspose1d",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:CausalConvTranspose1d",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:Attention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:Attention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:TransformerBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:TransformerBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:Transformer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:Transformer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:MultiVocabEmbeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:MultiVocabEmbeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:VoxtralTTSAudioTokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/audio_tokenizer.py",
+      "target": "class:models/voxtral_tts/audio_tokenizer.py:VoxtralTTSAudioTokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/config.py",
+      "target": "class:models/voxtral_tts/config.py:VoxtralTTSPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/config.py",
+      "target": "class:models/voxtral_tts/config.py:VoxtralTTSPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/io.py",
+      "target": "class:models/voxtral_tts/io.py:VoxtralTTSState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/io.py",
+      "target": "class:models/voxtral_tts/io.py:VoxtralTTSState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/model_config.py",
+      "target": "class:models/voxtral_tts/model_config.py:VoxtralTextConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/model_config.py",
+      "target": "class:models/voxtral_tts/model_config.py:VoxtralTextConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/model_config.py",
+      "target": "class:models/voxtral_tts/model_config.py:VoxtralAudioModelArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/model_config.py",
+      "target": "class:models/voxtral_tts/model_config.py:VoxtralAudioModelArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/model_config.py",
+      "target": "class:models/voxtral_tts/model_config.py:VoxtralModelConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/model_config.py",
+      "target": "class:models/voxtral_tts/model_config.py:VoxtralModelConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/voxtral_tts/model_runner.py",
+      "target": "class:models/voxtral_tts/model_runner.py:VoxtralTTSModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/voxtral_tts/model_runner.py",
+      "target": "class:models/voxtral_tts/model_runner.py:VoxtralTTSModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

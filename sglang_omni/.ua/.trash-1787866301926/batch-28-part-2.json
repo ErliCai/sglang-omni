@@ -1,0 +1,1559 @@
+{
+  "nodes": [
+    {
+      "id": "file:scheduling/dllm_scheduler.py",
+      "type": "file",
+      "name": "dllm_scheduler.py",
+      "filePath": "scheduling/dllm_scheduler.py",
+      "summary": "实现 diffusion language model 的批次调度循环、请求中止和逐步结果应用。",
+      "tags": [
+        "scheduling",
+        "dLLM",
+        "batch-loop"
+      ],
+      "complexity": "complex",
+      "languageNotes": "异步事件循环在可运行请求间组织 prefill/decode 式迭代。"
+    },
+    {
+      "id": "class:scheduling/dllm_scheduler.py:DllmScheduler",
+      "type": "class",
+      "name": "DllmScheduler",
+      "filePath": "scheduling/dllm_scheduler.py",
+      "lineRange": [
+        29,
+        363
+      ],
+      "summary": "运行 diffusion LM 请求调度、批次执行、中止和结果推进循环。",
+      "tags": [
+        "scheduling",
+        "dLLM",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scheduling/engine_factory.py",
+      "type": "file",
+      "name": "engine_factory.py",
+      "filePath": "scheduling/engine_factory.py",
+      "summary": "定义通用 SGLang generation engine builder，并派生 ASR/TTS 模型构建流程。",
+      "tags": [
+        "scheduling",
+        "engine-builder",
+        "SGLang"
+      ],
+      "complexity": "complex",
+      "languageNotes": "以可覆盖 hooks 组织 checkpoint、基础设施、模型、runner、scheduler 与失败清理。"
+    },
+    {
+      "id": "function:scheduling/engine_factory.py:_operator_selected_prefill_graph_backend",
+      "type": "function",
+      "name": "_operator_selected_prefill_graph_backend",
+      "filePath": "scheduling/engine_factory.py",
+      "lineRange": [
+        20,
+        27
+      ],
+      "summary": "读取 operator 显式选择的 prefill graph backend。",
+      "tags": [
+        "scheduling",
+        "engine-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/engine_factory.py:SGLangGenerationEngineBuilder",
+      "type": "class",
+      "name": "SGLangGenerationEngineBuilder",
+      "filePath": "scheduling/engine_factory.py",
+      "lineRange": [
+        30,
+        353
+      ],
+      "summary": "以模板化 hooks 构建完整 SGLang generation engine。",
+      "tags": [
+        "scheduling",
+        "engine-builder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:scheduling/engine_factory.py:AsrEngineBuilder",
+      "type": "class",
+      "name": "AsrEngineBuilder",
+      "filePath": "scheduling/engine_factory.py",
+      "lineRange": [
+        356,
+        373
+      ],
+      "summary": "为 ASR 模型扩展 checkpoint 校验与 runner 创建流程。",
+      "tags": [
+        "scheduling",
+        "engine-builder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/engine_factory.py:TtsEngineBuilder",
+      "type": "class",
+      "name": "TtsEngineBuilder",
+      "filePath": "scheduling/engine_factory.py",
+      "lineRange": [
+        376,
+        471
+      ],
+      "summary": "为 TTS 模型扩展 setup、scheduler 和 runtime 创建流程。",
+      "tags": [
+        "scheduling",
+        "engine-builder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scheduling/generation_batch_policy.py",
+      "type": "file",
+      "name": "generation_batch_policy.py",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "summary": "构建并校验 generation batch policy、decode/prefill CUDA Graph buckets 与覆盖参数。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "CUDA-Graph"
+      ],
+      "complexity": "complex",
+      "languageNotes": "规范化正整数配置并约束 prefill backend、batch size 和 token 上限。"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:get_decode_cuda_graph_max_bs",
+      "type": "function",
+      "name": "get_decode_cuda_graph_max_bs",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        23,
+        25
+      ],
+      "summary": "读取 decode CUDA Graph 的最大 batch size。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:get_decode_cuda_graph_bs",
+      "type": "function",
+      "name": "get_decode_cuda_graph_bs",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        28,
+        30
+      ],
+      "summary": "读取显式 decode graph batch buckets。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:get_prefill_cuda_graph_backend",
+      "type": "function",
+      "name": "get_prefill_cuda_graph_backend",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        33,
+        35
+      ],
+      "summary": "解析 prefill CUDA Graph backend。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:build_default_cuda_graph_bs",
+      "type": "function",
+      "name": "build_default_cuda_graph_bs",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        38,
+        50
+      ],
+      "summary": "构造默认 decode CUDA Graph batch buckets。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:build_default_prefill_cuda_graph_bs",
+      "type": "function",
+      "name": "build_default_prefill_cuda_graph_bs",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        53,
+        70
+      ],
+      "summary": "构造默认 prefill CUDA Graph batch buckets。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:clamp_prefill_cuda_graph_max_bs",
+      "type": "function",
+      "name": "clamp_prefill_cuda_graph_max_bs",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        73,
+        95
+      ],
+      "summary": "按资源限制收紧 prefill graph 最大 batch size。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:nested_prefill_overrides",
+      "type": "function",
+      "name": "nested_prefill_overrides",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        98,
+        106
+      ],
+      "summary": "提取嵌套配置中的 prefill graph 覆盖项。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:build_generation_batch_overrides",
+      "type": "function",
+      "name": "build_generation_batch_overrides",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        109,
+        204
+      ],
+      "summary": "根据模型和用户参数构建 generation batching 覆盖配置。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:validate_generation_batch_policy",
+      "type": "function",
+      "name": "validate_generation_batch_policy",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        207,
+        282
+      ],
+      "summary": "校验 decode/prefill batching policy 的一致性。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:_validate_prefill_graph_policy",
+      "type": "function",
+      "name": "_validate_prefill_graph_policy",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        285,
+        373
+      ],
+      "summary": "校验 prefill CUDA Graph backend、buckets 与 token 限制。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:_validate_positive_int",
+      "type": "function",
+      "name": "_validate_positive_int",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        376,
+        395
+      ],
+      "summary": "验证配置值为正整数。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:_normalize_positive_int",
+      "type": "function",
+      "name": "_normalize_positive_int",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        398,
+        405
+      ],
+      "summary": "把可选配置值规范化为正整数。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/generation_batch_policy.py:_normalize_cuda_graph_bs",
+      "type": "function",
+      "name": "_normalize_cuda_graph_bs",
+      "filePath": "scheduling/generation_batch_policy.py",
+      "lineRange": [
+        408,
+        437
+      ],
+      "summary": "规范化、去重并排序 CUDA Graph batch buckets。",
+      "tags": [
+        "scheduling",
+        "batch-policy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/messages.py",
+      "type": "file",
+      "name": "messages.py",
+      "filePath": "scheduling/messages.py",
+      "summary": "定义 scheduler 接收和发送的类型化消息载荷。",
+      "tags": [
+        "scheduling",
+        "messages",
+        "data-model"
+      ],
+      "complexity": "simple",
+      "languageNotes": "dataclass 消息在请求队列和输出通道间传递 payload。"
+    },
+    {
+      "id": "class:scheduling/messages.py:IncomingMessage",
+      "type": "class",
+      "name": "IncomingMessage",
+      "filePath": "scheduling/messages.py",
+      "lineRange": [
+        11,
+        14
+      ],
+      "summary": "封装 scheduler 接收到的请求标识和 payload。",
+      "tags": [
+        "scheduling",
+        "messages",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/messages.py:OutgoingMessage",
+      "type": "class",
+      "name": "OutgoingMessage",
+      "filePath": "scheduling/messages.py",
+      "lineRange": [
+        18,
+        23
+      ],
+      "summary": "封装 scheduler 输出的请求标识、结果或错误。",
+      "tags": [
+        "scheduling",
+        "messages",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/pipeline_state.py",
+      "type": "file",
+      "name": "pipeline_state.py",
+      "filePath": "scheduling/pipeline_state.py",
+      "summary": "提供 pipeline 状态的声明式序列化、tensor wire 格式、反序列化和 usage 统计。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "serialization"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "基于 dataclass/type hints 在 JSON 数据与 PyTorch tensor 间转换。"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_tensor_to_list",
+      "type": "function",
+      "name": "_tensor_to_list",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        65,
+        72
+      ],
+      "summary": "把 tensor 编码为可序列化列表表示。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_tensor_from_list",
+      "type": "function",
+      "name": "_tensor_from_list",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        75,
+        82
+      ],
+      "summary": "从列表表示重建指定 dtype 的 tensor。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_tensor_items_to_lists",
+      "type": "function",
+      "name": "_tensor_items_to_lists",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        85,
+        86
+      ],
+      "summary": "批量把 tensor 字段转换为列表。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_tensor_items_from_lists",
+      "type": "function",
+      "name": "_tensor_items_from_lists",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        89,
+        92
+      ],
+      "summary": "批量从列表恢复 tensor 字段。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_validate_emit_mode",
+      "type": "function",
+      "name": "_validate_emit_mode",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        133,
+        136
+      ],
+      "summary": "校验状态字段的 wire emit mode。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:wire",
+      "type": "function",
+      "name": "wire",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        139,
+        158
+      ],
+      "summary": "声明 dataclass 字段的 wire 名称、默认值和 tensor 规则。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_spec_of",
+      "type": "function",
+      "name": "_spec_of",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        161,
+        162
+      ],
+      "summary": "读取 dataclass 字段关联的 wire spec。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_default_of",
+      "type": "function",
+      "name": "_default_of",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        165,
+        170
+      ],
+      "summary": "解析 dataclass 字段的默认值或 default factory。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_emit_kind",
+      "type": "function",
+      "name": "_emit_kind",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        173,
+        179
+      ],
+      "summary": "确定字段应按 always、non-default 或 never 模式输出。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:_has_complete_typed_tensor_payload",
+      "type": "function",
+      "name": "_has_complete_typed_tensor_payload",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        182,
+        200
+      ],
+      "summary": "检查序列化数据是否包含完整 tensor 类型信息。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:load_state",
+      "type": "function",
+      "name": "load_state",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        285,
+        286
+      ],
+      "summary": "从 pipeline payload 加载类型化状态。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:store_state",
+      "type": "function",
+      "name": "store_state",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        289,
+        291
+      ],
+      "summary": "把类型化状态保存回 pipeline payload。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/pipeline_state.py:build_usage",
+      "type": "function",
+      "name": "build_usage",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        294,
+        304
+      ],
+      "summary": "从 pipeline 状态构建 token/audio usage 统计。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/pipeline_state.py:PipelineStateBase",
+      "type": "class",
+      "name": "PipelineStateBase",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        29,
+        62
+      ],
+      "summary": "提供 pipeline 状态字典转换、值序列化和 usage 字段扩展。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scheduling/pipeline_state.py:_WireSpec",
+      "type": "class",
+      "name": "_WireSpec",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        125,
+        127
+      ],
+      "summary": "描述声明式状态字段的 wire 名称、emit mode 和 tensor 类型。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/pipeline_state.py:DeclarativeStateBase",
+      "type": "class",
+      "name": "DeclarativeStateBase",
+      "filePath": "scheduling/pipeline_state.py",
+      "lineRange": [
+        204,
+        282
+      ],
+      "summary": "按 dataclass wire 声明自动编码和恢复 pipeline 状态。",
+      "tags": [
+        "scheduling",
+        "pipeline-state",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scheduling/pre_lm_encoder.py",
+      "type": "file",
+      "name": "pre_lm_encoder.py",
+      "filePath": "scheduling/pre_lm_encoder.py",
+      "summary": "实现语言模型前置 encoder 服务，对请求排队、动态 batching、重试、缓存与结果同步。",
+      "tags": [
+        "scheduling",
+        "pre-LM-encoder",
+        "batching"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "后台 worker 合并并发编码任务，处理 host copy、future 和失败隔离。"
+    },
+    {
+      "id": "class:scheduling/pre_lm_encoder.py:QueueEntry",
+      "type": "class",
+      "name": "QueueEntry",
+      "filePath": "scheduling/pre_lm_encoder.py",
+      "lineRange": [
+        25,
+        28
+      ],
+      "summary": "保存 pre-LM encoder 队列项的请求数据与 future。",
+      "tags": [
+        "scheduling",
+        "pre-LM-encoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/pre_lm_encoder.py:PreLMEncoderService",
+      "type": "class",
+      "name": "PreLMEncoderService",
+      "filePath": "scheduling/pre_lm_encoder.py",
+      "lineRange": [
+        31,
+        318
+      ],
+      "summary": "批量调度 pre-LM encoding、缓存 embedding 并同步并发请求。",
+      "tags": [
+        "scheduling",
+        "pre-LM-encoder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scheduling/prepared_request_queue.py",
+      "type": "file",
+      "name": "prepared_request_queue.py",
+      "filePath": "scheduling/prepared_request_queue.py",
+      "summary": "管理预处理请求的 context、inflight、ready 队列和中止语义。",
+      "tags": [
+        "scheduling",
+        "prepared-request",
+        "queue"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "线程安全队列为异步 preprocessing 与 scheduler 消费建立交接协议。"
+    },
+    {
+      "id": "class:scheduling/prepared_request_queue.py:QueueSnapshot",
+      "type": "class",
+      "name": "QueueSnapshot",
+      "filePath": "scheduling/prepared_request_queue.py",
+      "lineRange": [
+        21,
+        27
+      ],
+      "summary": "记录 prepared request queue 的 context、inflight 和 ready 数量。",
+      "tags": [
+        "scheduling",
+        "prepared-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/prepared_request_queue.py:PreparedRequestQueue",
+      "type": "class",
+      "name": "PreparedRequestQueue",
+      "filePath": "scheduling/prepared_request_queue.py",
+      "lineRange": [
+        30,
+        111
+      ],
+      "summary": "线程安全地管理请求预处理的开始、发布、失败、中止和弹出。",
+      "tags": [
+        "scheduling",
+        "prepared-request",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scheduling/reference_encoder.py",
+      "type": "file",
+      "name": "reference_encoder.py",
+      "filePath": "scheduling/reference_encoder.py",
+      "summary": "提供可缓存、去重和批量执行的参考输入 encoder 服务及扩展 hooks。",
+      "tags": [
+        "scheduling",
+        "reference-encoder",
+        "cache"
+      ],
+      "complexity": "complex",
+      "languageNotes": "支持 leader 去重、后台 batch worker、tensor artifact 存储与统计。"
+    },
+    {
+      "id": "function:scheduling/reference_encoder.py:_fresh_exception",
+      "type": "function",
+      "name": "_fresh_exception",
+      "filePath": "scheduling/reference_encoder.py",
+      "lineRange": [
+        118,
+        127
+      ],
+      "summary": "复制异常类型与消息，避免在线程间复用 traceback。",
+      "tags": [
+        "scheduling",
+        "reference-encoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/reference_encoder.py:ReferenceEncodeKey",
+      "type": "class",
+      "name": "ReferenceEncodeKey",
+      "filePath": "scheduling/reference_encoder.py",
+      "lineRange": [
+        25,
+        35
+      ],
+      "summary": "组合输入与选项 key，生成参考编码 cache 标识。",
+      "tags": [
+        "scheduling",
+        "reference-encoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/reference_encoder.py:ReferenceEncodeHook",
+      "type": "class",
+      "name": "ReferenceEncodeHook",
+      "filePath": "scheduling/reference_encoder.py",
+      "lineRange": [
+        38,
+        61
+      ],
+      "summary": "定义参考输入规范化、缓存、单项与批量编码扩展接口。",
+      "tags": [
+        "scheduling",
+        "reference-encoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/reference_encoder.py:KeyedReferenceEncodeHook",
+      "type": "class",
+      "name": "KeyedReferenceEncodeHook",
+      "filePath": "scheduling/reference_encoder.py",
+      "lineRange": [
+        64,
+        100
+      ],
+      "summary": "为可键控参考输入实现稳定 cache key 和 revalidation。",
+      "tags": [
+        "scheduling",
+        "reference-encoder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scheduling/reference_encoder.py:TensorReferenceEncodeHook",
+      "type": "class",
+      "name": "TensorReferenceEncodeHook",
+      "filePath": "scheduling/reference_encoder.py",
+      "lineRange": [
+        103,
+        115
+      ],
+      "summary": "通过 tensor artifact store 保存和恢复编码结果。",
+      "tags": [
+        "scheduling",
+        "reference-encoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/reference_encoder.py:ReferenceEncodeService",
+      "type": "class",
+      "name": "ReferenceEncodeService",
+      "filePath": "scheduling/reference_encoder.py",
+      "lineRange": [
+        130,
+        416
+      ],
+      "summary": "对参考编码请求去重、缓存并用后台 worker 批量执行。",
+      "tags": [
+        "scheduling",
+        "reference-encoder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scheduling/sglang_backend/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "scheduling/sglang_backend/__init__.py",
+      "summary": "导出 SGLang backend 的 prefill、decode、output 和 request data 组件。",
+      "tags": [
+        "SGLang-backend",
+        "package-api",
+        "scheduling"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python 包入口汇集 scheduler backend 公共 API。"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scheduling/dllm_scheduler.py",
+      "target": "class:scheduling/dllm_scheduler.py:DllmScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/dllm_scheduler.py",
+      "target": "class:scheduling/dllm_scheduler.py:DllmScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "function:scheduling/engine_factory.py:_operator_selected_prefill_graph_backend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "function:scheduling/engine_factory.py:_operator_selected_prefill_graph_backend",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "class:scheduling/engine_factory.py:SGLangGenerationEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "class:scheduling/engine_factory.py:SGLangGenerationEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "class:scheduling/engine_factory.py:AsrEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "class:scheduling/engine_factory.py:AsrEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "class:scheduling/engine_factory.py:TtsEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/engine_factory.py",
+      "target": "class:scheduling/engine_factory.py:TtsEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:get_decode_cuda_graph_max_bs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:get_decode_cuda_graph_max_bs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:get_decode_cuda_graph_bs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:get_decode_cuda_graph_bs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:get_prefill_cuda_graph_backend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:get_prefill_cuda_graph_backend",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:build_default_cuda_graph_bs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:build_default_cuda_graph_bs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:build_default_prefill_cuda_graph_bs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:build_default_prefill_cuda_graph_bs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:clamp_prefill_cuda_graph_max_bs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:clamp_prefill_cuda_graph_max_bs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:nested_prefill_overrides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:nested_prefill_overrides",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:build_generation_batch_overrides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:build_generation_batch_overrides",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:validate_generation_batch_policy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:validate_generation_batch_policy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_validate_prefill_graph_policy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_validate_prefill_graph_policy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_validate_positive_int",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_validate_positive_int",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_normalize_positive_int",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_normalize_positive_int",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_normalize_cuda_graph_bs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/generation_batch_policy.py",
+      "target": "function:scheduling/generation_batch_policy.py:_normalize_cuda_graph_bs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/messages.py",
+      "target": "class:scheduling/messages.py:IncomingMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/messages.py",
+      "target": "class:scheduling/messages.py:IncomingMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/messages.py",
+      "target": "class:scheduling/messages.py:OutgoingMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/messages.py",
+      "target": "class:scheduling/messages.py:OutgoingMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_to_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_to_list",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_from_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_from_list",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_items_to_lists",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_items_to_lists",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_items_from_lists",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_tensor_items_from_lists",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_validate_emit_mode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_validate_emit_mode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:wire",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:wire",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_spec_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_spec_of",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_default_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_default_of",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_emit_kind",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_emit_kind",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_has_complete_typed_tensor_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:_has_complete_typed_tensor_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:load_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:load_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:store_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:store_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:build_usage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "function:scheduling/pipeline_state.py:build_usage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "class:scheduling/pipeline_state.py:PipelineStateBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "class:scheduling/pipeline_state.py:PipelineStateBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "class:scheduling/pipeline_state.py:_WireSpec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "class:scheduling/pipeline_state.py:_WireSpec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "class:scheduling/pipeline_state.py:DeclarativeStateBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pipeline_state.py",
+      "target": "class:scheduling/pipeline_state.py:DeclarativeStateBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pre_lm_encoder.py",
+      "target": "class:scheduling/pre_lm_encoder.py:QueueEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pre_lm_encoder.py",
+      "target": "class:scheduling/pre_lm_encoder.py:QueueEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/pre_lm_encoder.py",
+      "target": "class:scheduling/pre_lm_encoder.py:PreLMEncoderService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/pre_lm_encoder.py",
+      "target": "class:scheduling/pre_lm_encoder.py:PreLMEncoderService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/prepared_request_queue.py",
+      "target": "class:scheduling/prepared_request_queue.py:QueueSnapshot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/prepared_request_queue.py",
+      "target": "class:scheduling/prepared_request_queue.py:QueueSnapshot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/prepared_request_queue.py",
+      "target": "class:scheduling/prepared_request_queue.py:PreparedRequestQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/prepared_request_queue.py",
+      "target": "class:scheduling/prepared_request_queue.py:PreparedRequestQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "function:scheduling/reference_encoder.py:_fresh_exception",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "function:scheduling/reference_encoder.py:_fresh_exception",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:ReferenceEncodeKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:ReferenceEncodeKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:ReferenceEncodeHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:ReferenceEncodeHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:KeyedReferenceEncodeHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:KeyedReferenceEncodeHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:TensorReferenceEncodeHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:TensorReferenceEncodeHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:ReferenceEncodeService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/reference_encoder.py",
+      "target": "class:scheduling/reference_encoder.py:ReferenceEncodeService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

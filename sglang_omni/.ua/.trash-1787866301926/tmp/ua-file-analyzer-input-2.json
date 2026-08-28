@@ -1,0 +1,57 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"models/ming_omni/talker/__init__.py","language":"python","sizeLines":13,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/audio_vae/configuration_audio_vae.py","language":"python","sizeLines":19,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/audio_vae/istft.py","language":"python","sizeLines":219,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/audio_vae/modeling_audio_vae.py","language":"python","sizeLines":99,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/audio_vae/vae_modules.py","language":"python","sizeLines":235,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/configuration_bailing_talker.py","language":"python","sizeLines":77,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/front/number_en.py","language":"python","sizeLines":191,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/front/text_segment_cut.py","language":"python","sizeLines":250,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/front/toolkit.py","language":"python","sizeLines":17,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/modeling_ming_omni_talker.py","language":"python","sizeLines":1485,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/talker_module/aggregator.py","language":"python","sizeLines":131,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/talker_module/cfm.py","language":"python","sizeLines":92,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/talker_module/dit.py","language":"python","sizeLines":208,"fileCategory":"code"},
+    {"path":"models/ming_omni/talker/talker_module/modules.py","language":"python","sizeLines":365,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "models/ming_omni/talker/__init__.py": [
+      "models/ming_omni/talker/audio_vae/modeling_audio_vae.py",
+      "models/ming_omni/talker/configuration_bailing_talker.py",
+      "models/ming_omni/talker/modeling_ming_omni_talker.py"
+    ],
+    "models/ming_omni/talker/audio_vae/configuration_audio_vae.py": [],
+    "models/ming_omni/talker/audio_vae/istft.py": [],
+    "models/ming_omni/talker/audio_vae/modeling_audio_vae.py": [
+      "models/ming_omni/talker/audio_vae/configuration_audio_vae.py",
+      "models/ming_omni/talker/audio_vae/vae_modules.py"
+    ],
+    "models/ming_omni/talker/audio_vae/vae_modules.py": [
+      "models/ming_omni/talker/audio_vae/istft.py"
+    ],
+    "models/ming_omni/talker/configuration_bailing_talker.py": [],
+    "models/ming_omni/talker/front/number_en.py": [],
+    "models/ming_omni/talker/front/text_segment_cut.py": [],
+    "models/ming_omni/talker/front/toolkit.py": [],
+    "models/ming_omni/talker/modeling_ming_omni_talker.py": [
+      "models/ming_omni/talker/configuration_bailing_talker.py",
+      "models/ming_omni/talker/front/number_en.py",
+      "models/ming_omni/talker/front/text_segment_cut.py",
+      "models/ming_omni/talker/front/toolkit.py",
+      "models/ming_omni/talker/talker_module/aggregator.py",
+      "models/ming_omni/talker/talker_module/cfm.py",
+      "models/ming_omni/talker/talker_module/dit.py"
+    ],
+    "models/ming_omni/talker/talker_module/aggregator.py": [
+      "models/ming_omni/talker/talker_module/modules.py"
+    ],
+    "models/ming_omni/talker/talker_module/cfm.py": [],
+    "models/ming_omni/talker/talker_module/dit.py": [
+      "models/ming_omni/talker/talker_module/modules.py"
+    ],
+    "models/ming_omni/talker/talker_module/modules.py": []
+  },
+  "neighborMap": {}
+}

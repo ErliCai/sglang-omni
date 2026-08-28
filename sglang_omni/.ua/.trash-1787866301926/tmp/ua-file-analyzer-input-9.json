@@ -1,0 +1,39 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "cli/__init__.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/check_gpu.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/config.py",
+      "language": "python",
+      "sizeLines": 344,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/serve.py",
+      "language": "python",
+      "sizeLines": 434,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "cli/__init__.py": [
+      "cli/check_gpu.py",
+      "cli/config.py",
+      "cli/serve.py"
+    ],
+    "cli/check_gpu.py": [],
+    "cli/config.py": [],
+    "cli/serve.py": []
+  }
+}

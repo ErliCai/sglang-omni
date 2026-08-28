@@ -1,0 +1,351 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_tts/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/qwen3_tts/__init__.py",
+      "summary": "声明 Qwen3-TTS 的参考音频、批量与流式声码器、CUDA 图和 Torch 编译能力，并公开配置。",
+      "tags": [
+        "qwen3-tts",
+        "model-capabilities",
+        "streaming-vocoder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_tts/compat.py",
+      "type": "file",
+      "name": "compat.py",
+      "filePath": "models/qwen3_tts/compat.py",
+      "summary": "为不同 Transformers 版本修补 Qwen3-TTS 的 RoPE 参数与注意力掩码工厂兼容行为。",
+      "tags": [
+        "qwen3-tts",
+        "transformers-compat",
+        "rope",
+        "attention-mask"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_tts/compat.py:_compute_default_rope_parameters",
+      "type": "function",
+      "name": "_compute_default_rope_parameters",
+      "filePath": "models/qwen3_tts/compat.py",
+      "lineRange": [
+        23,
+        45
+      ],
+      "summary": "计算compute default RoPE parameters逻辑，服务于qwen3-tts、transformers-compat的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "transformers-compat",
+        "compute-default-rope-parameters",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/compat.py:_make_mask_factory_compat",
+      "type": "function",
+      "name": "_make_mask_factory_compat",
+      "filePath": "models/qwen3_tts/compat.py",
+      "lineRange": [
+        48,
+        60
+      ],
+      "summary": "创建make 掩码 工厂 兼容逻辑，服务于qwen3-tts、transformers-compat的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "transformers-compat",
+        "make-mask-factory-compat",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/compat.py:_patch_mask_factories",
+      "type": "function",
+      "name": "_patch_mask_factories",
+      "filePath": "models/qwen3_tts/compat.py",
+      "lineRange": [
+        63,
+        80
+      ],
+      "summary": "执行patch 掩码 factories逻辑，服务于qwen3-tts、transformers-compat的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "transformers-compat",
+        "patch-mask-factories",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/compat.py:apply_qwen_tts_transformers_compatibility_patches",
+      "type": "function",
+      "name": "apply_qwen_tts_transformers_compatibility_patches",
+      "filePath": "models/qwen3_tts/compat.py",
+      "lineRange": [
+        83,
+        132
+      ],
+      "summary": "应用apply qwen tts transformers 兼容 patches逻辑，服务于qwen3-tts、transformers-compat的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "transformers-compat",
+        "apply-qwen-tts-transformers-compatibility-patches",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_tts/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/qwen3_tts/config.py",
+      "summary": "定义 Qwen3-TTS 的预处理、自回归引擎和声码器三阶段流水线，并识别 Base 模型变体。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-config",
+        "voice-cloning",
+        "vocoder"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_tts/config.py:_is_qwen3_tts_base_model",
+      "type": "function",
+      "name": "_is_qwen3_tts_base_model",
+      "filePath": "models/qwen3_tts/config.py",
+      "lineRange": [
+        106,
+        118
+      ],
+      "summary": "判断is qwen3 tts base 模型逻辑，服务于qwen3-tts、pipeline-config的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-config",
+        "is-qwen3-tts-base-model",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/config.py:Qwen3TTSPipelineConfig",
+      "type": "class",
+      "name": "Qwen3TTSPipelineConfig",
+      "filePath": "models/qwen3_tts/config.py",
+      "lineRange": [
+        25,
+        103
+      ],
+      "summary": "定义 Qwen3-TTS 三阶段拓扑、参考音频能力和声码器流边。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-config",
+        "qwen3-ttspipeline-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_tts/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/qwen3_tts/engine_builder.py",
+      "summary": "构建 Qwen3-TTS SGLang 引擎，配置模型、上下文、运行器、适配器和并发请求参数。",
+      "tags": [
+        "qwen3-tts",
+        "engine-builder",
+        "sglang-runtime"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_tts/engine_builder.py:Qwen3TtsEngineBuilder",
+      "type": "class",
+      "name": "Qwen3TtsEngineBuilder",
+      "filePath": "models/qwen3_tts/engine_builder.py",
+      "lineRange": [
+        16,
+        143
+      ],
+      "summary": "组装 Qwen3-TTS SGLang 模型、运行器、请求适配器和调度参数。",
+      "tags": [
+        "qwen3-tts",
+        "engine-builder",
+        "qwen3-tts-engine-builder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_tts/model_runner.py",
+      "type": "file",
+      "name": "model_runner.py",
+      "filePath": "models/qwen3_tts/model_runner.py",
+      "summary": "协调 Qwen3-TTS Talker 与码本预测器的预填充、解码、请求状态、反馈码和资源清理。",
+      "tags": [
+        "qwen3-tts",
+        "model-runner",
+        "code-predictor",
+        "decode-loop"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_tts/model_runner.py:Qwen3TTSModelRunner",
+      "type": "class",
+      "name": "Qwen3TTSModelRunner",
+      "filePath": "models/qwen3_tts/model_runner.py",
+      "lineRange": [
+        18,
+        401
+      ],
+      "summary": "协调 Talker 主干与多码本预测器的逐步生成、反馈和请求资源生命周期。",
+      "tags": [
+        "qwen3-tts",
+        "model-runner",
+        "qwen3-ttsmodel-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:_compute_default_rope_parameters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:_compute_default_rope_parameters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:_make_mask_factory_compat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:_make_mask_factory_compat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:_patch_mask_factories",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:_patch_mask_factories",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:apply_qwen_tts_transformers_compatibility_patches",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/compat.py",
+      "target": "function:models/qwen3_tts/compat.py:apply_qwen_tts_transformers_compatibility_patches",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/config.py",
+      "target": "function:models/qwen3_tts/config.py:_is_qwen3_tts_base_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/config.py",
+      "target": "function:models/qwen3_tts/config.py:_is_qwen3_tts_base_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/config.py",
+      "target": "class:models/qwen3_tts/config.py:Qwen3TTSPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/config.py",
+      "target": "class:models/qwen3_tts/config.py:Qwen3TTSPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/engine_builder.py",
+      "target": "class:models/qwen3_tts/engine_builder.py:Qwen3TtsEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/engine_builder.py",
+      "target": "class:models/qwen3_tts/engine_builder.py:Qwen3TtsEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/model_runner.py",
+      "target": "class:models/qwen3_tts/model_runner.py:Qwen3TTSModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/model_runner.py",
+      "target": "class:models/qwen3_tts/model_runner.py:Qwen3TTSModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/__init__.py",
+      "target": "file:models/qwen3_tts/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:models/qwen3_tts/engine_builder.py:Qwen3TtsEngineBuilder",
+      "target": "class:models/qwen3_tts/model_runner.py:Qwen3TTSModelRunner",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_tts/model_runner.py:Qwen3TTSModelRunner",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

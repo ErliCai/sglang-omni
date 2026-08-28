@@ -1,0 +1,846 @@
+{
+  "nodes": [
+    {
+      "id": "file:scheduling/typed_tensor.py",
+      "type": "file",
+      "name": "typed_tensor.py",
+      "filePath": "scheduling/typed_tensor.py",
+      "summary": "把 Torch 张量编码为带 dtype 与形状的可移植字节格式，并从该格式恢复张量。",
+      "tags": [
+        "scheduling",
+        "tensor-serialization",
+        "dtype"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/typed_tensor.py:encode_typed_tensor",
+      "type": "function",
+      "name": "encode_typed_tensor",
+      "filePath": "scheduling/typed_tensor.py",
+      "lineRange": [
+        21,
+        52
+      ],
+      "summary": "编码编码 类型化 张量逻辑，服务于scheduling、tensor-serialization的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "tensor-serialization",
+        "encode-typed-tensor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/typed_tensor.py:decode_typed_tensor",
+      "type": "function",
+      "name": "decode_typed_tensor",
+      "filePath": "scheduling/typed_tensor.py",
+      "lineRange": [
+        55,
+        78
+      ],
+      "summary": "解码解码 类型化 张量逻辑，服务于scheduling、tensor-serialization的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "tensor-serialization",
+        "decode-typed-tensor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/vocoder_base.py",
+      "type": "file",
+      "name": "vocoder_base.py",
+      "filePath": "scheduling/vocoder_base.py",
+      "summary": "定义批量声码器调度器的解码、结果组装和资源清理接口。",
+      "tags": [
+        "scheduling",
+        "batch-vocoder",
+        "scheduler-base"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scheduling/vocoder_base.py:BatchVocoderBase",
+      "type": "class",
+      "name": "BatchVocoderBase",
+      "filePath": "scheduling/vocoder_base.py",
+      "lineRange": [
+        16,
+        66
+      ],
+      "summary": "定义完成请求的批量声码器解码及结果写回契约。",
+      "tags": [
+        "scheduling",
+        "batch-vocoder",
+        "batch-vocoder-base",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:serve/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "serve/__init__.py",
+      "summary": "通过惰性属性公开服务启动器和 OpenAI API 应用工厂。",
+      "tags": [
+        "serve",
+        "public-api",
+        "lazy-import"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "serve/__init__.py",
+      "lineRange": [
+        14,
+        21
+      ],
+      "summary": "执行getattr逻辑，服务于serve、public-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "public-api",
+        "getattr--",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/generation_params.py",
+      "type": "file",
+      "name": "generation_params.py",
+      "filePath": "serve/generation_params.py",
+      "summary": "记录请求中用户显式提供的生成参数，便于默认值合并和响应追踪。",
+      "tags": [
+        "serve",
+        "generation-params",
+        "request-metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/generation_params.py:record_explicit_generation_params",
+      "type": "function",
+      "name": "record_explicit_generation_params",
+      "filePath": "serve/generation_params.py",
+      "lineRange": [
+        11,
+        16
+      ],
+      "summary": "记录记录 显式 生成 参数逻辑，服务于serve、generation-params的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "generation-params",
+        "record-explicit-generation-params",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/launcher.py",
+      "type": "file",
+      "name": "launcher.py",
+      "filePath": "serve/launcher.py",
+      "summary": "准备流水线和 FastAPI 应用、挂载 profiler 路由、启动 Uvicorn，并监控服务与子进程失败。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "uvicorn",
+        "pipeline-runtime"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/launcher.py:_find_available_port",
+      "type": "function",
+      "name": "_find_available_port",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        93,
+        115
+      ],
+      "summary": "查找find 可用 端口逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "find-available-port",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_default_run_id",
+      "type": "function",
+      "name": "_default_run_id",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        118,
+        119
+      ],
+      "summary": "生成默认 运行 ID逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "default-run-id",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_default_template",
+      "type": "function",
+      "name": "_default_template",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        122,
+        123
+      ],
+      "summary": "生成默认 模板逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "default-template",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_stage_runtime_log_summary",
+      "type": "function",
+      "name": "_stage_runtime_log_summary",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        127,
+        143
+      ],
+      "summary": "执行阶段 运行时 日志 摘要逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "stage-runtime-log-summary",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_format_gpu_device_info",
+      "type": "function",
+      "name": "_format_gpu_device_info",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        146,
+        155
+      ],
+      "summary": "格式化格式 GPU 设备 信息逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "format-gpu-device-info",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_placement_log_summary",
+      "type": "function",
+      "name": "_placement_log_summary",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        158,
+        194
+      ],
+      "summary": "汇总放置 日志 摘要逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "placement-log-summary",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_model_capabilities_log_summary",
+      "type": "function",
+      "name": "_model_capabilities_log_summary",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        197,
+        216
+      ],
+      "summary": "构造模型 能力 日志 摘要逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "model-capabilities-log-summary",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_log_model_capabilities",
+      "type": "function",
+      "name": "_log_model_capabilities",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        219,
+        229
+      ],
+      "summary": "记录日志 模型 能力逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "log-model-capabilities",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_default_event_dir",
+      "type": "function",
+      "name": "_default_event_dir",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        249,
+        250
+      ],
+      "summary": "生成默认 事件 dir逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "default-event-dir",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:_mount_profiler_routes",
+      "type": "function",
+      "name": "_mount_profiler_routes",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        253,
+        365
+      ],
+      "summary": "挂载mount 分析器 路由逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "mount-profiler-routes",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/launcher.py:_run_server",
+      "type": "function",
+      "name": "_run_server",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        368,
+        463
+      ],
+      "summary": "运行运行 服务逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "run-server",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/launcher.py:_serve_with_failure_watch",
+      "type": "function",
+      "name": "_serve_with_failure_watch",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        466,
+        501
+      ],
+      "summary": "运行serve with 失败 监控逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "serve-with-failure-watch",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/launcher.py:launch_server",
+      "type": "function",
+      "name": "launch_server",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        504,
+        550
+      ],
+      "summary": "执行launch 服务逻辑，服务于serve、server-launcher的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "launch-server",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/launcher.py:_PipelineUvicornServer",
+      "type": "class",
+      "name": "_PipelineUvicornServer",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        62,
+        85
+      ],
+      "summary": "扩展 Uvicorn Server 以配合流水线失败监控和受控退出。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "pipeline-uvicorn-server",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/launcher.py:StartReq",
+      "type": "class",
+      "name": "StartReq",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        232,
+        237
+      ],
+      "summary": "描述 profiler 启动请求的活动范围和输出参数。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "start-req",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/launcher.py:StopReq",
+      "type": "class",
+      "name": "StopReq",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        240,
+        241
+      ],
+      "summary": "描述停止 profiler 的管理请求。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "stop-req",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/launcher.py:StartRequestProfileReq",
+      "type": "class",
+      "name": "StartRequestProfileReq",
+      "filePath": "serve/launcher.py",
+      "lineRange": [
+        244,
+        246
+      ],
+      "summary": "描述按请求启动性能追踪的管理请求。",
+      "tags": [
+        "serve",
+        "server-launcher",
+        "start-request-profile-req",
+        "class"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scheduling/typed_tensor.py",
+      "target": "function:scheduling/typed_tensor.py:encode_typed_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/typed_tensor.py",
+      "target": "function:scheduling/typed_tensor.py:encode_typed_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/typed_tensor.py",
+      "target": "function:scheduling/typed_tensor.py:decode_typed_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/typed_tensor.py",
+      "target": "function:scheduling/typed_tensor.py:decode_typed_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/vocoder_base.py",
+      "target": "class:scheduling/vocoder_base.py:BatchVocoderBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/vocoder_base.py",
+      "target": "class:scheduling/vocoder_base.py:BatchVocoderBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/__init__.py",
+      "target": "function:serve/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/__init__.py",
+      "target": "function:serve/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/generation_params.py",
+      "target": "function:serve/generation_params.py:record_explicit_generation_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/generation_params.py",
+      "target": "function:serve/generation_params.py:record_explicit_generation_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_find_available_port",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_find_available_port",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_default_run_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_default_run_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_default_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_default_template",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_stage_runtime_log_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_stage_runtime_log_summary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_format_gpu_device_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_format_gpu_device_info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_placement_log_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_placement_log_summary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_model_capabilities_log_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_model_capabilities_log_summary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_log_model_capabilities",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_log_model_capabilities",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_default_event_dir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_default_event_dir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_mount_profiler_routes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_mount_profiler_routes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_run_server",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_run_server",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_serve_with_failure_watch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:_serve_with_failure_watch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:launch_server",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "function:serve/launcher.py:launch_server",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:_PipelineUvicornServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:_PipelineUvicornServer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:StartReq",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:StartReq",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:StopReq",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:StopReq",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:StartRequestProfileReq",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/launcher.py",
+      "target": "class:serve/launcher.py:StartRequestProfileReq",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_placement_log_summary",
+      "target": "function:serve/launcher.py:_format_gpu_device_info",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_placement_log_summary",
+      "target": "function:serve/launcher.py:_stage_runtime_log_summary",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_log_model_capabilities",
+      "target": "function:serve/launcher.py:_model_capabilities_log_summary",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_run_server",
+      "target": "function:serve/launcher.py:_find_available_port",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_run_server",
+      "target": "function:serve/launcher.py:_placement_log_summary",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_run_server",
+      "target": "function:serve/launcher.py:_log_model_capabilities",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_run_server",
+      "target": "function:serve/launcher.py:_mount_profiler_routes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_run_server",
+      "target": "class:serve/launcher.py:_PipelineUvicornServer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:_run_server",
+      "target": "function:serve/launcher.py:_serve_with_failure_watch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/launcher.py:launch_server",
+      "target": "function:serve/launcher.py:_run_server",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

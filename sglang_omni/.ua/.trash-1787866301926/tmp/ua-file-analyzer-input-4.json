@@ -1,0 +1,32 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"models/fun_asr/configuration_fun_asr.py","language":"python","sizeLines":410,"fileCategory":"code"},
+    {"path":"models/fun_asr/encoder_cuda_graph.py","language":"python","sizeLines":212,"fileCategory":"code"},
+    {"path":"models/fun_asr/request_builders.py","language":"python","sizeLines":391,"fileCategory":"code"},
+    {"path":"models/fun_asr/sglang_model.py","language":"python","sizeLines":615,"fileCategory":"code"},
+    {"path":"models/fun_asr/tool_funcs/__init__.py","language":"python","sizeLines":7,"fileCategory":"code"},
+    {"path":"models/fun_asr/tool_funcs/audio_lengths.py","language":"python","sizeLines":17,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "models/fun_asr/configuration_fun_asr.py": [
+      "models/fun_asr/tool_funcs/audio_lengths.py"
+    ],
+    "models/fun_asr/encoder_cuda_graph.py": [
+      "models/fun_asr/sglang_model.py"
+    ],
+    "models/fun_asr/request_builders.py": [
+      "models/fun_asr/configuration_fun_asr.py",
+      "models/fun_asr/tool_funcs/audio_lengths.py"
+    ],
+    "models/fun_asr/sglang_model.py": [
+      "models/fun_asr/configuration_fun_asr.py",
+      "models/fun_asr/tool_funcs/audio_lengths.py"
+    ],
+    "models/fun_asr/tool_funcs/__init__.py": [
+      "models/fun_asr/tool_funcs/audio_lengths.py"
+    ],
+    "models/fun_asr/tool_funcs/audio_lengths.py": []
+  },
+  "neighborMap": {}
+}

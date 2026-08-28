@@ -1,0 +1,5918 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 14,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 14,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 14,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/ming_omni/talker/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 11,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/configuration_audio_vae.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 17,
+      "classes": [
+        {
+          "name": "AudioVAEconfig",
+          "startLine": 4,
+          "endLine": 19,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AudioVAEconfig",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/istft.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 219,
+      "nonEmptyLines": 190,
+      "classes": [
+        {
+          "name": "ISTFT",
+          "startLine": 5,
+          "endLine": 139,
+          "methods": [
+            "__init__",
+            "__buffer_process",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FourierHead",
+          "startLine": 142,
+          "endLine": 154,
+          "methods": [
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ISTFTHead",
+          "startLine": 157,
+          "endLine": 219,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ISTFT",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "FourierHead",
+          "line": 142,
+          "isDefault": false
+        },
+        {
+          "name": "ISTFTHead",
+          "line": 157,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 25
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.hann_window",
+          "lineNumber": 30
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.register_buffer",
+          "lineNumber": 31
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.istft",
+          "lineNumber": 80
+        },
+        {
+          "caller": "forward",
+          "callee": "ValueError",
+          "lineNumber": 91
+        },
+        {
+          "caller": "forward",
+          "callee": "spec.dim",
+          "lineNumber": 93
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.fft.irfft",
+          "lineNumber": 97
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.nn.functional.fold",
+          "lineNumber": 102
+        },
+        {
+          "caller": "forward",
+          "callee": "self.__buffer_process",
+          "lineNumber": 109
+        },
+        {
+          "caller": "forward",
+          "callee": "self.window.square().expand(1, T, -1).transpose",
+          "lineNumber": 114
+        },
+        {
+          "caller": "forward",
+          "callee": "self.window.square().expand",
+          "lineNumber": 114
+        },
+        {
+          "caller": "forward",
+          "callee": "self.window.square",
+          "lineNumber": 114
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.nn.functional.fold(\r\n                window_sq,\r\n                output_size=(1, output_size),\r\n                kernel_size=(1, self.win_length),\r\n                stride=(1, self.hop_length),\r\n            )\r\n            .squeeze(0)\r\n            .squeeze",
+          "lineNumber": 116
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.nn.functional.fold(\r\n                window_sq,\r\n                output_size=(1, output_size),\r\n                kernel_size=(1, self.win_length),\r\n                stride=(1, self.hop_length),\r\n            )\r\n            .squeeze",
+          "lineNumber": 116
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.nn.functional.fold",
+          "lineNumber": 116
+        },
+        {
+          "caller": "forward",
+          "callee": "self.__buffer_process",
+          "lineNumber": 126
+        },
+        {
+          "caller": "forward",
+          "callee": "window_envelope.squeeze",
+          "lineNumber": 133
+        },
+        {
+          "caller": "forward",
+          "callee": "(window_envelope > 1e-11).all",
+          "lineNumber": 136
+        },
+        {
+          "caller": "forward",
+          "callee": "NotImplementedError",
+          "lineNumber": 154
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 170
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 170
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.nn.Linear",
+          "lineNumber": 172
+        },
+        {
+          "caller": "__init__",
+          "callee": "ISTFT",
+          "lineNumber": 173
+        },
+        {
+          "caller": "forward",
+          "callee": "self.out",
+          "lineNumber": 195
+        },
+        {
+          "caller": "forward",
+          "callee": "x_pred.transpose",
+          "lineNumber": 197
+        },
+        {
+          "caller": "forward",
+          "callee": "x_pred.chunk",
+          "lineNumber": 198
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.exp",
+          "lineNumber": 199
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.clip",
+          "lineNumber": 200
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cos",
+          "lineNumber": 204
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.sin",
+          "lineNumber": 205
+        },
+        {
+          "caller": "forward",
+          "callee": "self.istft",
+          "lineNumber": 212
+        },
+        {
+          "caller": "forward",
+          "callee": "audio.unsqueeze",
+          "lineNumber": 219
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/modeling_audio_vae.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 86,
+      "classes": [
+        {
+          "name": "AudioVAE",
+          "startLine": 12,
+          "endLine": 99,
+          "methods": [
+            "__init__",
+            "_init_weights",
+            "encode_latent",
+            "decode"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AudioVAE",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 16
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 16
+        },
+        {
+          "caller": "__init__",
+          "callee": "Encoder",
+          "lineNumber": 17
+        },
+        {
+          "caller": "__init__",
+          "callee": "config.enc_kwargs.get",
+          "lineNumber": 20
+        },
+        {
+          "caller": "__init__",
+          "callee": "Decoder",
+          "lineNumber": 25
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.post_init",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_init_weights",
+          "callee": "isinstance",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_init_weights",
+          "callee": "nn.init.kaiming_normal_",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_init_weights",
+          "callee": "module.weight.data.normal_",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_init_weights",
+          "callee": "module.bias.data.zero_",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_init_weights",
+          "callee": "isinstance",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_init_weights",
+          "callee": "module.weight.data.normal_",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_init_weights",
+          "callee": "module.weight.data[module.padding_idx].zero_",
+          "lineNumber": 49
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "torch.ceil(\r\n            waveform_length / self.config.enc_kwargs[\"input_dim\"]\r\n        ).to",
+          "lineNumber": 63
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "torch.ceil",
+          "lineNumber": 63
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "torch.ceil",
+          "lineNumber": 67
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "self.encoder",
+          "lineNumber": 68
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "h.transpose",
+          "lineNumber": 69
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "OobleckDiagonalGaussianDistribution",
+          "lineNumber": 71
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "posterior.sample",
+          "lineNumber": 72
+        },
+        {
+          "caller": "encode_latent",
+          "callee": "latent.transpose",
+          "lineNumber": 73
+        },
+        {
+          "caller": "decode",
+          "callee": "self.decoder.low_level_reconstruct",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/vae_modules.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 235,
+      "nonEmptyLines": 199,
+      "classes": [
+        {
+          "name": "StreamingLinearUpsample",
+          "startLine": 9,
+          "endLine": 66,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Encoder",
+          "startLine": 69,
+          "endLine": 132,
+          "methods": [
+            "__init__",
+            "get_frames",
+            "pad_patch_insert_cls",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Decoder",
+          "startLine": 135,
+          "endLine": 235,
+          "methods": [
+            "__init__",
+            "low_level_reconstruct"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "StreamingLinearUpsample",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "Encoder",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "Decoder",
+          "line": 135,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 11
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 11
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Upsample",
+          "lineNumber": 13
+        },
+        {
+          "caller": "forward",
+          "callee": "self.upsampler(x.transpose(1, 2)).transpose",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forward",
+          "callee": "self.upsampler",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forward",
+          "callee": "x.transpose",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forward",
+          "callee": "state[\"prev_chunk\"].transpose",
+          "lineNumber": 38
+        },
+        {
+          "caller": "forward",
+          "callee": "x[:, :1, :].transpose",
+          "lineNumber": 41
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 42
+        },
+        {
+          "caller": "forward",
+          "callee": "self.upsampler",
+          "lineNumber": 43
+        },
+        {
+          "caller": "forward",
+          "callee": "p.size",
+          "lineNumber": 44
+        },
+        {
+          "caller": "forward",
+          "callee": "x[:, :1, :].transpose",
+          "lineNumber": 46
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 47
+        },
+        {
+          "caller": "forward",
+          "callee": "self.upsampler",
+          "lineNumber": 48
+        },
+        {
+          "caller": "forward",
+          "callee": "p.size",
+          "lineNumber": 50
+        },
+        {
+          "caller": "forward",
+          "callee": "output_chunks.append",
+          "lineNumber": 53
+        },
+        {
+          "caller": "forward",
+          "callee": "out_prev.transpose",
+          "lineNumber": 53
+        },
+        {
+          "caller": "forward",
+          "callee": "state[\"prev_chunk\"].transpose",
+          "lineNumber": 58
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 59
+        },
+        {
+          "caller": "forward",
+          "callee": "self.upsampler",
+          "lineNumber": 60
+        },
+        {
+          "caller": "forward",
+          "callee": "output_chunks.append",
+          "lineNumber": 62
+        },
+        {
+          "caller": "forward",
+          "callee": "out_last.transpose",
+          "lineNumber": 62
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 73
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 73
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2Config.from_dict",
+          "lineNumber": 74
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2Model",
+          "lineNumber": 75
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 79
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 80
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 81
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 82
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2Model",
+          "lineNumber": 86
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Parameter",
+          "lineNumber": 87
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.rand",
+          "lineNumber": 87
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.cls_embed.data.normal_",
+          "lineNumber": 88
+        },
+        {
+          "caller": "get_frames",
+          "callee": "x.size",
+          "lineNumber": 91
+        },
+        {
+          "caller": "get_frames",
+          "callee": "x.size",
+          "lineNumber": 93
+        },
+        {
+          "caller": "get_frames",
+          "callee": "F.pad",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get_frames",
+          "callee": "waveform.unfold",
+          "lineNumber": 96
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "x.size",
+          "lineNumber": 102
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "x.size",
+          "lineNumber": 103
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "F.pad",
+          "lineNumber": 106
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "x.reshape",
+          "lineNumber": 107
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "torch.cat",
+          "lineNumber": 108
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "self.cls_embed.expand",
+          "lineNumber": 109
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "x.size",
+          "lineNumber": 109
+        },
+        {
+          "caller": "pad_patch_insert_cls",
+          "callee": "x.reshape",
+          "lineNumber": 111
+        },
+        {
+          "caller": "forward",
+          "callee": "self.get_frames",
+          "lineNumber": 115
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc1",
+          "lineNumber": 117
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc2",
+          "lineNumber": 118
+        },
+        {
+          "caller": "forward",
+          "callee": "self.encoder",
+          "lineNumber": 119
+        },
+        {
+          "caller": "forward",
+          "callee": "self.pad_patch_insert_cls",
+          "lineNumber": 124
+        },
+        {
+          "caller": "forward",
+          "callee": "self.aggregator",
+          "lineNumber": 125
+        },
+        {
+          "caller": "forward",
+          "callee": "x.size",
+          "lineNumber": 127
+        },
+        {
+          "caller": "forward",
+          "callee": "x.reshape",
+          "lineNumber": 128
+        },
+        {
+          "caller": "forward",
+          "callee": "x[:, -1:, :].reshape",
+          "lineNumber": 129
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc3",
+          "lineNumber": 131
+        },
+        {
+          "caller": "forward",
+          "callee": "waveform.unsqueeze",
+          "lineNumber": 132
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 137
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 137
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2Config.from_dict",
+          "lineNumber": 138
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2Model",
+          "lineNumber": 139
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 142
+        },
+        {
+          "caller": "__init__",
+          "callee": "ISTFTHead",
+          "lineNumber": 144
+        },
+        {
+          "caller": "__init__",
+          "callee": "StreamingLinearUpsample",
+          "lineNumber": 152
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "x.size",
+          "lineNumber": 163
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "self.fc1",
+          "lineNumber": 164
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "self.upsampling",
+          "lineNumber": 168
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "torch.empty",
+          "lineNumber": 174
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "self.upsampling.upsampler(x.transpose(1, 2)).transpose",
+          "lineNumber": 179
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "self.upsampling.upsampler",
+          "lineNumber": 179
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "x.transpose",
+          "lineNumber": 179
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "getattr",
+          "lineNumber": 185
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "hasattr",
+          "lineNumber": 191
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "past_key_values.get_seq_length",
+          "lineNumber": 192
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "isinstance",
+          "lineNumber": 193
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "len",
+          "lineNumber": 193
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "self.decoder",
+          "lineNumber": 203
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "hidden_states_list.append",
+          "lineNumber": 209
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "self.decoder",
+          "lineNumber": 214
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "hidden_states_list.append",
+          "lineNumber": 218
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "len",
+          "lineNumber": 221
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "torch.cat",
+          "lineNumber": 222
+        },
+        {
+          "caller": "low_level_reconstruct",
+          "callee": "self.head",
+          "lineNumber": 226
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/configuration_bailing_talker.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 77,
+      "nonEmptyLines": 66,
+      "classes": [
+        {
+          "name": "MingOmniTalkerConfig",
+          "startLine": 13,
+          "endLine": 77,
+          "methods": [
+            "__init__",
+            "from_pretrained_dir"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MingOmniTalkerConfig",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "Path",
+          "lineNumber": 52
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "config_path.exists",
+          "lineNumber": 56
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "FileNotFoundError",
+          "lineNumber": 57
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "config_path.open",
+          "lineNumber": 58
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "json.load",
+          "lineNumber": 59
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "llm_config_path.exists",
+          "lineNumber": 64
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "llm_config_path.open",
+          "lineNumber": 65
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "json.load",
+          "lineNumber": 66
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "cls",
+          "lineNumber": 68
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "raw.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "raw.get",
+          "lineNumber": 71
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "raw.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "raw.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "raw.get",
+          "lineNumber": 74
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "raw.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "from_pretrained_dir",
+          "callee": "raw.get",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/front/number_en.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 191,
+      "nonEmptyLines": 163,
+      "functions": [
+        {
+          "name": "_num_to_words",
+          "startLine": 52,
+          "endLine": 86,
+          "params": [
+            "num_str"
+          ]
+        },
+        {
+          "name": "_remove_commas",
+          "startLine": 89,
+          "endLine": 90,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_unit",
+          "startLine": 93,
+          "endLine": 97,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_percent",
+          "startLine": 100,
+          "endLine": 102,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_dollars",
+          "startLine": 105,
+          "endLine": 112,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_pounds",
+          "startLine": 115,
+          "endLine": 122,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_fraction",
+          "startLine": 125,
+          "endLine": 137,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_ordinal",
+          "startLine": 140,
+          "endLine": 147,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_number",
+          "startLine": 150,
+          "endLine": 152,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "_expand_version",
+          "startLine": 155,
+          "endLine": 175,
+          "params": [
+            "m"
+          ]
+        },
+        {
+          "name": "normalize_numbers",
+          "startLine": 178,
+          "endLine": 191,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_num_to_words",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "_remove_commas",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_unit",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_percent",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_dollars",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_pounds",
+          "line": 115,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_fraction",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_ordinal",
+          "line": 140,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_number",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_version",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "normalize_numbers",
+          "line": 178,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_num_to_words",
+          "callee": "num_str.startswith",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "num_str.lstrip",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "clean_num.split",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "integer_part.isdigit",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "decimal_part.isdigit",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "int",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "\" \".join",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "int",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "d.isdigit",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "clean_num.isdigit",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_num_to_words",
+          "callee": "int",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_remove_commas",
+          "callee": "m.group(1).replace",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_remove_commas",
+          "callee": "m.group",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_expand_unit",
+          "callee": "m.group",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_expand_unit",
+          "callee": "m.group(2).lower",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_expand_unit",
+          "callee": "m.group",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_expand_unit",
+          "callee": "_unit_mapping.get",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_expand_unit",
+          "callee": "_num_to_words",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_expand_percent",
+          "callee": "_num_to_words",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_expand_percent",
+          "callee": "m.group",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_expand_percent",
+          "callee": "m.group",
+          "lineNumber": 102
+        },
+        {
+          "caller": "_expand_dollars",
+          "callee": "m.group",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_expand_dollars",
+          "callee": "_num_to_words",
+          "lineNumber": 107
+        },
+        {
+          "caller": "_expand_dollars",
+          "callee": "match.lstrip",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_expand_dollars",
+          "callee": "abs",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_expand_dollars",
+          "callee": "float",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_expand_pounds",
+          "callee": "m.group",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_expand_pounds",
+          "callee": "_num_to_words",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_expand_pounds",
+          "callee": "num_str.lstrip",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_expand_pounds",
+          "callee": "abs",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_expand_pounds",
+          "callee": "float",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "m.group",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "int",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "m.group",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "int",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "m.group",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "_inflect.ordinal",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_expand_fraction",
+          "callee": "m.group",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_expand_ordinal",
+          "callee": "m.group",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_expand_ordinal",
+          "callee": "int",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_expand_ordinal",
+          "callee": "re.sub",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_expand_ordinal",
+          "callee": "m.group",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_expand_ordinal",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 145
+        },
+        {
+          "caller": "_expand_ordinal",
+          "callee": "m.group",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_expand_number",
+          "callee": "_num_to_words",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_expand_number",
+          "callee": "m.group",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_expand_number",
+          "callee": "m.group",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "m.group",
+          "lineNumber": 157
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "m.group",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "m.group",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "m.group",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "num_str.split",
+          "lineNumber": 161
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "parts[0].isdigit",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "parts[1].isdigit",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "m.group",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "int",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "\" \".join",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 166
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "int",
+          "lineNumber": 166
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "d.isdigit",
+          "lineNumber": 166
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "num_str.isdigit",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "m.group",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "_inflect.number_to_words",
+          "lineNumber": 172
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "int",
+          "lineNumber": 172
+        },
+        {
+          "caller": "_expand_version",
+          "callee": "m.group",
+          "lineNumber": 174
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 181
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 182
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 183
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 184
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 185
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 186
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 187
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 188
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 189
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "re.sub",
+          "lineNumber": 190
+        },
+        {
+          "caller": "normalize_numbers",
+          "callee": "text.strip",
+          "lineNumber": 191
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 11,
+        "functionCount": 11,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/front/text_segment_cut.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 250,
+      "nonEmptyLines": 207,
+      "functions": [
+        {
+          "name": "is_chinese",
+          "startLine": 5,
+          "endLine": 6,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "get_semantic_length",
+          "startLine": 9,
+          "endLine": 12,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "has_valid_content",
+          "startLine": 15,
+          "endLine": 20,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "append_text_fragment",
+          "startLine": 23,
+          "endLine": 49,
+          "params": [
+            "fragments",
+            "new_text",
+            "max_len",
+            "min_tail_length"
+          ]
+        },
+        {
+          "name": "split_long_fragment",
+          "startLine": 52,
+          "endLine": 81,
+          "params": [
+            "text_fragment",
+            "max_len"
+          ]
+        },
+        {
+          "name": "calibrate_positions",
+          "startLine": 84,
+          "endLine": 113,
+          "params": [
+            "fragments",
+            "positions",
+            "original_text"
+          ]
+        },
+        {
+          "name": "cut_text_by_semantic_length",
+          "startLine": 116,
+          "endLine": 250,
+          "params": [
+            "text",
+            "max_semantic_length",
+            "min_tail_length"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "is_chinese",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "get_semantic_length",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "has_valid_content",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "append_text_fragment",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "split_long_fragment",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "calibrate_positions",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "cut_text_by_semantic_length",
+          "line": 116,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "is_chinese",
+          "callee": "bool",
+          "lineNumber": 6
+        },
+        {
+          "caller": "is_chinese",
+          "callee": "re.search",
+          "lineNumber": 6
+        },
+        {
+          "caller": "get_semantic_length",
+          "callee": "len",
+          "lineNumber": 10
+        },
+        {
+          "caller": "get_semantic_length",
+          "callee": "re.findall",
+          "lineNumber": 10
+        },
+        {
+          "caller": "get_semantic_length",
+          "callee": "len",
+          "lineNumber": 11
+        },
+        {
+          "caller": "get_semantic_length",
+          "callee": "re.findall",
+          "lineNumber": 11
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "new_text.lstrip",
+          "lineNumber": 24
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "has_valid_content",
+          "lineNumber": 25
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "fragments.append",
+          "lineNumber": 29
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "get_semantic_length",
+          "lineNumber": 33
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "get_semantic_length",
+          "lineNumber": 34
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "last_fragment.endswith",
+          "lineNumber": 38
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "fragments.append",
+          "lineNumber": 41
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "last_fragment.endswith",
+          "lineNumber": 44
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "re.match",
+          "lineNumber": 44
+        },
+        {
+          "caller": "append_text_fragment",
+          "callee": "fragments.append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "split_long_fragment",
+          "callee": "get_semantic_length",
+          "lineNumber": 53
+        },
+        {
+          "caller": "split_long_fragment",
+          "callee": "re.findall",
+          "lineNumber": 59
+        },
+        {
+          "caller": "split_long_fragment",
+          "callee": "get_semantic_length",
+          "lineNumber": 64
+        },
+        {
+          "caller": "split_long_fragment",
+          "callee": "get_semantic_length",
+          "lineNumber": 65
+        },
+        {
+          "caller": "split_long_fragment",
+          "callee": "fragments.append",
+          "lineNumber": 71
+        },
+        {
+          "caller": "split_long_fragment",
+          "callee": "fragments.append",
+          "lineNumber": 73
+        },
+        {
+          "caller": "split_long_fragment",
+          "callee": "fragments.append",
+          "lineNumber": 79
+        },
+        {
+          "caller": "calibrate_positions",
+          "callee": "enumerate",
+          "lineNumber": 88
+        },
+        {
+          "caller": "calibrate_positions",
+          "callee": "len",
+          "lineNumber": 89
+        },
+        {
+          "caller": "calibrate_positions",
+          "callee": "original_text.find",
+          "lineNumber": 90
+        },
+        {
+          "caller": "calibrate_positions",
+          "callee": "fragment.replace",
+          "lineNumber": 93
+        },
+        {
+          "caller": "calibrate_positions",
+          "callee": "original_text.replace",
+          "lineNumber": 94
+        },
+        {
+          "caller": "calibrate_positions",
+          "callee": "simplified_original.find",
+          "lineNumber": 95
+        },
+        {
+          "caller": "calibrate_positions",
+          "callee": "original_text[:found_pos].count",
+          "lineNumber": 97
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "has_valid_content",
+          "lineNumber": 117
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "re.sub",
+          "lineNumber": 123
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "range",
+          "lineNumber": 124
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "re.sub",
+          "lineNumber": 125
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "processed_text.replace(\"\\n\", \" \").replace",
+          "lineNumber": 129
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "processed_text.replace",
+          "lineNumber": 129
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "get_semantic_length",
+          "lineNumber": 131
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "processed_text.replace",
+          "lineNumber": 133
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 134
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "processed_text.replace(\".\", \"\\u3002\")\r\n        .replace(\"!\", \"\\uff01\")\r\n        .replace(\"?\", \"\\uff1f\")\r\n        .replace",
+          "lineNumber": 138
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "processed_text.replace(\".\", \"\\u3002\")\r\n        .replace(\"!\", \"\\uff01\")\r\n        .replace",
+          "lineNumber": 138
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "processed_text.replace(\".\", \"\\u3002\")\r\n        .replace",
+          "lineNumber": 138
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "processed_text.replace",
+          "lineNumber": 138
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "enumerate",
+          "lineNumber": 152
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "current_sentence.strip",
+          "lineNumber": 155
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "sentences.append",
+          "lineNumber": 157
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "sentence_positions.append",
+          "lineNumber": 158
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "sentences.append",
+          "lineNumber": 163
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "current_sentence.strip",
+          "lineNumber": 163
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "sentence_positions.append",
+          "lineNumber": 164
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 164
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "sentences[-1].endswith",
+          "lineNumber": 165
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "enumerate",
+          "lineNumber": 169
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "zip",
+          "lineNumber": 170
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "enumerate",
+          "lineNumber": 177
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "current_clause.strip",
+          "lineNumber": 180
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "has_valid_content",
+          "lineNumber": 181
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "clauses.append",
+          "lineNumber": 182
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "clause_positions.append",
+          "lineNumber": 183
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "current_clause.strip",
+          "lineNumber": 191
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "has_valid_content",
+          "lineNumber": 192
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "clauses.append",
+          "lineNumber": 193
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "clause_positions.append",
+          "lineNumber": 194
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 194
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 197
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 200
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "get_semantic_length",
+          "lineNumber": 205
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 207
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "get_semantic_length",
+          "lineNumber": 211
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "append_text_fragment",
+          "lineNumber": 213
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "split_long_fragment",
+          "lineNumber": 226
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 227
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 228
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "enumerate",
+          "lineNumber": 229
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "append_text_fragment",
+          "lineNumber": 230
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "len",
+          "lineNumber": 233
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "append_text_fragment",
+          "lineNumber": 239
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "frag.replace",
+          "lineNumber": 246
+        },
+        {
+          "caller": "cut_text_by_semantic_length",
+          "callee": "calibrate_positions",
+          "lineNumber": 247
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/front/toolkit.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "tokenize_mixed_text",
+          "startLine": 10,
+          "endLine": 11,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "tokenize_mixed_text_iterator",
+          "startLine": 14,
+          "endLine": 17,
+          "params": [
+            "text_iterator"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "tokenize_mixed_text",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "tokenize_mixed_text_iterator",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tokenize_mixed_text",
+          "callee": "re.findall",
+          "lineNumber": 11
+        },
+        {
+          "caller": "tokenize_mixed_text_iterator",
+          "callee": "re.finditer",
+          "lineNumber": 16
+        },
+        {
+          "caller": "tokenize_mixed_text_iterator",
+          "callee": "match.group",
+          "lineNumber": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/modeling_ming_omni_talker.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1485,
+      "nonEmptyLines": 1350,
+      "classes": [
+        {
+          "name": "_IdentityNormalizer",
+          "startLine": 51,
+          "endLine": 55,
+          "methods": [
+            "normalize"
+          ],
+          "properties": []
+        },
+        {
+          "name": "SpkembExtractor",
+          "startLine": 58,
+          "endLine": 93,
+          "methods": [
+            "__init__",
+            "_extract_spk_embedding",
+            "__call__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CFMGraphExecutor",
+          "startLine": 96,
+          "endLine": 217,
+          "methods": [
+            "__init__",
+            "execute",
+            "_initialize_graph"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CFMGraphExecutorPool",
+          "startLine": 220,
+          "endLine": 259,
+          "methods": [
+            "__init__",
+            "_initialize_pool",
+            "acquire",
+            "release",
+            "execute"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MingOmniTalker",
+          "startLine": 262,
+          "endLine": 1485,
+          "methods": [
+            "__init__",
+            "set_tokenizer",
+            "set_normalizer",
+            "set_voice_presets",
+            "set_spkemb_extractor",
+            "load_weights",
+            "forward",
+            "get_input_embeddings",
+            "initial_graph",
+            "device",
+            "dtype",
+            "generate",
+            "omni_audio_generation_func",
+            "token2wav",
+            "silence_holder",
+            "llm_job",
+            "tts_job",
+            "register_prompt_wav",
+            "duration_capped_steps",
+            "get_prompt_emb",
+            "_run_tts_segments",
+            "_process_segment",
+            "omni_audio_generation",
+            "instruct_audio_generation"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_IdentityNormalizer",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "SpkembExtractor",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "CFMGraphExecutor",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "CFMGraphExecutorPool",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "MingOmniTalker",
+          "line": 262,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "ImportError",
+          "lineNumber": 63
+        },
+        {
+          "caller": "__init__",
+          "callee": "onnxruntime.SessionOptions",
+          "lineNumber": 64
+        },
+        {
+          "caller": "__init__",
+          "callee": "onnxruntime.InferenceSession",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "cached_fbank",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "feat.mean",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "self.campplus_session.run(\r\n                None,\r\n                {\r\n                    self.campplus_session.get_inputs()[0]\r\n                    .name: feat.unsqueeze(dim=0)\r\n                    .cpu()\r\n                    .numpy()\r\n                },\r\n            )[0]\r\n            .flatten()\r\n            .tolist",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "self.campplus_session.run(\r\n                None,\r\n                {\r\n                    self.campplus_session.get_inputs()[0]\r\n                    .name: feat.unsqueeze(dim=0)\r\n                    .cpu()\r\n                    .numpy()\r\n                },\r\n            )[0]\r\n            .flatten",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "self.campplus_session.run",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "self.campplus_session.get_inputs",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "feat.unsqueeze(dim=0)\r\n                    .cpu()\r\n                    .numpy",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "feat.unsqueeze(dim=0)\r\n                    .cpu",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "feat.unsqueeze",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_extract_spk_embedding",
+          "callee": "torch.tensor",
+          "lineNumber": 90
+        },
+        {
+          "caller": "__call__",
+          "callee": "self._extract_spk_embedding",
+          "lineNumber": 93
+        },
+        {
+          "caller": "execute",
+          "callee": "abort_event.is_set",
+          "lineNumber": 123
+        },
+        {
+          "caller": "execute",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 124
+        },
+        {
+          "caller": "execute",
+          "callee": "torch.randn",
+          "lineNumber": 126
+        },
+        {
+          "caller": "execute",
+          "callee": "get_epss_timesteps",
+          "lineNumber": 131
+        },
+        {
+          "caller": "execute",
+          "callee": "torch.randn",
+          "lineNumber": 134
+        },
+        {
+          "caller": "execute",
+          "callee": "abort_event.is_set",
+          "lineNumber": 141
+        },
+        {
+          "caller": "execute",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 142
+        },
+        {
+          "caller": "execute",
+          "callee": "self._initialize_graph",
+          "lineNumber": 143
+        },
+        {
+          "caller": "execute",
+          "callee": "self.last_hidden_state_placeholder.copy_",
+          "lineNumber": 147
+        },
+        {
+          "caller": "execute",
+          "callee": "self.his_lat_placeholder.copy_",
+          "lineNumber": 148
+        },
+        {
+          "caller": "execute",
+          "callee": "self.randn_like_placeholder.copy_",
+          "lineNumber": 149
+        },
+        {
+          "caller": "execute",
+          "callee": "self.t_placeholder.copy_",
+          "lineNumber": 150
+        },
+        {
+          "caller": "execute",
+          "callee": "self.sde_rnd_placeholder.copy_",
+          "lineNumber": 154
+        },
+        {
+          "caller": "execute",
+          "callee": "abort_event.is_set",
+          "lineNumber": 156
+        },
+        {
+          "caller": "execute",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 157
+        },
+        {
+          "caller": "execute",
+          "callee": "self.graph.replay",
+          "lineNumber": 160
+        },
+        {
+          "caller": "execute",
+          "callee": "abort_event.is_set",
+          "lineNumber": 161
+        },
+        {
+          "caller": "execute",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 162
+        },
+        {
+          "caller": "execute",
+          "callee": "torch.empty_like",
+          "lineNumber": 164
+        },
+        {
+          "caller": "execute",
+          "callee": "gen_lat.copy_",
+          "lineNumber": 165
+        },
+        {
+          "caller": "execute",
+          "callee": "torch.empty_like",
+          "lineNumber": 166
+        },
+        {
+          "caller": "execute",
+          "callee": "inputs_embeds.copy_",
+          "lineNumber": 167
+        },
+        {
+          "caller": "execute",
+          "callee": "torch.empty_like",
+          "lineNumber": 168
+        },
+        {
+          "caller": "execute",
+          "callee": "stop_out.copy_",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "torch.empty_like",
+          "lineNumber": 176
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "torch.empty_like",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "torch.empty_like",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "get_epss_timesteps",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "torch.empty",
+          "lineNumber": 184
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "torch.empty_like",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "torch.cuda.CUDAGraph",
+          "lineNumber": 192
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "torch.cuda.graph",
+          "lineNumber": 194
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "self.cfm.sample",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "self.aggregator",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "self.stop_head(\r\n                    self.last_hidden_state_placeholder[:, -1, :]\r\n                ).softmax",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_initialize_graph",
+          "callee": "self.stop_head",
+          "lineNumber": 207
+        },
+        {
+          "caller": "__init__",
+          "callee": "Queue",
+          "lineNumber": 227
+        },
+        {
+          "caller": "__init__",
+          "callee": "Lock",
+          "lineNumber": 228
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._initialize_pool",
+          "lineNumber": 229
+        },
+        {
+          "caller": "_initialize_pool",
+          "callee": "range",
+          "lineNumber": 232
+        },
+        {
+          "caller": "_initialize_pool",
+          "callee": "self.pool.put",
+          "lineNumber": 233
+        },
+        {
+          "caller": "_initialize_pool",
+          "callee": "CFMGraphExecutor",
+          "lineNumber": 234
+        },
+        {
+          "caller": "acquire",
+          "callee": "self.pool.get",
+          "lineNumber": 238
+        },
+        {
+          "caller": "release",
+          "callee": "isinstance",
+          "lineNumber": 241
+        },
+        {
+          "caller": "release",
+          "callee": "self.pool.put",
+          "lineNumber": 242
+        },
+        {
+          "caller": "execute",
+          "callee": "self.acquire",
+          "lineNumber": 253
+        },
+        {
+          "caller": "execute",
+          "callee": "executor.execute",
+          "lineNumber": 255
+        },
+        {
+          "caller": "execute",
+          "callee": "self.release",
+          "lineNumber": 259
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 274
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 274
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2Config",
+          "lineNumber": 278
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2Model",
+          "lineNumber": 279
+        },
+        {
+          "caller": "__init__",
+          "callee": "CFM",
+          "lineNumber": 283
+        },
+        {
+          "caller": "__init__",
+          "callee": "DiT",
+          "lineNumber": 284
+        },
+        {
+          "caller": "__init__",
+          "callee": "Aggregator",
+          "lineNumber": 287
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 292
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 293
+        },
+        {
+          "caller": "__init__",
+          "callee": "_IdentityNormalizer",
+          "lineNumber": 302
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.Lock",
+          "lineNumber": 307
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.Lock",
+          "lineNumber": 314
+        },
+        {
+          "caller": "__init__",
+          "callee": "ThreadPoolExecutor",
+          "lineNumber": 317
+        },
+        {
+          "caller": "__init__",
+          "callee": "CFMGraphExecutorPool",
+          "lineNumber": 318
+        },
+        {
+          "caller": "__init__",
+          "callee": "queue.Queue",
+          "lineNumber": 325
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 327
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.model_graph_pool.put",
+          "lineNumber": 328
+        },
+        {
+          "caller": "load_weights",
+          "callee": "dict",
+          "lineNumber": 358
+        },
+        {
+          "caller": "load_weights",
+          "callee": "self.named_parameters",
+          "lineNumber": 358
+        },
+        {
+          "caller": "load_weights",
+          "callee": "set",
+          "lineNumber": 359
+        },
+        {
+          "caller": "load_weights",
+          "callee": "logger.warning",
+          "lineNumber": 362
+        },
+        {
+          "caller": "load_weights",
+          "callee": "param.numel",
+          "lineNumber": 365
+        },
+        {
+          "caller": "load_weights",
+          "callee": "loaded_weight.numel",
+          "lineNumber": 365
+        },
+        {
+          "caller": "load_weights",
+          "callee": "param.data.fill_",
+          "lineNumber": 366
+        },
+        {
+          "caller": "load_weights",
+          "callee": "loaded_weight.item",
+          "lineNumber": 366
+        },
+        {
+          "caller": "load_weights",
+          "callee": "param.size",
+          "lineNumber": 369
+        },
+        {
+          "caller": "load_weights",
+          "callee": "loaded_weight.size",
+          "lineNumber": 369
+        },
+        {
+          "caller": "load_weights",
+          "callee": "param.size",
+          "lineNumber": 370
+        },
+        {
+          "caller": "load_weights",
+          "callee": "loaded_weight.size",
+          "lineNumber": 370
+        },
+        {
+          "caller": "load_weights",
+          "callee": "param.data.copy_",
+          "lineNumber": 371
+        },
+        {
+          "caller": "load_weights",
+          "callee": "loaded.add",
+          "lineNumber": 372
+        },
+        {
+          "caller": "load_weights",
+          "callee": "set",
+          "lineNumber": 374
+        },
+        {
+          "caller": "load_weights",
+          "callee": "params_dict.keys",
+          "lineNumber": 374
+        },
+        {
+          "caller": "load_weights",
+          "callee": "logger.warning",
+          "lineNumber": 376
+        },
+        {
+          "caller": "load_weights",
+          "callee": "len",
+          "lineNumber": 377
+        },
+        {
+          "caller": "load_weights",
+          "callee": "sorted",
+          "lineNumber": 377
+        },
+        {
+          "caller": "get_input_embeddings",
+          "callee": "self.model.get_input_embeddings",
+          "lineNumber": 386
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "range",
+          "lineNumber": 403
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "str",
+          "lineNumber": 404
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "uuid.uuid1",
+          "lineNumber": 404
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "self.executor.submit",
+          "lineNumber": 419
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "future.result",
+          "lineNumber": 430
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "self.tts_speech_token_dict.pop",
+          "lineNumber": 433
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "self.llm_end_dict.pop",
+          "lineNumber": 434
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "self.vae_cache.pop",
+          "lineNumber": 435
+        },
+        {
+          "caller": "initial_graph",
+          "callee": "self.sil_holder_cache.pop",
+          "lineNumber": 436
+        },
+        {
+          "caller": "device",
+          "callee": "next",
+          "lineNumber": 444
+        },
+        {
+          "caller": "device",
+          "callee": "self.parameters",
+          "lineNumber": 444
+        },
+        {
+          "caller": "dtype",
+          "callee": "next",
+          "lineNumber": 448
+        },
+        {
+          "caller": "dtype",
+          "callee": "self.parameters",
+          "lineNumber": 448
+        },
+        {
+          "caller": "generate",
+          "callee": "inputs_embeds.to",
+          "lineNumber": 465
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.zeros",
+          "lineNumber": 467
+        },
+        {
+          "caller": "generate",
+          "callee": "prompt_wav_lat.to",
+          "lineNumber": 475
+        },
+        {
+          "caller": "generate",
+          "callee": "prompt_wav_lat.size",
+          "lineNumber": 476
+        },
+        {
+          "caller": "generate",
+          "callee": "self.model_graph_pool.get",
+          "lineNumber": 492
+        },
+        {
+          "caller": "generate",
+          "callee": "StaticCache",
+          "lineNumber": 496
+        },
+        {
+          "caller": "generate",
+          "callee": "hasattr",
+          "lineNumber": 504
+        },
+        {
+          "caller": "generate",
+          "callee": "past_key_values.reset",
+          "lineNumber": 505
+        },
+        {
+          "caller": "generate",
+          "callee": "hasattr",
+          "lineNumber": 506
+        },
+        {
+          "caller": "generate",
+          "callee": "range",
+          "lineNumber": 507
+        },
+        {
+          "caller": "generate",
+          "callee": "len",
+          "lineNumber": 507
+        },
+        {
+          "caller": "generate",
+          "callee": "past_key_values.key_cache[layer_idx].zero_",
+          "lineNumber": 508
+        },
+        {
+          "caller": "generate",
+          "callee": "past_key_values.value_cache[layer_idx].zero_",
+          "lineNumber": 509
+        },
+        {
+          "caller": "generate",
+          "callee": "layer.keys.zero_",
+          "lineNumber": 512
+        },
+        {
+          "caller": "generate",
+          "callee": "layer.values.zero_",
+          "lineNumber": 513
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.ones(input_ids.shape).to",
+          "lineNumber": 516
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.ones",
+          "lineNumber": 516
+        },
+        {
+          "caller": "generate",
+          "callee": "(attention_mask.cumsum(-1) - 1).masked_fill_",
+          "lineNumber": 517
+        },
+        {
+          "caller": "generate",
+          "callee": "attention_mask.cumsum",
+          "lineNumber": 517
+        },
+        {
+          "caller": "generate",
+          "callee": "min",
+          "lineNumber": 525
+        },
+        {
+          "caller": "generate",
+          "callee": "abort_event.is_set",
+          "lineNumber": 530
+        },
+        {
+          "caller": "generate",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 531
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.arange",
+          "lineNumber": 533
+        },
+        {
+          "caller": "generate",
+          "callee": "self.model",
+          "lineNumber": 536
+        },
+        {
+          "caller": "generate",
+          "callee": "past_key_values.get_seq_length",
+          "lineNumber": 545
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.arange",
+          "lineNumber": 546
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.cuda.CUDAGraph",
+          "lineNumber": 553
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.empty_like",
+          "lineNumber": 554
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.empty_like",
+          "lineNumber": 557
+        },
+        {
+          "caller": "generate",
+          "callee": "inputs_embeds_placeholder.copy_",
+          "lineNumber": 559
+        },
+        {
+          "caller": "generate",
+          "callee": "cache_position_placeholder.copy_",
+          "lineNumber": 560
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.cuda.graph",
+          "lineNumber": 562
+        },
+        {
+          "caller": "generate",
+          "callee": "self.model",
+          "lineNumber": 565
+        },
+        {
+          "caller": "generate",
+          "callee": "inputs_embeds_placeholder.copy_",
+          "lineNumber": 575
+        },
+        {
+          "caller": "generate",
+          "callee": "cache_position_placeholder.copy_",
+          "lineNumber": 577
+        },
+        {
+          "caller": "generate",
+          "callee": "model_graph.replay",
+          "lineNumber": 578
+        },
+        {
+          "caller": "generate",
+          "callee": "self.sampler_pool.execute",
+          "lineNumber": 584
+        },
+        {
+          "caller": "generate",
+          "callee": "torch.cat",
+          "lineNumber": 596
+        },
+        {
+          "caller": "generate",
+          "callee": "abort_event.is_set",
+          "lineNumber": 603
+        },
+        {
+          "caller": "generate",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 604
+        },
+        {
+          "caller": "generate",
+          "callee": "bool",
+          "lineNumber": 606
+        },
+        {
+          "caller": "generate",
+          "callee": "stop_out.cpu",
+          "lineNumber": 606
+        },
+        {
+          "caller": "generate",
+          "callee": "self.model_graph_pool.put",
+          "lineNumber": 617
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "enumerate",
+          "lineNumber": 651
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "spk_emb_prompt.extend",
+          "lineNumber": 652
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 653
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 654
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 655
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 656
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 661
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 661
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 668
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 669
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "prompt_wav_emb.size",
+          "lineNumber": 671
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 673
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 684
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 687
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 688
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 692
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 693
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 694
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 696
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "logger.info",
+          "lineNumber": 700
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.decode",
+          "lineNumber": 700
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "torch.tensor(input_part, dtype=torch.long).unsqueeze(0).to",
+          "lineNumber": 703
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "torch.tensor(input_part, dtype=torch.long).unsqueeze",
+          "lineNumber": 703
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "torch.tensor",
+          "lineNumber": 703
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "self.model.get_input_embeddings()(input_ids).to",
+          "lineNumber": 705
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "self.model.get_input_embeddings",
+          "lineNumber": 705
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 711
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "len",
+          "lineNumber": 712
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "torch.where",
+          "lineNumber": 713
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "len",
+          "lineNumber": 714
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "enumerate",
+          "lineNumber": 715
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "se.to",
+          "lineNumber": 716
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "tokenizer.encode",
+          "lineNumber": 719
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "len",
+          "lineNumber": 720
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "torch.where",
+          "lineNumber": 721
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "len",
+          "lineNumber": 722
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "prompt_wav_emb.size",
+          "lineNumber": 725
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "prompt_wav_emb[0].to",
+          "lineNumber": 727
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "torch.autocast",
+          "lineNumber": 729
+        },
+        {
+          "caller": "omni_audio_generation_func",
+          "callee": "self.generate",
+          "lineNumber": 730
+        },
+        {
+          "caller": "token2wav",
+          "callee": "audio_detokenizer.decode",
+          "lineNumber": 745
+        },
+        {
+          "caller": "token2wav",
+          "callee": "torch.cat",
+          "lineNumber": 746
+        },
+        {
+          "caller": "token2wav",
+          "callee": "speech[0].detach().float",
+          "lineNumber": 752
+        },
+        {
+          "caller": "token2wav",
+          "callee": "speech[0].detach",
+          "lineNumber": 752
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "speech.numel",
+          "lineNumber": 758
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "int",
+          "lineNumber": 762
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "int",
+          "lineNumber": 762
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "torch.cat",
+          "lineNumber": 766
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "sil_cache[\"buffer\"].append",
+          "lineNumber": 769
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "torch.cat",
+          "lineNumber": 771
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "int",
+          "lineNumber": 772
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "torch.zeros",
+          "lineNumber": 774
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "sil_cache[\"buffer\"].append",
+          "lineNumber": 783
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "speech.unfold",
+          "lineNumber": 785
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "spe_frames.abs().mean",
+          "lineNumber": 786
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "spe_frames.abs",
+          "lineNumber": 786
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "scores.mean",
+          "lineNumber": 787
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "list",
+          "lineNumber": 787
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "range",
+          "lineNumber": 787
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "scores.dim",
+          "lineNumber": 787
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "sil_cache[\"holder\"].append",
+          "lineNumber": 794
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "torch.cat",
+          "lineNumber": 796
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "int",
+          "lineNumber": 797
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "torch.zeros",
+          "lineNumber": 799
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "int",
+          "lineNumber": 806
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "torch.cat",
+          "lineNumber": 807
+        },
+        {
+          "caller": "silence_holder",
+          "callee": "sil_cache[\"holder\"].append",
+          "lineNumber": 810
+        },
+        {
+          "caller": "llm_job",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 831
+        },
+        {
+          "caller": "llm_job",
+          "callee": "torch.cuda.Stream",
+          "lineNumber": 831
+        },
+        {
+          "caller": "llm_job",
+          "callee": "self.omni_audio_generation_func",
+          "lineNumber": 832
+        },
+        {
+          "caller": "llm_job",
+          "callee": "abort_event.is_set",
+          "lineNumber": 846
+        },
+        {
+          "caller": "llm_job",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 847
+        },
+        {
+          "caller": "llm_job",
+          "callee": "torch.cuda.current_stream().synchronize",
+          "lineNumber": 848
+        },
+        {
+          "caller": "llm_job",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 848
+        },
+        {
+          "caller": "llm_job",
+          "callee": "token_queue.put",
+          "lineNumber": 850
+        },
+        {
+          "caller": "llm_job",
+          "callee": "self.tts_speech_token_dict[this_uuid].append",
+          "lineNumber": 852
+        },
+        {
+          "caller": "llm_job",
+          "callee": "token_queue.put",
+          "lineNumber": 858
+        },
+        {
+          "caller": "tts_job",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 877
+        },
+        {
+          "caller": "tts_job",
+          "callee": "torch.cuda.Stream",
+          "lineNumber": 877
+        },
+        {
+          "caller": "tts_job",
+          "callee": "str",
+          "lineNumber": 878
+        },
+        {
+          "caller": "tts_job",
+          "callee": "uuid.uuid1",
+          "lineNumber": 878
+        },
+        {
+          "caller": "tts_job",
+          "callee": "queue.Queue",
+          "lineNumber": 879
+        },
+        {
+          "caller": "tts_job",
+          "callee": "threading.Event",
+          "lineNumber": 882
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.executor.submit",
+          "lineNumber": 895
+        },
+        {
+          "caller": "tts_job",
+          "callee": "effective_abort_event.is_set",
+          "lineNumber": 922
+        },
+        {
+          "caller": "tts_job",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 924
+        },
+        {
+          "caller": "tts_job",
+          "callee": "future.done",
+          "lineNumber": 925
+        },
+        {
+          "caller": "tts_job",
+          "callee": "future.exception",
+          "lineNumber": 926
+        },
+        {
+          "caller": "tts_job",
+          "callee": "token_queue.get",
+          "lineNumber": 930
+        },
+        {
+          "caller": "tts_job",
+          "callee": "future.result",
+          "lineNumber": 934
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.token2wav",
+          "lineNumber": 939
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.silence_holder",
+          "lineNumber": 949
+        },
+        {
+          "caller": "tts_job",
+          "callee": "this_tts_speech.numel",
+          "lineNumber": 955
+        },
+        {
+          "caller": "tts_job",
+          "callee": "this_tts_speech.cpu",
+          "lineNumber": 956
+        },
+        {
+          "caller": "tts_job",
+          "callee": "future.result",
+          "lineNumber": 958
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.token2wav",
+          "lineNumber": 961
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.silence_holder",
+          "lineNumber": 971
+        },
+        {
+          "caller": "tts_job",
+          "callee": "this_tts_speech.cpu",
+          "lineNumber": 977
+        },
+        {
+          "caller": "tts_job",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 980
+        },
+        {
+          "caller": "tts_job",
+          "callee": "torch.cuda.current_stream().synchronize",
+          "lineNumber": 981
+        },
+        {
+          "caller": "tts_job",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 981
+        },
+        {
+          "caller": "tts_job",
+          "callee": "effective_abort_event.set",
+          "lineNumber": 985
+        },
+        {
+          "caller": "tts_job",
+          "callee": "future.cancel",
+          "lineNumber": 987
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.tts_speech_token_dict.pop",
+          "lineNumber": 989
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.llm_end_dict.pop",
+          "lineNumber": 990
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.vae_cache.pop",
+          "lineNumber": 991
+        },
+        {
+          "caller": "tts_job",
+          "callee": "self.sil_holder_cache.pop",
+          "lineNumber": 992
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "isinstance",
+          "lineNumber": 995
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "torchaudio.load",
+          "lineNumber": 1001
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "speech_tmp.clone",
+          "lineNumber": 1002
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "torchaudio.transforms.Resample",
+          "lineNumber": 1004
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "speech_parts.append",
+          "lineNumber": 1007
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "torchaudio.transforms.Resample",
+          "lineNumber": 1011
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "self.spkemb_extractor",
+          "lineNumber": 1014
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "self.spk_head",
+          "lineNumber": 1015
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "se.to",
+          "lineNumber": 1015
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "spk_emb_list.append",
+          "lineNumber": 1016
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "torch.cat",
+          "lineNumber": 1018
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "max",
+          "lineNumber": 1022
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "torch.zeros",
+          "lineNumber": 1027
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "audio_detokenizer.encode_latent",
+          "lineNumber": 1032
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "speech.to",
+          "lineNumber": 1033
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "torch.tensor",
+          "lineNumber": 1034
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "speech.size",
+          "lineNumber": 1034
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "prompt_wav_lat.reshape",
+          "lineNumber": 1037
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "self.aggregator",
+          "lineNumber": 1040
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "prompt_wav_lat.reshape",
+          "lineNumber": 1041
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "prompt_wav_emb.reshape",
+          "lineNumber": 1042
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "\"|\".join",
+          "lineNumber": 1045
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "len",
+          "lineNumber": 1046
+        },
+        {
+          "caller": "register_prompt_wav",
+          "callee": "logger.info",
+          "lineNumber": 1054
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "float",
+          "lineNumber": 1068
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "float",
+          "lineNumber": 1069
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "getattr",
+          "lineNumber": 1069
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "float",
+          "lineNumber": 1070
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "float",
+          "lineNumber": 1074
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "max",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "float",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "max",
+          "lineNumber": 1079
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "int",
+          "lineNumber": 1079
+        },
+        {
+          "caller": "duration_capped_steps",
+          "callee": "min",
+          "lineNumber": 1080
+        },
+        {
+          "caller": "get_prompt_emb",
+          "callee": "torch.zeros",
+          "lineNumber": 1095
+        },
+        {
+          "caller": "get_prompt_emb",
+          "callee": "isinstance",
+          "lineNumber": 1102
+        },
+        {
+          "caller": "get_prompt_emb",
+          "callee": "\"|\".join",
+          "lineNumber": 1103
+        },
+        {
+          "caller": "get_prompt_emb",
+          "callee": "self.register_prompt_wav",
+          "lineNumber": 1107
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "tokenize_mixed_text_iterator",
+          "lineNumber": 1132
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "enumerate",
+          "lineNumber": 1134
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1135
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1140
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1140
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "streaming_text.append",
+          "lineNumber": 1143
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1147
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1148
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "bool",
+          "lineNumber": 1150
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "re.search",
+          "lineNumber": 1151
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "streaming_text.append",
+          "lineNumber": 1157
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1159
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "bool",
+          "lineNumber": 1160
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "re.search",
+          "lineNumber": 1160
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "\"\".join",
+          "lineNumber": 1160
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "bool",
+          "lineNumber": 1161
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "re.search",
+          "lineNumber": 1161
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "streaming_text.append",
+          "lineNumber": 1163
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1165
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "bool",
+          "lineNumber": 1165
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "re.search",
+          "lineNumber": 1165
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "streaming_text.append",
+          "lineNumber": 1169
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1170
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "len",
+          "lineNumber": 1171
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "streaming_text.append",
+          "lineNumber": 1175
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "self._process_segment",
+          "lineNumber": 1179
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "\"\".join",
+          "lineNumber": 1180
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "re.search",
+          "lineNumber": 1199
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "\"\".join",
+          "lineNumber": 1200
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "self._process_segment",
+          "lineNumber": 1202
+        },
+        {
+          "caller": "_run_tts_segments",
+          "callee": "\"\".join",
+          "lineNumber": 1203
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "cut_text_by_semantic_length",
+          "lineNumber": 1238
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "len",
+          "lineNumber": 1244
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "cache_position.items",
+          "lineNumber": 1247
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "isinstance",
+          "lineNumber": 1248
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "max",
+          "lineNumber": 1251
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "max",
+          "lineNumber": 1259
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "cache_position.update",
+          "lineNumber": 1262
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "is_chinese",
+          "lineNumber": 1264
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "normalize_numbers",
+          "lineNumber": 1265
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "self.normalizer.normalize",
+          "lineNumber": 1271
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "self.duration_capped_steps",
+          "lineNumber": 1279
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "len",
+          "lineNumber": 1280
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "enumerate",
+          "lineNumber": 1285
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "self.tts_job",
+          "lineNumber": 1286
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "len",
+          "lineNumber": 1306
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "float",
+          "lineNumber": 1311
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "min",
+          "lineNumber": 1315
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "min",
+          "lineNumber": 1317
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "math.ceil",
+          "lineNumber": 1318
+        },
+        {
+          "caller": "_process_segment",
+          "callee": "cache_position.update",
+          "lineNumber": 1324
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "kwargs.get",
+          "lineNumber": 1364
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "ValueError",
+          "lineNumber": 1374
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "sorted",
+          "lineNumber": 1376
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "ValueError",
+          "lineNumber": 1383
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 1388
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "torch.cuda.Stream",
+          "lineNumber": 1388
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "self.initial_graph",
+          "lineNumber": 1389
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "self.get_prompt_emb",
+          "lineNumber": 1391
+        },
+        {
+          "caller": "omni_audio_generation",
+          "callee": "self._run_tts_segments",
+          "lineNumber": 1398
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "kwargs.get",
+          "lineNumber": 1431
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 1432
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "torch.cuda.Stream",
+          "lineNumber": 1432
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "self.initial_graph",
+          "lineNumber": 1433
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "self.get_prompt_emb",
+          "lineNumber": 1435
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "self.duration_capped_steps",
+          "lineNumber": 1450
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "len",
+          "lineNumber": 1451
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "self.tts_job",
+          "lineNumber": 1455
+        },
+        {
+          "caller": "instruct_audio_generation",
+          "callee": "self._run_tts_segments",
+          "lineNumber": 1473
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/aggregator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 131,
+      "nonEmptyLines": 107,
+      "classes": [
+        {
+          "name": "Aggregator",
+          "startLine": 19,
+          "endLine": 97,
+          "methods": [
+            "__init__",
+            "initialize_weights",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "PoolAgg",
+          "startLine": 100,
+          "endLine": 114,
+          "methods": [
+            "__init__",
+            "initialize_weights",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "AggLinear",
+          "startLine": 117,
+          "endLine": 131,
+          "methods": [
+            "__init__",
+            "initialize_weights",
+            "forward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Aggregator",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "PoolAgg",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "AggLinear",
+          "line": 117,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 34
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 34
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Embedding",
+          "lineNumber": 39
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 40
+        },
+        {
+          "caller": "__init__",
+          "callee": "RotaryEmbedding",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 45
+        },
+        {
+          "caller": "__init__",
+          "callee": "DiTBlock",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 48
+        },
+        {
+          "caller": "__init__",
+          "callee": "FinalLayer",
+          "lineNumber": 51
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.initialize_weights",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_basic_init",
+          "callee": "isinstance",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_basic_init",
+          "callee": "torch.nn.init.xavier_uniform_",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_basic_init",
+          "callee": "nn.init.constant_",
+          "lineNumber": 60
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "self.apply",
+          "lineNumber": 62
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.xavier_uniform_",
+          "lineNumber": 66
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "w_x.view",
+          "lineNumber": 66
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 67
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.normal_",
+          "lineNumber": 70
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 73
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 74
+        },
+        {
+          "caller": "forward",
+          "callee": "self.x_embedder",
+          "lineNumber": 83
+        },
+        {
+          "caller": "forward",
+          "callee": "self.word_embedder",
+          "lineNumber": 84
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.zeros",
+          "lineNumber": 85
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 87
+        },
+        {
+          "caller": "forward",
+          "callee": "self.rotary_embed.forward_from_seq_len",
+          "lineNumber": 89
+        },
+        {
+          "caller": "forward",
+          "callee": "mask.clone().detach",
+          "lineNumber": 91
+        },
+        {
+          "caller": "forward",
+          "callee": "mask.clone",
+          "lineNumber": 91
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 92
+        },
+        {
+          "caller": "forward",
+          "callee": "block",
+          "lineNumber": 94
+        },
+        {
+          "caller": "forward",
+          "callee": "self.final_layer",
+          "lineNumber": 95
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 102
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 102
+        },
+        {
+          "caller": "__init__",
+          "callee": "FinalLayer",
+          "lineNumber": 103
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.initialize_weights",
+          "lineNumber": 104
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 108
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 109
+        },
+        {
+          "caller": "forward",
+          "callee": "self.final_layer",
+          "lineNumber": 112
+        },
+        {
+          "caller": "forward",
+          "callee": "x.mean",
+          "lineNumber": 113
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 119
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 119
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 120
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.initialize_weights",
+          "lineNumber": 121
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 125
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 126
+        },
+        {
+          "caller": "forward",
+          "callee": "x.mean",
+          "lineNumber": 129
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc",
+          "lineNumber": 130
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/cfm.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 92,
+      "nonEmptyLines": 72,
+      "functions": [
+        {
+          "name": "get_epss_timesteps",
+          "startLine": 10,
+          "endLine": 23,
+          "params": [
+            "n",
+            "device",
+            "dtype"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CFM",
+          "startLine": 26,
+          "endLine": 92,
+          "methods": [
+            "__init__",
+            "sample",
+            "forward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_epss_timesteps",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "CFM",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_epss_timesteps",
+          "callee": "predefined_timesteps.get",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_epss_timesteps",
+          "callee": "torch.linspace",
+          "lineNumber": 22
+        },
+        {
+          "caller": "get_epss_timesteps",
+          "callee": "torch.tensor",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 28
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 28
+        },
+        {
+          "caller": "check_abort",
+          "callee": "abort_event.is_set",
+          "lineNumber": 39
+        },
+        {
+          "caller": "check_abort",
+          "callee": "asyncio.CancelledError",
+          "lineNumber": 40
+        },
+        {
+          "caller": "fn",
+          "callee": "self.model.forward_with_cfg",
+          "lineNumber": 43
+        },
+        {
+          "caller": "fn",
+          "callee": "torch.chunk",
+          "lineNumber": 44
+        },
+        {
+          "caller": "sample",
+          "callee": "torch.cos",
+          "lineNumber": 48
+        },
+        {
+          "caller": "sample",
+          "callee": "range",
+          "lineNumber": 51
+        },
+        {
+          "caller": "sample",
+          "callee": "check_abort",
+          "lineNumber": 52
+        },
+        {
+          "caller": "sample",
+          "callee": "fn",
+          "lineNumber": 54
+        },
+        {
+          "caller": "sample",
+          "callee": "dt.abs",
+          "lineNumber": 57
+        },
+        {
+          "caller": "sample",
+          "callee": "trajectory.append",
+          "lineNumber": 59
+        },
+        {
+          "caller": "forward",
+          "callee": "lat_tag.detach",
+          "lineNumber": 70
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.randn_like",
+          "lineNumber": 73
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.rand",
+          "lineNumber": 76
+        },
+        {
+          "caller": "forward",
+          "callee": "time.unsqueeze(-1).unsqueeze",
+          "lineNumber": 81
+        },
+        {
+          "caller": "forward",
+          "callee": "time.unsqueeze",
+          "lineNumber": 81
+        },
+        {
+          "caller": "forward",
+          "callee": "self.model",
+          "lineNumber": 86
+        },
+        {
+          "caller": "forward",
+          "callee": "F.mse_loss",
+          "lineNumber": 89
+        },
+        {
+          "caller": "forward",
+          "callee": "loss.sum",
+          "lineNumber": 92
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/dit.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 208,
+      "nonEmptyLines": 173,
+      "classes": [
+        {
+          "name": "SinusPositionEmbedding",
+          "startLine": 26,
+          "endLine": 38,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TimestepEmbedder",
+          "startLine": 41,
+          "endLine": 53,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CondEmbedder",
+          "startLine": 56,
+          "endLine": 90,
+          "methods": [
+            "__init__",
+            "cond_drop",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "DiT",
+          "startLine": 93,
+          "endLine": 208,
+          "methods": [
+            "__init__",
+            "initialize_weights",
+            "forward",
+            "forward_with_cfg"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "SinusPositionEmbedding",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "TimestepEmbedder",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "CondEmbedder",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "DiT",
+          "line": 93,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 28
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 28
+        },
+        {
+          "caller": "forward",
+          "callee": "math.log",
+          "lineNumber": 34
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.exp",
+          "lineNumber": 35
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.arange(half_dim, device=device).float",
+          "lineNumber": 35
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.arange",
+          "lineNumber": 35
+        },
+        {
+          "caller": "forward",
+          "callee": "x.unsqueeze",
+          "lineNumber": 36
+        },
+        {
+          "caller": "forward",
+          "callee": "emb.unsqueeze",
+          "lineNumber": 36
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 37
+        },
+        {
+          "caller": "forward",
+          "callee": "emb.sin",
+          "lineNumber": 37
+        },
+        {
+          "caller": "forward",
+          "callee": "emb.cos",
+          "lineNumber": 37
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__init__",
+          "callee": "SinusPositionEmbedding",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 45
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 46
+        },
+        {
+          "caller": "forward",
+          "callee": "self.time_embed",
+          "lineNumber": 50
+        },
+        {
+          "caller": "forward",
+          "callee": "time_hidden.to",
+          "lineNumber": 51
+        },
+        {
+          "caller": "forward",
+          "callee": "self.time_mlp",
+          "lineNumber": 52
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 64
+        },
+        {
+          "caller": "cond_drop",
+          "callee": "torch.rand",
+          "lineNumber": 71
+        },
+        {
+          "caller": "cond_drop",
+          "callee": "drop_latent_mask.unsqueeze(-1)\r\n            .unsqueeze(-1)\r\n            .to(llm_cond.dtype)\r\n            .to",
+          "lineNumber": 73
+        },
+        {
+          "caller": "cond_drop",
+          "callee": "drop_latent_mask.unsqueeze(-1)\r\n            .unsqueeze(-1)\r\n            .to",
+          "lineNumber": 73
+        },
+        {
+          "caller": "cond_drop",
+          "callee": "drop_latent_mask.unsqueeze(-1)\r\n            .unsqueeze",
+          "lineNumber": 73
+        },
+        {
+          "caller": "cond_drop",
+          "callee": "drop_latent_mask.unsqueeze",
+          "lineNumber": 73
+        },
+        {
+          "caller": "cond_drop",
+          "callee": "torch.zeros(llm_cond.shape).to",
+          "lineNumber": 78
+        },
+        {
+          "caller": "cond_drop",
+          "callee": "torch.zeros",
+          "lineNumber": 78
+        },
+        {
+          "caller": "forward",
+          "callee": "self.cond_drop",
+          "lineNumber": 86
+        },
+        {
+          "caller": "forward",
+          "callee": "self.cond_embedder",
+          "lineNumber": 88
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 110
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 110
+        },
+        {
+          "caller": "__init__",
+          "callee": "TimestepEmbedder",
+          "lineNumber": 117
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 118
+        },
+        {
+          "caller": "__init__",
+          "callee": "CondEmbedder",
+          "lineNumber": 119
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 121
+        },
+        {
+          "caller": "__init__",
+          "callee": "RotaryEmbedding",
+          "lineNumber": 126
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 128
+        },
+        {
+          "caller": "__init__",
+          "callee": "DiTBlock",
+          "lineNumber": 130
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 131
+        },
+        {
+          "caller": "__init__",
+          "callee": "FinalLayer",
+          "lineNumber": 134
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.initialize_weights",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_basic_init",
+          "callee": "isinstance",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_basic_init",
+          "callee": "torch.nn.init.xavier_uniform_",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_basic_init",
+          "callee": "nn.init.constant_",
+          "lineNumber": 143
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "self.apply",
+          "lineNumber": 145
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.xavier_uniform_",
+          "lineNumber": 149
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "w_x.view",
+          "lineNumber": 149
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 150
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.xavier_uniform_",
+          "lineNumber": 154
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "w_c.view",
+          "lineNumber": 154
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 155
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.normal_",
+          "lineNumber": 158
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.normal_",
+          "lineNumber": 159
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 162
+        },
+        {
+          "caller": "initialize_weights",
+          "callee": "nn.init.constant_",
+          "lineNumber": 163
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 172
+        },
+        {
+          "caller": "forward",
+          "callee": "self.x_embedder",
+          "lineNumber": 173
+        },
+        {
+          "caller": "forward",
+          "callee": "self.t_embedder(t).unsqueeze",
+          "lineNumber": 174
+        },
+        {
+          "caller": "forward",
+          "callee": "self.t_embedder",
+          "lineNumber": 174
+        },
+        {
+          "caller": "forward",
+          "callee": "self.c_embedder",
+          "lineNumber": 175
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 179
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 181
+        },
+        {
+          "caller": "forward",
+          "callee": "self.spk_embedder",
+          "lineNumber": 181
+        },
+        {
+          "caller": "forward",
+          "callee": "self.rotary_embed.forward_from_seq_len",
+          "lineNumber": 182
+        },
+        {
+          "caller": "forward",
+          "callee": "checkpoint",
+          "lineNumber": 186
+        },
+        {
+          "caller": "forward",
+          "callee": "block",
+          "lineNumber": 189
+        },
+        {
+          "caller": "forward",
+          "callee": "self.final_layer",
+          "lineNumber": 191
+        },
+        {
+          "caller": "forward_with_cfg",
+          "callee": "torch.cat",
+          "lineNumber": 199
+        },
+        {
+          "caller": "forward_with_cfg",
+          "callee": "torch.cat",
+          "lineNumber": 200
+        },
+        {
+          "caller": "forward_with_cfg",
+          "callee": "torch.zeros_like",
+          "lineNumber": 201
+        },
+        {
+          "caller": "forward_with_cfg",
+          "callee": "torch.cat",
+          "lineNumber": 202
+        },
+        {
+          "caller": "forward_with_cfg",
+          "callee": "t.repeat",
+          "lineNumber": 204
+        },
+        {
+          "caller": "forward_with_cfg",
+          "callee": "torch.cat",
+          "lineNumber": 206
+        },
+        {
+          "caller": "forward_with_cfg",
+          "callee": "self.forward",
+          "lineNumber": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/modules.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 365,
+      "nonEmptyLines": 306,
+      "functions": [
+        {
+          "name": "is_flash_attn_available",
+          "startLine": 22,
+          "endLine": 28,
+          "params": []
+        },
+        {
+          "name": "_raise_flash_attn_unavailable",
+          "startLine": 31,
+          "endLine": 37,
+          "params": []
+        },
+        {
+          "name": "modulate",
+          "startLine": 304,
+          "endLine": 305,
+          "params": [
+            "x",
+            "shift",
+            "scale"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RMSNorm",
+          "startLine": 40,
+          "endLine": 61,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FeedForward",
+          "startLine": 64,
+          "endLine": 79,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Attention",
+          "startLine": 82,
+          "endLine": 245,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "DiTBlock",
+          "startLine": 248,
+          "endLine": 285,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FinalLayer",
+          "startLine": 288,
+          "endLine": 301,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FinalLayer_mlp",
+          "startLine": 308,
+          "endLine": 332,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ResBlock",
+          "startLine": 335,
+          "endLine": 365,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "is_flash_attn_available",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "_raise_flash_attn_unavailable",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "RMSNorm",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "FeedForward",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "Attention",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "DiTBlock",
+          "line": 248,
+          "isDefault": false
+        },
+        {
+          "name": "FinalLayer",
+          "line": 288,
+          "isDefault": false
+        },
+        {
+          "name": "modulate",
+          "line": 304,
+          "isDefault": false
+        },
+        {
+          "name": "FinalLayer_mlp",
+          "line": 308,
+          "isDefault": false
+        },
+        {
+          "name": "ResBlock",
+          "line": 335,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_raise_flash_attn_unavailable",
+          "callee": "ImportError",
+          "lineNumber": 32
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 42
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 42
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Parameter",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.ones",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "float",
+          "lineNumber": 45
+        },
+        {
+          "caller": "forward",
+          "callee": "x.to",
+          "lineNumber": 50
+        },
+        {
+          "caller": "forward",
+          "callee": "F.rms_norm",
+          "lineNumber": 51
+        },
+        {
+          "caller": "forward",
+          "callee": "x.to(torch.float32).pow(2).mean",
+          "lineNumber": 55
+        },
+        {
+          "caller": "forward",
+          "callee": "x.to(torch.float32).pow",
+          "lineNumber": 55
+        },
+        {
+          "caller": "forward",
+          "callee": "x.to",
+          "lineNumber": 55
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.rsqrt",
+          "lineNumber": 56
+        },
+        {
+          "caller": "forward",
+          "callee": "x.to",
+          "lineNumber": 58
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 68
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 68
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 69
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.GELU",
+          "lineNumber": 72
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 73
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 73
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 74
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Dropout",
+          "lineNumber": 75
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 75
+        },
+        {
+          "caller": "forward",
+          "callee": "self.ff",
+          "lineNumber": 79
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 96
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 96
+        },
+        {
+          "caller": "__init__",
+          "callee": "hasattr",
+          "lineNumber": 98
+        },
+        {
+          "caller": "__init__",
+          "callee": "ImportError",
+          "lineNumber": 99
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 108
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 109
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 110
+        },
+        {
+          "caller": "__init__",
+          "callee": "RMSNorm",
+          "lineNumber": 115
+        },
+        {
+          "caller": "__init__",
+          "callee": "RMSNorm",
+          "lineNumber": 116
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 118
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 120
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.to_out.append",
+          "lineNumber": 121
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 121
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.to_out.append",
+          "lineNumber": 122
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Dropout",
+          "lineNumber": 122
+        },
+        {
+          "caller": "__init__",
+          "callee": "is_flash_attn_available",
+          "lineNumber": 125
+        },
+        {
+          "caller": "__init__",
+          "callee": "_raise_flash_attn_unavailable",
+          "lineNumber": 126
+        },
+        {
+          "caller": "forward",
+          "callee": "self.to_q",
+          "lineNumber": 142
+        },
+        {
+          "caller": "forward",
+          "callee": "self.to_k",
+          "lineNumber": 143
+        },
+        {
+          "caller": "forward",
+          "callee": "self.to_v",
+          "lineNumber": 144
+        },
+        {
+          "caller": "forward",
+          "callee": "query.view(batch_size, -1, self.heads, head_dim).transpose",
+          "lineNumber": 149
+        },
+        {
+          "caller": "forward",
+          "callee": "query.view",
+          "lineNumber": 149
+        },
+        {
+          "caller": "forward",
+          "callee": "key.view(batch_size, -1, self.heads, head_dim).transpose",
+          "lineNumber": 150
+        },
+        {
+          "caller": "forward",
+          "callee": "key.view",
+          "lineNumber": 150
+        },
+        {
+          "caller": "forward",
+          "callee": "value.view(batch_size, -1, self.heads, head_dim).transpose",
+          "lineNumber": 151
+        },
+        {
+          "caller": "forward",
+          "callee": "value.view",
+          "lineNumber": 151
+        },
+        {
+          "caller": "forward",
+          "callee": "self.q_norm",
+          "lineNumber": 155
+        },
+        {
+          "caller": "forward",
+          "callee": "self.k_norm",
+          "lineNumber": 157
+        },
+        {
+          "caller": "forward",
+          "callee": "apply_rotary_pos_emb",
+          "lineNumber": 168
+        },
+        {
+          "caller": "forward",
+          "callee": "apply_rotary_pos_emb",
+          "lineNumber": 171
+        },
+        {
+          "caller": "forward",
+          "callee": "apply_rotary_pos_emb",
+          "lineNumber": 175
+        },
+        {
+          "caller": "forward",
+          "callee": "apply_rotary_pos_emb",
+          "lineNumber": 176
+        },
+        {
+          "caller": "forward",
+          "callee": "mask.any",
+          "lineNumber": 181
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.zeros_like(query).to",
+          "lineNumber": 182
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.zeros_like",
+          "lineNumber": 182
+        },
+        {
+          "caller": "forward",
+          "callee": "attn_mask.unsqueeze(1).unsqueeze",
+          "lineNumber": 188
+        },
+        {
+          "caller": "forward",
+          "callee": "attn_mask.unsqueeze",
+          "lineNumber": 188
+        },
+        {
+          "caller": "forward",
+          "callee": "attn_mask.expand",
+          "lineNumber": 189
+        },
+        {
+          "caller": "forward",
+          "callee": "valid_sample_indices.sum().item",
+          "lineNumber": 190
+        },
+        {
+          "caller": "forward",
+          "callee": "valid_sample_indices.sum",
+          "lineNumber": 190
+        },
+        {
+          "caller": "forward",
+          "callee": "F.scaled_dot_product_attention",
+          "lineNumber": 198
+        },
+        {
+          "caller": "forward",
+          "callee": "x.transpose(1, 2).reshape",
+          "lineNumber": 205
+        },
+        {
+          "caller": "forward",
+          "callee": "x.transpose",
+          "lineNumber": 205
+        },
+        {
+          "caller": "forward",
+          "callee": "is_flash_attn_available",
+          "lineNumber": 208
+        },
+        {
+          "caller": "forward",
+          "callee": "_raise_flash_attn_unavailable",
+          "lineNumber": 209
+        },
+        {
+          "caller": "forward",
+          "callee": "query.transpose",
+          "lineNumber": 210
+        },
+        {
+          "caller": "forward",
+          "callee": "key.transpose",
+          "lineNumber": 211
+        },
+        {
+          "caller": "forward",
+          "callee": "value.transpose",
+          "lineNumber": 212
+        },
+        {
+          "caller": "forward",
+          "callee": "unpad_input",
+          "lineNumber": 214
+        },
+        {
+          "caller": "forward",
+          "callee": "unpad_input",
+          "lineNumber": 217
+        },
+        {
+          "caller": "forward",
+          "callee": "unpad_input",
+          "lineNumber": 218
+        },
+        {
+          "caller": "forward",
+          "callee": "flash_attn_varlen_func",
+          "lineNumber": 219
+        },
+        {
+          "caller": "forward",
+          "callee": "pad_input",
+          "lineNumber": 228
+        },
+        {
+          "caller": "forward",
+          "callee": "x.reshape",
+          "lineNumber": 229
+        },
+        {
+          "caller": "forward",
+          "callee": "flash_attn_func",
+          "lineNumber": 231
+        },
+        {
+          "caller": "forward",
+          "callee": "x.reshape",
+          "lineNumber": 232
+        },
+        {
+          "caller": "forward",
+          "callee": "x.to",
+          "lineNumber": 234
+        },
+        {
+          "caller": "forward",
+          "callee": "mask.unsqueeze",
+          "lineNumber": 242
+        },
+        {
+          "caller": "forward",
+          "callee": "x.masked_fill",
+          "lineNumber": 243
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 265
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 265
+        },
+        {
+          "caller": "__init__",
+          "callee": "RMSNorm",
+          "lineNumber": 266
+        },
+        {
+          "caller": "__init__",
+          "callee": "Attention",
+          "lineNumber": 267
+        },
+        {
+          "caller": "__init__",
+          "callee": "RMSNorm",
+          "lineNumber": 277
+        },
+        {
+          "caller": "__init__",
+          "callee": "FeedForward",
+          "lineNumber": 278
+        },
+        {
+          "caller": "forward",
+          "callee": "self.attn",
+          "lineNumber": 283
+        },
+        {
+          "caller": "forward",
+          "callee": "self.norm1",
+          "lineNumber": 283
+        },
+        {
+          "caller": "forward",
+          "callee": "self.mlp",
+          "lineNumber": 284
+        },
+        {
+          "caller": "forward",
+          "callee": "self.norm2",
+          "lineNumber": 284
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 294
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 294
+        },
+        {
+          "caller": "__init__",
+          "callee": "RMSNorm",
+          "lineNumber": 295
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 296
+        },
+        {
+          "caller": "forward",
+          "callee": "self.norm_final",
+          "lineNumber": 299
+        },
+        {
+          "caller": "forward",
+          "callee": "self.linear",
+          "lineNumber": 300
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 314
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 314
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 315
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 318
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 320
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 321
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 321
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 324
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 325
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 325
+        },
+        {
+          "caller": "forward",
+          "callee": "self.adaLN_modulation(c).chunk",
+          "lineNumber": 329
+        },
+        {
+          "caller": "forward",
+          "callee": "self.adaLN_modulation",
+          "lineNumber": 329
+        },
+        {
+          "caller": "forward",
+          "callee": "modulate",
+          "lineNumber": 330
+        },
+        {
+          "caller": "forward",
+          "callee": "self.norm_final",
+          "lineNumber": 330
+        },
+        {
+          "caller": "forward",
+          "callee": "self.linear",
+          "lineNumber": 331
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 342
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 342
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 345
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 346
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 347
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 348
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 349
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 353
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 354
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 354
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 357
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 358
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 358
+        },
+        {
+          "caller": "forward",
+          "callee": "self.adaLN_modulation(y).chunk",
+          "lineNumber": 362
+        },
+        {
+          "caller": "forward",
+          "callee": "self.adaLN_modulation",
+          "lineNumber": 362
+        },
+        {
+          "caller": "forward",
+          "callee": "modulate",
+          "lineNumber": 363
+        },
+        {
+          "caller": "forward",
+          "callee": "self.in_ln",
+          "lineNumber": 363
+        },
+        {
+          "caller": "forward",
+          "callee": "self.mlp",
+          "lineNumber": 364
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 3,
+        "classCount": 7
+      }
+    }
+  ]
+}

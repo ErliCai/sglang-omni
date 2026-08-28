@@ -1,0 +1,15 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"models/fun_cosyvoice3/model_runner.py","language":"python","sizeLines":141,"fileCategory":"code"},
+    {"path":"models/fun_cosyvoice3/request_builders.py","language":"python","sizeLines":842,"fileCategory":"code"},
+    {"path":"models/fun_cosyvoice3/sglang_model.py","language":"python","sizeLines":127,"fileCategory":"code"},
+    {"path":"models/fun_cosyvoice3/utils.py","language":"python","sizeLines":499,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "models/fun_cosyvoice3/model_runner.py":["models/fun_cosyvoice3/sglang_model.py"],
+    "models/fun_cosyvoice3/request_builders.py":["models/fun_cosyvoice3/sglang_model.py","models/fun_cosyvoice3/utils.py"],
+    "models/fun_cosyvoice3/sglang_model.py":[],
+    "models/fun_cosyvoice3/utils.py":[]
+  }
+}

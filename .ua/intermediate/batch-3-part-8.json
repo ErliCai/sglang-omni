@@ -1,0 +1,3157 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "type": "file",
+      "name": "test_audio_encoder_batch_dedup.py",
+      "filePath": "tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "summary": "验证 Qwen3-Omni 音频编码器按 cache key 对批内重复请求去重，并在缺少 key 时保留逐请求执行。",
+      "tags": [
+        "test",
+        "qwen3-omni",
+        "audio-encoder",
+        "deduplication"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_encoder_batch_wait_falls_back_to_zero",
+      "type": "function",
+      "name": "test_encoder_batch_wait_falls_back_to_zero",
+      "filePath": "tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "lineRange": [
+        34,
+        42
+      ],
+      "summary": "验证 `test_encoder_batch_wait_falls_back_to_zero` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "qwen3-omni"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:_payload",
+      "type": "function",
+      "name": "_payload",
+      "filePath": "tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "lineRange": [
+        45,
+        58
+      ],
+      "summary": "构造或处理 `_payload` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "qwen3-omni",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_audio_encoder_batch_dedups_same_cache_key",
+      "type": "function",
+      "name": "test_audio_encoder_batch_dedups_same_cache_key",
+      "filePath": "tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "lineRange": [
+        61,
+        76
+      ],
+      "summary": "验证 `test_audio_encoder_batch_dedups_same_cache_key` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "qwen3-omni"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_audio_encoder_batch_without_cache_keys_runs_every_request",
+      "type": "function",
+      "name": "test_audio_encoder_batch_without_cache_keys_runs_every_request",
+      "filePath": "tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "lineRange": [
+        79,
+        88
+      ],
+      "summary": "验证 `test_audio_encoder_batch_without_cache_keys_runs_every_request` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "qwen3-omni"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:_FakeAudioEncoder",
+      "type": "class",
+      "name": "_FakeAudioEncoder",
+      "filePath": "tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "lineRange": [
+        18,
+        30
+      ],
+      "summary": "为测试提供 `_FakeAudioEncoder` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "qwen3-omni"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "type": "file",
+      "name": "test_code2wav_batching.py",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "summary": "验证 Code2Wav 批处理调度器的窗口收集、chunk 对齐、公平性、背压、streaming EOS 与失败隔离。",
+      "tags": [
+        "test",
+        "qwen3-omni",
+        "code2wav",
+        "batching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_batching_scheduler",
+      "type": "function",
+      "name": "_make_batching_scheduler",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        60,
+        69
+      ],
+      "summary": "构造或处理 `_make_batching_scheduler` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_chunk_aligned_scheduler",
+      "type": "function",
+      "name": "_make_chunk_aligned_scheduler",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        72,
+        85
+      ],
+      "summary": "构造或处理 `_make_chunk_aligned_scheduler` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_chunk",
+      "type": "function",
+      "name": "_chunk",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        88,
+        89
+      ],
+      "summary": "构造或处理 `_chunk` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stream_item",
+      "type": "function",
+      "name": "_stream_item",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        92,
+        95
+      ],
+      "summary": "构造或处理 `_stream_item` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stream_chunk",
+      "type": "function",
+      "name": "_stream_chunk",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        98,
+        103
+      ],
+      "summary": "构造或处理 `_stream_chunk` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_start_scheduler",
+      "type": "function",
+      "name": "_start_scheduler",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        106,
+        109
+      ],
+      "summary": "构造或处理 `_start_scheduler` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stop_scheduler",
+      "type": "function",
+      "name": "_stop_scheduler",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        112,
+        115
+      ],
+      "summary": "构造或处理 `_stop_scheduler` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_next_stream",
+      "type": "function",
+      "name": "_next_stream",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        118,
+        126
+      ],
+      "summary": "构造或处理 `_next_stream` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_feed_batch",
+      "type": "function",
+      "name": "_feed_batch",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        129,
+        139
+      ],
+      "summary": "构造或处理 `_feed_batch` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_drain_outbox",
+      "type": "function",
+      "name": "_drain_outbox",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        142,
+        146
+      ],
+      "summary": "构造或处理 `_drain_outbox` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_collects_only_already_queued_chunks",
+      "type": "function",
+      "name": "test_collector_collects_only_already_queued_chunks",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        149,
+        153
+      ],
+      "summary": "验证 `test_collector_collects_only_already_queued_chunks` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_no_wait_when_nothing_due",
+      "type": "function",
+      "name": "test_collector_no_wait_when_nothing_due",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        156,
+        160
+      ],
+      "summary": "验证 `test_collector_no_wait_when_nothing_due` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_pushback_non_chunk",
+      "type": "function",
+      "name": "test_collector_pushback_non_chunk",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        163,
+        169
+      ],
+      "summary": "验证 `test_collector_pushback_non_chunk` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_scheduler_loop_wakes_at_batch_deadline",
+      "type": "function",
+      "name": "test_scheduler_loop_wakes_at_batch_deadline",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        172,
+        188
+      ],
+      "summary": "验证 `test_scheduler_loop_wakes_at_batch_deadline` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_old_deadline_does_not_delay_new_first_window",
+      "type": "function",
+      "name": "test_old_deadline_does_not_delay_new_first_window",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        191,
+        211
+      ],
+      "summary": "验证 `test_old_deadline_does_not_delay_new_first_window` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_decompose_batch",
+      "type": "function",
+      "name": "test_decompose_batch",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        214,
+        220
+      ],
+      "summary": "验证 `test_decompose_batch` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_decompose_batch_against_published_sizes",
+      "type": "function",
+      "name": "test_decompose_batch_against_published_sizes",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        223,
+        229
+      ],
+      "summary": "验证 `test_decompose_batch_against_published_sizes` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_states_with_ready",
+      "type": "function",
+      "name": "_states_with_ready",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        242,
+        248
+      ],
+      "summary": "构造或处理 `_states_with_ready` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_eager_step_plan_is_one_forward",
+      "type": "function",
+      "name": "test_eager_step_plan_is_one_forward",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        251,
+        255
+      ],
+      "summary": "验证 `test_eager_step_plan_is_one_forward` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_plan_follows_runner_availability_for_the_window",
+      "type": "function",
+      "name": "test_step_plan_follows_runner_availability_for_the_window",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        258,
+        268
+      ],
+      "summary": "验证 `test_step_plan_follows_runner_availability_for_the_window` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_plan_without_published_graphs_stays_one_eager_forward",
+      "type": "function",
+      "name": "test_step_plan_without_published_graphs_stays_one_eager_forward",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        271,
+        278
+      ],
+      "summary": "验证 `test_step_plan_without_published_graphs_stays_one_eager_forward` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_five_streams_take_one_forward_not_two",
+      "type": "function",
+      "name": "test_five_streams_take_one_forward_not_two",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        281,
+        288
+      ],
+      "summary": "验证 `test_five_streams_take_one_forward_not_two` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_first_window_fires_immediately",
+      "type": "function",
+      "name": "test_first_window_fires_immediately",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        291,
+        296
+      ],
+      "summary": "验证 `test_first_window_fires_immediately` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_floor_fires_without_deadline",
+      "type": "function",
+      "name": "test_floor_fires_without_deadline",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        299,
+        307
+      ],
+      "summary": "验证 `test_floor_fires_without_deadline` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_deadline_fires_single",
+      "type": "function",
+      "name": "test_deadline_fires_single",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        310,
+        317
+      ],
+      "summary": "验证 `test_deadline_fires_single` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_bucket_isolation",
+      "type": "function",
+      "name": "test_bucket_isolation",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        320,
+        340
+      ],
+      "summary": "验证 `test_bucket_isolation` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_cursor_uses_captured_window_end",
+      "type": "function",
+      "name": "test_step_cursor_uses_captured_window_end",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        343,
+        361
+      ],
+      "summary": "验证 `test_step_cursor_uses_captured_window_end` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_bitwise_equivalence",
+      "type": "function",
+      "name": "test_bitwise_equivalence",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        364,
+        398
+      ],
+      "summary": "验证 `test_bitwise_equivalence` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_mixed_stream_enabled",
+      "type": "function",
+      "name": "test_mixed_stream_enabled",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        401,
+        414
+      ],
+      "summary": "验证 `test_mixed_stream_enabled` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_failure_isolates_participants",
+      "type": "function",
+      "name": "test_step_failure_isolates_participants",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        417,
+        449
+      ],
+      "summary": "验证 `test_step_failure_isolates_participants` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_failure_after_success_keeps_decoded_sub_batches",
+      "type": "function",
+      "name": "test_step_failure_after_success_keeps_decoded_sub_batches",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        452,
+        494
+      ],
+      "summary": "验证 `test_step_failure_after_success_keeps_decoded_sub_batches` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_one_participation_per_pump",
+      "type": "function",
+      "name": "test_one_participation_per_pump",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        497,
+        516
+      ],
+      "summary": "验证 `test_one_participation_per_pump` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_factory_flags_reach_scheduler",
+      "type": "function",
+      "name": "test_factory_flags_reach_scheduler",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        519,
+        541
+      ],
+      "summary": "验证 `test_factory_flags_reach_scheduler` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_forward_codes_eager",
+      "type": "function",
+      "name": "test_forward_codes_eager",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        544,
+        552
+      ],
+      "summary": "验证 `test_forward_codes_eager` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batch_events_emitted",
+      "type": "function",
+      "name": "test_batch_events_emitted",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        555,
+        604
+      ],
+      "summary": "验证 `test_batch_events_emitted` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batching_and_cuda_graph_coexist",
+      "type": "function",
+      "name": "test_batching_and_cuda_graph_coexist",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        607,
+        612
+      ],
+      "summary": "验证 `test_batching_and_cuda_graph_coexist` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_ready_participants",
+      "type": "function",
+      "name": "_ready_participants",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        615,
+        621
+      ],
+      "summary": "构造或处理 `_ready_participants` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_step_plan_decomposes",
+      "type": "function",
+      "name": "test_chunk_aligned_step_plan_decomposes",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        624,
+        626
+      ],
+      "summary": "验证 `test_chunk_aligned_step_plan_decomposes` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_backlog_drains_in_uniform_graph_windows",
+      "type": "function",
+      "name": "test_chunk_aligned_backlog_drains_in_uniform_graph_windows",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        629,
+        635
+      ],
+      "summary": "验证 `test_chunk_aligned_backlog_drains_in_uniform_graph_windows` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_buckets_merge_mixed_backlogs",
+      "type": "function",
+      "name": "test_chunk_aligned_buckets_merge_mixed_backlogs",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        638,
+        664
+      ],
+      "summary": "验证 `test_chunk_aligned_buckets_merge_mixed_backlogs` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_graph_keys_cover_decompose_sizes",
+      "type": "function",
+      "name": "test_batched_graph_keys_cover_decompose_sizes",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        667,
+        675
+      ],
+      "summary": "验证 `test_batched_graph_keys_cover_decompose_sizes` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_factory_builds_batched_keys_with_batching",
+      "type": "function",
+      "name": "test_factory_builds_batched_keys_with_batching",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        678,
+        711
+      ],
+      "summary": "验证 `test_factory_builds_batched_keys_with_batching` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_serial_only_runner_splits_groups_into_safe_b1_replays",
+      "type": "function",
+      "name": "test_serial_only_runner_splits_groups_into_safe_b1_replays",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        714,
+        731
+      ],
+      "summary": "验证 `test_serial_only_runner_splits_groups_into_safe_b1_replays` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_runtime_disable_stops_chunk_aligned_dispatch",
+      "type": "function",
+      "name": "test_runtime_disable_stops_chunk_aligned_dispatch",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        734,
+        740
+      ],
+      "summary": "验证 `test_runtime_disable_stops_chunk_aligned_dispatch` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_groups_replay_batched_graphs",
+      "type": "function",
+      "name": "test_chunk_aligned_groups_replay_batched_graphs",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        743,
+        752
+      ],
+      "summary": "验证 `test_chunk_aligned_groups_replay_batched_graphs` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_waveforms_match_serial_reference",
+      "type": "function",
+      "name": "test_chunk_aligned_waveforms_match_serial_reference",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        755,
+        784
+      ],
+      "summary": "验证 `test_chunk_aligned_waveforms_match_serial_reference` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_qwen_code2wav_run_step_emits_full_chunk_despite_output_deficit",
+      "type": "function",
+      "name": "test_qwen_code2wav_run_step_emits_full_chunk_despite_output_deficit",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        787,
+        804
+      ],
+      "summary": "验证 `test_qwen_code2wav_run_step_emits_full_chunk_despite_output_deficit` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_graph_batching_scheduler",
+      "type": "function",
+      "name": "_make_graph_batching_scheduler",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        832,
+        848
+      ],
+      "summary": "构造或处理 `_make_graph_batching_scheduler` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_step_replays_one_graph_when_size_is_published",
+      "type": "function",
+      "name": "test_batched_step_replays_one_graph_when_size_is_published",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        851,
+        860
+      ],
+      "summary": "验证 `test_batched_step_replays_one_graph_when_size_is_published` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_step_replays_b1_graphs_without_batched_sizes",
+      "type": "function",
+      "name": "test_batched_step_replays_b1_graphs_without_batched_sizes",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        863,
+        874
+      ],
+      "summary": "验证 `test_batched_step_replays_b1_graphs_without_batched_sizes` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batch_end_event_reports_mixed_sub_batch_execution",
+      "type": "function",
+      "name": "test_batch_end_event_reports_mixed_sub_batch_execution",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        877,
+        923
+      ],
+      "summary": "验证 `test_batch_end_event_reports_mixed_sub_batch_execution` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_initial_codec_chunk_frames_fires_first_window_early",
+      "type": "function",
+      "name": "test_initial_codec_chunk_frames_fires_first_window_early",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        926,
+        939
+      ],
+      "summary": "验证 `test_initial_codec_chunk_frames_fires_first_window_early` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_initial_codec_chunk_frames_zero_keeps_steady_threshold",
+      "type": "function",
+      "name": "test_initial_codec_chunk_frames_zero_keeps_steady_threshold",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        942,
+        947
+      ],
+      "summary": "验证 `test_initial_codec_chunk_frames_zero_keeps_steady_threshold` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_done",
+      "type": "function",
+      "name": "_done",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        950,
+        951
+      ],
+      "summary": "构造或处理 `_done` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_next_message_ingests_first_chunks_before_other_messages",
+      "type": "function",
+      "name": "test_next_message_ingests_first_chunks_before_other_messages",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        954,
+        968
+      ],
+      "summary": "验证 `test_next_message_ingests_first_chunks_before_other_messages` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_next_message_keeps_steady_chunks_in_fifo_order",
+      "type": "function",
+      "name": "test_next_message_keeps_steady_chunks_in_fifo_order",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        971,
+        994
+      ],
+      "summary": "验证 `test_next_message_keeps_steady_chunks_in_fifo_order` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_FakeGraphRunner",
+      "type": "class",
+      "name": "_FakeGraphRunner",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        27,
+        57
+      ],
+      "summary": "为测试提供 `_FakeGraphRunner` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_AvailabilityRunner",
+      "type": "class",
+      "name": "_AvailabilityRunner",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        232,
+        239
+      ],
+      "summary": "为测试提供 `_AvailabilityRunner` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_StubGraphRunner",
+      "type": "class",
+      "name": "_StubGraphRunner",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "lineRange": [
+        807,
+        829
+      ],
+      "summary": "为测试提供 `_StubGraphRunner` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "type": "file",
+      "name": "test_code2wav_cuda_graph.py",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "summary": "验证 Code2Wav CUDA Graph 的 warmup、capture key、私有 stream、内存池、并发重放与 eager parity。",
+      "tags": [
+        "test",
+        "qwen3-omni",
+        "code2wav",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_build_runner",
+      "type": "function",
+      "name": "_build_runner",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        197,
+        213
+      ],
+      "summary": "构造或处理 `_build_runner` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_codes",
+      "type": "function",
+      "name": "_codes",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        216,
+        229
+      ],
+      "summary": "构造或处理 `_codes` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_captures_only_the_explicit_graph_keys",
+      "type": "function",
+      "name": "test_build_captures_only_the_explicit_graph_keys",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        232,
+        255
+      ],
+      "summary": "验证 `test_build_captures_only_the_explicit_graph_keys` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_uses_three_warmups_one_private_pool_and_atomic_publication",
+      "type": "function",
+      "name": "test_build_uses_three_warmups_one_private_pool_and_atomic_publication",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        258,
+        299
+      ],
+      "summary": "验证 `test_build_uses_three_warmups_one_private_pool_and_atomic_publication` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_reuses_one_private_stream_for_all_warmups_and_captures",
+      "type": "function",
+      "name": "test_build_reuses_one_private_stream_for_all_warmups_and_captures",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        302,
+        312
+      ],
+      "summary": "验证 `test_build_reuses_one_private_stream_for_all_warmups_and_captures` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_stats_report_only_operational_state",
+      "type": "function",
+      "name": "test_stats_report_only_operational_state",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        315,
+        334
+      ],
+      "summary": "验证 `test_stats_report_only_operational_state` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_all_serving_keys_hit_while_batch_two_misses",
+      "type": "function",
+      "name": "test_all_serving_keys_hit_while_batch_two_misses",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        337,
+        357
+      ],
+      "summary": "验证 `test_all_serving_keys_hit_while_batch_two_misses` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_cuda_api_restores_original_stream_when_capture_exit_raises",
+      "type": "function",
+      "name": "test_cuda_api_restores_original_stream_when_capture_exit_raises",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        360,
+        408
+      ],
+      "summary": "验证 `test_cuda_api_restores_original_stream_when_capture_exit_raises` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_invalid_capture_preserves_current_stream",
+      "type": "function",
+      "name": "test_real_cuda_invalid_capture_preserves_current_stream",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        413,
+        440
+      ],
+      "summary": "验证 `test_real_cuda_invalid_capture_preserves_current_stream` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_shared_pool_replays_batch_sizes_with_eager_parity",
+      "type": "function",
+      "name": "test_real_cuda_shared_pool_replays_batch_sizes_with_eager_parity",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        445,
+        484
+      ],
+      "summary": "验证 `test_real_cuda_shared_pool_replays_batch_sizes_with_eager_parity` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_output_overlap_pipeline_matches_sync_bitwise",
+      "type": "function",
+      "name": "test_real_cuda_output_overlap_pipeline_matches_sync_bitwise",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        489,
+        561
+      ],
+      "summary": "验证 `test_real_cuda_output_overlap_pipeline_matches_sync_bitwise` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_run_copies_live_input_replays_and_returns_borrowed_output_metadata",
+      "type": "function",
+      "name": "test_run_copies_live_input_replays_and_returns_borrowed_output_metadata",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        564,
+        589
+      ],
+      "summary": "验证 `test_run_copies_live_input_replays_and_returns_borrowed_output_metadata` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_intentional_eager_fallbacks",
+      "type": "function",
+      "name": "test_intentional_eager_fallbacks",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        600,
+        618
+      ],
+      "summary": "验证 `test_intentional_eager_fallbacks` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_eligible_input_contract_violations_raise",
+      "type": "function",
+      "name": "test_eligible_input_contract_violations_raise",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        631,
+        653
+      ],
+      "summary": "验证 `test_eligible_input_contract_violations_raise` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_pid_mismatch_fails_closed_before_any_eager_model_call",
+      "type": "function",
+      "name": "test_pid_mismatch_fails_closed_before_any_eager_model_call",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        664,
+        684
+      ],
+      "summary": "验证 `test_pid_mismatch_fails_closed_before_any_eager_model_call` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_any_build_failure_rolls_back_every_graph",
+      "type": "function",
+      "name": "test_any_build_failure_rolls_back_every_graph",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        696,
+        714
+      ],
+      "summary": "验证 `test_any_build_failure_rolls_back_every_graph` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_memory_fraction_must_be_explicit_and_in_range",
+      "type": "function",
+      "name": "test_memory_fraction_must_be_explicit_and_in_range",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        718,
+        728
+      ],
+      "summary": "验证 `test_memory_fraction_must_be_explicit_and_in_range` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_runtime_replay_failure_is_raised_and_disables_all_graphs",
+      "type": "function",
+      "name": "test_runtime_replay_failure_is_raised_and_disables_all_graphs",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        731,
+        756
+      ],
+      "summary": "验证 `test_runtime_replay_failure_is_raised_and_disables_all_graphs` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_stats_are_strictly_json_safe_after_success_and_failure",
+      "type": "function",
+      "name": "test_stats_are_strictly_json_safe_after_success_and_failure",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        759,
+        767
+      ],
+      "summary": "验证 `test_stats_are_strictly_json_safe_after_success_and_failure` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_build_tiered_runner",
+      "type": "function",
+      "name": "_build_tiered_runner",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        812,
+        822
+      ],
+      "summary": "构造或处理 `_build_tiered_runner` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "code2wav",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_publishes_full_matrix_within_budget",
+      "type": "function",
+      "name": "test_tier1_publishes_full_matrix_within_budget",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        825,
+        864
+      ],
+      "summary": "验证 `test_tier1_publishes_full_matrix_within_budget` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_budget_violation_republishes_greedy_prefix",
+      "type": "function",
+      "name": "test_tier1_budget_violation_republishes_greedy_prefix",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        867,
+        900
+      ],
+      "summary": "验证 `test_tier1_budget_violation_republishes_greedy_prefix` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_oversized_first_key_drops_its_batch_class",
+      "type": "function",
+      "name": "test_tier1_oversized_first_key_drops_its_batch_class",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        903,
+        924
+      ],
+      "summary": "验证 `test_tier1_oversized_first_key_drops_its_batch_class` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_combined_footprint_violation_drops_largest_batch_class",
+      "type": "function",
+      "name": "test_combined_footprint_violation_drops_largest_batch_class",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        927,
+        957
+      ],
+      "summary": "验证 `test_combined_footprint_violation_drops_largest_batch_class` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_capture_oom_drops_the_batch_class_and_retries",
+      "type": "function",
+      "name": "test_tier1_capture_oom_drops_the_batch_class_and_retries",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        960,
+        979
+      ],
+      "summary": "验证 `test_tier1_capture_oom_drops_the_batch_class_and_retries` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_capture_error_abandons_tier_but_keeps_tier0",
+      "type": "function",
+      "name": "test_tier1_capture_error_abandons_tier_but_keeps_tier0",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        982,
+        1007
+      ],
+      "summary": "验证 `test_tier1_capture_error_abandons_tier_but_keeps_tier0` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_equivalence_failure_abandons_tier_with_original_reason",
+      "type": "function",
+      "name": "test_tier1_equivalence_failure_abandons_tier_with_original_reason",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        1010,
+        1024
+      ],
+      "summary": "验证 `test_tier1_equivalence_failure_abandons_tier_with_original_reason` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_runtime_disable_clears_tier1_availability",
+      "type": "function",
+      "name": "test_runtime_disable_clears_tier1_availability",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        1027,
+        1050
+      ],
+      "summary": "验证 `test_runtime_disable_clears_tier1_availability` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeModel",
+      "type": "class",
+      "name": "_FakeModel",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        24,
+        33
+      ],
+      "summary": "为测试提供 `_FakeModel` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeGraph",
+      "type": "class",
+      "name": "_FakeGraph",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        36,
+        59
+      ],
+      "summary": "为测试提供 `_FakeGraph` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeCudaBackend",
+      "type": "class",
+      "name": "_FakeCudaBackend",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        62,
+        194
+      ],
+      "summary": "为测试提供 `_FakeCudaBackend` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "code2wav"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_SequencedBackend",
+      "type": "class",
+      "name": "_SequencedBackend",
+      "filePath": "tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "lineRange": [
+        780,
+        809
+      ],
+      "summary": "为测试提供 `_SequencedBackend` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "code2wav"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_encoder_batch_wait_falls_back_to_zero",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_encoder_batch_wait_falls_back_to_zero",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_audio_encoder_batch_dedups_same_cache_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_audio_encoder_batch_dedups_same_cache_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_audio_encoder_batch_without_cache_keys_runs_every_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:test_audio_encoder_batch_without_cache_keys_runs_every_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:_FakeAudioEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py:_FakeAudioEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "file:sglang_omni/models/qwen3_omni/payload_types.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "file:sglang_omni/models/qwen3_omni/payload_types.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "file:sglang_omni/models/qwen3_omni/stages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "file:sglang_omni/models/qwen3_omni/stages.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_audio_encoder_batch_dedup.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_batching_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_batching_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_chunk_aligned_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_chunk_aligned_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_chunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_chunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stream_item",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stream_item",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stream_chunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stream_chunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_start_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_start_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stop_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_stop_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_next_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_next_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_feed_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_feed_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_drain_outbox",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_drain_outbox",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_collects_only_already_queued_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_collects_only_already_queued_chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_no_wait_when_nothing_due",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_no_wait_when_nothing_due",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_pushback_non_chunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_collector_pushback_non_chunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_scheduler_loop_wakes_at_batch_deadline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_scheduler_loop_wakes_at_batch_deadline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_old_deadline_does_not_delay_new_first_window",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_old_deadline_does_not_delay_new_first_window",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_decompose_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_decompose_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_decompose_batch_against_published_sizes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_decompose_batch_against_published_sizes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_states_with_ready",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_states_with_ready",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_eager_step_plan_is_one_forward",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_eager_step_plan_is_one_forward",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_plan_follows_runner_availability_for_the_window",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_plan_follows_runner_availability_for_the_window",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_plan_without_published_graphs_stays_one_eager_forward",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_plan_without_published_graphs_stays_one_eager_forward",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_five_streams_take_one_forward_not_two",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_five_streams_take_one_forward_not_two",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_first_window_fires_immediately",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_first_window_fires_immediately",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_floor_fires_without_deadline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_floor_fires_without_deadline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_deadline_fires_single",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_deadline_fires_single",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_bucket_isolation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_bucket_isolation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_cursor_uses_captured_window_end",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_cursor_uses_captured_window_end",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_bitwise_equivalence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_bitwise_equivalence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_mixed_stream_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_mixed_stream_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_failure_isolates_participants",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_failure_isolates_participants",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_failure_after_success_keeps_decoded_sub_batches",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_step_failure_after_success_keeps_decoded_sub_batches",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_one_participation_per_pump",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_one_participation_per_pump",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_factory_flags_reach_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_factory_flags_reach_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_forward_codes_eager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_forward_codes_eager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batch_events_emitted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batch_events_emitted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batching_and_cuda_graph_coexist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batching_and_cuda_graph_coexist",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_ready_participants",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_ready_participants",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_step_plan_decomposes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_step_plan_decomposes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_backlog_drains_in_uniform_graph_windows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_backlog_drains_in_uniform_graph_windows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_buckets_merge_mixed_backlogs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_buckets_merge_mixed_backlogs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_graph_keys_cover_decompose_sizes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_graph_keys_cover_decompose_sizes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_factory_builds_batched_keys_with_batching",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_factory_builds_batched_keys_with_batching",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_serial_only_runner_splits_groups_into_safe_b1_replays",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_serial_only_runner_splits_groups_into_safe_b1_replays",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_runtime_disable_stops_chunk_aligned_dispatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_runtime_disable_stops_chunk_aligned_dispatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_groups_replay_batched_graphs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_groups_replay_batched_graphs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_waveforms_match_serial_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_chunk_aligned_waveforms_match_serial_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_qwen_code2wav_run_step_emits_full_chunk_despite_output_deficit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_qwen_code2wav_run_step_emits_full_chunk_despite_output_deficit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_graph_batching_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_make_graph_batching_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_step_replays_one_graph_when_size_is_published",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_step_replays_one_graph_when_size_is_published",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_step_replays_b1_graphs_without_batched_sizes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batched_step_replays_b1_graphs_without_batched_sizes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batch_end_event_reports_mixed_sub_batch_execution",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_batch_end_event_reports_mixed_sub_batch_execution",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_initial_codec_chunk_frames_fires_first_window_early",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_initial_codec_chunk_frames_fires_first_window_early",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_initial_codec_chunk_frames_zero_keeps_steady_threshold",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_initial_codec_chunk_frames_zero_keeps_steady_threshold",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_done",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_done",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_next_message_ingests_first_chunks_before_other_messages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_next_message_ingests_first_chunks_before_other_messages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_next_message_keeps_steady_chunks_in_fifo_order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_batching.py:test_next_message_keeps_steady_chunks_in_fifo_order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_FakeGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_FakeGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_AvailabilityRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_AvailabilityRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_StubGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_batching.py:_StubGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/code2wav_scheduler.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/code2wav_scheduler.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/pipeline/stage/stream_queue.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/pipeline/stage/stream_queue.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/scheduling/messages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:sglang_omni/scheduling/messages.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_batching.py",
+      "target": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_build_runner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_build_runner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_codes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_codes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_captures_only_the_explicit_graph_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_captures_only_the_explicit_graph_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_uses_three_warmups_one_private_pool_and_atomic_publication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_uses_three_warmups_one_private_pool_and_atomic_publication",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_reuses_one_private_stream_for_all_warmups_and_captures",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_build_reuses_one_private_stream_for_all_warmups_and_captures",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_stats_report_only_operational_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_stats_report_only_operational_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_all_serving_keys_hit_while_batch_two_misses",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_all_serving_keys_hit_while_batch_two_misses",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_cuda_api_restores_original_stream_when_capture_exit_raises",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_cuda_api_restores_original_stream_when_capture_exit_raises",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_invalid_capture_preserves_current_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_invalid_capture_preserves_current_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_shared_pool_replays_batch_sizes_with_eager_parity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_shared_pool_replays_batch_sizes_with_eager_parity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_output_overlap_pipeline_matches_sync_bitwise",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_real_cuda_output_overlap_pipeline_matches_sync_bitwise",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_run_copies_live_input_replays_and_returns_borrowed_output_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_run_copies_live_input_replays_and_returns_borrowed_output_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_intentional_eager_fallbacks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_intentional_eager_fallbacks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_eligible_input_contract_violations_raise",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_eligible_input_contract_violations_raise",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_pid_mismatch_fails_closed_before_any_eager_model_call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_pid_mismatch_fails_closed_before_any_eager_model_call",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_any_build_failure_rolls_back_every_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_any_build_failure_rolls_back_every_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_memory_fraction_must_be_explicit_and_in_range",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_memory_fraction_must_be_explicit_and_in_range",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_runtime_replay_failure_is_raised_and_disables_all_graphs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_runtime_replay_failure_is_raised_and_disables_all_graphs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_stats_are_strictly_json_safe_after_success_and_failure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_stats_are_strictly_json_safe_after_success_and_failure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_build_tiered_runner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_build_tiered_runner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_publishes_full_matrix_within_budget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_publishes_full_matrix_within_budget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_budget_violation_republishes_greedy_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_budget_violation_republishes_greedy_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_oversized_first_key_drops_its_batch_class",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_oversized_first_key_drops_its_batch_class",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_combined_footprint_violation_drops_largest_batch_class",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_combined_footprint_violation_drops_largest_batch_class",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_capture_oom_drops_the_batch_class_and_retries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_capture_oom_drops_the_batch_class_and_retries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_capture_error_abandons_tier_but_keeps_tier0",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_capture_error_abandons_tier_but_keeps_tier0",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_equivalence_failure_abandons_tier_with_original_reason",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_tier1_equivalence_failure_abandons_tier_with_original_reason",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_runtime_disable_clears_tier1_availability",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "function:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:test_runtime_disable_clears_tier1_availability",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeCudaBackend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_FakeCudaBackend",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_SequencedBackend",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "class:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py:_SequencedBackend",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/qwen3_omni/test_code2wav_cuda_graph.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

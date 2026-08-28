@@ -1,0 +1,2129 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/unit_test/model_runner/test_register_omni_model.py",
+      "type": "file",
+      "name": "test_register_omni_model.py",
+      "filePath": "tests/unit_test/model_runner/test_register_omni_model.py",
+      "summary": "验证 Omni 模型注册流程会安全跳过无法导入的可选模型实现。",
+      "tags": [
+        "test",
+        "model-registry",
+        "error-handling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_register_omni_model.py:test_register_omni_model_skips_unimportable",
+      "type": "function",
+      "name": "test_register_omni_model_skips_unimportable",
+      "filePath": "tests/unit_test/model_runner/test_register_omni_model.py",
+      "lineRange": [
+        13,
+        27
+      ],
+      "summary": "验证 `test_register_omni_model_skips_unimportable` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "type": "file",
+      "name": "test_weight_checker.py",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "summary": "验证严格权重快照与 checksum、特殊 dtype 字节转换，以及模型工作进程的磁盘和分布式权重更新契约。",
+      "tags": [
+        "test",
+        "model-runner",
+        "weight-update",
+        "checksum"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_strict_weight_checker_snapshot_compare_and_checksum",
+      "type": "function",
+      "name": "test_strict_weight_checker_snapshot_compare_and_checksum",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        36,
+        55
+      ],
+      "summary": "验证 `test_strict_weight_checker_snapshot_compare_and_checksum` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_strict_weight_checker_checksums_bfloat16_tensor_bytes",
+      "type": "function",
+      "name": "test_strict_weight_checker_checksums_bfloat16_tensor_bytes",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        58,
+        72
+      ],
+      "summary": "验证 `test_strict_weight_checker_checksums_bfloat16_tensor_bytes` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_tensor_bytes_supports_bfloat16_fallback_path",
+      "type": "function",
+      "name": "test_tensor_bytes_supports_bfloat16_fallback_path",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        75,
+        81
+      ],
+      "summary": "验证 `test_tensor_bytes_supports_bfloat16_fallback_path` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_tensor_bytes_supports_float8_fallback_path",
+      "type": "function",
+      "name": "test_tensor_bytes_supports_float8_fallback_path",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        84,
+        93
+      ],
+      "summary": "验证 `test_tensor_bytes_supports_float8_fallback_path` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_disk_updates_visible_model_info",
+      "type": "function",
+      "name": "test_model_worker_update_weights_from_disk_updates_visible_model_info",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        96,
+        146
+      ],
+      "summary": "验证 `test_model_worker_update_weights_from_disk_updates_visible_model_info` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_disk_uses_server_args_override",
+      "type": "function",
+      "name": "test_model_worker_update_weights_from_disk_uses_server_args_override",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        149,
+        186
+      ],
+      "summary": "验证 `test_model_worker_update_weights_from_disk_uses_server_args_override` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_info_uses_effective_hybrid_swa_capacity",
+      "type": "function",
+      "name": "test_model_worker_info_uses_effective_hybrid_swa_capacity",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        189,
+        212
+      ],
+      "summary": "验证 `test_model_worker_info_uses_effective_hybrid_swa_capacity` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_init_weights_update_group_passes_positional_args",
+      "type": "function",
+      "name": "test_model_worker_init_weights_update_group_passes_positional_args",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        215,
+        249
+      ],
+      "summary": "验证 `test_model_worker_init_weights_update_group_passes_positional_args` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_init_weights_update_group_rejects_non_integer_fields",
+      "type": "function",
+      "name": "test_model_worker_init_weights_update_group_rejects_non_integer_fields",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        252,
+        271
+      ],
+      "summary": "验证 `test_model_worker_init_weights_update_group_rejects_non_integer_fields` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_destroy_weights_update_group_passes_group_name",
+      "type": "function",
+      "name": "test_model_worker_destroy_weights_update_group_passes_group_name",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        274,
+        293
+      ],
+      "summary": "验证 `test_model_worker_destroy_weights_update_group_passes_group_name` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_passes_positional_args",
+      "type": "function",
+      "name": "test_model_worker_update_weights_from_distributed_passes_positional_args",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        296,
+        335
+      ],
+      "summary": "验证 `test_model_worker_update_weights_from_distributed_passes_positional_args` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_distributed_update_uses_server_args_override",
+      "type": "function",
+      "name": "test_model_worker_distributed_update_uses_server_args_override",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        338,
+        365
+      ],
+      "summary": "验证 `test_model_worker_distributed_update_uses_server_args_override` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_requires_names",
+      "type": "function",
+      "name": "test_model_worker_update_weights_from_distributed_requires_names",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        368,
+        382
+      ],
+      "summary": "验证 `test_model_worker_update_weights_from_distributed_requires_names` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_rejects_mismatched_metadata",
+      "type": "function",
+      "name": "test_model_worker_update_weights_from_distributed_rejects_mismatched_metadata",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        385,
+        413
+      ],
+      "summary": "验证 `test_model_worker_update_weights_from_distributed_rejects_mismatched_metadata` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/model_runner/test_weight_checker.py:_StrictServerArgsDouble",
+      "type": "class",
+      "name": "_StrictServerArgsDouble",
+      "filePath": "tests/unit_test/model_runner/test_weight_checker.py",
+      "lineRange": [
+        15,
+        33
+      ],
+      "summary": "为测试提供 `_StrictServerArgsDouble` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "type": "file",
+      "name": "test_async_decode.py",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "summary": "全面验证异步解码句柄生命周期、lookahead、完成判定、回退同步、批处理行映射与 CUDA 事件行为。",
+      "tags": [
+        "test",
+        "pipeline",
+        "async-decode",
+        "cuda-event"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_patch_event",
+      "type": "function",
+      "name": "_patch_event",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        98,
+        112
+      ],
+      "summary": "构造或处理 `_patch_event` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_launch_event_comes_from_the_runners_device_module",
+      "type": "function",
+      "name": "test_launch_event_comes_from_the_runners_device_module",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        115,
+        144
+      ],
+      "summary": "验证 `test_launch_event_comes_from_the_runners_device_module` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_sched_output",
+      "type": "function",
+      "name": "_sched_output",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        147,
+        158
+      ],
+      "summary": "构造或处理 `_sched_output` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_launch_returns_handle_resolve_consumes_it",
+      "type": "function",
+      "name": "test_launch_returns_handle_resolve_consumes_it",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        161,
+        179
+      ],
+      "summary": "验证 `test_launch_returns_handle_resolve_consumes_it` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_two_launches_return_distinct_handles",
+      "type": "function",
+      "name": "test_two_launches_return_distinct_handles",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        182,
+        193
+      ],
+      "summary": "验证 `test_two_launches_return_distinct_handles` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_none_returns_none",
+      "type": "function",
+      "name": "test_resolve_none_returns_none",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        196,
+        200
+      ],
+      "summary": "验证 `test_resolve_none_returns_none` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_query_miss_falls_back_to_synchronize",
+      "type": "function",
+      "name": "test_query_miss_falls_back_to_synchronize",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        203,
+        209
+      ],
+      "summary": "验证 `test_query_miss_falls_back_to_synchronize` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_recomputes_finished_overrun_skip_rids",
+      "type": "function",
+      "name": "test_resolve_recomputes_finished_overrun_skip_rids",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        212,
+        232
+      ],
+      "summary": "验证 `test_resolve_recomputes_finished_overrun_skip_rids` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_skips_retracted_row",
+      "type": "function",
+      "name": "test_resolve_skips_retracted_row",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        235,
+        264
+      ],
+      "summary": "验证 `test_resolve_skips_retracted_row` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_base_lookahead_eligible_gates_output_history_sampling",
+      "type": "function",
+      "name": "test_base_lookahead_eligible_gates_output_history_sampling",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        267,
+        313
+      ],
+      "summary": "验证 `test_base_lookahead_eligible_gates_output_history_sampling` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_finalize_skips_overrun_bookkeeping_and_extras",
+      "type": "function",
+      "name": "test_finalize_skips_overrun_bookkeeping_and_extras",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        316,
+        355
+      ],
+      "summary": "验证 `test_finalize_skips_overrun_bookkeeping_and_extras` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_finalize_unions_finalize_skip_rids_hook",
+      "type": "function",
+      "name": "test_finalize_unions_finalize_skip_rids_hook",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        358,
+        398
+      ],
+      "summary": "验证 `test_finalize_unions_finalize_skip_rids_hook` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_host_staging_pingpong",
+      "type": "function",
+      "name": "test_host_staging_pingpong",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        403,
+        410
+      ],
+      "summary": "验证 `test_host_staging_pingpong` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_default_launch_resolve_pinned_snapshot_pingpong",
+      "type": "function",
+      "name": "test_default_launch_resolve_pinned_snapshot_pingpong",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        415,
+        445
+      ],
+      "summary": "验证 `test_default_launch_resolve_pinned_snapshot_pingpong` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_default_launch_staging_grows_then_slices_to_smaller_batch",
+      "type": "function",
+      "name": "test_default_launch_staging_grows_then_slices_to_smaller_batch",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        450,
+        465
+      ],
+      "summary": "验证 `test_default_launch_staging_grows_then_slices_to_smaller_batch` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_real_radix_pools",
+      "type": "function",
+      "name": "_real_radix_pools",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        468,
+        498
+      ],
+      "summary": "构造或处理 `_real_radix_pools` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_decoding_req",
+      "type": "function",
+      "name": "_decoding_req",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        501,
+        516
+      ],
+      "summary": "构造或处理 `_decoding_req` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_commit_step_slot",
+      "type": "function",
+      "name": "_commit_step_slot",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        519,
+        527
+      ],
+      "summary": "构造或处理 `_commit_step_slot` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_leaves_drained_rows_single_owned",
+      "type": "function",
+      "name": "test_drop_stale_overrun_leaves_drained_rows_single_owned",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        544,
+        603
+      ],
+      "summary": "验证 `test_drop_stale_overrun_leaves_drained_rows_single_owned` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_batch_is_decode",
+      "type": "function",
+      "name": "test_batch_is_decode",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        606,
+        622
+      ],
+      "summary": "验证 `test_batch_is_decode` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_pending_batch_uses_initialized_state",
+      "type": "function",
+      "name": "test_async_pending_batch_uses_initialized_state",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        625,
+        630
+      ],
+      "summary": "验证 `test_async_pending_batch_uses_initialized_state` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_new_scheduler_for_async_loop",
+      "type": "function",
+      "name": "_new_scheduler_for_async_loop",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        669,
+        684
+      ],
+      "summary": "构造或处理 `_new_scheduler_for_async_loop` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_drive_loop",
+      "type": "function",
+      "name": "_drive_loop",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        687,
+        733
+      ],
+      "summary": "构造或处理 `_drive_loop` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_bs1_bypasses_lookahead_and_drains_on_transition",
+      "type": "function",
+      "name": "test_fast_path_bs1_bypasses_lookahead_and_drains_on_transition",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        736,
+        750
+      ],
+      "summary": "验证 `test_fast_path_bs1_bypasses_lookahead_and_drains_on_transition` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_threshold_one_keeps_all_decode_on_lookahead",
+      "type": "function",
+      "name": "test_fast_path_threshold_one_keeps_all_decode_on_lookahead",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        753,
+        757
+      ],
+      "summary": "验证 `test_fast_path_threshold_one_keeps_all_decode_on_lookahead` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_threshold_four_routes_bs1_to_3_sync",
+      "type": "function",
+      "name": "test_fast_path_threshold_four_routes_bs1_to_3_sync",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        760,
+        764
+      ],
+      "summary": "验证 `test_fast_path_threshold_four_routes_bs1_to_3_sync` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_custom_logit_processor_transitions_async_sync_async",
+      "type": "function",
+      "name": "test_custom_logit_processor_transitions_async_sync_async",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        767,
+        802
+      ],
+      "summary": "验证 `test_custom_logit_processor_transitions_async_sync_async` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_pending_decode_drain_order_for_prefill",
+      "type": "function",
+      "name": "test_pending_decode_drain_order_for_prefill",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        818,
+        859
+      ],
+      "summary": "验证 `test_pending_decode_drain_order_for_prefill` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_full_running_batch_keeps_lookahead_with_waiting_requests",
+      "type": "function",
+      "name": "test_full_running_batch_keeps_lookahead_with_waiting_requests",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        862,
+        886
+      ],
+      "summary": "验证 `test_full_running_batch_keeps_lookahead_with_waiting_requests` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_does_not_double_free_req_finished_by_drain",
+      "type": "function",
+      "name": "test_fast_path_does_not_double_free_req_finished_by_drain",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        936,
+        1004
+      ],
+      "summary": "验证 `test_fast_path_does_not_double_free_req_finished_by_drain` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_scaffold_async_loop",
+      "type": "function",
+      "name": "_scaffold_async_loop",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1007,
+        1022
+      ],
+      "summary": "构造或处理 `_scaffold_async_loop` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_path_launch_failure_calls_handle_batch_failure",
+      "type": "function",
+      "name": "test_async_path_launch_failure_calls_handle_batch_failure",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1025,
+        1052
+      ],
+      "summary": "验证 `test_async_path_launch_failure_calls_handle_batch_failure` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_path_resolve_failure_calls_handle_batch_failure",
+      "type": "function",
+      "name": "test_async_path_resolve_failure_calls_handle_batch_failure",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1055,
+        1087
+      ],
+      "summary": "验证 `test_async_path_resolve_failure_calls_handle_batch_failure` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drain_resolve_failure_calls_handle_batch_failure",
+      "type": "function",
+      "name": "test_drain_resolve_failure_calls_handle_batch_failure",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1090,
+        1105
+      ],
+      "summary": "验证 `test_drain_resolve_failure_calls_handle_batch_failure` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:_drop_stale_scheduler",
+      "type": "function",
+      "name": "_drop_stale_scheduler",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1155,
+        1156
+      ],
+      "summary": "构造或处理 `_drop_stale_scheduler` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_mixed_reslices_per_token",
+      "type": "function",
+      "name": "test_drop_stale_overrun_mixed_reslices_per_token",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1159,
+        1169
+      ],
+      "summary": "验证 `test_drop_stale_overrun_mixed_reslices_per_token` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_extend_multitoken_drop",
+      "type": "function",
+      "name": "test_drop_stale_overrun_extend_multitoken_drop",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1172,
+        1180
+      ],
+      "summary": "验证 `test_drop_stale_overrun_extend_multitoken_drop` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_reslices_deferred_prefill_tokens",
+      "type": "function",
+      "name": "test_drop_stale_overrun_reslices_deferred_prefill_tokens",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1183,
+        1192
+      ],
+      "summary": "验证 `test_drop_stale_overrun_reslices_deferred_prefill_tokens` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_rejects_mixed_deferred_prefill",
+      "type": "function",
+      "name": "test_drop_stale_overrun_rejects_mixed_deferred_prefill",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1195,
+        1201
+      ],
+      "summary": "验证 `test_drop_stale_overrun_rejects_mixed_deferred_prefill` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_reslices_logprob_token_ids",
+      "type": "function",
+      "name": "test_drop_stale_overrun_reslices_logprob_token_ids",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1204,
+        1216
+      ],
+      "summary": "验证 `test_drop_stale_overrun_reslices_logprob_token_ids` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_drops_last_logprob_req",
+      "type": "function",
+      "name": "test_drop_stale_overrun_drops_last_logprob_req",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1219,
+        1224
+      ],
+      "summary": "验证 `test_drop_stale_overrun_drops_last_logprob_req` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_filters_decoding_reqs",
+      "type": "function",
+      "name": "test_drop_stale_overrun_filters_decoding_reqs",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1227,
+        1234
+      ],
+      "summary": "验证 `test_drop_stale_overrun_filters_decoding_reqs` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_async_decode.py:_StubRunner",
+      "type": "class",
+      "name": "_StubRunner",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        35,
+        95
+      ],
+      "summary": "为测试提供 `_StubRunner` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_async_decode.py:_StaleDecodeBatch",
+      "type": "class",
+      "name": "_StaleDecodeBatch",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        530,
+        541
+      ],
+      "summary": "为测试提供 `_StaleDecodeBatch` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_async_decode.py:_FakeBatch",
+      "type": "class",
+      "name": "_FakeBatch",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        642,
+        666
+      ],
+      "summary": "为测试提供 `_FakeBatch` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_async_decode.py:_DFReq",
+      "type": "class",
+      "name": "_DFReq",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        900,
+        907
+      ],
+      "summary": "为测试提供 `_DFReq` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_async_decode.py:_DFBatch",
+      "type": "class",
+      "name": "_DFBatch",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        910,
+        933
+      ],
+      "summary": "为测试提供 `_DFBatch` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_async_decode.py:_MixedBatch",
+      "type": "class",
+      "name": "_MixedBatch",
+      "filePath": "tests/unit_test/pipeline/test_async_decode.py",
+      "lineRange": [
+        1108,
+        1152
+      ],
+      "summary": "为测试提供 `_MixedBatch` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit_test/model_runner/test_register_omni_model.py",
+      "target": "function:tests/unit_test/model_runner/test_register_omni_model.py:test_register_omni_model_skips_unimportable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_register_omni_model.py",
+      "target": "function:tests/unit_test/model_runner/test_register_omni_model.py:test_register_omni_model_skips_unimportable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_register_omni_model.py",
+      "target": "file:sglang_omni/model_runner/sglang_model_runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_register_omni_model.py",
+      "target": "file:sglang_omni/model_runner/sglang_model_runner.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_strict_weight_checker_snapshot_compare_and_checksum",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_strict_weight_checker_snapshot_compare_and_checksum",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_strict_weight_checker_checksums_bfloat16_tensor_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_strict_weight_checker_checksums_bfloat16_tensor_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_tensor_bytes_supports_bfloat16_fallback_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_tensor_bytes_supports_bfloat16_fallback_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_tensor_bytes_supports_float8_fallback_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_tensor_bytes_supports_float8_fallback_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_disk_updates_visible_model_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_disk_updates_visible_model_info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_disk_uses_server_args_override",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_disk_uses_server_args_override",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_info_uses_effective_hybrid_swa_capacity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_info_uses_effective_hybrid_swa_capacity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_init_weights_update_group_passes_positional_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_init_weights_update_group_passes_positional_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_init_weights_update_group_rejects_non_integer_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_init_weights_update_group_rejects_non_integer_fields",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_destroy_weights_update_group_passes_group_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_destroy_weights_update_group_passes_group_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_passes_positional_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_passes_positional_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_distributed_update_uses_server_args_override",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_distributed_update_uses_server_args_override",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_requires_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_requires_names",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_rejects_mismatched_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "function:tests/unit_test/model_runner/test_weight_checker.py:test_model_worker_update_weights_from_distributed_rejects_mismatched_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "class:tests/unit_test/model_runner/test_weight_checker.py:_StrictServerArgsDouble",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "class:tests/unit_test/model_runner/test_weight_checker.py:_StrictServerArgsDouble",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "file:sglang_omni/model_runner/model_worker.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "file:sglang_omni/model_runner/model_worker.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "file:sglang_omni/model_runner/weight_checker.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "file:sglang_omni/model_runner/weight_checker.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/model_runner/test_weight_checker.py",
+      "target": "file:tests/unit_test/fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_patch_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_patch_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_launch_event_comes_from_the_runners_device_module",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_launch_event_comes_from_the_runners_device_module",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_sched_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_sched_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_launch_returns_handle_resolve_consumes_it",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_launch_returns_handle_resolve_consumes_it",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_two_launches_return_distinct_handles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_two_launches_return_distinct_handles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_none_returns_none",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_none_returns_none",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_query_miss_falls_back_to_synchronize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_query_miss_falls_back_to_synchronize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_recomputes_finished_overrun_skip_rids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_recomputes_finished_overrun_skip_rids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_skips_retracted_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_resolve_skips_retracted_row",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_base_lookahead_eligible_gates_output_history_sampling",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_base_lookahead_eligible_gates_output_history_sampling",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_finalize_skips_overrun_bookkeeping_and_extras",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_finalize_skips_overrun_bookkeeping_and_extras",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_finalize_unions_finalize_skip_rids_hook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_finalize_unions_finalize_skip_rids_hook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_host_staging_pingpong",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_host_staging_pingpong",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_default_launch_resolve_pinned_snapshot_pingpong",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_default_launch_resolve_pinned_snapshot_pingpong",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_default_launch_staging_grows_then_slices_to_smaller_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_default_launch_staging_grows_then_slices_to_smaller_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_real_radix_pools",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_real_radix_pools",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_decoding_req",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_decoding_req",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_commit_step_slot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_commit_step_slot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_leaves_drained_rows_single_owned",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_leaves_drained_rows_single_owned",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_batch_is_decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_batch_is_decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_pending_batch_uses_initialized_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_pending_batch_uses_initialized_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_new_scheduler_for_async_loop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_new_scheduler_for_async_loop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_drive_loop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_drive_loop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_bs1_bypasses_lookahead_and_drains_on_transition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_bs1_bypasses_lookahead_and_drains_on_transition",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_threshold_one_keeps_all_decode_on_lookahead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_threshold_one_keeps_all_decode_on_lookahead",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_threshold_four_routes_bs1_to_3_sync",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_threshold_four_routes_bs1_to_3_sync",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_custom_logit_processor_transitions_async_sync_async",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_custom_logit_processor_transitions_async_sync_async",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_pending_decode_drain_order_for_prefill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_pending_decode_drain_order_for_prefill",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_full_running_batch_keeps_lookahead_with_waiting_requests",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_full_running_batch_keeps_lookahead_with_waiting_requests",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_does_not_double_free_req_finished_by_drain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_fast_path_does_not_double_free_req_finished_by_drain",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_scaffold_async_loop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_scaffold_async_loop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_path_launch_failure_calls_handle_batch_failure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_path_launch_failure_calls_handle_batch_failure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_path_resolve_failure_calls_handle_batch_failure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_async_path_resolve_failure_calls_handle_batch_failure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drain_resolve_failure_calls_handle_batch_failure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drain_resolve_failure_calls_handle_batch_failure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_drop_stale_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:_drop_stale_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_mixed_reslices_per_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_mixed_reslices_per_token",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_extend_multitoken_drop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_extend_multitoken_drop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_reslices_deferred_prefill_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_reslices_deferred_prefill_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_rejects_mixed_deferred_prefill",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_rejects_mixed_deferred_prefill",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_reslices_logprob_token_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_reslices_logprob_token_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_drops_last_logprob_req",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_drops_last_logprob_req",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_filters_decoding_reqs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "function:tests/unit_test/pipeline/test_async_decode.py:test_drop_stale_overrun_filters_decoding_reqs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_StubRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_StubRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_StaleDecodeBatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_StaleDecodeBatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_FakeBatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_FakeBatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_DFReq",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_DFReq",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_DFBatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_DFBatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_MixedBatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "class:tests/unit_test/pipeline/test_async_decode.py:_MixedBatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "file:sglang_omni/model_runner/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "file:sglang_omni/model_runner/base.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "file:sglang_omni/scheduling/omni_scheduler.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "file:sglang_omni/scheduling/omni_scheduler.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "file:sglang_omni/scheduling/types.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "file:sglang_omni/scheduling/types.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_async_decode.py",
+      "target": "file:tests/unit_test/fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

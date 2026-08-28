@@ -1,0 +1,193 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "pipeline/local_dispatch.py",
+      "language": "python",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/mp_runner.py",
+      "language": "python",
+      "sizeLines": 654,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/replicas.py",
+      "language": "python",
+      "sizeLines": 278,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/runtime_config.py",
+      "language": "python",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/__init__.py",
+      "language": "python",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/input.py",
+      "language": "python",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/runtime.py",
+      "language": "python",
+      "sizeLines": 1843,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/stream_queue.py",
+      "language": "python",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage_workers.py",
+      "language": "python",
+      "sizeLines": 879,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/tp_control.py",
+      "language": "python",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/__init__.py",
+      "language": "python",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/cpu.py",
+      "language": "python",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/cuda.py",
+      "language": "python",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/interface.py",
+      "language": "python",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/musa.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/npu.py",
+      "language": "python",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/rocm.py",
+      "language": "python",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/xpu.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/__init__.py",
+      "language": "python",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/text.py",
+      "language": "python",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/transcription.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/__main__.py",
+      "language": "python",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/base_profiler.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/comm_trace.py",
+      "language": "python",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/event_recorder.py",
+      "language": "python",
+      "sizeLines": 312,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "pipeline/local_dispatch.py": [],
+    "pipeline/mp_runner.py": [],
+    "pipeline/replicas.py": [],
+    "pipeline/runtime_config.py": [],
+    "pipeline/stage/__init__.py": [],
+    "pipeline/stage/input.py": [],
+    "pipeline/stage/runtime.py": [],
+    "pipeline/stage/stream_queue.py": [],
+    "pipeline/stage_workers.py": [],
+    "pipeline/tp_control.py": [],
+    "platforms/__init__.py": [],
+    "platforms/cpu.py": [],
+    "platforms/cuda.py": [],
+    "platforms/interface.py": [],
+    "platforms/musa.py": [],
+    "platforms/npu.py": [],
+    "platforms/rocm.py": [],
+    "platforms/xpu.py": [],
+    "preprocessing/__init__.py": [],
+    "preprocessing/text.py": [],
+    "preprocessing/transcription.py": [],
+    "profiler/__main__.py": [],
+    "profiler/base_profiler.py": [],
+    "profiler/comm_trace.py": [],
+    "profiler/event_recorder.py": []
+  },
+  "neighborMap": {
+    "profiler/base_profiler.py": [
+      {
+        "path": "profiler/torch_profiler.py",
+        "batchIndex": 28,
+        "symbols": [
+          "TorchProfiler"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,927 @@
+{
+  "nodes": [
+    {
+      "id": "file:sglang_omni/platforms/musa.py",
+      "type": "file",
+      "name": "musa.py",
+      "filePath": "sglang_omni/platforms/musa.py",
+      "summary": "将 MUSA 设备接入 Omni 平台接口，复用 CUDA 兼容策略并覆盖 fused RoPE 与模型后端配置。",
+      "tags": [
+        "硬件后端",
+        "平台适配",
+        "device"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/platforms/musa.py:MUSAOmniPlatform",
+      "type": "class",
+      "name": "MUSAOmniPlatform",
+      "filePath": "sglang_omni/platforms/musa.py",
+      "lineRange": [
+        21,
+        39
+      ],
+      "summary": "实现 MUSA 后端的 fused kernel 与 backend policy 适配。",
+      "tags": [
+        "平台适配",
+        "硬件后端",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/platforms/npu.py",
+      "type": "file",
+      "name": "npu.py",
+      "filePath": "sglang_omni/platforms/npu.py",
+      "summary": "提供 NPU 设备对象与 Omni 平台适配，统一设备选择并声明 code-to-wave graph 支持。",
+      "tags": [
+        "硬件后端",
+        "平台适配",
+        "device"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/platforms/npu.py:NPUOmniPlatform",
+      "type": "class",
+      "name": "NPUOmniPlatform",
+      "filePath": "sglang_omni/platforms/npu.py",
+      "lineRange": [
+        9,
+        21
+      ],
+      "summary": "实现 NPU 设备枚举、选择与 graph 能力声明。",
+      "tags": [
+        "平台适配",
+        "硬件后端",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/platforms/rocm.py",
+      "type": "file",
+      "name": "rocm.py",
+      "filePath": "sglang_omni/platforms/rocm.py",
+      "summary": "实现 ROCm 后端的进程环境、节点内传输、fused RoPE 与保守的模型后端策略。",
+      "tags": [
+        "硬件后端",
+        "平台适配",
+        "device"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/platforms/rocm.py:ROCMOmniPlatform",
+      "type": "class",
+      "name": "ROCMOmniPlatform",
+      "filePath": "sglang_omni/platforms/rocm.py",
+      "lineRange": [
+        18,
+        84
+      ],
+      "summary": "实现 ROCm 的通信、kernel 与模型后端策略。",
+      "tags": [
+        "平台适配",
+        "硬件后端",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/platforms/xpu.py",
+      "type": "file",
+      "name": "xpu.py",
+      "filePath": "sglang_omni/platforms/xpu.py",
+      "summary": "实现 Intel XPU 的设备管理、进程环境、fused RoPE cache 和模型后端策略。",
+      "tags": [
+        "硬件后端",
+        "平台适配",
+        "device"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/platforms/xpu.py:XPUOmniPlatform",
+      "type": "class",
+      "name": "XPUOmniPlatform",
+      "filePath": "sglang_omni/platforms/xpu.py",
+      "lineRange": [
+        22,
+        103
+      ],
+      "summary": "实现 Intel XPU 的设备、kernel cache、进程环境和模型后端策略。",
+      "tags": [
+        "平台适配",
+        "硬件后端",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/profiler/base_profiler.py",
+      "type": "file",
+      "name": "base_profiler.py",
+      "filePath": "sglang_omni/profiler/base_profiler.py",
+      "summary": "定义 profiler 的统一生命周期和 step context 接口，并提供分布式 rank 查询等默认行为。",
+      "tags": [
+        "profiling",
+        "可观测性",
+        "runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/profiler/base_profiler.py:ProfilerBase",
+      "type": "class",
+      "name": "ProfilerBase",
+      "filePath": "sglang_omni/profiler/base_profiler.py",
+      "lineRange": [
+        16,
+        58
+      ],
+      "summary": "定义 profiler start/stop、step context、活跃状态与分布式 rank 的公共接口。",
+      "tags": [
+        "类",
+        "profiling",
+        "可观测性"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/profiler/comm_trace.py",
+      "type": "file",
+      "name": "comm_trace.py",
+      "filePath": "sglang_omni/profiler/comm_trace.py",
+      "summary": "提供由环境变量控制的轻量通信事件追踪，统一纳秒计时、耗时换算与结构化日志输出。",
+      "tags": [
+        "profiling",
+        "可观测性",
+        "runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/profiler/comm_trace.py:enabled",
+      "type": "function",
+      "name": "enabled",
+      "filePath": "sglang_omni/profiler/comm_trace.py",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "读取环境开关并判断通信 trace 是否启用。",
+      "tags": [
+        "函数",
+        "profiling",
+        "可观测性"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/profiler/comm_trace.py:now_ns",
+      "type": "function",
+      "name": "now_ns",
+      "filePath": "sglang_omni/profiler/comm_trace.py",
+      "lineRange": [
+        20,
+        21
+      ],
+      "summary": "返回用于通信 trace 的单调纳秒时间戳。",
+      "tags": [
+        "函数",
+        "profiling",
+        "可观测性"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/profiler/comm_trace.py:elapsed_ms",
+      "type": "function",
+      "name": "elapsed_ms",
+      "filePath": "sglang_omni/profiler/comm_trace.py",
+      "lineRange": [
+        24,
+        25
+      ],
+      "summary": "把起始纳秒时间换算为当前耗时毫秒。",
+      "tags": [
+        "函数",
+        "profiling",
+        "可观测性"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/profiler/comm_trace.py:emit",
+      "type": "function",
+      "name": "emit",
+      "filePath": "sglang_omni/profiler/comm_trace.py",
+      "lineRange": [
+        28,
+        33
+      ],
+      "summary": "在 trace 开启时输出结构化通信事件。",
+      "tags": [
+        "函数",
+        "profiling",
+        "可观测性"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/profiler/torch_profiler.py",
+      "type": "file",
+      "name": "torch_profiler.py",
+      "filePath": "sglang_omni/profiler/torch_profiler.py",
+      "summary": "将 torch.profiler 适配到项目 profiler 接口，管理 run id、trace 文件、step 推进和活跃上下文。",
+      "tags": [
+        "profiling",
+        "可观测性",
+        "runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/profiler/torch_profiler.py:TorchProfiler",
+      "type": "class",
+      "name": "TorchProfiler",
+      "filePath": "sglang_omni/profiler/torch_profiler.py",
+      "lineRange": [
+        23,
+        201
+      ],
+      "summary": "包装 torch.profiler 生命周期、trace 模板、run id 与 step context。",
+      "tags": [
+        "类",
+        "profiling",
+        "可观测性"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/quantization.py",
+      "type": "file",
+      "name": "quantization.py",
+      "filePath": "sglang_omni/quantization.py",
+      "summary": "解析并规范化模型量化配置，处理阶段前缀、FP8 block 配置和 scale inverse 转换，并为权重加载选择预处理器。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "fp8"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_to_mutable_dict",
+      "type": "function",
+      "name": "_to_mutable_dict",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        45,
+        58
+      ],
+      "summary": "把量化配置对象转成可修改字典并保留关键 metadata。",
+      "tags": [
+        "函数",
+        "量化",
+        "权重加载"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_read_metadata",
+      "type": "function",
+      "name": "_read_metadata",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        61,
+        65
+      ],
+      "summary": "从配置节点读取指定 metadata 字段。",
+      "tags": [
+        "函数",
+        "量化",
+        "权重加载"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:resolve_quant_config",
+      "type": "function",
+      "name": "resolve_quant_config",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        68,
+        88
+      ],
+      "summary": "从模型或嵌套配置中解析有效量化配置。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:quant_method_name",
+      "type": "function",
+      "name": "quant_method_name",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        91,
+        98
+      ],
+      "summary": "提取规范化的量化方法名称。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:is_fp8_block_quant",
+      "type": "function",
+      "name": "is_fp8_block_quant",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        101,
+        107
+      ],
+      "summary": "判断配置是否使用 FP8 block quantization。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:convert_fp8_weight_scale_inv",
+      "type": "function",
+      "name": "convert_fp8_weight_scale_inv",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        110,
+        129
+      ],
+      "summary": "按目标参数语义转换 FP8 weight scale inverse。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_identity_preprocessor",
+      "type": "function",
+      "name": "_identity_preprocessor",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        132,
+        135
+      ],
+      "summary": "作为无需转换时的权重预处理透传函数。",
+      "tags": [
+        "函数",
+        "量化",
+        "权重加载"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:get_weight_preprocessor",
+      "type": "function",
+      "name": "get_weight_preprocessor",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        138,
+        148
+      ],
+      "summary": "根据量化配置选择权重加载预处理器。",
+      "tags": [
+        "权重加载",
+        "量化",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:needs_quant_config_normalization",
+      "type": "function",
+      "name": "needs_quant_config_normalization",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        151,
+        154
+      ],
+      "summary": "判断量化配置是否需要 Stage 本地路径规范化。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_strip_stage_prefix",
+      "type": "function",
+      "name": "_strip_stage_prefix",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        157,
+        168
+      ],
+      "summary": "从量化配置匹配模式中移除 Stage 权重前缀。",
+      "tags": [
+        "函数",
+        "量化",
+        "权重加载"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_normalize_extra_config_keys",
+      "type": "function",
+      "name": "_normalize_extra_config_keys",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        171,
+        191
+      ],
+      "summary": "规范化量化 extra_config 内带 Stage 前缀的键。",
+      "tags": [
+        "函数",
+        "量化",
+        "权重加载"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_normalize_block_name_to_quantize",
+      "type": "function",
+      "name": "_normalize_block_name_to_quantize",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        194,
+        220
+      ],
+      "summary": "重写待量化 block 名称，使其匹配当前 Stage 模型命名空间。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_load_writable_quant_config",
+      "type": "function",
+      "name": "_load_writable_quant_config",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        223,
+        253
+      ],
+      "summary": "从 Hugging Face 配置复制一份可安全修改的量化配置。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:_resolve_stage_prefix",
+      "type": "function",
+      "name": "_resolve_stage_prefix",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        256,
+        261
+      ],
+      "summary": "从模型配置解析当前 Stage 的权重前缀。",
+      "tags": [
+        "函数",
+        "量化",
+        "权重加载"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/quantization.py:normalize_quant_config",
+      "type": "function",
+      "name": "normalize_quant_config",
+      "filePath": "sglang_omni/quantization.py",
+      "lineRange": [
+        264,
+        285
+      ],
+      "summary": "对 Stage 本地模型的量化配置执行幂等规范化。",
+      "tags": [
+        "量化",
+        "权重加载",
+        "python"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:sglang_omni/platforms/musa.py",
+      "target": "class:sglang_omni/platforms/musa.py:MUSAOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/platforms/musa.py",
+      "target": "class:sglang_omni/platforms/musa.py:MUSAOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/platforms/musa.py",
+      "target": "file:sglang_omni/platforms/cuda.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/platforms/musa.py",
+      "target": "file:sglang_omni/platforms/interface.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/platforms/npu.py",
+      "target": "class:sglang_omni/platforms/npu.py:NPUOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/platforms/npu.py",
+      "target": "class:sglang_omni/platforms/npu.py:NPUOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/platforms/npu.py",
+      "target": "file:sglang_omni/platforms/interface.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/platforms/rocm.py",
+      "target": "class:sglang_omni/platforms/rocm.py:ROCMOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/platforms/rocm.py",
+      "target": "class:sglang_omni/platforms/rocm.py:ROCMOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/platforms/rocm.py",
+      "target": "file:sglang_omni/platforms/interface.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/platforms/xpu.py",
+      "target": "class:sglang_omni/platforms/xpu.py:XPUOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/platforms/xpu.py",
+      "target": "class:sglang_omni/platforms/xpu.py:XPUOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/platforms/xpu.py",
+      "target": "file:sglang_omni/platforms/interface.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/profiler/base_profiler.py",
+      "target": "class:sglang_omni/profiler/base_profiler.py:ProfilerBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/profiler/base_profiler.py",
+      "target": "class:sglang_omni/profiler/base_profiler.py:ProfilerBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:now_ns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:now_ns",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:elapsed_ms",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:elapsed_ms",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:emit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/profiler/comm_trace.py",
+      "target": "function:sglang_omni/profiler/comm_trace.py:emit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/profiler/torch_profiler.py",
+      "target": "class:sglang_omni/profiler/torch_profiler.py:TorchProfiler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/profiler/torch_profiler.py",
+      "target": "class:sglang_omni/profiler/torch_profiler.py:TorchProfiler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/profiler/torch_profiler.py",
+      "target": "file:sglang_omni/profiler/base_profiler.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_to_mutable_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_to_mutable_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_read_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_read_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:resolve_quant_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:resolve_quant_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:quant_method_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:quant_method_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:is_fp8_block_quant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:is_fp8_block_quant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:convert_fp8_weight_scale_inv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:convert_fp8_weight_scale_inv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_identity_preprocessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_identity_preprocessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:get_weight_preprocessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:get_weight_preprocessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:needs_quant_config_normalization",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:needs_quant_config_normalization",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_strip_stage_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_strip_stage_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_normalize_extra_config_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_normalize_extra_config_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_normalize_block_name_to_quantize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_normalize_block_name_to_quantize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_load_writable_quant_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_load_writable_quant_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_resolve_stage_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:_resolve_stage_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:normalize_quant_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/quantization.py",
+      "target": "function:sglang_omni/quantization.py:normalize_quant_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

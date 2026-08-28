@@ -1,0 +1,94 @@
+{
+  "nodes": [
+    {"id":"file:model_runner/prefill_inputs.py","type":"file","name":"prefill_inputs.py","filePath":"model_runner/prefill_inputs.py","summary":"定义 Omni 预填充附加输入容器，并提供在调度批次上绑定、读取和清理这些输入的辅助函数。","tags":["prefill","inputs","batching","model-runner"],"complexity":"simple"},
+    {"id":"class:model_runner/prefill_inputs.py:OmniPrefillInputs","type":"class","name":"OmniPrefillInputs","filePath":"model_runner/prefill_inputs.py","lineRange":[25,38],"summary":"封装跨模态预填充阶段传递给模型运行器的附加张量和元数据。","tags":["prefill","multimodal","inputs"],"complexity":"simple"},
+    {"id":"function:model_runner/prefill_inputs.py:attach_omni_prefill_inputs","type":"function","name":"attach_omni_prefill_inputs","filePath":"model_runner/prefill_inputs.py","lineRange":[41,56],"summary":"把 Omni 附加预填充输入绑定到目标批次，并防止意外重复覆盖。","tags":["prefill","batching","inputs"],"complexity":"simple"},
+
+    {"id":"file:model_runner/sglang_execution.py","type":"file","name":"sglang_execution.py","filePath":"model_runner/sglang_execution.py","summary":"桥接 Omni 运行器与 SGLang 执行上下文，管理注意力前向环境、下一 token 发布和完成记录。","tags":["sglang","execution","attention","model-runner","integration"],"complexity":"moderate"},
+    {"id":"function:model_runner/sglang_execution.py:attn_forward_context","type":"function","name":"attn_forward_context","filePath":"model_runner/sglang_execution.py","lineRange":[33,49],"summary":"以上下文管理器方式安装并恢复 SGLang 注意力前向所需的批次状态。","tags":["attention","context-manager","sglang"],"complexity":"simple"},
+    {"id":"class:model_runner/sglang_execution.py:SGLangExecutionBridge","type":"class","name":"SGLangExecutionBridge","filePath":"model_runner/sglang_execution.py","lineRange":[52,130],"summary":"协调 Omni 模型步与 SGLang 调度器之间的前向上下文、token 结果和完成事件。","tags":["sglang","execution","bridge","scheduling"],"complexity":"moderate"},
+
+    {"id":"file:model_runner/sglang_model_runner.py","type":"file","name":"sglang_model_runner.py","filePath":"model_runner/sglang_model_runner.py","summary":"适配 SGLang 原生模型运行器，定制 KV 缓存配置、模型加载、CUDA Graph 初始化与权重更新。","tags":["sglang","model-runner","kv-cache","cuda-graph","weights"],"complexity":"complex"},
+    {"id":"function:model_runner/sglang_model_runner.py:filter_weights_by_prefix","type":"function","name":"filter_weights_by_prefix","filePath":"model_runner/sglang_model_runner.py","lineRange":[30,40],"summary":"筛选带指定模块前缀的权重名称并移除前缀以供子模型加载。","tags":["weights","filtering","model-loading"],"complexity":"simple"},
+    {"id":"class:model_runner/sglang_model_runner.py:_OmniKVCacheConfigurator","type":"class","name":"_OmniKVCacheConfigurator","filePath":"model_runner/sglang_model_runner.py","lineRange":[44,155],"summary":"为 Omni 执行路径定制 SGLang KV 缓存显存分析、层映射和缓存规格。","tags":["kv-cache","memory-profiling","sglang","configuration"],"complexity":"moderate"},
+    {"id":"class:model_runner/sglang_model_runner.py:SGLModelRunner","type":"class","name":"SGLModelRunner","filePath":"model_runner/sglang_model_runner.py","lineRange":[158,492],"summary":"将通用 Omni 模型运行器接入 SGLang 模型、KV 缓存与 CUDA Graph 设施，并支持运行时权重替换。","tags":["sglang","model-runner","kv-cache","cuda-graph","weights"],"complexity":"complex"},
+
+    {"id":"file:model_runner/thinker_model_runner.py","type":"file","name":"thinker_model_runner.py","filePath":"model_runner/thinker_model_runner.py","summary":"实现多模态 Thinker 模型的预填充、嵌入注入、前瞻解码与异步后处理。","tags":["thinker","multimodal","prefill","decode","model-runner"],"complexity":"complex"},
+    {"id":"class:model_runner/thinker_model_runner.py:ThinkerModelRunner","type":"class","name":"ThinkerModelRunner","filePath":"model_runner/thinker_model_runner.py","lineRange":[23,490],"summary":"驱动 Thinker 多模态模型，把外部编码特征注入语言模型并协调预填充、解码和结果后处理。","tags":["thinker","multimodal","embeddings","inference","model-runner"],"complexity":"complex"},
+
+    {"id":"file:model_runner/weight_checker.py","type":"file","name":"weight_checker.py","filePath":"model_runner/weight_checker.py","summary":"通过逐张量摘要和聚合校验和严格比较模型权重，辅助发现加载或热更新后的权重不一致。","tags":["weights","checksum","validation","diagnostics"],"complexity":"moderate"},
+    {"id":"class:model_runner/weight_checker.py:TensorDigest","type":"class","name":"TensorDigest","filePath":"model_runner/weight_checker.py","lineRange":[16,28],"summary":"保存单个张量的名称、形状、类型与内容摘要并支持序列化。","tags":["weights","digest","metadata"],"complexity":"simple"},
+    {"id":"class:model_runner/weight_checker.py:StrictWeightChecker","type":"class","name":"StrictWeightChecker","filePath":"model_runner/weight_checker.py","lineRange":[31,147],"summary":"快照模型参数、计算确定性摘要并比较两次权重状态，报告缺失、额外或内容变化的张量。","tags":["weights","validation","checksum","diagnostics"],"complexity":"moderate"},
+    {"id":"function:model_runner/weight_checker.py:_digest_tensor","type":"function","name":"_digest_tensor","filePath":"model_runner/weight_checker.py","lineRange":[150,161],"summary":"把张量元数据与规范化字节内容转换为稳定摘要。","tags":["weights","digest","hashing"],"complexity":"simple"},
+    {"id":"function:model_runner/weight_checker.py:_tensor_bytes","type":"function","name":"_tensor_bytes","filePath":"model_runner/weight_checker.py","lineRange":[164,187],"summary":"将不同设备和数据类型的张量规范化为可重复哈希的 CPU 字节序列。","tags":["weights","serialization","tensor"],"complexity":"simple"},
+
+    {"id":"file:models/__init__.py","type":"file","name":"__init__.py","filePath":"models/__init__.py","summary":"模型实现集合的包入口。","tags":["models","package","entry-point"],"complexity":"simple"},
+    {"id":"file:models/arkasr/__init__.py","type":"file","name":"__init__.py","filePath":"models/arkasr/__init__.py","summary":"ArkASR 模型子包入口，导入配置以触发模型与流水线注册。","tags":["arkasr","model-registration","entry-point"],"complexity":"simple"},
+    {"id":"file:models/arkasr/config.py","type":"file","name":"config.py","filePath":"models/arkasr/config.py","summary":"定义 ArkASR 工厂、阶段与流水线配置，并映射显存角色和 SGLang 生成角色到具体阶段。","tags":["arkasr","configuration","pipeline","stages"],"complexity":"moderate"},
+    {"id":"class:models/arkasr/config.py:ArkasrFactoryArgs","type":"class","name":"ArkasrFactoryArgs","filePath":"models/arkasr/config.py","lineRange":[21,30],"summary":"声明 ArkASR 阶段工厂所需的模型与预处理参数。","tags":["arkasr","factory","configuration"],"complexity":"simple"},
+    {"id":"class:models/arkasr/config.py:ArkasrStageConfig","type":"class","name":"ArkasrStageConfig","filePath":"models/arkasr/config.py","lineRange":[33,34],"summary":"表示 ArkASR 引擎阶段的专用配置类型。","tags":["arkasr","stage","configuration"],"complexity":"simple"},
+    {"id":"class:models/arkasr/config.py:ArkasrPipelineConfig","type":"class","name":"ArkasrPipelineConfig","filePath":"models/arkasr/config.py","lineRange":[37,84],"summary":"描述 ArkASR 编码与生成流水线，并提供角色到阶段的配置映射。","tags":["arkasr","pipeline","configuration","stage-mapping"],"complexity":"moderate"},
+
+    {"id":"file:models/arkasr/encoder_service.py","type":"file","name":"encoder_service.py","filePath":"models/arkasr/encoder_service.py","summary":"实现 ArkASR 语言模型前置音频编码服务，支持异步微批、缓存、请求合并、失败隔离与 OOM 恢复。","tags":["arkasr","audio-encoder","async-batching","cache","inference"],"complexity":"complex"},
+    {"id":"function:models/arkasr/encoder_service.py:build_cache_namespace","type":"function","name":"build_cache_namespace","filePath":"models/arkasr/encoder_service.py","lineRange":[77,105],"summary":"根据模型、处理器、设备和精度配置构造稳定的音频编码缓存命名空间。","tags":["arkasr","cache","namespacing","audio-encoder"],"complexity":"simple"},
+    {"id":"class:models/arkasr/encoder_service.py:ArkasrPreLMEncoderService","type":"class","name":"ArkasrPreLMEncoderService","filePath":"models/arkasr/encoder_service.py","lineRange":[123,609],"summary":"在语言模型之前异步批量执行 ArkASR 音频编码，复用缓存并对取消、局部失败和显存不足进行隔离恢复。","tags":["arkasr","audio-encoder","async-batching","cache","error-recovery"],"complexity":"complex"},
+
+    {"id":"file:models/arkasr/engine_builder.py","type":"file","name":"engine_builder.py","filePath":"models/arkasr/engine_builder.py","summary":"装配 ArkASR tokenizer、特征处理器、SGLang 引擎参数、前置编码服务和执行回调。","tags":["arkasr","engine","builder","sglang","audio-encoder"],"complexity":"moderate"},
+    {"id":"class:models/arkasr/engine_builder.py:ArkasrEngineBuilder","type":"class","name":"ArkasrEngineBuilder","filePath":"models/arkasr/engine_builder.py","lineRange":[20,189],"summary":"构建 ArkASR 推理引擎及其音频预处理服务，并把编码结果适配到语言模型请求。","tags":["arkasr","engine","builder","audio-encoder","sglang"],"complexity":"moderate"},
+
+    {"id":"file:models/arkasr/stages.py","type":"file","name":"stages.py","filePath":"models/arkasr/stages.py","summary":"提供 ArkASR 流水线阶段工厂，创建带预语言模型编码适配的 SGLang 执行器。","tags":["arkasr","stages","sglang","factory"],"complexity":"moderate"},
+    {"id":"function:models/arkasr/stages.py:create_sglang_arkasr_executor","type":"function","name":"create_sglang_arkasr_executor","filePath":"models/arkasr/stages.py","lineRange":[9,68],"summary":"装配 ArkASR 引擎构建器与 SGLang 阶段执行器，连接音频编码、请求适配和生成回调。","tags":["arkasr","sglang","executor","stage-factory"],"complexity":"moderate"},
+
+    {"id":"document:models/audar_tts/README.md","type":"document","name":"README.md","filePath":"models/audar_tts/README.md","summary":"说明 Audar TTS 可选依赖、服务启动命令、参考声音请求格式以及正确性与性能验证方法。","tags":["audar-tts","documentation","setup","voice-cloning","benchmark"],"complexity":"simple"}
+  ],
+  "edges": [
+    {"source":"file:models/arkasr/__init__.py","target":"file:models/arkasr/config.py","type":"imports","direction":"forward","weight":0.7},
+
+    {"source":"file:model_runner/prefill_inputs.py","target":"class:model_runner/prefill_inputs.py:OmniPrefillInputs","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/prefill_inputs.py","target":"class:model_runner/prefill_inputs.py:OmniPrefillInputs","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:model_runner/prefill_inputs.py","target":"function:model_runner/prefill_inputs.py:attach_omni_prefill_inputs","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/prefill_inputs.py","target":"function:model_runner/prefill_inputs.py:attach_omni_prefill_inputs","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:model_runner/sglang_execution.py","target":"function:model_runner/sglang_execution.py:attn_forward_context","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/sglang_execution.py","target":"function:model_runner/sglang_execution.py:attn_forward_context","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:model_runner/sglang_execution.py","target":"class:model_runner/sglang_execution.py:SGLangExecutionBridge","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/sglang_execution.py","target":"class:model_runner/sglang_execution.py:SGLangExecutionBridge","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:model_runner/sglang_model_runner.py","target":"function:model_runner/sglang_model_runner.py:filter_weights_by_prefix","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/sglang_model_runner.py","target":"function:model_runner/sglang_model_runner.py:filter_weights_by_prefix","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:model_runner/sglang_model_runner.py","target":"class:model_runner/sglang_model_runner.py:_OmniKVCacheConfigurator","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/sglang_model_runner.py","target":"class:model_runner/sglang_model_runner.py:_OmniKVCacheConfigurator","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:model_runner/sglang_model_runner.py","target":"class:model_runner/sglang_model_runner.py:SGLModelRunner","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/sglang_model_runner.py","target":"class:model_runner/sglang_model_runner.py:SGLModelRunner","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:model_runner/thinker_model_runner.py","target":"class:model_runner/thinker_model_runner.py:ThinkerModelRunner","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/thinker_model_runner.py","target":"class:model_runner/thinker_model_runner.py:ThinkerModelRunner","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:model_runner/weight_checker.py","target":"class:model_runner/weight_checker.py:TensorDigest","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/weight_checker.py","target":"class:model_runner/weight_checker.py:TensorDigest","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:model_runner/weight_checker.py","target":"class:model_runner/weight_checker.py:StrictWeightChecker","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/weight_checker.py","target":"class:model_runner/weight_checker.py:StrictWeightChecker","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:model_runner/weight_checker.py","target":"function:model_runner/weight_checker.py:_digest_tensor","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/weight_checker.py","target":"function:model_runner/weight_checker.py:_digest_tensor","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:model_runner/weight_checker.py","target":"function:model_runner/weight_checker.py:_tensor_bytes","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:model_runner/weight_checker.py","target":"function:model_runner/weight_checker.py:_tensor_bytes","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/config.py","target":"class:models/arkasr/config.py:ArkasrFactoryArgs","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/config.py","target":"class:models/arkasr/config.py:ArkasrFactoryArgs","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/config.py","target":"class:models/arkasr/config.py:ArkasrStageConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/config.py","target":"class:models/arkasr/config.py:ArkasrStageConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/config.py","target":"class:models/arkasr/config.py:ArkasrPipelineConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/config.py","target":"class:models/arkasr/config.py:ArkasrPipelineConfig","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/encoder_service.py","target":"function:models/arkasr/encoder_service.py:build_cache_namespace","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/encoder_service.py","target":"function:models/arkasr/encoder_service.py:build_cache_namespace","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/arkasr/encoder_service.py","target":"class:models/arkasr/encoder_service.py:ArkasrPreLMEncoderService","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/encoder_service.py","target":"class:models/arkasr/encoder_service.py:ArkasrPreLMEncoderService","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/engine_builder.py","target":"class:models/arkasr/engine_builder.py:ArkasrEngineBuilder","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/engine_builder.py","target":"class:models/arkasr/engine_builder.py:ArkasrEngineBuilder","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/arkasr/stages.py","target":"function:models/arkasr/stages.py:create_sglang_arkasr_executor","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/arkasr/stages.py","target":"function:models/arkasr/stages.py:create_sglang_arkasr_executor","type":"exports","direction":"forward","weight":0.8}
+  ]
+}

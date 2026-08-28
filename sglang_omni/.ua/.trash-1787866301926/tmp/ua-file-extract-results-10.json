@@ -1,0 +1,2461 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/fun_cosyvoice3/model_runner.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 125,
+      "classes": [
+        {
+          "name": "FunCosyVoice3ModelRunner",
+          "startLine": 17,
+          "endLine": 141,
+          "methods": [
+            "custom_prefill_forward",
+            "post_prefill",
+            "post_decode",
+            "sample_before_post_prefill",
+            "sample_before_post_decode",
+            "_collect_tokens",
+            "_build_prefill_input_embeds",
+            "_forward_with_input_embeds"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FunCosyVoice3ModelRunner",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "custom_prefill_forward",
+          "callee": "self._build_prefill_input_embeds",
+          "lineNumber": 27
+        },
+        {
+          "caller": "custom_prefill_forward",
+          "callee": "self._forward_with_input_embeds",
+          "lineNumber": 28
+        },
+        {
+          "caller": "post_prefill",
+          "callee": "self._collect_tokens",
+          "lineNumber": 37
+        },
+        {
+          "caller": "post_decode",
+          "callee": "self._collect_tokens",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_collect_tokens",
+          "callee": "token_ids.reshape",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_collect_tokens",
+          "callee": "token_ids.tolist",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_collect_tokens",
+          "callee": "enumerate",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_collect_tokens",
+          "callee": "int",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_collect_tokens",
+          "callee": "sched_req.data.output_codes.append",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_collect_tokens",
+          "callee": "torch.tensor",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "int",
+          "lineNumber": 102
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "len",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "RuntimeError",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "pieces.append",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "torch.cat(pieces, dim=0).to",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "torch.cat",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "next",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_build_prefill_input_embeds",
+          "callee": "self.model.parameters",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_forward_with_input_embeds",
+          "callee": "next",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_forward_with_input_embeds",
+          "callee": "self.model.parameters",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_forward_with_input_embeds",
+          "callee": "model_runner.attn_backend.init_forward_metadata",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_forward_with_input_embeds",
+          "callee": "input_embeds.to",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_forward_with_input_embeds",
+          "callee": "attn_forward_context",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_forward_with_input_embeds",
+          "callee": "self.model",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_forward_with_input_embeds",
+          "callee": "GenerationBatchResult",
+          "lineNumber": 138
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/fun_cosyvoice3/request_builders.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 842,
+      "nonEmptyLines": 723,
+      "functions": [
+        {
+          "name": "_cosyvoice3_model_revision",
+          "startLine": 100,
+          "endLine": 110,
+          "params": [
+            "model"
+          ]
+        },
+        {
+          "name": "_cosyvoice3_reference_input_key",
+          "startLine": 113,
+          "endLine": 153,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "_clone_reference_tensor",
+          "startLine": 156,
+          "endLine": 159,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "set_cosyvoice3_preprocessing_context",
+          "startLine": 341,
+          "endLine": 373,
+          "params": [
+            "model",
+            "tokenizer",
+            "speech_tokenizer",
+            "speaker_encoder",
+            "model_revision"
+          ]
+        },
+        {
+          "name": "clear_cosyvoice3_preprocessing_context",
+          "startLine": 376,
+          "endLine": 380,
+          "params": []
+        },
+        {
+          "name": "cleanup_prepared_cosyvoice3_request",
+          "startLine": 383,
+          "endLine": 385,
+          "params": [
+            "request_id"
+          ]
+        },
+        {
+          "name": "_prepared_request_id",
+          "startLine": 388,
+          "endLine": 393,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "pop_prepared_cosyvoice3_request",
+          "startLine": 396,
+          "endLine": 409,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "_load_prompt_audio",
+          "startLine": 412,
+          "endLine": 417,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "_load_prompt_audio_24k",
+          "startLine": 420,
+          "endLine": 426,
+          "params": [
+            "source"
+          ]
+        },
+        {
+          "name": "build_cosyvoice3_state",
+          "startLine": 429,
+          "endLine": 478,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "_normalize_cosyvoice3_inputs",
+          "startLine": 481,
+          "endLine": 503,
+          "params": [
+            "inputs"
+          ]
+        },
+        {
+          "name": "normalize_language",
+          "startLine": 506,
+          "endLine": 509,
+          "params": [
+            "language"
+          ]
+        },
+        {
+          "name": "_normalize_cosyvoice3_seed",
+          "startLine": 512,
+          "endLine": 522,
+          "params": [
+            "seed"
+          ]
+        },
+        {
+          "name": "resolve_optional_text",
+          "startLine": 525,
+          "endLine": 529,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "_build_cosyvoice3_prompt_text",
+          "startLine": 532,
+          "endLine": 546,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_align_flow_prompt",
+          "startLine": 549,
+          "endLine": 568,
+          "params": [
+            "prompt_speech_token",
+            "prompt_speech_feat"
+          ]
+        },
+        {
+          "name": "build_generation_kwargs",
+          "startLine": 571,
+          "endLine": 607,
+          "params": [
+            "params",
+            "tts_params"
+          ]
+        },
+        {
+          "name": "build_embedding_cache_key_ids",
+          "startLine": 610,
+          "endLine": 616,
+          "params": [
+            "input_embeds"
+          ]
+        },
+        {
+          "name": "_prepare_cosyvoice3_request",
+          "startLine": 619,
+          "endLine": 697,
+          "params": [
+            "payload",
+            "model",
+            "tokenizer",
+            "reference_service"
+          ]
+        },
+        {
+          "name": "preprocess_cosyvoice3_payload",
+          "startLine": 700,
+          "endLine": 725,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "build_sglang_cosyvoice3_request",
+          "startLine": 728,
+          "endLine": 799,
+          "params": [
+            "payload",
+            "model"
+          ]
+        },
+        {
+          "name": "apply_sglang_cosyvoice3_result",
+          "startLine": 802,
+          "endLine": 832,
+          "params": [
+            "payload",
+            "data"
+          ]
+        },
+        {
+          "name": "make_cosyvoice3_scheduler_adapters",
+          "startLine": 835,
+          "endLine": 842,
+          "params": [
+            "model"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "_CosyVoice3NullTokenizer",
+          "startLine": 72,
+          "endLine": 94,
+          "methods": [],
+          "properties": [
+            "eos_token_id",
+            "additional_stop_token_ids"
+          ]
+        },
+        {
+          "name": "CosyVoice3SGLangRequestData",
+          "startLine": 163,
+          "endLine": 172,
+          "methods": [
+            "__post_init__"
+          ],
+          "properties": [
+            "output_codes",
+            "prompt_input_embeds",
+            "engine_start_s"
+          ]
+        },
+        {
+          "name": "CosyVoice3PreparedRequest",
+          "startLine": 176,
+          "endLine": 192,
+          "methods": [],
+          "properties": [
+            "state",
+            "input_ids_list",
+            "input_ids",
+            "prompt_input_embeds",
+            "llm_prompt_speech_token",
+            "flow_prompt_speech_token",
+            "flow_prompt_speech_feat",
+            "flow_embedding",
+            "gen_kwargs",
+            "target_text_token_count"
+          ]
+        },
+        {
+          "name": "_CosyVoice3ReferenceInput",
+          "startLine": 196,
+          "endLine": 199,
+          "methods": [],
+          "properties": [
+            "ref_audio"
+          ]
+        },
+        {
+          "name": "_CosyVoice3ReferenceArtifact",
+          "startLine": 203,
+          "endLine": 209,
+          "methods": [],
+          "properties": [
+            "llm_prompt_speech_token",
+            "flow_prompt_speech_token",
+            "flow_prompt_speech_feat",
+            "flow_embedding"
+          ]
+        },
+        {
+          "name": "_CosyVoice3ReferenceEncodeHook",
+          "startLine": 212,
+          "endLine": 324,
+          "methods": [
+            "__init__",
+            "bind_encoders",
+            "normalize_input",
+            "input_key",
+            "options_key",
+            "encode_one",
+            "store_artifact",
+            "load_artifact"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CosyVoice3PreprocessingContext",
+          "startLine": 328,
+          "endLine": 333,
+          "methods": [],
+          "properties": [
+            "model",
+            "tokenizer",
+            "speech_tokenizer",
+            "speaker_encoder",
+            "reference_service"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_CosyVoice3NullTokenizer",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "_cosyvoice3_model_revision",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "_cosyvoice3_reference_input_key",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "_clone_reference_tensor",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "CosyVoice3SGLangRequestData",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "CosyVoice3PreparedRequest",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "_CosyVoice3ReferenceInput",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "_CosyVoice3ReferenceArtifact",
+          "line": 202,
+          "isDefault": false
+        },
+        {
+          "name": "_CosyVoice3ReferenceEncodeHook",
+          "line": 212,
+          "isDefault": false
+        },
+        {
+          "name": "CosyVoice3PreprocessingContext",
+          "line": 327,
+          "isDefault": false
+        },
+        {
+          "name": "set_cosyvoice3_preprocessing_context",
+          "line": 341,
+          "isDefault": false
+        },
+        {
+          "name": "clear_cosyvoice3_preprocessing_context",
+          "line": 376,
+          "isDefault": false
+        },
+        {
+          "name": "cleanup_prepared_cosyvoice3_request",
+          "line": 383,
+          "isDefault": false
+        },
+        {
+          "name": "_prepared_request_id",
+          "line": 388,
+          "isDefault": false
+        },
+        {
+          "name": "pop_prepared_cosyvoice3_request",
+          "line": 396,
+          "isDefault": false
+        },
+        {
+          "name": "_load_prompt_audio",
+          "line": 412,
+          "isDefault": false
+        },
+        {
+          "name": "_load_prompt_audio_24k",
+          "line": 420,
+          "isDefault": false
+        },
+        {
+          "name": "build_cosyvoice3_state",
+          "line": 429,
+          "isDefault": false
+        },
+        {
+          "name": "_normalize_cosyvoice3_inputs",
+          "line": 481,
+          "isDefault": false
+        },
+        {
+          "name": "normalize_language",
+          "line": 506,
+          "isDefault": false
+        },
+        {
+          "name": "_normalize_cosyvoice3_seed",
+          "line": 512,
+          "isDefault": false
+        },
+        {
+          "name": "resolve_optional_text",
+          "line": 525,
+          "isDefault": false
+        },
+        {
+          "name": "_build_cosyvoice3_prompt_text",
+          "line": 532,
+          "isDefault": false
+        },
+        {
+          "name": "_align_flow_prompt",
+          "line": 549,
+          "isDefault": false
+        },
+        {
+          "name": "build_generation_kwargs",
+          "line": 571,
+          "isDefault": false
+        },
+        {
+          "name": "build_embedding_cache_key_ids",
+          "line": 610,
+          "isDefault": false
+        },
+        {
+          "name": "_prepare_cosyvoice3_request",
+          "line": 619,
+          "isDefault": false
+        },
+        {
+          "name": "preprocess_cosyvoice3_payload",
+          "line": 700,
+          "isDefault": false
+        },
+        {
+          "name": "build_sglang_cosyvoice3_request",
+          "line": 728,
+          "isDefault": false
+        },
+        {
+          "name": "apply_sglang_cosyvoice3_result",
+          "line": 802,
+          "isDefault": false
+        },
+        {
+          "name": "make_cosyvoice3_scheduler_adapters",
+          "line": 835,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_cosyvoice3_model_revision",
+          "callee": "getattr",
+          "lineNumber": 102
+        },
+        {
+          "caller": "_cosyvoice3_model_revision",
+          "callee": "getattr",
+          "lineNumber": 104
+        },
+        {
+          "caller": "_cosyvoice3_model_revision",
+          "callee": "getattr",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_cosyvoice3_model_revision",
+          "callee": "getattr",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_cosyvoice3_model_revision",
+          "callee": "str",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_cosyvoice3_model_revision",
+          "callee": "type",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_cosyvoice3_model_revision",
+          "callee": "type",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "isinstance",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "str",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "isinstance",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "source.startswith",
+          "lineNumber": 118
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_decode_audio_data_uri",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_hash_bytes",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "urlparse",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "unquote",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_reference_path_cache_key",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "isinstance",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_hash_bytes",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "bytes",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "isinstance",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "source.get",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "source.get",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_cosyvoice3_reference_input_key",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "audio_data_uri_from_reference",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_cosyvoice3_reference_input_key",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "isinstance",
+          "lineNumber": 145
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "np.ascontiguousarray",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "f\"numpy:{array.dtype}:{array.shape}:\".encode",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_hash_bytes",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "array.tobytes",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "isinstance",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "source.detach().cpu().contiguous",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "source.detach().cpu",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "source.detach",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "f\"torch:{tensor.dtype}:{tuple(tensor.shape)}:\".encode",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "tuple",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "_hash_bytes",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "tensor.numpy().tobytes",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_cosyvoice3_reference_input_key",
+          "callee": "tensor.numpy",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_clone_reference_tensor",
+          "callee": "isinstance",
+          "lineNumber": 157
+        },
+        {
+          "caller": "_clone_reference_tensor",
+          "callee": "torch.as_tensor",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_clone_reference_tensor",
+          "callee": "value.detach().cpu().clone",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_clone_reference_tensor",
+          "callee": "value.detach().cpu",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_clone_reference_tensor",
+          "callee": "value.detach",
+          "lineNumber": 159
+        },
+        {
+          "caller": "__init__",
+          "callee": "_cosyvoice3_model_revision",
+          "lineNumber": 227
+        },
+        {
+          "caller": "__init__",
+          "callee": "_hash_bytes",
+          "lineNumber": 228
+        },
+        {
+          "caller": "__init__",
+          "callee": "json.dumps(\r\n                {\r\n                    \"prompt_audio_sr\": _PROMPT_AUDIO_SR,\r\n                    \"flow_audio_sr\": _SAMPLE_RATE,\r\n                    \"mel\": {\r\n                        \"n_fft\": 1920,\r\n                        \"hop_size\": 480,\r\n                        \"win_size\": 1920,\r\n                        \"num_mels\": 80,\r\n                        \"fmin\": 0,\r\n                        \"fmax\": None,\r\n                        \"center\": False,\r\n                    },\r\n                    \"alignment\": \"flow_frames=2*flow_tokens\",\r\n                },\r\n                sort_keys=True,\r\n                separators=(\",\", \":\"),\r\n            ).encode",
+          "lineNumber": 229
+        },
+        {
+          "caller": "__init__",
+          "callee": "json.dumps",
+          "lineNumber": 229
+        },
+        {
+          "caller": "normalize_input",
+          "callee": "isinstance",
+          "lineNumber": 260
+        },
+        {
+          "caller": "normalize_input",
+          "callee": "_CosyVoice3ReferenceInput",
+          "lineNumber": 262
+        },
+        {
+          "caller": "input_key",
+          "callee": "_cosyvoice3_reference_input_key",
+          "lineNumber": 265
+        },
+        {
+          "caller": "encode_one",
+          "callee": "RuntimeError",
+          "lineNumber": 275
+        },
+        {
+          "caller": "encode_one",
+          "callee": "_load_prompt_audio",
+          "lineNumber": 277
+        },
+        {
+          "caller": "encode_one",
+          "callee": "_load_prompt_audio_24k",
+          "lineNumber": 278
+        },
+        {
+          "caller": "encode_one",
+          "callee": "self._speaker_encoder.extract_embedding",
+          "lineNumber": 279
+        },
+        {
+          "caller": "encode_one",
+          "callee": "self._speech_tokenizer.extract_speech_token",
+          "lineNumber": 282
+        },
+        {
+          "caller": "encode_one",
+          "callee": "extract_prompt_speech_feat",
+          "lineNumber": 285
+        },
+        {
+          "caller": "encode_one",
+          "callee": "_align_flow_prompt",
+          "lineNumber": 286
+        },
+        {
+          "caller": "encode_one",
+          "callee": "_CosyVoice3ReferenceArtifact",
+          "lineNumber": 289
+        },
+        {
+          "caller": "store_artifact",
+          "callee": "_clone_reference_tensor",
+          "lineNumber": 299
+        },
+        {
+          "caller": "store_artifact",
+          "callee": "_clone_reference_tensor",
+          "lineNumber": 302
+        },
+        {
+          "caller": "store_artifact",
+          "callee": "_clone_reference_tensor",
+          "lineNumber": 305
+        },
+        {
+          "caller": "store_artifact",
+          "callee": "_clone_reference_tensor",
+          "lineNumber": 308
+        },
+        {
+          "caller": "load_artifact",
+          "callee": "stored.get",
+          "lineNumber": 312
+        },
+        {
+          "caller": "load_artifact",
+          "callee": "RuntimeError",
+          "lineNumber": 313
+        },
+        {
+          "caller": "load_artifact",
+          "callee": "any",
+          "lineNumber": 320
+        },
+        {
+          "caller": "load_artifact",
+          "callee": "RuntimeError",
+          "lineNumber": 321
+        },
+        {
+          "caller": "load_artifact",
+          "callee": "_CosyVoice3ReferenceArtifact",
+          "lineNumber": 322
+        },
+        {
+          "caller": "load_artifact",
+          "callee": "_clone_reference_tensor",
+          "lineNumber": 323
+        },
+        {
+          "caller": "set_cosyvoice3_preprocessing_context",
+          "callee": "_CosyVoice3ReferenceEncodeHook",
+          "lineNumber": 351
+        },
+        {
+          "caller": "set_cosyvoice3_preprocessing_context",
+          "callee": "reference_hook.bind_encoders",
+          "lineNumber": 355
+        },
+        {
+          "caller": "set_cosyvoice3_preprocessing_context",
+          "callee": "CosyVoice3PreprocessingContext",
+          "lineNumber": 360
+        },
+        {
+          "caller": "set_cosyvoice3_preprocessing_context",
+          "callee": "ReferenceEncodeService",
+          "lineNumber": 365
+        },
+        {
+          "caller": "set_cosyvoice3_preprocessing_context",
+          "callee": "_PREPARED_REQUESTS.clear",
+          "lineNumber": 373
+        },
+        {
+          "caller": "clear_cosyvoice3_preprocessing_context",
+          "callee": "_PREPARED_REQUESTS.clear",
+          "lineNumber": 380
+        },
+        {
+          "caller": "cleanup_prepared_cosyvoice3_request",
+          "callee": "_PREPARED_REQUESTS.pop",
+          "lineNumber": 385
+        },
+        {
+          "caller": "cleanup_prepared_cosyvoice3_request",
+          "callee": "str",
+          "lineNumber": 385
+        },
+        {
+          "caller": "_prepared_request_id",
+          "callee": "isinstance",
+          "lineNumber": 390
+        },
+        {
+          "caller": "_prepared_request_id",
+          "callee": "data.get",
+          "lineNumber": 392
+        },
+        {
+          "caller": "_prepared_request_id",
+          "callee": "str",
+          "lineNumber": 393
+        },
+        {
+          "caller": "pop_prepared_cosyvoice3_request",
+          "callee": "_prepared_request_id",
+          "lineNumber": 399
+        },
+        {
+          "caller": "pop_prepared_cosyvoice3_request",
+          "callee": "_PREPARED_REQUESTS.pop",
+          "lineNumber": 403
+        },
+        {
+          "caller": "pop_prepared_cosyvoice3_request",
+          "callee": "RuntimeError",
+          "lineNumber": 405
+        },
+        {
+          "caller": "_load_prompt_audio",
+          "callee": "_shared_load_audio",
+          "lineNumber": 413
+        },
+        {
+          "caller": "_load_prompt_audio_24k",
+          "callee": "_shared_load_audio",
+          "lineNumber": 422
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "metadata.get",
+          "lineNumber": 433
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "isinstance",
+          "lineNumber": 434
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "_normalize_cosyvoice3_inputs",
+          "lineNumber": 437
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "reference.get",
+          "lineNumber": 443
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "reference.get",
+          "lineNumber": 444
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "reference.get",
+          "lineNumber": 445
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "audio_data_uri_from_reference",
+          "lineNumber": 446
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 447
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "reference.get",
+          "lineNumber": 449
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 449
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "normalize_language",
+          "lineNumber": 451
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 451
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "params.get",
+          "lineNumber": 451
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "resolve_optional_text",
+          "lineNumber": 452
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 453
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 454
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "params.get",
+          "lineNumber": 455
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "params.get",
+          "lineNumber": 456
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "resolve_optional_text",
+          "lineNumber": 458
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "ValueError",
+          "lineNumber": 460
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "bool",
+          "lineNumber": 463
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 463
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "params.get",
+          "lineNumber": 463
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "float",
+          "lineNumber": 464
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 464
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "params.get",
+          "lineNumber": 464
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "tts_params.get",
+          "lineNumber": 465
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "params.get",
+          "lineNumber": 465
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "_normalize_cosyvoice3_seed",
+          "lineNumber": 466
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "FunCosyVoice3State",
+          "lineNumber": 468
+        },
+        {
+          "caller": "build_cosyvoice3_state",
+          "callee": "build_generation_kwargs",
+          "lineNumber": 477
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "isinstance",
+          "lineNumber": 485
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "isinstance",
+          "lineNumber": 487
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "str",
+          "lineNumber": 488
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "inputs.get",
+          "lineNumber": 490
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "isinstance",
+          "lineNumber": 491
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "ValueError",
+          "lineNumber": 492
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "len",
+          "lineNumber": 493
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "ValueError",
+          "lineNumber": 494
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "any",
+          "lineNumber": 495
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "isinstance",
+          "lineNumber": 495
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "ValueError",
+          "lineNumber": 496
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "dict",
+          "lineNumber": 497
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "str",
+          "lineNumber": 499
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "inputs.get",
+          "lineNumber": 499
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "inputs.get",
+          "lineNumber": 499
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "inputs.get",
+          "lineNumber": 501
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "inputs.get",
+          "lineNumber": 501
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "inputs.get",
+          "lineNumber": 501
+        },
+        {
+          "caller": "_normalize_cosyvoice3_inputs",
+          "callee": "inputs.get",
+          "lineNumber": 502
+        },
+        {
+          "caller": "normalize_language",
+          "callee": "str",
+          "lineNumber": 509
+        },
+        {
+          "caller": "_normalize_cosyvoice3_seed",
+          "callee": "isinstance",
+          "lineNumber": 514
+        },
+        {
+          "caller": "_normalize_cosyvoice3_seed",
+          "callee": "ValueError",
+          "lineNumber": 515
+        },
+        {
+          "caller": "_normalize_cosyvoice3_seed",
+          "callee": "isinstance",
+          "lineNumber": 516
+        },
+        {
+          "caller": "_normalize_cosyvoice3_seed",
+          "callee": "seed.is_integer",
+          "lineNumber": 516
+        },
+        {
+          "caller": "_normalize_cosyvoice3_seed",
+          "callee": "ValueError",
+          "lineNumber": 517
+        },
+        {
+          "caller": "_normalize_cosyvoice3_seed",
+          "callee": "int",
+          "lineNumber": 519
+        },
+        {
+          "caller": "_normalize_cosyvoice3_seed",
+          "callee": "ValueError",
+          "lineNumber": 521
+        },
+        {
+          "caller": "resolve_optional_text",
+          "callee": "str(value).strip",
+          "lineNumber": 528
+        },
+        {
+          "caller": "resolve_optional_text",
+          "callee": "str",
+          "lineNumber": 528
+        },
+        {
+          "caller": "_align_flow_prompt",
+          "callee": "ValueError",
+          "lineNumber": 555
+        },
+        {
+          "caller": "_align_flow_prompt",
+          "callee": "ValueError",
+          "lineNumber": 560
+        },
+        {
+          "caller": "_align_flow_prompt",
+          "callee": "min",
+          "lineNumber": 561
+        },
+        {
+          "caller": "_align_flow_prompt",
+          "callee": "int",
+          "lineNumber": 562
+        },
+        {
+          "caller": "_align_flow_prompt",
+          "callee": "int",
+          "lineNumber": 563
+        },
+        {
+          "caller": "_align_flow_prompt",
+          "callee": "prompt_speech_token[:, :token_count].contiguous",
+          "lineNumber": 566
+        },
+        {
+          "caller": "_align_flow_prompt",
+          "callee": "prompt_speech_feat[:, : 2 * token_count, :].contiguous",
+          "lineNumber": 567
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "tts_params.get",
+          "lineNumber": 576
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "isinstance",
+          "lineNumber": 577
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "str",
+          "lineNumber": 578
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "set",
+          "lineNumber": 580
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "set",
+          "lineNumber": 582
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "params.get",
+          "lineNumber": 584
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "selected_fields.add",
+          "lineNumber": 590
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "params.get",
+          "lineNumber": 599
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "int",
+          "lineNumber": 601
+        },
+        {
+          "caller": "build_generation_kwargs",
+          "callee": "params.get",
+          "lineNumber": 605
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "input_embeds.detach().to",
+          "lineNumber": 611
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "input_embeds.detach",
+          "lineNumber": 611
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "hashlib.blake2b(row.numpy().tobytes(), digest_size=8).digest",
+          "lineNumber": 614
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "hashlib.blake2b",
+          "lineNumber": 614
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "row.numpy().tobytes",
+          "lineNumber": 614
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "row.numpy",
+          "lineNumber": 614
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "key_ids.append",
+          "lineNumber": 615
+        },
+        {
+          "caller": "build_embedding_cache_key_ids",
+          "callee": "int.from_bytes",
+          "lineNumber": 615
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "build_cosyvoice3_state",
+          "lineNumber": 626
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "next",
+          "lineNumber": 628
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "model.parameters",
+          "lineNumber": 628
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "next",
+          "lineNumber": 629
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "model.parameters",
+          "lineNumber": 629
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "tokenizer",
+          "lineNumber": 631
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "text_token.to",
+          "lineNumber": 632
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "int",
+          "lineNumber": 633
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "_build_cosyvoice3_prompt_text",
+          "lineNumber": 634
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "tokenizer(prompt_text).to",
+          "lineNumber": 636
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "tokenizer",
+          "lineNumber": 636
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.cat",
+          "lineNumber": 637
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.no_grad",
+          "lineNumber": 638
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "model.text_embed_tokens",
+          "lineNumber": 639
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "reference_service.get_or_encode",
+          "lineNumber": 642
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.zeros",
+          "lineNumber": 651
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.zeros",
+          "lineNumber": 652
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.zeros",
+          "lineNumber": 653
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.zeros",
+          "lineNumber": 654
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.zeros",
+          "lineNumber": 659
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "spk_embedding.clone",
+          "lineNumber": 663
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "spk_embedding.numel",
+          "lineNumber": 663
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "build_llm_prompt_embeddings",
+          "lineNumber": 667
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "prompt_input_embeds.squeeze(0).detach().to",
+          "lineNumber": 681
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "prompt_input_embeds.squeeze(0).detach",
+          "lineNumber": 681
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "prompt_input_embeds.squeeze",
+          "lineNumber": 681
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "build_embedding_cache_key_ids",
+          "lineNumber": 683
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "torch.tensor",
+          "lineNumber": 684
+        },
+        {
+          "caller": "_prepare_cosyvoice3_request",
+          "callee": "CosyVoice3PreparedRequest",
+          "lineNumber": 686
+        },
+        {
+          "caller": "preprocess_cosyvoice3_payload",
+          "callee": "RuntimeError",
+          "lineNumber": 704
+        },
+        {
+          "caller": "preprocess_cosyvoice3_payload",
+          "callee": "_prepare_cosyvoice3_request",
+          "lineNumber": 706
+        },
+        {
+          "caller": "preprocess_cosyvoice3_payload",
+          "callee": "prepared.state.to_dict",
+          "lineNumber": 719
+        },
+        {
+          "caller": "preprocess_cosyvoice3_payload",
+          "callee": "StagePayload",
+          "lineNumber": 721
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "pop_prepared_cosyvoice3_request",
+          "lineNumber": 733
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "RuntimeError",
+          "lineNumber": 735
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "bool",
+          "lineNumber": 742
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "gen_kwargs.get",
+          "lineNumber": 742
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "float",
+          "lineNumber": 743
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "gen_kwargs.get",
+          "lineNumber": 743
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "max",
+          "lineNumber": 750
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "int",
+          "lineNumber": 750
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "min",
+          "lineNumber": 751
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "gen_kwargs.get",
+          "lineNumber": 752
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "int",
+          "lineNumber": 754
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "min",
+          "lineNumber": 758
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "SamplingParams",
+          "lineNumber": 760
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "float",
+          "lineNumber": 764
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "gen_kwargs.get",
+          "lineNumber": 764
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "int",
+          "lineNumber": 765
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "gen_kwargs.get",
+          "lineNumber": 765
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "float",
+          "lineNumber": 766
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "gen_kwargs.get",
+          "lineNumber": 766
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "list",
+          "lineNumber": 771
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "sampling_params.normalize",
+          "lineNumber": 774
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "sampling_params.verify",
+          "lineNumber": 775
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "Req",
+          "lineNumber": 777
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "CosyVoice3SGLangRequestData",
+          "lineNumber": 788
+        },
+        {
+          "caller": "build_sglang_cosyvoice3_request",
+          "callee": "time.perf_counter",
+          "lineNumber": 795
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "code_parts.append",
+          "lineNumber": 808
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "torch.stack(data.output_codes, dim=0).to",
+          "lineNumber": 808
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "torch.stack",
+          "lineNumber": 808
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "torch.cat(\r\n            [part.to(device=device, dtype=torch.long) for part in code_parts],\r\n            dim=0,\r\n        ).cpu",
+          "lineNumber": 812
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "torch.cat",
+          "lineNumber": 812
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "part.to",
+          "lineNumber": 813
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "torch.empty",
+          "lineNumber": 817
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "FunCosyVoice3State.from_dict",
+          "lineNumber": 819
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "int",
+          "lineNumber": 822
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "data.input_ids.numel",
+          "lineNumber": 822
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "len",
+          "lineNumber": 824
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "time.perf_counter",
+          "lineNumber": 825
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "StagePayload",
+          "lineNumber": 828
+        },
+        {
+          "caller": "apply_sglang_cosyvoice3_result",
+          "callee": "state.to_dict",
+          "lineNumber": 831
+        },
+        {
+          "caller": "request_builder",
+          "callee": "build_sglang_cosyvoice3_request",
+          "lineNumber": 837
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "apply_sglang_cosyvoice3_result",
+          "lineNumber": 840
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 31,
+        "functionCount": 24,
+        "classCount": 7
+      }
+    },
+    {
+      "path": "models/fun_cosyvoice3/sglang_model.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 127,
+      "nonEmptyLines": 101,
+      "classes": [
+        {
+          "name": "FunCosyVoice3SGLangModel",
+          "startLine": 26,
+          "endLine": 124,
+          "methods": [
+            "__init__",
+            "vocab_size",
+            "vocab_size",
+            "get_input_embeddings",
+            "forward",
+            "load_weights"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FunCosyVoice3SGLangModel",
+          "line": 26,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 34
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 34
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Embedding",
+          "lineNumber": 36
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 37
+        },
+        {
+          "caller": "__init__",
+          "callee": "dict",
+          "lineNumber": 38
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.named_parameters",
+          "lineNumber": 38
+        },
+        {
+          "caller": "forward",
+          "callee": "fwd_mode.is_decode",
+          "lineNumber": 62
+        },
+        {
+          "caller": "forward",
+          "callee": "self.speech_embedding",
+          "lineNumber": 65
+        },
+        {
+          "caller": "forward",
+          "callee": "self.model",
+          "lineNumber": 67
+        },
+        {
+          "caller": "forward",
+          "callee": "fwd_mode.is_extend",
+          "lineNumber": 75
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cumsum",
+          "lineNumber": 79
+        },
+        {
+          "caller": "forward",
+          "callee": "extend_seq_lens.to",
+          "lineNumber": 79
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.tensor",
+          "lineNumber": 83
+        },
+        {
+          "caller": "forward",
+          "callee": "self.llm_decoder",
+          "lineNumber": 88
+        },
+        {
+          "caller": "forward",
+          "callee": "LogitsProcessorOutput",
+          "lineNumber": 89
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 99
+        },
+        {
+          "caller": "load_weights",
+          "callee": "backbone_weights.append",
+          "lineNumber": 100
+        },
+        {
+          "caller": "load_weights",
+          "callee": "len",
+          "lineNumber": 101
+        },
+        {
+          "caller": "load_weights",
+          "callee": "self._cached_params_dict.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 116
+        },
+        {
+          "caller": "load_weights",
+          "callee": "loader",
+          "lineNumber": 117
+        },
+        {
+          "caller": "load_weights",
+          "callee": "backbone_weights.append",
+          "lineNumber": 121
+        },
+        {
+          "caller": "load_weights",
+          "callee": "super().load_weights",
+          "lineNumber": 124
+        },
+        {
+          "caller": "load_weights",
+          "callee": "super",
+          "lineNumber": 124
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/fun_cosyvoice3/utils.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 499,
+      "nonEmptyLines": 453,
+      "functions": [
+        {
+          "name": "_run_cosyvoice3_mel_spectrogram",
+          "startLine": 133,
+          "endLine": 147,
+          "params": [
+            "waveform"
+          ]
+        },
+        {
+          "name": "extract_prompt_speech_feat",
+          "startLine": 150,
+          "endLine": 181,
+          "params": [
+            "audio",
+            "sample_rate"
+          ]
+        },
+        {
+          "name": "build_llm_prompt_embeddings",
+          "startLine": 184,
+          "endLine": 213,
+          "params": [
+            "text_token",
+            "text_embed",
+            "prompt_speech_token",
+            "speech_embed",
+            "embedding",
+            "sos_id",
+            "task_id",
+            "hidden_size",
+            "device",
+            "dtype"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CosyVoice3Tokenizer",
+          "startLine": 13,
+          "endLine": 40,
+          "methods": [
+            "__init__",
+            "encode",
+            "decode",
+            "__call__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "SpeechTokenizerV3",
+          "startLine": 43,
+          "endLine": 91,
+          "methods": [
+            "__init__",
+            "extract_speech_token"
+          ],
+          "properties": []
+        },
+        {
+          "name": "SpeakerEncoder",
+          "startLine": 94,
+          "endLine": 130,
+          "methods": [
+            "__init__",
+            "extract_embedding"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "CosyVoice3Tokenizer",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "SpeechTokenizerV3",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "SpeakerEncoder",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "_run_cosyvoice3_mel_spectrogram",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "extract_prompt_speech_feat",
+          "line": 150,
+          "isDefault": false
+        },
+        {
+          "name": "build_llm_prompt_embeddings",
+          "line": 184,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "AutoTokenizer.from_pretrained",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.tokenizer.add_special_tokens",
+          "lineNumber": 24
+        },
+        {
+          "caller": "encode",
+          "callee": "self.tokenizer",
+          "lineNumber": 28
+        },
+        {
+          "caller": "encode",
+          "callee": "tokens[\"input_ids\"][0].cpu().tolist",
+          "lineNumber": 29
+        },
+        {
+          "caller": "encode",
+          "callee": "tokens[\"input_ids\"][0].cpu",
+          "lineNumber": 29
+        },
+        {
+          "caller": "decode",
+          "callee": "isinstance",
+          "lineNumber": 32
+        },
+        {
+          "caller": "decode",
+          "callee": "torch.tensor",
+          "lineNumber": 33
+        },
+        {
+          "caller": "decode",
+          "callee": "self.tokenizer.batch_decode",
+          "lineNumber": 34
+        },
+        {
+          "caller": "__call__",
+          "callee": "self.encode",
+          "lineNumber": 39
+        },
+        {
+          "caller": "__call__",
+          "callee": "torch.tensor",
+          "lineNumber": 40
+        },
+        {
+          "caller": "__init__",
+          "callee": "onnxruntime.SessionOptions",
+          "lineNumber": 48
+        },
+        {
+          "caller": "__init__",
+          "callee": "device.startswith",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__init__",
+          "callee": "onnxruntime.InferenceSession",
+          "lineNumber": 59
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "ValueError",
+          "lineNumber": 70
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "audio.reshape",
+          "lineNumber": 75
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "ValueError",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "whisper.log_mel_spectrogram",
+          "lineNumber": 82
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "torch.from_numpy",
+          "lineNumber": 82
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "self.session.run",
+          "lineNumber": 84
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "self.session.get_inputs",
+          "lineNumber": 87
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "feat.detach().cpu().numpy",
+          "lineNumber": 87
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "feat.detach().cpu",
+          "lineNumber": 87
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "feat.detach",
+          "lineNumber": 87
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "self.session.get_inputs",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "np.array",
+          "lineNumber": 88
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "torch.tensor",
+          "lineNumber": 91
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "result.flatten().tolist",
+          "lineNumber": 91
+        },
+        {
+          "caller": "extract_speech_token",
+          "callee": "result.flatten",
+          "lineNumber": 91
+        },
+        {
+          "caller": "__init__",
+          "callee": "onnxruntime.SessionOptions",
+          "lineNumber": 99
+        },
+        {
+          "caller": "__init__",
+          "callee": "onnxruntime.InferenceSession",
+          "lineNumber": 105
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "audio.reshape",
+          "lineNumber": 118
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "torch.from_numpy",
+          "lineNumber": 120
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "kaldi.fbank",
+          "lineNumber": 121
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "feat.mean",
+          "lineNumber": 124
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "self.session.run",
+          "lineNumber": 126
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "self.session.get_inputs",
+          "lineNumber": 128
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "feat.unsqueeze(dim=0).cpu().numpy",
+          "lineNumber": 128
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "feat.unsqueeze(dim=0).cpu",
+          "lineNumber": 128
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "feat.unsqueeze",
+          "lineNumber": 128
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "torch.tensor",
+          "lineNumber": 130
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "embedding.flatten().tolist",
+          "lineNumber": 130
+        },
+        {
+          "caller": "extract_embedding",
+          "callee": "embedding.flatten",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_run_cosyvoice3_mel_spectrogram",
+          "callee": "mel_spectrogram",
+          "lineNumber": 137
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "ValueError",
+          "lineNumber": 162
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "np.asarray",
+          "lineNumber": 166
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "audio_array.reshape",
+          "lineNumber": 168
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "ValueError",
+          "lineNumber": 170
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "torch.from_numpy",
+          "lineNumber": 174
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "_run_cosyvoice3_mel_spectrogram",
+          "lineNumber": 175
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "RuntimeError",
+          "lineNumber": 177
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "tuple",
+          "lineNumber": 179
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "mel.transpose(1, 2).contiguous",
+          "lineNumber": 181
+        },
+        {
+          "caller": "extract_prompt_speech_feat",
+          "callee": "mel.transpose",
+          "lineNumber": 181
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "speech_embed(torch.tensor([[sos_id]], device=device)).reshape",
+          "lineNumber": 203
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "speech_embed",
+          "lineNumber": 203
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "torch.tensor",
+          "lineNumber": 203
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "speech_embed(torch.tensor([[task_id]], device=device)).reshape",
+          "lineNumber": 205
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "speech_embed",
+          "lineNumber": 205
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "torch.tensor",
+          "lineNumber": 205
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "speech_embed",
+          "lineNumber": 208
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "prompt_speech_token.to",
+          "lineNumber": 208
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "torch.zeros",
+          "lineNumber": 210
+        },
+        {
+          "caller": "build_llm_prompt_embeddings",
+          "callee": "torch.cat",
+          "lineNumber": 212
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 3,
+        "classCount": 3
+      }
+    }
+  ]
+}

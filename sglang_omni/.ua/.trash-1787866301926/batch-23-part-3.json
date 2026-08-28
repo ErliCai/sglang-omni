@@ -1,0 +1,1497 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_omni/components/preprocessor.py",
+      "type": "file",
+      "name": "preprocessor.py",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "summary": "解析 Qwen3-Omni 文本、图像、视频和音频输入，构建聊天模板、缓存键、多模态特征和流水线状态。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "cache-key",
+        "prompt-building"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/preprocessor.py:_resolve_local_model_dir",
+      "type": "function",
+      "name": "_resolve_local_model_dir",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "lineRange": [
+        49,
+        62
+      ],
+      "summary": "解析本地 Qwen3-Omni 模型目录或获取所需仓库文件。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "resolve-local-model-dir",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/preprocessor.py:_combine_cache_keys",
+      "type": "function",
+      "name": "_combine_cache_keys",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "lineRange": [
+        65,
+        69
+      ],
+      "summary": "把多个模态缓存键合成为稳定请求键。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "combine-cache-keys",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/preprocessor.py:_extra_special_tokens_compat",
+      "type": "function",
+      "name": "_extra_special_tokens_compat",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "lineRange": [
+        84,
+        104
+      ],
+      "summary": "为不同 Transformers 版本补齐额外特殊词元映射。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "extra-special-tokens-compat",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/preprocessor.py:_contextualize_cache_key",
+      "type": "function",
+      "name": "_contextualize_cache_key",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "lineRange": [
+        107,
+        115
+      ],
+      "summary": "把处理器与提示上下文加入原始媒体缓存键。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "contextualize-cache-key",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "function",
+      "name": "validate_prompt_seq_len",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "lineRange": [
+        122,
+        155
+      ],
+      "summary": "校验文本与多模态占位词元总长度不超过模型上下文。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "validate-prompt-seq-len",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/preprocessor.py:_is_pretokenized_prompt",
+      "type": "function",
+      "name": "_is_pretokenized_prompt",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "lineRange": [
+        158,
+        169
+      ],
+      "summary": "判断请求是否已经提供可直接使用的词元化提示。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "is-pretokenized-prompt",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/preprocessor.py:Qwen3OmniPreprocessor",
+      "type": "class",
+      "name": "Qwen3OmniPreprocessor",
+      "filePath": "models/qwen3_omni/components/preprocessor.py",
+      "lineRange": [
+        172,
+        728
+      ],
+      "summary": "规范化多模态消息、运行处理器、提取媒体特征并构建完整流水线状态。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-preprocessing",
+        "qwen3-omni-preprocessor",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/sglang_thinker.py",
+      "type": "file",
+      "name": "sglang_thinker.py",
+      "filePath": "models/qwen3_omni/components/sglang_thinker.py",
+      "summary": "实现仅保留文本主干和 LM 头的 SGLang Qwen3-Omni Thinker，复用独立阶段注入的音视频嵌入。",
+      "tags": [
+        "qwen3-omni",
+        "sglang-thinker",
+        "text-model",
+        "weight-loading"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/sglang_thinker.py:_config_uses_mrope",
+      "type": "function",
+      "name": "_config_uses_mrope",
+      "filePath": "models/qwen3_omni/components/sglang_thinker.py",
+      "lineRange": [
+        31,
+        37
+      ],
+      "summary": "判断 Thinker 配置是否启用多模态旋转位置编码。",
+      "tags": [
+        "qwen3-omni",
+        "sglang-thinker",
+        "config-uses-mrope",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/sglang_thinker.py:Qwen3OmniThinkerForCausalLM",
+      "type": "class",
+      "name": "Qwen3OmniThinkerForCausalLM",
+      "filePath": "models/qwen3_omni/components/sglang_thinker.py",
+      "lineRange": [
+        40,
+        244
+      ],
+      "summary": "组合 Qwen3 文本主干与 LM 头，接受外部模态嵌入并按 SGLang 格式加载权重。",
+      "tags": [
+        "qwen3-omni",
+        "sglang-thinker",
+        "qwen3-omni-thinker-for-causal-lm",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "type": "file",
+      "name": "streaming_detokenizer.py",
+      "filePath": "models/qwen3_omni/components/streaming_detokenizer.py",
+      "summary": "增量解码 Qwen3-Omni Thinker 词元并以 UTF-8 安全方式发送文本增量，同时合并终态主负载。",
+      "tags": [
+        "qwen3-omni",
+        "streaming-detokenizer",
+        "utf8",
+        "scheduler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/streaming_detokenizer.py:_event_to_dict",
+      "type": "function",
+      "name": "_event_to_dict",
+      "filePath": "models/qwen3_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        41,
+        47
+      ],
+      "summary": "把 Qwen3-Omni 事件转换为可传输字典。",
+      "tags": [
+        "qwen3-omni",
+        "streaming-detokenizer",
+        "event-to-dict",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/streaming_detokenizer.py:create_streaming_detokenize_scheduler",
+      "type": "function",
+      "name": "create_streaming_detokenize_scheduler",
+      "filePath": "models/qwen3_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        308,
+        318
+      ],
+      "summary": "加载分词器并创建流式反分词调度器。",
+      "tags": [
+        "qwen3-omni",
+        "streaming-detokenizer",
+        "create-streaming-detokenize-scheduler",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/streaming_detokenizer.py:_RequestState",
+      "type": "class",
+      "name": "_RequestState",
+      "filePath": "models/qwen3_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        51,
+        54
+      ],
+      "summary": "保存单个流式解码请求的待处理词元、文本和终态。",
+      "tags": [
+        "qwen3-omni",
+        "streaming-detokenizer",
+        "request-state",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/streaming_detokenizer.py:StreamingDetokenizeScheduler",
+      "type": "class",
+      "name": "StreamingDetokenizeScheduler",
+      "filePath": "models/qwen3_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        57,
+        305
+      ],
+      "summary": "增量解码词元、发送文本增量并协调流结束与最终负载。",
+      "tags": [
+        "qwen3-omni",
+        "streaming-detokenizer",
+        "streaming-detokenize-scheduler",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/talker.py",
+      "type": "file",
+      "name": "talker.py",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "summary": "以 SGLang 原生层实现 Qwen3-Omni MoE Talker 与码本预测器，支持增量缓存、静态采样缓冲和预测器 CUDA 图。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "mixture-of-experts",
+        "code-predictor",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker.py:_bind_default_weight_loaders",
+      "type": "function",
+      "name": "_bind_default_weight_loaders",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        52,
+        55
+      ],
+      "summary": "为 Talker 参数绑定默认的 SGLang 权重加载器。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "bind-default-weight-loaders",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:_PredictorDecodeGraph",
+      "type": "class",
+      "name": "_PredictorDecodeGraph",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        58,
+        150
+      ],
+      "summary": "捕获并回放单词元码本预测器解码 CUDA 图。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "predictor-decode-graph",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:ResizeMLP",
+      "type": "class",
+      "name": "ResizeMLP",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        153,
+        187
+      ],
+      "summary": "把 Thinker 隐藏状态投影到 Talker 隐藏维度。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "resize-mlp",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerDenseMLP",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerDenseMLP",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        190,
+        221
+      ],
+      "summary": "实现 Talker 解码层的稠密门控前馈网络。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "qwen3-omni-moe-talker-dense-mlp",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSharedExpertMLP",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerSharedExpertMLP",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        224,
+        256
+      ],
+      "summary": "实现 Talker MoE 中始终参与计算的共享专家。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "qwen3-omni-moe-talker-shared-expert-mlp",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSparseMoeBlock",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerSparseMoeBlock",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        259,
+        334
+      ],
+      "summary": "路由词元到稀疏专家并合并共享专家输出。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "qwen3-omni-moe-talker-sparse-moe-block",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerDecoderLayer",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerDecoderLayer",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        342,
+        420
+      ],
+      "summary": "组合自注意力、MoE 前馈和残差归一化形成 Talker 解码层。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "qwen3-omni-moe-talker-decoder-layer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerTextModel",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerTextModel",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        428,
+        542
+      ],
+      "summary": "堆叠 Talker 解码层并维护输入嵌入和 KV 缓存。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "qwen3-omni-moe-talker-text-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerCodePredictor",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerCodePredictor",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        550,
+        808
+      ],
+      "summary": "逐级预测多个音频码本，并支持直接注意力和增量缓存路径。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "qwen3-omni-moe-talker-code-predictor",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker.py:Qwen3OmniTalker",
+      "type": "class",
+      "name": "Qwen3OmniTalker",
+      "filePath": "models/qwen3_omni/components/talker.py",
+      "lineRange": [
+        816,
+        1817
+      ],
+      "summary": "协调 Talker 文本主干、码本预测器、采样缓冲和增量 CUDA 图，生成音频码序列。",
+      "tags": [
+        "qwen3-omni",
+        "talker",
+        "qwen3-omni-talker",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/talker_input.py",
+      "type": "file",
+      "name": "talker_input.py",
+      "filePath": "models/qwen3_omni/components/talker_input.py",
+      "summary": "按 Hugging Face 兼容布局切分聊天模板并组合系统、用户、助手和多模态嵌入，构造 Talker 预填充输入。",
+      "tags": [
+        "qwen3-omni",
+        "talker-input",
+        "chat-template",
+        "prefill"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_input.py:segment_chat_template",
+      "type": "function",
+      "name": "segment_chat_template",
+      "filePath": "models/qwen3_omni/components/talker_input.py",
+      "lineRange": [
+        8,
+        42
+      ],
+      "summary": "定位聊天模板中的系统、用户和助手片段边界。",
+      "tags": [
+        "qwen3-omni",
+        "talker-input",
+        "segment-chat-template",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_input.py:build_user_part",
+      "type": "function",
+      "name": "build_user_part",
+      "filePath": "models/qwen3_omni/components/talker_input.py",
+      "lineRange": [
+        45,
+        65
+      ],
+      "summary": "构造 Talker 用户段的词元和嵌入布局。",
+      "tags": [
+        "qwen3-omni",
+        "talker-input",
+        "build-user-part",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_input.py:build_assistant_part",
+      "type": "function",
+      "name": "build_assistant_part",
+      "filePath": "models/qwen3_omni/components/talker_input.py",
+      "lineRange": [
+        68,
+        151
+      ],
+      "summary": "组合助手文本、Thinker 隐藏状态和语音标记形成助手段。",
+      "tags": [
+        "qwen3-omni",
+        "talker-input",
+        "build-assistant-part",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_input.py:build_prefill_input",
+      "type": "function",
+      "name": "build_prefill_input",
+      "filePath": "models/qwen3_omni/components/talker_input.py",
+      "lineRange": [
+        154,
+        273
+      ],
+      "summary": "拼接系统、用户与助手段，生成 HF 兼容的 Talker 预填充输入。",
+      "tags": [
+        "qwen3-omni",
+        "talker-input",
+        "build-prefill-input",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/talker_prefill.py",
+      "type": "file",
+      "name": "talker_prefill.py",
+      "filePath": "models/qwen3_omni/components/talker_prefill.py",
+      "summary": "构建提示感知的 Talker 预填充状态，合并模态特征、说话人嵌入并维护未来文本隐藏状态队列。",
+      "tags": [
+        "qwen3-omni",
+        "talker-prefill",
+        "speaker-embedding",
+        "multimodal-merge"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_prefill.py:_resolve_embed_source",
+      "type": "function",
+      "name": "_resolve_embed_source",
+      "filePath": "models/qwen3_omni/components/talker_prefill.py",
+      "lineRange": [
+        35,
+        59
+      ],
+      "summary": "解析 Talker 预填充所用的词嵌入权重来源。",
+      "tags": [
+        "qwen3-omni",
+        "talker-prefill",
+        "resolve-embed-source",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_prefill.py:load_thinker_embedding_rows",
+      "type": "function",
+      "name": "load_thinker_embedding_rows",
+      "filePath": "models/qwen3_omni/components/talker_prefill.py",
+      "lineRange": [
+        62,
+        74
+      ],
+      "summary": "从检查点加载指定 Thinker 词元的嵌入行。",
+      "tags": [
+        "qwen3-omni",
+        "talker-prefill",
+        "load-thinker-embedding-rows",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_prefill.py:coerce_feature_tensor",
+      "type": "function",
+      "name": "coerce_feature_tensor",
+      "filePath": "models/qwen3_omni/components/talker_prefill.py",
+      "lineRange": [
+        77,
+        94
+      ],
+      "summary": "把模态特征转换为指定设备、精度和二维形态。",
+      "tags": [
+        "qwen3-omni",
+        "talker-prefill",
+        "coerce-feature-tensor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_prefill.py:merge_prompt_modality",
+      "type": "function",
+      "name": "merge_prompt_modality",
+      "filePath": "models/qwen3_omni/components/talker_prefill.py",
+      "lineRange": [
+        97,
+        119
+      ],
+      "summary": "把一种模态特征写入提示占位位置并校验行数。",
+      "tags": [
+        "qwen3-omni",
+        "talker-prefill",
+        "merge-prompt-modality",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/talker_prefill.py:resolve_speaker_id",
+      "type": "function",
+      "name": "resolve_speaker_id",
+      "filePath": "models/qwen3_omni/components/talker_prefill.py",
+      "lineRange": [
+        122,
+        128
+      ],
+      "summary": "根据请求或默认配置解析说话人 ID。",
+      "tags": [
+        "qwen3-omni",
+        "talker-prefill",
+        "resolve-speaker-id",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/talker_prefill.py:TalkerPrefillBuilder",
+      "type": "class",
+      "name": "TalkerPrefillBuilder",
+      "filePath": "models/qwen3_omni/components/talker_prefill.py",
+      "lineRange": [
+        131,
+        405
+      ],
+      "summary": "重建提示隐藏状态、合并音视频和说话人嵌入，并维护增量文本行队列。",
+      "tags": [
+        "qwen3-omni",
+        "talker-prefill",
+        "talker-prefill-builder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/thinker.py",
+      "type": "file",
+      "name": "thinker.py",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "summary": "封装 Hugging Face Qwen3-Omni Thinker 的音频、视觉和文本子模块，分开加载后合并多模态嵌入。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "multimodal-embedding",
+        "model-loading"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/thinker.py:_concat_features",
+      "type": "function",
+      "name": "_concat_features",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "lineRange": [
+        22,
+        32
+      ],
+      "summary": "把可选模态特征列表拼接为统一张量。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "concat-features",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/thinker.py:_should_tie_embeddings",
+      "type": "function",
+      "name": "_should_tie_embeddings",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "lineRange": [
+        35,
+        36
+      ],
+      "summary": "判断 Thinker 输入嵌入与语言模型头是否应共享权重。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "should-tie-embeddings",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/thinker.py:_maybe_tie_weights",
+      "type": "function",
+      "name": "_maybe_tie_weights",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "lineRange": [
+        39,
+        47
+      ],
+      "summary": "按配置把语言模型输出头绑定到输入嵌入权重。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "maybe-tie-weights",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/thinker.py:_build_text_model",
+      "type": "function",
+      "name": "_build_text_model",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "lineRange": [
+        50,
+        65
+      ],
+      "summary": "根据配置构建并加载 Thinker 文本模型。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "build-text-model",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/thinker.py:_build_lm_head",
+      "type": "function",
+      "name": "_build_lm_head",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "lineRange": [
+        68,
+        88
+      ],
+      "summary": "构建并加载 Thinker 词表输出头。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "build-lm-head",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/thinker.py:_build_thinker_shell",
+      "type": "function",
+      "name": "_build_thinker_shell",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "lineRange": [
+        91,
+        96
+      ],
+      "summary": "在空权重上下文中创建 Hugging Face Thinker 外壳。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "build-thinker-shell",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/thinker.py:Qwen3OmniSplitThinker",
+      "type": "class",
+      "name": "Qwen3OmniSplitThinker",
+      "filePath": "models/qwen3_omni/components/thinker.py",
+      "lineRange": [
+        99,
+        376
+      ],
+      "summary": "分别加载音频、视觉和文本组件，合并模态嵌入并执行 Thinker 前向。",
+      "tags": [
+        "qwen3-omni",
+        "thinker",
+        "qwen3-omni-split-thinker",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_resolve_local_model_dir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_resolve_local_model_dir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_combine_cache_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_combine_cache_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_extra_special_tokens_compat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_extra_special_tokens_compat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_contextualize_cache_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_contextualize_cache_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_is_pretokenized_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:_is_pretokenized_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "class:models/qwen3_omni/components/preprocessor.py:Qwen3OmniPreprocessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/preprocessor.py",
+      "target": "class:models/qwen3_omni/components/preprocessor.py:Qwen3OmniPreprocessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/sglang_thinker.py",
+      "target": "function:models/qwen3_omni/components/sglang_thinker.py:_config_uses_mrope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/sglang_thinker.py",
+      "target": "function:models/qwen3_omni/components/sglang_thinker.py:_config_uses_mrope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/sglang_thinker.py",
+      "target": "class:models/qwen3_omni/components/sglang_thinker.py:Qwen3OmniThinkerForCausalLM",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/sglang_thinker.py",
+      "target": "class:models/qwen3_omni/components/sglang_thinker.py:Qwen3OmniThinkerForCausalLM",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "function:models/qwen3_omni/components/streaming_detokenizer.py:_event_to_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "function:models/qwen3_omni/components/streaming_detokenizer.py:_event_to_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "function:models/qwen3_omni/components/streaming_detokenizer.py:create_streaming_detokenize_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "function:models/qwen3_omni/components/streaming_detokenizer.py:create_streaming_detokenize_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "class:models/qwen3_omni/components/streaming_detokenizer.py:_RequestState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "class:models/qwen3_omni/components/streaming_detokenizer.py:_RequestState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "class:models/qwen3_omni/components/streaming_detokenizer.py:StreamingDetokenizeScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/streaming_detokenizer.py",
+      "target": "class:models/qwen3_omni/components/streaming_detokenizer.py:StreamingDetokenizeScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "function:models/qwen3_omni/components/talker.py:_bind_default_weight_loaders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "function:models/qwen3_omni/components/talker.py:_bind_default_weight_loaders",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:_PredictorDecodeGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:_PredictorDecodeGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:ResizeMLP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:ResizeMLP",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerDenseMLP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerDenseMLP",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSharedExpertMLP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSharedExpertMLP",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSparseMoeBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSparseMoeBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerDecoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerDecoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerTextModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerTextModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerCodePredictor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerCodePredictor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniTalker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker.py",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniTalker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:segment_chat_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:segment_chat_template",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_user_part",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_user_part",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_assistant_part",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_assistant_part",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_prefill_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_input.py",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_prefill_input",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:_resolve_embed_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:_resolve_embed_source",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:load_thinker_embedding_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:load_thinker_embedding_rows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:coerce_feature_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:coerce_feature_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:merge_prompt_modality",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:merge_prompt_modality",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:resolve_speaker_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:resolve_speaker_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "class:models/qwen3_omni/components/talker_prefill.py:TalkerPrefillBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/talker_prefill.py",
+      "target": "class:models/qwen3_omni/components/talker_prefill.py:TalkerPrefillBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_concat_features",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_concat_features",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_should_tie_embeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_should_tie_embeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_maybe_tie_weights",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_maybe_tie_weights",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_build_text_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_build_text_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_build_lm_head",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_build_lm_head",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_build_thinker_shell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "function:models/qwen3_omni/components/thinker.py:_build_thinker_shell",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "class:models/qwen3_omni/components/thinker.py:Qwen3OmniSplitThinker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/thinker.py",
+      "target": "class:models/qwen3_omni/components/thinker.py:Qwen3OmniSplitThinker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/streaming_detokenizer.py:create_streaming_detokenize_scheduler",
+      "target": "class:models/qwen3_omni/components/streaming_detokenizer.py:StreamingDetokenizeScheduler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/talker_input.py:build_prefill_input",
+      "target": "function:models/qwen3_omni/components/talker_input.py:segment_chat_template",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/talker_input.py:build_prefill_input",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_user_part",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/talker_input.py:build_prefill_input",
+      "target": "function:models/qwen3_omni/components/talker_input.py:build_assistant_part",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/talker_prefill.py:load_thinker_embedding_rows",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:_resolve_embed_source",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/talker_prefill.py:merge_prompt_modality",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:coerce_feature_tensor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/thinker.py:_maybe_tie_weights",
+      "target": "function:models/qwen3_omni/components/thinker.py:_should_tie_embeddings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/thinker.py:_build_lm_head",
+      "target": "function:models/qwen3_omni/components/thinker.py:_should_tie_embeddings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_omni/components/preprocessor.py:Qwen3OmniPreprocessor",
+      "target": "function:models/qwen3_omni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/sglang_thinker.py:Qwen3OmniThinkerForCausalLM",
+      "target": "function:models/qwen3_omni/components/sglang_thinker.py:_config_uses_mrope",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSparseMoeBlock",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSharedExpertMLP",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerDecoderLayer",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerSparseMoeBlock",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/talker.py:Qwen3OmniTalker",
+      "target": "class:models/qwen3_omni/components/talker.py:Qwen3OmniMoeTalkerCodePredictor",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_omni/components/talker_input.py:build_prefill_input",
+      "target": "function:models/qwen3_omni/components/talker_input.py:segment_chat_template",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/talker_prefill.py:TalkerPrefillBuilder",
+      "target": "function:models/qwen3_omni/components/talker_prefill.py:merge_prompt_modality",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/thinker.py:Qwen3OmniSplitThinker",
+      "target": "function:models/qwen3_omni/components/thinker.py:_build_text_model",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

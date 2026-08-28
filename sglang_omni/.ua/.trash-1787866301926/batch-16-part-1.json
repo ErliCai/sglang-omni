@@ -1,0 +1,1597 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/audar_tts/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/audar_tts/__init__.py",
+      "summary": "声明 Audar TTS 模型能力，公开参考音频支持和流水线配置入口。",
+      "tags": [
+        "audar-tts",
+        "model-capabilities",
+        "pipeline-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/audar_tts/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/audar_tts/config.py",
+      "summary": "定义 Audar TTS 的四阶段流水线，把预处理、参考音频编码、语言模型生成和声码器解码串联起来。",
+      "tags": [
+        "audar-tts",
+        "pipeline-config",
+        "stage-routing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/audar_tts/config.py:_stages",
+      "type": "function",
+      "name": "_stages",
+      "filePath": "models/audar_tts/config.py",
+      "lineRange": [
+        15,
+        44
+      ],
+      "summary": "创建 Audar TTS 的四个阶段配置，并连接参考编码、语音码生成和声码器的数据流。",
+      "tags": [
+        "audar-tts",
+        "pipeline-config",
+        "stages"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/audar_tts/config.py:AudarTTSPipelineConfig",
+      "type": "class",
+      "name": "AudarTTSPipelineConfig",
+      "filePath": "models/audar_tts/config.py",
+      "lineRange": [
+        47,
+        61
+      ],
+      "summary": "描述 Audar TTS 模型路径、参考语音约束、语言能力和默认阶段拓扑。",
+      "tags": [
+        "audar-tts",
+        "pipeline-config",
+        "audar-ttspipeline-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/audar_tts/payload_types.py",
+      "type": "file",
+      "name": "payload_types.py",
+      "filePath": "models/audar_tts/payload_types.py",
+      "summary": "定义 Audar TTS 在各流水线阶段之间传递的文本、参考音频、提示词、音频码和生成参数状态。",
+      "tags": [
+        "audar-tts",
+        "payload-state",
+        "stage-contract"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/audar_tts/payload_types.py:AudarTTSState",
+      "type": "class",
+      "name": "AudarTTSState",
+      "filePath": "models/audar_tts/payload_types.py",
+      "lineRange": [
+        13,
+        20
+      ],
+      "summary": "承载 Audar 请求从输入规范化到最终音频解码所需的全部中间数据。",
+      "tags": [
+        "audar-tts",
+        "payload-state",
+        "audar-ttsstate"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/audar_tts/protocol.py",
+      "type": "file",
+      "name": "protocol.py",
+      "filePath": "models/audar_tts/protocol.py",
+      "summary": "实现 Audar 模型的提示词协议，组装参考语音码与目标文本，并从模型输出中解析离散语音码。",
+      "tags": [
+        "audar-tts",
+        "prompt-protocol",
+        "speech-codes"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/protocol.py:build_prompt",
+      "type": "function",
+      "name": "build_prompt",
+      "filePath": "models/audar_tts/protocol.py",
+      "lineRange": [
+        12,
+        22
+      ],
+      "summary": "把参考转写、离散语音码和目标文本编码为 Audar 模型要求的带标签提示词。",
+      "tags": [
+        "audar-tts",
+        "prompt-protocol",
+        "build-prompt"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/protocol.py:parse_speech_codes",
+      "type": "function",
+      "name": "parse_speech_codes",
+      "filePath": "models/audar_tts/protocol.py",
+      "lineRange": [
+        25,
+        26
+      ],
+      "summary": "从生成文本的语音标签中提取整数音频码序列。",
+      "tags": [
+        "audar-tts",
+        "prompt-protocol",
+        "parse-speech-codes"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/audar_tts/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/audar_tts/request_builders.py",
+      "summary": "校验并规范化 Audar TTS 请求，解析单个带转写的参考音频，并生成模型推理参数和跨阶段状态。",
+      "tags": [
+        "audar-tts",
+        "request-building",
+        "input-validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/audar_tts/request_builders.py:build_audar_state",
+      "type": "function",
+      "name": "build_audar_state",
+      "filePath": "models/audar_tts/request_builders.py",
+      "lineRange": [
+        26,
+        55
+      ],
+      "summary": "规范化请求输入与参考音频，构造提示词并生成完整的 Audar 跨阶段状态。",
+      "tags": [
+        "audar-tts",
+        "request-building",
+        "build-audar-state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/request_builders.py:build_generation_kwargs",
+      "type": "function",
+      "name": "build_generation_kwargs",
+      "filePath": "models/audar_tts/request_builders.py",
+      "lineRange": [
+        58,
+        86
+      ],
+      "summary": "合并 Audar 默认生成参数与请求覆盖项，并执行参数合法性检查。",
+      "tags": [
+        "audar-tts",
+        "request-building",
+        "build-generation-kwargs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/request_builders.py:_normalize_inputs",
+      "type": "function",
+      "name": "_normalize_inputs",
+      "filePath": "models/audar_tts/request_builders.py",
+      "lineRange": [
+        89,
+        101
+      ],
+      "summary": "统一读取请求的文本和可选字段，拒绝不符合 Audar 接口契约的输入。",
+      "tags": [
+        "audar-tts",
+        "request-building",
+        "normalize-inputs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/request_builders.py:_reference_from_value",
+      "type": "function",
+      "name": "_reference_from_value",
+      "filePath": "models/audar_tts/request_builders.py",
+      "lineRange": [
+        104,
+        113
+      ],
+      "summary": "把路径、字节或数据 URI 等单个值转换为标准参考音频对象。",
+      "tags": [
+        "audar-tts",
+        "request-building",
+        "reference-from-value"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/request_builders.py:_normalize_reference_audio",
+      "type": "function",
+      "name": "_normalize_reference_audio",
+      "filePath": "models/audar_tts/request_builders.py",
+      "lineRange": [
+        116,
+        130
+      ],
+      "summary": "确认请求仅包含一个带转写的参考音频，并将其规范化为统一表示。",
+      "tags": [
+        "audar-tts",
+        "request-building",
+        "normalize-reference-audio"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/request_builders.py:_validate_generation_kwargs",
+      "type": "function",
+      "name": "_validate_generation_kwargs",
+      "filePath": "models/audar_tts/request_builders.py",
+      "lineRange": [
+        133,
+        141
+      ],
+      "summary": "检查采样温度、概率阈值和最大生成长度等参数范围。",
+      "tags": [
+        "audar-tts",
+        "request-building",
+        "validate-generation-kwargs"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/audar_tts/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/audar_tts/stages.py",
+      "summary": "实现 Audar TTS 各阶段执行器，包括参考音频加载与缓存、NeuCodec 编码、llama.cpp 文本到语音码生成及声码器解码。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "reference-encoding",
+        "vocoder"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_load_codec",
+      "type": "function",
+      "name": "_load_codec",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        52,
+        59
+      ],
+      "summary": "按模型和设备加载或复用 NeuCodec 实例。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "load-codec"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_codec_lock",
+      "type": "function",
+      "name": "_codec_lock",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        63,
+        64
+      ],
+      "summary": "为共享编解码器返回串行化推理访问的互斥锁。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "codec-lock"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_device",
+      "type": "function",
+      "name": "_device",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        67,
+        68
+      ],
+      "summary": "把阶段设备配置规范化为 Torch 设备对象。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "device"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_normalize_reference",
+      "type": "function",
+      "name": "_normalize_reference",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        71,
+        83
+      ],
+      "summary": "解析并校验参考音频对象，生成内部参考输入。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "normalize-reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_reference_key",
+      "type": "function",
+      "name": "_reference_key",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        86,
+        94
+      ],
+      "summary": "根据参考音频内容和转写生成稳定缓存键。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "reference-key"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_load_reference_waveform",
+      "type": "function",
+      "name": "_load_reference_waveform",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        97,
+        114
+      ],
+      "summary": "加载参考波形、转为目标采样率并验证允许的时长范围。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "load-reference-waveform"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_encode_reference",
+      "type": "function",
+      "name": "_encode_reference",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        117,
+        125
+      ],
+      "summary": "调用 NeuCodec 将参考波形编码为 Audar 提示词所用的离散语音码。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "encode-reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        166,
+        169
+      ],
+      "summary": "创建把原始请求转换为 AudarTTSState 的 CPU 预处理执行器。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "create-preprocessing-executor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:create_reference_encoder_executor",
+      "type": "function",
+      "name": "create_reference_encoder_executor",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        172,
+        209
+      ],
+      "summary": "创建带缓存的参考语音编码执行器并加载共享 NeuCodec。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "create-reference-encoder-executor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_resolve_gguf",
+      "type": "function",
+      "name": "_resolve_gguf",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        212,
+        223
+      ],
+      "summary": "解析本地或模型仓库中的 GGUF 权重文件路径。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "resolve-gguf"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:create_tts_engine_executor",
+      "type": "function",
+      "name": "create_tts_engine_executor",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        226,
+        303
+      ],
+      "summary": "创建基于 llama.cpp 的 Audar 语音码生成执行器。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "create-tts-engine-executor"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:create_vocoder_executor",
+      "type": "function",
+      "name": "create_vocoder_executor",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        306,
+        340
+      ],
+      "summary": "创建将 Audar 离散语音码解码为波形的终端执行器。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "create-vocoder-executor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_load_state",
+      "type": "function",
+      "name": "_load_state",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        343,
+        344
+      ],
+      "summary": "从阶段负载中读取并验证 AudarTTSState。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "load-state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/audar_tts/stages.py:_store_state",
+      "type": "function",
+      "name": "_store_state",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        347,
+        348
+      ],
+      "summary": "把更新后的 AudarTTSState 写回阶段负载。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "store-state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/audar_tts/stages.py:_ReferenceInput",
+      "type": "class",
+      "name": "_ReferenceInput",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        45,
+        48
+      ],
+      "summary": "封装规范化后的参考音频内容及其转写文本。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "reference-input"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/audar_tts/stages.py:_AudarReferenceEncodeHook",
+      "type": "class",
+      "name": "_AudarReferenceEncodeHook",
+      "filePath": "models/audar_tts/stages.py",
+      "lineRange": [
+        128,
+        163
+      ],
+      "summary": "为参考编码服务提供缓存键、批处理策略和结果写回钩子。",
+      "tags": [
+        "audar-tts",
+        "pipeline-stages",
+        "audar-reference-encode-hook"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/dots_tts/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/dots_tts/__init__.py",
+      "summary": "声明 Dots TTS 的参考音频、批量与流式声码器以及 Torch 编译能力，并公开流水线配置。",
+      "tags": [
+        "dots-tts",
+        "model-capabilities",
+        "streaming-vocoder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/dots_tts/codec.py",
+      "type": "file",
+      "name": "codec.py",
+      "filePath": "models/dots_tts/codec.py",
+      "summary": "加载并缓存 Dots 音频编解码器，按等长音频分组提取说话人嵌入和提示潜变量，并提供可缓存的参考音频编码服务。",
+      "tags": [
+        "dots-tts",
+        "audio-codec",
+        "speaker-embedding",
+        "reference-cache"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/dots_tts/codec.py:_load_module",
+      "type": "function",
+      "name": "_load_module",
+      "filePath": "models/dots_tts/codec.py",
+      "lineRange": [
+        36,
+        39
+      ],
+      "summary": "从安全张量权重中严格加载指定前缀的 Dots 子模块并报告不匹配项。",
+      "tags": [
+        "dots-tts",
+        "audio-codec",
+        "load-module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/dots_tts/codec.py:load_dots_audio_codec",
+      "type": "function",
+      "name": "load_dots_audio_codec",
+      "filePath": "models/dots_tts/codec.py",
+      "lineRange": [
+        208,
+        216
+      ],
+      "summary": "按检查点与设备缓存并返回共享的 DotsAudioCodec。",
+      "tags": [
+        "dots-tts",
+        "audio-codec",
+        "load-dots-audio-codec"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/dots_tts/codec.py:DotsAudioCodec",
+      "type": "class",
+      "name": "DotsAudioCodec",
+      "filePath": "models/dots_tts/codec.py",
+      "lineRange": [
+        42,
+        201
+      ],
+      "summary": "组合 AudioVAE 与说话人编码器，批量提取参考音频的说话人嵌入和提示潜变量。",
+      "tags": [
+        "dots-tts",
+        "audio-codec",
+        "dots-audio-codec"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/dots_tts/codec.py:_DotsReferenceHook",
+      "type": "class",
+      "name": "_DotsReferenceHook",
+      "filePath": "models/dots_tts/codec.py",
+      "lineRange": [
+        219,
+        256
+      ],
+      "summary": "定义参考音频缓存、等长分组批处理和编码结果写回策略。",
+      "tags": [
+        "dots-tts",
+        "audio-codec",
+        "dots-reference-hook"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/dots_tts/codec.py:DotsReferenceEncoder",
+      "type": "class",
+      "name": "DotsReferenceEncoder",
+      "filePath": "models/dots_tts/codec.py",
+      "lineRange": [
+        259,
+        303
+      ],
+      "summary": "封装 Dots 参考音频编码服务，为请求生成并保存说话人嵌入和提示潜变量。",
+      "tags": [
+        "dots-tts",
+        "audio-codec",
+        "dots-reference-encoder"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/dots_tts/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/dots_tts/config.py",
+      "summary": "定义 Dots TTS 的预处理、参考编码、潜变量生成和声码器四阶段流水线及其并发和步数约束。",
+      "tags": [
+        "dots-tts",
+        "pipeline-config",
+        "flow-generation",
+        "vocoder"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/dots_tts/config.py:DotsVocoderFactoryArgs",
+      "type": "class",
+      "name": "DotsVocoderFactoryArgs",
+      "filePath": "models/dots_tts/config.py",
+      "lineRange": [
+        20,
+        23
+      ],
+      "summary": "保存流式声码器最大槽位数等工厂参数。",
+      "tags": [
+        "dots-tts",
+        "pipeline-config",
+        "dots-vocoder-factory-args"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/dots_tts/config.py:DotsVocoderStageConfig",
+      "type": "class",
+      "name": "DotsVocoderStageConfig",
+      "filePath": "models/dots_tts/config.py",
+      "lineRange": [
+        26,
+        27
+      ],
+      "summary": "扩展阶段配置以携带 Dots 声码器专用工厂参数。",
+      "tags": [
+        "dots-tts",
+        "pipeline-config",
+        "dots-vocoder-stage-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/dots_tts/config.py:DotsTTSPipelineConfig",
+      "type": "class",
+      "name": "DotsTTSPipelineConfig",
+      "filePath": "models/dots_tts/config.py",
+      "lineRange": [
+        30,
+        151
+      ],
+      "summary": "定义 Dots 四阶段流水线、模型约束、生成步数和最大音频长度等配置。",
+      "tags": [
+        "dots-tts",
+        "pipeline-config",
+        "dots-ttspipeline-config"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/dots_tts/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/dots_tts/engine_builder.py",
+      "summary": "构建 Dots TTS 的 SGLang 潜变量生成引擎，配置模型架构、上下文预算、运行请求数和运行时适配器。",
+      "tags": [
+        "dots-tts",
+        "engine-builder",
+        "sglang-runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/dots_tts/engine_builder.py:DotsTTSEngineBuilder",
+      "type": "class",
+      "name": "DotsTTSEngineBuilder",
+      "filePath": "models/dots_tts/engine_builder.py",
+      "lineRange": [
+        14,
+        183
+      ],
+      "summary": "根据流水线参数组装 Dots 潜变量引擎、模型运行器和调度适配器。",
+      "tags": [
+        "dots-tts",
+        "engine-builder",
+        "dots-ttsengine-builder"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/dots_tts/flow_head.py",
+      "type": "file",
+      "name": "flow_head.py",
+      "filePath": "models/dots_tts/flow_head.py",
+      "summary": "实现 Dots TTS 的 Patch 编码器、Flow/MeanFlow DiT 与结束判定头，并维护按请求推进的声学潜变量生成状态。",
+      "tags": [
+        "dots-tts",
+        "flow-matching",
+        "dit",
+        "latent-generation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/dots_tts/flow_head.py:DotsFlowState",
+      "type": "class",
+      "name": "DotsFlowState",
+      "filePath": "models/dots_tts/flow_head.py",
+      "lineRange": [
+        18,
+        33
+      ],
+      "summary": "维护单个请求的 Flow/MeanFlow 采样进度、随机状态、提示块和槽位信息。",
+      "tags": [
+        "dots-tts",
+        "flow-matching",
+        "dots-flow-state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/dots_tts/flow_head.py:DotsFlowStep",
+      "type": "class",
+      "name": "DotsFlowStep",
+      "filePath": "models/dots_tts/flow_head.py",
+      "lineRange": [
+        37,
+        41
+      ],
+      "summary": "表示一次声学生成步产生的潜变量块、反馈、结束状态和输出标志。",
+      "tags": [
+        "dots-tts",
+        "flow-matching",
+        "dots-flow-step"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/dots_tts/flow_head.py:DotsTTSFlowHead",
+      "type": "class",
+      "name": "DotsTTSFlowHead",
+      "filePath": "models/dots_tts/flow_head.py",
+      "lineRange": [
+        44,
+        804
+      ],
+      "summary": "执行 Patch 编码、Flow/MeanFlow DiT 去噪和结束预测，支持分桶批处理与增量状态推进。",
+      "tags": [
+        "dots-tts",
+        "flow-matching",
+        "dots-ttsflow-head"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/dots_tts/hf_config.py",
+      "type": "file",
+      "name": "hf_config.py",
+      "filePath": "models/dots_tts/hf_config.py",
+      "summary": "提供 Dots TTS 的 Hugging Face 配置兼容层，并将其注册到 Transformers 自动配置系统。",
+      "tags": [
+        "dots-tts",
+        "huggingface-config",
+        "model-registration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/dots_tts/hf_config.py:register_dots_tts_hf_config",
+      "type": "function",
+      "name": "register_dots_tts_hf_config",
+      "filePath": "models/dots_tts/hf_config.py",
+      "lineRange": [
+        48,
+        58
+      ],
+      "summary": "将 Dots 配置类注册到 Hugging Face 自动配置注册表。",
+      "tags": [
+        "dots-tts",
+        "huggingface-config",
+        "register-dots-tts-hf-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/dots_tts/hf_config.py:DotsTTSConfig",
+      "type": "class",
+      "name": "DotsTTSConfig",
+      "filePath": "models/dots_tts/hf_config.py",
+      "lineRange": [
+        17,
+        45
+      ],
+      "summary": "把 Dots 模型配置映射为 Transformers 可识别的预训练配置。",
+      "tags": [
+        "dots-tts",
+        "huggingface-config",
+        "dots-ttsconfig"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/dots_tts/model_runner.py",
+      "type": "file",
+      "name": "model_runner.py",
+      "filePath": "models/dots_tts/model_runner.py",
+      "summary": "把 Dots Flow 声学生成接入 SGLang 的预填充与解码循环，处理反馈潜变量、请求挂起回收、结束判定和资源清理。",
+      "tags": [
+        "dots-tts",
+        "model-runner",
+        "decode-loop",
+        "request-lifecycle"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/dots_tts/model_runner.py:_DotsFlowLaunchBuf",
+      "type": "class",
+      "name": "_DotsFlowLaunchBuf",
+      "filePath": "models/dots_tts/model_runner.py",
+      "lineRange": [
+        18,
+        23
+      ],
+      "summary": "暂存一次批量 Flow 启动所需的请求索引和隐藏状态。",
+      "tags": [
+        "dots-tts",
+        "model-runner",
+        "dots-flow-launch-buf"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/dots_tts/model_runner.py:DotsTTSModelRunner",
+      "type": "class",
+      "name": "DotsTTSModelRunner",
+      "filePath": "models/dots_tts/model_runner.py",
+      "lineRange": [
+        26,
+        335
+      ],
+      "summary": "协调 SGLang 文本主干与 Dots Flow 头的增量解码、反馈注入和请求资源生命周期。",
+      "tags": [
+        "dots-tts",
+        "model-runner",
+        "dots-ttsmodel-runner"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/audar_tts/config.py",
+      "target": "function:models/audar_tts/config.py:_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/config.py",
+      "target": "function:models/audar_tts/config.py:_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/config.py",
+      "target": "class:models/audar_tts/config.py:AudarTTSPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/config.py",
+      "target": "class:models/audar_tts/config.py:AudarTTSPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/payload_types.py",
+      "target": "class:models/audar_tts/payload_types.py:AudarTTSState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/payload_types.py",
+      "target": "class:models/audar_tts/payload_types.py:AudarTTSState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/protocol.py",
+      "target": "function:models/audar_tts/protocol.py:build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/protocol.py",
+      "target": "function:models/audar_tts/protocol.py:build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/protocol.py",
+      "target": "function:models/audar_tts/protocol.py:parse_speech_codes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/protocol.py",
+      "target": "function:models/audar_tts/protocol.py:parse_speech_codes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:build_audar_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:build_audar_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:build_generation_kwargs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:build_generation_kwargs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_normalize_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_normalize_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_reference_from_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_reference_from_value",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_normalize_reference_audio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_normalize_reference_audio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_validate_generation_kwargs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/request_builders.py",
+      "target": "function:models/audar_tts/request_builders.py:_validate_generation_kwargs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_load_codec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_load_codec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_codec_lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_codec_lock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_normalize_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_normalize_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_reference_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_reference_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_load_reference_waveform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_load_reference_waveform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_encode_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_encode_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_reference_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_reference_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_resolve_gguf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_resolve_gguf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_tts_engine_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_tts_engine_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_vocoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:create_vocoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_load_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_load_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_store_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "function:models/audar_tts/stages.py:_store_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "class:models/audar_tts/stages.py:_ReferenceInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "class:models/audar_tts/stages.py:_ReferenceInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "class:models/audar_tts/stages.py:_AudarReferenceEncodeHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/audar_tts/stages.py",
+      "target": "class:models/audar_tts/stages.py:_AudarReferenceEncodeHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "function:models/dots_tts/codec.py:_load_module",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "function:models/dots_tts/codec.py:_load_module",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "function:models/dots_tts/codec.py:load_dots_audio_codec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "function:models/dots_tts/codec.py:load_dots_audio_codec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "class:models/dots_tts/codec.py:DotsAudioCodec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "class:models/dots_tts/codec.py:DotsAudioCodec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "class:models/dots_tts/codec.py:_DotsReferenceHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "class:models/dots_tts/codec.py:_DotsReferenceHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "class:models/dots_tts/codec.py:DotsReferenceEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/codec.py",
+      "target": "class:models/dots_tts/codec.py:DotsReferenceEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/config.py",
+      "target": "class:models/dots_tts/config.py:DotsVocoderFactoryArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/config.py",
+      "target": "class:models/dots_tts/config.py:DotsVocoderFactoryArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/config.py",
+      "target": "class:models/dots_tts/config.py:DotsVocoderStageConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/config.py",
+      "target": "class:models/dots_tts/config.py:DotsVocoderStageConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/config.py",
+      "target": "class:models/dots_tts/config.py:DotsTTSPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/config.py",
+      "target": "class:models/dots_tts/config.py:DotsTTSPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/engine_builder.py",
+      "target": "class:models/dots_tts/engine_builder.py:DotsTTSEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/engine_builder.py",
+      "target": "class:models/dots_tts/engine_builder.py:DotsTTSEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/flow_head.py",
+      "target": "class:models/dots_tts/flow_head.py:DotsFlowState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/flow_head.py",
+      "target": "class:models/dots_tts/flow_head.py:DotsFlowState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/flow_head.py",
+      "target": "class:models/dots_tts/flow_head.py:DotsFlowStep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/flow_head.py",
+      "target": "class:models/dots_tts/flow_head.py:DotsFlowStep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/flow_head.py",
+      "target": "class:models/dots_tts/flow_head.py:DotsTTSFlowHead",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/flow_head.py",
+      "target": "class:models/dots_tts/flow_head.py:DotsTTSFlowHead",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/hf_config.py",
+      "target": "function:models/dots_tts/hf_config.py:register_dots_tts_hf_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/hf_config.py",
+      "target": "function:models/dots_tts/hf_config.py:register_dots_tts_hf_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/hf_config.py",
+      "target": "class:models/dots_tts/hf_config.py:DotsTTSConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/hf_config.py",
+      "target": "class:models/dots_tts/hf_config.py:DotsTTSConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/model_runner.py",
+      "target": "class:models/dots_tts/model_runner.py:_DotsFlowLaunchBuf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/model_runner.py",
+      "target": "class:models/dots_tts/model_runner.py:_DotsFlowLaunchBuf",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/model_runner.py",
+      "target": "class:models/dots_tts/model_runner.py:DotsTTSModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/dots_tts/model_runner.py",
+      "target": "class:models/dots_tts/model_runner.py:DotsTTSModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/dots_tts/__init__.py",
+      "target": "file:models/dots_tts/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:models/audar_tts/request_builders.py:build_audar_state",
+      "target": "function:models/audar_tts/request_builders.py:_normalize_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/audar_tts/request_builders.py:build_audar_state",
+      "target": "function:models/audar_tts/request_builders.py:_normalize_reference_audio",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/audar_tts/request_builders.py:build_audar_state",
+      "target": "function:models/audar_tts/request_builders.py:build_generation_kwargs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/audar_tts/request_builders.py:build_generation_kwargs",
+      "target": "function:models/audar_tts/request_builders.py:_validate_generation_kwargs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/audar_tts/stages.py:create_preprocessing_executor",
+      "target": "function:models/audar_tts/request_builders.py:build_audar_state",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/audar_tts/stages.py:create_reference_encoder_executor",
+      "target": "class:models/audar_tts/stages.py:_AudarReferenceEncodeHook",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/audar_tts/stages.py:create_reference_encoder_executor",
+      "target": "function:models/audar_tts/stages.py:_load_codec",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/audar_tts/stages.py:create_tts_engine_executor",
+      "target": "function:models/audar_tts/stages.py:_resolve_gguf",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/dots_tts/codec.py:load_dots_audio_codec",
+      "target": "class:models/dots_tts/codec.py:DotsAudioCodec",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/dots_tts/codec.py:DotsReferenceEncoder",
+      "target": "class:models/dots_tts/codec.py:_DotsReferenceHook",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/dots_tts/model_runner.py:DotsTTSModelRunner",
+      "target": "class:models/dots_tts/flow_head.py:DotsTTSFlowHead",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"relay/base.py","language":"python","sizeLines":176,"fileCategory":"code"},
+    {"path":"relay/cuda_ipc.py","language":"python","sizeLines":1209,"fileCategory":"code"},
+    {"path":"relay/mooncake.py","language":"python","sizeLines":779,"fileCategory":"code"},
+    {"path":"relay/nccl.py","language":"python","sizeLines":313,"fileCategory":"code"},
+    {"path":"relay/nixl.py","language":"python","sizeLines":354,"fileCategory":"code"},
+    {"path":"relay/shm.py","language":"python","sizeLines":207,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "relay/base.py": [],
+    "relay/cuda_ipc.py": ["relay/base.py"],
+    "relay/mooncake.py": ["relay/base.py"],
+    "relay/nccl.py": ["relay/base.py"],
+    "relay/nixl.py": ["relay/base.py"],
+    "relay/shm.py": ["relay/base.py"]
+  },
+  "neighborMap": {}
+}

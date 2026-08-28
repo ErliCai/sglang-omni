@@ -1,0 +1,1659 @@
+{
+  "nodes": [
+    {
+      "id": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "type": "file",
+      "name": "thinker_fused_rope.py",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "summary": "为 Thinker 注意力层安装可门控的 fused QK normalization 与 RoPE 路径，并依据设备能力和 prefill graph 状态安全回退。",
+      "tags": [
+        "qwen3-omni",
+        "模型推理",
+        "多模态"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:_fused_apply_qk_norm_rope",
+      "type": "function",
+      "name": "_fused_apply_qk_norm_rope",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "lineRange": [
+        49,
+        77
+      ],
+      "summary": "在单个 fused 路径中完成 QK normalization 与 RoPE，并由 gate 控制回退。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:_prefill_graph_enabled",
+      "type": "function",
+      "name": "_prefill_graph_enabled",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "lineRange": [
+        80,
+        90
+      ],
+      "summary": "读取环境配置并判断 prefill CUDA graph 是否启用。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:install_thinker_fused_rope",
+      "type": "function",
+      "name": "install_thinker_fused_rope",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "lineRange": [
+        93,
+        179
+      ],
+      "summary": "遍历 Thinker attention 层并安装可回退的 fused RoPE 实现。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:ThinkerFusedRopeGate",
+      "type": "class",
+      "name": "ThinkerFusedRopeGate",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "lineRange": [
+        24,
+        46
+      ],
+      "summary": "评估当前输入与设备是否满足 fused QK normalization/RoPE kernel 的启用条件。",
+      "tags": [
+        "模型组件",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "type": "file",
+      "name": "thinker_model.py",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "summary": "实现 Qwen3-Omni Thinker 的注意力、稀疏 MoE、decoder layer 和文本主干，同时处理 YaRN RoPE 参数及融合权重映射。",
+      "tags": [
+        "qwen3-omni",
+        "模型推理",
+        "多模态"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:_bind_default_weight_loaders",
+      "type": "function",
+      "name": "_bind_default_weight_loaders",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        54,
+        57
+      ],
+      "summary": "为缺少自定义 loader 的模块参数绑定默认权重加载器。",
+      "tags": [
+        "权重加载",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:compute_yarn_parameters",
+      "type": "function",
+      "name": "compute_yarn_parameters",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        60,
+        141
+      ],
+      "summary": "根据模型配置计算 YaRN RoPE 的 inverse frequency 与缩放参数。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:maybe_update_fused_qkv_proj",
+      "type": "function",
+      "name": "maybe_update_fused_qkv_proj",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        754,
+        781
+      ],
+      "summary": "把 checkpoint 中拆分的 Q/K/V 权重写入 fused QKV 参数。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:maybe_update_fused_moe_proj",
+      "type": "function",
+      "name": "maybe_update_fused_moe_proj",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        784,
+        810
+      ],
+      "summary": "把 checkpoint 中专家投影权重映射到 fused MoE 参数。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:extract_fused_experts",
+      "type": "function",
+      "name": "extract_fused_experts",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        813,
+        839
+      ],
+      "summary": "从 checkpoint 命名规则中解析并汇总专家 gate/down/up 投影。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextAttention",
+      "type": "class",
+      "name": "Qwen3OmniMoeThinkerTextAttention",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        144,
+        385
+      ],
+      "summary": "实现 Thinker 文本注意力，拆分 QKV 准备、QK norm、RoPE 与核心 attention 计算。",
+      "tags": [
+        "模型组件",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextSparseMoeBlock",
+      "type": "class",
+      "name": "Qwen3OmniMoeThinkerTextSparseMoeBlock",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        388,
+        469
+      ],
+      "summary": "实现 Thinker 的稀疏专家路由和普通 fallback 前向路径。",
+      "tags": [
+        "模型组件",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextDecoderLayer",
+      "type": "class",
+      "name": "Qwen3OmniMoeThinkerTextDecoderLayer",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        472,
+        604
+      ],
+      "summary": "组合 attention、归一化与 sparse MoE 构成 Thinker decoder layer。",
+      "tags": [
+        "模型组件",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextModel",
+      "type": "class",
+      "name": "Qwen3OmniMoeThinkerTextModel",
+      "filePath": "sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "lineRange": [
+        607,
+        751
+      ],
+      "summary": "实现 Thinker 文本主干、deepstack 多模态特征注入及分片权重加载。",
+      "tags": [
+        "模型组件",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "type": "file",
+      "name": "hf_config.py",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "summary": "定义 Qwen3-Omni 音频、视觉、Thinker、Talker 与 code predictor 的 Hugging Face 配置对象，并规范化复合模型的 RoPE 参数。",
+      "tags": [
+        "configuration",
+        "hugging-face",
+        "模型配置"
+      ],
+      "complexity": "complex",
+      "languageNotes": "多个 PretrainedConfig 子对象组合成复合多模态模型配置，并兼容 Transformers 的 RoPE 字段演进。"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_omni/hf_config.py:_normalize_rope_scaling",
+      "type": "function",
+      "name": "_normalize_rope_scaling",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        12,
+        32
+      ],
+      "summary": "兼容不同 Transformers 字段名并规范化 RoPE scaling 配置。",
+      "tags": [
+        "函数",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeAudioEncoderConfig",
+      "type": "class",
+      "name": "Qwen3OmniMoeAudioEncoderConfig",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        35,
+        78
+      ],
+      "summary": "保存 Qwen3-Omni 音频编码器的结构与特征提取配置。",
+      "tags": [
+        "configuration",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeVisionEncoderConfig",
+      "type": "class",
+      "name": "Qwen3OmniMoeVisionEncoderConfig",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        81,
+        115
+      ],
+      "summary": "保存 Qwen3-Omni 视觉编码器的 patch、hidden size 与注意力配置。",
+      "tags": [
+        "configuration",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTextConfig",
+      "type": "class",
+      "name": "Qwen3OmniMoeTextConfig",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        118,
+        186
+      ],
+      "summary": "描述 Thinker 文本 MoE 主干的层数、专家、attention 和 RoPE 参数。",
+      "tags": [
+        "configuration",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeThinkerConfig",
+      "type": "class",
+      "name": "Qwen3OmniMoeThinkerConfig",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        189,
+        231
+      ],
+      "summary": "组合音频、视觉与文本子配置，定义完整 Thinker 模型。",
+      "tags": [
+        "configuration",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerTextConfig",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerTextConfig",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        239,
+        310
+      ],
+      "summary": "描述 Talker 文本解码器及 MoE 专家配置。",
+      "tags": [
+        "configuration",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerCodePredictorConfig",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerCodePredictorConfig",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        313,
+        359
+      ],
+      "summary": "描述 Talker code predictor 的层、词表与 codec codebook 参数。",
+      "tags": [
+        "configuration",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerConfig",
+      "type": "class",
+      "name": "Qwen3OmniMoeTalkerConfig",
+      "filePath": "sglang_omni/models/qwen3_omni/hf_config.py",
+      "lineRange": [
+        362,
+        409
+      ],
+      "summary": "组合 Talker text model 与 code predictor 配置。",
+      "tags": [
+        "configuration",
+        "qwen3-omni",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "type": "file",
+      "name": "compat.py",
+      "filePath": "sglang_omni/models/qwen3_tts/compat.py",
+      "summary": "封装 Qwen3-TTS 对不同 Transformers 版本的兼容补丁，补齐 RoPE 参数和 mask factory API 差异。",
+      "tags": [
+        "兼容层",
+        "transformers",
+        "补丁"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/compat.py:_compute_default_rope_parameters",
+      "type": "function",
+      "name": "_compute_default_rope_parameters",
+      "filePath": "sglang_omni/models/qwen3_tts/compat.py",
+      "lineRange": [
+        23,
+        45
+      ],
+      "summary": "为缺少新版 API 的 Transformers 版本计算默认 RoPE 参数。",
+      "tags": [
+        "函数",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/compat.py:_make_mask_factory_compat",
+      "type": "function",
+      "name": "_make_mask_factory_compat",
+      "filePath": "sglang_omni/models/qwen3_tts/compat.py",
+      "lineRange": [
+        48,
+        60
+      ],
+      "summary": "包装 mask factory，使旧版与新版调用签名保持一致。",
+      "tags": [
+        "函数",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/compat.py:_patch_mask_factories",
+      "type": "function",
+      "name": "_patch_mask_factories",
+      "filePath": "sglang_omni/models/qwen3_tts/compat.py",
+      "lineRange": [
+        63,
+        80
+      ],
+      "summary": "定位并替换不兼容的 Transformers mask factory。",
+      "tags": [
+        "函数",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/compat.py:apply_qwen_tts_transformers_compatibility_patches",
+      "type": "function",
+      "name": "apply_qwen_tts_transformers_compatibility_patches",
+      "filePath": "sglang_omni/models/qwen3_tts/compat.py",
+      "lineRange": [
+        83,
+        132
+      ],
+      "summary": "幂等安装 Qwen3-TTS 所需的 Transformers 兼容补丁。",
+      "tags": [
+        "函数",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "type": "file",
+      "name": "sampling_kernels.py",
+      "filePath": "sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "summary": "提供面向小 top-k 的确定性有种子分类采样入口，基于排序后的 log-probability 执行高效 token 选择。",
+      "tags": [
+        "sampling",
+        "kernel",
+        "确定性"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/sampling_kernels.py:_next_power_of_2",
+      "type": "function",
+      "name": "_next_power_of_2",
+      "filePath": "sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "lineRange": [
+        91,
+        92
+      ],
+      "summary": "计算不小于输入值的最小 2 次幂。",
+      "tags": [
+        "函数",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/sampling_kernels.py:sample_from_sorted_logprobs_with_seed_small_k",
+      "type": "function",
+      "name": "sample_from_sorted_logprobs_with_seed_small_k",
+      "filePath": "sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "lineRange": [
+        95,
+        136
+      ],
+      "summary": "按请求 seed 和 position 从排序后的少量候选中确定性采样 token。",
+      "tags": [
+        "sampling",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "summary": "实现 Qwen3-TTS Talker 与 code predictor 的 SGLang 推理模型，覆盖音色克隆、自定义音色、语音设计、speaker embedding 和图优化增量解码。",
+      "tags": [
+        "tts",
+        "模型推理",
+        "语音生成"
+      ],
+      "complexity": "complex",
+      "languageNotes": "将 PyTorch eager 路径与固定 shape CUDA graph replay 并存，以适配动态请求和高频单 token 解码。"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_predictor_graph_env_enabled",
+      "type": "function",
+      "name": "_predictor_graph_env_enabled",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        46,
+        48
+      ],
+      "summary": "读取环境变量并判断 predictor CUDA graph 是否启用。",
+      "tags": [
+        "函数",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_quantize_predictor_top_k",
+      "type": "function",
+      "name": "_quantize_predictor_top_k",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        51,
+        56
+      ],
+      "summary": "把 predictor top-k 约束到词表范围和 kernel 支持的 bucket。",
+      "tags": [
+        "量化",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_sample_seeded_categorical",
+      "type": "function",
+      "name": "_sample_seeded_categorical",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        59,
+        64
+      ],
+      "summary": "使用每个请求的 seed 与 position 执行可复现分类采样。",
+      "tags": [
+        "sampling",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_tts/sglang_model.py:_PredictorDecodeGraph",
+      "type": "class",
+      "name": "_PredictorDecodeGraph",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        67,
+        186
+      ],
+      "summary": "捕获并重放 code predictor 的固定形状单 token CUDA graph，以降低解码调度开销。",
+      "tags": [
+        "类",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerDecoderLayer",
+      "type": "class",
+      "name": "Qwen3TTSTalkerDecoderLayer",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        189,
+        238
+      ],
+      "summary": "实现 Qwen3-TTS Talker 的注意力与前馈 decoder layer。",
+      "tags": [
+        "模型组件",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerTextModel",
+      "type": "class",
+      "name": "Qwen3TTSTalkerTextModel",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        241,
+        333
+      ],
+      "summary": "构建 TTS Talker 文本主干并生成条件化文本 embedding 与 hidden states。",
+      "tags": [
+        "模型组件",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSCodePredictor",
+      "type": "class",
+      "name": "Qwen3TTSCodePredictor",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        336,
+        380
+      ],
+      "summary": "将 Talker hidden state 投影到多 codebook 预测空间。",
+      "tags": [
+        "类",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "type": "class",
+      "name": "Qwen3TTSTalker",
+      "filePath": "sglang_omni/models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        383,
+        1695
+      ],
+      "summary": "编排 speaker encoder、prompt 构造、Talker 解码与 codec token 采样，支持多种 TTS 任务模式。",
+      "tags": [
+        "模型组件",
+        "tts",
+        "模型推理"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:sglang_omni/pipeline/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "sglang_omni/pipeline/__init__.py",
+      "summary": "作为 pipeline 包的轻量入口，通过延迟属性解析暴露主要运行时类型，避免导入阶段提前加载重型依赖。",
+      "tags": [
+        "入口点",
+        "延迟导入",
+        "package-api"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/pipeline/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "sglang_omni/pipeline/__init__.py",
+      "lineRange": [
+        24,
+        32
+      ],
+      "summary": "按符号名延迟导入并返回包的公共对象，降低初始化耦合和循环依赖风险。",
+      "tags": [
+        "函数",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/pipeline/control_plane.py",
+      "type": "file",
+      "name": "control_plane.py",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "summary": "封装 ZeroMQ 控制平面的上下文和 Push/Pull/Pub/Sub socket，为阶段与协调器提供提交、事件、流信号、管理命令和中止广播。",
+      "tags": [
+        "pipeline",
+        "调度",
+        "runtime"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:sglang_omni/pipeline/control_plane.py:serialize_message",
+      "type": "function",
+      "name": "serialize_message",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        47,
+        49
+      ],
+      "summary": "将控制平面 protobuf 消息序列化为可通过 socket 发送的字节串。",
+      "tags": [
+        "序列化",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/pipeline/control_plane.py:deserialize_message",
+      "type": "function",
+      "name": "deserialize_message",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        52,
+        55
+      ],
+      "summary": "从字节串恢复控制平面 protobuf 消息。",
+      "tags": [
+        "序列化",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/pipeline/control_plane.py:send_to_endpoint",
+      "type": "function",
+      "name": "send_to_endpoint",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        108,
+        118
+      ],
+      "summary": "复用或创建目标 endpoint 的 PUSH socket 并发送消息。",
+      "tags": [
+        "函数",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/control_plane.py:ControlPlaneContext",
+      "type": "class",
+      "name": "ControlPlaneContext",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        58,
+        76
+      ],
+      "summary": "以单例方式管理 ZeroMQ context，供所有控制平面 socket 共享并统一关闭。",
+      "tags": [
+        "控制平面",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/control_plane.py:PushSocket",
+      "type": "class",
+      "name": "PushSocket",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        79,
+        105
+      ],
+      "summary": "封装 ZeroMQ PUSH socket 的连接、发送和关闭操作。",
+      "tags": [
+        "控制平面",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/control_plane.py:PullSocket",
+      "type": "class",
+      "name": "PullSocket",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        121,
+        163
+      ],
+      "summary": "封装可异步接收的 ZeroMQ PULL socket，并提供阻塞与非阻塞读取。",
+      "tags": [
+        "控制平面",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/control_plane.py:PubSocket",
+      "type": "class",
+      "name": "PubSocket",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        166,
+        194
+      ],
+      "summary": "封装 ZeroMQ PUB socket，用于绑定 endpoint 并广播控制消息。",
+      "tags": [
+        "控制平面",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/control_plane.py:SubSocket",
+      "type": "class",
+      "name": "SubSocket",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        197,
+        233
+      ],
+      "summary": "封装 ZeroMQ SUB socket，支持订阅连接、轮询和消息接收。",
+      "tags": [
+        "控制平面",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/control_plane.py:StageControlPlane",
+      "type": "class",
+      "name": "StageControlPlane",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        236,
+        355
+      ],
+      "summary": "为单个 Stage 提供请求接收、跨阶段发送、流事件、管理结果和 abort 通道。",
+      "tags": [
+        "控制平面",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/control_plane.py:CoordinatorControlPlane",
+      "type": "class",
+      "name": "CoordinatorControlPlane",
+      "filePath": "sglang_omni/pipeline/control_plane.py",
+      "lineRange": [
+        358,
+        446
+      ],
+      "summary": "为 pipeline 协调器提供提交、事件接收、管理广播、abort 与 shutdown 控制。",
+      "tags": [
+        "控制平面",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/pipeline/local_dispatch.py",
+      "type": "file",
+      "name": "local_dispatch.py",
+      "filePath": "sglang_omni/pipeline/local_dispatch.py",
+      "summary": "实现同进程阶段之间的低开销分发，将 payload、流式分块和完成信号直接路由到已注册的 Stage 实例。",
+      "tags": [
+        "pipeline",
+        "调度",
+        "runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/pipeline/local_dispatch.py:LocalStageDispatcher",
+      "type": "class",
+      "name": "LocalStageDispatcher",
+      "filePath": "sglang_omni/pipeline/local_dispatch.py",
+      "lineRange": [
+        9,
+        88
+      ],
+      "summary": "维护同进程 Stage 注册表并直接投递 payload、stream chunk 和完成信号。",
+      "tags": [
+        "类",
+        "pipeline",
+        "调度"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:_fused_apply_qk_norm_rope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:_fused_apply_qk_norm_rope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:_prefill_graph_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:_prefill_graph_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:install_thinker_fused_rope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:install_thinker_fused_rope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:ThinkerFusedRopeGate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py:ThinkerFusedRopeGate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_fused_rope.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:_bind_default_weight_loaders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:_bind_default_weight_loaders",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:compute_yarn_parameters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:compute_yarn_parameters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:maybe_update_fused_qkv_proj",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:maybe_update_fused_qkv_proj",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:maybe_update_fused_moe_proj",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:maybe_update_fused_moe_proj",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:extract_fused_experts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "function:sglang_omni/models/qwen3_omni/components/thinker_model.py:extract_fused_experts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextSparseMoeBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextSparseMoeBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextDecoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextDecoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "class:sglang_omni/models/qwen3_omni/components/thinker_model.py:Qwen3OmniMoeThinkerTextModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "file:sglang_omni/models/weight_loader.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "file:sglang_omni/quantization.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "target": "file:sglang_omni/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "function:sglang_omni/models/qwen3_omni/hf_config.py:_normalize_rope_scaling",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "function:sglang_omni/models/qwen3_omni/hf_config.py:_normalize_rope_scaling",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeAudioEncoderConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeAudioEncoderConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeVisionEncoderConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeVisionEncoderConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTextConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTextConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeThinkerConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeThinkerConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerTextConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerTextConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerCodePredictorConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerCodePredictorConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_omni/hf_config.py",
+      "target": "class:sglang_omni/models/qwen3_omni/hf_config.py:Qwen3OmniMoeTalkerConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:_compute_default_rope_parameters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:_compute_default_rope_parameters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:_make_mask_factory_compat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:_make_mask_factory_compat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:_patch_mask_factories",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:_patch_mask_factories",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:apply_qwen_tts_transformers_compatibility_patches",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "target": "function:sglang_omni/models/qwen3_tts/compat.py:apply_qwen_tts_transformers_compatibility_patches",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sampling_kernels.py:_next_power_of_2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sampling_kernels.py:_next_power_of_2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sampling_kernels.py:sample_from_sorted_logprobs_with_seed_small_k",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sampling_kernels.py:sample_from_sorted_logprobs_with_seed_small_k",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_predictor_graph_env_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_predictor_graph_env_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_quantize_predictor_top_k",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_quantize_predictor_top_k",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_sample_seeded_categorical",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "function:sglang_omni/models/qwen3_tts/sglang_model.py:_sample_seeded_categorical",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:_PredictorDecodeGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:_PredictorDecodeGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerDecoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerDecoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerTextModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerTextModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSCodePredictor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSCodePredictor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "class:sglang_omni/models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/talker.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "file:sglang_omni/models/qwen3_omni/components/thinker_model.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "file:sglang_omni/models/qwen3_tts/compat.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/models/qwen3_tts/sglang_model.py",
+      "target": "file:sglang_omni/models/qwen3_tts/sampling_kernels.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/pipeline/__init__.py",
+      "target": "function:sglang_omni/pipeline/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/__init__.py",
+      "target": "function:sglang_omni/pipeline/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "function:sglang_omni/pipeline/control_plane.py:serialize_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "function:sglang_omni/pipeline/control_plane.py:serialize_message",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "function:sglang_omni/pipeline/control_plane.py:deserialize_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "function:sglang_omni/pipeline/control_plane.py:deserialize_message",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "function:sglang_omni/pipeline/control_plane.py:send_to_endpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "function:sglang_omni/pipeline/control_plane.py:send_to_endpoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:ControlPlaneContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:ControlPlaneContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:PushSocket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:PushSocket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:PullSocket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:PullSocket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:PubSocket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:PubSocket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:SubSocket",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:SubSocket",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:StageControlPlane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:StageControlPlane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:CoordinatorControlPlane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "class:sglang_omni/pipeline/control_plane.py:CoordinatorControlPlane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/pipeline/control_plane.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/pipeline/local_dispatch.py",
+      "target": "class:sglang_omni/pipeline/local_dispatch.py:LocalStageDispatcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/pipeline/local_dispatch.py",
+      "target": "class:sglang_omni/pipeline/local_dispatch.py:LocalStageDispatcher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

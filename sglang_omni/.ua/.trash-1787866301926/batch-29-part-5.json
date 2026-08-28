@@ -1,0 +1,2533 @@
+{
+  "nodes": [
+    {
+      "id": "file:serve/speech_limits.py",
+      "type": "file",
+      "name": "speech_limits.py",
+      "filePath": "serve/speech_limits.py",
+      "summary": "集中定义语音上传、参考音频和批量请求的服务限制常量。",
+      "tags": [
+        "serve",
+        "speech-limits",
+        "validation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/speech_service.py",
+      "type": "file",
+      "name": "speech_service.py",
+      "filePath": "serve/speech_service.py",
+      "summary": "校验并准备 TTS 请求、参考音频、音色和采样参数，支持批量错误隔离、上传音色和媒体大小限制。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "tts",
+        "request-validation",
+        "reference-audio"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/speech_service.py:_explicit_generation_params",
+      "type": "function",
+      "name": "_explicit_generation_params",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        743,
+        755
+      ],
+      "summary": "提取显式 生成 参数逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "explicit-generation-params",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_build_tts_params",
+      "type": "function",
+      "name": "_build_tts_params",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        758,
+        800
+      ],
+      "summary": "构建构建 tts 参数逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "build-tts-params",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_build_sampling_params",
+      "type": "function",
+      "name": "_build_sampling_params",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        803,
+        819
+      ],
+      "summary": "构建构建 sampling 参数逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "build-sampling-params",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_build_speech_prompt",
+      "type": "function",
+      "name": "_build_speech_prompt",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        822,
+        830
+      ],
+      "summary": "构建构建 语音 prompt逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "build-speech-prompt",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_build_extra_params",
+      "type": "function",
+      "name": "_build_extra_params",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        833,
+        839
+      ],
+      "summary": "构建构建 extra 参数逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "build-extra-params",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_reference_dict_from_media_reference",
+      "type": "function",
+      "name": "_reference_dict_from_media_reference",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        875,
+        879
+      ],
+      "summary": "转换参考 dict from 媒体 参考逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "reference-dict-from-media-reference",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_reference_descriptors_from_request",
+      "type": "function",
+      "name": "_reference_descriptors_from_request",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        882,
+        895
+      ],
+      "summary": "转换参考 descriptors from 请求逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "reference-descriptors-from-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_media_reference_from_descriptor",
+      "type": "function",
+      "name": "_media_reference_from_descriptor",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        898,
+        902
+      ],
+      "summary": "执行媒体 参考 from descriptor逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "media-reference-from-descriptor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_normalize_response_format",
+      "type": "function",
+      "name": "_normalize_response_format",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        905,
+        913
+      ],
+      "summary": "规范化规范化 响应 格式逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "normalize-response-format",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_uploaded_voice_reference_dict",
+      "type": "function",
+      "name": "_uploaded_voice_reference_dict",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        916,
+        930
+      ],
+      "summary": "解析上传 音色 参考 dict逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "uploaded-voice-reference-dict",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_batch_error_result",
+      "type": "function",
+      "name": "_batch_error_result",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        933,
+        943
+      ],
+      "summary": "处理批量 错误 result逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "batch-error-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_batch_item_error",
+      "type": "function",
+      "name": "_batch_item_error",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        946,
+        955
+      ],
+      "summary": "处理批量 item 错误逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "batch-item-error",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_batch_reference_cache_key",
+      "type": "function",
+      "name": "_batch_reference_cache_key",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        958,
+        969
+      ],
+      "summary": "处理批量 参考 缓存 键逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "batch-reference-cache-key",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_freeze_reference_value",
+      "type": "function",
+      "name": "_freeze_reference_value",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        972,
+        979
+      ],
+      "summary": "冻结冻结 参考 值逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "freeze-reference-value",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_validate_positive_int",
+      "type": "function",
+      "name": "_validate_positive_int",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        982,
+        984
+      ],
+      "summary": "校验校验 正数 整数逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "validate-positive-int",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_validate_non_negative_int",
+      "type": "function",
+      "name": "_validate_non_negative_int",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        987,
+        989
+      ],
+      "summary": "校验校验 非 负数 整数逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "validate-non-negative-int",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_parse_data_url",
+      "type": "function",
+      "name": "_parse_data_url",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        992,
+        1001
+      ],
+      "summary": "解析解析 数据 URL逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "parse-data-url",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_validate_base64_media_data",
+      "type": "function",
+      "name": "_validate_base64_media_data",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        1004,
+        1014
+      ],
+      "summary": "校验校验 Base64 媒体 数据逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "validate-base64-media-data",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_estimated_base64_decoded_size",
+      "type": "function",
+      "name": "_estimated_base64_decoded_size",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        1017,
+        1018
+      ],
+      "summary": "估算估算 Base64 解码后 大小逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "estimated-base64-decoded-size",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_validate_reference_size",
+      "type": "function",
+      "name": "_validate_reference_size",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        1021,
+        1026
+      ],
+      "summary": "校验校验 参考 大小逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "validate-reference-size",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_normalize_task_type",
+      "type": "function",
+      "name": "_normalize_task_type",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        1029,
+        1036
+      ],
+      "summary": "规范化规范化 任务 类型逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "normalize-task-type",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_validation_error_message",
+      "type": "function",
+      "name": "_validation_error_message",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        1039,
+        1043
+      ],
+      "summary": "执行校验 错误 message逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "validation-error-message",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_service.py:_validation_error_param",
+      "type": "function",
+      "name": "_validation_error_param",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        1046,
+        1053
+      ],
+      "summary": "执行校验 错误 param逻辑，服务于serve、speech-service的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "validation-error-param",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/speech_service.py:PreparedSpeechRequest",
+      "type": "class",
+      "name": "PreparedSpeechRequest",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        64,
+        67
+      ],
+      "summary": "保存已通过校验的语音请求和发送给模型的参数。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "prepared-speech-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/speech_service.py:PreparedSpeechReferences",
+      "type": "class",
+      "name": "PreparedSpeechReferences",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        71,
+        74
+      ],
+      "summary": "保存规范化参考音频描述与缓存复用信息。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "prepared-speech-references",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/speech_service.py:SpeechRequestValidator",
+      "type": "class",
+      "name": "SpeechRequestValidator",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        77,
+        740
+      ],
+      "summary": "统一校验 TTS 文本、任务、音色、参考媒体、流式和批量参数并构建模型请求。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "speech-request-validator",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:serve/speech_service.py:_SpeechReferenceMediaIO",
+      "type": "class",
+      "name": "_SpeechReferenceMediaIO",
+      "filePath": "serve/speech_service.py",
+      "lineRange": [
+        842,
+        872
+      ],
+      "summary": "解析数据 URL、上传文件和音色库引用并执行媒体大小与格式校验。",
+      "tags": [
+        "serve",
+        "speech-service",
+        "speech-reference-media-io",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:serve/speech_to_text.py",
+      "type": "file",
+      "name": "speech_to_text.py",
+      "filePath": "serve/speech_to_text.py",
+      "summary": "解析转写表单、校验音频、构建 ASR 请求、检测语言，并生成普通、详细或流式 OpenAI 转写响应。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "asr",
+        "streaming-response"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:parse_speech_to_text_form",
+      "type": "function",
+      "name": "parse_speech_to_text_form",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        66,
+        85
+      ],
+      "summary": "解析解析 语音 to text 表单逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "parse-speech-to-text-form",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:read_and_validate_speech_to_text_audio",
+      "type": "function",
+      "name": "read_and_validate_speech_to_text_audio",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        88,
+        93
+      ],
+      "summary": "读取读取 and 校验 语音 to text 音频逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "read-and-validate-speech-to-text-audio",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:validate_speech_to_text_response_format",
+      "type": "function",
+      "name": "validate_speech_to_text_response_format",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        96,
+        121
+      ],
+      "summary": "校验校验 语音 to text 响应 格式逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "validate-speech-to-text-response-format",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:build_speech_to_text_generate_request",
+      "type": "function",
+      "name": "build_speech_to_text_generate_request",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        124,
+        173
+      ],
+      "summary": "构建构建 语音 to text generate 请求逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "build-speech-to-text-generate-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:detect_speech_language",
+      "type": "function",
+      "name": "detect_speech_language",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        181,
+        211
+      ],
+      "summary": "检测检测 语音 语言逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "detect-speech-language",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:complete_speech_to_text_request",
+      "type": "function",
+      "name": "complete_speech_to_text_request",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        214,
+        232
+      ],
+      "summary": "完成完成 语音 to text 请求逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "complete-speech-to-text-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:resolve_speech_to_text_adapter",
+      "type": "function",
+      "name": "resolve_speech_to_text_adapter",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        235,
+        238
+      ],
+      "summary": "解析resolve 语音 to text 适配器逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "resolve-speech-to-text-adapter",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_looks_like_wav_or_flac",
+      "type": "function",
+      "name": "_looks_like_wav_or_flac",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        254,
+        260
+      ],
+      "summary": "判断looks like wav or flac逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "looks-like-wav-or-flac",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_soundfile_duration",
+      "type": "function",
+      "name": "_soundfile_duration",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        263,
+        278
+      ],
+      "summary": "探测soundfile 时长逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "soundfile-duration",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_av_duration",
+      "type": "function",
+      "name": "_av_duration",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        281,
+        295
+      ],
+      "summary": "探测av 时长逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "av-duration",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:probe_audio_duration",
+      "type": "function",
+      "name": "probe_audio_duration",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        298,
+        311
+      ],
+      "summary": "探测探测 音频 时长逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "probe-audio-duration",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:assemble_speech_to_text_response",
+      "type": "function",
+      "name": "assemble_speech_to_text_response",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        314,
+        382
+      ],
+      "summary": "组装组装 语音 to text 响应逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "assemble-speech-to-text-response",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_cancel_task_bounded",
+      "type": "function",
+      "name": "_cancel_task_bounded",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        385,
+        391
+      ],
+      "summary": "取消取消 任务 bounded逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "cancel-task-bounded",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_discard_cancelled_task_result",
+      "type": "function",
+      "name": "_discard_cancelled_task_result",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        394,
+        400
+      ],
+      "summary": "清理discard cancelled 任务 result逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "discard-cancelled-task-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_wait_for_request_disconnect",
+      "type": "function",
+      "name": "_wait_for_request_disconnect",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        403,
+        405
+      ],
+      "summary": "等待wait for 请求 断开逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "wait-for-request-disconnect",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_abort_and_close_speech_to_text_stream",
+      "type": "function",
+      "name": "_abort_and_close_speech_to_text_stream",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        408,
+        416
+      ],
+      "summary": "中止中止 and 关闭 语音 to text 流式逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "abort-and-close-speech-to-text-stream",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:_first_speech_to_text_chunk",
+      "type": "function",
+      "name": "_first_speech_to_text_chunk",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        419,
+        446
+      ],
+      "summary": "获取首个 语音 to text 块逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "first-speech-to-text-chunk",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:speech_to_text_stream",
+      "type": "function",
+      "name": "speech_to_text_stream",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        449,
+        496
+      ],
+      "summary": "处理语音 to text 流式逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "speech-to-text-stream",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/speech_to_text.py:create_speech_to_text_streaming_response",
+      "type": "function",
+      "name": "create_speech_to_text_streaming_response",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        499,
+        545
+      ],
+      "summary": "创建创建 语音 to text 流式 响应逻辑，服务于serve、speech-to-text的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "create-speech-to-text-streaming-response",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/speech_to_text.py:SpeechToTextForm",
+      "type": "class",
+      "name": "SpeechToTextForm",
+      "filePath": "serve/speech_to_text.py",
+      "lineRange": [
+        53,
+        63
+      ],
+      "summary": "保存转写端点解析后的模型、语言、提示和响应格式字段。",
+      "tags": [
+        "serve",
+        "speech-to-text",
+        "speech-to-text-form",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/speech_voices.py",
+      "type": "file",
+      "name": "speech_voices.py",
+      "filePath": "serve/speech_voices.py",
+      "summary": "管理上传音色及其参考样本、元数据和编码制品，校验媒体并以原子方式持久化文件。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "speaker-store",
+        "reference-audio"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/speech_voices.py:normalize_voice_name",
+      "type": "function",
+      "name": "normalize_voice_name",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        358,
+        369
+      ],
+      "summary": "规范化规范化 音色 名称逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "normalize-voice-name",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_resolve_speaker_root",
+      "type": "function",
+      "name": "_resolve_speaker_root",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        372,
+        378
+      ],
+      "summary": "解析resolve 说话人 目录逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "resolve-speaker-root",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_speaker_max_uploaded_from_env",
+      "type": "function",
+      "name": "_speaker_max_uploaded_from_env",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        381,
+        389
+      ],
+      "summary": "解析说话人 max 上传 from 环境逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "speaker-max-uploaded-from-env",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_normalize_required_text",
+      "type": "function",
+      "name": "_normalize_required_text",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        392,
+        398
+      ],
+      "summary": "规范化规范化 必填 text逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "normalize-required-text",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_normalize_optional_text",
+      "type": "function",
+      "name": "_normalize_optional_text",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        401,
+        405
+      ],
+      "summary": "规范化规范化 可选 text逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "normalize-optional-text",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_resolve_upload_mime_type",
+      "type": "function",
+      "name": "_resolve_upload_mime_type",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        408,
+        421
+      ],
+      "summary": "解析resolve 上传 MIME 类型逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "resolve-upload-mime-type",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_decode_reference_audio",
+      "type": "function",
+      "name": "_decode_reference_audio",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        424,
+        437
+      ],
+      "summary": "解码解码 参考 音频逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "decode-reference-audio",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_validate_reference_audio",
+      "type": "function",
+      "name": "_validate_reference_audio",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        440,
+        458
+      ],
+      "summary": "校验校验 参考 音频逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "validate-reference-audio",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_voice_data_url_cache_key",
+      "type": "function",
+      "name": "_voice_data_url_cache_key",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        461,
+        467
+      ],
+      "summary": "处理音色 数据 URL 缓存 键逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "voice-data-url-cache-key",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_write_voice_temp_file",
+      "type": "function",
+      "name": "_write_voice_temp_file",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        470,
+        497
+      ],
+      "summary": "写入写入 音色 临时 文件逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "write-voice-temp-file",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_replace_voice_file",
+      "type": "function",
+      "name": "_replace_voice_file",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        500,
+        504
+      ],
+      "summary": "替换替换 音色 文件逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "replace-voice-file",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_safetensors_safe_open",
+      "type": "function",
+      "name": "_safetensors_safe_open",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        507,
+        512
+      ],
+      "summary": "操作SafeTensors safe open逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "safetensors-safe-open",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_safetensors_load_file",
+      "type": "function",
+      "name": "_safetensors_load_file",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        515,
+        520
+      ],
+      "summary": "操作SafeTensors 加载 文件逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "safetensors-load-file",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_safetensors_save_file",
+      "type": "function",
+      "name": "_safetensors_save_file",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        523,
+        528
+      ],
+      "summary": "操作SafeTensors 保存 文件逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "safetensors-save-file",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_voices.py:_voice_from_metadata",
+      "type": "function",
+      "name": "_voice_from_metadata",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        531,
+        559
+      ],
+      "summary": "处理音色 from 元数据逻辑，服务于serve、voice-management的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "voice-from-metadata",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/speech_voices.py:UploadedVoice",
+      "type": "class",
+      "name": "UploadedVoice",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        68,
+        116
+      ],
+      "summary": "描述已持久化音色的名称、元数据、引用样本和编码制品。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "uploaded-voice",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/speech_voices.py:UploadedVoiceReference",
+      "type": "class",
+      "name": "UploadedVoiceReference",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        120,
+        124
+      ],
+      "summary": "描述音色库中的单个参考音频及其转写文本。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "uploaded-voice-reference",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/speech_voices.py:SpeakerSampleStore",
+      "type": "class",
+      "name": "SpeakerSampleStore",
+      "filePath": "serve/speech_voices.py",
+      "lineRange": [
+        127,
+        355
+      ],
+      "summary": "以锁和原子文件替换管理音色样本、元数据、容量限制与安全张量制品。",
+      "tags": [
+        "serve",
+        "voice-management",
+        "speaker-sample-store",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:serve/speech_ws.py",
+      "type": "file",
+      "name": "speech_ws.py",
+      "filePath": "serve/speech_ws.py",
+      "summary": "实现语音生成 WebSocket 会话，接收配置与文本、流式发送音频和事件，并处理取消与错误。",
+      "tags": [
+        "serve",
+        "speech-websocket",
+        "streaming-audio",
+        "session"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/speech_ws.py:new_speech_ws_id",
+      "type": "function",
+      "name": "new_speech_ws_id",
+      "filePath": "serve/speech_ws.py",
+      "lineRange": [
+        58,
+        59
+      ],
+      "summary": "创建new 语音 ws ID逻辑，服务于serve、speech-websocket的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-websocket",
+        "new-speech-ws-id",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_ws.py:_cancel_tasks",
+      "type": "function",
+      "name": "_cancel_tasks",
+      "filePath": "serve/speech_ws.py",
+      "lineRange": [
+        62,
+        66
+      ],
+      "summary": "取消取消 tasks逻辑，服务于serve、speech-websocket的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-websocket",
+        "cancel-tasks",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_ws.py:_speech_error_from_exception",
+      "type": "function",
+      "name": "_speech_error_from_exception",
+      "filePath": "serve/speech_ws.py",
+      "lineRange": [
+        642,
+        650
+      ],
+      "summary": "处理语音 错误 from 异常逻辑，服务于serve、speech-websocket的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-websocket",
+        "speech-error-from-exception",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/speech_ws.py:_validate_raw_session_fields",
+      "type": "function",
+      "name": "_validate_raw_session_fields",
+      "filePath": "serve/speech_ws.py",
+      "lineRange": [
+        653,
+        665
+      ],
+      "summary": "校验校验 原始 会话 字段逻辑，服务于serve、speech-websocket的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "speech-websocket",
+        "validate-raw-session-fields",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/speech_ws.py:SpeechWebSocketSession",
+      "type": "class",
+      "name": "SpeechWebSocketSession",
+      "filePath": "serve/speech_ws.py",
+      "lineRange": [
+        69,
+        639
+      ],
+      "summary": "管理语音 WebSocket 协议、请求构建、流式音频发送、取消与关闭。",
+      "tags": [
+        "serve",
+        "speech-websocket",
+        "speech-web-socket-session",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_explicit_generation_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_explicit_generation_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_tts_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_tts_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_sampling_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_sampling_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_speech_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_speech_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_extra_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_build_extra_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_reference_dict_from_media_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_reference_dict_from_media_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_reference_descriptors_from_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_reference_descriptors_from_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_media_reference_from_descriptor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_media_reference_from_descriptor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_normalize_response_format",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_normalize_response_format",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_uploaded_voice_reference_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_uploaded_voice_reference_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_batch_error_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_batch_error_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_batch_item_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_batch_item_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_batch_reference_cache_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_batch_reference_cache_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_freeze_reference_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_freeze_reference_value",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_positive_int",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_positive_int",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_non_negative_int",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_non_negative_int",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_parse_data_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_parse_data_url",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_base64_media_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_base64_media_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_estimated_base64_decoded_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_estimated_base64_decoded_size",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_reference_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validate_reference_size",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_normalize_task_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_normalize_task_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validation_error_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validation_error_message",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validation_error_param",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "function:serve/speech_service.py:_validation_error_param",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:PreparedSpeechRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:PreparedSpeechRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:PreparedSpeechReferences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:PreparedSpeechReferences",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:SpeechRequestValidator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:SpeechRequestValidator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:_SpeechReferenceMediaIO",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_service.py",
+      "target": "class:serve/speech_service.py:_SpeechReferenceMediaIO",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:parse_speech_to_text_form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:parse_speech_to_text_form",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:read_and_validate_speech_to_text_audio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:read_and_validate_speech_to_text_audio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:validate_speech_to_text_response_format",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:validate_speech_to_text_response_format",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:build_speech_to_text_generate_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:build_speech_to_text_generate_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:detect_speech_language",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:detect_speech_language",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:complete_speech_to_text_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:complete_speech_to_text_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:resolve_speech_to_text_adapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:resolve_speech_to_text_adapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_looks_like_wav_or_flac",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_looks_like_wav_or_flac",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_soundfile_duration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_soundfile_duration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_av_duration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_av_duration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:probe_audio_duration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:probe_audio_duration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:assemble_speech_to_text_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:assemble_speech_to_text_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_cancel_task_bounded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_cancel_task_bounded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_discard_cancelled_task_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_discard_cancelled_task_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_wait_for_request_disconnect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_wait_for_request_disconnect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_abort_and_close_speech_to_text_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_abort_and_close_speech_to_text_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_first_speech_to_text_chunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:_first_speech_to_text_chunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:speech_to_text_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:speech_to_text_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:create_speech_to_text_streaming_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "function:serve/speech_to_text.py:create_speech_to_text_streaming_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "class:serve/speech_to_text.py:SpeechToTextForm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_to_text.py",
+      "target": "class:serve/speech_to_text.py:SpeechToTextForm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:normalize_voice_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:normalize_voice_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_resolve_speaker_root",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_resolve_speaker_root",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_speaker_max_uploaded_from_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_speaker_max_uploaded_from_env",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_normalize_required_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_normalize_required_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_normalize_optional_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_normalize_optional_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_resolve_upload_mime_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_resolve_upload_mime_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_decode_reference_audio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_decode_reference_audio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_validate_reference_audio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_validate_reference_audio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_voice_data_url_cache_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_voice_data_url_cache_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_write_voice_temp_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_write_voice_temp_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_replace_voice_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_replace_voice_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_safetensors_safe_open",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_safetensors_safe_open",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_safetensors_load_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_safetensors_load_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_safetensors_save_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_safetensors_save_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_voice_from_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "function:serve/speech_voices.py:_voice_from_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "class:serve/speech_voices.py:UploadedVoice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "class:serve/speech_voices.py:UploadedVoice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "class:serve/speech_voices.py:UploadedVoiceReference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "class:serve/speech_voices.py:UploadedVoiceReference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "class:serve/speech_voices.py:SpeakerSampleStore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_voices.py",
+      "target": "class:serve/speech_voices.py:SpeakerSampleStore",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:new_speech_ws_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:new_speech_ws_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:_cancel_tasks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:_cancel_tasks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:_speech_error_from_exception",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:_speech_error_from_exception",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:_validate_raw_session_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "function:serve/speech_ws.py:_validate_raw_session_fields",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "class:serve/speech_ws.py:SpeechWebSocketSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/speech_ws.py",
+      "target": "class:serve/speech_ws.py:SpeechWebSocketSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_build_tts_params",
+      "target": "function:serve/speech_service.py:_explicit_generation_params",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_build_speech_prompt",
+      "target": "function:serve/speech_service.py:_reference_descriptors_from_request",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_reference_dict_from_media_reference",
+      "target": "function:serve/speech_service.py:_parse_data_url",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_reference_descriptors_from_request",
+      "target": "function:serve/speech_service.py:_reference_dict_from_media_reference",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_batch_reference_cache_key",
+      "target": "function:serve/speech_service.py:_freeze_reference_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_parse_data_url",
+      "target": "function:serve/speech_service.py:_validate_base64_media_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_validate_base64_media_data",
+      "target": "function:serve/speech_service.py:_validate_reference_size",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_service.py:_validate_base64_media_data",
+      "target": "function:serve/speech_service.py:_estimated_base64_decoded_size",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:parse_speech_to_text_form",
+      "target": "class:serve/speech_to_text.py:SpeechToTextForm",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:detect_speech_language",
+      "target": "function:serve/speech_to_text.py:build_speech_to_text_generate_request",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:_soundfile_duration",
+      "target": "function:serve/speech_to_text.py:_looks_like_wav_or_flac",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:probe_audio_duration",
+      "target": "function:serve/speech_to_text.py:_soundfile_duration",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:probe_audio_duration",
+      "target": "function:serve/speech_to_text.py:_av_duration",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:assemble_speech_to_text_response",
+      "target": "function:serve/speech_to_text.py:validate_speech_to_text_response_format",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:assemble_speech_to_text_response",
+      "target": "function:serve/speech_to_text.py:resolve_speech_to_text_adapter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:assemble_speech_to_text_response",
+      "target": "function:serve/speech_to_text.py:probe_audio_duration",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:_first_speech_to_text_chunk",
+      "target": "function:serve/speech_to_text.py:_wait_for_request_disconnect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:_first_speech_to_text_chunk",
+      "target": "function:serve/speech_to_text.py:_cancel_task_bounded",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:_first_speech_to_text_chunk",
+      "target": "function:serve/speech_to_text.py:_abort_and_close_speech_to_text_stream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:create_speech_to_text_streaming_response",
+      "target": "function:serve/speech_to_text.py:resolve_speech_to_text_adapter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:create_speech_to_text_streaming_response",
+      "target": "function:serve/speech_to_text.py:_first_speech_to_text_chunk",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_to_text.py:create_speech_to_text_streaming_response",
+      "target": "function:serve/speech_to_text.py:speech_to_text_stream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_voices.py:_write_voice_temp_file",
+      "target": "function:serve/speech_voices.py:_safetensors_save_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_voices.py:_voice_from_metadata",
+      "target": "class:serve/speech_voices.py:UploadedVoice",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/speech_voices.py:_voice_from_metadata",
+      "target": "function:serve/speech_voices.py:normalize_voice_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:serve/speech_service.py:SpeechRequestValidator",
+      "target": "class:serve/speech_service.py:PreparedSpeechRequest",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:serve/speech_service.py:SpeechRequestValidator",
+      "target": "class:serve/speech_service.py:_SpeechReferenceMediaIO",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:serve/speech_voices.py:SpeakerSampleStore",
+      "target": "class:serve/speech_voices.py:UploadedVoice",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:serve/speech_ws.py:SpeechWebSocketSession",
+      "target": "class:serve/speech_service.py:SpeechRequestValidator",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:serve/speech_to_text.py:assemble_speech_to_text_response",
+      "target": "class:serve/protocol.py:TranscriptionResponse",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:serve/speech_to_text.py:speech_to_text_stream",
+      "target": "class:serve/protocol.py:TranscriptionTextDeltaEvent",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

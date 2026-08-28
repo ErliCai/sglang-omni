@@ -1,0 +1,758 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "type": "file",
+      "name": "test_event_recorder.py",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "summary": "验证 profiler 事件记录器的 JSONL 持久化、线程与 asyncio 上下文隔离、并发安全及单例接口。",
+      "tags": [
+        "test",
+        "profiler",
+        "event-recorder",
+        "concurrency"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:_reset_recorder",
+      "type": "function",
+      "name": "_reset_recorder",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        24,
+        33
+      ],
+      "summary": "构造或处理 `_reset_recorder` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "profiler",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:_read_events",
+      "type": "function",
+      "name": "_read_events",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        36,
+        38
+      ],
+      "summary": "构造或处理 `_read_events` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "profiler",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_event_dataclass_roundtrip",
+      "type": "function",
+      "name": "test_event_dataclass_roundtrip",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        41,
+        57
+      ],
+      "summary": "验证 `test_event_dataclass_roundtrip` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_inactive_recorder_is_silent",
+      "type": "function",
+      "name": "test_inactive_recorder_is_silent",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        60,
+        64
+      ],
+      "summary": "验证 `test_inactive_recorder_is_silent` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_start_writes_jsonl_per_pid_stage",
+      "type": "function",
+      "name": "test_start_writes_jsonl_per_pid_stage",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        67,
+        93
+      ],
+      "summary": "验证 `test_start_writes_jsonl_per_pid_stage` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_default_stage_falls_back_to_active",
+      "type": "function",
+      "name": "test_default_stage_falls_back_to_active",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        96,
+        106
+      ],
+      "summary": "验证 `test_default_stage_falls_back_to_active` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_stop_with_mismatched_run_id_is_noop",
+      "type": "function",
+      "name": "test_stop_with_mismatched_run_id_is_noop",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        109,
+        117
+      ],
+      "summary": "验证 `test_stop_with_mismatched_run_id_is_noop` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_concurrent_emits_are_safe",
+      "type": "function",
+      "name": "test_concurrent_emits_are_safe",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        120,
+        148
+      ],
+      "summary": "验证 `test_concurrent_emits_are_safe` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_module_level_emit_uses_singleton",
+      "type": "function",
+      "name": "test_module_level_emit_uses_singleton",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        151,
+        157
+      ],
+      "summary": "验证 `test_module_level_emit_uses_singleton` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_multi_stage_same_process_share_one_file",
+      "type": "function",
+      "name": "test_multi_stage_same_process_share_one_file",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        160,
+        183
+      ],
+      "summary": "验证 `test_multi_stage_same_process_share_one_file` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_stage_none_uses_thread_local_active_stage",
+      "type": "function",
+      "name": "test_emit_stage_none_uses_thread_local_active_stage",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        191,
+        236
+      ],
+      "summary": "验证 `test_emit_stage_none_uses_thread_local_active_stage` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_stage_none_uses_contextvar_in_asyncio_executor",
+      "type": "function",
+      "name": "test_emit_stage_none_uses_contextvar_in_asyncio_executor",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        239,
+        276
+      ],
+      "summary": "验证 `test_emit_stage_none_uses_contextvar_in_asyncio_executor` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_json_default_summarizes_tensor_without_materializing",
+      "type": "function",
+      "name": "test_json_default_summarizes_tensor_without_materializing",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        284,
+        313
+      ],
+      "summary": "验证 `test_json_default_summarizes_tensor_without_materializing` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_json_default_unwraps_zero_d_tensor_as_scalar",
+      "type": "function",
+      "name": "test_json_default_unwraps_zero_d_tensor_as_scalar",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        316,
+        326
+      ],
+      "summary": "验证 `test_json_default_unwraps_zero_d_tensor_as_scalar` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_with_tensor_metadata_does_not_materialize",
+      "type": "function",
+      "name": "test_emit_with_tensor_metadata_does_not_materialize",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        329,
+        356
+      ],
+      "summary": "验证 `test_emit_with_tensor_metadata_does_not_materialize` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_reset_active_stage_without_token_clears_both_thread_local_and_contextvar",
+      "type": "function",
+      "name": "test_reset_active_stage_without_token_clears_both_thread_local_and_contextvar",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        364,
+        392
+      ],
+      "summary": "验证 `test_reset_active_stage_without_token_clears_both_thread_local_and_contextvar` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_event_recorder.py:test_reset_active_stage_with_token_restores_previous_value",
+      "type": "function",
+      "name": "test_reset_active_stage_with_token_restores_previous_value",
+      "filePath": "tests/unit_test/profiler/test_event_recorder.py",
+      "lineRange": [
+        395,
+        410
+      ],
+      "summary": "验证 `test_reset_active_stage_with_token_restores_previous_value` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "type": "file",
+      "name": "test_stop_run_id.py",
+      "filePath": "tests/unit_test/profiler/test_stop_run_id.py",
+      "summary": "验证 profiler 停止消息的可选 run_id 兼容性及记录器对匹配和不匹配运行标识的处理。",
+      "tags": [
+        "test",
+        "profiler",
+        "run-id",
+        "backward-compatibility"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_stop_run_id.py:_reset_recorder",
+      "type": "function",
+      "name": "_reset_recorder",
+      "filePath": "tests/unit_test/profiler/test_stop_run_id.py",
+      "lineRange": [
+        29,
+        33
+      ],
+      "summary": "构造或处理 `_reset_recorder` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "profiler",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_stop_run_id.py:test_profiler_stop_message_supports_optional_run_id",
+      "type": "function",
+      "name": "test_profiler_stop_message_supports_optional_run_id",
+      "filePath": "tests/unit_test/profiler/test_stop_run_id.py",
+      "lineRange": [
+        36,
+        43
+      ],
+      "summary": "验证 `test_profiler_stop_message_supports_optional_run_id` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_stop_run_id.py:test_profiler_stop_message_legacy_run_id_round_trip",
+      "type": "function",
+      "name": "test_profiler_stop_message_legacy_run_id_round_trip",
+      "filePath": "tests/unit_test/profiler/test_stop_run_id.py",
+      "lineRange": [
+        46,
+        51
+      ],
+      "summary": "验证 `test_profiler_stop_message_legacy_run_id_round_trip` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_stop_run_id.py:test_recorder_stop_with_none_run_id_unconditionally_stops",
+      "type": "function",
+      "name": "test_recorder_stop_with_none_run_id_unconditionally_stops",
+      "filePath": "tests/unit_test/profiler/test_stop_run_id.py",
+      "lineRange": [
+        54,
+        63
+      ],
+      "summary": "验证 `test_recorder_stop_with_none_run_id_unconditionally_stops` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/profiler/test_stop_run_id.py:test_recorder_stop_with_mismatched_run_id_is_still_noop",
+      "type": "function",
+      "name": "test_recorder_stop_with_mismatched_run_id_is_still_noop",
+      "filePath": "tests/unit_test/profiler/test_stop_run_id.py",
+      "lineRange": [
+        66,
+        75
+      ],
+      "summary": "验证 `test_recorder_stop_with_mismatched_run_id_is_still_noop` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "profiler"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:_reset_recorder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:_reset_recorder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:_read_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:_read_events",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_event_dataclass_roundtrip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_event_dataclass_roundtrip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_inactive_recorder_is_silent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_inactive_recorder_is_silent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_start_writes_jsonl_per_pid_stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_start_writes_jsonl_per_pid_stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_default_stage_falls_back_to_active",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_default_stage_falls_back_to_active",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_stop_with_mismatched_run_id_is_noop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_stop_with_mismatched_run_id_is_noop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_concurrent_emits_are_safe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_concurrent_emits_are_safe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_module_level_emit_uses_singleton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_module_level_emit_uses_singleton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_multi_stage_same_process_share_one_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_multi_stage_same_process_share_one_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_stage_none_uses_thread_local_active_stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_stage_none_uses_thread_local_active_stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_stage_none_uses_contextvar_in_asyncio_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_stage_none_uses_contextvar_in_asyncio_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_json_default_summarizes_tensor_without_materializing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_json_default_summarizes_tensor_without_materializing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_json_default_unwraps_zero_d_tensor_as_scalar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_json_default_unwraps_zero_d_tensor_as_scalar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_with_tensor_metadata_does_not_materialize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_emit_with_tensor_metadata_does_not_materialize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_reset_active_stage_without_token_clears_both_thread_local_and_contextvar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_reset_active_stage_without_token_clears_both_thread_local_and_contextvar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_reset_active_stage_with_token_restores_previous_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "function:tests/unit_test/profiler/test_event_recorder.py:test_reset_active_stage_with_token_restores_previous_value",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "file:sglang_omni/profiler/event_recorder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_event_recorder.py",
+      "target": "file:sglang_omni/profiler/event_recorder.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:_reset_recorder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:_reset_recorder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_profiler_stop_message_supports_optional_run_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_profiler_stop_message_supports_optional_run_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_profiler_stop_message_legacy_run_id_round_trip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_profiler_stop_message_legacy_run_id_round_trip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_recorder_stop_with_none_run_id_unconditionally_stops",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_recorder_stop_with_none_run_id_unconditionally_stops",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_recorder_stop_with_mismatched_run_id_is_still_noop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "function:tests/unit_test/profiler/test_stop_run_id.py:test_recorder_stop_with_mismatched_run_id_is_still_noop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "file:sglang_omni/profiler/event_recorder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "file:sglang_omni/profiler/event_recorder.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "file:sglang_omni/proto/messages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/profiler/test_stop_run_id.py",
+      "target": "file:sglang_omni/proto/messages.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

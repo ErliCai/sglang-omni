@@ -1,0 +1,949 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_asr/audio_lengths.py",
+      "type": "file",
+      "name": "audio_lengths.py",
+      "filePath": "models/qwen3_asr/audio_lengths.py",
+      "summary": "集中实现 Qwen3-ASR 的梅尔帧到音频令牌长度换算，并给出最长音频与解码输出的令牌预算，供处理器和调度器共享。",
+      "tags": ["audio-length", "token-estimation", "utility"],
+      "complexity": "simple",
+      "languageNotes": "长度公式按每 100 帧产出 13 个令牌，并对余数执行三次步长为 2 的下采样计算。"
+    },
+    {
+      "id": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_audio_token_lengths",
+      "type": "function",
+      "name": "qwen3_asr_audio_token_lengths",
+      "filePath": "models/qwen3_asr/audio_lengths.py",
+      "lineRange": [11, 21],
+      "summary": "将标量或张量形式的梅尔帧长度批量换算为 Qwen3-ASR 编码器输出令牌数。",
+      "tags": ["audio-length", "tensor-operation", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_num_audio_tokens",
+      "type": "function",
+      "name": "qwen3_asr_num_audio_tokens",
+      "filePath": "models/qwen3_asr/audio_lengths.py",
+      "lineRange": [24, 28],
+      "summary": "以整数标量形式计算单段音频的编码令牌数，便于调度阶段提前估算上下文占用。",
+      "tags": ["token-estimation", "scheduler", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_max_audio_tokens",
+      "type": "function",
+      "name": "qwen3_asr_max_audio_tokens",
+      "filePath": "models/qwen3_asr/audio_lengths.py",
+      "lineRange": [39, 43],
+      "summary": "返回模型原生最长 1200 秒音频对应的最大编码令牌数。",
+      "tags": ["token-budget", "audio-limit", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_max_output_tokens",
+      "type": "function",
+      "name": "qwen3_asr_max_output_tokens",
+      "filePath": "models/qwen3_asr/audio_lengths.py",
+      "lineRange": [51, 53],
+      "summary": "根据最长音频时长和每秒输出预算计算最大转写输出令牌数。",
+      "tags": ["token-budget", "output-limit", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "type": "file",
+      "name": "configuration_qwen3_asr.py",
+      "filePath": "models/qwen3_asr/configuration_qwen3_asr.py",
+      "summary": "定义 Qwen3-ASR 的 Hugging Face 处理器与嵌套配置，将音频特征提取、文本分词、音频占位符扩展以及 SGLang 自定义处理器注册整合起来。",
+      "tags": ["model-config", "multimodal-processor", "huggingface-integration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRProcessor",
+      "type": "class",
+      "name": "Qwen3ASRProcessor",
+      "filePath": "models/qwen3_asr/configuration_qwen3_asr.py",
+      "lineRange": [18, 98],
+      "summary": "组合 Whisper 音频特征提取器与 Qwen 分词器，并按编码器输出长度将单个音频占位符扩展为对应数量的令牌。",
+      "tags": ["multimodal-processor", "audio-preprocessing", "tokenization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRThinkerConfig",
+      "type": "class",
+      "name": "Qwen3ASRThinkerConfig",
+      "filePath": "models/qwen3_asr/configuration_qwen3_asr.py",
+      "lineRange": [101, 137],
+      "summary": "封装音频编码器与 Qwen3 文本模型子配置，并保存音频起止及占位令牌 ID。",
+      "tags": ["model-config", "audio-encoder", "text-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRConfig",
+      "type": "class",
+      "name": "Qwen3ASRConfig",
+      "filePath": "models/qwen3_asr/configuration_qwen3_asr.py",
+      "lineRange": [141, 161],
+      "summary": "作为顶层 Qwen3-ASR 配置持有 thinker 子配置，暴露文本配置并关联自定义多模态处理器。",
+      "tags": ["model-config", "processor-registration", "huggingface-integration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "type": "file",
+      "name": "encoder_cuda_graph.py",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "summary": "为 Qwen3-ASR 音频编码器的 Transformer 层栈实现按令牌桶捕获和重放的 CUDA/HIP 图，同时保留动态卷积前端的 eager 执行与失败回退。",
+      "tags": ["cuda-graph", "audio-encoder", "performance-optimization", "bucket-scheduling"],
+      "complexity": "complex",
+      "languageNotes": "通过静态张量缓冲、窗口边界元数据和图重放消除重复启动开销；不满足桶规划或捕获失败时返回空值以触发 eager 路径。"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_cuda_graph.py:build_buckets",
+      "type": "function",
+      "name": "build_buckets",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "lineRange": [25, 51],
+      "summary": "依据最大批量和单音频令牌上限生成从 128 起按二次幂增长并以部署上限收尾的捕获桶。",
+      "tags": ["bucket-scheduling", "cuda-graph", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_asr/encoder_cuda_graph.py:_CapturedGraph",
+      "type": "class",
+      "name": "_CapturedGraph",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "lineRange": [55, 60],
+      "summary": "保存单个令牌桶已捕获图、静态输入输出缓冲和注意力窗口元数据的数据结构。",
+      "tags": ["cuda-graph", "data-model", "static-buffer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_asr/encoder_cuda_graph.py:Qwen3ASREncoderLayerStackGraphRunner",
+      "type": "class",
+      "name": "Qwen3ASREncoderLayerStackGraphRunner",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "lineRange": [63, 264],
+      "summary": "管理音频编码器层栈的分桶图捕获、填充窗口规划和静态缓冲重放，并在图不可用时安全回退。",
+      "tags": ["cuda-graph", "audio-encoder", "graph-runner", "fallback"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_int",
+      "type": "function",
+      "name": "_get_feat_extract_output_lengths_int",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "lineRange": [267, 271],
+      "summary": "将共享音频长度公式包装为整数结果，供图运行器初始化窗口上限。",
+      "tags": ["audio-length", "adapter", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_cuda_graph.py:eager_preamble",
+      "type": "function",
+      "name": "eager_preamble",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "lineRange": [274, 329],
+      "summary": "按动态音频长度切块并执行三层卷积、输出投影和位置编码，生成可交给静态层栈图的打包隐藏状态。",
+      "tags": ["audio-preprocessing", "convolution", "eager-path", "tensor-packing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_tensor",
+      "type": "function",
+      "name": "_get_feat_extract_output_lengths_tensor",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "lineRange": [332, 337],
+      "summary": "以张量运算计算卷积前端后的有效序列长度，用于构造批量掩码。",
+      "tags": ["audio-length", "tensor-operation", "masking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_cuda_graph.py:window_lens_from_token_counts",
+      "type": "function",
+      "name": "window_lens_from_token_counts",
+      "filePath": "models/qwen3_asr/encoder_cuda_graph.py",
+      "lineRange": [340, 349],
+      "summary": "把每段音频的令牌数拆分为完整注意力窗口和末尾余量窗口的长度列表。",
+      "tags": ["window-planning", "attention", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_asr/languages.py",
+      "type": "file",
+      "name": "languages.py",
+      "filePath": "models/qwen3_asr/languages.py",
+      "summary": "维护 Qwen3-ASR 支持的语言代码与规范名称映射，并为强制语言提示提供大小写无关的校验和归一化。",
+      "tags": ["language-normalization", "validation", "prompting"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_asr/languages.py:resolve_language",
+      "type": "function",
+      "name": "resolve_language",
+      "filePath": "models/qwen3_asr/languages.py",
+      "lineRange": [47, 71],
+      "summary": "把语言代码、规范全名及常见中文地区别名解析为模型提示所需的语言名称，并拒绝空值或未支持项。",
+      "tags": ["language-normalization", "validation", "prompting"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_asr/mrope_fast_path.py",
+      "type": "file",
+      "name": "mrope_fast_path.py",
+      "filePath": "models/qwen3_asr/mrope_fast_path.py",
+      "summary": "为没有空间轴的 ASR 请求提供向量化 MRoPE 解码位置计算，并通过可关闭的运行时补丁替代逐请求位置重建。",
+      "tags": ["mrope", "decode-optimization", "runtime-patch"],
+      "complexity": "moderate",
+      "languageNotes": "仅当所有多模态输入都标记为退化 MRoPE 且处于 decode 模式时走广播快路径，否则调用保存的原始实现。"
+    },
+    {
+      "id": "function:models/qwen3_asr/mrope_fast_path.py:_all_degenerate",
+      "type": "function",
+      "name": "_all_degenerate",
+      "filePath": "models/qwen3_asr/mrope_fast_path.py",
+      "lineRange": [28, 32],
+      "summary": "检查批次中的所有非空多模态输入是否都带有 ASR 退化 MRoPE 标记。",
+      "tags": ["mrope", "validation", "fast-path"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/mrope_fast_path.py:_fast_compute_mrope_positions",
+      "type": "function",
+      "name": "_fast_compute_mrope_positions",
+      "filePath": "models/qwen3_asr/mrope_fast_path.py",
+      "lineRange": [35, 55],
+      "summary": "在纯 ASR decode 批次中把各序列末位置一次广播为三行 MRoPE 张量，其余情况转交原始实现。",
+      "tags": ["mrope", "vectorization", "decode-optimization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_asr/mrope_fast_path.py:apply_asr_mrope_fast_path",
+      "type": "function",
+      "name": "apply_asr_mrope_fast_path",
+      "filePath": "models/qwen3_asr/mrope_fast_path.py",
+      "lineRange": [58, 76],
+      "summary": "按环境变量和幂等状态为 ForwardBatch 安装 ASR MRoPE 快路径，同时保留原方法作为回退。",
+      "tags": ["runtime-patch", "mrope", "feature-toggle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_asr/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/qwen3_asr/request_builders.py",
+      "summary": "在 StagePayload 与 SGLang 请求之间适配 Qwen3-ASR，覆盖音频解码和梅尔特征、令牌预算、嵌入缓存、延迟准入、结果解析及流式文本输出。",
+      "tags": ["request-adapter", "audio-preprocessing", "scheduler", "streaming", "embedding-cache"],
+      "complexity": "complex",
+      "languageNotes": "两个工厂函数以闭包固化 tokenizer、上下文限制和服务依赖，并返回调度与流式处理回调。"
+    },
+    {
+      "id": "class:models/qwen3_asr/request_builders.py:Qwen3ASRRequestData",
+      "type": "class",
+      "name": "Qwen3ASRRequestData",
+      "filePath": "models/qwen3_asr/request_builders.py",
+      "lineRange": [63, 68],
+      "summary": "扩展 SGLang 自回归请求数据，记录提示与输出令牌、音频时长、语言提示和引擎计时。",
+      "tags": ["request-data", "data-model", "asr"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/request_builders.py:_decode_token_ids",
+      "type": "function",
+      "name": "_decode_token_ids",
+      "filePath": "models/qwen3_asr/request_builders.py",
+      "lineRange": [71, 81],
+      "summary": "兼容不同 tokenizer 签名解码令牌 ID，并尽量关闭会改变转写内容的空白清理。",
+      "tags": ["tokenization", "compatibility", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/request_builders.py:_find_subsequence",
+      "type": "function",
+      "name": "_find_subsequence",
+      "filePath": "models/qwen3_asr/request_builders.py",
+      "lineRange": [84, 91],
+      "summary": "在线性扫描中定位令牌子序列首次出现的位置，用于识别转写正文标记。",
+      "tags": ["sequence-search", "tokenization", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/request_builders.py:_encode_literal",
+      "type": "function",
+      "name": "_encode_literal",
+      "filePath": "models/qwen3_asr/request_builders.py",
+      "lineRange": [94, 102],
+      "summary": "兼容 encode 方法和可调用 tokenizer 两种接口，将固定标记编码为无特殊令牌的 ID 列表。",
+      "tags": ["tokenization", "compatibility", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "type": "function",
+      "name": "make_qwen3_asr_scheduler_adapters",
+      "filePath": "models/qwen3_asr/request_builders.py",
+      "lineRange": [105, 434],
+      "summary": "构造请求和结果适配闭包：校验语言与上下文、准备音频和多模态位置、复用或提交编码嵌入，并把生成令牌还原为带指标的转写载荷。",
+      "tags": ["request-adapter", "scheduler", "embedding-cache", "deferred-admission"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_stream_output_builder",
+      "type": "function",
+      "name": "make_qwen3_asr_stream_output_builder",
+      "filePath": "models/qwen3_asr/request_builders.py",
+      "lineRange": [437, 528],
+      "summary": "创建 Qwen3-ASR 流式输出回调，在自动语言模式中先抑制语言前缀和转写标记，再把正文令牌增量发送出去。",
+      "tags": ["streaming", "token-filtering", "output-adapter"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_asr/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "models/qwen3_asr/sglang_model.py",
+      "summary": "实现兼容 Hugging Face 权重的 SGLang Qwen3-ASR 推理模型，组合音频塔与 Qwen3 语言模型，并集成融合 RoPE、编码器图加速、多模态嵌入和权重重映射。",
+      "tags": ["model-runtime", "multimodal", "weight-loading", "cuda-optimization"],
+      "complexity": "complex",
+      "languageNotes": "模型将 ASR 的退化 MRoPE 归一化为文本 RoPE，并在支持时动态绑定融合 QK 归一化与 RoPE 内核。"
+    },
+    {
+      "id": "function:models/qwen3_asr/sglang_model.py:_normalize_asr_text_rope",
+      "type": "function",
+      "name": "_normalize_asr_text_rope",
+      "filePath": "models/qwen3_asr/sglang_model.py",
+      "lineRange": [42, 58],
+      "summary": "从文本配置中移除 ASR 不需要的 MRoPE 专用参数，使三条等价位置轴改走普通文本 RoPE。",
+      "tags": ["rope", "config-normalization", "performance-optimization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/sglang_model.py:_fused_asr_forward_prepare_native",
+      "type": "function",
+      "name": "_fused_asr_forward_prepare_native",
+      "filePath": "models/qwen3_asr/sglang_model.py",
+      "lineRange": [61, 96],
+      "summary": "在 bfloat16 和受支持内核下融合 QKV 投影后的 QK 归一化与 RoPE，否则调用原始注意力准备路径。",
+      "tags": ["fused-kernel", "attention", "rope", "fallback"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_asr/sglang_model.py:_enable_fused_asr_qk_norm_rope",
+      "type": "function",
+      "name": "_enable_fused_asr_qk_norm_rope",
+      "filePath": "models/qwen3_asr/sglang_model.py",
+      "lineRange": [99, 114],
+      "summary": "遍历语言模型注意力层，为受支持头维度保存原方法并绑定融合 QK 归一化与 RoPE 实现。",
+      "tags": ["runtime-patch", "fused-kernel", "attention"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "type": "class",
+      "name": "Qwen3ASRForConditionalGeneration",
+      "filePath": "models/qwen3_asr/sglang_model.py",
+      "lineRange": [117, 352],
+      "summary": "组合 Qwen3-Omni 音频编码器和 Qwen3 因果语言模型，处理混合长度音频批次、可选编码器图重放、多模态前向及检查点权重映射。",
+      "tags": ["model-runtime", "audio-encoder", "multimodal", "weight-loading"],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_audio_token_lengths",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_num_audio_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_max_audio_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_max_output_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_audio_token_lengths",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_num_audio_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_max_audio_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/audio_lengths.py",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_max_output_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_max_audio_tokens",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_num_audio_tokens",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "target": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "target": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRThinkerConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "target": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "target": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "target": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRThinkerConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "target": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "target": "file:models/qwen3_asr/audio_lengths.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRProcessor",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_audio_token_lengths",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:build_buckets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "class:models/qwen3_asr/encoder_cuda_graph.py:_CapturedGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "class:models/qwen3_asr/encoder_cuda_graph.py:Qwen3ASREncoderLayerStackGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_int",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:eager_preamble",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:window_lens_from_token_counts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:build_buckets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "class:models/qwen3_asr/encoder_cuda_graph.py:_CapturedGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "class:models/qwen3_asr/encoder_cuda_graph.py:Qwen3ASREncoderLayerStackGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_int",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:eager_preamble",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:window_lens_from_token_counts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/encoder_cuda_graph.py:Qwen3ASREncoderLayerStackGraphRunner",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_int",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/encoder_cuda_graph.py:Qwen3ASREncoderLayerStackGraphRunner",
+      "target": "class:models/qwen3_asr/encoder_cuda_graph.py:_CapturedGraph",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_asr/encoder_cuda_graph.py:_get_feat_extract_output_lengths_int",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_num_audio_tokens",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/languages.py",
+      "target": "function:models/qwen3_asr/languages.py:resolve_language",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/languages.py",
+      "target": "function:models/qwen3_asr/languages.py:resolve_language",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/mrope_fast_path.py",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:_all_degenerate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/mrope_fast_path.py",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:_fast_compute_mrope_positions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/mrope_fast_path.py",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:apply_asr_mrope_fast_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/mrope_fast_path.py",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:_all_degenerate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/mrope_fast_path.py",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:_fast_compute_mrope_positions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/mrope_fast_path.py",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:apply_asr_mrope_fast_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/mrope_fast_path.py:_fast_compute_mrope_positions",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:_all_degenerate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/mrope_fast_path.py:apply_asr_mrope_fast_path",
+      "target": "function:models/qwen3_asr/mrope_fast_path.py:_fast_compute_mrope_positions",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "class:models/qwen3_asr/request_builders.py:Qwen3ASRRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:_decode_token_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:_find_subsequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:_encode_literal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_stream_output_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "class:models/qwen3_asr/request_builders.py:Qwen3ASRRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:_decode_token_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:_find_subsequence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:_encode_literal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_stream_output_builder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "file:models/qwen3_asr/audio_lengths.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "file:models/qwen3_asr/languages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:models/qwen3_asr/request_builders.py",
+      "target": "file:models/qwen3_asr/mrope_fast_path.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "target": "function:models/qwen3_asr/request_builders.py:_encode_literal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "target": "function:models/qwen3_asr/request_builders.py:_decode_token_ids",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "target": "function:models/qwen3_asr/request_builders.py:_find_subsequence",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "target": "function:models/qwen3_asr/audio_lengths.py:qwen3_asr_num_audio_tokens",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "target": "function:models/qwen3_asr/languages.py:resolve_language",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_scheduler_adapters",
+      "target": "class:models/qwen3_asr/request_builders.py:Qwen3ASRRequestData",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_stream_output_builder",
+      "target": "function:models/qwen3_asr/request_builders.py:_encode_literal",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/request_builders.py:make_qwen3_asr_stream_output_builder",
+      "target": "function:models/qwen3_asr/request_builders.py:_decode_token_ids",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "function:models/qwen3_asr/sglang_model.py:_normalize_asr_text_rope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "function:models/qwen3_asr/sglang_model.py:_fused_asr_forward_prepare_native",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "function:models/qwen3_asr/sglang_model.py:_enable_fused_asr_qk_norm_rope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "function:models/qwen3_asr/sglang_model.py:_normalize_asr_text_rope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "function:models/qwen3_asr/sglang_model.py:_fused_asr_forward_prepare_native",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "function:models/qwen3_asr/sglang_model.py:_enable_fused_asr_qk_norm_rope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "file:models/qwen3_asr/configuration_qwen3_asr.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:models/qwen3_asr/sglang_model.py",
+      "target": "file:models/qwen3_asr/encoder_cuda_graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:models/qwen3_asr/sglang_model.py:_enable_fused_asr_qk_norm_rope",
+      "target": "function:models/qwen3_asr/sglang_model.py:_fused_asr_forward_prepare_native",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "target": "function:models/qwen3_asr/sglang_model.py:_normalize_asr_text_rope",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "target": "function:models/qwen3_asr/sglang_model.py:_enable_fused_asr_qk_norm_rope",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "target": "class:models/qwen3_asr/encoder_cuda_graph.py:Qwen3ASREncoderLayerStackGraphRunner",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:build_buckets",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:eager_preamble",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "target": "function:models/qwen3_asr/encoder_cuda_graph.py:window_lens_from_token_counts",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_asr/sglang_model.py:Qwen3ASRForConditionalGeneration",
+      "target": "class:models/qwen3_asr/configuration_qwen3_asr.py:Qwen3ASRConfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

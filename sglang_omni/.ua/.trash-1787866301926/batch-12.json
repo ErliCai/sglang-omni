@@ -1,0 +1,292 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/ming_omni/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/ming_omni/__init__.py",
+      "summary": "Ming-Omni 模型子包入口，加载流水线配置并在导入时注册复合 Hugging Face 配置。",
+      "tags": ["entry-point", "model-registration", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/ming_omni/config.py",
+      "summary": "定义 Ming-Omni 文本、语音和流式语音三种多阶段流水线，构造编码、聚合、Thinker、Talker 与解码阶段并验证 TP 和 GPU 拓扑。",
+      "tags": ["configuration", "pipeline", "multimodal", "stage-orchestration", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_stage_gpu_set",
+      "type": "function",
+      "name": "_stage_gpu_set",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [39, 58],
+      "summary": "从进程 replica_devices 或阶段 gpu 声明计算阶段实际使用的 GPU 集合。",
+      "tags": ["placement", "gpu-topology", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_reject_thinker_talker_collision",
+      "type": "function",
+      "name": "_reject_thinker_talker_collision",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [61, 83],
+      "summary": "在启动前检测 Thinker TP 范围与 Talker 阶段的 GPU 交集，并以具体冲突设备报告无效部署。",
+      "tags": ["validation", "gpu-topology", "placement", "safety"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_preprocessing_stage",
+      "type": "function",
+      "name": "_preprocessing_stage",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [91, 102],
+      "summary": "创建预处理阶段，并把投影后的输入扇出到音频编码、图像编码和多模态聚合路径。",
+      "tags": ["stage-factory", "preprocessing", "fan-out"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_audio_encoder_stage",
+      "type": "function",
+      "name": "_audio_encoder_stage",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [105, 116],
+      "summary": "构造 CUDA 音频编码阶段，并将编码结果投影到多模态聚合器。",
+      "tags": ["stage-factory", "audio-encoder", "cuda"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_image_encoder_stage",
+      "type": "function",
+      "name": "_image_encoder_stage",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [119, 133],
+      "summary": "创建支持单卡或 TP GPU 列表的 CUDA 图像编码阶段，并把结果路由到聚合阶段。",
+      "tags": ["stage-factory", "image-encoder", "tensor-parallel", "cuda"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_aggregate_stage",
+      "type": "function",
+      "name": "_aggregate_stage",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [136, 145],
+      "summary": "创建等待预处理及双编码器输出的多模态聚合阶段，合并 Thinker 输入并禁用直接 CUDA IPC payload。",
+      "tags": ["stage-factory", "multimodal-aggregation", "synchronization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:MingThinkerFactoryArgs",
+      "type": "class",
+      "name": "MingThinkerFactoryArgs",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [148, 152],
+      "summary": "扩展通用工厂参数，增加 Thinker 最大序列长度与流式 TTS 开关。",
+      "tags": ["configuration", "factory-args", "thinker"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:MingThinkerStageConfig",
+      "type": "class",
+      "name": "MingThinkerStageConfig",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [155, 156],
+      "summary": "为 Thinker 引擎阶段绑定强类型 MingThinkerFactoryArgs。",
+      "tags": ["configuration", "engine-stage", "thinker"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:MingTalkerFactoryArgs",
+      "type": "class",
+      "name": "MingTalkerFactoryArgs",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [159, 160],
+      "summary": "扩展阶段工厂参数，为 Talker 增加非空预设声音名称。",
+      "tags": ["configuration", "factory-args", "talker"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:MingTalkerStageConfig",
+      "type": "class",
+      "name": "MingTalkerStageConfig",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [163, 164],
+      "summary": "为普通及流式 Talker 阶段绑定强类型 MingTalkerFactoryArgs。",
+      "tags": ["configuration", "stage-config", "talker"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_thinker_stage",
+      "type": "function",
+      "name": "_thinker_stage",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [167, 183],
+      "summary": "构造 Thinker 自回归引擎，并根据是否启用语音把完成结果投影到 Decode 和可选 Talker。",
+      "tags": ["stage-factory", "thinker", "conditional-routing", "engine"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_streaming_thinker_stage",
+      "type": "function",
+      "name": "_streaming_thinker_stage",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [186, 207],
+      "summary": "创建流式 TTS Thinker，把最终 payload 和逐 token 增量同时扇出到 Decode 与 Segmenter。",
+      "tags": ["stage-factory", "thinker", "streaming", "fan-out"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_talker_stream_stage",
+      "type": "function",
+      "name": "_talker_stream_stage",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [221, 230],
+      "summary": "创建可在最终 payload 前接受文本流的终端流式 Talker，并配置默认 CUDA 设备与声音。",
+      "tags": ["stage-factory", "streaming", "talker", "terminal-stage"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_ming_speech_stages",
+      "type": "function",
+      "name": "_ming_speech_stages",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [265, 274],
+      "summary": "组装七阶段 Ming-Omni 语音流水线，在文本解码之外增加独立 Talker 终端。",
+      "tags": ["pipeline-builder", "speech", "stage-topology"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/config.py:_ming_streaming_speech_stages",
+      "type": "function",
+      "name": "_ming_streaming_speech_stages",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [277, 287],
+      "summary": "组装八阶段流式语音拓扑，以 Segmenter 连接流式 Thinker 和 Talker 并保留并行文本解码。",
+      "tags": ["pipeline-builder", "streaming-speech", "stage-topology"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:_MingOmniBasePipelineConfig",
+      "type": "class",
+      "name": "_MingOmniBasePipelineConfig",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [290, 304],
+      "summary": "集中声明 Ming-Omni 模型架构别名、阶段配置类型，并把 Thinker 标记为按拓扑控制 custom all-reduce 的 TP 阶段。",
+      "tags": ["pipeline-config", "architecture", "tensor-parallel", "base-class"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:MingOmniPipelineConfig",
+      "type": "class",
+      "name": "MingOmniPipelineConfig",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [307, 321],
+      "summary": "定义六阶段文本多模态流水线，允许同卡放置并在初始化后校验各阶段 TP 支持。",
+      "tags": ["pipeline-config", "text-generation", "multimodal", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:MingOmniSpeechPipelineConfig",
+      "type": "class",
+      "name": "MingOmniSpeechPipelineConfig",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [324, 342],
+      "summary": "定义带 Talker 的七阶段语音流水线，并同时验证 TP 能力及 Thinker/Talker GPU 隔离。",
+      "tags": ["pipeline-config", "speech-generation", "talker", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/config.py:MingOmniStreamingSpeechPipelineConfig",
+      "type": "class",
+      "name": "MingOmniStreamingSpeechPipelineConfig",
+      "filePath": "models/ming_omni/config.py",
+      "lineRange": [345, 372],
+      "summary": "定义带 Segmenter 与流式 Talker 的八阶段语音流水线，并校验流式 Talker 不与 Thinker TP GPU 范围冲突。",
+      "tags": ["pipeline-config", "streaming-speech", "segmenter", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/registration.py",
+      "type": "file",
+      "name": "registration.py",
+      "filePath": "models/ming_omni/registration.py",
+      "summary": "提供 Ming-Omni 的延迟注册入口，把复合 Hugging Face 配置和 SGLang 模型实现分别加入对应注册表。",
+      "tags": ["model-registration", "lazy-loading", "transformers", "sglang"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/registration.py:register_ming_hf_config",
+      "type": "function",
+      "name": "register_ming_hf_config",
+      "filePath": "models/ming_omni/registration.py",
+      "lineRange": [9, 20],
+      "summary": "幂等地把 BailingMM2Config 注册为 bailingmm_moe_v2_lite，使 Transformers 能在 SGLang ModelConfig 之前解析检查点。",
+      "tags": ["model-registration", "transformers", "idempotent"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/registration.py:register_ming_model_registry",
+      "type": "function",
+      "name": "register_ming_model_registry",
+      "filePath": "models/ming_omni/registration.py",
+      "lineRange": [23, 28],
+      "summary": "将 Ming Thinker 的 BailingMoeV2ForCausalLM 实现加入 SGLang ModelRegistry。",
+      "tags": ["model-registration", "sglang", "lazy-loading"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source":"file:models/ming_omni/__init__.py","target":"file:models/ming_omni/config.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/ming_omni/__init__.py","target":"file:models/ming_omni/registration.py","type":"imports","direction":"forward","weight":0.7},
+
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_stage_gpu_set","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_stage_gpu_set","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_reject_thinker_talker_collision","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_reject_thinker_talker_collision","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_preprocessing_stage","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_preprocessing_stage","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_audio_encoder_stage","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_audio_encoder_stage","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_image_encoder_stage","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_image_encoder_stage","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_aggregate_stage","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_aggregate_stage","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingThinkerFactoryArgs","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingThinkerFactoryArgs","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingThinkerStageConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingThinkerStageConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingTalkerFactoryArgs","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingTalkerFactoryArgs","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingTalkerStageConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingTalkerStageConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_thinker_stage","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_thinker_stage","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_streaming_thinker_stage","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_streaming_thinker_stage","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_talker_stream_stage","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_talker_stream_stage","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_ming_speech_stages","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_ming_speech_stages","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_ming_streaming_speech_stages","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"function:models/ming_omni/config.py:_ming_streaming_speech_stages","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:_MingOmniBasePipelineConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:_MingOmniBasePipelineConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingOmniPipelineConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingOmniPipelineConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingOmniSpeechPipelineConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingOmniSpeechPipelineConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingOmniStreamingSpeechPipelineConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/config.py","target":"class:models/ming_omni/config.py:MingOmniStreamingSpeechPipelineConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"class:models/ming_omni/config.py:MingOmniPipelineConfig","target":"class:models/ming_omni/config.py:_MingOmniBasePipelineConfig","type":"inherits","direction":"forward","weight":0.9},
+    {"source":"class:models/ming_omni/config.py:MingOmniSpeechPipelineConfig","target":"class:models/ming_omni/config.py:_MingOmniBasePipelineConfig","type":"inherits","direction":"forward","weight":0.9},
+    {"source":"class:models/ming_omni/config.py:MingOmniStreamingSpeechPipelineConfig","target":"class:models/ming_omni/config.py:_MingOmniBasePipelineConfig","type":"inherits","direction":"forward","weight":0.9},
+
+    {"source":"file:models/ming_omni/registration.py","target":"function:models/ming_omni/registration.py:register_ming_hf_config","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/registration.py","target":"function:models/ming_omni/registration.py:register_ming_hf_config","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/ming_omni/registration.py","target":"function:models/ming_omni/registration.py:register_ming_model_registry","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/ming_omni/registration.py","target":"function:models/ming_omni/registration.py:register_ming_model_registry","type":"exports","direction":"forward","weight":0.8}
+  ]
+}

@@ -1,0 +1,2439 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "type": "file",
+      "name": "test_payload_device_restore.py",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "summary": "验证跨阶段载荷反序列化后按来源设备恢复 tensor，并保持 host-only、resident 与旧格式数据兼容。",
+      "tags": [
+        "test",
+        "pipeline",
+        "device-placement",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_host_origin_tensor_stays_on_the_host",
+      "type": "function",
+      "name": "test_host_origin_tensor_stays_on_the_host",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        15,
+        18
+      ],
+      "summary": "验证 `test_host_origin_tensor_stays_on_the_host` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_already_resident_tensor_is_left_alone",
+      "type": "function",
+      "name": "test_already_resident_tensor_is_left_alone",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        21,
+        27
+      ],
+      "summary": "验证 `test_already_resident_tensor_is_left_alone` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_accelerator_origin_tensor_moves_to_the_receiver_device",
+      "type": "function",
+      "name": "test_accelerator_origin_tensor_moves_to_the_receiver_device",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        30,
+        34
+      ],
+      "summary": "验证 `test_accelerator_origin_tensor_moves_to_the_receiver_device` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_host_only_stage_keeps_an_accelerator_origin_tensor_on_the_host",
+      "type": "function",
+      "name": "test_host_only_stage_keeps_an_accelerator_origin_tensor_on_the_host",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        37,
+        41
+      ],
+      "summary": "验证 `test_host_only_stage_keeps_an_accelerator_origin_tensor_on_the_host` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_raw_stream_ref_carries_its_source_device",
+      "type": "function",
+      "name": "test_a_raw_stream_ref_carries_its_source_device",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        44,
+        70
+      ],
+      "summary": "验证 `test_a_raw_stream_ref_carries_its_source_device` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_stream_ref_without_a_device_stays_wire_compatible",
+      "type": "function",
+      "name": "test_a_stream_ref_without_a_device_stays_wire_compatible",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        73,
+        96
+      ],
+      "summary": "验证 `test_a_stream_ref_without_a_device_stays_wire_compatible` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:_stream_round_trip",
+      "type": "function",
+      "name": "_stream_round_trip",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        99,
+        121
+      ],
+      "summary": "构造或处理 `_stream_round_trip` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_metadata_bearing_chunk_keeps_its_source_device",
+      "type": "function",
+      "name": "test_a_metadata_bearing_chunk_keeps_its_source_device",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        124,
+        136
+      ],
+      "summary": "验证 `test_a_metadata_bearing_chunk_keeps_its_source_device` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_metadata_tensor_records_its_own_source_device",
+      "type": "function",
+      "name": "test_a_metadata_tensor_records_its_own_source_device",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        139,
+        146
+      ],
+      "summary": "验证 `test_a_metadata_tensor_records_its_own_source_device` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_chunk_without_metadata_still_records_its_device",
+      "type": "function",
+      "name": "test_a_chunk_without_metadata_still_records_its_device",
+      "filePath": "tests/unit_test/pipeline/test_payload_device_restore.py",
+      "lineRange": [
+        149,
+        154
+      ],
+      "summary": "验证 `test_a_chunk_without_metadata_still_records_its_device` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "type": "file",
+      "name": "test_stage_process_env.py",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "summary": "验证 CUDA、ROCm、XPU 等平台下 stage/TP worker 的可见设备映射、环境变量继承与非法放置校验。",
+      "tags": [
+        "test",
+        "pipeline",
+        "process-env",
+        "device-placement"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:_force_cuda_device",
+      "type": "function",
+      "name": "_force_cuda_device",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        25,
+        33
+      ],
+      "summary": "构造或处理 `_force_cuda_device` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "stage-runtime",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:_tp_spec",
+      "type": "function",
+      "name": "_tp_spec",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        36,
+        43
+      ],
+      "summary": "构造或处理 `_tp_spec` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "stage-runtime",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:_worker_spec",
+      "type": "function",
+      "name": "_worker_spec",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        46,
+        50
+      ],
+      "summary": "构造或处理 `_worker_spec` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "stage-runtime",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_maps_logical_gpu_through_visible_devices",
+      "type": "function",
+      "name": "test_tp_process_env_maps_logical_gpu_through_visible_devices",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        53,
+        59
+      ],
+      "summary": "验证 `test_tp_process_env_maps_logical_gpu_through_visible_devices` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_rejects_single_visible_device_for_second_gpu",
+      "type": "function",
+      "name": "test_tp_process_env_rejects_single_visible_device_for_second_gpu",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        62,
+        66
+      ],
+      "summary": "验证 `test_tp_process_env_rejects_single_visible_device_for_second_gpu` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_requires_gpu_id",
+      "type": "function",
+      "name": "test_tp_process_env_requires_gpu_id",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        69,
+        73
+      ],
+      "summary": "验证 `test_tp_process_env_requires_gpu_id` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_process_env_emits_no_visibility_variable",
+      "type": "function",
+      "name": "test_xpu_tp_process_env_emits_no_visibility_variable",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        76,
+        86
+      ],
+      "summary": "验证 `test_xpu_tp_process_env_emits_no_visibility_variable` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_preserves_a_mask_that_covers_the_whole_group",
+      "type": "function",
+      "name": "test_xpu_tp_preserves_a_mask_that_covers_the_whole_group",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        89,
+        97
+      ],
+      "summary": "验证 `test_xpu_tp_preserves_a_mask_that_covers_the_whole_group` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rejects_a_mask_too_small_for_the_group",
+      "type": "function",
+      "name": "test_xpu_tp_rejects_a_mask_too_small_for_the_group",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        100,
+        108
+      ],
+      "summary": "验证 `test_xpu_tp_rejects_a_mask_too_small_for_the_group` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rejects_a_gpu_id_outside_the_mask",
+      "type": "function",
+      "name": "test_xpu_tp_rejects_a_gpu_id_outside_the_mask",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        111,
+        118
+      ],
+      "summary": "验证 `test_xpu_tp_rejects_a_gpu_id_outside_the_mask` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_leaves_a_group_affinity_mask_intact_for_the_child",
+      "type": "function",
+      "name": "test_spawn_env_leaves_a_group_affinity_mask_intact_for_the_child",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        121,
+        134
+      ],
+      "summary": "验证 `test_spawn_env_leaves_a_group_affinity_mask_intact_for_the_child` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_process_env_requires_gpu_id",
+      "type": "function",
+      "name": "test_xpu_tp_process_env_requires_gpu_id",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        137,
+        143
+      ],
+      "summary": "验证 `test_xpu_tp_process_env_requires_gpu_id` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rank_keeps_its_card_despite_an_inherited_cuda_marker",
+      "type": "function",
+      "name": "test_xpu_tp_rank_keeps_its_card_despite_an_inherited_cuda_marker",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        146,
+        177
+      ],
+      "summary": "验证 `test_xpu_tp_rank_keeps_its_card_despite_an_inherited_cuda_marker` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_child_keeps_parent_mapped_visible_device",
+      "type": "function",
+      "name": "test_tp_child_keeps_parent_mapped_visible_device",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        180,
+        201
+      ],
+      "summary": "验证 `test_tp_child_keeps_parent_mapped_visible_device` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_applies_stage_defaults_before_child_start",
+      "type": "function",
+      "name": "test_spawn_env_applies_stage_defaults_before_child_start",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        204,
+        214
+      ],
+      "summary": "验证 `test_spawn_env_applies_stage_defaults_before_child_start` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_preserves_operator_stage_defaults",
+      "type": "function",
+      "name": "test_spawn_env_preserves_operator_stage_defaults",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        217,
+        227
+      ],
+      "summary": "验证 `test_spawn_env_preserves_operator_stage_defaults` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_combines_stage_defaults_with_tp_visible_device",
+      "type": "function",
+      "name": "test_spawn_env_combines_stage_defaults_with_tp_visible_device",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        230,
+        243
+      ],
+      "summary": "验证 `test_spawn_env_combines_stage_defaults_with_tp_visible_device` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_gpu_scheduler_construction_uses_startup_lock",
+      "type": "function",
+      "name": "test_gpu_scheduler_construction_uses_startup_lock",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        256,
+        274
+      ],
+      "summary": "验证 `test_gpu_scheduler_construction_uses_startup_lock` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_scheduler_applies_child_defaults_without_overriding_explicit_args",
+      "type": "function",
+      "name": "test_scheduler_applies_child_defaults_without_overriding_explicit_args",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        277,
+        308
+      ],
+      "summary": "验证 `test_scheduler_applies_child_defaults_without_overriding_explicit_args` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_scheduler_rejects_replica_device_factory_without_gpu_id",
+      "type": "function",
+      "name": "test_scheduler_rejects_replica_device_factory_without_gpu_id",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        311,
+        324
+      ],
+      "summary": "验证 `test_scheduler_rejects_replica_device_factory_without_gpu_id` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_construct_stage_uses_placement_gpu_id_for_device_and_startup_lock",
+      "type": "function",
+      "name": "test_construct_stage_uses_placement_gpu_id_for_device_and_startup_lock",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        327,
+        367
+      ],
+      "summary": "验证 `test_construct_stage_uses_placement_gpu_id_for_device_and_startup_lock` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_cpu_scheduler_construction_skips_startup_lock",
+      "type": "function",
+      "name": "test_cpu_scheduler_construction_skips_startup_lock",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        370,
+        382
+      ],
+      "summary": "验证 `test_cpu_scheduler_construction_skips_startup_lock` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_stage_process_env.py:_RecordingLog",
+      "type": "class",
+      "name": "_RecordingLog",
+      "filePath": "tests/unit_test/pipeline/test_stage_process_env.py",
+      "lineRange": [
+        246,
+        253
+      ],
+      "summary": "为测试提供 `_RecordingLog` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "stage-runtime"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "type": "file",
+      "name": "test_stage_streaming.py",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "summary": "验证 Stage 流式消息的 inline/relay 选择、outbox drain、公平性、终止与 abort、metadata 及通信 trace。",
+      "tags": [
+        "test",
+        "pipeline",
+        "streaming",
+        "relay"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:_make_relay_chunk",
+      "type": "function",
+      "name": "_make_relay_chunk",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        120,
+        155
+      ],
+      "summary": "构造或处理 `_make_relay_chunk` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "streaming",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:_make_relay_payload",
+      "type": "function",
+      "name": "_make_relay_payload",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        158,
+        176
+      ],
+      "summary": "构造或处理 `_make_relay_payload` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "streaming",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_terminal_scheduler_stream_routes_to_coordinator",
+      "type": "function",
+      "name": "test_terminal_scheduler_stream_routes_to_coordinator",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        179,
+        220
+      ],
+      "summary": "验证 `test_terminal_scheduler_stream_routes_to_coordinator` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_outbox_drain_reuses_one_executor_wakeup_for_ready_messages",
+      "type": "function",
+      "name": "test_outbox_drain_reuses_one_executor_wakeup_for_ready_messages",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        223,
+        269
+      ],
+      "summary": "验证 `test_outbox_drain_reuses_one_executor_wakeup_for_ready_messages` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_outbox_drain_yields_after_ready_message_batch",
+      "type": "function",
+      "name": "test_outbox_drain_yields_after_ready_message_batch",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        272,
+        323
+      ],
+      "summary": "验证 `test_outbox_drain_yields_after_ready_message_batch` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_explicit_scheduler_stream_target_keeps_stage_to_stage_routing",
+      "type": "function",
+      "name": "test_explicit_scheduler_stream_target_keeps_stage_to_stage_routing",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        326,
+        373
+      ],
+      "summary": "验证 `test_explicit_scheduler_stream_target_keeps_stage_to_stage_routing` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_small_cpu_scheduler_stream_chunk_rides_inline",
+      "type": "function",
+      "name": "test_small_cpu_scheduler_stream_chunk_rides_inline",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        376,
+        435
+      ],
+      "summary": "验证 `test_small_cpu_scheduler_stream_chunk_rides_inline` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_gate",
+      "type": "function",
+      "name": "test_inline_stream_chunk_gate",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        438,
+        447
+      ],
+      "summary": "验证 `test_inline_stream_chunk_gate` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_oversized_serialized_payload",
+      "type": "function",
+      "name": "test_inline_stream_chunk_rejects_oversized_serialized_payload",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        450,
+        456
+      ],
+      "summary": "验证 `test_inline_stream_chunk_rejects_oversized_serialized_payload` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_non_cpu_tensor",
+      "type": "function",
+      "name": "test_inline_stream_chunk_rejects_non_cpu_tensor",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        459,
+        464
+      ],
+      "summary": "验证 `test_inline_stream_chunk_rejects_non_cpu_tensor` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_invalid_metadata_type",
+      "type": "function",
+      "name": "test_inline_stream_chunk_rejects_invalid_metadata_type",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        467,
+        475
+      ],
+      "summary": "验证 `test_inline_stream_chunk_rejects_invalid_metadata_type` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_oversized_received_payload",
+      "type": "function",
+      "name": "test_inline_stream_chunk_rejects_oversized_received_payload",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        478,
+        486
+      ],
+      "summary": "验证 `test_inline_stream_chunk_rejects_oversized_received_payload` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_non_cpu_received_tensor",
+      "type": "function",
+      "name": "test_inline_stream_chunk_rejects_non_cpu_received_tensor",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        489,
+        497
+      ],
+      "summary": "验证 `test_inline_stream_chunk_rejects_non_cpu_received_tensor` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_materializes_small_view_storage",
+      "type": "function",
+      "name": "test_inline_stream_chunk_materializes_small_view_storage",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        500,
+        506
+      ],
+      "summary": "验证 `test_inline_stream_chunk_materializes_small_view_storage` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_does_not_clone_small_owning_tensor",
+      "type": "function",
+      "name": "test_inline_stream_chunk_does_not_clone_small_owning_tensor",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        509,
+        525
+      ],
+      "summary": "验证 `test_inline_stream_chunk_does_not_clone_small_owning_tensor` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_inline_stream_chunk_to_scheduler",
+      "type": "function",
+      "name": "test_stage_routes_inline_stream_chunk_to_scheduler",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        528,
+        586
+      ],
+      "summary": "验证 `test_stage_routes_inline_stream_chunk_to_scheduler` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_config_rejects_unknown_model_transport_field",
+      "type": "function",
+      "name": "test_stage_config_rejects_unknown_model_transport_field",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        589,
+        598
+      ],
+      "summary": "验证 `test_stage_config_rejects_unknown_model_transport_field` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_s2pro_config_declares_topology_without_transport_policy",
+      "type": "function",
+      "name": "test_s2pro_config_declares_topology_without_transport_policy",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        601,
+        607
+      ],
+      "summary": "验证 `test_s2pro_config_declares_topology_without_transport_policy` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stream_queue_drops_chunk_after_request_cleanup",
+      "type": "function",
+      "name": "test_stream_queue_drops_chunk_after_request_cleanup",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        610,
+        624
+      ],
+      "summary": "验证 `test_stream_queue_drops_chunk_after_request_cleanup` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_fails_pre_payload_stream_chunk_by_default",
+      "type": "function",
+      "name": "test_stage_fails_pre_payload_stream_chunk_by_default",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        627,
+        665
+      ],
+      "summary": "验证 `test_stage_fails_pre_payload_stream_chunk_by_default` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_stream_chunk_after_payload_by_default",
+      "type": "function",
+      "name": "test_stage_routes_stream_chunk_after_payload_by_default",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        668,
+        711
+      ],
+      "summary": "验证 `test_stage_routes_stream_chunk_after_payload_by_default` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_pre_payload_stream_events_for_capable_receiver",
+      "type": "function",
+      "name": "test_stage_routes_pre_payload_stream_events_for_capable_receiver",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        714,
+        779
+      ],
+      "summary": "验证 `test_stage_routes_pre_payload_stream_events_for_capable_receiver` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_stream_chunk_received_after_relay_materialization",
+      "type": "function",
+      "name": "test_stage_stream_chunk_received_after_relay_materialization",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        782,
+        835
+      ],
+      "summary": "验证 `test_stage_stream_chunk_received_after_relay_materialization` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_stream_error_fails_request_even_with_stream_queue",
+      "type": "function",
+      "name": "test_stage_stream_error_fails_request_even_with_stream_queue",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        838,
+        874
+      ],
+      "summary": "验证 `test_stage_stream_error_fails_request_even_with_stream_queue` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_terminal_request_can_be_readmitted_after_cleanup",
+      "type": "function",
+      "name": "test_terminal_request_can_be_readmitted_after_cleanup",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        877,
+        912
+      ],
+      "summary": "验证 `test_terminal_request_can_be_readmitted_after_cleanup` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_write_stream_chunk_uses_relay",
+      "type": "function",
+      "name": "test_write_stream_chunk_uses_relay",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        915,
+        953
+      ],
+      "summary": "验证 `test_write_stream_chunk_uses_relay` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drops_stream_chunk_after_abort_during_relay_read",
+      "type": "function",
+      "name": "test_stage_drops_stream_chunk_after_abort_during_relay_read",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        956,
+        992
+      ],
+      "summary": "验证 `test_stage_drops_stream_chunk_after_abort_during_relay_read` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drains_relay_stream_chunk_for_already_aborted_request",
+      "type": "function",
+      "name": "test_stage_drains_relay_stream_chunk_for_already_aborted_request",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        995,
+        1031
+      ],
+      "summary": "验证 `test_stage_drains_relay_stream_chunk_for_already_aborted_request` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drains_relay_payload_for_already_aborted_request",
+      "type": "function",
+      "name": "test_stage_drains_relay_payload_for_already_aborted_request",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        1034,
+        1065
+      ],
+      "summary": "验证 `test_stage_drains_relay_payload_for_already_aborted_request` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_relay_stream_chunk_to_scheduler",
+      "type": "function",
+      "name": "test_stage_routes_relay_stream_chunk_to_scheduler",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        1068,
+        1109
+      ],
+      "summary": "验证 `test_stage_routes_relay_stream_chunk_to_scheduler` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drops_payload_after_abort_during_relay_read",
+      "type": "function",
+      "name": "test_stage_drops_payload_after_abort_during_relay_read",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        1112,
+        1141
+      ],
+      "summary": "验证 `test_stage_drops_payload_after_abort_during_relay_read` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_stage_streaming.py:_FakeControlPlane",
+      "type": "class",
+      "name": "_FakeControlPlane",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        27,
+        48
+      ],
+      "summary": "为测试提供 `_FakeControlPlane` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_stage_streaming.py:_FakeRelay",
+      "type": "class",
+      "name": "_FakeRelay",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        51,
+        71
+      ],
+      "summary": "为测试提供 `_FakeRelay` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_stage_streaming.py:_DoneOp",
+      "type": "class",
+      "name": "_DoneOp",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        74,
+        85
+      ],
+      "summary": "为测试提供 `_DoneOp` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_stage_streaming.py:_AbortOnReadRelay",
+      "type": "class",
+      "name": "_AbortOnReadRelay",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        88,
+        97
+      ],
+      "summary": "为测试提供 `_AbortOnReadRelay` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "streaming"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_stage_streaming.py:_CallbackOp",
+      "type": "class",
+      "name": "_CallbackOp",
+      "filePath": "tests/unit_test/pipeline/test_stage_streaming.py",
+      "lineRange": [
+        100,
+        111
+      ],
+      "summary": "为测试提供 `_CallbackOp` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "streaming"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_host_origin_tensor_stays_on_the_host",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_host_origin_tensor_stays_on_the_host",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_already_resident_tensor_is_left_alone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_already_resident_tensor_is_left_alone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_accelerator_origin_tensor_moves_to_the_receiver_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_accelerator_origin_tensor_moves_to_the_receiver_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_host_only_stage_keeps_an_accelerator_origin_tensor_on_the_host",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_host_only_stage_keeps_an_accelerator_origin_tensor_on_the_host",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_raw_stream_ref_carries_its_source_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_raw_stream_ref_carries_its_source_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_stream_ref_without_a_device_stays_wire_compatible",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_stream_ref_without_a_device_stays_wire_compatible",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:_stream_round_trip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:_stream_round_trip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_metadata_bearing_chunk_keeps_its_source_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_metadata_bearing_chunk_keeps_its_source_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_metadata_tensor_records_its_own_source_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_metadata_tensor_records_its_own_source_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_chunk_without_metadata_still_records_its_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "function:tests/unit_test/pipeline/test_payload_device_restore.py:test_a_chunk_without_metadata_still_records_its_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "file:sglang_omni/comm/stage_io.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_payload_device_restore.py",
+      "target": "file:sglang_omni/comm/stage_io.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:_force_cuda_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:_force_cuda_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:_tp_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:_tp_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:_worker_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:_worker_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_maps_logical_gpu_through_visible_devices",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_maps_logical_gpu_through_visible_devices",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_rejects_single_visible_device_for_second_gpu",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_rejects_single_visible_device_for_second_gpu",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_requires_gpu_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_process_env_requires_gpu_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_process_env_emits_no_visibility_variable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_process_env_emits_no_visibility_variable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_preserves_a_mask_that_covers_the_whole_group",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_preserves_a_mask_that_covers_the_whole_group",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rejects_a_mask_too_small_for_the_group",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rejects_a_mask_too_small_for_the_group",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rejects_a_gpu_id_outside_the_mask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rejects_a_gpu_id_outside_the_mask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_leaves_a_group_affinity_mask_intact_for_the_child",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_leaves_a_group_affinity_mask_intact_for_the_child",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_process_env_requires_gpu_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_process_env_requires_gpu_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rank_keeps_its_card_despite_an_inherited_cuda_marker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_xpu_tp_rank_keeps_its_card_despite_an_inherited_cuda_marker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_child_keeps_parent_mapped_visible_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_tp_child_keeps_parent_mapped_visible_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_applies_stage_defaults_before_child_start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_applies_stage_defaults_before_child_start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_preserves_operator_stage_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_preserves_operator_stage_defaults",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_combines_stage_defaults_with_tp_visible_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_spawn_env_combines_stage_defaults_with_tp_visible_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_gpu_scheduler_construction_uses_startup_lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_gpu_scheduler_construction_uses_startup_lock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_scheduler_applies_child_defaults_without_overriding_explicit_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_scheduler_applies_child_defaults_without_overriding_explicit_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_scheduler_rejects_replica_device_factory_without_gpu_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_scheduler_rejects_replica_device_factory_without_gpu_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_construct_stage_uses_placement_gpu_id_for_device_and_startup_lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_construct_stage_uses_placement_gpu_id_for_device_and_startup_lock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_cpu_scheduler_construction_skips_startup_lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_process_env.py:test_cpu_scheduler_construction_skips_startup_lock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_process_env.py:_RecordingLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_process_env.py:_RecordingLog",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/pipeline/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/pipeline/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/pipeline/stage_workers.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/pipeline/stage_workers.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/platforms/cuda.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:sglang_omni/platforms/cuda.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_process_env.py",
+      "target": "file:tests/unit_test/fixtures/pipeline_fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:_make_relay_chunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:_make_relay_chunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:_make_relay_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:_make_relay_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_terminal_scheduler_stream_routes_to_coordinator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_terminal_scheduler_stream_routes_to_coordinator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_outbox_drain_reuses_one_executor_wakeup_for_ready_messages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_outbox_drain_reuses_one_executor_wakeup_for_ready_messages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_outbox_drain_yields_after_ready_message_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_outbox_drain_yields_after_ready_message_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_explicit_scheduler_stream_target_keeps_stage_to_stage_routing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_explicit_scheduler_stream_target_keeps_stage_to_stage_routing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_small_cpu_scheduler_stream_chunk_rides_inline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_small_cpu_scheduler_stream_chunk_rides_inline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_gate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_gate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_oversized_serialized_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_oversized_serialized_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_non_cpu_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_non_cpu_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_invalid_metadata_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_invalid_metadata_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_oversized_received_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_oversized_received_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_non_cpu_received_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_rejects_non_cpu_received_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_materializes_small_view_storage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_materializes_small_view_storage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_does_not_clone_small_owning_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_inline_stream_chunk_does_not_clone_small_owning_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_inline_stream_chunk_to_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_inline_stream_chunk_to_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_config_rejects_unknown_model_transport_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_config_rejects_unknown_model_transport_field",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_s2pro_config_declares_topology_without_transport_policy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_s2pro_config_declares_topology_without_transport_policy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stream_queue_drops_chunk_after_request_cleanup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stream_queue_drops_chunk_after_request_cleanup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_fails_pre_payload_stream_chunk_by_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_fails_pre_payload_stream_chunk_by_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_stream_chunk_after_payload_by_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_stream_chunk_after_payload_by_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_pre_payload_stream_events_for_capable_receiver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_pre_payload_stream_events_for_capable_receiver",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_stream_chunk_received_after_relay_materialization",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_stream_chunk_received_after_relay_materialization",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_stream_error_fails_request_even_with_stream_queue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_stream_error_fails_request_even_with_stream_queue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_terminal_request_can_be_readmitted_after_cleanup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_terminal_request_can_be_readmitted_after_cleanup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_write_stream_chunk_uses_relay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_write_stream_chunk_uses_relay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drops_stream_chunk_after_abort_during_relay_read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drops_stream_chunk_after_abort_during_relay_read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drains_relay_stream_chunk_for_already_aborted_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drains_relay_stream_chunk_for_already_aborted_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drains_relay_payload_for_already_aborted_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drains_relay_payload_for_already_aborted_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_relay_stream_chunk_to_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_routes_relay_stream_chunk_to_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drops_payload_after_abort_during_relay_read",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "function:tests/unit_test/pipeline/test_stage_streaming.py:test_stage_drops_payload_after_abort_during_relay_read",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_FakeControlPlane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_FakeControlPlane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_FakeRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_FakeRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_DoneOp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_DoneOp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_AbortOnReadRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_AbortOnReadRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_CallbackOp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "class:tests/unit_test/pipeline/test_stage_streaming.py:_CallbackOp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/data_ref.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/data_ref.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/engine.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/stage_io.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/comm/stage_io.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/config/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/config/schema.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/models/fishaudio_s2_pro/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/models/fishaudio_s2_pro/config.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/pipeline/stage/runtime.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/pipeline/stage/runtime.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/pipeline/stage/stream_queue.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/pipeline/stage/stream_queue.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/relay/shm.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/relay/shm.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/scheduling/messages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:sglang_omni/scheduling/messages.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_stage_streaming.py",
+      "target": "file:tests/unit_test/fixtures/trace_capture.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

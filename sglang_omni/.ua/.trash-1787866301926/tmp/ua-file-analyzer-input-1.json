@@ -1,0 +1,39 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"models/minimax_music3/acoustic.py","language":"python","sizeLines":475,"fileCategory":"code"},
+    {"path":"models/minimax_music3/checkpoint.py","language":"python","sizeLines":111,"fileCategory":"code"},
+    {"path":"models/minimax_music3/chunking.py","language":"python","sizeLines":84,"fileCategory":"code"},
+    {"path":"models/minimax_music3/config.py","language":"python","sizeLines":146,"fileCategory":"code"},
+    {"path":"models/minimax_music3/constants.py","language":"python","sizeLines":36,"fileCategory":"code"},
+    {"path":"models/minimax_music3/dav.py","language":"python","sizeLines":156,"fileCategory":"code"},
+    {"path":"models/minimax_music3/dit.py","language":"python","sizeLines":495,"fileCategory":"code"},
+    {"path":"models/minimax_music3/model_runner.py","language":"python","sizeLines":448,"fileCategory":"code"},
+    {"path":"models/minimax_music3/payload_types.py","language":"python","sizeLines":31,"fileCategory":"code"},
+    {"path":"models/minimax_music3/prompt.py","language":"python","sizeLines":120,"fileCategory":"code"},
+    {"path":"models/minimax_music3/request_builders.py","language":"python","sizeLines":127,"fileCategory":"code"},
+    {"path":"models/minimax_music3/rvq_decoder.py","language":"python","sizeLines":191,"fileCategory":"code"},
+    {"path":"models/minimax_music3/scheduler.py","language":"python","sizeLines":104,"fileCategory":"code"},
+    {"path":"models/minimax_music3/sglang_model.py","language":"python","sizeLines":299,"fileCategory":"code"},
+    {"path":"models/minimax_music3/sglang_request_builder.py","language":"python","sizeLines":186,"fileCategory":"code"},
+    {"path":"models/minimax_music3/stages.py","language":"python","sizeLines":132,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "models/minimax_music3/acoustic.py":["models/minimax_music3/checkpoint.py","models/minimax_music3/chunking.py","models/minimax_music3/constants.py","models/minimax_music3/dav.py","models/minimax_music3/dit.py","models/minimax_music3/payload_types.py"],
+    "models/minimax_music3/checkpoint.py":[],
+    "models/minimax_music3/chunking.py":["models/minimax_music3/constants.py"],
+    "models/minimax_music3/config.py":["models/minimax_music3/constants.py"],
+    "models/minimax_music3/constants.py":[],
+    "models/minimax_music3/dav.py":[],
+    "models/minimax_music3/dit.py":["models/minimax_music3/constants.py"],
+    "models/minimax_music3/model_runner.py":["models/minimax_music3/chunking.py","models/minimax_music3/constants.py","models/minimax_music3/rvq_decoder.py","models/minimax_music3/sglang_model.py"],
+    "models/minimax_music3/payload_types.py":["models/minimax_music3/constants.py"],
+    "models/minimax_music3/prompt.py":[],
+    "models/minimax_music3/request_builders.py":["models/minimax_music3/constants.py","models/minimax_music3/payload_types.py","models/minimax_music3/prompt.py"],
+    "models/minimax_music3/rvq_decoder.py":[],
+    "models/minimax_music3/scheduler.py":["models/minimax_music3/sglang_request_builder.py"],
+    "models/minimax_music3/sglang_model.py":["models/minimax_music3/checkpoint.py","models/minimax_music3/constants.py","models/minimax_music3/prompt.py","models/minimax_music3/rvq_decoder.py"],
+    "models/minimax_music3/sglang_request_builder.py":["models/minimax_music3/constants.py","models/minimax_music3/payload_types.py","models/minimax_music3/prompt.py","models/minimax_music3/request_builders.py"],
+    "models/minimax_music3/stages.py":["models/minimax_music3/acoustic.py","models/minimax_music3/constants.py","models/minimax_music3/request_builders.py"]
+  }
+}

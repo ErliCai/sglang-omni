@@ -1,0 +1,768 @@
+{
+  "nodes": [
+    {
+      "id": "file:sglang_omni/relay/mooncake.py",
+      "type": "file",
+      "name": "mooncake.py",
+      "filePath": "sglang_omni/relay/mooncake.py",
+      "summary": "通过 Mooncake Transfer Engine 实现跨节点 tensor 传输，封装连接协商、put/get 操作、内存注册与后台清理。",
+      "tags": [
+        "relay",
+        "mooncake",
+        "distributed-communication",
+        "rdma"
+      ],
+      "complexity": "complex",
+      "languageNotes": "将可选原生传输库封装在统一 RelayOperation 生命周期内，并显式管理内存注册。"
+    },
+    {
+      "id": "class:sglang_omni/relay/mooncake.py:MooncakeConnection",
+      "type": "class",
+      "name": "MooncakeConnection",
+      "filePath": "sglang_omni/relay/mooncake.py",
+      "lineRange": [
+        74,
+        257
+      ],
+      "summary": "封装 Mooncake endpoint 握手、segment 注册与远端元数据。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/mooncake.py:MooncakeOperation",
+      "type": "class",
+      "name": "MooncakeOperation",
+      "filePath": "sglang_omni/relay/mooncake.py",
+      "lineRange": [
+        265,
+        275
+      ],
+      "summary": "封装 Mooncake 异步传输句柄的完成轮询与错误检查。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/mooncake.py:PutOperation",
+      "type": "class",
+      "name": "PutOperation",
+      "filePath": "sglang_omni/relay/mooncake.py",
+      "lineRange": [
+        278,
+        315
+      ],
+      "summary": "管理 Mooncake 发送操作及其临时内存注册生命周期。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/mooncake.py:GetOperation",
+      "type": "class",
+      "name": "GetOperation",
+      "filePath": "sglang_omni/relay/mooncake.py",
+      "lineRange": [
+        318,
+        369
+      ],
+      "summary": "管理 Mooncake 接收操作、目标 tensor 与完成同步。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/mooncake.py:MooncakeRelay",
+      "type": "class",
+      "name": "MooncakeRelay",
+      "filePath": "sglang_omni/relay/mooncake.py",
+      "lineRange": [
+        378,
+        779
+      ],
+      "summary": "实现基于 Mooncake Transfer Engine 的跨节点 Relay 接口。",
+      "tags": [
+        "relay",
+        "service",
+        "python"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:sglang_omni/relay/nccl.py",
+      "type": "file",
+      "name": "nccl.py",
+      "filePath": "sglang_omni/relay/nccl.py",
+      "summary": "基于 NCCL point-to-point 通信实现 GPU tensor relay，负责连接建立、异步发送接收与操作生命周期。",
+      "tags": [
+        "relay",
+        "nccl",
+        "gpu-communication",
+        "distributed"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:sglang_omni/relay/nccl.py:Connection",
+      "type": "class",
+      "name": "Connection",
+      "filePath": "sglang_omni/relay/nccl.py",
+      "lineRange": [
+        20,
+        80
+      ],
+      "summary": "封装 NCCL communicator、rank 信息与连接生命周期。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/nccl.py:NcclOperation",
+      "type": "class",
+      "name": "NcclOperation",
+      "filePath": "sglang_omni/relay/nccl.py",
+      "lineRange": [
+        83,
+        99
+      ],
+      "summary": "跟踪 NCCL 异步 work handle 并提供统一 RelayOperation 语义。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/nccl.py:PutOperation",
+      "type": "class",
+      "name": "PutOperation",
+      "filePath": "sglang_omni/relay/nccl.py",
+      "lineRange": [
+        102,
+        132
+      ],
+      "summary": "封装 NCCL 发送 tensor 的异步完成状态。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/nccl.py:GetOperation",
+      "type": "class",
+      "name": "GetOperation",
+      "filePath": "sglang_omni/relay/nccl.py",
+      "lineRange": [
+        135,
+        161
+      ],
+      "summary": "封装 NCCL 接收 tensor 的异步完成状态。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/nccl.py:NcclRelay",
+      "type": "class",
+      "name": "NcclRelay",
+      "filePath": "sglang_omni/relay/nccl.py",
+      "lineRange": [
+        165,
+        313
+      ],
+      "summary": "实现基于 NCCL point-to-point 原语的 GPU Relay。",
+      "tags": [
+        "relay",
+        "service",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/relay/nixl.py",
+      "type": "file",
+      "name": "nixl.py",
+      "filePath": "sglang_omni/relay/nixl.py",
+      "summary": "基于 NIXL 传输库实现跨进程 relay，管理 endpoint 元数据、内存描述符、异步 put/get 与资源释放。",
+      "tags": [
+        "relay",
+        "nixl",
+        "distributed-communication",
+        "memory-transfer"
+      ],
+      "complexity": "complex",
+      "languageNotes": "将可选原生传输库封装在统一 RelayOperation 生命周期内，并显式管理内存注册。"
+    },
+    {
+      "id": "class:sglang_omni/relay/nixl.py:Connection",
+      "type": "class",
+      "name": "Connection",
+      "filePath": "sglang_omni/relay/nixl.py",
+      "lineRange": [
+        30,
+        46
+      ],
+      "summary": "保存 NIXL endpoint 与远端 agent 元数据。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/nixl.py:NixlOperation",
+      "type": "class",
+      "name": "NixlOperation",
+      "filePath": "sglang_omni/relay/nixl.py",
+      "lineRange": [
+        49,
+        59
+      ],
+      "summary": "封装 NIXL 异步 request 的状态轮询与错误转换。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/nixl.py:PutOperation",
+      "type": "class",
+      "name": "PutOperation",
+      "filePath": "sglang_omni/relay/nixl.py",
+      "lineRange": [
+        62,
+        109
+      ],
+      "summary": "管理 NIXL 发送 descriptor 与临时资源。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/nixl.py:GetOperation",
+      "type": "class",
+      "name": "GetOperation",
+      "filePath": "sglang_omni/relay/nixl.py",
+      "lineRange": [
+        112,
+        166
+      ],
+      "summary": "管理 NIXL 接收 descriptor、目标 tensor 与资源释放。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/nixl.py:NixlRelay",
+      "type": "class",
+      "name": "NixlRelay",
+      "filePath": "sglang_omni/relay/nixl.py",
+      "lineRange": [
+        175,
+        354
+      ],
+      "summary": "实现基于 NIXL agent 的跨进程内存传输 Relay。",
+      "tags": [
+        "relay",
+        "service",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:sglang_omni/relay/shm.py",
+      "type": "file",
+      "name": "shm.py",
+      "filePath": "sglang_omni/relay/shm.py",
+      "summary": "使用 multiprocessing shared memory 实现 CPU tensor relay，并以信用分配限制在途共享内存块。",
+      "tags": [
+        "relay",
+        "shared-memory",
+        "ipc",
+        "flow-control"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sglang_omni/relay/shm.py:shm_create_from_tensor",
+      "type": "function",
+      "name": "shm_create_from_tensor",
+      "filePath": "sglang_omni/relay/shm.py",
+      "lineRange": [
+        25,
+        33
+      ],
+      "summary": "创建 shared-memory block 并复制 CPU tensor 字节，供接收端零额外协议地重建。",
+      "tags": [
+        "utility",
+        "relay",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/shm.py:ShmOperation",
+      "type": "class",
+      "name": "ShmOperation",
+      "filePath": "sglang_omni/relay/shm.py",
+      "lineRange": [
+        36,
+        45
+      ],
+      "summary": "为 shared-memory relay 操作提供完成等待与资源清理基类。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/shm.py:ShmPutOperation",
+      "type": "class",
+      "name": "ShmPutOperation",
+      "filePath": "sglang_omni/relay/shm.py",
+      "lineRange": [
+        48,
+        98
+      ],
+      "summary": "持有发送侧 shared-memory block，等待消费确认后 unlink 并返还信用。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/shm.py:ShmGetOperation",
+      "type": "class",
+      "name": "ShmGetOperation",
+      "filePath": "sglang_omni/relay/shm.py",
+      "lineRange": [
+        101,
+        142
+      ],
+      "summary": "从 shared-memory block 重建 CPU tensor 并在读取后通知发送侧。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/shm.py:ShmRelay",
+      "type": "class",
+      "name": "ShmRelay",
+      "filePath": "sglang_omni/relay/shm.py",
+      "lineRange": [
+        146,
+        207
+      ],
+      "summary": "实现基于进程共享内存和信用背压的 CPU tensor Relay。",
+      "tags": [
+        "relay",
+        "service",
+        "python"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeConnection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeConnection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:PutOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:PutOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/mooncake.py:PutOperation",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:GetOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:GetOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/mooncake.py:GetOperation",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "class:sglang_omni/relay/mooncake.py:MooncakeRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/mooncake.py",
+      "target": "file:sglang_omni/relay/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:Connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:Connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:NcclOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:NcclOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:PutOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:PutOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/nccl.py:PutOperation",
+      "target": "class:sglang_omni/relay/nccl.py:NcclOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:GetOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:GetOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/nccl.py:GetOperation",
+      "target": "class:sglang_omni/relay/nccl.py:NcclOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:NcclRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "class:sglang_omni/relay/nccl.py:NcclRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/nccl.py",
+      "target": "file:sglang_omni/relay/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:Connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:Connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:NixlOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:NixlOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:PutOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:PutOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/nixl.py:PutOperation",
+      "target": "class:sglang_omni/relay/nixl.py:NixlOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:GetOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:GetOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/nixl.py:GetOperation",
+      "target": "class:sglang_omni/relay/nixl.py:NixlOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:NixlRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "class:sglang_omni/relay/nixl.py:NixlRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/nixl.py",
+      "target": "file:sglang_omni/relay/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "function:sglang_omni/relay/shm.py:shm_create_from_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "function:sglang_omni/relay/shm.py:shm_create_from_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmPutOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmPutOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/shm.py:ShmPutOperation",
+      "target": "class:sglang_omni/relay/shm.py:ShmOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmGetOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmGetOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/shm.py:ShmGetOperation",
+      "target": "class:sglang_omni/relay/shm.py:ShmOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "class:sglang_omni/relay/shm.py:ShmRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/shm.py",
+      "target": "file:sglang_omni/relay/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

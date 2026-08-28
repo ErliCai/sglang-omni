@@ -1,0 +1,811 @@
+{
+  "nodes": [
+    {
+      "id": "file:pipeline/tp_control.py",
+      "type": "file",
+      "name": "tp_control.py",
+      "filePath": "pipeline/tp_control.py",
+      "summary": "实现张量并行领导 rank 的工作扇出和跟随 rank 控制平面，协调请求、完成与停止消息。",
+      "tags": [
+        "pipeline",
+        "tensor-parallel",
+        "control-plane",
+        "fanout"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:pipeline/tp_control.py:TPWorkMessage",
+      "type": "class",
+      "name": "TPWorkMessage",
+      "filePath": "pipeline/tp_control.py",
+      "lineRange": [
+        34,
+        38
+      ],
+      "summary": "封装 TP 领导 rank 向跟随 rank 广播的工作与控制消息。",
+      "tags": [
+        "pipeline",
+        "tensor-parallel",
+        "tpwork-message",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/tp_control.py:TPLeaderFanout",
+      "type": "class",
+      "name": "TPLeaderFanout",
+      "filePath": "pipeline/tp_control.py",
+      "lineRange": [
+        41,
+        111
+      ],
+      "summary": "由 TP 领导 rank 扇出请求、流式信号和停止命令。",
+      "tags": [
+        "pipeline",
+        "tensor-parallel",
+        "tpleader-fanout",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:pipeline/tp_control.py:TPFollowerControlPlane",
+      "type": "class",
+      "name": "TPFollowerControlPlane",
+      "filePath": "pipeline/tp_control.py",
+      "lineRange": [
+        114,
+        188
+      ],
+      "summary": "在跟随 rank 接收领导消息并驱动本地 Stage 执行。",
+      "tags": [
+        "pipeline",
+        "tensor-parallel",
+        "tpfollower-control-plane",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:platforms/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "platforms/__init__.py",
+      "summary": "检测当前硬件后端并动态加载对应 OmniPlatform 适配器，统一导出平台规格。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "dynamic-loading"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:platforms/__init__.py:_is_musa_available",
+      "type": "function",
+      "name": "_is_musa_available",
+      "filePath": "platforms/__init__.py",
+      "lineRange": [
+        17,
+        22
+      ],
+      "summary": "检测is musa 可用逻辑，服务于platforms、hardware-detection的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "is-musa-available",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:platforms/__init__.py:_is_npu_available",
+      "type": "function",
+      "name": "_is_npu_available",
+      "filePath": "platforms/__init__.py",
+      "lineRange": [
+        25,
+        30
+      ],
+      "summary": "检测is npu 可用逻辑，服务于platforms、hardware-detection的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "is-npu-available",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:platforms/__init__.py:_is_xpu_available",
+      "type": "function",
+      "name": "_is_xpu_available",
+      "filePath": "platforms/__init__.py",
+      "lineRange": [
+        33,
+        38
+      ],
+      "summary": "检测is xpu 可用逻辑，服务于platforms、hardware-detection的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "is-xpu-available",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:platforms/__init__.py:_load_platform_class",
+      "type": "function",
+      "name": "_load_platform_class",
+      "filePath": "platforms/__init__.py",
+      "lineRange": [
+        41,
+        53
+      ],
+      "summary": "加载加载 平台 类逻辑，服务于platforms、hardware-detection的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "load-platform-class",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:platforms/__init__.py:_as_omni_platform",
+      "type": "function",
+      "name": "_as_omni_platform",
+      "filePath": "platforms/__init__.py",
+      "lineRange": [
+        56,
+        70
+      ],
+      "summary": "转换as omni 平台逻辑，服务于platforms、hardware-detection的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "as-omni-platform",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:platforms/__init__.py:_resolve_platform",
+      "type": "function",
+      "name": "_resolve_platform",
+      "filePath": "platforms/__init__.py",
+      "lineRange": [
+        73,
+        74
+      ],
+      "summary": "解析解析 平台逻辑，服务于platforms、hardware-detection的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "resolve-platform",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:platforms/__init__.py:get_platform_spec",
+      "type": "function",
+      "name": "get_platform_spec",
+      "filePath": "platforms/__init__.py",
+      "lineRange": [
+        77,
+        80
+      ],
+      "summary": "获取get 平台 规格逻辑，服务于platforms、hardware-detection的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "hardware-detection",
+        "get-platform-spec",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:platforms/cpu.py",
+      "type": "file",
+      "name": "cpu.py",
+      "filePath": "platforms/cpu.py",
+      "summary": "提供 CPU 后端的 Omni 平台适配器。",
+      "tags": [
+        "platforms",
+        "cpu",
+        "backend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:platforms/cpu.py:CPUOmniPlatform",
+      "type": "class",
+      "name": "CPUOmniPlatform",
+      "filePath": "platforms/cpu.py",
+      "lineRange": [
+        6,
+        8
+      ],
+      "summary": "实现 CPU 后端平台规格。",
+      "tags": [
+        "platforms",
+        "cpu",
+        "cpuomni-platform",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:platforms/cuda.py",
+      "type": "file",
+      "name": "cuda.py",
+      "filePath": "platforms/cuda.py",
+      "summary": "扩展 CUDA 平台能力检测，识别 H20 与 FP8 CUTLASS MoE 支持并提供设备专用运行配置。",
+      "tags": [
+        "platforms",
+        "cuda",
+        "gpu-capabilities",
+        "fp8"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:platforms/cuda.py:_is_h20_device",
+      "type": "function",
+      "name": "_is_h20_device",
+      "filePath": "platforms/cuda.py",
+      "lineRange": [
+        21,
+        32
+      ],
+      "summary": "检测is H20 设备逻辑，服务于platforms、cuda的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "cuda",
+        "is-h20-device",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:platforms/cuda.py:_is_fp8_cutlass_moe_supported",
+      "type": "function",
+      "name": "_is_fp8_cutlass_moe_supported",
+      "filePath": "platforms/cuda.py",
+      "lineRange": [
+        35,
+        47
+      ],
+      "summary": "检测is FP8 CUTLASS MoE 支持逻辑，服务于platforms、cuda的运行和数据处理。",
+      "tags": [
+        "platforms",
+        "cuda",
+        "is-fp8-cutlass-moe-supported",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:platforms/cuda.py:CUDAOmniPlatform",
+      "type": "class",
+      "name": "CUDAOmniPlatform",
+      "filePath": "platforms/cuda.py",
+      "lineRange": [
+        50,
+        192
+      ],
+      "summary": "实现 NVIDIA CUDA 后端能力探测、设备属性和运行参数。",
+      "tags": [
+        "platforms",
+        "cuda",
+        "cudaomni-platform",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:platforms/interface.py",
+      "type": "file",
+      "name": "interface.py",
+      "filePath": "platforms/interface.py",
+      "summary": "定义 SGLang Omni 平台适配器的统一接口和设备、分布式、内存相关能力契约。",
+      "tags": [
+        "platforms",
+        "platform-interface",
+        "device-capabilities"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:platforms/interface.py:OmniPlatform",
+      "type": "class",
+      "name": "OmniPlatform",
+      "filePath": "platforms/interface.py",
+      "lineRange": [
+        17,
+        62
+      ],
+      "summary": "定义各硬件后端必须提供的设备类型、可用性、环境和能力接口。",
+      "tags": [
+        "platforms",
+        "platform-interface",
+        "omni-platform",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:platforms/musa.py",
+      "type": "file",
+      "name": "musa.py",
+      "filePath": "platforms/musa.py",
+      "summary": "提供 Moore Threads MUSA 设备的 Omni 平台适配器和环境配置。",
+      "tags": [
+        "platforms",
+        "musa",
+        "accelerator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:platforms/musa.py:MUSAOmniPlatform",
+      "type": "class",
+      "name": "MUSAOmniPlatform",
+      "filePath": "platforms/musa.py",
+      "lineRange": [
+        21,
+        39
+      ],
+      "summary": "实现 MUSA 加速器后端平台规格。",
+      "tags": [
+        "platforms",
+        "musa",
+        "musaomni-platform",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:platforms/npu.py",
+      "type": "file",
+      "name": "npu.py",
+      "filePath": "platforms/npu.py",
+      "summary": "提供华为 NPU 设备的 Omni 平台适配器。",
+      "tags": [
+        "platforms",
+        "npu",
+        "accelerator"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:platforms/npu.py:NPUOmniPlatform",
+      "type": "class",
+      "name": "NPUOmniPlatform",
+      "filePath": "platforms/npu.py",
+      "lineRange": [
+        9,
+        21
+      ],
+      "summary": "实现 NPU 加速器后端平台规格。",
+      "tags": [
+        "platforms",
+        "npu",
+        "npuomni-platform",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:platforms/rocm.py",
+      "type": "file",
+      "name": "rocm.py",
+      "filePath": "platforms/rocm.py",
+      "summary": "提供 AMD ROCm 设备的 Omni 平台适配器及 GPU 能力覆写。",
+      "tags": [
+        "platforms",
+        "rocm",
+        "gpu-capabilities"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:platforms/rocm.py:ROCMOmniPlatform",
+      "type": "class",
+      "name": "ROCMOmniPlatform",
+      "filePath": "platforms/rocm.py",
+      "lineRange": [
+        18,
+        84
+      ],
+      "summary": "实现 AMD ROCm 后端平台规格和能力覆写。",
+      "tags": [
+        "platforms",
+        "rocm",
+        "rocmomni-platform",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:platforms/xpu.py",
+      "type": "file",
+      "name": "xpu.py",
+      "filePath": "platforms/xpu.py",
+      "summary": "提供 Intel XPU 设备的 Omni 平台适配器、设备计数和环境变量设置。",
+      "tags": [
+        "platforms",
+        "xpu",
+        "accelerator",
+        "device-config"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:platforms/xpu.py:XPUOmniPlatform",
+      "type": "class",
+      "name": "XPUOmniPlatform",
+      "filePath": "platforms/xpu.py",
+      "lineRange": [
+        22,
+        103
+      ],
+      "summary": "实现 Intel XPU 后端设备探测和运行环境配置。",
+      "tags": [
+        "platforms",
+        "xpu",
+        "xpuomni-platform",
+        "class"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:pipeline/tp_control.py",
+      "target": "class:pipeline/tp_control.py:TPWorkMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/tp_control.py",
+      "target": "class:pipeline/tp_control.py:TPWorkMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/tp_control.py",
+      "target": "class:pipeline/tp_control.py:TPLeaderFanout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/tp_control.py",
+      "target": "class:pipeline/tp_control.py:TPLeaderFanout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/tp_control.py",
+      "target": "class:pipeline/tp_control.py:TPFollowerControlPlane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/tp_control.py",
+      "target": "class:pipeline/tp_control.py:TPFollowerControlPlane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_is_musa_available",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_is_musa_available",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_is_npu_available",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_is_npu_available",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_is_xpu_available",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_is_xpu_available",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_load_platform_class",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_load_platform_class",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_as_omni_platform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_as_omni_platform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_resolve_platform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:_resolve_platform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:get_platform_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/__init__.py",
+      "target": "function:platforms/__init__.py:get_platform_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/cpu.py",
+      "target": "class:platforms/cpu.py:CPUOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/cpu.py",
+      "target": "class:platforms/cpu.py:CPUOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/cuda.py",
+      "target": "function:platforms/cuda.py:_is_h20_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/cuda.py",
+      "target": "function:platforms/cuda.py:_is_h20_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/cuda.py",
+      "target": "function:platforms/cuda.py:_is_fp8_cutlass_moe_supported",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/cuda.py",
+      "target": "function:platforms/cuda.py:_is_fp8_cutlass_moe_supported",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/cuda.py",
+      "target": "class:platforms/cuda.py:CUDAOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/cuda.py",
+      "target": "class:platforms/cuda.py:CUDAOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/interface.py",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/interface.py",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/musa.py",
+      "target": "class:platforms/musa.py:MUSAOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/musa.py",
+      "target": "class:platforms/musa.py:MUSAOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/npu.py",
+      "target": "class:platforms/npu.py:NPUOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/npu.py",
+      "target": "class:platforms/npu.py:NPUOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/rocm.py",
+      "target": "class:platforms/rocm.py:ROCMOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/rocm.py",
+      "target": "class:platforms/rocm.py:ROCMOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:platforms/xpu.py",
+      "target": "class:platforms/xpu.py:XPUOmniPlatform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:platforms/xpu.py",
+      "target": "class:platforms/xpu.py:XPUOmniPlatform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:platforms/__init__.py:_as_omni_platform",
+      "target": "function:platforms/__init__.py:_is_musa_available",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:platforms/__init__.py:_as_omni_platform",
+      "target": "function:platforms/__init__.py:_is_npu_available",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:platforms/__init__.py:_as_omni_platform",
+      "target": "function:platforms/__init__.py:_is_xpu_available",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:platforms/__init__.py:_as_omni_platform",
+      "target": "function:platforms/__init__.py:_load_platform_class",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:platforms/__init__.py:_resolve_platform",
+      "target": "function:platforms/__init__.py:_as_omni_platform",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:platforms/cpu.py:CPUOmniPlatform",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:platforms/cuda.py:CUDAOmniPlatform",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:platforms/musa.py:MUSAOmniPlatform",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:platforms/npu.py:NPUOmniPlatform",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:platforms/rocm.py:ROCMOmniPlatform",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:platforms/xpu.py:XPUOmniPlatform",
+      "target": "class:platforms/interface.py:OmniPlatform",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

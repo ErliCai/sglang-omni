@@ -1,0 +1,1593 @@
+{
+  "nodes": [
+    {
+      "id": "file:utils/cuda_graph_batch_validator.py",
+      "type": "file",
+      "name": "cuda_graph_batch_validator.py",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "summary": "评估 CUDA Graph batch sizing、模型 buffer 容量，并验证 stage 捕获结果。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "diagnostics"
+      ],
+      "complexity": "complex",
+      "languageNotes": "生成结构化报告，比较请求 policy、captured buckets 与运行时容量。"
+    },
+    {
+      "id": "function:utils/cuda_graph_batch_validator.py:evaluate_cuda_graph_batch_sizing",
+      "type": "function",
+      "name": "evaluate_cuda_graph_batch_sizing",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "lineRange": [
+        110,
+        198
+      ],
+      "summary": "比较配置、captured graph 与 model buffer 的 batch 容量。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/cuda_graph_batch_validator.py:read_captured_bs",
+      "type": "function",
+      "name": "read_captured_bs",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "lineRange": [
+        201,
+        219
+      ],
+      "summary": "读取 runner 已捕获的 CUDA Graph batch buckets。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/cuda_graph_batch_validator.py:read_model_buffer_capacity",
+      "type": "function",
+      "name": "read_model_buffer_capacity",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "lineRange": [
+        222,
+        265
+      ],
+      "summary": "探测模型静态 buffer 支持的最大 batch size。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/cuda_graph_batch_validator.py:attest_prefill_cuda_graphs",
+      "type": "function",
+      "name": "attest_prefill_cuda_graphs",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "lineRange": [
+        268,
+        318
+      ],
+      "summary": "验证 prefill CUDA Graph 的捕获状态与容量。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/cuda_graph_batch_validator.py:validate_stage",
+      "type": "function",
+      "name": "validate_stage",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "lineRange": [
+        321,
+        371
+      ],
+      "summary": "对 pipeline stage 执行完整 CUDA Graph batch 验证。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:utils/cuda_graph_batch_validator.py:_BufferProbe",
+      "type": "class",
+      "name": "_BufferProbe",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "lineRange": [
+        17,
+        21
+      ],
+      "summary": "记录 CUDA Graph buffer 探测的容量与诊断细节。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:utils/cuda_graph_batch_validator.py:CudaGraphBatchReport",
+      "type": "class",
+      "name": "CudaGraphBatchReport",
+      "filePath": "utils/cuda_graph_batch_validator.py",
+      "lineRange": [
+        71,
+        107
+      ],
+      "summary": "汇总 stage 的配置容量、captured buckets 和验证结论。",
+      "tags": [
+        "CUDA-Graph",
+        "batch-validation",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:utils/cuda_staging.py",
+      "type": "file",
+      "name": "cuda_staging.py",
+      "filePath": "utils/cuda_staging.py",
+      "summary": "提供可增长 pinned host buffer 和可复用 GPU transfer slot。",
+      "tags": [
+        "CUDA",
+        "pinned-memory",
+        "staging"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "以 PyTorch non-blocking copy 和 stream/event 管理 CPU-GPU 传输。"
+    },
+    {
+      "id": "function:utils/cuda_staging.py:_allocate_pinned",
+      "type": "function",
+      "name": "_allocate_pinned",
+      "filePath": "utils/cuda_staging.py",
+      "lineRange": [
+        20,
+        25
+      ],
+      "summary": "分配指定 shape/dtype 的 pinned CPU tensor。",
+      "tags": [
+        "CUDA",
+        "pinned-memory",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/cuda_staging.py:_normalize_device",
+      "type": "function",
+      "name": "_normalize_device",
+      "filePath": "utils/cuda_staging.py",
+      "lineRange": [
+        28,
+        32
+      ],
+      "summary": "把 device 输入规范化为 torch.device。",
+      "tags": [
+        "CUDA",
+        "pinned-memory",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:utils/cuda_staging.py:GrowablePinnedBuffer",
+      "type": "class",
+      "name": "GrowablePinnedBuffer",
+      "filePath": "utils/cuda_staging.py",
+      "lineRange": [
+        35,
+        73
+      ],
+      "summary": "维护按需增长且可复用的 pinned host tensor。",
+      "tags": [
+        "CUDA",
+        "pinned-memory",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:utils/cuda_staging.py:PinnedTransferSlot",
+      "type": "class",
+      "name": "PinnedTransferSlot",
+      "filePath": "utils/cuda_staging.py",
+      "lineRange": [
+        76,
+        138
+      ],
+      "summary": "管理 pinned host buffer、device tensor、CUDA stream 与 event。",
+      "tags": [
+        "CUDA",
+        "pinned-memory",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:utils/device.py",
+      "type": "file",
+      "name": "device.py",
+      "filePath": "utils/device.py",
+      "summary": "解析和放置 cpu/cuda 等 device spec，并补全可选 device index。",
+      "tags": [
+        "device",
+        "CUDA",
+        "configuration"
+      ],
+      "complexity": "simple",
+      "languageNotes": "统一字符串、torch.device 与逻辑 GPU ID 的转换。"
+    },
+    {
+      "id": "function:utils/device.py:_with_index",
+      "type": "function",
+      "name": "_with_index",
+      "filePath": "utils/device.py",
+      "lineRange": [
+        7,
+        14
+      ],
+      "summary": "为未带 index 的 device spec 补充 GPU ID。",
+      "tags": [
+        "device",
+        "CUDA",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/device.py:resolve_device_spec",
+      "type": "function",
+      "name": "resolve_device_spec",
+      "filePath": "utils/device.py",
+      "lineRange": [
+        17,
+        34
+      ],
+      "summary": "解析可选的逻辑/物理 device 配置。",
+      "tags": [
+        "device",
+        "CUDA",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/device.py:place_device_spec",
+      "type": "function",
+      "name": "place_device_spec",
+      "filePath": "utils/device.py",
+      "lineRange": [
+        37,
+        44
+      ],
+      "summary": "把 device spec 放置到指定 GPU index。",
+      "tags": [
+        "device",
+        "CUDA",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/gpu_compat.py",
+      "type": "file",
+      "name": "gpu_compat.py",
+      "filePath": "utils/gpu_compat.py",
+      "summary": "检测可见 GPU 架构、CUDA 能力与 P2P mesh，生成兼容性环境变量。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "P2P"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "结合 PyTorch、NVML 和环境变量适配不同 NVIDIA GPU 拓扑。"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:gpu_architecture_for_sm",
+      "type": "function",
+      "name": "gpu_architecture_for_sm",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        32,
+        36
+      ],
+      "summary": "把 SM 版本映射为 GPU architecture 名称。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:_get_compute_capability",
+      "type": "function",
+      "name": "_get_compute_capability",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        39,
+        85
+      ],
+      "summary": "读取指定 CUDA device 的 compute capability。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:_get_cuda_device_count",
+      "type": "function",
+      "name": "_get_cuda_device_count",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        88,
+        105
+      ],
+      "summary": "安全查询可见 CUDA device 数量。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:_visible_gpu_ids",
+      "type": "function",
+      "name": "_visible_gpu_ids",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        108,
+        118
+      ],
+      "summary": "解析当前进程可见的 GPU IDs。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:get_visible_gpu_sm_version",
+      "type": "function",
+      "name": "get_visible_gpu_sm_version",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        121,
+        131
+      ],
+      "summary": "返回所有可见 GPU 的统一 SM 版本。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:visible_gpus_need_flashinfer_cuda_norm",
+      "type": "function",
+      "name": "visible_gpus_need_flashinfer_cuda_norm",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        134,
+        143
+      ],
+      "summary": "判断可见 GPU 是否需要 FlashInfer CUDA norm 兼容设置。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:get_gpu_compat_env_defaults",
+      "type": "function",
+      "name": "get_gpu_compat_env_defaults",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        146,
+        155
+      ],
+      "summary": "根据 GPU 架构生成兼容环境变量默认值。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:apply_gpu_compat_env_defaults",
+      "type": "function",
+      "name": "apply_gpu_compat_env_defaults",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        158,
+        167
+      ],
+      "summary": "把缺失的 GPU 兼容环境变量写入进程环境。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:gpu_ids_support_p2p_mesh",
+      "type": "function",
+      "name": "gpu_ids_support_p2p_mesh",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        170,
+        228
+      ],
+      "summary": "检查 GPU 集合是否形成全连接 P2P 访问 mesh。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/gpu_compat.py:should_disable_custom_all_reduce_for_gpus",
+      "type": "function",
+      "name": "should_disable_custom_all_reduce_for_gpus",
+      "filePath": "utils/gpu_compat.py",
+      "lineRange": [
+        231,
+        245
+      ],
+      "summary": "根据 GPU P2P 拓扑决定是否禁用 custom all-reduce。",
+      "tags": [
+        "GPU",
+        "compatibility",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/gpu_memory.py",
+      "type": "file",
+      "name": "gpu_memory.py",
+      "filePath": "utils/gpu_memory.py",
+      "summary": "查询进程级 GPU 显存、设备信息和 stage 预算，并提供跨进程启动锁。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "resource-budget"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "优先使用 pynvml，回退 PyTorch，并处理 CUDA_VISIBLE_DEVICES 映射。"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:parse_cuda_visible_devices",
+      "type": "function",
+      "name": "parse_cuda_visible_devices",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        31,
+        48
+      ],
+      "summary": "解析 CUDA_VISIBLE_DEVICES 中的索引或 UUID。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:resolve_visible_device_id",
+      "type": "function",
+      "name": "resolve_visible_device_id",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        51,
+        66
+      ],
+      "summary": "把逻辑 CUDA index 映射到物理 device 标识。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:is_process_scoped_memory_available",
+      "type": "function",
+      "name": "is_process_scoped_memory_available",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        69,
+        81
+      ],
+      "summary": "判断当前后端能否提供进程级显存统计。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:get_process_gpu_memory_bytes",
+      "type": "function",
+      "name": "get_process_gpu_memory_bytes",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        84,
+        135
+      ],
+      "summary": "查询当前进程在目标 GPU 上占用的显存。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:get_gpu_device_info",
+      "type": "function",
+      "name": "get_gpu_device_info",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        138,
+        188
+      ],
+      "summary": "读取 GPU 总显存、已用显存、可用显存和进程占用。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:_get_torch_gpu_device_info",
+      "type": "function",
+      "name": "_get_torch_gpu_device_info",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        191,
+        215
+      ],
+      "summary": "通过 PyTorch 回退获取 GPU memory info。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:format_bytes_gib",
+      "type": "function",
+      "name": "format_bytes_gib",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        218,
+        221
+      ],
+      "summary": "把 byte 数格式化为 GiB 文本。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:calculate_stage_budget_available_bytes",
+      "type": "function",
+      "name": "calculate_stage_budget_available_bytes",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        224,
+        249
+      ],
+      "summary": "计算 stage 在预算比例下可用的显存字节数。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:calculate_stage_load_delta_bytes",
+      "type": "function",
+      "name": "calculate_stage_load_delta_bytes",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        252,
+        269
+      ],
+      "summary": "计算加载 stage 前后的显存变化量。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:get_gpu_startup_lock_path",
+      "type": "function",
+      "name": "get_gpu_startup_lock_path",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        272,
+        287
+      ],
+      "summary": "生成特定 GPU 的跨进程启动锁路径。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:gpu_startup_lock",
+      "type": "function",
+      "name": "gpu_startup_lock",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        291,
+        303
+      ],
+      "summary": "获取 GPU 启动文件锁并在上下文退出时释放。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:_try_import_pynvml",
+      "type": "function",
+      "name": "_try_import_pynvml",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        306,
+        310
+      ],
+      "summary": "尝试导入并初始化 pynvml。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:_get_device_handle",
+      "type": "function",
+      "name": "_get_device_handle",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        313,
+        321
+      ],
+      "summary": "按 index 或 UUID 获取 NVML device handle。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:_decode_nvml_string",
+      "type": "function",
+      "name": "_decode_nvml_string",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        324,
+        327
+      ],
+      "summary": "把 NVML bytes 字段解码为字符串。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/gpu_memory.py:_shutdown_nvml",
+      "type": "function",
+      "name": "_shutdown_nvml",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        330,
+        334
+      ],
+      "summary": "安全关闭 NVML 会话。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:utils/gpu_memory.py:_InvalidGpuDeviceError",
+      "type": "class",
+      "name": "_InvalidGpuDeviceError",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        19,
+        20
+      ],
+      "summary": "表示 GPU device index/UUID 无效或不可见。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:utils/gpu_memory.py:GpuDeviceInfo",
+      "type": "class",
+      "name": "GpuDeviceInfo",
+      "filePath": "utils/gpu_memory.py",
+      "lineRange": [
+        24,
+        28
+      ],
+      "summary": "保存 GPU 总量、使用量、可用量与进程级显存信息。",
+      "tags": [
+        "GPU-memory",
+        "NVML",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/hf.py",
+      "type": "file",
+      "name": "hf.py",
+      "filePath": "utils/hf.py",
+      "summary": "从 Hugging Face 或 Mistral 配置解析模型 architecture，加载配置并实例化模块。",
+      "tags": [
+        "Hugging-Face",
+        "model-config",
+        "architecture"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "兼容 config.json、params.json、Transformers AutoConfig 与远端代码。"
+    },
+    {
+      "id": "function:utils/hf.py:architecture_from_hf_config",
+      "type": "function",
+      "name": "architecture_from_hf_config",
+      "filePath": "utils/hf.py",
+      "lineRange": [
+        39,
+        52
+      ],
+      "summary": "从 Hugging Face config 解析首选模型 architecture。",
+      "tags": [
+        "Hugging-Face",
+        "model-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/hf.py:load_mistral_params_json",
+      "type": "function",
+      "name": "load_mistral_params_json",
+      "filePath": "utils/hf.py",
+      "lineRange": [
+        55,
+        74
+      ],
+      "summary": "从模型目录加载 Mistral params.json。",
+      "tags": [
+        "Hugging-Face",
+        "model-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/hf.py:try_resolve_arch_from_mistral_config",
+      "type": "function",
+      "name": "try_resolve_arch_from_mistral_config",
+      "filePath": "utils/hf.py",
+      "lineRange": [
+        77,
+        83
+      ],
+      "summary": "尝试从 Mistral 配置推断 architecture。",
+      "tags": [
+        "Hugging-Face",
+        "model-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/hf.py:try_resolve_arch_from_raw_config",
+      "type": "function",
+      "name": "try_resolve_arch_from_raw_config",
+      "filePath": "utils/hf.py",
+      "lineRange": [
+        86,
+        130
+      ],
+      "summary": "尝试从原始配置字典解析 architecture。",
+      "tags": [
+        "Hugging-Face",
+        "model-config",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/hf.py:load_hf_config",
+      "type": "function",
+      "name": "load_hf_config",
+      "filePath": "utils/hf.py",
+      "lineRange": [
+        139,
+        159
+      ],
+      "summary": "加载 checkpoint 的 Hugging Face 配置对象。",
+      "tags": [
+        "Hugging-Face",
+        "model-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/hf.py:instantiate_module",
+      "type": "function",
+      "name": "instantiate_module",
+      "filePath": "utils/hf.py",
+      "lineRange": [
+        162,
+        167
+      ],
+      "summary": "根据导入路径和参数实例化 Python module。",
+      "tags": [
+        "Hugging-Face",
+        "model-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/imports.py",
+      "type": "file",
+      "name": "imports.py",
+      "filePath": "utils/imports.py",
+      "summary": "从 module:attribute 或 dotted path 字符串动态导入 Python 对象。",
+      "tags": [
+        "dynamic-import",
+        "Python",
+        "utility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 importlib 解析模块与嵌套属性。"
+    },
+    {
+      "id": "function:utils/imports.py:import_string",
+      "type": "function",
+      "name": "import_string",
+      "filePath": "utils/imports.py",
+      "lineRange": [
+        10,
+        22
+      ],
+      "summary": "从字符串路径动态导入 module 或属性。",
+      "tags": [
+        "dynamic-import",
+        "Python",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:evaluate_cuda_graph_batch_sizing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:evaluate_cuda_graph_batch_sizing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:read_captured_bs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:read_captured_bs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:read_model_buffer_capacity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:read_model_buffer_capacity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:attest_prefill_cuda_graphs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:attest_prefill_cuda_graphs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:validate_stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "function:utils/cuda_graph_batch_validator.py:validate_stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "class:utils/cuda_graph_batch_validator.py:_BufferProbe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "class:utils/cuda_graph_batch_validator.py:_BufferProbe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "class:utils/cuda_graph_batch_validator.py:CudaGraphBatchReport",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_graph_batch_validator.py",
+      "target": "class:utils/cuda_graph_batch_validator.py:CudaGraphBatchReport",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "function:utils/cuda_staging.py:_allocate_pinned",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "function:utils/cuda_staging.py:_allocate_pinned",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "function:utils/cuda_staging.py:_normalize_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "function:utils/cuda_staging.py:_normalize_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "class:utils/cuda_staging.py:GrowablePinnedBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "class:utils/cuda_staging.py:GrowablePinnedBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "class:utils/cuda_staging.py:PinnedTransferSlot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cuda_staging.py",
+      "target": "class:utils/cuda_staging.py:PinnedTransferSlot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/device.py",
+      "target": "function:utils/device.py:_with_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/device.py",
+      "target": "function:utils/device.py:_with_index",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/device.py",
+      "target": "function:utils/device.py:resolve_device_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/device.py",
+      "target": "function:utils/device.py:resolve_device_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/device.py",
+      "target": "function:utils/device.py:place_device_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/device.py",
+      "target": "function:utils/device.py:place_device_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:gpu_architecture_for_sm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:gpu_architecture_for_sm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:_get_compute_capability",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:_get_compute_capability",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:_get_cuda_device_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:_get_cuda_device_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:_visible_gpu_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:_visible_gpu_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:get_visible_gpu_sm_version",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:get_visible_gpu_sm_version",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:visible_gpus_need_flashinfer_cuda_norm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:visible_gpus_need_flashinfer_cuda_norm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:get_gpu_compat_env_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:get_gpu_compat_env_defaults",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:apply_gpu_compat_env_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:apply_gpu_compat_env_defaults",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:gpu_ids_support_p2p_mesh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:gpu_ids_support_p2p_mesh",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:should_disable_custom_all_reduce_for_gpus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_compat.py",
+      "target": "function:utils/gpu_compat.py:should_disable_custom_all_reduce_for_gpus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:parse_cuda_visible_devices",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:parse_cuda_visible_devices",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:resolve_visible_device_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:resolve_visible_device_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:is_process_scoped_memory_available",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:is_process_scoped_memory_available",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:get_process_gpu_memory_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:get_process_gpu_memory_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:get_gpu_device_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:get_gpu_device_info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_get_torch_gpu_device_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_get_torch_gpu_device_info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:format_bytes_gib",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:format_bytes_gib",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:calculate_stage_budget_available_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:calculate_stage_budget_available_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:calculate_stage_load_delta_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:calculate_stage_load_delta_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:get_gpu_startup_lock_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:get_gpu_startup_lock_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:gpu_startup_lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:gpu_startup_lock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_try_import_pynvml",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_try_import_pynvml",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_get_device_handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_get_device_handle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_decode_nvml_string",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_decode_nvml_string",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_shutdown_nvml",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "function:utils/gpu_memory.py:_shutdown_nvml",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "class:utils/gpu_memory.py:_InvalidGpuDeviceError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "class:utils/gpu_memory.py:_InvalidGpuDeviceError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "class:utils/gpu_memory.py:GpuDeviceInfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/gpu_memory.py",
+      "target": "class:utils/gpu_memory.py:GpuDeviceInfo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:architecture_from_hf_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:architecture_from_hf_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:load_mistral_params_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:load_mistral_params_json",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:try_resolve_arch_from_mistral_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:try_resolve_arch_from_mistral_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:try_resolve_arch_from_raw_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:try_resolve_arch_from_raw_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:load_hf_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:load_hf_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:instantiate_module",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/hf.py",
+      "target": "function:utils/hf.py:instantiate_module",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/imports.py",
+      "target": "function:utils/imports.py:import_string",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/imports.py",
+      "target": "function:utils/imports.py:import_string",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

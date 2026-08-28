@@ -1,0 +1,1034 @@
+{
+  "nodes": [
+    {
+      "id": "file:preprocessing/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "preprocessing/__init__.py",
+      "summary": "惰性导出音频、图像、文本、多模态和转写预处理公共 API。",
+      "tags": [
+        "preprocessing",
+        "public-api",
+        "lazy-import"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:preprocessing/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "preprocessing/__init__.py",
+      "lineRange": [
+        65,
+        71
+      ],
+      "summary": "执行getattr逻辑，服务于preprocessing、public-api的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "public-api",
+        "getattr--",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:preprocessing/text.py",
+      "type": "file",
+      "name": "text.py",
+      "filePath": "preprocessing/text.py",
+      "summary": "加载和校验聊天模板，规范化消息、追加模态占位符并应用分词器模板。",
+      "tags": [
+        "preprocessing",
+        "chat-template",
+        "message-normalization",
+        "multimodal"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:preprocessing/text.py:load_chat_template",
+      "type": "function",
+      "name": "load_chat_template",
+      "filePath": "preprocessing/text.py",
+      "lineRange": [
+        12,
+        33
+      ],
+      "summary": "加载加载 聊天 模板逻辑，服务于preprocessing、chat-template的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "chat-template",
+        "load-chat-template",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:preprocessing/text.py:ensure_chat_template",
+      "type": "function",
+      "name": "ensure_chat_template",
+      "filePath": "preprocessing/text.py",
+      "lineRange": [
+        36,
+        51
+      ],
+      "summary": "确保ensure 聊天 模板逻辑，服务于preprocessing、chat-template的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "chat-template",
+        "ensure-chat-template",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:preprocessing/text.py:normalize_messages",
+      "type": "function",
+      "name": "normalize_messages",
+      "filePath": "preprocessing/text.py",
+      "lineRange": [
+        54,
+        67
+      ],
+      "summary": "规范化规范化 消息逻辑，服务于preprocessing、chat-template的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "chat-template",
+        "normalize-messages",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:preprocessing/text.py:append_modality_placeholders",
+      "type": "function",
+      "name": "append_modality_placeholders",
+      "filePath": "preprocessing/text.py",
+      "lineRange": [
+        70,
+        95
+      ],
+      "summary": "追加append 模态 占位符逻辑，服务于preprocessing、chat-template的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "chat-template",
+        "append-modality-placeholders",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:preprocessing/text.py:apply_chat_template",
+      "type": "function",
+      "name": "apply_chat_template",
+      "filePath": "preprocessing/text.py",
+      "lineRange": [
+        98,
+        104
+      ],
+      "summary": "应用apply 聊天 模板逻辑，服务于preprocessing、chat-template的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "chat-template",
+        "apply-chat-template",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:preprocessing/transcription.py",
+      "type": "file",
+      "name": "transcription.py",
+      "filePath": "preprocessing/transcription.py",
+      "summary": "解析本地、远程或内存音频来源并准备统一波形、采样率和可选临时文件。",
+      "tags": [
+        "preprocessing",
+        "transcription",
+        "audio-source",
+        "media-io"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:preprocessing/transcription.py:resolve_audio_source",
+      "type": "function",
+      "name": "resolve_audio_source",
+      "filePath": "preprocessing/transcription.py",
+      "lineRange": [
+        35,
+        47
+      ],
+      "summary": "解析解析 音频 来源逻辑，服务于preprocessing、transcription的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "transcription",
+        "resolve-audio-source",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:preprocessing/transcription.py:prepare_audio",
+      "type": "function",
+      "name": "prepare_audio",
+      "filePath": "preprocessing/transcription.py",
+      "lineRange": [
+        64,
+        95
+      ],
+      "summary": "准备准备 音频逻辑，服务于preprocessing、transcription的运行和数据处理。",
+      "tags": [
+        "preprocessing",
+        "transcription",
+        "prepare-audio",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:preprocessing/transcription.py:PreparedAudio",
+      "type": "class",
+      "name": "PreparedAudio",
+      "filePath": "preprocessing/transcription.py",
+      "lineRange": [
+        51,
+        61
+      ],
+      "summary": "保存已准备音频的波形、采样率、来源和临时资源清理信息。",
+      "tags": [
+        "preprocessing",
+        "transcription",
+        "prepared-audio",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:profiler/__main__.py",
+      "type": "file",
+      "name": "__main__.py",
+      "filePath": "profiler/__main__.py",
+      "summary": "实现性能分析命令行入口，解析配置并启动指定后端的 profiler。",
+      "tags": [
+        "profiler",
+        "cli",
+        "profiling-runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:profiler/__main__.py:_main",
+      "type": "function",
+      "name": "_main",
+      "filePath": "profiler/__main__.py",
+      "lineRange": [
+        19,
+        66
+      ],
+      "summary": "执行主入口逻辑，服务于profiler、cli的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "cli",
+        "main",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:profiler/base_profiler.py",
+      "type": "file",
+      "name": "base_profiler.py",
+      "filePath": "profiler/base_profiler.py",
+      "summary": "定义 profiler 生命周期、上下文管理和请求区间记录的抽象基类。",
+      "tags": [
+        "profiler",
+        "base-class",
+        "lifecycle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:profiler/base_profiler.py:ProfilerBase",
+      "type": "class",
+      "name": "ProfilerBase",
+      "filePath": "profiler/base_profiler.py",
+      "lineRange": [
+        16,
+        58
+      ],
+      "summary": "定义性能分析器启动、停止、步进和上下文管理接口。",
+      "tags": [
+        "profiler",
+        "base-class",
+        "profiler-base",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:profiler/comm_trace.py",
+      "type": "file",
+      "name": "comm_trace.py",
+      "filePath": "profiler/comm_trace.py",
+      "summary": "按环境开关记录轻量通信追踪事件，提供纳秒时间戳、耗时计算和事件输出。",
+      "tags": [
+        "profiler",
+        "communication-trace",
+        "timing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/comm_trace.py:enabled",
+      "type": "function",
+      "name": "enabled",
+      "filePath": "profiler/comm_trace.py",
+      "lineRange": [
+        15,
+        17
+      ],
+      "summary": "执行启用逻辑，服务于profiler、communication-trace的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "communication-trace",
+        "enabled",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/comm_trace.py:now_ns",
+      "type": "function",
+      "name": "now_ns",
+      "filePath": "profiler/comm_trace.py",
+      "lineRange": [
+        20,
+        21
+      ],
+      "summary": "获取当前时间 ns逻辑，服务于profiler、communication-trace的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "communication-trace",
+        "now-ns",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/comm_trace.py:elapsed_ms",
+      "type": "function",
+      "name": "elapsed_ms",
+      "filePath": "profiler/comm_trace.py",
+      "lineRange": [
+        24,
+        25
+      ],
+      "summary": "计算耗时 ms逻辑，服务于profiler、communication-trace的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "communication-trace",
+        "elapsed-ms",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/comm_trace.py:emit",
+      "type": "function",
+      "name": "emit",
+      "filePath": "profiler/comm_trace.py",
+      "lineRange": [
+        28,
+        33
+      ],
+      "summary": "执行输出逻辑，服务于profiler、communication-trace的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "communication-trace",
+        "emit",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:profiler/event_recorder.py",
+      "type": "file",
+      "name": "event_recorder.py",
+      "filePath": "profiler/event_recorder.py",
+      "summary": "记录请求在各阶段和模型路径上的结构化事件，维护活动阶段上下文并异步写出 JSON 记录。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "request-tracing",
+        "json"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:set_active_stage",
+      "type": "function",
+      "name": "set_active_stage",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        38,
+        41
+      ],
+      "summary": "设置set 活动 阶段逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "set-active-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:reset_active_stage",
+      "type": "function",
+      "name": "reset_active_stage",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        44,
+        50
+      ],
+      "summary": "重置reset 活动 阶段逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "reset-active-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:get_active_stage",
+      "type": "function",
+      "name": "get_active_stage",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        53,
+        58
+      ],
+      "summary": "获取get 活动 阶段逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "get-active-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:_json_default",
+      "type": "function",
+      "name": "_json_default",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        222,
+        251
+      ],
+      "summary": "序列化JSON 默认序列化逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "json-default",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:get_recorder",
+      "type": "function",
+      "name": "get_recorder",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        257,
+        259
+      ],
+      "summary": "获取get 记录器逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "get-recorder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:emit",
+      "type": "function",
+      "name": "emit",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        262,
+        277
+      ],
+      "summary": "执行输出逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "emit",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:_read_host_boot_id",
+      "type": "function",
+      "name": "_read_host_boot_id",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        281,
+        288
+      ],
+      "summary": "读取read 主机 启动 ID逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "read-host-boot-id",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:_emit_model_path",
+      "type": "function",
+      "name": "_emit_model_path",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        291,
+        304
+      ],
+      "summary": "输出输出 模型 路径逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "emit-model-path",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:emit_model_path_start",
+      "type": "function",
+      "name": "emit_model_path_start",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        307,
+        308
+      ],
+      "summary": "输出输出 模型 路径 开始逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "emit-model-path-start",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/event_recorder.py:emit_model_path_end",
+      "type": "function",
+      "name": "emit_model_path_end",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        311,
+        312
+      ],
+      "summary": "输出输出 模型 路径 结束逻辑，服务于profiler、event-recorder的运行和数据处理。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "emit-model-path-end",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:profiler/event_recorder.py:RequestEvent",
+      "type": "class",
+      "name": "RequestEvent",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        62,
+        74
+      ],
+      "summary": "表示带请求、阶段、事件类型、时间戳和附加字段的追踪记录。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "request-event",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:profiler/event_recorder.py:RequestEventRecorder",
+      "type": "class",
+      "name": "RequestEventRecorder",
+      "filePath": "profiler/event_recorder.py",
+      "lineRange": [
+        77,
+        219
+      ],
+      "summary": "线程安全地收集请求事件并按配置写入结构化追踪文件。",
+      "tags": [
+        "profiler",
+        "event-recorder",
+        "request-event-recorder",
+        "class"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:preprocessing/__init__.py",
+      "target": "function:preprocessing/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/__init__.py",
+      "target": "function:preprocessing/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:load_chat_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:load_chat_template",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:ensure_chat_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:ensure_chat_template",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:normalize_messages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:normalize_messages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:append_modality_placeholders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:append_modality_placeholders",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:apply_chat_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/text.py",
+      "target": "function:preprocessing/text.py:apply_chat_template",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/transcription.py",
+      "target": "function:preprocessing/transcription.py:resolve_audio_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/transcription.py",
+      "target": "function:preprocessing/transcription.py:resolve_audio_source",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/transcription.py",
+      "target": "function:preprocessing/transcription.py:prepare_audio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/transcription.py",
+      "target": "function:preprocessing/transcription.py:prepare_audio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:preprocessing/transcription.py",
+      "target": "class:preprocessing/transcription.py:PreparedAudio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:preprocessing/transcription.py",
+      "target": "class:preprocessing/transcription.py:PreparedAudio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/__main__.py",
+      "target": "function:profiler/__main__.py:_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/__main__.py",
+      "target": "function:profiler/__main__.py:_main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/base_profiler.py",
+      "target": "class:profiler/base_profiler.py:ProfilerBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/base_profiler.py",
+      "target": "class:profiler/base_profiler.py:ProfilerBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:now_ns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:now_ns",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:elapsed_ms",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:elapsed_ms",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:emit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/comm_trace.py",
+      "target": "function:profiler/comm_trace.py:emit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:set_active_stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:set_active_stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:reset_active_stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:reset_active_stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:get_active_stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:get_active_stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:_json_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:_json_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:get_recorder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:get_recorder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:emit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:emit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:_read_host_boot_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:_read_host_boot_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:_emit_model_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:_emit_model_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:emit_model_path_start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:emit_model_path_start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:emit_model_path_end",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "function:profiler/event_recorder.py:emit_model_path_end",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "class:profiler/event_recorder.py:RequestEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "class:profiler/event_recorder.py:RequestEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "class:profiler/event_recorder.py:RequestEventRecorder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/event_recorder.py",
+      "target": "class:profiler/event_recorder.py:RequestEventRecorder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:preprocessing/text.py:ensure_chat_template",
+      "target": "function:preprocessing/text.py:load_chat_template",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:preprocessing/transcription.py:prepare_audio",
+      "target": "class:preprocessing/transcription.py:PreparedAudio",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:profiler/comm_trace.py:emit",
+      "target": "function:profiler/comm_trace.py:enabled",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:profiler/event_recorder.py:emit",
+      "target": "function:profiler/event_recorder.py:get_active_stage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:profiler/event_recorder.py:emit",
+      "target": "class:profiler/event_recorder.py:RequestEvent",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:profiler/event_recorder.py:_emit_model_path",
+      "target": "function:profiler/event_recorder.py:emit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:profiler/event_recorder.py:_emit_model_path",
+      "target": "function:profiler/event_recorder.py:_read_host_boot_id",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:profiler/event_recorder.py:emit_model_path_start",
+      "target": "function:profiler/event_recorder.py:_emit_model_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:profiler/event_recorder.py:emit_model_path_end",
+      "target": "function:profiler/event_recorder.py:_emit_model_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:profiler/event_recorder.py:RequestEventRecorder",
+      "target": "class:profiler/event_recorder.py:RequestEvent",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

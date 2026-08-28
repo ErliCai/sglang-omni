@@ -1,0 +1,17 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"models/higgs_tts/__init__.py","language":"python","sizeLines":31,"fileCategory":"code"},
+    {"path":"models/higgs_tts/config.py","language":"python","sizeLines":146,"fileCategory":"code"},
+    {"path":"models/higgs_tts/hf_config.py","language":"python","sizeLines":66,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "models/higgs_tts/__init__.py": [
+      "models/higgs_tts/config.py",
+      "models/higgs_tts/hf_config.py"
+    ],
+    "models/higgs_tts/config.py": [],
+    "models/higgs_tts/hf_config.py": []
+  },
+  "neighborMap": {}
+}

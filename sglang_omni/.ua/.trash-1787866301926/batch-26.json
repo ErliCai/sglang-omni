@@ -1,0 +1,1412 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/whisper_asr/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/whisper_asr/stages.py",
+      "summary": "构建 Whisper ASR 的 SGLang 执行器，并集中配置编码器 CUDA Graph、异步解码、请求构建并发、预语言模型缓存与批次合并策略。",
+      "tags": [
+        "whisper-asr",
+        "stage-factory",
+        "cuda-graph",
+        "async-decode",
+        "batching"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/whisper_asr/stages.py:create_sglang_whisper_asr_executor",
+      "type": "function",
+      "name": "create_sglang_whisper_asr_executor",
+      "filePath": "models/whisper_asr/stages.py",
+      "lineRange": [
+        9,
+        68
+      ],
+      "summary": "依据模型路径与运行参数创建 Whisper ASR 执行器，并把编码器图捕获、预语言模型缓存、异步解码和请求构建策略传给后端。",
+      "tags": [
+        "whisper-asr",
+        "executor",
+        "cuda-graph",
+        "configuration"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/whisper_asr/timestamp_logit_processor.py",
+      "type": "file",
+      "name": "timestamp_logit_processor.py",
+      "filePath": "models/whisper_asr/timestamp_logit_processor.py",
+      "summary": "实现 Whisper 时间戳 token 的解码约束，抑制非法配对、非单调时间戳和与当前前缀状态冲突的候选。",
+      "tags": [
+        "whisper-asr",
+        "timestamp",
+        "logit-processor",
+        "decoding"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/whisper_asr/timestamp_logit_processor.py:WhisperTimestampLogitProcessor",
+      "type": "class",
+      "name": "WhisperTimestampLogitProcessor",
+      "filePath": "models/whisper_asr/timestamp_logit_processor.py",
+      "lineRange": [
+        12,
+        71
+      ],
+      "summary": "在每次解码时依据 Whisper 时间戳配对规则、当前时间边界和概率质量修改 logits，阻止无效文本或时间戳序列。",
+      "tags": [
+        "whisper-asr",
+        "timestamp",
+        "logits",
+        "decoding"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/zonos2/__init__.py",
+      "summary": "声明 ZONOS2 文本转语音模型的能力元数据，包括参考音频、批量与流式声码器、CUDA Graph 和编译支持。",
+      "tags": [
+        "zonos2",
+        "model-capabilities",
+        "tts"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/zonos2/callbacks.py",
+      "type": "file",
+      "name": "callbacks.py",
+      "filePath": "models/zonos2/callbacks.py",
+      "summary": "提供 ZONOS2 自回归运行器回调：写入逐请求反馈缓冲、构造预填充嵌入，并把新生成的音频码按流式阈值发送给声码器。",
+      "tags": [
+        "zonos2",
+        "model-runner",
+        "callbacks",
+        "streaming",
+        "feedback"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/zonos2/callbacks.py:extract_zonos2_output",
+      "type": "function",
+      "name": "extract_zonos2_output",
+      "filePath": "models/zonos2/callbacks.py",
+      "lineRange": [
+        56,
+        127
+      ],
+      "summary": "从调度输出中收集新增音频码，并按首块或稳态阈值合并为流消息；请求结束时冲刷余量且保持帧顺序不变。",
+      "tags": [
+        "zonos2",
+        "streaming",
+        "audio-codes",
+        "output-callback"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/components/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/zonos2/components/__init__.py",
+      "summary": "标记 ZONOS2 组件包，作为音频编解码、说话人编码、文本前端和流式声码器实现的命名空间。",
+      "tags": [
+        "zonos2",
+        "components",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/zonos2/components/audio_codec.py",
+      "type": "file",
+      "name": "audio_codec.py",
+      "filePath": "models/zonos2/components/audio_codec.py",
+      "summary": "封装 Descript Audio Codec 的延迟码本反剪切、结束帧裁剪、单条与批量解码，将 ZONOS2 音频码还原为 44.1 kHz 波形。",
+      "tags": [
+        "zonos2",
+        "dac",
+        "audio-codec",
+        "vocoder",
+        "batching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/components/audio_codec.py:Zonos2DACVocoder",
+      "type": "class",
+      "name": "Zonos2DACVocoder",
+      "filePath": "models/zonos2/components/audio_codec.py",
+      "lineRange": [
+        60,
+        170
+      ],
+      "summary": "惰性加载 DAC 解码器，将延迟排列的多码本 token 反剪切、裁去结束后帧，并提供单请求和批量波形解码。",
+      "tags": [
+        "zonos2",
+        "dac",
+        "vocoder",
+        "batch-decode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/components/speaker_encoder.py",
+      "type": "file",
+      "name": "speaker_encoder.py",
+      "filePath": "models/zonos2/components/speaker_encoder.py",
+      "summary": "加载和规范化路径、字节或波形参考音频，以 Qwen3 语音模型生成 2048 维说话人嵌入，并通过内容指纹提供缓存与单航班去重。",
+      "tags": [
+        "zonos2",
+        "speaker-encoder",
+        "qwen3",
+        "reference-audio",
+        "caching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/components/speaker_encoder.py:Qwen3SpeakerEmbedding",
+      "type": "class",
+      "name": "Qwen3SpeakerEmbedding",
+      "filePath": "models/zonos2/components/speaker_encoder.py",
+      "lineRange": [
+        34,
+        118
+      ],
+      "summary": "复现参考 Qwen3 Voice Embedding 的 24 kHz 重采样与 128 维 Mel 预处理，生成 2048 维说话人表征并可选动态编译前向。",
+      "tags": [
+        "qwen3",
+        "speaker-embedding",
+        "mel-spectrogram",
+        "torch-compile"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/components/speaker_encoder.py:SpeakerEncoder",
+      "type": "class",
+      "name": "SpeakerEncoder",
+      "filePath": "models/zonos2/components/speaker_encoder.py",
+      "lineRange": [
+        233,
+        381
+      ],
+      "summary": "把多种参考音频输入规范化为稳定内容指纹，惰性调用 Qwen3 编码器，并借助共享服务缓存重复请求的 CPU float32 嵌入。",
+      "tags": [
+        "zonos2",
+        "speaker-encoder",
+        "reference-audio",
+        "content-hash",
+        "caching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/components/streaming_vocoder.py",
+      "type": "file",
+      "name": "streaming_vocoder.py",
+      "filePath": "models/zonos2/components/streaming_vocoder.py",
+      "summary": "实现 ZONOS2 的整段与流式 DAC 解码，使用升余弦重叠相加拼接增量波形，并处理首块阈值、前视行、尾部冲刷和回退路径。",
+      "tags": [
+        "zonos2",
+        "streaming-vocoder",
+        "dac",
+        "overlap-add",
+        "audio"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/components/streaming_vocoder.py:Zonos2StreamingVocoderScheduler",
+      "type": "class",
+      "name": "Zonos2StreamingVocoderScheduler",
+      "filePath": "models/zonos2/components/streaming_vocoder.py",
+      "lineRange": [
+        194,
+        392
+      ],
+      "summary": "为每个请求管理流式声码器状态，校验并摄取音频码块，通过重叠相加增量解码，在结束时按 eos_frame 精确冲刷或回退整段解码。",
+      "tags": [
+        "zonos2",
+        "streaming-vocoder",
+        "scheduler",
+        "overlap-add",
+        "eos"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/components/text_frontend.py",
+      "type": "file",
+      "name": "text_frontend.py",
+      "filePath": "models/zonos2/components/text_frontend.py",
+      "summary": "完成多语言 NeMo 文本规范化与缓存、UTF-8 字节分词、语速和质量条件编码，以及 ZONOS2 多码本提示行构造。",
+      "tags": [
+        "zonos2",
+        "text-frontend",
+        "normalization",
+        "tokenization",
+        "conditioning"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/components/text_frontend.py:TTSSamplingParams",
+      "type": "class",
+      "name": "TTSSamplingParams",
+      "filePath": "models/zonos2/components/text_frontend.py",
+      "lineRange": [
+        77,
+        90
+      ],
+      "summary": "汇总 ZONOS2 解码使用的温度、截断采样、重复惩罚、最大长度、码本数量和结束 token 等参数。",
+      "tags": [
+        "zonos2",
+        "sampling-params",
+        "tts",
+        "configuration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/zonos2/components/text_frontend.py:TTSTextNormalizer",
+      "type": "class",
+      "name": "TTSTextNormalizer",
+      "filePath": "models/zonos2/components/text_frontend.py",
+      "lineRange": [
+        164,
+        254
+      ],
+      "summary": "按语言惰性构建并锁定 NeMo WFST 规范化器，持久化语法缓存并处理数字标点和不同语言的后处理差异。",
+      "tags": [
+        "zonos2",
+        "text-normalization",
+        "nemo",
+        "wfst",
+        "caching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/zonos2/components/text_frontend.py:build_prompt_rows",
+      "type": "function",
+      "name": "build_prompt_rows",
+      "filePath": "models/zonos2/components/text_frontend.py",
+      "lineRange": [
+        396,
+        417
+      ],
+      "summary": "把规范化文本编码为字节 token 行，附加语速、质量、静音与说话人条件布局，形成模型所需的十列提示张量。",
+      "tags": [
+        "zonos2",
+        "prompt-building",
+        "tokenization",
+        "conditioning"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/zonos2/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/zonos2/config.py",
+      "summary": "定义 ZONOS2 单 GPU 与多 GPU 流水线配置，描述预处理、说话人编码、自回归引擎和声码器阶段及其部署位置。",
+      "tags": [
+        "zonos2",
+        "pipeline-config",
+        "stage-topology",
+        "multi-gpu"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/zonos2/config.py:Zonos2PipelineConfig",
+      "type": "class",
+      "name": "Zonos2PipelineConfig",
+      "filePath": "models/zonos2/config.py",
+      "lineRange": [
+        59,
+        96
+      ],
+      "summary": "声明 ZONOS2 所需模型能力、阶段配置类型和默认阶段拓扑，并把模型路径注入各阶段工厂参数。",
+      "tags": [
+        "zonos2",
+        "pipeline-config",
+        "stage-topology",
+        "model-path"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/zonos2/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/zonos2/engine_builder.py",
+      "summary": "把 ZONOS2 接入通用 TTS 引擎构建流程，解析检查点与配置、安装 H100 MoE 调优参数，并配置服务参数、模型运行器、CUDA Graph 与调度适配器。",
+      "tags": [
+        "zonos2",
+        "engine-builder",
+        "sglang",
+        "moe",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/engine_builder.py:Zonos2EngineBuilder",
+      "type": "class",
+      "name": "Zonos2EngineBuilder",
+      "filePath": "models/zonos2/engine_builder.py",
+      "lineRange": [
+        114,
+        241
+      ],
+      "summary": "协调 ZONOS2 检查点解析、自动配置注册、服务参数定制、模型和运行器创建、CUDA Graph 后处理以及调度回调安装。",
+      "tags": [
+        "zonos2",
+        "engine-builder",
+        "sglang",
+        "cuda-graph",
+        "scheduler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/hf_config.py",
+      "type": "file",
+      "name": "hf_config.py",
+      "filePath": "models/zonos2/hf_config.py",
+      "summary": "定义 Hugging Face 兼容的 ZONOS2 配置，计算前馈维度并表达各层的注意力、MoE、专家选择和 EDA 参数。",
+      "tags": [
+        "zonos2",
+        "huggingface",
+        "model-config",
+        "moe"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/zonos2/hf_config.py:Zonos2Config",
+      "type": "class",
+      "name": "Zonos2Config",
+      "filePath": "models/zonos2/hf_config.py",
+      "lineRange": [
+        25,
+        144
+      ],
+      "summary": "将 params.json 字段转换为 PretrainedConfig，并提供逐层 MoE 启用、top-k 专家数与 EDA 使用情况查询。",
+      "tags": [
+        "zonos2",
+        "pretrained-config",
+        "moe",
+        "huggingface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/zonos2/model_runner.py",
+      "type": "file",
+      "name": "model_runner.py",
+      "filePath": "models/zonos2/model_runner.py",
+      "summary": "驱动 ZONOS2 的预填充与逐帧解码，管理说话人嵌入注入、设备端反馈状态、向量化采样、EOS 倒计时以及异步流式输出。",
+      "tags": [
+        "zonos2",
+        "model-runner",
+        "autoregressive",
+        "sampling",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/model_runner.py:Zonos2ModelRunner",
+      "type": "class",
+      "name": "Zonos2ModelRunner",
+      "filePath": "models/zonos2/model_runner.py",
+      "lineRange": [
+        26,
+        402
+      ],
+      "summary": "扩展通用模型运行器以构建带说话人条件的预填充嵌入、并行采样音频码、更新反馈池、打断重复帧并协调异步解码结果。",
+      "tags": [
+        "zonos2",
+        "model-runner",
+        "prefill",
+        "autoregressive",
+        "async-decode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/moe_configs/triton_3_6_0/E=16,N=3072,device_name=NVIDIA_H100_80GB_HBM3.json",
+      "type": "file",
+      "name": "E=16,N=3072,device_name=NVIDIA_H100_80GB_HBM3.json",
+      "filePath": "models/zonos2/moe_configs/triton_3_6_0/E=16,N=3072,device_name=NVIDIA_H100_80GB_HBM3.json",
+      "summary": "保存面向 NVIDIA H100、16 专家和隐藏维度 3072 的 Triton MoE 矩阵乘调优参数，并按不同批量规模选择块尺寸与执行配置。",
+      "tags": [
+        "zonos2",
+        "moe",
+        "triton",
+        "h100",
+        "kernel-tuning"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/zonos2/payload_types.py",
+      "type": "file",
+      "name": "payload_types.py",
+      "filePath": "models/zonos2/payload_types.py",
+      "summary": "定义跨流水线传递的 ZONOS2 请求状态契约，覆盖输入文本与参考音频、提示行、说话人嵌入、生成音频码和统计字段的序列化。",
+      "tags": [
+        "zonos2",
+        "pipeline-state",
+        "payload",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/zonos2/payload_types.py:Zonos2State",
+      "type": "class",
+      "name": "Zonos2State",
+      "filePath": "models/zonos2/payload_types.py",
+      "lineRange": [
+        22,
+        53
+      ],
+      "summary": "以声明式 wire 元数据定义每个请求跨阶段传输的输入、条件、说话人特征、生成音频码、结束帧和采样参数。",
+      "tags": [
+        "zonos2",
+        "request-state",
+        "pipeline-payload",
+        "serialization"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/zonos2/radix_hash.py",
+      "type": "file",
+      "name": "radix_hash.py",
+      "filePath": "models/zonos2/radix_hash.py",
+      "summary": "把每个 ZONOS2 多码本帧压缩为顺序敏感的整数键，使调度器可用 radix cache 匹配提示前缀并用词表边界检测结束。",
+      "tags": [
+        "zonos2",
+        "radix-cache",
+        "hashing",
+        "scheduler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/zonos2/radix_hash.py:poly_row_hash",
+      "type": "function",
+      "name": "poly_row_hash",
+      "filePath": "models/zonos2/radix_hash.py",
+      "lineRange": [
+        24,
+        30
+      ],
+      "summary": "用 int64 多项式滚动哈希将每行多码本 token 映射到 radix 词表空间，同时保留列顺序差异。",
+      "tags": [
+        "zonos2",
+        "polynomial-hash",
+        "radix-cache",
+        "tensor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/zonos2/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/zonos2/request_builders.py",
+      "summary": "将 OpenAI 语音请求转换为 ZONOS2 状态和 SGLang 自回归请求，解析参考音频与采样参数、注入说话人槽、哈希帧键并适配流式及最终结果。",
+      "tags": [
+        "zonos2",
+        "request-builder",
+        "sglang",
+        "voice-cloning",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/zonos2/request_builders.py:build_zonos2_state",
+      "type": "function",
+      "name": "build_zonos2_state",
+      "filePath": "models/zonos2/request_builders.py",
+      "lineRange": [
+        59,
+        106
+      ],
+      "summary": "解析语音请求的文本、参考音频、语言和显式采样参数，拒绝不支持的随机种子并生成初始 Zonos2State。",
+      "tags": [
+        "zonos2",
+        "request-parsing",
+        "tts",
+        "generation-params"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/zonos2/request_builders.py:build_sglang_zonos2_request",
+      "type": "function",
+      "name": "build_sglang_zonos2_request",
+      "filePath": "models/zonos2/request_builders.py",
+      "lineRange": [
+        173,
+        236
+      ],
+      "summary": "把预处理状态转换为 SGLang Req：注入说话人及条件标记，哈希提示帧作为 radix token，并配置停止哨兵、采样和流元数据。",
+      "tags": [
+        "zonos2",
+        "sglang-request",
+        "radix-cache",
+        "speaker-conditioning",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/sampler.py",
+      "type": "file",
+      "name": "sampler.py",
+      "filePath": "models/zonos2/sampler.py",
+      "summary": "对九个音频码本执行向量化采样，按请求应用温度、重复惩罚、top-k、top-p 和 min-p 过滤并返回下一帧 token。",
+      "tags": [
+        "zonos2",
+        "sampling",
+        "top-k",
+        "top-p",
+        "repetition-penalty"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/zonos2/sampler.py:sample_tts",
+      "type": "function",
+      "name": "sample_tts",
+      "filePath": "models/zonos2/sampler.py",
+      "lineRange": [
+        82,
+        134
+      ],
+      "summary": "按批次和码本广播各请求参数，依次应用温度、重复惩罚与 top-k、top-p、min-p 掩码后进行多项式采样。",
+      "tags": [
+        "zonos2",
+        "tts-sampling",
+        "multinomial",
+        "logit-filtering"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "models/zonos2/sglang_model.py",
+      "summary": "实现适配 SGLang 的 ZONOS2 解码骨干，组合注意力、稠密或 MoE 前馈层、音频码本嵌入与输出头，并支持尾部 CUDA Graph 捕获和权重加载。",
+      "tags": [
+        "zonos2",
+        "sglang-model",
+        "transformer",
+        "moe",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/sglang_model.py:Zonos2Attention",
+      "type": "class",
+      "name": "Zonos2Attention",
+      "filePath": "models/zonos2/sglang_model.py",
+      "lineRange": [
+        40,
+        81
+      ],
+      "summary": "使用 QKV 并行线性层、旋转位置编码和 SGLang RadixAttention 实现单层自注意力，并对查询键归一化。",
+      "tags": [
+        "zonos2",
+        "attention",
+        "rotary-embedding",
+        "radix-attention"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/sglang_model.py:Zonos2MoEBlock",
+      "type": "class",
+      "name": "Zonos2MoEBlock",
+      "filePath": "models/zonos2/sglang_model.py",
+      "lineRange": [
+        139,
+        159
+      ],
+      "summary": "组合 Sonic 路由器与融合专家模块，按层配置选择 top-k 专家并执行稀疏前馈计算。",
+      "tags": [
+        "zonos2",
+        "moe",
+        "expert-routing",
+        "fused-kernel"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/sglang_model.py:Zonos2SGLangModel",
+      "type": "class",
+      "name": "Zonos2SGLangModel",
+      "filePath": "models/zonos2/sglang_model.py",
+      "lineRange": [
+        196,
+        611
+      ],
+      "summary": "组装多码本嵌入、解码层、说话人投影和输出头，支持预填充/解码前向、尾部 CUDA Graph、请求状态重置及权重映射加载。",
+      "tags": [
+        "zonos2",
+        "transformer",
+        "sglang",
+        "cuda-graph",
+        "weight-loading"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/zonos2/stages.py",
+      "summary": "提供 ZONOS2 流水线各阶段的执行器工厂，串联文本预处理、参考说话人编码、自回归生成以及支持批处理和流式输出的 DAC 声码器。",
+      "tags": [
+        "zonos2",
+        "pipeline-stages",
+        "tts",
+        "speaker-encoding",
+        "vocoder"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/zonos2/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/zonos2/stages.py",
+      "lineRange": [
+        56,
+        76
+      ],
+      "summary": "创建 CPU 预处理阶段，配置文本规范化缓存并把请求文本和条件转换为 ZONOS2 提示行。",
+      "tags": [
+        "zonos2",
+        "preprocessing",
+        "text-frontend",
+        "stage-factory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/zonos2/stages.py:create_speaker_encode_executor",
+      "type": "function",
+      "name": "create_speaker_encode_executor",
+      "filePath": "models/zonos2/stages.py",
+      "lineRange": [
+        82,
+        107
+      ],
+      "summary": "创建参考说话人编码阶段，按需加载 Qwen3 编码器、缓存嵌入及指纹，并允许配置 GPU、并发度和 torch.compile。",
+      "tags": [
+        "zonos2",
+        "speaker-encoding",
+        "qwen3",
+        "stage-factory"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/zonos2/stages.py:create_vocoder_executor",
+      "type": "function",
+      "name": "create_vocoder_executor",
+      "filePath": "models/zonos2/stages.py",
+      "lineRange": [
+        113,
+        213
+      ],
+      "summary": "创建终端 DAC 声码器阶段，统一整段、批量和流式解码，构造音频结果载荷并按 token 成本批处理。",
+      "tags": [
+        "zonos2",
+        "vocoder",
+        "dac",
+        "streaming",
+        "stage-factory"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/zonos2/stages.py:create_sglang_omni_tts_engine_executor",
+      "type": "function",
+      "name": "create_sglang_omni_tts_engine_executor",
+      "filePath": "models/zonos2/stages.py",
+      "lineRange": [
+        223,
+        259
+      ],
+      "summary": "创建由 OmniScheduler 驱动的 ZONOS2 自回归引擎阶段，并配置精度、显存、CUDA Graph、异步解码和流式发块参数。",
+      "tags": [
+        "zonos2",
+        "tts-engine",
+        "omni-scheduler",
+        "cuda-graph",
+        "stage-factory"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/state_pool.py",
+      "type": "file",
+      "name": "state_pool.py",
+      "filePath": "models/zonos2/state_pool.py",
+      "summary": "维护固定容量的设备端逐请求解码状态池，分配稳定行索引并保存反馈嵌入、重复历史环形缓冲和帧循环检测数据。",
+      "tags": [
+        "zonos2",
+        "decode-state",
+        "gpu-buffer",
+        "state-pool",
+        "ring-buffer"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/zonos2/state_pool.py:Zonos2DecodeStatePool",
+      "type": "class",
+      "name": "Zonos2DecodeStatePool",
+      "filePath": "models/zonos2/state_pool.py",
+      "lineRange": [
+        18,
+        143
+      ],
+      "summary": "预分配设备端反馈嵌入和重复历史缓冲，为活动请求分配稳定行并在完成、回收或批次变化时清理状态。",
+      "tags": [
+        "zonos2",
+        "state-pool",
+        "gpu-memory",
+        "decode-feedback",
+        "ring-buffer"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/zonos2/streaming_contract.py",
+      "type": "file",
+      "name": "streaming_contract.py",
+      "filePath": "models/zonos2/streaming_contract.py",
+      "summary": "集中定义 ZONOS2 流式生产者与声码器消费者共享的首块、稳态块、重叠和前视阈值。",
+      "tags": [
+        "zonos2",
+        "streaming",
+        "chunking",
+        "contract"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/zonos2/streaming_contract.py:zonos2_producer_first_flush_rows",
+      "type": "function",
+      "name": "zonos2_producer_first_flush_rows",
+      "filePath": "models/zonos2/streaming_contract.py",
+      "lineRange": [
+        14,
+        22
+      ],
+      "summary": "根据初始块大小、最小重叠和码本前视量计算生产者首次向声码器冲刷所需的音频码行数。",
+      "tags": [
+        "zonos2",
+        "streaming",
+        "first-chunk",
+        "lookahead"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:pipeline/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "pipeline/__init__.py",
+      "summary": "以模块级惰性属性导出 Coordinator、Stage 和输入处理类型，避免仅使用轻量接口时提前加载调度器栈。",
+      "tags": [
+        "pipeline",
+        "lazy-import",
+        "package-exports"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "pipeline/__init__.py",
+      "lineRange": [
+        24,
+        32
+      ],
+      "summary": "按导出映射动态导入请求的流水线符号并缓存到模块全局，未知名称则遵循模块属性协议抛错。",
+      "tags": [
+        "pipeline",
+        "lazy-loading",
+        "module-exports"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:pipeline/control_plane.py",
+      "type": "file",
+      "name": "control_plane.py",
+      "filePath": "pipeline/control_plane.py",
+      "summary": "基于异步 ZeroMQ 封装流水线控制面套接字，并为阶段与协调器提供提交、完成、流式、管理、终止和关闭消息路由。",
+      "tags": [
+        "pipeline",
+        "control-plane",
+        "zeromq",
+        "asyncio",
+        "messaging"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:pipeline/control_plane.py:StageControlPlane",
+      "type": "class",
+      "name": "StageControlPlane",
+      "filePath": "pipeline/control_plane.py",
+      "lineRange": [
+        236,
+        355
+      ],
+      "summary": "为单个阶段建立输入、事件、管理和取消通道，接收提交或管理消息并向下游阶段及协调器发送完成、流式和管理结果。",
+      "tags": [
+        "pipeline",
+        "stage-control",
+        "zeromq",
+        "async-messaging",
+        "abort"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:pipeline/control_plane.py:CoordinatorControlPlane",
+      "type": "class",
+      "name": "CoordinatorControlPlane",
+      "filePath": "pipeline/control_plane.py",
+      "lineRange": [
+        358,
+        446
+      ],
+      "summary": "管理协调器侧 ZeroMQ 通道，向指定阶段提交请求或管理命令、接收事件，并广播取消、关闭等控制消息。",
+      "tags": [
+        "pipeline",
+        "coordinator-control",
+        "zeromq",
+        "routing",
+        "admin"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:pipeline/coordinator.py",
+      "type": "file",
+      "name": "coordinator.py",
+      "filePath": "pipeline/coordinator.py",
+      "summary": "实现多阶段推理流水线协调器，管理拓扑注册、请求提交与流式消费、完成聚合、取消传播、管理操作、权重更新和健康状态。",
+      "tags": [
+        "pipeline",
+        "coordinator",
+        "request-lifecycle",
+        "streaming",
+        "admin"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:pipeline/coordinator.py:Coordinator",
+      "type": "class",
+      "name": "Coordinator",
+      "filePath": "pipeline/coordinator.py",
+      "lineRange": [
+        49,
+        875
+      ],
+      "summary": "维护阶段拓扑与请求生命周期，启动完成循环、提交和流式等待结果、聚合终结阶段、传播取消，并编排管理及权重更新操作。",
+      "tags": [
+        "pipeline",
+        "coordinator",
+        "request-lifecycle",
+        "streaming",
+        "control-plane"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/whisper_asr/stages.py",
+      "target": "function:models/whisper_asr/stages.py:create_sglang_whisper_asr_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/stages.py",
+      "target": "function:models/whisper_asr/stages.py:create_sglang_whisper_asr_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/timestamp_logit_processor.py",
+      "target": "class:models/whisper_asr/timestamp_logit_processor.py:WhisperTimestampLogitProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/timestamp_logit_processor.py",
+      "target": "class:models/whisper_asr/timestamp_logit_processor.py:WhisperTimestampLogitProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/callbacks.py",
+      "target": "function:models/zonos2/callbacks.py:extract_zonos2_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/callbacks.py",
+      "target": "function:models/zonos2/callbacks.py:extract_zonos2_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/audio_codec.py",
+      "target": "class:models/zonos2/components/audio_codec.py:Zonos2DACVocoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/audio_codec.py",
+      "target": "class:models/zonos2/components/audio_codec.py:Zonos2DACVocoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/speaker_encoder.py",
+      "target": "class:models/zonos2/components/speaker_encoder.py:Qwen3SpeakerEmbedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/speaker_encoder.py",
+      "target": "class:models/zonos2/components/speaker_encoder.py:Qwen3SpeakerEmbedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/speaker_encoder.py",
+      "target": "class:models/zonos2/components/speaker_encoder.py:SpeakerEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/speaker_encoder.py",
+      "target": "class:models/zonos2/components/speaker_encoder.py:SpeakerEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/streaming_vocoder.py",
+      "target": "class:models/zonos2/components/streaming_vocoder.py:Zonos2StreamingVocoderScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/streaming_vocoder.py",
+      "target": "class:models/zonos2/components/streaming_vocoder.py:Zonos2StreamingVocoderScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/text_frontend.py",
+      "target": "class:models/zonos2/components/text_frontend.py:TTSSamplingParams",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/text_frontend.py",
+      "target": "class:models/zonos2/components/text_frontend.py:TTSSamplingParams",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/text_frontend.py",
+      "target": "class:models/zonos2/components/text_frontend.py:TTSTextNormalizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/text_frontend.py",
+      "target": "class:models/zonos2/components/text_frontend.py:TTSTextNormalizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/text_frontend.py",
+      "target": "function:models/zonos2/components/text_frontend.py:build_prompt_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/text_frontend.py",
+      "target": "function:models/zonos2/components/text_frontend.py:build_prompt_rows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/config.py",
+      "target": "class:models/zonos2/config.py:Zonos2PipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/config.py",
+      "target": "class:models/zonos2/config.py:Zonos2PipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/engine_builder.py",
+      "target": "class:models/zonos2/engine_builder.py:Zonos2EngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/engine_builder.py",
+      "target": "class:models/zonos2/engine_builder.py:Zonos2EngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/hf_config.py",
+      "target": "class:models/zonos2/hf_config.py:Zonos2Config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/hf_config.py",
+      "target": "class:models/zonos2/hf_config.py:Zonos2Config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/model_runner.py",
+      "target": "class:models/zonos2/model_runner.py:Zonos2ModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/model_runner.py",
+      "target": "class:models/zonos2/model_runner.py:Zonos2ModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/payload_types.py",
+      "target": "class:models/zonos2/payload_types.py:Zonos2State",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/payload_types.py",
+      "target": "class:models/zonos2/payload_types.py:Zonos2State",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/radix_hash.py",
+      "target": "function:models/zonos2/radix_hash.py:poly_row_hash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/radix_hash.py",
+      "target": "function:models/zonos2/radix_hash.py:poly_row_hash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/request_builders.py",
+      "target": "function:models/zonos2/request_builders.py:build_zonos2_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/request_builders.py",
+      "target": "function:models/zonos2/request_builders.py:build_zonos2_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/request_builders.py",
+      "target": "function:models/zonos2/request_builders.py:build_sglang_zonos2_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/request_builders.py",
+      "target": "function:models/zonos2/request_builders.py:build_sglang_zonos2_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sampler.py",
+      "target": "function:models/zonos2/sampler.py:sample_tts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sampler.py",
+      "target": "function:models/zonos2/sampler.py:sample_tts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sglang_model.py",
+      "target": "class:models/zonos2/sglang_model.py:Zonos2Attention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sglang_model.py",
+      "target": "class:models/zonos2/sglang_model.py:Zonos2Attention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sglang_model.py",
+      "target": "class:models/zonos2/sglang_model.py:Zonos2MoEBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sglang_model.py",
+      "target": "class:models/zonos2/sglang_model.py:Zonos2MoEBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sglang_model.py",
+      "target": "class:models/zonos2/sglang_model.py:Zonos2SGLangModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/sglang_model.py",
+      "target": "class:models/zonos2/sglang_model.py:Zonos2SGLangModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_speaker_encode_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_speaker_encode_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_vocoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_vocoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_sglang_omni_tts_engine_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/stages.py",
+      "target": "function:models/zonos2/stages.py:create_sglang_omni_tts_engine_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/state_pool.py",
+      "target": "class:models/zonos2/state_pool.py:Zonos2DecodeStatePool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/state_pool.py",
+      "target": "class:models/zonos2/state_pool.py:Zonos2DecodeStatePool",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/streaming_contract.py",
+      "target": "function:models/zonos2/streaming_contract.py:zonos2_producer_first_flush_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/streaming_contract.py",
+      "target": "function:models/zonos2/streaming_contract.py:zonos2_producer_first_flush_rows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/__init__.py",
+      "target": "function:pipeline/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/__init__.py",
+      "target": "function:pipeline/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/control_plane.py",
+      "target": "class:pipeline/control_plane.py:StageControlPlane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/control_plane.py",
+      "target": "class:pipeline/control_plane.py:StageControlPlane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/control_plane.py",
+      "target": "class:pipeline/control_plane.py:CoordinatorControlPlane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/control_plane.py",
+      "target": "class:pipeline/control_plane.py:CoordinatorControlPlane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/coordinator.py",
+      "target": "class:pipeline/coordinator.py:Coordinator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/coordinator.py",
+      "target": "class:pipeline/coordinator.py:Coordinator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/zonos2/components/audio_codec.py",
+      "target": "file:models/zonos2/payload_types.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

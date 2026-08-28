@@ -1,0 +1,1042 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/whisper_asr/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/whisper_asr/__init__.py",
+      "summary": "导出 Whisper ASR pipeline 配置并注册模型包。",
+      "tags": [
+        "Whisper-ASR",
+        "package-api",
+        "registration"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python 包入口暴露 WhisperASRPipelineConfig。"
+    },
+    {
+      "id": "file:models/whisper_asr/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/whisper_asr/config.py",
+      "summary": "定义 Whisper ASR engine factory、stage 与 pipeline 配置。",
+      "tags": [
+        "Whisper-ASR",
+        "pipeline-config",
+        "deployment"
+      ],
+      "complexity": "simple",
+      "languageNotes": "类型化配置描述 encoder service、decoder engine 和语言识别能力。"
+    },
+    {
+      "id": "class:models/whisper_asr/config.py:WhisperASRFactoryArgs",
+      "type": "class",
+      "name": "WhisperASRFactoryArgs",
+      "filePath": "models/whisper_asr/config.py",
+      "lineRange": [
+        24,
+        32
+      ],
+      "summary": "保存创建 Whisper encoder/decoder 服务所需的参数。",
+      "tags": [
+        "Whisper-ASR",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/config.py:WhisperASRStageConfig",
+      "type": "class",
+      "name": "WhisperASRStageConfig",
+      "filePath": "models/whisper_asr/config.py",
+      "lineRange": [
+        35,
+        36
+      ],
+      "summary": "定义 Whisper ASR stage 级配置。",
+      "tags": [
+        "Whisper-ASR",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/config.py:WhisperASRPipelineConfig",
+      "type": "class",
+      "name": "WhisperASRPipelineConfig",
+      "filePath": "models/whisper_asr/config.py",
+      "lineRange": [
+        39,
+        96
+      ],
+      "summary": "定义 Whisper ASR pipeline 拓扑、能力与默认 engine 参数。",
+      "tags": [
+        "Whisper-ASR",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/whisper_asr/encoder_cuda_graph.py",
+      "type": "file",
+      "name": "encoder_cuda_graph.py",
+      "filePath": "models/whisper_asr/encoder_cuda_graph.py",
+      "summary": "捕获并重放不同长度 bucket 的 Whisper encoder CUDA Graph。",
+      "tags": [
+        "Whisper-ASR",
+        "CUDA-Graph",
+        "encoder"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "管理静态 mel 输入、attention mask、encoder 输出及 graph 生命周期。"
+    },
+    {
+      "id": "class:models/whisper_asr/encoder_cuda_graph.py:_CapturedGraph",
+      "type": "class",
+      "name": "_CapturedGraph",
+      "filePath": "models/whisper_asr/encoder_cuda_graph.py",
+      "lineRange": [
+        16,
+        19
+      ],
+      "summary": "保存已捕获 Whisper encoder CUDA Graph 和静态输出。",
+      "tags": [
+        "Whisper-ASR",
+        "CUDA-Graph",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/encoder_cuda_graph.py:WhisperEncoderCudaGraphRunner",
+      "type": "class",
+      "name": "WhisperEncoderCudaGraphRunner",
+      "filePath": "models/whisper_asr/encoder_cuda_graph.py",
+      "lineRange": [
+        22,
+        150
+      ],
+      "summary": "管理 Whisper encoder graph buckets 的捕获、选择与重放。",
+      "tags": [
+        "Whisper-ASR",
+        "CUDA-Graph",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/whisper_asr/encoder_service.py",
+      "type": "file",
+      "name": "encoder_service.py",
+      "filePath": "models/whisper_asr/encoder_service.py",
+      "summary": "提供 Whisper pre-LM encoder 服务，批量处理音频特征、缓存结果并可复用 CUDA Graph。",
+      "tags": [
+        "Whisper-ASR",
+        "encoder-service",
+        "batching"
+      ],
+      "complexity": "complex",
+      "languageNotes": "以后台批处理、设备 tensor 和 cache namespace 服务并发 ASR 请求。"
+    },
+    {
+      "id": "function:models/whisper_asr/encoder_service.py:build_cache_namespace",
+      "type": "function",
+      "name": "build_cache_namespace",
+      "filePath": "models/whisper_asr/encoder_service.py",
+      "lineRange": [
+        33,
+        62
+      ],
+      "summary": "由模型和 processor 配置构造 Whisper encoder cache namespace。",
+      "tags": [
+        "Whisper-ASR",
+        "encoder-service",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/encoder_service.py:_expected_audio_tokens",
+      "type": "function",
+      "name": "_expected_audio_tokens",
+      "filePath": "models/whisper_asr/encoder_service.py",
+      "lineRange": [
+        65,
+        67
+      ],
+      "summary": "根据音频特征长度估算 encoder 输出 token 数。",
+      "tags": [
+        "Whisper-ASR",
+        "encoder-service",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/encoder_service.py:WhisperPreLMEncoderService",
+      "type": "class",
+      "name": "WhisperPreLMEncoderService",
+      "filePath": "models/whisper_asr/encoder_service.py",
+      "lineRange": [
+        70,
+        547
+      ],
+      "summary": "批量执行 Whisper encoder、缓存 hidden states 并服务 decoder 请求。",
+      "tags": [
+        "Whisper-ASR",
+        "encoder-service",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/whisper_asr/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/whisper_asr/engine_builder.py",
+      "summary": "为 Whisper ASR decoder 构建 SGLang engine，并配置 encoder service、CUDA Graph buckets 与 scheduler hooks。",
+      "tags": [
+        "Whisper-ASR",
+        "engine-builder",
+        "SGLang"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "builder 协调 encoder 前处理服务和自回归 decoder 运行时。"
+    },
+    {
+      "id": "function:models/whisper_asr/engine_builder.py:_normalize_encoder_graph_buckets",
+      "type": "function",
+      "name": "_normalize_encoder_graph_buckets",
+      "filePath": "models/whisper_asr/engine_builder.py",
+      "lineRange": [
+        20,
+        23
+      ],
+      "summary": "规范化 encoder CUDA Graph bucket 长度列表。",
+      "tags": [
+        "Whisper-ASR",
+        "engine-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/engine_builder.py:_resolve_encoder_graph_buckets",
+      "type": "function",
+      "name": "_resolve_encoder_graph_buckets",
+      "filePath": "models/whisper_asr/engine_builder.py",
+      "lineRange": [
+        26,
+        59
+      ],
+      "summary": "结合配置与限制解析最终 graph buckets。",
+      "tags": [
+        "Whisper-ASR",
+        "engine-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/whisper_asr/engine_builder.py:WhisperASREngineBuilder",
+      "type": "class",
+      "name": "WhisperASREngineBuilder",
+      "filePath": "models/whisper_asr/engine_builder.py",
+      "lineRange": [
+        62,
+        294
+      ],
+      "summary": "构建 Whisper decoder engine 并连接 encoder service 与 scheduler。",
+      "tags": [
+        "Whisper-ASR",
+        "engine-builder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/whisper_asr/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "summary": "构造 Whisper ASR decoder 请求、语言与时间戳 prompt，并实现 scheduler 生命周期 adapters。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "timestamps"
+      ],
+      "complexity": "complex",
+      "languageNotes": "处理 prefix tokens、logit bias、上下文预算与流式转写结果。"
+    },
+    {
+      "id": "function:models/whisper_asr/request_builders.py:_render_timestamped_text",
+      "type": "function",
+      "name": "_render_timestamped_text",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        64,
+        80
+      ],
+      "summary": "把带时间戳 token 的解码结果渲染为可读转写文本。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/request_builders.py:_resolve_language",
+      "type": "function",
+      "name": "_resolve_language",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        83,
+        89
+      ],
+      "summary": "解析并校验 Whisper 请求语言。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/request_builders.py:_build_logit_bias",
+      "type": "function",
+      "name": "_build_logit_bias",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        92,
+        96
+      ],
+      "summary": "构造 Whisper decoder 的 token logit bias。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/request_builders.py:_build_prefix_tokens",
+      "type": "function",
+      "name": "_build_prefix_tokens",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        99,
+        111
+      ],
+      "summary": "构造任务、语言和时间戳控制 prefix tokens。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/request_builders.py:_decoder_token_budgets",
+      "type": "function",
+      "name": "_decoder_token_budgets",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        114,
+        131
+      ],
+      "summary": "计算 decoder prompt 与生成阶段的 token 预算。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/request_builders.py:_build_prev_context_tokens",
+      "type": "function",
+      "name": "_build_prev_context_tokens",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        134,
+        146
+      ],
+      "summary": "把前序转写上下文编码为 decoder tokens。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/whisper_asr/request_builders.py:make_whisper_scheduler_adapters",
+      "type": "function",
+      "name": "make_whisper_scheduler_adapters",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        149,
+        351
+      ],
+      "summary": "创建 Whisper 请求准备、encoder 调用、decode 和结果处理 adapters。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/whisper_asr/request_builders.py:WhisperASRRequestData",
+      "type": "class",
+      "name": "WhisperASRRequestData",
+      "filePath": "models/whisper_asr/request_builders.py",
+      "lineRange": [
+        49,
+        56
+      ],
+      "summary": "保存 Whisper ASR 请求的音频、prompt、encoder 输出和解码状态。",
+      "tags": [
+        "Whisper-ASR",
+        "request-builder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/whisper_asr/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "summary": "把 Whisper encoder-decoder 模型接入 SGLang，定义 attention、decoder、cross-attention 与权重加载。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "encoder-decoder"
+      ],
+      "complexity": "complex",
+      "languageNotes": "复用 SGLang KV cache，支持预计算 encoder hidden states 与条件生成。"
+    },
+    {
+      "id": "function:models/whisper_asr/sglang_model.py:_load_projection_shard",
+      "type": "function",
+      "name": "_load_projection_shard",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        61,
+        69
+      ],
+      "summary": "加载 Whisper 输出 projection 的权重分片。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperDecoderLayerNorm",
+      "type": "class",
+      "name": "WhisperDecoderLayerNorm",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        43,
+        58
+      ],
+      "summary": "实现与 Whisper checkpoint 兼容的 LayerNorm。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperEncoderAttention",
+      "type": "class",
+      "name": "WhisperEncoderAttention",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        72,
+        108
+      ],
+      "summary": "实现 Whisper encoder 的多头 self-attention。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperEncoderLayer",
+      "type": "class",
+      "name": "WhisperEncoderLayer",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        111,
+        130
+      ],
+      "summary": "组合 Whisper encoder attention、MLP 与 residual。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperEncoder",
+      "type": "class",
+      "name": "WhisperEncoder",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        133,
+        171
+      ],
+      "summary": "把 log-mel 特征编码为 decoder 可消费的 hidden states。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperSGLangSelfAttention",
+      "type": "class",
+      "name": "WhisperSGLangSelfAttention",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        174,
+        210
+      ],
+      "summary": "把 Whisper decoder self-attention 接入 SGLang KV cache。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperSGLangCrossAttention",
+      "type": "class",
+      "name": "WhisperSGLangCrossAttention",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        213,
+        255
+      ],
+      "summary": "实现 decoder 到 encoder states 的 cross-attention。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperDecoderLayer",
+      "type": "class",
+      "name": "WhisperDecoderLayer",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        258,
+        309
+      ],
+      "summary": "组合 self-attention、cross-attention 与 feed-forward。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperDecoder",
+      "type": "class",
+      "name": "WhisperDecoder",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        312,
+        351
+      ],
+      "summary": "执行带 encoder 条件和 KV cache 的 Whisper token 解码。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperModel",
+      "type": "class",
+      "name": "WhisperModel",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        354,
+        362
+      ],
+      "summary": "组合 Whisper encoder 与 decoder 主干。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/whisper_asr/sglang_model.py:WhisperForConditionalGeneration",
+      "type": "class",
+      "name": "WhisperForConditionalGeneration",
+      "filePath": "models/whisper_asr/sglang_model.py",
+      "lineRange": [
+        365,
+        570
+      ],
+      "summary": "实现 Whisper 条件生成、logits 计算和 checkpoint 权重加载。",
+      "tags": [
+        "Whisper-ASR",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/whisper_asr/__init__.py",
+      "target": "file:models/whisper_asr/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:models/whisper_asr/config.py",
+      "target": "class:models/whisper_asr/config.py:WhisperASRFactoryArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/config.py",
+      "target": "class:models/whisper_asr/config.py:WhisperASRFactoryArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/config.py",
+      "target": "class:models/whisper_asr/config.py:WhisperASRStageConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/config.py",
+      "target": "class:models/whisper_asr/config.py:WhisperASRStageConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/config.py",
+      "target": "class:models/whisper_asr/config.py:WhisperASRPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/config.py",
+      "target": "class:models/whisper_asr/config.py:WhisperASRPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_cuda_graph.py",
+      "target": "class:models/whisper_asr/encoder_cuda_graph.py:_CapturedGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_cuda_graph.py",
+      "target": "class:models/whisper_asr/encoder_cuda_graph.py:_CapturedGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_cuda_graph.py",
+      "target": "class:models/whisper_asr/encoder_cuda_graph.py:WhisperEncoderCudaGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_cuda_graph.py",
+      "target": "class:models/whisper_asr/encoder_cuda_graph.py:WhisperEncoderCudaGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_service.py",
+      "target": "function:models/whisper_asr/encoder_service.py:build_cache_namespace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_service.py",
+      "target": "function:models/whisper_asr/encoder_service.py:build_cache_namespace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_service.py",
+      "target": "function:models/whisper_asr/encoder_service.py:_expected_audio_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_service.py",
+      "target": "function:models/whisper_asr/encoder_service.py:_expected_audio_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_service.py",
+      "target": "class:models/whisper_asr/encoder_service.py:WhisperPreLMEncoderService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/encoder_service.py",
+      "target": "class:models/whisper_asr/encoder_service.py:WhisperPreLMEncoderService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/engine_builder.py",
+      "target": "function:models/whisper_asr/engine_builder.py:_normalize_encoder_graph_buckets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/engine_builder.py",
+      "target": "function:models/whisper_asr/engine_builder.py:_normalize_encoder_graph_buckets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/engine_builder.py",
+      "target": "function:models/whisper_asr/engine_builder.py:_resolve_encoder_graph_buckets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/engine_builder.py",
+      "target": "function:models/whisper_asr/engine_builder.py:_resolve_encoder_graph_buckets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/engine_builder.py",
+      "target": "class:models/whisper_asr/engine_builder.py:WhisperASREngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/engine_builder.py",
+      "target": "class:models/whisper_asr/engine_builder.py:WhisperASREngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_render_timestamped_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_render_timestamped_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_resolve_language",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_resolve_language",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_build_logit_bias",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_build_logit_bias",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_build_prefix_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_build_prefix_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_decoder_token_budgets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_decoder_token_budgets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_build_prev_context_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:_build_prev_context_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:make_whisper_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "function:models/whisper_asr/request_builders.py:make_whisper_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "class:models/whisper_asr/request_builders.py:WhisperASRRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/request_builders.py",
+      "target": "class:models/whisper_asr/request_builders.py:WhisperASRRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "function:models/whisper_asr/sglang_model.py:_load_projection_shard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "function:models/whisper_asr/sglang_model.py:_load_projection_shard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperDecoderLayerNorm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperDecoderLayerNorm",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperEncoderAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperEncoderAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperEncoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperEncoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperSGLangSelfAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperSGLangSelfAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperSGLangCrossAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperSGLangCrossAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperDecoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperDecoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperDecoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperDecoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperForConditionalGeneration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/whisper_asr/sglang_model.py",
+      "target": "class:models/whisper_asr/sglang_model.py:WhisperForConditionalGeneration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

@@ -1,0 +1,32 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "scheduling/omni_scheduler.py",
+      "language": "python",
+      "sizeLines": 2722,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/token_text_streaming.py",
+      "language": "python",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/types.py",
+      "language": "python",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "scheduling/omni_scheduler.py": [
+      "scheduling/types.py"
+    ],
+    "scheduling/token_text_streaming.py": [
+      "scheduling/types.py"
+    ],
+    "scheduling/types.py": []
+  }
+}

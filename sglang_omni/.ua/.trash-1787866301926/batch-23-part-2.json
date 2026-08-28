@@ -1,0 +1,1280 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_omni/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/qwen3_omni/__init__.py",
+      "summary": "通过惰性属性加载公开 Qwen3-Omni 配置、组件和能力，避免导入时初始化重型依赖。",
+      "tags": [
+        "qwen3-omni",
+        "lazy-import",
+        "public-api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "models/qwen3_omni/__init__.py",
+      "lineRange": [
+        33,
+        64
+      ],
+      "summary": "按属性名称惰性导入 Qwen3-Omni 配置、规格与编码组件。",
+      "tags": [
+        "qwen3-omni",
+        "lazy-import",
+        "getattr--",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_omni/bootstrap.py",
+      "type": "file",
+      "name": "bootstrap.py",
+      "filePath": "models/qwen3_omni/bootstrap.py",
+      "summary": "分别构建 Qwen3-Omni Thinker 与 Talker 的 SGLang 调度器并应用模型专用服务器参数。",
+      "tags": [
+        "qwen3-omni",
+        "scheduler-bootstrap",
+        "thinker",
+        "talker"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/bootstrap.py:create_thinker_scheduler",
+      "type": "function",
+      "name": "create_thinker_scheduler",
+      "filePath": "models/qwen3_omni/bootstrap.py",
+      "lineRange": [
+        11,
+        152
+      ],
+      "summary": "配置并创建 Qwen3-Omni Thinker 的 SGLang 调度器。",
+      "tags": [
+        "qwen3-omni",
+        "scheduler-bootstrap",
+        "create-thinker-scheduler",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/bootstrap.py:create_talker_scheduler",
+      "type": "function",
+      "name": "create_talker_scheduler",
+      "filePath": "models/qwen3_omni/bootstrap.py",
+      "lineRange": [
+        155,
+        300
+      ],
+      "summary": "配置 Talker 模型、码本预测和流式输出适配器并创建调度器。",
+      "tags": [
+        "qwen3-omni",
+        "scheduler-bootstrap",
+        "create-talker-scheduler",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/qwen3_omni/components/__init__.py",
+      "summary": "标记 Qwen3-Omni 模型组件包。",
+      "tags": [
+        "qwen3-omni",
+        "components",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/audio_encoder.py",
+      "type": "file",
+      "name": "audio_encoder.py",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "summary": "封装 Qwen3-Omni 音频塔，打包变长特征、共享重复片段并可用 CUDA 图执行编码层栈。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "variable-length",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/audio_encoder.py:_build_audio_tower",
+      "type": "function",
+      "name": "_build_audio_tower",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "lineRange": [
+        26,
+        42
+      ],
+      "summary": "从 Thinker 配置构建并加载 Qwen3-Omni 音频塔。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "build-audio-tower",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/audio_encoder.py:pack_padded_audio_features",
+      "type": "function",
+      "name": "pack_padded_audio_features",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "lineRange": [
+        45,
+        68
+      ],
+      "summary": "按有效长度去除批量音频特征填充并拼接为变长序列。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "pack-padded-audio-features",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/audio_encoder.py:_forward_with_shared_segments",
+      "type": "function",
+      "name": "_forward_with_shared_segments",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "lineRange": [
+        80,
+        117
+      ],
+      "summary": "只编码唯一音频片段并按共享映射恢复重复片段输出。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "forward-with-shared-segments",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/audio_encoder.py:_share_segment_splits",
+      "type": "function",
+      "name": "_share_segment_splits",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "lineRange": [
+        120,
+        128
+      ],
+      "summary": "识别相同音频分段并生成唯一段与还原索引。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "share-segment-splits",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/audio_encoder.py:_SegmentSplits",
+      "type": "class",
+      "name": "_SegmentSplits",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "lineRange": [
+        71,
+        77
+      ],
+      "summary": "保存音频片段边界、唯一段和还原映射。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "segment-splits",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/audio_encoder.py:_GraphedLayerStack",
+      "type": "class",
+      "name": "_GraphedLayerStack",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "lineRange": [
+        131,
+        154
+      ],
+      "summary": "把音频编码层包装为可由 AudioLayerGraphRunner 回放的顺序栈。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "graphed-layer-stack",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/audio_encoder.py:Qwen3OmniAudioEncoder",
+      "type": "class",
+      "name": "Qwen3OmniAudioEncoder",
+      "filePath": "models/qwen3_omni/components/audio_encoder.py",
+      "lineRange": [
+        157,
+        251
+      ],
+      "summary": "加载音频塔、启用层栈 CUDA 图并输出打包后的音频嵌入。",
+      "tags": [
+        "qwen3-omni",
+        "audio-encoder",
+        "qwen3-omni-audio-encoder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/audio_layer_graph.py",
+      "type": "file",
+      "name": "audio_layer_graph.py",
+      "filePath": "models/qwen3_omni/components/audio_layer_graph.py",
+      "summary": "为 Qwen3-Omni 音频编码器层栈按分段形状捕获 CUDA 图，并在运行时选择图回放或即时执行。",
+      "tags": [
+        "qwen3-omni",
+        "audio-layers",
+        "cuda-graph",
+        "graph-replay"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/audio_layer_graph.py:_varlen_attention_forward",
+      "type": "function",
+      "name": "_varlen_attention_forward",
+      "filePath": "models/qwen3_omni/components/audio_layer_graph.py",
+      "lineRange": [
+        31,
+        64
+      ],
+      "summary": "执行适合变长音频片段和静态图捕获的注意力前向。",
+      "tags": [
+        "qwen3-omni",
+        "audio-layers",
+        "varlen-attention-forward",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/audio_layer_graph.py:_Captured",
+      "type": "class",
+      "name": "_Captured",
+      "filePath": "models/qwen3_omni/components/audio_layer_graph.py",
+      "lineRange": [
+        23,
+        28
+      ],
+      "summary": "保存一种分段形状对应的音频层 CUDA 图和静态张量。",
+      "tags": [
+        "qwen3-omni",
+        "audio-layers",
+        "captured",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/audio_layer_graph.py:AudioLayerGraphRunner",
+      "type": "class",
+      "name": "AudioLayerGraphRunner",
+      "filePath": "models/qwen3_omni/components/audio_layer_graph.py",
+      "lineRange": [
+        67,
+        251
+      ],
+      "summary": "按片段窗口捕获音频层栈图，并在匹配形状时回放否则即时执行。",
+      "tags": [
+        "qwen3-omni",
+        "audio-layers",
+        "audio-layer-graph-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "type": "file",
+      "name": "code2wav_cuda_graph.py",
+      "filePath": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "summary": "管理 Qwen3-Omni Code2Wav 精确形状 CUDA 图的构建、显存预算、数值等价校验、回滚和运行时降级。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "cuda-graph",
+        "memory-safety"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:GraphKey",
+      "type": "class",
+      "name": "GraphKey",
+      "filePath": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "lineRange": [
+        22,
+        26
+      ],
+      "summary": "以批量大小和码帧数标识一个 Code2Wav CUDA 图。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "graph-key",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:Code2WavRunResult",
+      "type": "class",
+      "name": "Code2WavRunResult",
+      "filePath": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "lineRange": [
+        30,
+        45
+      ],
+      "summary": "返回 Code2Wav 输出及是否命中 CUDA 图等运行元数据。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "code2-wav-run-result",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_CapturedGraph",
+      "type": "class",
+      "name": "_CapturedGraph",
+      "filePath": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "lineRange": [
+        49,
+        52
+      ],
+      "summary": "保存单个精确形状图及其静态码输入和音频输出。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "captured-graph",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_BuildFailure",
+      "type": "class",
+      "name": "_BuildFailure",
+      "filePath": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "lineRange": [
+        55,
+        56
+      ],
+      "summary": "记录图捕获失败的键、阶段和异常原因。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "build-failure",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_TorchCudaApi",
+      "type": "class",
+      "name": "_TorchCudaApi",
+      "filePath": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "lineRange": [
+        59,
+        140
+      ],
+      "summary": "封装 CUDA 设备、流、内存统计、捕获和同步操作以便测试与替换。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "torch-cuda-api",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:Code2WavCudaGraphRunner",
+      "type": "class",
+      "name": "Code2WavCudaGraphRunner",
+      "filePath": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "lineRange": [
+        143,
+        716
+      ],
+      "summary": "按优先级和显存预算构建图，验证与即时结果等价，并在运行失败时安全降级。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "code2-wav-cuda-graph-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "type": "file",
+      "name": "code2wav_scheduler.py",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "summary": "调度流式 Code2Wav 解码，维护请求窗口与固定槽位，合并批次、选择 CUDA 图并输出增量或最终音频。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "streaming-scheduler",
+        "batching"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/code2wav_scheduler.py:_serial_threshold_graph_keys",
+      "type": "function",
+      "name": "_serial_threshold_graph_keys",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        43,
+        59
+      ],
+      "summary": "生成适用于串行低延迟阈值的 Code2Wav 图键集合。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "serial-threshold-graph-keys",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/code2wav_scheduler.py:_batched_graph_keys",
+      "type": "function",
+      "name": "_batched_graph_keys",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        62,
+        75
+      ],
+      "summary": "生成批量 Code2Wav 调度需要预捕获的图键集合。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "batched-graph-keys",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/code2wav_scheduler.py:load_code2wav_model",
+      "type": "function",
+      "name": "load_code2wav_model",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        78,
+        103
+      ],
+      "summary": "加载 Code2Wav 模型、设备和精度配置并切换到推理模式。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "load-code2wav-model",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/code2wav_scheduler.py:create_code2wav_scheduler",
+      "type": "function",
+      "name": "create_code2wav_scheduler",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        981,
+        1065
+      ],
+      "summary": "根据阶段参数加载模型、预热 CUDA 图并创建流式调度器。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "create-code2wav-scheduler",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_scheduler.py:_PinnedSlot",
+      "type": "class",
+      "name": "_PinnedSlot",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        109,
+        117
+      ],
+      "summary": "保存固定主机与设备缓冲区及其异步事件状态。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "pinned-slot",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_scheduler.py:_PendingWindow",
+      "type": "class",
+      "name": "_PendingWindow",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        121,
+        129
+      ],
+      "summary": "表示等待满足解码步长的码帧窗口和截止时间。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "pending-window",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavStreamState",
+      "type": "class",
+      "name": "Code2WavStreamState",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        133,
+        140
+      ],
+      "summary": "维护单个 Code2Wav 流的缓存码、解码位置和槽位状态。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "code2-wav-stream-state",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavScheduler",
+      "type": "class",
+      "name": "Code2WavScheduler",
+      "filePath": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "lineRange": [
+        143,
+        978
+      ],
+      "summary": "消费码流、按期限与帧数组批，管理固定槽位并运行增量 Code2Wav 解码。",
+      "tags": [
+        "qwen3-omni",
+        "code2wav",
+        "code2-wav-scheduler",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/common.py",
+      "type": "file",
+      "name": "common.py",
+      "filePath": "models/qwen3_omni/components/common.py",
+      "summary": "加载 Qwen3-Omni Thinker 配置并汇总音频、视觉和语言模型关键规格。",
+      "tags": [
+        "qwen3-omni",
+        "model-config",
+        "component-spec"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/common.py:load_thinker_config",
+      "type": "function",
+      "name": "load_thinker_config",
+      "filePath": "models/qwen3_omni/components/common.py",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "从本地模型配置读取 Qwen3-Omni Thinker 子配置。",
+      "tags": [
+        "qwen3-omni",
+        "model-config",
+        "load-thinker-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/common.py:Qwen3OmniSpec",
+      "type": "class",
+      "name": "Qwen3OmniSpec",
+      "filePath": "models/qwen3_omni/components/common.py",
+      "lineRange": [
+        18,
+        35
+      ],
+      "summary": "汇总 Qwen3-Omni 音频、视觉、文本隐藏维度和特殊词元规格。",
+      "tags": [
+        "qwen3-omni",
+        "model-config",
+        "qwen3-omni-spec",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_omni/components/image_encoder.py",
+      "type": "file",
+      "name": "image_encoder.py",
+      "filePath": "models/qwen3_omni/components/image_encoder.py",
+      "summary": "构建 Qwen3-Omni 视觉编码器，优化块嵌入并规范化视觉输出供多模态流水线使用。",
+      "tags": [
+        "qwen3-omni",
+        "image-encoder",
+        "vision-transformer",
+        "patch-embedding"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/image_encoder.py:_patch_embed_forward",
+      "type": "function",
+      "name": "_patch_embed_forward",
+      "filePath": "models/qwen3_omni/components/image_encoder.py",
+      "lineRange": [
+        25,
+        27
+      ],
+      "summary": "以优化的线性路径执行视觉块嵌入前向。",
+      "tags": [
+        "qwen3-omni",
+        "image-encoder",
+        "patch-embed-forward",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/image_encoder.py:_optimize_patch_embed",
+      "type": "function",
+      "name": "_optimize_patch_embed",
+      "filePath": "models/qwen3_omni/components/image_encoder.py",
+      "lineRange": [
+        30,
+        88
+      ],
+      "summary": "把视觉编码器块嵌入替换为等价的推理优化实现。",
+      "tags": [
+        "qwen3-omni",
+        "image-encoder",
+        "optimize-patch-embed",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/image_encoder.py:_unpack_visual_output",
+      "type": "function",
+      "name": "_unpack_visual_output",
+      "filePath": "models/qwen3_omni/components/image_encoder.py",
+      "lineRange": [
+        91,
+        100
+      ],
+      "summary": "从不同视觉模型返回形态中提取主特征张量。",
+      "tags": [
+        "qwen3-omni",
+        "image-encoder",
+        "unpack-visual-output",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/components/image_encoder.py:_build_visual",
+      "type": "function",
+      "name": "_build_visual",
+      "filePath": "models/qwen3_omni/components/image_encoder.py",
+      "lineRange": [
+        103,
+        121
+      ],
+      "summary": "根据 Thinker 配置构建并加载视觉编码器。",
+      "tags": [
+        "qwen3-omni",
+        "image-encoder",
+        "build-visual",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/components/image_encoder.py:Qwen3OmniImageEncoder",
+      "type": "class",
+      "name": "Qwen3OmniImageEncoder",
+      "filePath": "models/qwen3_omni/components/image_encoder.py",
+      "lineRange": [
+        124,
+        202
+      ],
+      "summary": "封装视觉模型和块嵌入优化，输出供 Thinker 注入的图像特征。",
+      "tags": [
+        "qwen3-omni",
+        "image-encoder",
+        "qwen3-omni-image-encoder",
+        "class"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_omni/__init__.py",
+      "target": "function:models/qwen3_omni/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/__init__.py",
+      "target": "function:models/qwen3_omni/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/bootstrap.py",
+      "target": "function:models/qwen3_omni/bootstrap.py:create_thinker_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/bootstrap.py",
+      "target": "function:models/qwen3_omni/bootstrap.py:create_thinker_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/bootstrap.py",
+      "target": "function:models/qwen3_omni/bootstrap.py:create_talker_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/bootstrap.py",
+      "target": "function:models/qwen3_omni/bootstrap.py:create_talker_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:_build_audio_tower",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:_build_audio_tower",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:pack_padded_audio_features",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:pack_padded_audio_features",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:_forward_with_shared_segments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:_forward_with_shared_segments",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:_share_segment_splits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "function:models/qwen3_omni/components/audio_encoder.py:_share_segment_splits",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "class:models/qwen3_omni/components/audio_encoder.py:_SegmentSplits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "class:models/qwen3_omni/components/audio_encoder.py:_SegmentSplits",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "class:models/qwen3_omni/components/audio_encoder.py:_GraphedLayerStack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "class:models/qwen3_omni/components/audio_encoder.py:_GraphedLayerStack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "class:models/qwen3_omni/components/audio_encoder.py:Qwen3OmniAudioEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_encoder.py",
+      "target": "class:models/qwen3_omni/components/audio_encoder.py:Qwen3OmniAudioEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_layer_graph.py",
+      "target": "function:models/qwen3_omni/components/audio_layer_graph.py:_varlen_attention_forward",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_layer_graph.py",
+      "target": "function:models/qwen3_omni/components/audio_layer_graph.py:_varlen_attention_forward",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_layer_graph.py",
+      "target": "class:models/qwen3_omni/components/audio_layer_graph.py:_Captured",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_layer_graph.py",
+      "target": "class:models/qwen3_omni/components/audio_layer_graph.py:_Captured",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_layer_graph.py",
+      "target": "class:models/qwen3_omni/components/audio_layer_graph.py:AudioLayerGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/audio_layer_graph.py",
+      "target": "class:models/qwen3_omni/components/audio_layer_graph.py:AudioLayerGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:GraphKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:GraphKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:Code2WavRunResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:Code2WavRunResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_CapturedGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_CapturedGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_BuildFailure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_BuildFailure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_TorchCudaApi",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:_TorchCudaApi",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:Code2WavCudaGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:Code2WavCudaGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:_serial_threshold_graph_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:_serial_threshold_graph_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:_batched_graph_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:_batched_graph_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:load_code2wav_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:load_code2wav_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:create_code2wav_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:create_code2wav_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:_PinnedSlot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:_PinnedSlot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:_PendingWindow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:_PendingWindow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavStreamState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavStreamState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/code2wav_scheduler.py",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/common.py",
+      "target": "function:models/qwen3_omni/components/common.py:load_thinker_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/common.py",
+      "target": "function:models/qwen3_omni/components/common.py:load_thinker_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/common.py",
+      "target": "class:models/qwen3_omni/components/common.py:Qwen3OmniSpec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/common.py",
+      "target": "class:models/qwen3_omni/components/common.py:Qwen3OmniSpec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_patch_embed_forward",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_patch_embed_forward",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_optimize_patch_embed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_optimize_patch_embed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_unpack_visual_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_unpack_visual_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_build_visual",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_build_visual",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "class:models/qwen3_omni/components/image_encoder.py:Qwen3OmniImageEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/components/image_encoder.py",
+      "target": "class:models/qwen3_omni/components/image_encoder.py:Qwen3OmniImageEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/code2wav_scheduler.py:_batched_graph_keys",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:_serial_threshold_graph_keys",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/code2wav_scheduler.py:create_code2wav_scheduler",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:load_code2wav_model",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/code2wav_scheduler.py:create_code2wav_scheduler",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:_batched_graph_keys",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/code2wav_scheduler.py:create_code2wav_scheduler",
+      "target": "function:models/qwen3_omni/components/code2wav_scheduler.py:_serial_threshold_graph_keys",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/code2wav_scheduler.py:create_code2wav_scheduler",
+      "target": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavScheduler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/components/image_encoder.py:_build_visual",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_optimize_patch_embed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_omni/components/audio_encoder.py:Qwen3OmniAudioEncoder",
+      "target": "class:models/qwen3_omni/components/audio_layer_graph.py:AudioLayerGraphRunner",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/code2wav_scheduler.py:Code2WavScheduler",
+      "target": "class:models/qwen3_omni/components/code2wav_cuda_graph.py:Code2WavCudaGraphRunner",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/components/image_encoder.py:Qwen3OmniImageEncoder",
+      "target": "function:models/qwen3_omni/components/image_encoder.py:_build_visual",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

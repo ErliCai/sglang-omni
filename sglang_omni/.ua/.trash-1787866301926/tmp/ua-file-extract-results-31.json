@@ -1,0 +1,2687 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 2,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "utils/ipc_weights.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1171,
+      "nonEmptyLines": 1037,
+      "functions": [
+        {
+          "name": "get_weight_share_config",
+          "startLine": 84,
+          "endLine": 114,
+          "params": [
+            "environ"
+          ]
+        },
+        {
+          "name": "prepare_weight_share_process_compat",
+          "startLine": 117,
+          "endLine": 124,
+          "params": []
+        },
+        {
+          "name": "handle_file_for_model",
+          "startLine": 127,
+          "endLine": 129,
+          "params": [
+            "dir_path",
+            "model"
+          ]
+        },
+        {
+          "name": "_gpu_uuid",
+          "startLine": 132,
+          "endLine": 141,
+          "params": []
+        },
+        {
+          "name": "_claim_namespace",
+          "startLine": 149,
+          "endLine": 170,
+          "params": [
+            "file_path",
+            "run_id"
+          ]
+        },
+        {
+          "name": "_named_shared_tensors",
+          "startLine": 198,
+          "endLine": 213,
+          "params": [
+            "model"
+          ]
+        },
+        {
+          "name": "_manifest_hash",
+          "startLine": 216,
+          "endLine": 227,
+          "params": [
+            "tensors",
+            "private_names"
+          ]
+        },
+        {
+          "name": "_tensor_to_value_bytes",
+          "startLine": 230,
+          "endLine": 233,
+          "params": [
+            "tensor"
+          ]
+        },
+        {
+          "name": "_value_bytes_to_tensor",
+          "startLine": 236,
+          "endLine": 237,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "validate_weight_share_architecture",
+          "startLine": 325,
+          "endLine": 350,
+          "params": [
+            "architectures"
+          ]
+        },
+        {
+          "name": "_validate_secure_dir",
+          "startLine": 353,
+          "endLine": 370,
+          "params": [
+            "dir_path"
+          ]
+        },
+        {
+          "name": "_check_private_stat",
+          "startLine": 373,
+          "endLine": 387,
+          "params": [
+            "st",
+            "file_path"
+          ]
+        },
+        {
+          "name": "_prepare_secure_dir",
+          "startLine": 390,
+          "endLine": 394,
+          "params": [
+            "dir_path"
+          ]
+        },
+        {
+          "name": "_proc_stat_fields",
+          "startLine": 397,
+          "endLine": 410,
+          "params": [
+            "pid"
+          ]
+        },
+        {
+          "name": "_is_zombie",
+          "startLine": 413,
+          "endLine": 416,
+          "params": [
+            "pid"
+          ]
+        },
+        {
+          "name": "_proc_start_time",
+          "startLine": 419,
+          "endLine": 424,
+          "params": [
+            "pid"
+          ]
+        },
+        {
+          "name": "pid_is_alive",
+          "startLine": 427,
+          "endLine": 436,
+          "params": [
+            "pid"
+          ]
+        },
+        {
+          "name": "_atomic_write",
+          "startLine": 496,
+          "endLine": 527,
+          "params": [
+            "file_path",
+            "data"
+          ]
+        },
+        {
+          "name": "_resolve_private_names",
+          "startLine": 530,
+          "endLine": 544,
+          "params": [
+            "tensors",
+            "private_names",
+            "model"
+          ]
+        },
+        {
+          "name": "export_weights",
+          "startLine": 547,
+          "endLine": 627,
+          "params": [
+            "model",
+            "file_path",
+            "serializer",
+            "alias_predicate",
+            "validate_secure",
+            "model_path",
+            "model_revision",
+            "run_id",
+            "private_names"
+          ]
+        },
+        {
+          "name": "wait_for_export",
+          "startLine": 630,
+          "endLine": 643,
+          "params": [
+            "file_path",
+            "timeout_s",
+            "poll_interval_s"
+          ]
+        },
+        {
+          "name": "wait_for_any_export",
+          "startLine": 646,
+          "endLine": 671,
+          "params": [
+            "dir_path",
+            "timeout_s",
+            "poll_interval_s"
+          ]
+        },
+        {
+          "name": "_safe_unpickle",
+          "startLine": 688,
+          "endLine": 696,
+          "params": [
+            "fh",
+            "file_path"
+          ]
+        },
+        {
+          "name": "_validate_payload_schema",
+          "startLine": 699,
+          "endLine": 733,
+          "params": [
+            "payload",
+            "file_path"
+          ]
+        },
+        {
+          "name": "_load_payload",
+          "startLine": 736,
+          "endLine": 769,
+          "params": [
+            "file_path",
+            "model",
+            "validate_secure"
+          ]
+        },
+        {
+          "name": "attach_weights",
+          "startLine": 772,
+          "endLine": 805,
+          "params": [
+            "model",
+            "file_path",
+            "timeout_s",
+            "poll_interval_s",
+            "serializer",
+            "validate_secure",
+            "model_path",
+            "model_revision",
+            "run_id",
+            "private_names"
+          ]
+        },
+        {
+          "name": "_attach_and_check",
+          "startLine": 808,
+          "endLine": 830,
+          "params": [
+            "model",
+            "file_path",
+            "timeout_s",
+            "poll_interval_s",
+            "serializer",
+            "validate_secure",
+            "model_path",
+            "model_revision",
+            "run_id",
+            "private_names"
+          ]
+        },
+        {
+          "name": "_check_model_identity",
+          "startLine": 833,
+          "endLine": 868,
+          "params": [
+            "payload",
+            "model_path",
+            "model_revision",
+            "file_path",
+            "run_id"
+          ]
+        },
+        {
+          "name": "_check_leader_alive",
+          "startLine": 871,
+          "endLine": 893,
+          "params": [
+            "payload",
+            "when"
+          ]
+        },
+        {
+          "name": "_alias_from_payload",
+          "startLine": 896,
+          "endLine": 1052,
+          "params": [
+            "model",
+            "payload",
+            "file_path",
+            "serializer",
+            "private_names"
+          ]
+        },
+        {
+          "name": "_rebind_buffer",
+          "startLine": 1055,
+          "endLine": 1064,
+          "params": [
+            "model",
+            "dotted_name",
+            "tensor"
+          ]
+        },
+        {
+          "name": "_raise_manifest_mismatch",
+          "startLine": 1067,
+          "endLine": 1083,
+          "params": [
+            "model",
+            "payload",
+            "own_tensors",
+            "file_path"
+          ]
+        },
+        {
+          "name": "verify_attachment",
+          "startLine": 1086,
+          "endLine": 1110,
+          "params": [
+            "model",
+            "record"
+          ]
+        },
+        {
+          "name": "leader_export",
+          "startLine": 1113,
+          "endLine": 1134,
+          "params": [
+            "model",
+            "dir_path",
+            "serializer",
+            "validate_secure",
+            "model_path",
+            "model_revision",
+            "run_id",
+            "private_names"
+          ]
+        },
+        {
+          "name": "follower_attach",
+          "startLine": 1137,
+          "endLine": 1171,
+          "params": [
+            "model",
+            "dir_path",
+            "timeout_s",
+            "serializer",
+            "validate_secure",
+            "model_path",
+            "model_revision",
+            "run_id",
+            "private_names"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "WeightShareError",
+          "startLine": 72,
+          "endLine": 73,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "WeightShareConfig",
+          "startLine": 77,
+          "endLine": 81,
+          "methods": [],
+          "properties": [
+            "role",
+            "dir_path",
+            "attach_timeout_s",
+            "run_id"
+          ]
+        },
+        {
+          "name": "_SglangIpcSerializer",
+          "startLine": 173,
+          "endLine": 195,
+          "methods": [
+            "serialize",
+            "deserialize"
+          ],
+          "properties": []
+        },
+        {
+          "name": "WeightSharePolicy",
+          "startLine": 241,
+          "endLine": 250,
+          "methods": [],
+          "properties": [
+            "private_tensor_names"
+          ]
+        },
+        {
+          "name": "LeaderLivenessMonitor",
+          "startLine": 439,
+          "endLine": 493,
+          "methods": [
+            "__init__",
+            "_leader_present",
+            "start",
+            "stop",
+            "_run"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "WeightShareError",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "WeightShareConfig",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "get_weight_share_config",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "prepare_weight_share_process_compat",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "handle_file_for_model",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "_gpu_uuid",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "_claim_namespace",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "_SglangIpcSerializer",
+          "line": 173,
+          "isDefault": false
+        },
+        {
+          "name": "_named_shared_tensors",
+          "line": 198,
+          "isDefault": false
+        },
+        {
+          "name": "_manifest_hash",
+          "line": 216,
+          "isDefault": false
+        },
+        {
+          "name": "_tensor_to_value_bytes",
+          "line": 230,
+          "isDefault": false
+        },
+        {
+          "name": "_value_bytes_to_tensor",
+          "line": 236,
+          "isDefault": false
+        },
+        {
+          "name": "WeightSharePolicy",
+          "line": 240,
+          "isDefault": false
+        },
+        {
+          "name": "validate_weight_share_architecture",
+          "line": 325,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_secure_dir",
+          "line": 353,
+          "isDefault": false
+        },
+        {
+          "name": "_check_private_stat",
+          "line": 373,
+          "isDefault": false
+        },
+        {
+          "name": "_prepare_secure_dir",
+          "line": 390,
+          "isDefault": false
+        },
+        {
+          "name": "_proc_stat_fields",
+          "line": 397,
+          "isDefault": false
+        },
+        {
+          "name": "_is_zombie",
+          "line": 413,
+          "isDefault": false
+        },
+        {
+          "name": "_proc_start_time",
+          "line": 419,
+          "isDefault": false
+        },
+        {
+          "name": "pid_is_alive",
+          "line": 427,
+          "isDefault": false
+        },
+        {
+          "name": "LeaderLivenessMonitor",
+          "line": 439,
+          "isDefault": false
+        },
+        {
+          "name": "_atomic_write",
+          "line": 496,
+          "isDefault": false
+        },
+        {
+          "name": "_resolve_private_names",
+          "line": 530,
+          "isDefault": false
+        },
+        {
+          "name": "export_weights",
+          "line": 547,
+          "isDefault": false
+        },
+        {
+          "name": "wait_for_export",
+          "line": 630,
+          "isDefault": false
+        },
+        {
+          "name": "wait_for_any_export",
+          "line": 646,
+          "isDefault": false
+        },
+        {
+          "name": "_safe_unpickle",
+          "line": 688,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_payload_schema",
+          "line": 699,
+          "isDefault": false
+        },
+        {
+          "name": "_load_payload",
+          "line": 736,
+          "isDefault": false
+        },
+        {
+          "name": "attach_weights",
+          "line": 772,
+          "isDefault": false
+        },
+        {
+          "name": "_attach_and_check",
+          "line": 808,
+          "isDefault": false
+        },
+        {
+          "name": "_check_model_identity",
+          "line": 833,
+          "isDefault": false
+        },
+        {
+          "name": "_check_leader_alive",
+          "line": 871,
+          "isDefault": false
+        },
+        {
+          "name": "_alias_from_payload",
+          "line": 896,
+          "isDefault": false
+        },
+        {
+          "name": "_rebind_buffer",
+          "line": 1055,
+          "isDefault": false
+        },
+        {
+          "name": "_raise_manifest_mismatch",
+          "line": 1067,
+          "isDefault": false
+        },
+        {
+          "name": "verify_attachment",
+          "line": 1086,
+          "isDefault": false
+        },
+        {
+          "name": "leader_export",
+          "line": 1113,
+          "isDefault": false
+        },
+        {
+          "name": "follower_attach",
+          "line": 1137,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_weight_share_config",
+          "callee": "(env.get(ENV_WEIGHT_SHARE) or \"\").strip",
+          "lineNumber": 87
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "env.get",
+          "lineNumber": 87
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "raw.partition",
+          "lineNumber": 90
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "role.strip().lower",
+          "lineNumber": 91
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "role.strip",
+          "lineNumber": 91
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "dir_path.strip",
+          "lineNumber": 92
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "ValueError",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "(env.get(ENV_WEIGHT_SHARE_RUN_ID) or \"\").strip",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "env.get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "(env.get(ENV_WEIGHT_SHARE_TIMEOUT_S) or \"\").strip",
+          "lineNumber": 99
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "env.get",
+          "lineNumber": 99
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "float",
+          "lineNumber": 102
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "ValueError",
+          "lineNumber": 104
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "ValueError",
+          "lineNumber": 109
+        },
+        {
+          "caller": "get_weight_share_config",
+          "callee": "WeightShareConfig",
+          "lineNumber": 112
+        },
+        {
+          "caller": "prepare_weight_share_process_compat",
+          "callee": "get_weight_share_config",
+          "lineNumber": 119
+        },
+        {
+          "caller": "prepare_weight_share_process_compat",
+          "callee": "monkey_patch_torch_reductions",
+          "lineNumber": 124
+        },
+        {
+          "caller": "handle_file_for_model",
+          "callee": "os.path.join",
+          "lineNumber": 129
+        },
+        {
+          "caller": "handle_file_for_model",
+          "callee": "type",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_gpu_uuid",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_gpu_uuid",
+          "callee": "torch.cuda.get_device_properties",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_gpu_uuid",
+          "callee": "torch.cuda.current_device",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_gpu_uuid",
+          "callee": "str",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_gpu_uuid",
+          "callee": "getattr",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "os.open",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "fcntl.flock",
+          "lineNumber": 161
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "os.close",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "WeightShareError",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "os.ftruncate",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "os.write",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "f\"{os.getpid()}\\n{run_id or ''}\\n\".encode",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "os.getpid",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_claim_namespace",
+          "callee": "_LEASE_FDS.append",
+          "lineNumber": 170
+        },
+        {
+          "caller": "serialize",
+          "callee": "monkey_patch_torch_reductions",
+          "lineNumber": 186
+        },
+        {
+          "caller": "serialize",
+          "callee": "MultiprocessingSerializer.serialize",
+          "lineNumber": 187
+        },
+        {
+          "caller": "deserialize",
+          "callee": "monkey_patch_torch_reductions",
+          "lineNumber": 194
+        },
+        {
+          "caller": "deserialize",
+          "callee": "MultiprocessingSerializer.deserialize",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_named_shared_tensors",
+          "callee": "model.named_parameters",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_named_shared_tensors",
+          "callee": "model.named_buffers",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_named_shared_tensors",
+          "callee": "WeightShareError",
+          "lineNumber": 209
+        },
+        {
+          "caller": "_manifest_hash",
+          "callee": "hashlib.sha256",
+          "lineNumber": 222
+        },
+        {
+          "caller": "_manifest_hash",
+          "callee": "sorted",
+          "lineNumber": 223
+        },
+        {
+          "caller": "_manifest_hash",
+          "callee": "digest.update",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_manifest_hash",
+          "callee": "f\"{name}|{t.dtype}|{tuple(t.shape)}|{mode}\\n\".encode",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_manifest_hash",
+          "callee": "tuple",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_manifest_hash",
+          "callee": "digest.hexdigest",
+          "lineNumber": 227
+        },
+        {
+          "caller": "_tensor_to_value_bytes",
+          "callee": "io.BytesIO",
+          "lineNumber": 231
+        },
+        {
+          "caller": "_tensor_to_value_bytes",
+          "callee": "torch.save",
+          "lineNumber": 232
+        },
+        {
+          "caller": "_tensor_to_value_bytes",
+          "callee": "tensor.detach().cpu",
+          "lineNumber": 232
+        },
+        {
+          "caller": "_tensor_to_value_bytes",
+          "callee": "tensor.detach",
+          "lineNumber": 232
+        },
+        {
+          "caller": "_tensor_to_value_bytes",
+          "callee": "buf.getvalue",
+          "lineNumber": 233
+        },
+        {
+          "caller": "_value_bytes_to_tensor",
+          "callee": "torch.load",
+          "lineNumber": 237
+        },
+        {
+          "caller": "_value_bytes_to_tensor",
+          "callee": "io.BytesIO",
+          "lineNumber": 237
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "list",
+          "lineNumber": 329
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "len",
+          "lineNumber": 330
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "isinstance",
+          "lineNumber": 330
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "archs[0].strip",
+          "lineNumber": 330
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "WeightShareError",
+          "lineNumber": 331
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "archs[0].strip",
+          "lineNumber": 334
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "WEIGHT_SHARE_POLICIES.get",
+          "lineNumber": 335
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "\", \".join",
+          "lineNumber": 337
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "sorted",
+          "lineNumber": 337
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "WeightShareError",
+          "lineNumber": 339
+        },
+        {
+          "caller": "validate_weight_share_architecture",
+          "callee": "WeightShareError",
+          "lineNumber": 344
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "os.lstat",
+          "lineNumber": 358
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "stat.S_ISDIR",
+          "lineNumber": 359
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "WeightShareError",
+          "lineNumber": 360
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "os.geteuid",
+          "lineNumber": 361
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "WeightShareError",
+          "lineNumber": 362
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "os.geteuid",
+          "lineNumber": 364
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "stat.S_IMODE",
+          "lineNumber": 366
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "WeightShareError",
+          "lineNumber": 367
+        },
+        {
+          "caller": "_validate_secure_dir",
+          "callee": "stat.S_IMODE",
+          "lineNumber": 369
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "stat.S_ISREG",
+          "lineNumber": 374
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "WeightShareError",
+          "lineNumber": 375
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "os.geteuid",
+          "lineNumber": 378
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "WeightShareError",
+          "lineNumber": 379
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "os.geteuid",
+          "lineNumber": 381
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "stat.S_IMODE",
+          "lineNumber": 383
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "WeightShareError",
+          "lineNumber": 384
+        },
+        {
+          "caller": "_check_private_stat",
+          "callee": "stat.S_IMODE",
+          "lineNumber": 386
+        },
+        {
+          "caller": "_prepare_secure_dir",
+          "callee": "os.makedirs",
+          "lineNumber": 391
+        },
+        {
+          "caller": "_prepare_secure_dir",
+          "callee": "os.chmod",
+          "lineNumber": 393
+        },
+        {
+          "caller": "_prepare_secure_dir",
+          "callee": "_validate_secure_dir",
+          "lineNumber": 394
+        },
+        {
+          "caller": "_proc_stat_fields",
+          "callee": "Path(f\"/proc/{pid}/stat\").read_text",
+          "lineNumber": 404
+        },
+        {
+          "caller": "_proc_stat_fields",
+          "callee": "Path",
+          "lineNumber": 404
+        },
+        {
+          "caller": "_proc_stat_fields",
+          "callee": "stat_line.rfind",
+          "lineNumber": 407
+        },
+        {
+          "caller": "_proc_stat_fields",
+          "callee": "stat_line[closing_paren + 1 :].split",
+          "lineNumber": 410
+        },
+        {
+          "caller": "_is_zombie",
+          "callee": "_proc_stat_fields",
+          "lineNumber": 414
+        },
+        {
+          "caller": "_is_zombie",
+          "callee": "bool",
+          "lineNumber": 416
+        },
+        {
+          "caller": "_proc_start_time",
+          "callee": "_proc_stat_fields",
+          "lineNumber": 421
+        },
+        {
+          "caller": "_proc_start_time",
+          "callee": "len",
+          "lineNumber": 422
+        },
+        {
+          "caller": "pid_is_alive",
+          "callee": "os.kill",
+          "lineNumber": 431
+        },
+        {
+          "caller": "pid_is_alive",
+          "callee": "_is_zombie",
+          "lineNumber": 436
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.Event",
+          "lineNumber": 459
+        },
+        {
+          "caller": "_leader_present",
+          "callee": "pid_is_alive",
+          "lineNumber": 463
+        },
+        {
+          "caller": "_leader_present",
+          "callee": "_proc_start_time",
+          "lineNumber": 468
+        },
+        {
+          "caller": "start",
+          "callee": "threading.Thread",
+          "lineNumber": 474
+        },
+        {
+          "caller": "start",
+          "callee": "self._thread.start",
+          "lineNumber": 477
+        },
+        {
+          "caller": "stop",
+          "callee": "self._stop.set",
+          "lineNumber": 480
+        },
+        {
+          "caller": "stop",
+          "callee": "self._thread.join",
+          "lineNumber": 482
+        },
+        {
+          "caller": "_run",
+          "callee": "self._stop.wait",
+          "lineNumber": 486
+        },
+        {
+          "caller": "_run",
+          "callee": "self._leader_present",
+          "lineNumber": 487
+        },
+        {
+          "caller": "_run",
+          "callee": "logger.critical",
+          "lineNumber": 489
+        },
+        {
+          "caller": "_run",
+          "callee": "os._exit",
+          "lineNumber": 493
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.path.dirname",
+          "lineNumber": 503
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.path.abspath",
+          "lineNumber": 503
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.makedirs",
+          "lineNumber": 504
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "tempfile.mkstemp",
+          "lineNumber": 505
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.path.basename",
+          "lineNumber": 506
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.fdopen",
+          "lineNumber": 509
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.fchmod",
+          "lineNumber": 511
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "fh.fileno",
+          "lineNumber": 511
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "fh.write",
+          "lineNumber": 512
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "fh.flush",
+          "lineNumber": 513
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.fsync",
+          "lineNumber": 514
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "fh.fileno",
+          "lineNumber": 514
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.replace",
+          "lineNumber": 515
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.path.exists",
+          "lineNumber": 517
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.unlink",
+          "lineNumber": 518
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.open",
+          "lineNumber": 520
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.fsync",
+          "lineNumber": 522
+        },
+        {
+          "caller": "_atomic_write",
+          "callee": "os.close",
+          "lineNumber": 524
+        },
+        {
+          "caller": "_resolve_private_names",
+          "callee": "set",
+          "lineNumber": 537
+        },
+        {
+          "caller": "_resolve_private_names",
+          "callee": "WeightShareError",
+          "lineNumber": 539
+        },
+        {
+          "caller": "_resolve_private_names",
+          "callee": "sorted",
+          "lineNumber": 540
+        },
+        {
+          "caller": "_resolve_private_names",
+          "callee": "type",
+          "lineNumber": 541
+        },
+        {
+          "caller": "export_weights",
+          "callee": "frozenset",
+          "lineNumber": 557
+        },
+        {
+          "caller": "export_weights",
+          "callee": "os.path.abspath",
+          "lineNumber": 573
+        },
+        {
+          "caller": "export_weights",
+          "callee": "WeightShareError",
+          "lineNumber": 575
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_prepare_secure_dir",
+          "lineNumber": 580
+        },
+        {
+          "caller": "export_weights",
+          "callee": "os.path.dirname",
+          "lineNumber": 580
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_claim_namespace",
+          "lineNumber": 581
+        },
+        {
+          "caller": "export_weights",
+          "callee": "os.path.exists",
+          "lineNumber": 583
+        },
+        {
+          "caller": "export_weights",
+          "callee": "os.unlink",
+          "lineNumber": 584
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_named_shared_tensors",
+          "lineNumber": 590
+        },
+        {
+          "caller": "export_weights",
+          "callee": "WeightShareError",
+          "lineNumber": 592
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_resolve_private_names",
+          "lineNumber": 593
+        },
+        {
+          "caller": "export_weights",
+          "callee": "tensors.items",
+          "lineNumber": 595
+        },
+        {
+          "caller": "export_weights",
+          "callee": "alias_predicate",
+          "lineNumber": 595
+        },
+        {
+          "caller": "export_weights",
+          "callee": "tensors.items",
+          "lineNumber": 597
+        },
+        {
+          "caller": "export_weights",
+          "callee": "type",
+          "lineNumber": 601
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_manifest_hash",
+          "lineNumber": 602
+        },
+        {
+          "caller": "export_weights",
+          "callee": "sorted",
+          "lineNumber": 603
+        },
+        {
+          "caller": "export_weights",
+          "callee": "os.getpid",
+          "lineNumber": 605
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_proc_start_time",
+          "lineNumber": 606
+        },
+        {
+          "caller": "export_weights",
+          "callee": "os.getpid",
+          "lineNumber": 606
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_gpu_uuid",
+          "lineNumber": 609
+        },
+        {
+          "caller": "export_weights",
+          "callee": "serializer.serialize",
+          "lineNumber": 611
+        },
+        {
+          "caller": "export_weights",
+          "callee": "sorted",
+          "lineNumber": 612
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_tensor_to_value_bytes",
+          "lineNumber": 613
+        },
+        {
+          "caller": "export_weights",
+          "callee": "value_tensors.items",
+          "lineNumber": 613
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_atomic_write",
+          "lineNumber": 615
+        },
+        {
+          "caller": "export_weights",
+          "callee": "pickle.dumps",
+          "lineNumber": 615
+        },
+        {
+          "caller": "export_weights",
+          "callee": "_EXPORTED_FILES.add",
+          "lineNumber": 616
+        },
+        {
+          "caller": "export_weights",
+          "callee": "t.data_ptr",
+          "lineNumber": 619
+        },
+        {
+          "caller": "export_weights",
+          "callee": "tuple",
+          "lineNumber": 619
+        },
+        {
+          "caller": "export_weights",
+          "callee": "ipc_tensors.items",
+          "lineNumber": 619
+        },
+        {
+          "caller": "export_weights",
+          "callee": "sum",
+          "lineNumber": 621
+        },
+        {
+          "caller": "export_weights",
+          "callee": "t.numel",
+          "lineNumber": 621
+        },
+        {
+          "caller": "export_weights",
+          "callee": "t.element_size",
+          "lineNumber": 621
+        },
+        {
+          "caller": "export_weights",
+          "callee": "ipc_tensors.values",
+          "lineNumber": 621
+        },
+        {
+          "caller": "export_weights",
+          "callee": "logger.info",
+          "lineNumber": 622
+        },
+        {
+          "caller": "export_weights",
+          "callee": "len",
+          "lineNumber": 623
+        },
+        {
+          "caller": "export_weights",
+          "callee": "len",
+          "lineNumber": 625
+        },
+        {
+          "caller": "wait_for_export",
+          "callee": "time.monotonic",
+          "lineNumber": 636
+        },
+        {
+          "caller": "wait_for_export",
+          "callee": "os.path.exists",
+          "lineNumber": 637
+        },
+        {
+          "caller": "wait_for_export",
+          "callee": "time.monotonic",
+          "lineNumber": 638
+        },
+        {
+          "caller": "wait_for_export",
+          "callee": "TimeoutError",
+          "lineNumber": 639
+        },
+        {
+          "caller": "wait_for_export",
+          "callee": "time.sleep",
+          "lineNumber": 643
+        },
+        {
+          "caller": "wait_for_any_export",
+          "callee": "time.monotonic",
+          "lineNumber": 657
+        },
+        {
+          "caller": "wait_for_any_export",
+          "callee": "os.listdir",
+          "lineNumber": 660
+        },
+        {
+          "caller": "wait_for_any_export",
+          "callee": "any",
+          "lineNumber": 663
+        },
+        {
+          "caller": "wait_for_any_export",
+          "callee": "e.endswith",
+          "lineNumber": 663
+        },
+        {
+          "caller": "wait_for_any_export",
+          "callee": "time.monotonic",
+          "lineNumber": 665
+        },
+        {
+          "caller": "wait_for_any_export",
+          "callee": "TimeoutError",
+          "lineNumber": 666
+        },
+        {
+          "caller": "wait_for_any_export",
+          "callee": "time.sleep",
+          "lineNumber": 671
+        },
+        {
+          "caller": "_safe_unpickle",
+          "callee": "pickle.load",
+          "lineNumber": 690
+        },
+        {
+          "caller": "_safe_unpickle",
+          "callee": "WeightShareError",
+          "lineNumber": 694
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "isinstance",
+          "lineNumber": 700
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "WeightShareError",
+          "lineNumber": 701
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "type",
+          "lineNumber": 703
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "payload.get",
+          "lineNumber": 705
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "WeightShareError",
+          "lineNumber": 707
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "_REQUIRED_PAYLOAD_FIELDS.items",
+          "lineNumber": 711
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "WeightShareError",
+          "lineNumber": 713
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "isinstance",
+          "lineNumber": 716
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "WeightShareError",
+          "lineNumber": 717
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "type",
+          "lineNumber": 719
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "all",
+          "lineNumber": 723
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "isinstance",
+          "lineNumber": 723
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "len",
+          "lineNumber": 723
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "set",
+          "lineNumber": 723
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "len",
+          "lineNumber": 723
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "WeightShareError",
+          "lineNumber": 724
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "payload[\"value_blobs\"].items",
+          "lineNumber": 728
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "isinstance",
+          "lineNumber": 729
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "isinstance",
+          "lineNumber": 729
+        },
+        {
+          "caller": "_validate_payload_schema",
+          "callee": "WeightShareError",
+          "lineNumber": 730
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "_validate_secure_dir",
+          "lineNumber": 742
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "os.path.dirname",
+          "lineNumber": 742
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "os.path.abspath",
+          "lineNumber": 742
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "os.open",
+          "lineNumber": 744
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 746
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "_check_private_stat",
+          "lineNumber": 750
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "os.fstat",
+          "lineNumber": 750
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "os.close",
+          "lineNumber": 752
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "os.fdopen",
+          "lineNumber": 754
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "_safe_unpickle",
+          "lineNumber": 755
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "open",
+          "lineNumber": 757
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "_safe_unpickle",
+          "lineNumber": 758
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "_validate_payload_schema",
+          "lineNumber": 759
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "type",
+          "lineNumber": 760
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 761
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "type",
+          "lineNumber": 763
+        },
+        {
+          "caller": "_load_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 766
+        },
+        {
+          "caller": "attach_weights",
+          "callee": "frozenset",
+          "lineNumber": 783
+        },
+        {
+          "caller": "attach_weights",
+          "callee": "_attach_and_check",
+          "lineNumber": 793
+        },
+        {
+          "caller": "_attach_and_check",
+          "callee": "frozenset",
+          "lineNumber": 819
+        },
+        {
+          "caller": "_attach_and_check",
+          "callee": "wait_for_export",
+          "lineNumber": 822
+        },
+        {
+          "caller": "_attach_and_check",
+          "callee": "_load_payload",
+          "lineNumber": 823
+        },
+        {
+          "caller": "_attach_and_check",
+          "callee": "_check_model_identity",
+          "lineNumber": 824
+        },
+        {
+          "caller": "_attach_and_check",
+          "callee": "_check_leader_alive",
+          "lineNumber": 825
+        },
+        {
+          "caller": "_attach_and_check",
+          "callee": "_alias_from_payload",
+          "lineNumber": 826
+        },
+        {
+          "caller": "_attach_and_check",
+          "callee": "_check_leader_alive",
+          "lineNumber": 829
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "payload.get",
+          "lineNumber": 843
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "WeightShareError",
+          "lineNumber": 845
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "payload.get",
+          "lineNumber": 849
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "WeightShareError",
+          "lineNumber": 851
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "_gpu_uuid",
+          "lineNumber": 858
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "payload.get",
+          "lineNumber": 859
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "WeightShareError",
+          "lineNumber": 860
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "payload.get",
+          "lineNumber": 862
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "payload.get",
+          "lineNumber": 864
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "WeightShareError",
+          "lineNumber": 865
+        },
+        {
+          "caller": "_check_model_identity",
+          "callee": "payload.get",
+          "lineNumber": 866
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "payload.get",
+          "lineNumber": 872
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "pid_is_alive",
+          "lineNumber": 875
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "int",
+          "lineNumber": 875
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "WeightShareError",
+          "lineNumber": 876
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "payload.get",
+          "lineNumber": 882
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "_proc_start_time",
+          "lineNumber": 883
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "int",
+          "lineNumber": 883
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "WeightShareError",
+          "lineNumber": 885
+        },
+        {
+          "caller": "_check_leader_alive",
+          "callee": "WeightShareError",
+          "lineNumber": 890
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "frozenset",
+          "lineNumber": 901
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_named_shared_tensors",
+          "lineNumber": 904
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_resolve_private_names",
+          "lineNumber": 905
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sorted",
+          "lineNumber": 906
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 907
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sorted",
+          "lineNumber": 910
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_manifest_hash",
+          "lineNumber": 913
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_raise_manifest_mismatch",
+          "lineNumber": 915
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "serializer.deserialize",
+          "lineNumber": 918
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 922
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "isinstance",
+          "lineNumber": 925
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "all",
+          "lineNumber": 925
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "isinstance",
+          "lineNumber": 926
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "isinstance",
+          "lineNumber": 926
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "shared.items",
+          "lineNumber": 926
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 928
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sorted",
+          "lineNumber": 931
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 932
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sorted",
+          "lineNumber": 936
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "set",
+          "lineNumber": 936
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 938
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_value_bytes_to_tensor",
+          "lineNumber": 944
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "payload[\"value_blobs\"].items",
+          "lineNumber": 944
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 947
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sorted",
+          "lineNumber": 950
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "set",
+          "lineNumber": 950
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "set",
+          "lineNumber": 950
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "set",
+          "lineNumber": 950
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 952
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sorted",
+          "lineNumber": 956
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "set",
+          "lineNumber": 956
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "set",
+          "lineNumber": 956
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 958
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "dict",
+          "lineNumber": 963
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "model.named_parameters",
+          "lineNumber": 963
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "model.named_buffers",
+          "lineNumber": 967
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "buffer_paths_by_id.setdefault(id(buf), []).append",
+          "lineNumber": 968
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "buffer_paths_by_id.setdefault",
+          "lineNumber": 968
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "id",
+          "lineNumber": 968
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "own_tensors[n].data_ptr",
+          "lineNumber": 969
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "own_tensors.items",
+          "lineNumber": 971
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 979
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "isinstance",
+          "lineNumber": 980
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 981
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tuple",
+          "lineNumber": 984
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tuple",
+          "lineNumber": 984
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 985
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tuple",
+          "lineNumber": 987
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tuple",
+          "lineNumber": 988
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 993
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "buffer_paths_by_id.get",
+          "lineNumber": 1003
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "id",
+          "lineNumber": 1003
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_rebind_buffer",
+          "lineNumber": 1004
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "incoming.numel",
+          "lineNumber": 1005
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "incoming.element_size",
+          "lineNumber": 1005
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_named_shared_tensors",
+          "lineNumber": 1010
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sorted",
+          "lineNumber": 1011
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "moved_check.get",
+          "lineNumber": 1012
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "own_tensors[name].data_ptr",
+          "lineNumber": 1014
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "current.data_ptr",
+          "lineNumber": 1016
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 1018
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "own_tensors.items",
+          "lineNumber": 1024
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "torch.no_grad",
+          "lineNumber": 1029
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "own.copy_",
+          "lineNumber": 1030
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "values[name].to",
+          "lineNumber": 1030
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_named_shared_tensors(model).items",
+          "lineNumber": 1033
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "_named_shared_tensors",
+          "lineNumber": 1033
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tensor.data_ptr",
+          "lineNumber": 1036
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "expected.data_ptr",
+          "lineNumber": 1036
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "WeightShareError",
+          "lineNumber": 1037
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tensor.data_ptr",
+          "lineNumber": 1041
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tuple",
+          "lineNumber": 1041
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tensor.data_ptr",
+          "lineNumber": 1045
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "tuple",
+          "lineNumber": 1045
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "sum",
+          "lineNumber": 1046
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "logger.info",
+          "lineNumber": 1047
+        },
+        {
+          "caller": "_alias_from_payload",
+          "callee": "len",
+          "lineNumber": 1048
+        },
+        {
+          "caller": "_rebind_buffer",
+          "callee": "dotted_name.rpartition",
+          "lineNumber": 1058
+        },
+        {
+          "caller": "_rebind_buffer",
+          "callee": "model.get_submodule",
+          "lineNumber": 1059
+        },
+        {
+          "caller": "_rebind_buffer",
+          "callee": "WeightShareError",
+          "lineNumber": 1061
+        },
+        {
+          "caller": "_raise_manifest_mismatch",
+          "callee": "set",
+          "lineNumber": 1073
+        },
+        {
+          "caller": "_raise_manifest_mismatch",
+          "callee": "set",
+          "lineNumber": 1073
+        },
+        {
+          "caller": "_raise_manifest_mismatch",
+          "callee": "set",
+          "lineNumber": 1074
+        },
+        {
+          "caller": "_raise_manifest_mismatch",
+          "callee": "sorted",
+          "lineNumber": 1075
+        },
+        {
+          "caller": "_raise_manifest_mismatch",
+          "callee": "sorted",
+          "lineNumber": 1076
+        },
+        {
+          "caller": "_raise_manifest_mismatch",
+          "callee": "WeightShareError",
+          "lineNumber": 1077
+        },
+        {
+          "caller": "_raise_manifest_mismatch",
+          "callee": "type",
+          "lineNumber": 1079
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "_named_shared_tensors",
+          "lineNumber": 1096
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "record.items",
+          "lineNumber": 1098
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "current.get",
+          "lineNumber": 1099
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "drifted.append",
+          "lineNumber": 1101
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "tensor.data_ptr",
+          "lineNumber": 1102
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "drifted.append",
+          "lineNumber": 1103
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "tuple",
+          "lineNumber": 1104
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "drifted.append",
+          "lineNumber": 1105
+        },
+        {
+          "caller": "verify_attachment",
+          "callee": "WeightShareError",
+          "lineNumber": 1107
+        },
+        {
+          "caller": "leader_export",
+          "callee": "frozenset",
+          "lineNumber": 1122
+        },
+        {
+          "caller": "leader_export",
+          "callee": "export_weights",
+          "lineNumber": 1125
+        },
+        {
+          "caller": "leader_export",
+          "callee": "handle_file_for_model",
+          "lineNumber": 1127
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "frozenset",
+          "lineNumber": 1147
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "_attach_and_check",
+          "lineNumber": 1154
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "handle_file_for_model",
+          "lineNumber": 1156
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "LeaderLivenessMonitor",
+          "lineNumber": 1166
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "int",
+          "lineNumber": 1167
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "payload.get",
+          "lineNumber": 1167
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "payload.get",
+          "lineNumber": 1168
+        },
+        {
+          "caller": "follower_attach",
+          "callee": "monitor.start",
+          "lineNumber": 1170
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 40,
+        "functionCount": 35,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "utils/misc.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 107,
+      "nonEmptyLines": 83,
+      "functions": [
+        {
+          "name": "get_layer_id",
+          "startLine": 16,
+          "endLine": 21,
+          "params": [
+            "weight_name"
+          ]
+        },
+        {
+          "name": "add_prefix",
+          "startLine": 24,
+          "endLine": 34,
+          "params": [
+            "name",
+            "prefix"
+          ]
+        },
+        {
+          "name": "set_random_seed",
+          "startLine": 37,
+          "endLine": 43,
+          "params": [
+            "seed"
+          ]
+        },
+        {
+          "name": "avail_gpu_mem",
+          "startLine": 46,
+          "endLine": 54,
+          "params": [
+            "gpu_id"
+          ]
+        },
+        {
+          "name": "broadcast_pyobj",
+          "startLine": 57,
+          "endLine": 97,
+          "params": [
+            "data",
+            "rank",
+            "dist_group",
+            "src",
+            "force_cpu_device"
+          ]
+        },
+        {
+          "name": "normalize_quantization",
+          "startLine": 100,
+          "endLine": 103,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "model_config_has_moe",
+          "startLine": 106,
+          "endLine": 107,
+          "params": [
+            "model_config"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_layer_id",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "add_prefix",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "set_random_seed",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "avail_gpu_mem",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "broadcast_pyobj",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "normalize_quantization",
+          "line": 100,
+          "isDefault": false
+        },
+        {
+          "name": "model_config_has_moe",
+          "line": 106,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_layer_id",
+          "callee": "re.search",
+          "lineNumber": 18
+        },
+        {
+          "caller": "get_layer_id",
+          "callee": "int",
+          "lineNumber": 20
+        },
+        {
+          "caller": "get_layer_id",
+          "callee": "match.group",
+          "lineNumber": 20
+        },
+        {
+          "caller": "set_random_seed",
+          "callee": "random.seed",
+          "lineNumber": 39
+        },
+        {
+          "caller": "set_random_seed",
+          "callee": "np.random.seed",
+          "lineNumber": 40
+        },
+        {
+          "caller": "set_random_seed",
+          "callee": "torch.manual_seed",
+          "lineNumber": 41
+        },
+        {
+          "caller": "set_random_seed",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 42
+        },
+        {
+          "caller": "set_random_seed",
+          "callee": "torch.cuda.manual_seed_all",
+          "lineNumber": 43
+        },
+        {
+          "caller": "avail_gpu_mem",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 49
+        },
+        {
+          "caller": "avail_gpu_mem",
+          "callee": "torch.cuda.mem_get_info",
+          "lineNumber": 51
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.device",
+          "lineNumber": 65
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 66
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "len",
+          "lineNumber": 69
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.tensor",
+          "lineNumber": 70
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "dist.broadcast",
+          "lineNumber": 71
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "pickle.dumps",
+          "lineNumber": 73
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "len",
+          "lineNumber": 74
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.ByteTensor(\r\n                np.frombuffer(serialized_data, dtype=np.uint8)\r\n            ).to",
+          "lineNumber": 76
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.ByteTensor",
+          "lineNumber": 76
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "np.frombuffer",
+          "lineNumber": 77
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.tensor",
+          "lineNumber": 79
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "dist.broadcast",
+          "lineNumber": 81
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "dist.broadcast",
+          "lineNumber": 82
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.tensor",
+          "lineNumber": 85
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "dist.broadcast",
+          "lineNumber": 86
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "tensor_size.item",
+          "lineNumber": 87
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "torch.empty",
+          "lineNumber": 92
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "dist.broadcast",
+          "lineNumber": 93
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "bytes",
+          "lineNumber": 95
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "tensor_data.cpu().numpy",
+          "lineNumber": 95
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "tensor_data.cpu",
+          "lineNumber": 95
+        },
+        {
+          "caller": "broadcast_pyobj",
+          "callee": "pickle.loads",
+          "lineNumber": 96
+        },
+        {
+          "caller": "normalize_quantization",
+          "callee": "str(value).lower",
+          "lineNumber": 103
+        },
+        {
+          "caller": "normalize_quantization",
+          "callee": "str",
+          "lineNumber": 103
+        },
+        {
+          "caller": "model_config_has_moe",
+          "callee": "hasattr",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    }
+  ]
+}

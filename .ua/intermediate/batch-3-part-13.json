@@ -1,0 +1,849 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/unit_test/scheduling/test_request_data.py",
+      "type": "file",
+      "name": "test_request_data.py",
+      "filePath": "tests/unit_test/scheduling/test_request_data.py",
+      "summary": "验证 sampled logprobs 在 tensor、CPU list 与 None 输入之间的稳定规范化。",
+      "tags": [
+        "test",
+        "scheduling",
+        "logprobs",
+        "serialization"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_request_data.py:test_sampled_logprobs_to_list_preserves_sampler_values",
+      "type": "function",
+      "name": "test_sampled_logprobs_to_list_preserves_sampler_values",
+      "filePath": "tests/unit_test/scheduling/test_request_data.py",
+      "lineRange": [
+        13,
+        22
+      ],
+      "summary": "验证 `test_sampled_logprobs_to_list_preserves_sampler_values` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_request_data.py:test_sampled_logprobs_to_list_handles_cpu_lists",
+      "type": "function",
+      "name": "test_sampled_logprobs_to_list_handles_cpu_lists",
+      "filePath": "tests/unit_test/scheduling/test_request_data.py",
+      "lineRange": [
+        25,
+        27
+      ],
+      "summary": "验证 `test_sampled_logprobs_to_list_handles_cpu_lists` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_request_data.py:test_none_inputs_return_none",
+      "type": "function",
+      "name": "test_none_inputs_return_none",
+      "filePath": "tests/unit_test/scheduling/test_request_data.py",
+      "lineRange": [
+        30,
+        31
+      ],
+      "summary": "验证 `test_none_inputs_return_none` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "type": "file",
+      "name": "test_server_args_builder_device.py",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "summary": "验证 ServerArgs 构建时平台解析、调用方覆盖与 operator placement 之间的设备选择和冲突校验。",
+      "tags": [
+        "test",
+        "scheduling",
+        "device-placement",
+        "server-args"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:_build",
+      "type": "function",
+      "name": "_build",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        24,
+        29
+      ],
+      "summary": "构造或处理 `_build` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_unset_device_falls_back_to_the_resolved_platform",
+      "type": "function",
+      "name": "test_unset_device_falls_back_to_the_resolved_platform",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        32,
+        33
+      ],
+      "summary": "验证 `test_unset_device_falls_back_to_the_resolved_platform` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_pinned_platform_reaches_server_args",
+      "type": "function",
+      "name": "test_pinned_platform_reaches_server_args",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        36,
+        39
+      ],
+      "summary": "验证 `test_pinned_platform_reaches_server_args` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_caller_resolved_device_is_not_overwritten",
+      "type": "function",
+      "name": "test_caller_resolved_device_is_not_overwritten",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        42,
+        45
+      ],
+      "summary": "验证 `test_caller_resolved_device_is_not_overwritten` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:_drive_build",
+      "type": "function",
+      "name": "_drive_build",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        48,
+        91
+      ],
+      "summary": "构造或处理 `_drive_build` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_an_operator_device_that_agrees_with_placement_is_passed_through",
+      "type": "function",
+      "name": "test_an_operator_device_that_agrees_with_placement_is_passed_through",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        94,
+        99
+      ],
+      "summary": "验证 `test_an_operator_device_that_agrees_with_placement_is_passed_through` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_an_operator_device_that_contradicts_placement_is_rejected",
+      "type": "function",
+      "name": "test_an_operator_device_that_contradicts_placement_is_rejected",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        102,
+        112
+      ],
+      "summary": "验证 `test_an_operator_device_that_contradicts_placement_is_rejected` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_placement_supplies_the_device_when_no_override_is_given",
+      "type": "function",
+      "name": "test_placement_supplies_the_device_when_no_override_is_given",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        115,
+        118
+      ],
+      "summary": "验证 `test_placement_supplies_the_device_when_no_override_is_given` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/scheduling/test_server_args_builder_device.py:_CapturedServerArgs",
+      "type": "class",
+      "name": "_CapturedServerArgs",
+      "filePath": "tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "lineRange": [
+        16,
+        21
+      ],
+      "summary": "为测试提供 `_CapturedServerArgs` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "scheduling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "type": "file",
+      "name": "test_sglang_bootstrap.py",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "summary": "验证 SGLang 启动阶段的后端诊断、CUDA Graph 初始化、隐藏状态捕获容量及延迟 capture 恢复。",
+      "tags": [
+        "test",
+        "bootstrap",
+        "sglang-backend",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_runtime_configuration_reports_global_backend_for_each_phase",
+      "type": "function",
+      "name": "test_runtime_configuration_reports_global_backend_for_each_phase",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        16,
+        42
+      ],
+      "summary": "验证 `test_runtime_configuration_reports_global_backend_for_each_phase` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_runtime_configuration_reports_explicit_phase_backends",
+      "type": "function",
+      "name": "test_runtime_configuration_reports_explicit_phase_backends",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        45,
+        71
+      ],
+      "summary": "验证 `test_runtime_configuration_reports_explicit_phase_backends` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_create_sglang_infrastructure_runs_0515_initialization_phases",
+      "type": "function",
+      "name": "test_create_sglang_infrastructure_runs_0515_initialization_phases",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        74,
+        150
+      ],
+      "summary": "验证 `test_create_sglang_infrastructure_runs_0515_initialization_phases` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_cuda_graph_init_scopes_prefill_embedding_capture_flag",
+      "type": "function",
+      "name": "test_cuda_graph_init_scopes_prefill_embedding_capture_flag",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        153,
+        167
+      ],
+      "summary": "验证 `test_cuda_graph_init_scopes_prefill_embedding_capture_flag` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_covers_eager_and_graph_forwards",
+      "type": "function",
+      "name": "test_hidden_capture_max_tokens_covers_eager_and_graph_forwards",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        211,
+        215
+      ],
+      "summary": "验证 `test_hidden_capture_max_tokens_covers_eager_and_graph_forwards` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_covers_non_chunked_context_length",
+      "type": "function",
+      "name": "test_hidden_capture_max_tokens_covers_non_chunked_context_length",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        218,
+        227
+      ],
+      "summary": "验证 `test_hidden_capture_max_tokens_covers_non_chunked_context_length` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_rejects_missing_capacity_sources",
+      "type": "function",
+      "name": "test_hidden_capture_max_tokens_rejects_missing_capacity_sources",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        230,
+        239
+      ],
+      "summary": "验证 `test_hidden_capture_max_tokens_rejects_missing_capacity_sources` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_is_installed_before_graph_initialization",
+      "type": "function",
+      "name": "test_hidden_capture_is_installed_before_graph_initialization",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        242,
+        332
+      ],
+      "summary": "验证 `test_hidden_capture_is_installed_before_graph_initialization` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_defer_cuda_graph_restores_requested_graph_capture",
+      "type": "function",
+      "name": "test_defer_cuda_graph_restores_requested_graph_capture",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        335,
+        367
+      ],
+      "summary": "验证 `test_defer_cuda_graph_restores_requested_graph_capture` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_defer_cuda_graph_leaves_disabled_graph_capture_disabled",
+      "type": "function",
+      "name": "test_defer_cuda_graph_leaves_disabled_graph_capture_disabled",
+      "filePath": "tests/unit_test/serve/test_sglang_bootstrap.py",
+      "lineRange": [
+        370,
+        392
+      ],
+      "summary": "验证 `test_defer_cuda_graph_leaves_disabled_graph_capture_disabled` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "function:tests/unit_test/scheduling/test_request_data.py:test_sampled_logprobs_to_list_preserves_sampler_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "function:tests/unit_test/scheduling/test_request_data.py:test_sampled_logprobs_to_list_preserves_sampler_values",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "function:tests/unit_test/scheduling/test_request_data.py:test_sampled_logprobs_to_list_handles_cpu_lists",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "function:tests/unit_test/scheduling/test_request_data.py:test_sampled_logprobs_to_list_handles_cpu_lists",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "function:tests/unit_test/scheduling/test_request_data.py:test_none_inputs_return_none",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "function:tests/unit_test/scheduling/test_request_data.py:test_none_inputs_return_none",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "file:sglang_omni/scheduling/types.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_request_data.py",
+      "target": "file:sglang_omni/scheduling/types.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:_build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:_build",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_unset_device_falls_back_to_the_resolved_platform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_unset_device_falls_back_to_the_resolved_platform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_pinned_platform_reaches_server_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_pinned_platform_reaches_server_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_caller_resolved_device_is_not_overwritten",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_caller_resolved_device_is_not_overwritten",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:_drive_build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:_drive_build",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_an_operator_device_that_agrees_with_placement_is_passed_through",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_an_operator_device_that_agrees_with_placement_is_passed_through",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_an_operator_device_that_contradicts_placement_is_rejected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_an_operator_device_that_contradicts_placement_is_rejected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_placement_supplies_the_device_when_no_override_is_given",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "function:tests/unit_test/scheduling/test_server_args_builder_device.py:test_placement_supplies_the_device_when_no_override_is_given",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "class:tests/unit_test/scheduling/test_server_args_builder_device.py:_CapturedServerArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "class:tests/unit_test/scheduling/test_server_args_builder_device.py:_CapturedServerArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/scheduling/test_server_args_builder_device.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_runtime_configuration_reports_global_backend_for_each_phase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_runtime_configuration_reports_global_backend_for_each_phase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_runtime_configuration_reports_explicit_phase_backends",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_runtime_configuration_reports_explicit_phase_backends",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_create_sglang_infrastructure_runs_0515_initialization_phases",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_create_sglang_infrastructure_runs_0515_initialization_phases",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_cuda_graph_init_scopes_prefill_embedding_capture_flag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_cuda_graph_init_scopes_prefill_embedding_capture_flag",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_covers_eager_and_graph_forwards",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_covers_eager_and_graph_forwards",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_covers_non_chunked_context_length",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_covers_non_chunked_context_length",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_rejects_missing_capacity_sources",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_max_tokens_rejects_missing_capacity_sources",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_is_installed_before_graph_initialization",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_hidden_capture_is_installed_before_graph_initialization",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_defer_cuda_graph_restores_requested_graph_capture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_defer_cuda_graph_restores_requested_graph_capture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_defer_cuda_graph_leaves_disabled_graph_capture_disabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "function:tests/unit_test/serve/test_sglang_bootstrap.py:test_defer_cuda_graph_leaves_disabled_graph_capture_disabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/model_runner/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/model_runner/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/scheduling/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/scheduling/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/scheduling/bootstrap.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/scheduling/bootstrap.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/serve/test_sglang_bootstrap.py",
+      "target": "file:tests/unit_test/fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,2546 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "type": "file",
+      "name": "test_admin_control.py",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "summary": "验证 scheduler 与 coordinator 的管理消息、权重更新、活动请求保护、cache flush、暂停恢复及多阶段结果汇聚。",
+      "tags": [
+        "test",
+        "pipeline",
+        "admin-control",
+        "weight-update"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_admin_messages_round_trip",
+      "type": "function",
+      "name": "test_admin_messages_round_trip",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        40,
+        67
+      ],
+      "summary": "验证 `test_admin_messages_round_trip` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_admin_enqueues_to_scheduler_thread",
+      "type": "function",
+      "name": "test_omni_scheduler_admin_enqueues_to_scheduler_thread",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        70,
+        114
+      ],
+      "summary": "验证 `test_omni_scheduler_admin_enqueues_to_scheduler_thread` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_update_weights_rejects_active_requests_by_default",
+      "type": "function",
+      "name": "test_omni_scheduler_update_weights_rejects_active_requests_by_default",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        117,
+        147
+      ],
+      "summary": "验证 `test_omni_scheduler_update_weights_rejects_active_requests_by_default` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_weights_checker_compare_change_is_success",
+      "type": "function",
+      "name": "test_omni_scheduler_weights_checker_compare_change_is_success",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        150,
+        165
+      ],
+      "summary": "验证 `test_omni_scheduler_weights_checker_compare_change_is_success` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_update_weights_flushes_cache_without_kwargs",
+      "type": "function",
+      "name": "test_omni_scheduler_update_weights_flushes_cache_without_kwargs",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        168,
+        214
+      ],
+      "summary": "验证 `test_omni_scheduler_update_weights_flushes_cache_without_kwargs` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_flush_cache_has_upstream_idle_compat_fields",
+      "type": "function",
+      "name": "test_omni_scheduler_flush_cache_has_upstream_idle_compat_fields",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        217,
+        271
+      ],
+      "summary": "验证 `test_omni_scheduler_flush_cache_has_upstream_idle_compat_fields` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_rejects_active_requests_by_default",
+      "type": "function",
+      "name": "test_omni_scheduler_distributed_update_rejects_active_requests_by_default",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        274,
+        306
+      ],
+      "summary": "验证 `test_omni_scheduler_distributed_update_rejects_active_requests_by_default` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_aborts_and_flushes_cache",
+      "type": "function",
+      "name": "test_omni_scheduler_distributed_update_aborts_and_flushes_cache",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        309,
+        368
+      ],
+      "summary": "验证 `test_omni_scheduler_distributed_update_aborts_and_flushes_cache` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_failure_keeps_engine_paused",
+      "type": "function",
+      "name": "test_omni_scheduler_distributed_update_failure_keeps_engine_paused",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        371,
+        404
+      ],
+      "summary": "验证 `test_omni_scheduler_distributed_update_failure_keeps_engine_paused` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_coordinator_admin_waits_for_all_stage_results",
+      "type": "function",
+      "name": "test_coordinator_admin_waits_for_all_stage_results",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        407,
+        442
+      ],
+      "summary": "验证 `test_coordinator_admin_waits_for_all_stage_results` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_admin_control.py:test_stage_admin_dispatches_to_scheduler",
+      "type": "function",
+      "name": "test_stage_admin_dispatches_to_scheduler",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        445,
+        476
+      ],
+      "summary": "验证 `test_stage_admin_dispatches_to_scheduler` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_admin_control.py:AdminScheduler",
+      "type": "class",
+      "name": "AdminScheduler",
+      "filePath": "tests/unit_test/pipeline/test_admin_control.py",
+      "lineRange": [
+        29,
+        37
+      ],
+      "summary": "为测试提供 `AdminScheduler` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "type": "file",
+      "name": "test_comm_engine_ack.py",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "summary": "验证通信引擎的数据 ACK、复用发送语义、陈旧与重复 ACK 防护、DataRef 校验以及流式发送释放。",
+      "tags": [
+        "test",
+        "communication",
+        "acknowledgement",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_wait_until",
+      "type": "function",
+      "name": "_wait_until",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        88,
+        93
+      ],
+      "summary": "构造或处理 `_wait_until` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_consume_task_exception",
+      "type": "function",
+      "name": "_consume_task_exception",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        96,
+        98
+      ],
+      "summary": "构造或处理 `_consume_task_exception` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_stream_ack",
+      "type": "function",
+      "name": "_stream_ack",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        101,
+        111
+      ],
+      "summary": "构造或处理 `_stream_ack` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_send_stream_for_ack_test",
+      "type": "function",
+      "name": "_send_stream_for_ack_test",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        114,
+        134
+      ],
+      "summary": "构造或处理 `_send_stream_for_ack_test` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_releases_sender_op_after_data_ack",
+      "type": "function",
+      "name": "test_comm_engine_releases_sender_op_after_data_ack",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        137,
+        182
+      ],
+      "summary": "验证 `test_comm_engine_releases_sender_op_after_data_ack` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_stream_sends_with_reused_semantics_coexist",
+      "type": "function",
+      "name": "test_comm_engine_stream_sends_with_reused_semantics_coexist",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        185,
+        250
+      ],
+      "summary": "验证 `test_comm_engine_stream_sends_with_reused_semantics_coexist` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_stream_stale_ack_does_not_complete_reused_send",
+      "type": "function",
+      "name": "test_stream_stale_ack_does_not_complete_reused_send",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        253,
+        315
+      ],
+      "summary": "验证 `test_stream_stale_ack_does_not_complete_reused_send` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_ignores_unknown_data_ack",
+      "type": "function",
+      "name": "test_comm_engine_ignores_unknown_data_ack",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        318,
+        335
+      ],
+      "summary": "验证 `test_comm_engine_ignores_unknown_data_ack` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_ignores_duplicate_data_ack",
+      "type": "function",
+      "name": "test_comm_engine_ignores_duplicate_data_ack",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        338,
+        375
+      ],
+      "summary": "验证 `test_comm_engine_ignores_duplicate_data_ack` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_data_messages_reject_missing_data_ref",
+      "type": "function",
+      "name": "test_data_messages_reject_missing_data_ref",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        378,
+        429
+      ],
+      "summary": "验证 `test_data_messages_reject_missing_data_ref` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_data_ref_rejects_bool_int_fields",
+      "type": "function",
+      "name": "test_data_ref_rejects_bool_int_fields",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        432,
+        455
+      ],
+      "summary": "验证 `test_data_ref_rejects_bool_int_fields` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_comm_engine_ack.py:_AckedOp",
+      "type": "class",
+      "name": "_AckedOp",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        21,
+        44
+      ],
+      "summary": "为测试提供 `_AckedOp` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_comm_engine_ack.py:_AckedRelay",
+      "type": "class",
+      "name": "_AckedRelay",
+      "filePath": "tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "lineRange": [
+        47,
+        85
+      ],
+      "summary": "为测试提供 `_AckedRelay` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "type": "file",
+      "name": "test_comm_router.py",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "summary": "验证通信路由器依据节点、设备与平台能力在 CUDA IPC、shared memory 和 Mooncake 间选择传输后端。",
+      "tags": [
+        "test",
+        "communication",
+        "routing",
+        "transport-policy"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:_force_cuda_transport_policy",
+      "type": "function",
+      "name": "_force_cuda_transport_policy",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        13,
+        25
+      ],
+      "summary": "构造或处理 `_force_cuda_transport_policy` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_same_node_gpu_payload_edges",
+      "type": "function",
+      "name": "test_comm_router_uses_cuda_ipc_for_same_node_gpu_payload_edges",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        28,
+        39
+      ],
+      "summary": "验证 `test_comm_router_uses_cuda_ipc_for_same_node_gpu_payload_edges` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_mooncake_only_for_remote_edges",
+      "type": "function",
+      "name": "test_comm_router_uses_mooncake_only_for_remote_edges",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        42,
+        57
+      ],
+      "summary": "验证 `test_comm_router_uses_mooncake_only_for_remote_edges` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_mixed_gpu_payloads",
+      "type": "function",
+      "name": "test_comm_router_uses_cuda_ipc_for_mixed_gpu_payloads",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        62,
+        75
+      ],
+      "summary": "验证 `test_comm_router_uses_cuda_ipc_for_mixed_gpu_payloads` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_shm_for_cuda_payloads_to_cpu_targets",
+      "type": "function",
+      "name": "test_comm_router_uses_shm_for_cuda_payloads_to_cpu_targets",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        80,
+        90
+      ],
+      "summary": "验证 `test_comm_router_uses_shm_for_cuda_payloads_to_cpu_targets` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:_pin_non_cuda_platform",
+      "type": "function",
+      "name": "_pin_non_cuda_platform",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        96,
+        111
+      ],
+      "summary": "构造或处理 `_pin_non_cuda_platform` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:_xpu_router",
+      "type": "function",
+      "name": "_xpu_router",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        114,
+        123
+      ],
+      "summary": "构造或处理 `_xpu_router` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_never_selects_cuda_ipc_without_platform_support",
+      "type": "function",
+      "name": "test_comm_router_never_selects_cuda_ipc_without_platform_support",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        126,
+        137
+      ],
+      "summary": "验证 `test_comm_router_never_selects_cuda_ipc_without_platform_support` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_shm_for_accelerator_payloads_and_streams",
+      "type": "function",
+      "name": "test_comm_router_uses_shm_for_accelerator_payloads_and_streams",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        140,
+        150
+      ],
+      "summary": "验证 `test_comm_router_uses_shm_for_accelerator_payloads_and_streams` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_still_routes_remote_edges_over_mooncake",
+      "type": "function",
+      "name": "test_comm_router_still_routes_remote_edges_over_mooncake",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        153,
+        158
+      ],
+      "summary": "验证 `test_comm_router_still_routes_remote_edges_over_mooncake` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_mooncake_relay_is_refused_on_a_non_cuda_accelerator",
+      "type": "function",
+      "name": "test_a_mooncake_relay_is_refused_on_a_non_cuda_accelerator",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        161,
+        169
+      ],
+      "summary": "验证 `test_a_mooncake_relay_is_refused_on_a_non_cuda_accelerator` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_host_only_stage_still_gets_a_mooncake_relay",
+      "type": "function",
+      "name": "test_a_host_only_stage_still_gets_a_mooncake_relay",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        172,
+        184
+      ],
+      "summary": "验证 `test_a_host_only_stage_still_gets_a_mooncake_relay` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_admits_compatible_direct_cuda_ipc_namespace",
+      "type": "function",
+      "name": "test_comm_router_admits_compatible_direct_cuda_ipc_namespace",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        187,
+        206
+      ],
+      "summary": "验证 `test_comm_router_admits_compatible_direct_cuda_ipc_namespace` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_rejects_narrowed_direct_cuda_ipc_namespace",
+      "type": "function",
+      "name": "test_comm_router_rejects_narrowed_direct_cuda_ipc_namespace",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        209,
+        220
+      ],
+      "summary": "验证 `test_comm_router_rejects_narrowed_direct_cuda_ipc_namespace` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_cuda_stream_chunks_only",
+      "type": "function",
+      "name": "test_comm_router_uses_cuda_ipc_for_cuda_stream_chunks_only",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        225,
+        237
+      ],
+      "summary": "验证 `test_comm_router_uses_cuda_ipc_for_cuda_stream_chunks_only` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:_cross_gpu_router",
+      "type": "function",
+      "name": "_cross_gpu_router",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        240,
+        249
+      ],
+      "summary": "构造或处理 `_cross_gpu_router` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "communication",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_caches_cuda_peer_capability",
+      "type": "function",
+      "name": "test_comm_router_caches_cuda_peer_capability",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        252,
+        268
+      ],
+      "summary": "验证 `test_comm_router_caches_cuda_peer_capability` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_falls_back_to_shm_when_cuda_peer_access_is_unavailable",
+      "type": "function",
+      "name": "test_comm_router_falls_back_to_shm_when_cuda_peer_access_is_unavailable",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        271,
+        288
+      ],
+      "summary": "验证 `test_comm_router_falls_back_to_shm_when_cuda_peer_access_is_unavailable` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_non_cuda_platform_never_runs_the_cuda_peer_probe",
+      "type": "function",
+      "name": "test_a_non_cuda_platform_never_runs_the_cuda_peer_probe",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        291,
+        310
+      ],
+      "summary": "验证 `test_a_non_cuda_platform_never_runs_the_cuda_peer_probe` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_cuda_platform_still_falls_back_when_peers_cannot_talk",
+      "type": "function",
+      "name": "test_a_cuda_platform_still_falls_back_when_peers_cannot_talk",
+      "filePath": "tests/unit_test/pipeline/test_comm_router.py",
+      "lineRange": [
+        313,
+        336
+      ],
+      "summary": "验证 `test_a_cuda_platform_still_falls_back_when_peers_cannot_talk` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "communication"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "type": "file",
+      "name": "test_kv_transfer.py",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "summary": "验证 KV cache 传输的拓扑约束、TP endpoint 匹配、rank 生命周期、分页传输、超时与错误清理。",
+      "tags": [
+        "test",
+        "kv-transfer",
+        "tensor-parallel",
+        "relay"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:_cuda_ipc_capable_platform",
+      "type": "function",
+      "name": "_cuda_ipc_capable_platform",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        33,
+        45
+      ],
+      "summary": "构造或处理 `_cuda_ipc_capable_platform` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:_pool",
+      "type": "function",
+      "name": "_pool",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        175,
+        182
+      ],
+      "summary": "构造或处理 `_pool` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:_kv_endpoints",
+      "type": "function",
+      "name": "_kv_endpoints",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        185,
+        193
+      ],
+      "summary": "构造或处理 `_kv_endpoints` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:_engine",
+      "type": "function",
+      "name": "_engine",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        196,
+        216
+      ],
+      "summary": "构造或处理 `_engine` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:_start_pair",
+      "type": "function",
+      "name": "_start_pair",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        219,
+        244
+      ],
+      "summary": "构造或处理 `_start_pair` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_control_messages_round_trip_without_rank_envelope",
+      "type": "function",
+      "name": "test_kv_control_messages_round_trip_without_rank_envelope",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        247,
+        285
+      ],
+      "summary": "验证 `test_kv_control_messages_round_trip_without_rank_envelope` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_requires_cuda_ipc_topology",
+      "type": "function",
+      "name": "test_kv_transfer_requires_cuda_ipc_topology",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        288,
+        314
+      ],
+      "summary": "验证 `test_kv_transfer_requires_cuda_ipc_topology` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_requires_matching_tp_endpoint_counts",
+      "type": "function",
+      "name": "test_kv_transfer_requires_matching_tp_endpoint_counts",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        317,
+        344
+      ],
+      "summary": "验证 `test_kv_transfer_requires_matching_tp_endpoint_counts` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_uses_rank_endpoint_for_full_lifecycle",
+      "type": "function",
+      "name": "test_kv_transfer_uses_rank_endpoint_for_full_lifecycle",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        347,
+        378
+      ],
+      "summary": "验证 `test_kv_transfer_uses_rank_endpoint_for_full_lifecycle` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_equal_tp_transfer_copies_each_shard_over_its_peer_endpoint",
+      "type": "function",
+      "name": "test_equal_tp_transfer_copies_each_shard_over_its_peer_endpoint",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        381,
+        437
+      ],
+      "summary": "验证 `test_equal_tp_transfer_copies_each_shard_over_its_peer_endpoint` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_rank_local_prepare_failure_returns_to_same_source_rank",
+      "type": "function",
+      "name": "test_rank_local_prepare_failure_returns_to_same_source_rank",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        440,
+        465
+      ],
+      "summary": "验证 `test_rank_local_prepare_failure_returns_to_same_source_rank` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_rejects_layout_mismatch",
+      "type": "function",
+      "name": "test_kv_transfer_rejects_layout_mismatch",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        468,
+        498
+      ],
+      "summary": "验证 `test_kv_transfer_rejects_layout_mismatch` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_ack_timeout_retains_pending_sender_resources",
+      "type": "function",
+      "name": "test_kv_ack_timeout_retains_pending_sender_resources",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        501,
+        545
+      ],
+      "summary": "验证 `test_kv_ack_timeout_retains_pending_sender_resources` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_rank_endpoint_dispatches_concurrent_kv_copies_and_aborts_once",
+      "type": "function",
+      "name": "test_rank_endpoint_dispatches_concurrent_kv_copies_and_aborts_once",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        548,
+        585
+      ],
+      "summary": "验证 `test_rank_endpoint_dispatches_concurrent_kv_copies_and_aborts_once` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_cleanup_aborts_reserved_destination",
+      "type": "function",
+      "name": "test_kv_cleanup_aborts_reserved_destination",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        588,
+        609
+      ],
+      "summary": "验证 `test_kv_cleanup_aborts_reserved_destination` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:_kv_events",
+      "type": "function",
+      "name": "_kv_events",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        618,
+        623
+      ],
+      "summary": "构造或处理 `_kv_events` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:_first",
+      "type": "function",
+      "name": "_first",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        626,
+        630
+      ],
+      "summary": "构造或处理 `_first` 所需的测试数据与运行条件，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "pipeline",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_every_step_of_a_successful_transfer",
+      "type": "function",
+      "name": "test_kv_transfer_traces_every_step_of_a_successful_transfer",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        633,
+        680
+      ],
+      "summary": "验证 `test_kv_transfer_traces_every_step_of_a_successful_transfer` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_a_transport_rejection_as_a_failure",
+      "type": "function",
+      "name": "test_kv_transfer_traces_a_transport_rejection_as_a_failure",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        683,
+        714
+      ],
+      "summary": "验证 `test_kv_transfer_traces_a_transport_rejection_as_a_failure` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_a_receiver_rejection_on_both_sides",
+      "type": "function",
+      "name": "test_kv_transfer_traces_a_receiver_rejection_on_both_sides",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        717,
+        761
+      ],
+      "summary": "验证 `test_kv_transfer_traces_a_receiver_rejection_on_both_sides` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_ack_timeout_traces_the_retained_transfer_with_a_running_count",
+      "type": "function",
+      "name": "test_kv_ack_timeout_traces_the_retained_transfer_with_a_running_count",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        764,
+        809
+      ],
+      "summary": "验证 `test_kv_ack_timeout_traces_the_retained_transfer_with_a_running_count` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_emits_nothing_when_the_env_gate_is_unset",
+      "type": "function",
+      "name": "test_kv_transfer_emits_nothing_when_the_env_gate_is_unset",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        812,
+        838
+      ],
+      "summary": "验证 `test_kv_transfer_emits_nothing_when_the_env_gate_is_unset` 场景所描述的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_kv_transfer.py:_PagedRelay",
+      "type": "class",
+      "name": "_PagedRelay",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        48,
+        105
+      ],
+      "summary": "为测试提供 `_PagedRelay` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "pipeline"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_kv_transfer.py:_Receiver",
+      "type": "class",
+      "name": "_Receiver",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        108,
+        132
+      ],
+      "summary": "为测试提供 `_Receiver` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_kv_transfer.py:_FailingReceiver",
+      "type": "class",
+      "name": "_FailingReceiver",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        135,
+        138
+      ],
+      "summary": "为测试提供 `_FailingReceiver` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_kv_transfer.py:_BlockingOp",
+      "type": "class",
+      "name": "_BlockingOp",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        141,
+        150
+      ],
+      "summary": "为测试提供 `_BlockingOp` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/pipeline/test_kv_transfer.py:_BlockingPagedRelay",
+      "type": "class",
+      "name": "_BlockingPagedRelay",
+      "filePath": "tests/unit_test/pipeline/test_kv_transfer.py",
+      "lineRange": [
+        153,
+        172
+      ],
+      "summary": "为测试提供 `_BlockingPagedRelay` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "pipeline"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_admin_messages_round_trip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_admin_messages_round_trip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_admin_enqueues_to_scheduler_thread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_admin_enqueues_to_scheduler_thread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_update_weights_rejects_active_requests_by_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_update_weights_rejects_active_requests_by_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_weights_checker_compare_change_is_success",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_weights_checker_compare_change_is_success",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_update_weights_flushes_cache_without_kwargs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_update_weights_flushes_cache_without_kwargs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_flush_cache_has_upstream_idle_compat_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_flush_cache_has_upstream_idle_compat_fields",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_rejects_active_requests_by_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_rejects_active_requests_by_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_aborts_and_flushes_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_aborts_and_flushes_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_failure_keeps_engine_paused",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_omni_scheduler_distributed_update_failure_keeps_engine_paused",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_coordinator_admin_waits_for_all_stage_results",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_coordinator_admin_waits_for_all_stage_results",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_stage_admin_dispatches_to_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "function:tests/unit_test/pipeline/test_admin_control.py:test_stage_admin_dispatches_to_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "class:tests/unit_test/pipeline/test_admin_control.py:AdminScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "class:tests/unit_test/pipeline/test_admin_control.py:AdminScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/pipeline/control_plane.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/pipeline/control_plane.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/pipeline/coordinator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/pipeline/coordinator.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/pipeline/stage/runtime.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/pipeline/stage/runtime.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_admin_control.py",
+      "target": "file:tests/unit_test/fixtures/pipeline_fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_wait_until",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_wait_until",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_consume_task_exception",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_consume_task_exception",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_stream_ack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_stream_ack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_send_stream_for_ack_test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:_send_stream_for_ack_test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_releases_sender_op_after_data_ack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_releases_sender_op_after_data_ack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_stream_sends_with_reused_semantics_coexist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_stream_sends_with_reused_semantics_coexist",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_stream_stale_ack_does_not_complete_reused_send",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_stream_stale_ack_does_not_complete_reused_send",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_ignores_unknown_data_ack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_ignores_unknown_data_ack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_ignores_duplicate_data_ack",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_comm_engine_ignores_duplicate_data_ack",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_data_messages_reject_missing_data_ref",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_data_messages_reject_missing_data_ref",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_data_ref_rejects_bool_int_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_engine_ack.py:test_data_ref_rejects_bool_int_fields",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "class:tests/unit_test/pipeline/test_comm_engine_ack.py:_AckedOp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "class:tests/unit_test/pipeline/test_comm_engine_ack.py:_AckedOp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "class:tests/unit_test/pipeline/test_comm_engine_ack.py:_AckedRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "class:tests/unit_test/pipeline/test_comm_engine_ack.py:_AckedRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/comm/data_ref.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/comm/data_ref.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/comm/engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/comm/engine.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/comm/router.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/comm/router.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_engine_ack.py",
+      "target": "file:tests/unit_test/fixtures/pipeline_fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_force_cuda_transport_policy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_force_cuda_transport_policy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_same_node_gpu_payload_edges",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_same_node_gpu_payload_edges",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_mooncake_only_for_remote_edges",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_mooncake_only_for_remote_edges",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_mixed_gpu_payloads",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_mixed_gpu_payloads",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_shm_for_cuda_payloads_to_cpu_targets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_shm_for_cuda_payloads_to_cpu_targets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_pin_non_cuda_platform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_pin_non_cuda_platform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_xpu_router",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_xpu_router",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_never_selects_cuda_ipc_without_platform_support",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_never_selects_cuda_ipc_without_platform_support",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_shm_for_accelerator_payloads_and_streams",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_shm_for_accelerator_payloads_and_streams",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_still_routes_remote_edges_over_mooncake",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_still_routes_remote_edges_over_mooncake",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_mooncake_relay_is_refused_on_a_non_cuda_accelerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_mooncake_relay_is_refused_on_a_non_cuda_accelerator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_host_only_stage_still_gets_a_mooncake_relay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_host_only_stage_still_gets_a_mooncake_relay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_admits_compatible_direct_cuda_ipc_namespace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_admits_compatible_direct_cuda_ipc_namespace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_rejects_narrowed_direct_cuda_ipc_namespace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_rejects_narrowed_direct_cuda_ipc_namespace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_cuda_stream_chunks_only",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_uses_cuda_ipc_for_cuda_stream_chunks_only",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_cross_gpu_router",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:_cross_gpu_router",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_caches_cuda_peer_capability",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_caches_cuda_peer_capability",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_falls_back_to_shm_when_cuda_peer_access_is_unavailable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_comm_router_falls_back_to_shm_when_cuda_peer_access_is_unavailable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_non_cuda_platform_never_runs_the_cuda_peer_probe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_non_cuda_platform_never_runs_the_cuda_peer_probe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_cuda_platform_still_falls_back_when_peers_cannot_talk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "function:tests/unit_test/pipeline/test_comm_router.py:test_a_cuda_platform_still_falls_back_when_peers_cannot_talk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "file:sglang_omni/comm/data_ref.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "file:sglang_omni/comm/data_ref.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "file:sglang_omni/comm/router.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "file:sglang_omni/comm/router.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_comm_router.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_cuda_ipc_capable_platform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_cuda_ipc_capable_platform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_pool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_pool",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_kv_endpoints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_kv_endpoints",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_engine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_engine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_start_pair",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_start_pair",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_control_messages_round_trip_without_rank_envelope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_control_messages_round_trip_without_rank_envelope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_requires_cuda_ipc_topology",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_requires_cuda_ipc_topology",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_requires_matching_tp_endpoint_counts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_requires_matching_tp_endpoint_counts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_uses_rank_endpoint_for_full_lifecycle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_uses_rank_endpoint_for_full_lifecycle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_equal_tp_transfer_copies_each_shard_over_its_peer_endpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_equal_tp_transfer_copies_each_shard_over_its_peer_endpoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_rank_local_prepare_failure_returns_to_same_source_rank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_rank_local_prepare_failure_returns_to_same_source_rank",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_rejects_layout_mismatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_rejects_layout_mismatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_ack_timeout_retains_pending_sender_resources",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_ack_timeout_retains_pending_sender_resources",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_rank_endpoint_dispatches_concurrent_kv_copies_and_aborts_once",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_rank_endpoint_dispatches_concurrent_kv_copies_and_aborts_once",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_cleanup_aborts_reserved_destination",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_cleanup_aborts_reserved_destination",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_kv_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_kv_events",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_first",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:_first",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_every_step_of_a_successful_transfer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_every_step_of_a_successful_transfer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_a_transport_rejection_as_a_failure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_a_transport_rejection_as_a_failure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_a_receiver_rejection_on_both_sides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_traces_a_receiver_rejection_on_both_sides",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_ack_timeout_traces_the_retained_transfer_with_a_running_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_ack_timeout_traces_the_retained_transfer_with_a_running_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_emits_nothing_when_the_env_gate_is_unset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "function:tests/unit_test/pipeline/test_kv_transfer.py:test_kv_transfer_emits_nothing_when_the_env_gate_is_unset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_PagedRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_PagedRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_Receiver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_Receiver",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_FailingReceiver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_FailingReceiver",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_BlockingOp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_BlockingOp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_BlockingPagedRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "class:tests/unit_test/pipeline/test_kv_transfer.py:_BlockingPagedRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/comm/engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/comm/engine.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/comm/kv_transfer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/comm/kv_transfer.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/comm/router.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/comm/router.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/pipeline/control_plane.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/pipeline/control_plane.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:tests/unit_test/fixtures/pipeline_fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/pipeline/test_kv_transfer.py",
+      "target": "file:tests/unit_test/fixtures/trace_capture.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

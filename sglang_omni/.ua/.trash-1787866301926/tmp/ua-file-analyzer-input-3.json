@@ -1,0 +1,65 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "models/qwen3_asr/audio_lengths.py",
+      "language": "python",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/configuration_qwen3_asr.py",
+      "language": "python",
+      "sizeLines": 165,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/encoder_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 349,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/languages.py",
+      "language": "python",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/mrope_fast_path.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/request_builders.py",
+      "language": "python",
+      "sizeLines": 535,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/sglang_model.py",
+      "language": "python",
+      "sizeLines": 355,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "models/qwen3_asr/audio_lengths.py": [],
+    "models/qwen3_asr/configuration_qwen3_asr.py": [
+      "models/qwen3_asr/audio_lengths.py"
+    ],
+    "models/qwen3_asr/encoder_cuda_graph.py": [],
+    "models/qwen3_asr/languages.py": [],
+    "models/qwen3_asr/mrope_fast_path.py": [],
+    "models/qwen3_asr/request_builders.py": [
+      "models/qwen3_asr/audio_lengths.py",
+      "models/qwen3_asr/languages.py",
+      "models/qwen3_asr/mrope_fast_path.py"
+    ],
+    "models/qwen3_asr/sglang_model.py": [
+      "models/qwen3_asr/configuration_qwen3_asr.py",
+      "models/qwen3_asr/encoder_cuda_graph.py"
+    ]
+  }
+}

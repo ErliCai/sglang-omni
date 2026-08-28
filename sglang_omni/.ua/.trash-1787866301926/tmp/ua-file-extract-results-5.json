@@ -1,0 +1,3132 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "preprocessing/audio.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 278,
+      "nonEmptyLines": 229,
+      "functions": [
+        {
+          "name": "_decode_audio_bytes_av",
+          "startLine": 19,
+          "endLine": 52,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "_parse_wav_bytes",
+          "startLine": 55,
+          "endLine": 124,
+          "params": [
+            "data",
+            "source"
+          ]
+        },
+        {
+          "name": "_resample_linear",
+          "startLine": 127,
+          "endLine": 136,
+          "params": [
+            "audio",
+            "orig_sr",
+            "target_sr"
+          ]
+        },
+        {
+          "name": "load_audio_path",
+          "startLine": 139,
+          "endLine": 146,
+          "params": [
+            "path",
+            "target_sr"
+          ]
+        },
+        {
+          "name": "ensure_audio_list_async",
+          "startLine": 192,
+          "endLine": 250,
+          "params": [
+            "audios",
+            "target_sr",
+            "resource_connector"
+          ]
+        },
+        {
+          "name": "build_audio_mm_inputs",
+          "startLine": 253,
+          "endLine": 267,
+          "params": [
+            "hf_inputs"
+          ]
+        },
+        {
+          "name": "compute_audio_cache_key",
+          "startLine": 270,
+          "endLine": 278,
+          "params": [
+            "audios"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AudioMediaIO",
+          "startLine": 149,
+          "endLine": 189,
+          "methods": [
+            "__init__",
+            "load_bytes",
+            "load_base64",
+            "load_file"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_decode_audio_bytes_av",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_wav_bytes",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "_resample_linear",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "load_audio_path",
+          "line": 139,
+          "isDefault": false
+        },
+        {
+          "name": "AudioMediaIO",
+          "line": 149,
+          "isDefault": false
+        },
+        {
+          "name": "ensure_audio_list_async",
+          "line": 192,
+          "isDefault": false
+        },
+        {
+          "name": "build_audio_mm_inputs",
+          "line": 253,
+          "isDefault": false
+        },
+        {
+          "name": "compute_audio_cache_key",
+          "line": 270,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "av.open",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "io.BytesIO",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "next",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "ValueError",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "container.decode",
+          "lineNumber": 33
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "frame.to_ndarray",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "arr.mean",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "frames.append",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "arr.flatten().astype",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "arr.flatten",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "container.close",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "ValueError",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "np.concatenate",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "audio.max",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "audio.min",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "max",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "abs",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "audio.max",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "abs",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "audio.min",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_decode_audio_bytes_av",
+          "callee": "int",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "len",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "ValueError",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "struct.unpack",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "ValueError",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "len",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "len",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "struct.unpack",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "len",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "len",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "struct.unpack",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "ValueError",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "ValueError",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "np.frombuffer",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "np.frombuffer(data_bytes, dtype=\"<f8\").astype",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "np.frombuffer",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "ValueError",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "np.frombuffer",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "(audio_i16.astype(np.float32) / 32768.0).astype",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "audio_i16.astype",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "np.frombuffer",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "(audio_i32.astype(np.float32) / 2147483648.0).astype",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "audio_i32.astype",
+          "lineNumber": 112
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "np.frombuffer",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "((audio_u8.astype(np.float32) - 128.0) / 128.0).astype",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "audio_u8.astype",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "ValueError",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "ValueError",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "audio.reshape(-1, channels).mean",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "audio.reshape",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "audio.astype",
+          "lineNumber": 124
+        },
+        {
+          "caller": "_parse_wav_bytes",
+          "callee": "int",
+          "lineNumber": 124
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "audio.astype",
+          "lineNumber": 129
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "audio.astype",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "float",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "max",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "int",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "round",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "np.arange",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "np.linspace",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "np.interp(new_idx, old_idx, audio).astype",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_resample_linear",
+          "callee": "np.interp",
+          "lineNumber": 136
+        },
+        {
+          "caller": "load_audio_path",
+          "callee": "open",
+          "lineNumber": 140
+        },
+        {
+          "caller": "load_audio_path",
+          "callee": "f.read",
+          "lineNumber": 141
+        },
+        {
+          "caller": "load_audio_path",
+          "callee": "_parse_wav_bytes",
+          "lineNumber": 143
+        },
+        {
+          "caller": "load_audio_path",
+          "callee": "str",
+          "lineNumber": 143
+        },
+        {
+          "caller": "load_audio_path",
+          "callee": "_decode_audio_bytes_av",
+          "lineNumber": 145
+        },
+        {
+          "caller": "load_audio_path",
+          "callee": "_resample_linear",
+          "lineNumber": 146
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 159
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 159
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "_parse_wav_bytes",
+          "lineNumber": 166
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "_decode_audio_bytes_av",
+          "lineNumber": 168
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "_resample_linear",
+          "lineNumber": 169
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "float",
+          "lineNumber": 170
+        },
+        {
+          "caller": "load_base64",
+          "callee": "self.load_bytes",
+          "lineNumber": 178
+        },
+        {
+          "caller": "load_base64",
+          "callee": "base64.b64decode",
+          "lineNumber": 178
+        },
+        {
+          "caller": "load_file",
+          "callee": "open",
+          "lineNumber": 182
+        },
+        {
+          "caller": "load_file",
+          "callee": "f.read",
+          "lineNumber": 183
+        },
+        {
+          "caller": "load_file",
+          "callee": "_parse_wav_bytes",
+          "lineNumber": 185
+        },
+        {
+          "caller": "load_file",
+          "callee": "str",
+          "lineNumber": 185
+        },
+        {
+          "caller": "load_file",
+          "callee": "_decode_audio_bytes_av",
+          "lineNumber": 187
+        },
+        {
+          "caller": "load_file",
+          "callee": "_resample_linear",
+          "lineNumber": 188
+        },
+        {
+          "caller": "load_file",
+          "callee": "float",
+          "lineNumber": 189
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "isinstance",
+          "lineNumber": 211
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "get_global_resource_connector",
+          "lineNumber": 217
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "enumerate",
+          "lineNumber": 225
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "isinstance",
+          "lineNumber": 226
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "_is_url",
+          "lineNumber": 227
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "resource_connector.fetch_audio_async",
+          "lineNumber": 229
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "str",
+          "lineNumber": 230
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "asyncio.create_task",
+          "lineNumber": 232
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "coroutines.append",
+          "lineNumber": 233
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "url_indices.append",
+          "lineNumber": 234
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 235
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 238
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "load_audio_path",
+          "lineNumber": 238
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 241
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "asyncio.gather",
+          "lineNumber": 245
+        },
+        {
+          "caller": "ensure_audio_list_async",
+          "callee": "zip",
+          "lineNumber": 247
+        },
+        {
+          "caller": "build_audio_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 255
+        },
+        {
+          "caller": "build_audio_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 256
+        },
+        {
+          "caller": "build_audio_mm_inputs",
+          "callee": "isinstance",
+          "lineNumber": 257
+        },
+        {
+          "caller": "build_audio_mm_inputs",
+          "callee": "torch.sum(feature_attention_mask, dim=1).to",
+          "lineNumber": 260
+        },
+        {
+          "caller": "build_audio_mm_inputs",
+          "callee": "torch.sum",
+          "lineNumber": 260
+        },
+        {
+          "caller": "build_audio_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 264
+        },
+        {
+          "caller": "compute_audio_cache_key",
+          "callee": "compute_media_cache_key",
+          "lineNumber": 278
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "preprocessing/base.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 74,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "_is_url",
+          "startLine": 14,
+          "endLine": 22,
+          "params": [
+            "path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MediaIO",
+          "startLine": 25,
+          "endLine": 74,
+          "methods": [
+            "load_bytes",
+            "load_http_bytes",
+            "load_base64",
+            "load_file"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_is_url",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "MediaIO",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_is_url",
+          "callee": "isinstance",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_is_url",
+          "callee": "urlparse",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_is_url",
+          "callee": "bool",
+          "lineNumber": 22
+        },
+        {
+          "caller": "load_http_bytes",
+          "callee": "self.load_bytes",
+          "lineNumber": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "preprocessing/cache_key.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 235,
+      "nonEmptyLines": 189,
+      "functions": [
+        {
+          "name": "_is_url_like",
+          "startLine": 15,
+          "endLine": 18,
+          "params": [
+            "s"
+          ]
+        },
+        {
+          "name": "_hash_joined",
+          "startLine": 21,
+          "endLine": 22,
+          "params": [
+            "parts"
+          ]
+        },
+        {
+          "name": "hash_bytes",
+          "startLine": 25,
+          "endLine": 26,
+          "params": [
+            "payload"
+          ]
+        },
+        {
+          "name": "hash_file_sampled",
+          "startLine": 29,
+          "endLine": 52,
+          "params": [
+            "path",
+            "head_size",
+            "tail_size"
+          ]
+        },
+        {
+          "name": "_reference_path_hash_memo_key",
+          "startLine": 61,
+          "endLine": 74,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "_reference_path_sentinel",
+          "startLine": 77,
+          "endLine": 91,
+          "params": [
+            "path",
+            "file_size"
+          ]
+        },
+        {
+          "name": "_get_reference_path_hash",
+          "startLine": 94,
+          "endLine": 104,
+          "params": [
+            "memo_key",
+            "sentinel"
+          ]
+        },
+        {
+          "name": "_get_reference_path_hash_by_memo_key",
+          "startLine": 107,
+          "endLine": 114,
+          "params": [
+            "memo_key"
+          ]
+        },
+        {
+          "name": "_put_reference_path_hash",
+          "startLine": 117,
+          "endLine": 122,
+          "params": [
+            "memo_key",
+            "sentinel",
+            "digest"
+          ]
+        },
+        {
+          "name": "reference_path_cache_key",
+          "startLine": 125,
+          "endLine": 160,
+          "params": [
+            "path_like",
+            "trust_stat"
+          ]
+        },
+        {
+          "name": "hash_media_item",
+          "startLine": 163,
+          "endLine": 209,
+          "params": [
+            "item"
+          ]
+        },
+        {
+          "name": "compute_media_cache_key",
+          "startLine": 212,
+          "endLine": 235,
+          "params": [
+            "items",
+            "prefix"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_is_url_like",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "_hash_joined",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "hash_bytes",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "hash_file_sampled",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "_reference_path_hash_memo_key",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "_reference_path_sentinel",
+          "line": 77,
+          "isDefault": false
+        },
+        {
+          "name": "_get_reference_path_hash",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "_get_reference_path_hash_by_memo_key",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "_put_reference_path_hash",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "reference_path_cache_key",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "hash_media_item",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "compute_media_cache_key",
+          "line": 212,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_is_url_like",
+          "callee": "urlparse",
+          "lineNumber": 17
+        },
+        {
+          "caller": "_is_url_like",
+          "callee": "bool",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_hash_joined",
+          "callee": "xxhash.xxh3_64(\"|\".join(parts).encode(\"utf-8\")).hexdigest",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_hash_joined",
+          "callee": "xxhash.xxh3_64",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_hash_joined",
+          "callee": "\"|\".join(parts).encode",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_hash_joined",
+          "callee": "\"|\".join",
+          "lineNumber": 22
+        },
+        {
+          "caller": "hash_bytes",
+          "callee": "xxhash.xxh3_64(payload).hexdigest",
+          "lineNumber": 26
+        },
+        {
+          "caller": "hash_bytes",
+          "callee": "xxhash.xxh3_64",
+          "lineNumber": 26
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "Path",
+          "lineNumber": 40
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "path.stat",
+          "lineNumber": 41
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "open",
+          "lineNumber": 43
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "f.read",
+          "lineNumber": 44
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "f.seek",
+          "lineNumber": 46
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "f.read",
+          "lineNumber": 47
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "f\"|size:{file_size}\".encode",
+          "lineNumber": 51
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "xxhash.xxh3_64(payload).hexdigest",
+          "lineNumber": 52
+        },
+        {
+          "caller": "hash_file_sampled",
+          "callee": "xxhash.xxh3_64",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_reference_path_hash_memo_key",
+          "callee": "path.is_file",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_reference_path_hash_memo_key",
+          "callee": "path.stat",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_reference_path_hash_memo_key",
+          "callee": "path.resolve",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_reference_path_hash_memo_key",
+          "callee": "int",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "min",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "path.open",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "f.read",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "max",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "f.seek",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "chunks.append",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "f.read",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "f.seek",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "max",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "chunks.append",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "f.read",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "hash_bytes",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "b\"\".join",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_reference_path_sentinel",
+          "callee": "f\"|size:{file_size}\".encode",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_get_reference_path_hash",
+          "callee": "_REF_PATH_HASH_MEMO.get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_get_reference_path_hash",
+          "callee": "_REF_PATH_HASH_MEMO.pop",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_get_reference_path_hash",
+          "callee": "_REF_PATH_HASH_MEMO.move_to_end",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_get_reference_path_hash_by_memo_key",
+          "callee": "_REF_PATH_HASH_MEMO.get",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_get_reference_path_hash_by_memo_key",
+          "callee": "_REF_PATH_HASH_MEMO.move_to_end",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_put_reference_path_hash",
+          "callee": "_REF_PATH_HASH_MEMO.move_to_end",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_put_reference_path_hash",
+          "callee": "len",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_put_reference_path_hash",
+          "callee": "_REF_PATH_HASH_MEMO.popitem",
+          "lineNumber": 122
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "Path(str(path_like)).expanduser",
+          "lineNumber": 133
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "Path",
+          "lineNumber": 133
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "str",
+          "lineNumber": 133
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "_reference_path_hash_memo_key",
+          "lineNumber": 134
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "_get_reference_path_hash_by_memo_key",
+          "lineNumber": 140
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "_reference_path_sentinel",
+          "lineNumber": 144
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "_get_reference_path_hash",
+          "lineNumber": 149
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "hash_bytes",
+          "lineNumber": 154
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "path.read_bytes",
+          "lineNumber": 154
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "_reference_path_hash_memo_key",
+          "lineNumber": 157
+        },
+        {
+          "caller": "reference_path_cache_key",
+          "callee": "_put_reference_path_hash",
+          "lineNumber": 159
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "isinstance",
+          "lineNumber": 176
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "str",
+          "lineNumber": 177
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "_is_url_like",
+          "lineNumber": 178
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "hash_bytes",
+          "lineNumber": 179
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "s.encode",
+          "lineNumber": 179
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "Path",
+          "lineNumber": 180
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "p.exists",
+          "lineNumber": 181
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "p.is_file",
+          "lineNumber": 181
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "hash_file_sampled",
+          "lineNumber": 182
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "hash_bytes",
+          "lineNumber": 183
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "s.encode",
+          "lineNumber": 183
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "isinstance",
+          "lineNumber": 186
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "hash_bytes",
+          "lineNumber": 188
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "item.tobytes",
+          "lineNumber": 188
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "isinstance",
+          "lineNumber": 192
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "hash_bytes",
+          "lineNumber": 194
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "item.tobytes",
+          "lineNumber": 194
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "isinstance",
+          "lineNumber": 198
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "item.detach().cpu",
+          "lineNumber": 199
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "item.detach",
+          "lineNumber": 199
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "tuple",
+          "lineNumber": 200
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "hash_bytes",
+          "lineNumber": 201
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "cpu.numpy().tobytes",
+          "lineNumber": 201
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "cpu.numpy",
+          "lineNumber": 201
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "isinstance",
+          "lineNumber": 205
+        },
+        {
+          "caller": "hash_media_item",
+          "callee": "hash_bytes",
+          "lineNumber": 206
+        },
+        {
+          "caller": "compute_media_cache_key",
+          "callee": "isinstance",
+          "lineNumber": 224
+        },
+        {
+          "caller": "compute_media_cache_key",
+          "callee": "hash_media_item",
+          "lineNumber": 230
+        },
+        {
+          "caller": "compute_media_cache_key",
+          "callee": "parts.append",
+          "lineNumber": 233
+        },
+        {
+          "caller": "compute_media_cache_key",
+          "callee": "_hash_joined",
+          "lineNumber": 235
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 12,
+        "functionCount": 12,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "preprocessing/image.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 134,
+      "nonEmptyLines": 106,
+      "functions": [
+        {
+          "name": "load_image_path",
+          "startLine": 18,
+          "endLine": 20,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "compute_image_cache_key",
+          "startLine": 60,
+          "endLine": 66,
+          "params": [
+            "images"
+          ]
+        },
+        {
+          "name": "ensure_image_list_async",
+          "startLine": 69,
+          "endLine": 126,
+          "params": [
+            "images",
+            "image_mode",
+            "media_connector"
+          ]
+        },
+        {
+          "name": "build_image_mm_inputs",
+          "startLine": 129,
+          "endLine": 134,
+          "params": [
+            "hf_inputs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ImageMediaIO",
+          "startLine": 23,
+          "endLine": 57,
+          "methods": [
+            "__init__",
+            "load_bytes",
+            "load_base64",
+            "load_file"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "load_image_path",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "ImageMediaIO",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "compute_image_cache_key",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "ensure_image_list_async",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "build_image_mm_inputs",
+          "line": 129,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "load_image_path",
+          "callee": "Image.open(path).convert",
+          "lineNumber": 20
+        },
+        {
+          "caller": "load_image_path",
+          "callee": "Image.open",
+          "lineNumber": 20
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 33
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 33
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "Image.open(BytesIO(data)).convert",
+          "lineNumber": 40
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "Image.open",
+          "lineNumber": 40
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "BytesIO",
+          "lineNumber": 40
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "ValueError",
+          "lineNumber": 42
+        },
+        {
+          "caller": "load_base64",
+          "callee": "self.load_bytes",
+          "lineNumber": 50
+        },
+        {
+          "caller": "load_base64",
+          "callee": "base64.b64decode",
+          "lineNumber": 50
+        },
+        {
+          "caller": "load_file",
+          "callee": "Image.open(filepath).convert",
+          "lineNumber": 55
+        },
+        {
+          "caller": "load_file",
+          "callee": "Image.open",
+          "lineNumber": 55
+        },
+        {
+          "caller": "load_file",
+          "callee": "ValueError",
+          "lineNumber": 57
+        },
+        {
+          "caller": "compute_image_cache_key",
+          "callee": "compute_media_cache_key",
+          "lineNumber": 66
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "isinstance",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "get_global_resource_connector",
+          "lineNumber": 94
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "enumerate",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "isinstance",
+          "lineNumber": 103
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "_is_url",
+          "lineNumber": 104
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "media_connector.fetch_image_async",
+          "lineNumber": 106
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "str",
+          "lineNumber": 107
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "asyncio.create_task",
+          "lineNumber": 109
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "coroutines.append",
+          "lineNumber": 110
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "url_indices.append",
+          "lineNumber": 111
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 112
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 114
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "load_image_path",
+          "lineNumber": 114
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 117
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "asyncio.gather",
+          "lineNumber": 121
+        },
+        {
+          "caller": "ensure_image_list_async",
+          "callee": "zip",
+          "lineNumber": 123
+        },
+        {
+          "caller": "build_image_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 132
+        },
+        {
+          "caller": "build_image_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "preprocessing/resource_connector.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 566,
+      "nonEmptyLines": 476,
+      "functions": [
+        {
+          "name": "resolve_allowed_local_media_path",
+          "startLine": 67,
+          "endLine": 71,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "_next_redirect_url",
+          "startLine": 74,
+          "endLine": 78,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "_response_media_type",
+          "startLine": 81,
+          "endLine": 85,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "_validate_response_length",
+          "startLine": 88,
+          "endLine": 101,
+          "params": [
+            "response",
+            "max_bytes"
+          ]
+        },
+        {
+          "name": "_validate_downloaded_size",
+          "startLine": 104,
+          "endLine": 106,
+          "params": [
+            "size",
+            "max_bytes"
+          ]
+        },
+        {
+          "name": "_resolve_remote_addresses",
+          "startLine": 109,
+          "endLine": 131,
+          "params": [
+            "hostname"
+          ]
+        },
+        {
+          "name": "_unsafe_remote_address_category",
+          "startLine": 134,
+          "endLine": 149,
+          "params": [
+            "address"
+          ]
+        },
+        {
+          "name": "_is_allowed_remote_domain",
+          "startLine": 152,
+          "endLine": 157,
+          "params": [
+            "hostname",
+            "allowed_domain"
+          ]
+        },
+        {
+          "name": "_read_limited_response_bytes",
+          "startLine": 160,
+          "endLine": 172,
+          "params": [
+            "response",
+            "max_bytes"
+          ]
+        },
+        {
+          "name": "_media_http_error",
+          "startLine": 175,
+          "endLine": 181,
+          "params": [
+            "exc",
+            "url"
+          ]
+        },
+        {
+          "name": "_read_limited_response_bytes_async",
+          "startLine": 184,
+          "endLine": 196,
+          "params": [
+            "response",
+            "max_bytes"
+          ]
+        },
+        {
+          "name": "get_global_resource_connector",
+          "startLine": 561,
+          "endLine": 566,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "ResourceHTTPConnection",
+          "startLine": 31,
+          "endLine": 61,
+          "methods": [
+            "__init__",
+            "get_sync_client",
+            "get_async_client",
+            "close"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MultiModalResourceConnector",
+          "startLine": 199,
+          "endLine": 555,
+          "methods": [
+            "__init__",
+            "_assert_url_allowed",
+            "assert_url_allowed",
+            "_assert_url_allowed_async",
+            "_load_data_url",
+            "_load_file_url",
+            "load_resource",
+            "load_resource_async",
+            "_load_http_bytes",
+            "_load_http_bytes_async",
+            "fetch_audio_async",
+            "fetch_image_async",
+            "fetch_video_async"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ResourceHTTPConnection",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "resolve_allowed_local_media_path",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "_next_redirect_url",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "_response_media_type",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_response_length",
+          "line": 88,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_downloaded_size",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "_resolve_remote_addresses",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "_unsafe_remote_address_category",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "_is_allowed_remote_domain",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "_read_limited_response_bytes",
+          "line": 160,
+          "isDefault": false
+        },
+        {
+          "name": "_media_http_error",
+          "line": 175,
+          "isDefault": false
+        },
+        {
+          "name": "_read_limited_response_bytes_async",
+          "line": 184,
+          "isDefault": false
+        },
+        {
+          "name": "MultiModalResourceConnector",
+          "line": 199,
+          "isDefault": false
+        },
+        {
+          "name": "get_global_resource_connector",
+          "line": 561,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_sync_client",
+          "callee": "httpx.Client",
+          "lineNumber": 41
+        },
+        {
+          "caller": "get_async_client",
+          "callee": "httpx.Timeout",
+          "lineNumber": 46
+        },
+        {
+          "caller": "get_async_client",
+          "callee": "httpx.AsyncClient",
+          "lineNumber": 52
+        },
+        {
+          "caller": "close",
+          "callee": "self._async_client.aclose",
+          "lineNumber": 59
+        },
+        {
+          "caller": "close",
+          "callee": "self._client.close",
+          "lineNumber": 61
+        },
+        {
+          "caller": "resolve_allowed_local_media_path",
+          "callee": "Path(path).expanduser().resolve",
+          "lineNumber": 68
+        },
+        {
+          "caller": "resolve_allowed_local_media_path",
+          "callee": "Path(path).expanduser",
+          "lineNumber": 68
+        },
+        {
+          "caller": "resolve_allowed_local_media_path",
+          "callee": "Path",
+          "lineNumber": 68
+        },
+        {
+          "caller": "resolve_allowed_local_media_path",
+          "callee": "resolved.exists",
+          "lineNumber": 69
+        },
+        {
+          "caller": "resolve_allowed_local_media_path",
+          "callee": "resolved.is_dir",
+          "lineNumber": 69
+        },
+        {
+          "caller": "resolve_allowed_local_media_path",
+          "callee": "ValueError",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_next_redirect_url",
+          "callee": "response.headers.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_next_redirect_url",
+          "callee": "ValueError",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_next_redirect_url",
+          "callee": "str",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_next_redirect_url",
+          "callee": "response.url.join",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_response_media_type",
+          "callee": "response.headers.get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_response_media_type",
+          "callee": "content_type.split(\";\", 1)[0].strip().lower",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_response_media_type",
+          "callee": "content_type.split(\";\", 1)[0].strip",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_response_media_type",
+          "callee": "content_type.split",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_validate_response_length",
+          "callee": "response.headers.get",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_validate_response_length",
+          "callee": "int",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_validate_response_length",
+          "callee": "ValueError",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_validate_downloaded_size",
+          "callee": "ValueError",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "ipaddress.ip_address",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "socket.getaddrinfo",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "ValueError",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "set",
+          "lineNumber": 124
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "addresses.add",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "ipaddress.ip_address",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "ValueError",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_resolve_remote_addresses",
+          "callee": "tuple",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_is_allowed_remote_domain",
+          "callee": "allowed_domain.rstrip(\".\").lower",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_is_allowed_remote_domain",
+          "callee": "allowed_domain.rstrip",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_is_allowed_remote_domain",
+          "callee": "allowed_domain.startswith",
+          "lineNumber": 154
+        },
+        {
+          "caller": "_is_allowed_remote_domain",
+          "callee": "hostname.endswith",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_read_limited_response_bytes",
+          "callee": "_validate_response_length",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_read_limited_response_bytes",
+          "callee": "response.iter_bytes",
+          "lineNumber": 166
+        },
+        {
+          "caller": "_read_limited_response_bytes",
+          "callee": "len",
+          "lineNumber": 169
+        },
+        {
+          "caller": "_read_limited_response_bytes",
+          "callee": "_validate_downloaded_size",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_read_limited_response_bytes",
+          "callee": "chunks.append",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_read_limited_response_bytes",
+          "callee": "b\"\".join",
+          "lineNumber": 172
+        },
+        {
+          "caller": "_media_http_error",
+          "callee": "isinstance",
+          "lineNumber": 176
+        },
+        {
+          "caller": "_media_http_error",
+          "callee": "ValueError",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_media_http_error",
+          "callee": "isinstance",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_media_http_error",
+          "callee": "ValueError",
+          "lineNumber": 180
+        },
+        {
+          "caller": "_media_http_error",
+          "callee": "ValueError",
+          "lineNumber": 181
+        },
+        {
+          "caller": "_read_limited_response_bytes_async",
+          "callee": "_validate_response_length",
+          "lineNumber": 187
+        },
+        {
+          "caller": "_read_limited_response_bytes_async",
+          "callee": "response.aiter_bytes",
+          "lineNumber": 190
+        },
+        {
+          "caller": "_read_limited_response_bytes_async",
+          "callee": "len",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_read_limited_response_bytes_async",
+          "callee": "_validate_downloaded_size",
+          "lineNumber": 194
+        },
+        {
+          "caller": "_read_limited_response_bytes_async",
+          "callee": "chunks.append",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_read_limited_response_bytes_async",
+          "callee": "b\"\".join",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "resolve_allowed_local_media_path",
+          "lineNumber": 229
+        },
+        {
+          "caller": "__init__",
+          "callee": "domain.strip().rstrip(\".\").lower",
+          "lineNumber": 234
+        },
+        {
+          "caller": "__init__",
+          "callee": "domain.strip().rstrip",
+          "lineNumber": 234
+        },
+        {
+          "caller": "__init__",
+          "callee": "domain.strip",
+          "lineNumber": 234
+        },
+        {
+          "caller": "__init__",
+          "callee": "domain.strip",
+          "lineNumber": 236
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "ValueError",
+          "lineNumber": 245
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "hostname.rstrip(\".\").lower",
+          "lineNumber": 246
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "hostname.rstrip",
+          "lineNumber": 246
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "ValueError",
+          "lineNumber": 251
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "any",
+          "lineNumber": 254
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "_is_allowed_remote_domain",
+          "lineNumber": 255
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "ValueError",
+          "lineNumber": 258
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "_resolve_remote_addresses",
+          "lineNumber": 261
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "_unsafe_remote_address_category",
+          "lineNumber": 262
+        },
+        {
+          "caller": "_assert_url_allowed",
+          "callee": "ValueError",
+          "lineNumber": 264
+        },
+        {
+          "caller": "assert_url_allowed",
+          "callee": "self._assert_url_allowed",
+          "lineNumber": 270
+        },
+        {
+          "caller": "assert_url_allowed",
+          "callee": "urlparse",
+          "lineNumber": 270
+        },
+        {
+          "caller": "_assert_url_allowed_async",
+          "callee": "asyncio.to_thread",
+          "lineNumber": 273
+        },
+        {
+          "caller": "_load_data_url",
+          "callee": "ValueError",
+          "lineNumber": 279
+        },
+        {
+          "caller": "_load_data_url",
+          "callee": "path.split",
+          "lineNumber": 280
+        },
+        {
+          "caller": "_load_data_url",
+          "callee": "spec.lower",
+          "lineNumber": 281
+        },
+        {
+          "caller": "_load_data_url",
+          "callee": "ValueError",
+          "lineNumber": 282
+        },
+        {
+          "caller": "_load_data_url",
+          "callee": "spec.split(\";\")[0].lstrip",
+          "lineNumber": 283
+        },
+        {
+          "caller": "_load_data_url",
+          "callee": "spec.split",
+          "lineNumber": 283
+        },
+        {
+          "caller": "_load_data_url",
+          "callee": "media_io.load_base64",
+          "lineNumber": 284
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "RuntimeError",
+          "lineNumber": 289
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "ValueError",
+          "lineNumber": 293
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "Path(url2pathname(url_spec.path)).resolve",
+          "lineNumber": 294
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "Path",
+          "lineNumber": 294
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "url2pathname",
+          "lineNumber": 294
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "filepath.relative_to",
+          "lineNumber": 297
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "ValueError",
+          "lineNumber": 299
+        },
+        {
+          "caller": "_load_file_url",
+          "callee": "media_io.load_file",
+          "lineNumber": 300
+        },
+        {
+          "caller": "load_resource",
+          "callee": "urlparse",
+          "lineNumber": 320
+        },
+        {
+          "caller": "load_resource",
+          "callee": "url_spec.scheme.startswith",
+          "lineNumber": 322
+        },
+        {
+          "caller": "load_resource",
+          "callee": "self._load_http_bytes",
+          "lineNumber": 323
+        },
+        {
+          "caller": "load_resource",
+          "callee": "media_io.load_http_bytes",
+          "lineNumber": 326
+        },
+        {
+          "caller": "load_resource",
+          "callee": "self._load_data_url",
+          "lineNumber": 329
+        },
+        {
+          "caller": "load_resource",
+          "callee": "self._load_file_url",
+          "lineNumber": 332
+        },
+        {
+          "caller": "load_resource",
+          "callee": "ValueError",
+          "lineNumber": 334
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "urlparse",
+          "lineNumber": 354
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "asyncio.get_running_loop",
+          "lineNumber": 355
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "url_spec.scheme.startswith",
+          "lineNumber": 357
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "time.time",
+          "lineNumber": 358
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "self._load_http_bytes_async",
+          "lineNumber": 359
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "time.time",
+          "lineNumber": 362
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "len",
+          "lineNumber": 364
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "logging.getLogger",
+          "lineNumber": 365
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "logger.debug",
+          "lineNumber": 366
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "len",
+          "lineNumber": 367
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "time.time",
+          "lineNumber": 371
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "loop.run_in_executor",
+          "lineNumber": 372
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "time.time",
+          "lineNumber": 375
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "len",
+          "lineNumber": 377
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "logging.getLogger",
+          "lineNumber": 378
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "logger.debug",
+          "lineNumber": 379
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "loop.run_in_executor",
+          "lineNumber": 392
+        },
+        {
+          "caller": "load_resource_async",
+          "callee": "ValueError",
+          "lineNumber": 396
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "self.connection.get_sync_client",
+          "lineNumber": 405
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "range",
+          "lineNumber": 407
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "self._assert_url_allowed",
+          "lineNumber": 408
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "urlparse",
+          "lineNumber": 408
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "client.stream",
+          "lineNumber": 410
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "_next_redirect_url",
+          "lineNumber": 417
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "response.raise_for_status",
+          "lineNumber": 419
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "_read_limited_response_bytes",
+          "lineNumber": 421
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "_response_media_type",
+          "lineNumber": 422
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "_media_http_error",
+          "lineNumber": 425
+        },
+        {
+          "caller": "_load_http_bytes",
+          "callee": "ValueError",
+          "lineNumber": 426
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "self.connection.get_async_client",
+          "lineNumber": 435
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "range",
+          "lineNumber": 437
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "self._assert_url_allowed_async",
+          "lineNumber": 438
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "urlparse",
+          "lineNumber": 438
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "client.stream",
+          "lineNumber": 440
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "_next_redirect_url",
+          "lineNumber": 447
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "response.raise_for_status",
+          "lineNumber": 449
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "_read_limited_response_bytes_async",
+          "lineNumber": 451
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "_response_media_type",
+          "lineNumber": 454
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "_media_http_error",
+          "lineNumber": 457
+        },
+        {
+          "caller": "_load_http_bytes_async",
+          "callee": "ValueError",
+          "lineNumber": 458
+        },
+        {
+          "caller": "fetch_audio_async",
+          "callee": "AudioMediaIO",
+          "lineNumber": 479
+        },
+        {
+          "caller": "fetch_audio_async",
+          "callee": "self.media_io_kwargs.get",
+          "lineNumber": 480
+        },
+        {
+          "caller": "fetch_audio_async",
+          "callee": "self.load_resource_async",
+          "lineNumber": 483
+        },
+        {
+          "caller": "fetch_image_async",
+          "callee": "ImageMediaIO",
+          "lineNumber": 504
+        },
+        {
+          "caller": "fetch_image_async",
+          "callee": "self.media_io_kwargs.get",
+          "lineNumber": 505
+        },
+        {
+          "caller": "fetch_image_async",
+          "callee": "self.load_resource_async",
+          "lineNumber": 508
+        },
+        {
+          "caller": "fetch_video_async",
+          "callee": "VideoMediaIO",
+          "lineNumber": 543
+        },
+        {
+          "caller": "fetch_video_async",
+          "callee": "self.media_io_kwargs.get",
+          "lineNumber": 552
+        },
+        {
+          "caller": "fetch_video_async",
+          "callee": "self.load_resource_async",
+          "lineNumber": 555
+        },
+        {
+          "caller": "get_global_resource_connector",
+          "callee": "MultiModalResourceConnector",
+          "lineNumber": 565
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 14,
+        "functionCount": 12,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "preprocessing/video.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 423,
+      "nonEmptyLines": 383,
+      "functions": [
+        {
+          "name": "ensure_video_list_async",
+          "startLine": 127,
+          "endLine": 288,
+          "params": [
+            "videos",
+            "fps",
+            "max_frames",
+            "min_pixels",
+            "max_pixels",
+            "total_pixels",
+            "image_mode",
+            "resource_connector",
+            "extract_audio",
+            "audio_target_sr"
+          ]
+        },
+        {
+          "name": "_extract_audio_from_path",
+          "startLine": 291,
+          "endLine": 300,
+          "params": [
+            "video_path",
+            "target_sr"
+          ]
+        },
+        {
+          "name": "load_video_path",
+          "startLine": 303,
+          "endLine": 375,
+          "params": [
+            "path",
+            "fps",
+            "max_frames",
+            "min_pixels",
+            "max_pixels",
+            "total_pixels"
+          ]
+        },
+        {
+          "name": "build_video_mm_inputs",
+          "startLine": 378,
+          "endLine": 383,
+          "params": [
+            "hf_inputs"
+          ]
+        },
+        {
+          "name": "compute_video_cache_key",
+          "startLine": 386,
+          "endLine": 410,
+          "params": [
+            "videos",
+            "fps",
+            "max_frames",
+            "min_pixels",
+            "max_pixels",
+            "total_pixels"
+          ]
+        },
+        {
+          "name": "_check_if_video_has_audio",
+          "startLine": 413,
+          "endLine": 423,
+          "params": [
+            "video_path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VideoDecodeError",
+          "startLine": 27,
+          "endLine": 28,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "VideoMediaIO",
+          "startLine": 31,
+          "endLine": 124,
+          "methods": [
+            "__init__",
+            "_load_path",
+            "load_bytes",
+            "load_base64",
+            "load_file"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "VideoDecodeError",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "VideoMediaIO",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "ensure_video_list_async",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "_extract_audio_from_path",
+          "line": 291,
+          "isDefault": false
+        },
+        {
+          "name": "load_video_path",
+          "line": 303,
+          "isDefault": false
+        },
+        {
+          "name": "build_video_mm_inputs",
+          "line": 378,
+          "isDefault": false
+        },
+        {
+          "name": "compute_video_cache_key",
+          "line": 386,
+          "isDefault": false
+        },
+        {
+          "name": "_check_if_video_has_audio",
+          "line": 413,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 60
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_load_path",
+          "callee": "load_video_path",
+          "lineNumber": 72
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "tempfile.NamedTemporaryFile",
+          "lineNumber": 90
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "Path",
+          "lineNumber": 91
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "tmp_file.write",
+          "lineNumber": 92
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "self._load_path",
+          "lineNumber": 97
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "_extract_audio_from_path",
+          "lineNumber": 98
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "self._load_path",
+          "lineNumber": 101
+        },
+        {
+          "caller": "load_bytes",
+          "callee": "tmp_path.unlink",
+          "lineNumber": 105
+        },
+        {
+          "caller": "load_base64",
+          "callee": "self.load_bytes",
+          "lineNumber": 113
+        },
+        {
+          "caller": "load_base64",
+          "callee": "base64.b64decode",
+          "lineNumber": 113
+        },
+        {
+          "caller": "load_file",
+          "callee": "self._load_path",
+          "lineNumber": 119
+        },
+        {
+          "caller": "load_file",
+          "callee": "_extract_audio_from_path",
+          "lineNumber": 120
+        },
+        {
+          "caller": "load_file",
+          "callee": "self._load_path",
+          "lineNumber": 123
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "isinstance",
+          "lineNumber": 161
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "get_global_resource_connector",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "asyncio.get_running_loop",
+          "lineNumber": 180
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "resource_connector.fetch_video_async",
+          "lineNumber": 184
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "str",
+          "lineNumber": 185
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "Path",
+          "lineNumber": 197
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "loop.run_in_executor",
+          "lineNumber": 199
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "loop.run_in_executor",
+          "lineNumber": 209
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "asyncio.gather",
+          "lineNumber": 215
+        },
+        {
+          "caller": "_load_video_with_audio",
+          "callee": "loop.run_in_executor",
+          "lineNumber": 220
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "enumerate",
+          "lineNumber": 237
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "isinstance",
+          "lineNumber": 238
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "_is_url",
+          "lineNumber": 239
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "_load_video_with_audio",
+          "lineNumber": 241
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "asyncio.create_task",
+          "lineNumber": 242
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "coroutines.append",
+          "lineNumber": 243
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "url_indices.append",
+          "lineNumber": 244
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 245
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "sample_fps_list.append",
+          "lineNumber": 246
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "extracted_audios.append",
+          "lineNumber": 248
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "Path(video_item).exists",
+          "lineNumber": 249
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "Path",
+          "lineNumber": 249
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "_load_video_with_audio",
+          "lineNumber": 251
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "asyncio.create_task",
+          "lineNumber": 252
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "coroutines.append",
+          "lineNumber": 253
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "url_indices.append",
+          "lineNumber": 254
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 255
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "sample_fps_list.append",
+          "lineNumber": 256
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "extracted_audios.append",
+          "lineNumber": 258
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 261
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "extracted_audios.append",
+          "lineNumber": 264
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "normalized.append",
+          "lineNumber": 267
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "extracted_audios.append",
+          "lineNumber": 270
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "asyncio.gather",
+          "lineNumber": 274
+        },
+        {
+          "caller": "ensure_video_list_async",
+          "callee": "zip",
+          "lineNumber": 276
+        },
+        {
+          "caller": "_extract_audio_from_path",
+          "callee": "_check_if_video_has_audio",
+          "lineNumber": 293
+        },
+        {
+          "caller": "_extract_audio_from_path",
+          "callee": "librosa.load",
+          "lineNumber": 296
+        },
+        {
+          "caller": "_extract_audio_from_path",
+          "callee": "str",
+          "lineNumber": 296
+        },
+        {
+          "caller": "_extract_audio_from_path",
+          "callee": "logger.debug",
+          "lineNumber": 299
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "Path",
+          "lineNumber": 312
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "str",
+          "lineNumber": 313
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "float",
+          "lineNumber": 315
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "int",
+          "lineNumber": 317
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "int",
+          "lineNumber": 319
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "int",
+          "lineNumber": 321
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "int",
+          "lineNumber": 323
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "qwen_vision.get_video_reader_backend",
+          "lineNumber": 324
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "VideoDecodeError",
+          "lineNumber": 329
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "type",
+          "lineNumber": 331
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "logger.warning",
+          "lineNumber": 333
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "VideoDecodeError",
+          "lineNumber": 337
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "type",
+          "lineNumber": 339
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "type",
+          "lineNumber": 340
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "ele.get",
+          "lineNumber": 344
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "ele.get",
+          "lineNumber": 345
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "max",
+          "lineNumber": 346
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "min",
+          "lineNumber": 347
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "int",
+          "lineNumber": 351
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "ele.get",
+          "lineNumber": 353
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "min",
+          "lineNumber": 354
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "qwen_vision.smart_resize",
+          "lineNumber": 356
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "qwen_vision.smart_resize",
+          "lineNumber": 362
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "tv_f.resize(\r\n        video,\r\n        [resized_height, resized_width],\r\n        interpolation=InterpolationMode.BICUBIC,\r\n        antialias=True,\r\n    ).float",
+          "lineNumber": 369
+        },
+        {
+          "caller": "load_video_path",
+          "callee": "tv_f.resize",
+          "lineNumber": 369
+        },
+        {
+          "caller": "build_video_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 380
+        },
+        {
+          "caller": "build_video_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 381
+        },
+        {
+          "caller": "build_video_mm_inputs",
+          "callee": "hf_inputs.get",
+          "lineNumber": 382
+        },
+        {
+          "caller": "compute_video_cache_key",
+          "callee": "compute_media_cache_key",
+          "lineNumber": 403
+        },
+        {
+          "caller": "_check_if_video_has_audio",
+          "callee": "av.open",
+          "lineNumber": 415
+        },
+        {
+          "caller": "_check_if_video_has_audio",
+          "callee": "str",
+          "lineNumber": 415
+        },
+        {
+          "caller": "_check_if_video_has_audio",
+          "callee": "container.close",
+          "lineNumber": 419
+        },
+        {
+          "caller": "_check_if_video_has_audio",
+          "callee": "len",
+          "lineNumber": 420
+        },
+        {
+          "caller": "_check_if_video_has_audio",
+          "callee": "logger.debug",
+          "lineNumber": 422
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 8,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    }
+  ]
+}

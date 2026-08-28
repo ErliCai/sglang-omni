@@ -1,0 +1,359 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/fun_asr/configuration_fun_asr.py",
+      "type": "file",
+      "name": "configuration_fun_asr.py",
+      "filePath": "models/fun_asr/configuration_fun_asr.py",
+      "summary": "定义 Fun-ASR-Nano 的 Kaldi fbank/LFR 特征提取、复合处理器以及音频编码器和多模态模型配置，并注册到 Transformers 与 SGLang。",
+      "tags": ["configuration", "feature-extraction", "audio-processing", "transformers"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoFeatureExtractor",
+      "type": "class",
+      "name": "FunAsrNanoFeatureExtractor",
+      "filePath": "models/fun_asr/configuration_fun_asr.py",
+      "lineRange": [28, 209],
+      "summary": "按 FunASR WavFrontend 语义计算 80 维 Kaldi fbank，执行低帧率堆叠并批量填充特征与有效帧掩码。",
+      "tags": ["feature-extractor", "fbank", "low-frame-rate", "audio-preprocessing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoProcessor",
+      "type": "class",
+      "name": "FunAsrNanoProcessor",
+      "filePath": "models/fun_asr/configuration_fun_asr.py",
+      "lineRange": [217, 307],
+      "summary": "组合特征提取器与 Qwen tokenizer，并按适配器输出长度把单个音频占位符扩展为对应数量的音频 token。",
+      "tags": ["multimodal-processor", "tokenization", "audio-placeholder", "factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoEncoderConfig",
+      "type": "class",
+      "name": "FunAsrNanoEncoderConfig",
+      "filePath": "models/fun_asr/configuration_fun_asr.py",
+      "lineRange": [310, 347],
+      "summary": "保存 SenseVoice SANM 编码器的输入维度、注意力、前馈层、卷积核、层数和 dropout 参数。",
+      "tags": ["configuration", "audio-encoder", "sanm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoConfig",
+      "type": "class",
+      "name": "FunAsrNanoConfig",
+      "filePath": "models/fun_asr/configuration_fun_asr.py",
+      "lineRange": [351, 403],
+      "summary": "汇总 SANM 音频编码器、Qwen3 文本模型和多模态适配器参数，并关联自定义 Fun-ASR 处理器。",
+      "tags": ["configuration", "multimodal-model", "qwen3", "processor-registration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/fun_asr/encoder_cuda_graph.py",
+      "type": "file",
+      "name": "encoder_cuda_graph.py",
+      "filePath": "models/fun_asr/encoder_cuda_graph.py",
+      "summary": "按批大小和 LFR 时间长度分桶捕获 Fun-ASR 编码器与适配器的 CUDA Graph，以单次 replay 降低大量小 kernel 的启动开销。",
+      "tags": ["cuda-graph", "audio-encoder", "performance", "bucketing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/fun_asr/encoder_cuda_graph.py:FunASREncoderCudaGraphRunner",
+      "type": "class",
+      "name": "FunASREncoderCudaGraphRunner",
+      "filePath": "models/fun_asr/encoder_cuda_graph.py",
+      "lineRange": [56, 209],
+      "summary": "为二维 batch/time 桶延迟捕获和缓存 CUDA Graph，串行保护静态缓冲区，并在显存不足或捕获失败时回退 eager 推理。",
+      "tags": ["cuda-graph", "object-cache", "concurrency", "fallback"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/fun_asr/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/fun_asr/request_builders.py",
+      "summary": "把音频 StagePayload 转换为 SGLang 多模态调度请求，构造语言与热词提示、token 预算和音频占位，并把生成 token 适配为批量或流式转写结果。",
+      "tags": ["request-builder", "scheduler-adapter", "asr", "streaming"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/fun_asr/request_builders.py:FunASRRequestData",
+      "type": "class",
+      "name": "FunASRRequestData",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [44, 50],
+      "summary": "承载 Fun-ASR 调度阶段的提示 token、输出 token、音频 token 数、语言和耗时元数据。",
+      "tags": ["data-model", "request-state", "asr"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/fun_asr/request_builders.py:_request_token_budget",
+      "type": "function",
+      "name": "_request_token_budget",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [62, 77],
+      "summary": "解析并校验请求级 max_new_tokens；未显式提供时按音频时长分配默认生成预算。",
+      "tags": ["validation", "token-budget", "request-params"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/fun_asr/request_builders.py:_decode_token_ids",
+      "type": "function",
+      "name": "_decode_token_ids",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [80, 90],
+      "summary": "兼容不同 tokenizer.decode 签名，将生成 token 解码为转写文本。",
+      "tags": ["token-decoding", "compatibility", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/fun_asr/request_builders.py:_resolve_language",
+      "type": "function",
+      "name": "_resolve_language",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [93, 104],
+      "summary": "规范化自动、中文和英文等语言别名，并转换为 Fun-ASR 提示词所需表示。",
+      "tags": ["language-routing", "normalization", "request-params"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/fun_asr/request_builders.py:_build_prompt_text",
+      "type": "function",
+      "name": "_build_prompt_text",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [107, 123],
+      "summary": "根据目标语言、ITN 开关与热词列表生成中文语音转写任务提示。",
+      "tags": ["prompt-building", "hotwords", "language-routing", "itn"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/fun_asr/request_builders.py:fun_asr_prompt_overhead_tokens",
+      "type": "function",
+      "name": "fun_asr_prompt_overhead_tokens",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [137, 154],
+      "summary": "精确计算不含音频占位的聊天模板与任务提示 token 开销，供上下文容量规划使用。",
+      "tags": ["token-budget", "prompt-building", "context-length"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/fun_asr/request_builders.py:make_fun_asr_scheduler_adapters",
+      "type": "function",
+      "name": "make_fun_asr_scheduler_adapters",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [157, 351],
+      "summary": "创建请求与结果适配器：准备音频、提取 LFR 特征、建立多模态占位与采样参数、校验上下文，并汇总转写及使用统计。",
+      "tags": ["factory", "scheduler-adapter", "multimodal-request", "asr"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/fun_asr/request_builders.py:make_fun_asr_stream_output_builder",
+      "type": "function",
+      "name": "make_fun_asr_stream_output_builder",
+      "filePath": "models/fun_asr/request_builders.py",
+      "lineRange": [354, 384],
+      "summary": "配置通用 token 文本流构建器，以增量解码 Fun-ASR 输出并处理 EOS、节流和终止刷新。",
+      "tags": ["factory", "streaming", "token-decoding", "asr"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/fun_asr/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "summary": "实现 SGLang 版 Fun-ASR-Nano：包含 SANM/FSMN 音频塔、多模态适配器、Qwen3 语言模型集成、批量音频嵌入和兼容检查点的权重加载。",
+      "tags": ["core-model", "asr", "multimodal", "sanm", "qwen3"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/fun_asr/sglang_model.py:_fused_qkv_project",
+      "type": "function",
+      "name": "_fused_qkv_project",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [55, 67],
+      "summary": "保留独立 Q/K/V 参数名以兼容检查点，同时拼接权重并用单次线性运算完成三路投影。",
+      "tags": ["performance", "attention", "fused-projection"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:SinusoidalPositionEncoder",
+      "type": "class",
+      "name": "SinusoidalPositionEncoder",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [70, 82],
+      "summary": "生成连续时间步的正弦余弦位置编码并加到声学输入特征。",
+      "tags": ["position-encoding", "sinusoidal", "audio-encoder"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:MultiHeadedAttentionSANM",
+      "type": "class",
+      "name": "MultiHeadedAttentionSANM",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [85, 125],
+      "summary": "使用融合 QKV 投影与 PyTorch SDPA 计算 SANM 多头注意力，并额外返回 value 表征供 FSMN 复用。",
+      "tags": ["multi-head-attention", "sanm", "sdpa", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:FunAsrNanoFSMN",
+      "type": "class",
+      "name": "FunAsrNanoFSMN",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [128, 155],
+      "summary": "通过掩码感知的逐通道一维卷积建模局部语音记忆，并以残差形式融合 value 状态。",
+      "tags": ["fsmn", "depthwise-convolution", "audio-encoder", "masking"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:EncoderLayerSANM",
+      "type": "class",
+      "name": "EncoderLayerSANM",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [158, 206],
+      "summary": "组合 SANM 注意力、FSMN 记忆卷积、前馈网络、残差和时间掩码的音频编码层。",
+      "tags": ["encoder-layer", "sanm", "fsmn", "transformer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:FunAsrNanoAudioEncoder",
+      "type": "class",
+      "name": "FunAsrNanoAudioEncoder",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [209, 269],
+      "summary": "堆叠主干与时间戳预测 SANM 层，把 560 维 LFR 声学特征编码为掩码稳定的高层语音表示。",
+      "tags": ["audio-encoder", "sanm", "timestamp-prediction", "deep-model"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:MultiHeadedAttention",
+      "type": "class",
+      "name": "MultiHeadedAttention",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [272, 310],
+      "summary": "为多模态适配器提供支持 padding mask 的融合 QKV 多头自注意力。",
+      "tags": ["multi-head-attention", "sdpa", "multimodal-adaptor"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:AdaptorEncoderLayer",
+      "type": "class",
+      "name": "AdaptorEncoderLayer",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [313, 342],
+      "summary": "以预归一化注意力和前馈残差分支细化投影后的音频 token 表征。",
+      "tags": ["adaptor-layer", "attention", "feed-forward", "residual"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:FunAsrNanoAdaptor",
+      "type": "class",
+      "name": "FunAsrNanoAdaptor",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [345, 387],
+      "summary": "将音频编码器维度投影到 Qwen3 隐藏空间，再通过轻量自注意力块生成语言模型可消费的音频 token。",
+      "tags": ["multimodal-adaptor", "projection", "audio-token", "qwen3"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/fun_asr/sglang_model.py:FunAsrNanoForConditionalGeneration",
+      "type": "class",
+      "name": "FunAsrNanoForConditionalGeneration",
+      "filePath": "models/fun_asr/sglang_model.py",
+      "lineRange": [390, 612],
+      "summary": "Fun-ASR 的 SGLang 主模型，批量编码变长音频并插入 Qwen3 上下文，可选使用编码器 CUDA Graph，并映射 HF 检查点权重到融合参数布局。",
+      "tags": ["core-model", "conditional-generation", "multimodal", "weight-loading", "cuda-graph"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/fun_asr/tool_funcs/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/fun_asr/tool_funcs/__init__.py",
+      "summary": "Fun-ASR 工具子包入口，公开低帧率序列到音频 token 长度的换算函数。",
+      "tags": ["entry-point", "barrel", "utility-exports"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/fun_asr/tool_funcs/audio_lengths.py",
+      "type": "file",
+      "name": "audio_lengths.py",
+      "filePath": "models/fun_asr/tool_funcs/audio_lengths.py",
+      "summary": "提供 Fun-ASR 三阶段 stride-2 适配器的确定性长度换算，统一特征、占位符和输出 token 计数。",
+      "tags": ["utility", "audio-length", "token-counting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/fun_asr/tool_funcs/audio_lengths.py:fun_asr_low_frame_rate_length",
+      "type": "function",
+      "name": "fun_asr_low_frame_rate_length",
+      "filePath": "models/fun_asr/tool_funcs/audio_lengths.py",
+      "lineRange": [8, 12],
+      "summary": "连续应用三次向上取整的二倍下采样公式，将 LFR 帧数换算为 Fun-ASR 音频 token 数。",
+      "tags": ["utility", "length-transform", "audio-token"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"file:models/fun_asr/tool_funcs/audio_lengths.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/fun_asr/encoder_cuda_graph.py","target":"file:models/fun_asr/sglang_model.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/fun_asr/request_builders.py","target":"file:models/fun_asr/configuration_fun_asr.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/fun_asr/request_builders.py","target":"file:models/fun_asr/tool_funcs/audio_lengths.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"file:models/fun_asr/configuration_fun_asr.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"file:models/fun_asr/tool_funcs/audio_lengths.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/fun_asr/tool_funcs/__init__.py","target":"file:models/fun_asr/tool_funcs/audio_lengths.py","type":"imports","direction":"forward","weight":0.7},
+
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoFeatureExtractor","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoFeatureExtractor","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoProcessor","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoProcessor","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoEncoderConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoEncoderConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/configuration_fun_asr.py","target":"class:models/fun_asr/configuration_fun_asr.py:FunAsrNanoConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/encoder_cuda_graph.py","target":"class:models/fun_asr/encoder_cuda_graph.py:FunASREncoderCudaGraphRunner","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/encoder_cuda_graph.py","target":"class:models/fun_asr/encoder_cuda_graph.py:FunASREncoderCudaGraphRunner","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/fun_asr/request_builders.py","target":"class:models/fun_asr/request_builders.py:FunASRRequestData","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"class:models/fun_asr/request_builders.py:FunASRRequestData","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_request_token_budget","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_request_token_budget","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_decode_token_ids","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_decode_token_ids","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_resolve_language","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_resolve_language","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_build_prompt_text","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:_build_prompt_text","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:fun_asr_prompt_overhead_tokens","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:fun_asr_prompt_overhead_tokens","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:make_fun_asr_scheduler_adapters","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:make_fun_asr_scheduler_adapters","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:make_fun_asr_stream_output_builder","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/request_builders.py","target":"function:models/fun_asr/request_builders.py:make_fun_asr_stream_output_builder","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/fun_asr/sglang_model.py","target":"function:models/fun_asr/sglang_model.py:_fused_qkv_project","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"function:models/fun_asr/sglang_model.py:_fused_qkv_project","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:SinusoidalPositionEncoder","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:SinusoidalPositionEncoder","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:MultiHeadedAttentionSANM","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:MultiHeadedAttentionSANM","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoFSMN","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoFSMN","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:EncoderLayerSANM","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:EncoderLayerSANM","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoAudioEncoder","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoAudioEncoder","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:MultiHeadedAttention","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:MultiHeadedAttention","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:AdaptorEncoderLayer","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:AdaptorEncoderLayer","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoAdaptor","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoAdaptor","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoForConditionalGeneration","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/sglang_model.py","target":"class:models/fun_asr/sglang_model.py:FunAsrNanoForConditionalGeneration","type":"exports","direction":"forward","weight":0.8},
+
+    {"source":"file:models/fun_asr/tool_funcs/audio_lengths.py","target":"function:models/fun_asr/tool_funcs/audio_lengths.py:fun_asr_low_frame_rate_length","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/fun_asr/tool_funcs/audio_lengths.py","target":"function:models/fun_asr/tool_funcs/audio_lengths.py:fun_asr_low_frame_rate_length","type":"exports","direction":"forward","weight":0.8}
+  ]
+}

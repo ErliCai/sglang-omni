@@ -1,0 +1,157 @@
+[
+  {
+    "order": 1,
+    "title": "从 CLI 启动",
+    "description": "scoped 项目没有项目级 README，因此从最明确的代码入口开始：`cli/__main__.py` 把 `python -m sglang_omni.cli` 交给 Typer 根应用。根应用注册配置、GPU 诊断和服务命令，而 `cli/serve.py` 将模型、文件配置与点路径覆盖整理为服务器启动参数。先读这三处，可以建立“用户命令如何进入运行时”的总体视图。",
+    "nodeIds": [
+      "file:cli/__main__.py",
+      "file:cli/__init__.py",
+      "file:cli/serve.py"
+    ],
+    "languageLesson": "Python 包中的 `__main__.py` 定义 `python -m package` 的执行入口；Typer 再利用类型注解和装饰器生成命令、参数校验与帮助信息。"
+  },
+  {
+    "order": 2,
+    "title": "解析配置与拓扑",
+    "description": "上一站产生的启动参数会进入统一配置系统。Pydantic schema 描述流水线、阶段、进程和 GPU 放置约束，manager 与 resolver 将文件、CLI 和默认值合并为带 provenance 的最终配置，topology 再把它编译成可执行进程图。理解这条链路后，便能判断一个模型为什么运行在特定 GPU 和阶段组合上。",
+    "nodeIds": [
+      "file:config/schema.py",
+      "file:config/manager.py",
+      "file:config/resolver.py",
+      "file:config/topology.py"
+    ],
+    "languageLesson": "Pydantic 以 Python 类型注解声明配置契约，并在实例化时执行解析和验证；分层 patch 与 provenance 则保留“最终值来自哪里”的可解释性。"
+  },
+  {
+    "order": 3,
+    "title": "建立服务边界",
+    "description": "解析完成的配置由 launcher 用来准备流水线、创建 FastAPI 应用并启动 Uvicorn。`openai_api.py` 汇集聊天、生成、实时、语音、批量和 WebSocket 路由，`protocol.py` 用 Pydantic 模型固定外部请求响应契约，管理端点还通过 Bearer 依赖鉴权。这里是外部 OpenAI 兼容 API 与内部推理系统的边界。",
+    "nodeIds": [
+      "file:serve/launcher.py",
+      "file:serve/openai_api.py",
+      "file:serve/protocol.py",
+      "file:http/admin_auth.py"
+    ],
+    "languageLesson": "FastAPI 通过装饰器注册路由，并用 `Depends()` 构造依赖注入树；Pydantic 会在业务代码运行前完成请求数据验证。"
+  },
+  {
+    "order": 4,
+    "title": "理解客户端契约",
+    "description": "服务边界的另一侧是官方 HTTP 客户端，它把同步、流式、语音、健康检查和权重更新封装为统一调用。客户端类型与服务协议形成对应契约，音频辅助模块则负责重采样、增量截取和 WAV、PCM 或压缩格式编码。沿着这一侧阅读，可以从使用者视角理解一次请求和流式响应的形态。",
+    "nodeIds": [
+      "file:client/client.py",
+      "file:client/types.py",
+      "file:client/audio.py"
+    ]
+  },
+  {
+    "order": 5,
+    "title": "统一多模态输入",
+    "description": "请求进入服务后，预处理层把本地文件、字节、data URL 和受控远程资源统一为模型可消费的媒体。MediaIO 抽象建立共同接口，resource connector 负责下载策略与安全边界，音频和视频模块执行解码、重采样或帧采样，文本模块补齐聊天模板与模态占位符。这个模型无关层使后续流水线不必重复处理输入格式差异。",
+    "nodeIds": [
+      "file:preprocessing/base.py",
+      "file:preprocessing/resource_connector.py",
+      "file:preprocessing/audio.py",
+      "file:preprocessing/video.py",
+      "file:preprocessing/text.py"
+    ],
+    "languageLesson": "Python 抽象基类定义稳定接口，具体媒体实现负责各自策略；同步与 `async` 路径并存时，阻塞式解码通常被放入线程池，避免占用事件循环。"
+  },
+  {
+    "order": 6,
+    "title": "编排流水线阶段",
+    "description": "规范化输入随后交给多阶段流水线。`mp_runner.py` 按上一站的拓扑展开进程和张量并行组，Coordinator 维护请求、流式结果、取消与管理操作，Stage runtime 则在每个阶段内驱动执行器、批处理和收发通道。输入接口还支持直接输入与多来源聚合，因此同一运行时可以表达 ASR、TTS 和 Omni 的不同数据流。",
+    "nodeIds": [
+      "file:pipeline/mp_runner.py",
+      "file:pipeline/coordinator.py",
+      "file:pipeline/stage/runtime.py",
+      "file:pipeline/stage/input.py"
+    ]
+  },
+  {
+    "order": 7,
+    "title": "传递协议与张量",
+    "description": "流水线要跨线程、进程和设备协作，必须先有稳定协议。请求与消息模块定义控制面和数据面的类型化载荷，通信引擎与 Stage I/O 负责 payload、流式块和 KV page 的序列化、确认及清理，Relay 基类则让 CUDA IPC、NCCL、Mooncake、NIXL 或共享内存后端可插拔。理解这一层后，就能看清阶段之间传递的是引用、字节还是设备张量。",
+    "nodeIds": [
+      "file:proto/request.py",
+      "file:proto/messages.py",
+      "file:comm/engine.py",
+      "file:comm/stage_io.py",
+      "file:relay/base.py"
+    ],
+    "languageLesson": "Python dataclass 适合表达可序列化消息契约，抽象基类和注册表模式则把传输接口与具体后端解耦，使新 Relay 可以在不修改调用方的情况下接入。"
+  },
+  {
+    "order": 8,
+    "title": "调度 Prefill 与 Decode",
+    "description": "通信把请求送到计算阶段后，OmniScheduler 通过组合方式复用 SGLang 调度算法，处理延迟准入、批次执行、流式输出和中止。engine factory 为通用生成、ASR 与 TTS 构建后端，prefill 和 decode 模块分别决定提示批次与下一轮解码批次，共享类型文件固定请求和运行结果状态。这里是吞吐、延迟与显存约束真正汇合的地方。",
+    "nodeIds": [
+      "file:scheduling/omni_scheduler.py",
+      "file:scheduling/engine_factory.py",
+      "file:scheduling/sglang_backend/prefill.py",
+      "file:scheduling/sglang_backend/decode.py",
+      "file:scheduling/types.py"
+    ]
+  },
+  {
+    "order": 9,
+    "title": "进入模型运行时",
+    "description": "调度决策最终由模型运行时执行。基础 runner 串联 prefill、decode、采样、惩罚和异步结果解析，SGLang 适配器定制 KV cache、模型加载与 CUDA Graph，model worker 管理后端初始化和权重更新，execution bridge 则建立注意力前向上下文。读完这一层，就具备追踪单个 token 从调度批次到模型输出的完整路径。",
+    "nodeIds": [
+      "file:model_runner/base.py",
+      "file:model_runner/sglang_model_runner.py",
+      "file:model_runner/model_worker.py",
+      "file:model_runner/sglang_execution.py"
+    ],
+    "languageLesson": "继承与 hook 让模型在复用通用生命周期的同时覆盖少量关键步骤；CUDA Graph 要求重放时地址和形状稳定，因此运行时会格外重视静态缓冲区与初始化顺序。"
+  },
+  {
+    "order": 10,
+    "title": "剖析音乐生成适配",
+    "description": "MiniMax Music 3 展示了一个复杂模型如何落到前述抽象：stages 组合预处理、自回归引擎和 DiT/DAV 声学解码，model runner 管理 RVQ 与滑动窗口，SGLang 模型接入 CFG 和 CUDA Graph，acoustic 模块把隐藏帧转成波形。该目录 README 只用于补充这一模型的架构、请求契约和验证门禁，不代表整个 sglang-omni 项目。这个案例同时也是拓扑分析中 fan-out 最显著的模型子系统之一。",
+    "nodeIds": [
+      "file:models/minimax_music3/stages.py",
+      "file:models/minimax_music3/model_runner.py",
+      "file:models/minimax_music3/sglang_model.py",
+      "file:models/minimax_music3/acoustic.py",
+      "document:models/minimax_music3/README.md"
+    ]
+  },
+  {
+    "order": 11,
+    "title": "剖析流式语音适配",
+    "description": "FishAudio S2-Pro 展示另一种三阶段适配：参考音频预处理、Dual-AR 语义与多码本生成、流式 vocoder 解码。局部 README 解释模型约束，YAML 固定修改版 DAC 和 RVQ 参数，而 stages、SGLang 模型与 streaming vocoder 将配置落实为可执行和可流式输出的组件。将它与上一站对照，可以分辨框架共性与模型专用实现的边界。",
+    "nodeIds": [
+      "document:models/fishaudio_s2_pro/README.md",
+      "config:models/fishaudio_s2_pro/fish_speech/configs/modded_dac_vq.yaml",
+      "file:models/fishaudio_s2_pro/stages.py",
+      "file:models/fishaudio_s2_pro/sglang_model.py",
+      "file:models/fishaudio_s2_pro/streaming_vocoder.py"
+    ],
+    "languageLesson": "YAML 依靠缩进表达嵌套结构，适合记录深层模型超参数；读取时应经过结构化 schema 校验，避免拼写或类型错误直到运行期才暴露。"
+  },
+  {
+    "order": 12,
+    "title": "适配硬件与显存",
+    "description": "模型能否稳定运行还取决于硬件抽象和资源管理。平台入口动态选择 CPU、CUDA、ROCm、MUSA、NPU 或 XPU 适配器，CUDA 实现补充设备能力与 FP8/MoE 策略，显存工具计算阶段预算，IPC 权重共享则让同 GPU 副本零拷贝复用模型参数。这里解释了框架如何把同一上层流水线映射到不同设备并控制内存成本。",
+    "nodeIds": [
+      "file:platforms/__init__.py",
+      "file:platforms/cuda.py",
+      "file:utils/gpu_memory.py",
+      "file:utils/ipc_weights.py"
+    ],
+    "languageLesson": "惰性导入与适配器模式让硬件后端按环境选择；CUDA IPC 共享的是底层存储句柄而不是张量副本，因此导出进程存活性和存储地址稳定性都属于协议的一部分。"
+  },
+  {
+    "order": 13,
+    "title": "诊断性能瓶颈",
+    "description": "最后用可观测性能力验证前面各层是否按预期工作。GPU 诊断在不加载模型时收集 CUDA、NVML 和后端信息，事件记录器串起阶段与模型路径，PyTorch profiler 捕获算子活动，views 再还原请求时间线和 stage/hop 延迟。到这里，新读者已经能从入口启动服务、追踪请求执行，并用证据定位平台或性能问题。",
+    "nodeIds": [
+      "file:diagnostics/gpu.py",
+      "file:profiler/event_recorder.py",
+      "file:profiler/torch_profiler.py",
+      "file:profiler/views.py"
+    ],
+    "languageLesson": "上下文管理器适合成对管理 profiler 的启动与停止；结构化事件先记录时间戳和上下文，再离线聚合为时间线，可降低在线观测对推理热路径的影响。"
+  }
+]

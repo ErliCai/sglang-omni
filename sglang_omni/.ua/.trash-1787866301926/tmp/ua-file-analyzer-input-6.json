@@ -1,0 +1,19 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"proto/__init__.py","language":"python","sizeLines":80,"fileCategory":"code"},
+    {"path":"proto/admin.py","language":"python","sizeLines":100,"fileCategory":"code"},
+    {"path":"proto/kv_transfer.py","language":"python","sizeLines":83,"fileCategory":"code"},
+    {"path":"proto/messages.py","language":"python","sizeLines":420,"fileCategory":"code"},
+    {"path":"proto/request.py","language":"python","sizeLines":95,"fileCategory":"code"},
+    {"path":"proto/stage.py","language":"python","sizeLines":12,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "proto/__init__.py":["proto/admin.py","proto/kv_transfer.py","proto/messages.py","proto/request.py","proto/stage.py"],
+    "proto/admin.py":[],
+    "proto/kv_transfer.py":[],
+    "proto/messages.py":[],
+    "proto/request.py":[],
+    "proto/stage.py":[]
+  }
+}

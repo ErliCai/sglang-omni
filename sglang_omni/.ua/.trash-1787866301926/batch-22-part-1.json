@@ -1,0 +1,1807 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/moss_tts/delay_pattern.py",
+      "type": "file",
+      "name": "delay_pattern.py",
+      "filePath": "models/moss_tts/delay_pattern.py",
+      "summary": "拆分 MOSS-TTS 的延迟多通道音频 token 序列，识别有效片段并去除 padding。",
+      "tags": [
+        "MOSS-TTS",
+        "delay-pattern",
+        "audio-token"
+      ],
+      "complexity": "simple",
+      "languageNotes": "处理多通道 tensor 的延迟布局与片段边界。"
+    },
+    {
+      "id": "function:models/moss_tts/delay_pattern.py:split_moss_audio_segments",
+      "type": "function",
+      "name": "split_moss_audio_segments",
+      "filePath": "models/moss_tts/delay_pattern.py",
+      "lineRange": [
+        11,
+        65
+      ],
+      "summary": "从延迟音频 codes 中切分有效语音片段并恢复各通道对齐。",
+      "tags": [
+        "MOSS-TTS",
+        "delay-pattern",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/moss_tts/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/moss_tts/engine_builder.py",
+      "summary": "为 MOSS-TTS 组装 SGLang 推理引擎、模型 runner、scheduler adapters 与生成默认值。",
+      "tags": [
+        "MOSS-TTS",
+        "engine-builder",
+        "SGLang"
+      ],
+      "complexity": "simple",
+      "languageNotes": "以 Python builder 类连接模型、runner 和 scheduler 扩展点。"
+    },
+    {
+      "id": "class:models/moss_tts/engine_builder.py:MossTtsEngineBuilder",
+      "type": "class",
+      "name": "MossTtsEngineBuilder",
+      "filePath": "models/moss_tts/engine_builder.py",
+      "lineRange": [
+        13,
+        72
+      ],
+      "summary": "封装 MOSS-TTS SGLang 引擎的模型、runner 与 scheduler 构建流程。",
+      "tags": [
+        "MOSS-TTS",
+        "engine-builder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/moss_tts/hf_loading.py",
+      "type": "file",
+      "name": "hf_loading.py",
+      "filePath": "models/moss_tts/hf_loading.py",
+      "summary": "兼容不同 Transformers 版本加载 MOSS processor，并从 checkpoint 解析对应 processor class。",
+      "tags": [
+        "MOSS-TTS",
+        "Transformers",
+        "checkpoint-loading"
+      ],
+      "complexity": "simple",
+      "languageNotes": "通过上下文兼容层适配 Hugging Face Transformers 的 processor 注册行为。"
+    },
+    {
+      "id": "function:models/moss_tts/hf_loading.py:moss_transformers_processor_compat",
+      "type": "function",
+      "name": "moss_transformers_processor_compat",
+      "filePath": "models/moss_tts/hf_loading.py",
+      "lineRange": [
+        13,
+        60
+      ],
+      "summary": "临时调整 Transformers processor 兼容环境并在退出时恢复。",
+      "tags": [
+        "MOSS-TTS",
+        "Transformers",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/hf_loading.py:load_moss_processor_class",
+      "type": "function",
+      "name": "load_moss_processor_class",
+      "filePath": "models/moss_tts/hf_loading.py",
+      "lineRange": [
+        63,
+        87
+      ],
+      "summary": "从 checkpoint 配置加载 MOSS 对应的 processor class。",
+      "tags": [
+        "MOSS-TTS",
+        "Transformers",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/moss_tts/model_runner.py",
+      "type": "file",
+      "name": "model_runner.py",
+      "filePath": "models/moss_tts/model_runner.py",
+      "summary": "实现 MOSS-TTS 的 prefill/decode 执行、延迟通道采样、CUDA Graph 复用与输出后处理。",
+      "tags": [
+        "MOSS-TTS",
+        "model-runner",
+        "sampling"
+      ],
+      "complexity": "complex",
+      "languageNotes": "基于 PyTorch tensor 管理多通道 logits、随机种子及延迟采样状态。"
+    },
+    {
+      "id": "class:models/moss_tts/model_runner.py:MossTTSModelRunner",
+      "type": "class",
+      "name": "MossTTSModelRunner",
+      "filePath": "models/moss_tts/model_runner.py",
+      "lineRange": [
+        29,
+        795
+      ],
+      "summary": "协调 MOSS-TTS prefill/decode、延迟通道采样和生成结果处理。",
+      "tags": [
+        "MOSS-TTS",
+        "model-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts/payload_types.py",
+      "type": "file",
+      "name": "payload_types.py",
+      "filePath": "models/moss_tts/payload_types.py",
+      "summary": "定义 MOSS-TTS 请求采样参数、运行状态和特殊 token 默认值的载荷模型。",
+      "tags": [
+        "MOSS-TTS",
+        "payload",
+        "state-model"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 dataclass/类型化结构在 pipeline 阶段间传递状态。"
+    },
+    {
+      "id": "function:models/moss_tts/payload_types.py:moss_tts_special_token_defaults",
+      "type": "function",
+      "name": "moss_tts_special_token_defaults",
+      "filePath": "models/moss_tts/payload_types.py",
+      "lineRange": [
+        30,
+        44
+      ],
+      "summary": "根据音频词表大小生成 MOSS-TTS 特殊 token 默认值。",
+      "tags": [
+        "MOSS-TTS",
+        "payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/payload_types.py:resolve_moss_audio_pad_code",
+      "type": "function",
+      "name": "resolve_moss_audio_pad_code",
+      "filePath": "models/moss_tts/payload_types.py",
+      "lineRange": [
+        47,
+        52
+      ],
+      "summary": "从模型配置解析音频 padding code。",
+      "tags": [
+        "MOSS-TTS",
+        "payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/payload_types.py:load_moss_tts_state",
+      "type": "function",
+      "name": "load_moss_tts_state",
+      "filePath": "models/moss_tts/payload_types.py",
+      "lineRange": [
+        71,
+        72
+      ],
+      "summary": "从 pipeline payload 读取 MOSS-TTS 运行状态。",
+      "tags": [
+        "MOSS-TTS",
+        "payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/payload_types.py:store_moss_tts_state",
+      "type": "function",
+      "name": "store_moss_tts_state",
+      "filePath": "models/moss_tts/payload_types.py",
+      "lineRange": [
+        75,
+        76
+      ],
+      "summary": "把 MOSS-TTS 运行状态写回 pipeline payload。",
+      "tags": [
+        "MOSS-TTS",
+        "payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/payload_types.py:ChannelSampling",
+      "type": "class",
+      "name": "ChannelSampling",
+      "filePath": "models/moss_tts/payload_types.py",
+      "lineRange": [
+        17,
+        22
+      ],
+      "summary": "保存单个生成通道的 temperature、top-p 与 top-k 参数。",
+      "tags": [
+        "MOSS-TTS",
+        "payload",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/payload_types.py:MossTTSState",
+      "type": "class",
+      "name": "MossTTSState",
+      "filePath": "models/moss_tts/payload_types.py",
+      "lineRange": [
+        56,
+        68
+      ],
+      "summary": "承载 MOSS-TTS 请求文本、参考音频、生成配置和延迟 codes。",
+      "tags": [
+        "MOSS-TTS",
+        "payload",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/moss_tts/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/moss_tts/request_builders.py",
+      "summary": "把公开 TTS 请求规范化、预处理并转换为 SGLang 请求，同时构建流式输出与 scheduler adapters。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "streaming"
+      ],
+      "complexity": "complex",
+      "languageNotes": "集中处理请求上下文、参考音频、生成参数和流式结果组装。"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_new_moss_tts_sampling_seed",
+      "type": "function",
+      "name": "_new_moss_tts_sampling_seed",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        43,
+        44
+      ],
+      "summary": "生成新的 MOSS-TTS 随机采样 seed。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:derive_moss_tts_sampling_seed",
+      "type": "function",
+      "name": "derive_moss_tts_sampling_seed",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        47,
+        55
+      ],
+      "summary": "从公开 seed 派生内部可复现的采样 seed。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_close_moss_tts_preprocessing_context",
+      "type": "function",
+      "name": "_close_moss_tts_preprocessing_context",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        137,
+        144
+      ],
+      "summary": "关闭当前预处理上下文持有的参考编码器资源。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:set_moss_tts_preprocessing_context",
+      "type": "function",
+      "name": "set_moss_tts_preprocessing_context",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        147,
+        162
+      ],
+      "summary": "安装 processor 与 reference encoder 的全局预处理上下文。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:clear_moss_tts_preprocessing_context",
+      "type": "function",
+      "name": "clear_moss_tts_preprocessing_context",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        165,
+        171
+      ],
+      "summary": "清除并释放 MOSS-TTS 预处理上下文。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:cleanup_prepared_moss_tts_request",
+      "type": "function",
+      "name": "cleanup_prepared_moss_tts_request",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        174,
+        182
+      ],
+      "summary": "按 request ID 清理暂存的预处理请求。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:pop_prepared_moss_tts_request",
+      "type": "function",
+      "name": "pop_prepared_moss_tts_request",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        185,
+        198
+      ],
+      "summary": "取出并移除与 payload 对应的已预处理请求。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:normalize_moss_tts_inputs",
+      "type": "function",
+      "name": "normalize_moss_tts_inputs",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        201,
+        211
+      ],
+      "summary": "把多种公开输入格式规范化为统一的 MOSS-TTS 参数。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:resolve_moss_reference",
+      "type": "function",
+      "name": "resolve_moss_reference",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        214,
+        227
+      ],
+      "summary": "从 references 与 TTS 参数中选择参考音频和参考文本。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_resolve_optional_text",
+      "type": "function",
+      "name": "_resolve_optional_text",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        230,
+        234
+      ],
+      "summary": "把可选文本值规范化为空值或字符串。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_resolve_token_count",
+      "type": "function",
+      "name": "_resolve_token_count",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        237,
+        270
+      ],
+      "summary": "结合文本和请求限制解析目标生成 token 数。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:build_moss_tts_state",
+      "type": "function",
+      "name": "build_moss_tts_state",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        273,
+        301
+      ],
+      "summary": "从公开 payload 构建完整的 MOSS-TTS 请求状态。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:build_generation_kwargs",
+      "type": "function",
+      "name": "build_generation_kwargs",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        304,
+        379
+      ],
+      "summary": "验证并组装文本与音频通道的生成参数。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_validate_moss_tts_generation_kwargs",
+      "type": "function",
+      "name": "_validate_moss_tts_generation_kwargs",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        382,
+        413
+      ],
+      "summary": "检查 MOSS-TTS 生成参数的取值与组合约束。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:build_row_cache_key_ids",
+      "type": "function",
+      "name": "build_row_cache_key_ids",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        416,
+        424
+      ],
+      "summary": "为多通道 prompt rows 构造 radix cache key token。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_reference_for_processor",
+      "type": "function",
+      "name": "_reference_for_processor",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        427,
+        440
+      ],
+      "summary": "把参考音频转换为 processor 可接受的输入形式。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_build_processor_message",
+      "type": "function",
+      "name": "_build_processor_message",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        443,
+        459
+      ],
+      "summary": "根据请求状态、指令与参考音频构造 processor 消息。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_prepare_moss_tts_request",
+      "type": "function",
+      "name": "_prepare_moss_tts_request",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        462,
+        484
+      ],
+      "summary": "运行 processor 并缓存可复用的 MOSS-TTS 请求张量。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:preprocess_moss_tts_payload",
+      "type": "function",
+      "name": "preprocess_moss_tts_payload",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        487,
+        517
+      ],
+      "summary": "在预处理 stage 中准备 MOSS-TTS payload。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_last_equal",
+      "type": "function",
+      "name": "_last_equal",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        520,
+        524
+      ],
+      "summary": "检查每个 token row 的末尾值是否等于指定 token。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_resolve_audio_payload_bounds",
+      "type": "function",
+      "name": "_resolve_audio_payload_bounds",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        527,
+        561
+      ],
+      "summary": "定位输出 rows 中实际音频 payload 的起止边界。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_moss_stream_metadata",
+      "type": "function",
+      "name": "_moss_stream_metadata",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        564,
+        587
+      ],
+      "summary": "从生成数据构造 MOSS 流式音频协议 metadata。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_collect_moss_stream_rows",
+      "type": "function",
+      "name": "_collect_moss_stream_rows",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        590,
+        642
+      ],
+      "summary": "从增量请求输出收集可发送的音频 token rows。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:make_moss_tts_stream_output_builder",
+      "type": "function",
+      "name": "make_moss_tts_stream_output_builder",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        645,
+        682
+      ],
+      "summary": "创建将 scheduler 输出转换为流式 TTS 数据的 builder。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:_initialize_generation_state",
+      "type": "function",
+      "name": "_initialize_generation_state",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        685,
+        706
+      ],
+      "summary": "为新请求初始化模型侧延迟采样与流式状态。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:build_sglang_moss_tts_request",
+      "type": "function",
+      "name": "build_sglang_moss_tts_request",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        709,
+        783
+      ],
+      "summary": "把已处理 payload 转换为 SGLang GenerateReqInput。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:apply_sglang_moss_tts_result",
+      "type": "function",
+      "name": "apply_sglang_moss_tts_result",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        786,
+        828
+      ],
+      "summary": "把 SGLang 生成结果回填为 MOSS-TTS pipeline 数据。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/request_builders.py:make_moss_tts_scheduler_adapters",
+      "type": "function",
+      "name": "make_moss_tts_scheduler_adapters",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        831,
+        840
+      ],
+      "summary": "创建 MOSS-TTS scheduler 生命周期适配器集合。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/request_builders.py:MossTTSSGLangRequestData",
+      "type": "class",
+      "name": "MossTTSSGLangRequestData",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        75,
+        111
+      ],
+      "summary": "维护一个 MOSS-TTS SGLang 请求从 prefill 到流式输出的全部可变状态。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts/request_builders.py:MossTTSPreparedRequest",
+      "type": "class",
+      "name": "MossTTSPreparedRequest",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        115,
+        122
+      ],
+      "summary": "保存 processor 生成的 input IDs、prompt rows 与生成参数。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/request_builders.py:MossTTSPreprocessingContext",
+      "type": "class",
+      "name": "MossTTSPreprocessingContext",
+      "filePath": "models/moss_tts/request_builders.py",
+      "lineRange": [
+        126,
+        128
+      ],
+      "summary": "组合 processor 和参考音频编码器供预处理函数共享。",
+      "tags": [
+        "MOSS-TTS",
+        "request-builder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/moss_tts/sampler.py",
+      "type": "file",
+      "name": "sampler.py",
+      "filePath": "models/moss_tts/sampler.py",
+      "summary": "实现固定形状的 MOSS-TTS 延迟音频采样器及其 CUDA Graph 输入输出数据模型。",
+      "tags": [
+        "MOSS-TTS",
+        "sampler",
+        "CUDA-Graph"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "以 PyTorch module 对 control/audio logits 执行分支受控采样。"
+    },
+    {
+      "id": "function:models/moss_tts/sampler.py:matches_graph_profile",
+      "type": "function",
+      "name": "matches_graph_profile",
+      "filePath": "models/moss_tts/sampler.py",
+      "lineRange": [
+        42,
+        68
+      ],
+      "summary": "判断请求数据是否满足固定形状采样图的 profile。",
+      "tags": [
+        "MOSS-TTS",
+        "sampler",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/sampler.py:_sample_default_audio_tokens",
+      "type": "function",
+      "name": "_sample_default_audio_tokens",
+      "filePath": "models/moss_tts/sampler.py",
+      "lineRange": [
+        71,
+        99
+      ],
+      "summary": "按 seed 和 position 从默认音频 logits 采样 token。",
+      "tags": [
+        "MOSS-TTS",
+        "sampler",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/sampler.py:DelayGraphBatch",
+      "type": "class",
+      "name": "DelayGraphBatch",
+      "filePath": "models/moss_tts/sampler.py",
+      "lineRange": [
+        27,
+        32
+      ],
+      "summary": "描述延迟采样 CUDA Graph 的状态、seeds 与生成步数。",
+      "tags": [
+        "MOSS-TTS",
+        "sampler",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/sampler.py:DelaySamplingOutput",
+      "type": "class",
+      "name": "DelaySamplingOutput",
+      "filePath": "models/moss_tts/sampler.py",
+      "lineRange": [
+        35,
+        39
+      ],
+      "summary": "封装延迟采样得到的 token rows 与下一步状态。",
+      "tags": [
+        "MOSS-TTS",
+        "sampler",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/sampler.py:MossTTSDelayAudioGraphSampler",
+      "type": "class",
+      "name": "MossTTSDelayAudioGraphSampler",
+      "filePath": "models/moss_tts/sampler.py",
+      "lineRange": [
+        102,
+        269
+      ],
+      "summary": "以固定形状采样 MOSS-TTS control/audio 通道并推进 delay state。",
+      "tags": [
+        "MOSS-TTS",
+        "sampler",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts/sampling_cuda_graph.py",
+      "type": "file",
+      "name": "sampling_cuda_graph.py",
+      "filePath": "models/moss_tts/sampling_cuda_graph.py",
+      "summary": "捕获、缓存并重放不同 batch bucket 的 MOSS-TTS 采样 CUDA Graph。",
+      "tags": [
+        "MOSS-TTS",
+        "CUDA-Graph",
+        "sampling"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "管理静态 tensor、显存失败恢复和 graph bucket 选择。"
+    },
+    {
+      "id": "class:models/moss_tts/sampling_cuda_graph.py:_StaticSamplingInputs",
+      "type": "class",
+      "name": "_StaticSamplingInputs",
+      "filePath": "models/moss_tts/sampling_cuda_graph.py",
+      "lineRange": [
+        20,
+        26
+      ],
+      "summary": "保存 CUDA Graph 捕获期间复用的静态输入输出 tensor。",
+      "tags": [
+        "MOSS-TTS",
+        "CUDA-Graph",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/sampling_cuda_graph.py:_CapturedSamplingGraph",
+      "type": "class",
+      "name": "_CapturedSamplingGraph",
+      "filePath": "models/moss_tts/sampling_cuda_graph.py",
+      "lineRange": [
+        29,
+        32
+      ],
+      "summary": "关联已捕获 CUDA Graph 及其输出 rows 和 delay state。",
+      "tags": [
+        "MOSS-TTS",
+        "CUDA-Graph",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/sampling_cuda_graph.py:MossTTSDelaySamplingCudaGraphRunner",
+      "type": "class",
+      "name": "MossTTSDelaySamplingCudaGraphRunner",
+      "filePath": "models/moss_tts/sampling_cuda_graph.py",
+      "lineRange": [
+        35,
+        331
+      ],
+      "summary": "管理 MOSS-TTS 延迟采样图的捕获、bucket 缓存与重放。",
+      "tags": [
+        "MOSS-TTS",
+        "CUDA-Graph",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts/sampling_kernels.py",
+      "type": "file",
+      "name": "sampling_kernels.py",
+      "filePath": "models/moss_tts/sampling_kernels.py",
+      "summary": "提供基于 Triton 的确定性 Gumbel argmax 与带 seed 的高性能采样函数。",
+      "tags": [
+        "MOSS-TTS",
+        "Triton",
+        "sampling-kernel"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "Triton kernel 直接操作 GPU tensor，并以 seed/position 保证可复现性。"
+    },
+    {
+      "id": "function:models/moss_tts/sampling_kernels.py:_seeded_gumbel_argmax_kernel",
+      "type": "function",
+      "name": "_seeded_gumbel_argmax_kernel",
+      "filePath": "models/moss_tts/sampling_kernels.py",
+      "lineRange": [
+        17,
+        75
+      ],
+      "summary": "在 Triton kernel 中计算带 seed 的 Gumbel argmax。",
+      "tags": [
+        "MOSS-TTS",
+        "Triton",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/sampling_kernels.py:seeded_gumbel_argmax",
+      "type": "function",
+      "name": "seeded_gumbel_argmax",
+      "filePath": "models/moss_tts/sampling_kernels.py",
+      "lineRange": [
+        78,
+        127
+      ],
+      "summary": "校验输入并启动确定性的 Gumbel argmax kernel。",
+      "tags": [
+        "MOSS-TTS",
+        "Triton",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/sampling_kernels.py:multinomial_with_seed_and_token_ids",
+      "type": "function",
+      "name": "multinomial_with_seed_and_token_ids",
+      "filePath": "models/moss_tts/sampling_kernels.py",
+      "lineRange": [
+        131,
+        145
+      ],
+      "summary": "按 seed 和 token 位置执行可复现 multinomial 采样。",
+      "tags": [
+        "MOSS-TTS",
+        "Triton",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/sampling_kernels.py:sample_seeded_branchless",
+      "type": "function",
+      "name": "sample_seeded_branchless",
+      "filePath": "models/moss_tts/sampling_kernels.py",
+      "lineRange": [
+        148,
+        190
+      ],
+      "summary": "应用 temperature、top-p、top-k 后执行无分支 seed 采样。",
+      "tags": [
+        "MOSS-TTS",
+        "Triton",
+        "function"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/moss_tts/delay_pattern.py",
+      "target": "function:models/moss_tts/delay_pattern.py:split_moss_audio_segments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/delay_pattern.py",
+      "target": "function:models/moss_tts/delay_pattern.py:split_moss_audio_segments",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/engine_builder.py",
+      "target": "class:models/moss_tts/engine_builder.py:MossTtsEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/engine_builder.py",
+      "target": "class:models/moss_tts/engine_builder.py:MossTtsEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/hf_loading.py",
+      "target": "function:models/moss_tts/hf_loading.py:moss_transformers_processor_compat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/hf_loading.py",
+      "target": "function:models/moss_tts/hf_loading.py:moss_transformers_processor_compat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/hf_loading.py",
+      "target": "function:models/moss_tts/hf_loading.py:load_moss_processor_class",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/hf_loading.py",
+      "target": "function:models/moss_tts/hf_loading.py:load_moss_processor_class",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/model_runner.py",
+      "target": "class:models/moss_tts/model_runner.py:MossTTSModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/model_runner.py",
+      "target": "class:models/moss_tts/model_runner.py:MossTTSModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:moss_tts_special_token_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:moss_tts_special_token_defaults",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:resolve_moss_audio_pad_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:resolve_moss_audio_pad_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:load_moss_tts_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:load_moss_tts_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:store_moss_tts_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "function:models/moss_tts/payload_types.py:store_moss_tts_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "class:models/moss_tts/payload_types.py:ChannelSampling",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "class:models/moss_tts/payload_types.py:ChannelSampling",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "class:models/moss_tts/payload_types.py:MossTTSState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/payload_types.py",
+      "target": "class:models/moss_tts/payload_types.py:MossTTSState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_new_moss_tts_sampling_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_new_moss_tts_sampling_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:derive_moss_tts_sampling_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:derive_moss_tts_sampling_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_close_moss_tts_preprocessing_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_close_moss_tts_preprocessing_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:set_moss_tts_preprocessing_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:set_moss_tts_preprocessing_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:clear_moss_tts_preprocessing_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:clear_moss_tts_preprocessing_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:cleanup_prepared_moss_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:cleanup_prepared_moss_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:pop_prepared_moss_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:pop_prepared_moss_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:normalize_moss_tts_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:normalize_moss_tts_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:resolve_moss_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:resolve_moss_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_resolve_optional_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_resolve_optional_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_resolve_token_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_resolve_token_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_moss_tts_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_moss_tts_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_generation_kwargs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_generation_kwargs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_validate_moss_tts_generation_kwargs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_validate_moss_tts_generation_kwargs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_row_cache_key_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_row_cache_key_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_reference_for_processor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_reference_for_processor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_build_processor_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_build_processor_message",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_prepare_moss_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_prepare_moss_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:preprocess_moss_tts_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:preprocess_moss_tts_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_last_equal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_last_equal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_resolve_audio_payload_bounds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_resolve_audio_payload_bounds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_moss_stream_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_moss_stream_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_collect_moss_stream_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_collect_moss_stream_rows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:make_moss_tts_stream_output_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:make_moss_tts_stream_output_builder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_initialize_generation_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:_initialize_generation_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_sglang_moss_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:build_sglang_moss_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:apply_sglang_moss_tts_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:apply_sglang_moss_tts_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:make_moss_tts_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "function:models/moss_tts/request_builders.py:make_moss_tts_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "class:models/moss_tts/request_builders.py:MossTTSSGLangRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "class:models/moss_tts/request_builders.py:MossTTSSGLangRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "class:models/moss_tts/request_builders.py:MossTTSPreparedRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "class:models/moss_tts/request_builders.py:MossTTSPreparedRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "class:models/moss_tts/request_builders.py:MossTTSPreprocessingContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/request_builders.py",
+      "target": "class:models/moss_tts/request_builders.py:MossTTSPreprocessingContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "function:models/moss_tts/sampler.py:matches_graph_profile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "function:models/moss_tts/sampler.py:matches_graph_profile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "function:models/moss_tts/sampler.py:_sample_default_audio_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "function:models/moss_tts/sampler.py:_sample_default_audio_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "class:models/moss_tts/sampler.py:DelayGraphBatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "class:models/moss_tts/sampler.py:DelayGraphBatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "class:models/moss_tts/sampler.py:DelaySamplingOutput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "class:models/moss_tts/sampler.py:DelaySamplingOutput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "class:models/moss_tts/sampler.py:MossTTSDelayAudioGraphSampler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampler.py",
+      "target": "class:models/moss_tts/sampler.py:MossTTSDelayAudioGraphSampler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampling_cuda_graph.py",
+      "target": "class:models/moss_tts/sampling_cuda_graph.py:_StaticSamplingInputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampling_cuda_graph.py",
+      "target": "class:models/moss_tts/sampling_cuda_graph.py:_StaticSamplingInputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampling_cuda_graph.py",
+      "target": "class:models/moss_tts/sampling_cuda_graph.py:_CapturedSamplingGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampling_cuda_graph.py",
+      "target": "class:models/moss_tts/sampling_cuda_graph.py:_CapturedSamplingGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampling_cuda_graph.py",
+      "target": "class:models/moss_tts/sampling_cuda_graph.py:MossTTSDelaySamplingCudaGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampling_cuda_graph.py",
+      "target": "class:models/moss_tts/sampling_cuda_graph.py:MossTTSDelaySamplingCudaGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:_seeded_gumbel_argmax_kernel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:_seeded_gumbel_argmax_kernel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:seeded_gumbel_argmax",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:seeded_gumbel_argmax",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:multinomial_with_seed_and_token_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:multinomial_with_seed_and_token_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:sample_seeded_branchless",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sampling_kernels.py",
+      "target": "function:models/moss_tts/sampling_kernels.py:sample_seeded_branchless",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

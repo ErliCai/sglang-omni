@@ -1,0 +1,1506 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/llada2_uni/components/common.py",
+      "type": "file",
+      "name": "common.py",
+      "filePath": "models/llada2_uni/components/common.py",
+      "summary": "提供 LLaDA2-Uni 组件共享的模型目录解析和分词器加载逻辑，兼容本地路径与模型仓库缓存。",
+      "tags": [
+        "llada2-uni",
+        "model-loading",
+        "tokenizer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/components/common.py:resolve_local_model_dir",
+      "type": "function",
+      "name": "resolve_local_model_dir",
+      "filePath": "models/llada2_uni/components/common.py",
+      "lineRange": [
+        14,
+        28
+      ],
+      "summary": "解析本地目录或最小化下载所需模型文件，并返回可供组件读取的模型目录。",
+      "tags": [
+        "llada2-uni",
+        "model-loading",
+        "resolve-local-model-dir"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/components/common.py:load_llada2_tokenizer",
+      "type": "function",
+      "name": "load_llada2_tokenizer",
+      "filePath": "models/llada2_uni/components/common.py",
+      "lineRange": [
+        31,
+        35
+      ],
+      "summary": "从解析后的模型目录加载 LLaDA2-Uni 分词器。",
+      "tags": [
+        "llada2-uni",
+        "model-loading",
+        "load-llada2-tokenizer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/llada2_uni/components/image_encoder.py",
+      "type": "file",
+      "name": "image_encoder.py",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "summary": "实现 LLaDA2-Uni 的 ViT 与 VQ-VAE 图像编码器，把规范化图像转换为可注入扩散语言模型的离散视觉码。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vision-transformer",
+        "vq-vae"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/llada2_uni/components/image_encoder.py:_load_image_tokenizer_config",
+      "type": "function",
+      "name": "_load_image_tokenizer_config",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "从模型目录读取图像分词器的 JSON 配置。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "load-image-tokenizer-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/components/image_encoder.py:_make_vision_config",
+      "type": "function",
+      "name": "_make_vision_config",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        29,
+        42
+      ],
+      "summary": "把图像分词器配置转换为 ViT 编码器所需的视觉配置对象。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "make-vision-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/components/image_encoder.py:_make_vq_config",
+      "type": "function",
+      "name": "_make_vq_config",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        45,
+        51
+      ],
+      "summary": "构造 VQ-VAE 量化器和解码器所需的配置对象。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "make-vq-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VisionMLP",
+      "type": "class",
+      "name": "VisionMLP",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        54,
+        62
+      ],
+      "summary": "实现视觉 Transformer 块中的前馈 MLP。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vision-mlp"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VisionAttention",
+      "type": "class",
+      "name": "VisionAttention",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        65,
+        108
+      ],
+      "summary": "实现视觉词元的多头自注意力计算。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vision-attention"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VisionPatchEmbed",
+      "type": "class",
+      "name": "VisionPatchEmbed",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        111,
+        127
+      ],
+      "summary": "使用卷积把输入图像切分并投影为视觉块嵌入。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vision-patch-embed"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VisionEmbeddings",
+      "type": "class",
+      "name": "VisionEmbeddings",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        130,
+        174
+      ],
+      "summary": "组合图像块、位置和条件信息形成视觉编码器输入。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vision-embeddings"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VisionBlock",
+      "type": "class",
+      "name": "VisionBlock",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        177,
+        190
+      ],
+      "summary": "串联视觉自注意力与 MLP 残差子层。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vision-block"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VisionEncoder",
+      "type": "class",
+      "name": "VisionEncoder",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        193,
+        247
+      ],
+      "summary": "运行多层视觉 Transformer，并为图像块生成旋转位置编码。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vision-encoder"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VQVAEVectorQuantizer",
+      "type": "class",
+      "name": "VQVAEVectorQuantizer",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        250,
+        267
+      ],
+      "summary": "将连续视觉特征映射到最近的 VQ 码本向量和离散索引。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vqvaevector-quantizer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:VQVAE",
+      "type": "class",
+      "name": "VQVAE",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        270,
+        277
+      ],
+      "summary": "封装 VQ-VAE 编码路径，将视觉特征转换为量化码。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "vqvae"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/components/image_encoder.py:LLaDA2ImageEncoder",
+      "type": "class",
+      "name": "LLaDA2ImageEncoder",
+      "filePath": "models/llada2_uni/components/image_encoder.py",
+      "lineRange": [
+        280,
+        361
+      ],
+      "summary": "加载 ViT 与 VQ-VAE 权重，并把一批图像转换为离散视觉词元 ID。",
+      "tags": [
+        "llada2-uni",
+        "image-encoder",
+        "lla-da2-image-encoder"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/llada2_uni/components/preprocessor.py",
+      "type": "file",
+      "name": "preprocessor.py",
+      "filePath": "models/llada2_uni/components/preprocessor.py",
+      "summary": "校验 LLaDA2-Uni 多模态消息，分词文本、调整图像尺寸并插入与视觉码数量匹配的占位标记。",
+      "tags": [
+        "llada2-uni",
+        "multimodal-preprocessing",
+        "image-resize",
+        "prompt-building"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/llada2_uni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "function",
+      "name": "validate_prompt_seq_len",
+      "filePath": "models/llada2_uni/components/preprocessor.py",
+      "lineRange": [
+        53,
+        92
+      ],
+      "summary": "检查文本和图像占位词元总长度是否满足模型序列长度约束。",
+      "tags": [
+        "llada2-uni",
+        "multimodal-preprocessing",
+        "validate-prompt-seq-len"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/components/preprocessor.py:_compute_target_dims",
+      "type": "function",
+      "name": "_compute_target_dims",
+      "filePath": "models/llada2_uni/components/preprocessor.py",
+      "lineRange": [
+        95,
+        115
+      ],
+      "summary": "按原始宽高和块大小计算保持比例的目标缩放尺寸。",
+      "tags": [
+        "llada2-uni",
+        "multimodal-preprocessing",
+        "compute-target-dims"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/components/preprocessor.py:_resize_and_center_crop",
+      "type": "function",
+      "name": "_resize_and_center_crop",
+      "filePath": "models/llada2_uni/components/preprocessor.py",
+      "lineRange": [
+        118,
+        135
+      ],
+      "summary": "缩放单张图像并执行中心裁剪以匹配模型输入尺寸。",
+      "tags": [
+        "llada2-uni",
+        "multimodal-preprocessing",
+        "resize-and-center-crop"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/components/preprocessor.py:_resize_images",
+      "type": "function",
+      "name": "_resize_images",
+      "filePath": "models/llada2_uni/components/preprocessor.py",
+      "lineRange": [
+        138,
+        155
+      ],
+      "summary": "批量调整输入图像并返回统一张量及各图像网格信息。",
+      "tags": [
+        "llada2-uni",
+        "multimodal-preprocessing",
+        "resize-images"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/components/preprocessor.py:LLaDA2Preprocessor",
+      "type": "class",
+      "name": "LLaDA2Preprocessor",
+      "filePath": "models/llada2_uni/components/preprocessor.py",
+      "lineRange": [
+        158,
+        413
+      ],
+      "summary": "解析对话消息和原始图像，构造提示词、图像占位符、输入 ID 与视觉编码输入。",
+      "tags": [
+        "llada2-uni",
+        "multimodal-preprocessing",
+        "lla-da2-preprocessor"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/llada2_uni/components/thinker.py",
+      "type": "file",
+      "name": "thinker.py",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "summary": "实现 LLaDA2-Uni 的统一扩散语言模型 MoE 主干，包括注意力、专家路由、稀疏专家块、张量并行权重加载和语言模型封装。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "mixture-of-experts",
+        "tensor-parallel"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeAttention",
+      "type": "class",
+      "name": "LLaDA2MoeAttention",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "lineRange": [
+        39,
+        158
+      ],
+      "summary": "实现支持张量并行和 SGLang KV 缓存的 LLaDA2 多头注意力层。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "lla-da2-moe-attention"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeMLP",
+      "type": "class",
+      "name": "LLaDA2MoeMLP",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "lineRange": [
+        161,
+        189
+      ],
+      "summary": "实现单个 LLaDA2 专家的门控前馈网络。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "lla-da2-moe-mlp"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeGate",
+      "type": "class",
+      "name": "LLaDA2MoeGate",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "lineRange": [
+        192,
+        219
+      ],
+      "summary": "为每个词元计算专家路由分数和 Top-K 选择。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "lla-da2-moe-gate"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeSparseMoeBlock",
+      "type": "class",
+      "name": "LLaDA2MoeSparseMoeBlock",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "lineRange": [
+        222,
+        353
+      ],
+      "summary": "根据路由结果把词元分派给稀疏专家并聚合加权输出。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "lla-da2-moe-sparse-moe-block"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeBlock",
+      "type": "class",
+      "name": "LLaDA2MoeBlock",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "lineRange": [
+        356,
+        402
+      ],
+      "summary": "组合注意力、稀疏 MoE 前馈层和残差归一化。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "lla-da2-moe-block"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeTextModel",
+      "type": "class",
+      "name": "LLaDA2MoeTextModel",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "lineRange": [
+        405,
+        510
+      ],
+      "summary": "堆叠 LLaDA2 MoE 块，执行扩散语言模型主干前向并加载分片权重。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "lla-da2-moe-text-model"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeModelLM",
+      "type": "class",
+      "name": "LLaDA2MoeModelLM",
+      "filePath": "models/llada2_uni/components/thinker.py",
+      "lineRange": [
+        513,
+        583
+      ],
+      "summary": "在 MoE 文本主干上添加词表输出头，提供 SGLang 可调用的语言模型接口。",
+      "tags": [
+        "llada2-uni",
+        "diffusion-llm",
+        "lla-da2-moe-model-lm"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/llada2_uni/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/llada2_uni/config.py",
+      "summary": "定义 LLaDA2-Uni 的预处理、图像编码、扩散 Thinker 和解码阶段拓扑及默认生成参数。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-config",
+        "diffusion-generation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/config.py:LLaDA2UniPipelineConfig",
+      "type": "class",
+      "name": "LLaDA2UniPipelineConfig",
+      "filePath": "models/llada2_uni/config.py",
+      "lineRange": [
+        25,
+        65
+      ],
+      "summary": "定义 LLaDA2-Uni 四阶段流水线、模型架构、最大新词元数和阶段工厂参数。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-config",
+        "lla-da2-uni-pipeline-config"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/llada2_uni/merge.py",
+      "type": "file",
+      "name": "merge.py",
+      "filePath": "models/llada2_uni/merge.py",
+      "summary": "把 LLaDA2-Uni Thinker 的最终词元输出解码为统一的文本完成事件。",
+      "tags": [
+        "llada2-uni",
+        "result-merge",
+        "event-decoding"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/merge.py:decode_events",
+      "type": "function",
+      "name": "decode_events",
+      "filePath": "models/llada2_uni/merge.py",
+      "lineRange": [
+        11,
+        31
+      ],
+      "summary": "解码 Thinker 的输出词元并创建单个 text_final 事件。",
+      "tags": [
+        "llada2-uni",
+        "result-merge",
+        "decode-events"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/llada2_uni/payload_types.py",
+      "type": "file",
+      "name": "payload_types.py",
+      "filePath": "models/llada2_uni/payload_types.py",
+      "summary": "定义 LLaDA2-Uni 各阶段共享的 Thinker 输出、流水线状态和终端事件数据结构。",
+      "tags": [
+        "llada2-uni",
+        "payload-state",
+        "event-schema"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/payload_types.py:ThinkerOutput",
+      "type": "class",
+      "name": "ThinkerOutput",
+      "filePath": "models/llada2_uni/payload_types.py",
+      "lineRange": [
+        10,
+        15
+      ],
+      "summary": "描述规范化 Thinker 输出中的词元、结束标志和停止原因。",
+      "tags": [
+        "llada2-uni",
+        "payload-state",
+        "thinker-output"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/llada2_uni/payload_types.py:LLaDA2UniPipelineState",
+      "type": "class",
+      "name": "LLaDA2UniPipelineState",
+      "filePath": "models/llada2_uni/payload_types.py",
+      "lineRange": [
+        19,
+        56
+      ],
+      "summary": "保存提示词、图像输入、视觉词元、Thinker 结果和最终事件，并支持字典序列化。",
+      "tags": [
+        "llada2-uni",
+        "payload-state",
+        "lla-da2-uni-pipeline-state"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/llada2_uni/payload_types.py:LLaDA2UniEvent",
+      "type": "class",
+      "name": "LLaDA2UniEvent",
+      "filePath": "models/llada2_uni/payload_types.py",
+      "lineRange": [
+        60,
+        66
+      ],
+      "summary": "表示 LLaDA2-Uni 流水线产生的模态事件及其负载。",
+      "tags": [
+        "llada2-uni",
+        "payload-state",
+        "lla-da2-uni-event"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/llada2_uni/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/llada2_uni/request_builders.py",
+      "summary": "构建图像编码与扩散 Thinker 请求，合并离散视觉码、应用阶段结果，并提供 SGLang 调度适配器。",
+      "tags": [
+        "llada2-uni",
+        "request-building",
+        "image-tokens",
+        "scheduler-adapter"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/llada2_uni/request_builders.py:build_encoder_request",
+      "type": "function",
+      "name": "build_encoder_request",
+      "filePath": "models/llada2_uni/request_builders.py",
+      "lineRange": [
+        28,
+        39
+      ],
+      "summary": "从流水线状态构造图像编码阶段请求。",
+      "tags": [
+        "llada2-uni",
+        "request-building",
+        "build-encoder-request"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/request_builders.py:apply_encoder_result",
+      "type": "function",
+      "name": "apply_encoder_result",
+      "filePath": "models/llada2_uni/request_builders.py",
+      "lineRange": [
+        42,
+        49
+      ],
+      "summary": "把图像编码器返回的离散视觉码写回流水线状态。",
+      "tags": [
+        "llada2-uni",
+        "request-building",
+        "apply-encoder-result"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/request_builders.py:merge_image_tokens_for_thinker",
+      "type": "function",
+      "name": "merge_image_tokens_for_thinker",
+      "filePath": "models/llada2_uni/request_builders.py",
+      "lineRange": [
+        52,
+        100
+      ],
+      "summary": "用真实视觉码替换提示序列中的图像占位词元并校验数量。",
+      "tags": [
+        "llada2-uni",
+        "request-building",
+        "merge-image-tokens-for-thinker"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/llada2_uni/request_builders.py:build_dllm_thinker_request",
+      "type": "function",
+      "name": "build_dllm_thinker_request",
+      "filePath": "models/llada2_uni/request_builders.py",
+      "lineRange": [
+        103,
+        162
+      ],
+      "summary": "构造扩散 Thinker 的 SGLang 请求、采样参数和序列预算。",
+      "tags": [
+        "llada2-uni",
+        "request-building",
+        "build-dllm-thinker-request"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/llada2_uni/request_builders.py:apply_dllm_thinker_result",
+      "type": "function",
+      "name": "apply_dllm_thinker_result",
+      "filePath": "models/llada2_uni/request_builders.py",
+      "lineRange": [
+        165,
+        182
+      ],
+      "summary": "把扩散 Thinker 输出和结束信息归一化后写回状态。",
+      "tags": [
+        "llada2-uni",
+        "request-building",
+        "apply-dllm-thinker-result"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/request_builders.py:make_dllm_thinker_scheduler_adapters",
+      "type": "function",
+      "name": "make_dllm_thinker_scheduler_adapters",
+      "filePath": "models/llada2_uni/request_builders.py",
+      "lineRange": [
+        185,
+        222
+      ],
+      "summary": "创建扩散 Thinker 的请求构建、结果应用与调度适配函数。",
+      "tags": [
+        "llada2-uni",
+        "request-building",
+        "make-dllm-thinker-scheduler-adapters"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/llada2_uni/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/llada2_uni/stages.py",
+      "summary": "创建 LLaDA2-Uni 的预处理、图像编码、SGLang 扩散 Thinker 和最终解码执行器。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-stages",
+        "executor-factory"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/llada2_uni/stages.py:_event_to_dict",
+      "type": "function",
+      "name": "_event_to_dict",
+      "filePath": "models/llada2_uni/stages.py",
+      "lineRange": [
+        14,
+        20
+      ],
+      "summary": "把 LLaDA2-Uni 事件对象转换为可传输字典。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-stages",
+        "event-to-dict"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/llada2_uni/stages.py",
+      "lineRange": [
+        23,
+        35
+      ],
+      "summary": "创建调用 LLaDA2Preprocessor 的输入预处理执行器。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-stages",
+        "create-preprocessing-executor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/stages.py:create_image_encoder_executor",
+      "type": "function",
+      "name": "create_image_encoder_executor",
+      "filePath": "models/llada2_uni/stages.py",
+      "lineRange": [
+        38,
+        79
+      ],
+      "summary": "创建加载 LLaDA2ImageEncoder 并编码图像的执行器。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-stages",
+        "create-image-encoder-executor"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/stages.py:create_sglang_dllm_thinker_executor_from_config",
+      "type": "function",
+      "name": "create_sglang_dllm_thinker_executor_from_config",
+      "filePath": "models/llada2_uni/stages.py",
+      "lineRange": [
+        82,
+        115
+      ],
+      "summary": "根据阶段配置创建 SGLang 扩散 Thinker 执行器。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-stages",
+        "create-sglang-dllm-thinker-executor-from-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/llada2_uni/stages.py:create_decode_executor",
+      "type": "function",
+      "name": "create_decode_executor",
+      "filePath": "models/llada2_uni/stages.py",
+      "lineRange": [
+        118,
+        180
+      ],
+      "summary": "创建将 Thinker 结果解码为终端文本事件的执行器。",
+      "tags": [
+        "llada2-uni",
+        "pipeline-stages",
+        "create-decode-executor"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/llada2_uni/components/common.py",
+      "target": "function:models/llada2_uni/components/common.py:resolve_local_model_dir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/common.py",
+      "target": "function:models/llada2_uni/components/common.py:resolve_local_model_dir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/common.py",
+      "target": "function:models/llada2_uni/components/common.py:load_llada2_tokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/common.py",
+      "target": "function:models/llada2_uni/components/common.py:load_llada2_tokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "function:models/llada2_uni/components/image_encoder.py:_load_image_tokenizer_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "function:models/llada2_uni/components/image_encoder.py:_load_image_tokenizer_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "function:models/llada2_uni/components/image_encoder.py:_make_vision_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "function:models/llada2_uni/components/image_encoder.py:_make_vision_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "function:models/llada2_uni/components/image_encoder.py:_make_vq_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "function:models/llada2_uni/components/image_encoder.py:_make_vq_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionMLP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionMLP",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionPatchEmbed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionPatchEmbed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionEmbeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionEmbeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VQVAEVectorQuantizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VQVAEVectorQuantizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VQVAE",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VQVAE",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:LLaDA2ImageEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/image_encoder.py",
+      "target": "class:models/llada2_uni/components/image_encoder.py:LLaDA2ImageEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_compute_target_dims",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_compute_target_dims",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_resize_and_center_crop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_resize_and_center_crop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_resize_images",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_resize_images",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "class:models/llada2_uni/components/preprocessor.py:LLaDA2Preprocessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/preprocessor.py",
+      "target": "class:models/llada2_uni/components/preprocessor.py:LLaDA2Preprocessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeAttention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeAttention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeMLP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeMLP",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeGate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeGate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeSparseMoeBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeSparseMoeBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeTextModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeTextModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeModelLM",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/components/thinker.py",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeModelLM",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/config.py",
+      "target": "class:models/llada2_uni/config.py:LLaDA2UniPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/config.py",
+      "target": "class:models/llada2_uni/config.py:LLaDA2UniPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/merge.py",
+      "target": "function:models/llada2_uni/merge.py:decode_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/merge.py",
+      "target": "function:models/llada2_uni/merge.py:decode_events",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/payload_types.py",
+      "target": "class:models/llada2_uni/payload_types.py:ThinkerOutput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/payload_types.py",
+      "target": "class:models/llada2_uni/payload_types.py:ThinkerOutput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/payload_types.py",
+      "target": "class:models/llada2_uni/payload_types.py:LLaDA2UniPipelineState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/payload_types.py",
+      "target": "class:models/llada2_uni/payload_types.py:LLaDA2UniPipelineState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/payload_types.py",
+      "target": "class:models/llada2_uni/payload_types.py:LLaDA2UniEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/payload_types.py",
+      "target": "class:models/llada2_uni/payload_types.py:LLaDA2UniEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:build_encoder_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:build_encoder_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:apply_encoder_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:apply_encoder_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:merge_image_tokens_for_thinker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:merge_image_tokens_for_thinker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:build_dllm_thinker_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:build_dllm_thinker_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:apply_dllm_thinker_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:apply_dllm_thinker_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:make_dllm_thinker_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/request_builders.py",
+      "target": "function:models/llada2_uni/request_builders.py:make_dllm_thinker_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:_event_to_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:_event_to_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_image_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_image_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_sglang_dllm_thinker_executor_from_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_sglang_dllm_thinker_executor_from_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_decode_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/llada2_uni/stages.py",
+      "target": "function:models/llada2_uni/stages.py:create_decode_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/llada2_uni/components/preprocessor.py:_resize_images",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_compute_target_dims",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/llada2_uni/components/preprocessor.py:_resize_images",
+      "target": "function:models/llada2_uni/components/preprocessor.py:_resize_and_center_crop",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/llada2_uni/components/image_encoder.py:LLaDA2ImageEncoder",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VisionEncoder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/llada2_uni/components/image_encoder.py:LLaDA2ImageEncoder",
+      "target": "class:models/llada2_uni/components/image_encoder.py:VQVAE",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/llada2_uni/components/preprocessor.py:LLaDA2Preprocessor",
+      "target": "function:models/llada2_uni/components/preprocessor.py:validate_prompt_seq_len",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeSparseMoeBlock",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeGate",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeBlock",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeAttention",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeBlock",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeSparseMoeBlock",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeModelLM",
+      "target": "class:models/llada2_uni/components/thinker.py:LLaDA2MoeTextModel",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/llada2_uni/request_builders.py:build_dllm_thinker_request",
+      "target": "function:models/llada2_uni/request_builders.py:merge_image_tokens_for_thinker",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/llada2_uni/stages.py:create_decode_executor",
+      "target": "function:models/llada2_uni/merge.py:decode_events",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

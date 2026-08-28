@@ -1,0 +1,183 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "models/ming_omni/pipeline/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/engine_io.py",
+      "language": "python",
+      "sizeLines": 193,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/merge.py",
+      "language": "python",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/next_stage.py",
+      "language": "python",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/sampling.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/stages.py",
+      "language": "python",
+      "sizeLines": 415,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/state_io.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/usage.py",
+      "language": "python",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/stages.py",
+      "language": "python",
+      "sizeLines": 388,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/front/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/thinker.py",
+      "language": "python",
+      "sizeLines": 968,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/tp_utils.py",
+      "language": "python",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/audio_config.py",
+      "language": "python",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/audio_decode.py",
+      "language": "python",
+      "sizeLines": 177,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/config.py",
+      "language": "python",
+      "sizeLines": 309,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/engine_builder.py",
+      "language": "python",
+      "sizeLines": 224,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/engine_io.py",
+      "language": "python",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/flow_matching.py",
+      "language": "python",
+      "sizeLines": 271,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/hf_config.py",
+      "language": "python",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 531,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/prompt_builder.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "models/ming_omni/pipeline/__init__.py": [],
+    "models/ming_omni/pipeline/engine_io.py": [],
+    "models/ming_omni/pipeline/merge.py": [],
+    "models/ming_omni/pipeline/next_stage.py": [],
+    "models/ming_omni/pipeline/sampling.py": [],
+    "models/ming_omni/pipeline/stages.py": [],
+    "models/ming_omni/pipeline/state_io.py": [],
+    "models/ming_omni/pipeline/usage.py": [],
+    "models/ming_omni/stages.py": [],
+    "models/ming_omni/talker/audio_vae/__init__.py": [],
+    "models/ming_omni/talker/front/__init__.py": [],
+    "models/ming_omni/talker/talker_module/__init__.py": [],
+    "models/ming_omni/thinker.py": [],
+    "models/ming_omni/tp_utils.py": [],
+    "models/ming_tts/__init__.py": [],
+    "models/ming_tts/audio_config.py": [],
+    "models/ming_tts/audio_decode.py": [],
+    "models/ming_tts/config.py": [],
+    "models/ming_tts/engine_builder.py": [],
+    "models/ming_tts/engine_io.py": [],
+    "models/ming_tts/flow_matching.py": [],
+    "models/ming_tts/hf_config.py": [],
+    "models/ming_tts/model_runner.py": [],
+    "models/ming_tts/payload_types.py": [],
+    "models/ming_tts/prompt_builder.py": []
+  },
+  "neighborMap": {}
+}

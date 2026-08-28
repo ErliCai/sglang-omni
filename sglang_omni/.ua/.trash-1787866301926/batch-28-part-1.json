@@ -1,0 +1,1349 @@
+{
+  "nodes": [
+    {
+      "id": "file:profiler/profiler_control.py",
+      "type": "file",
+      "name": "profiler_control.py",
+      "filePath": "profiler/profiler_control.py",
+      "summary": "提供 profiler 控制客户端，向本地或分布式 worker 广播 profiling 启停命令。",
+      "tags": [
+        "profiler",
+        "control-client",
+        "distributed"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 Python 控制通道协调多个运行时实例的 profiling 生命周期。"
+    },
+    {
+      "id": "class:profiler/profiler_control.py:ProfilerControlClient",
+      "type": "class",
+      "name": "ProfilerControlClient",
+      "filePath": "profiler/profiler_control.py",
+      "lineRange": [
+        15,
+        87
+      ],
+      "summary": "向一个或多个 profiler endpoint 发送 start/stop 控制请求。",
+      "tags": [
+        "profiler",
+        "control-client",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:profiler/torch_profiler.py",
+      "type": "file",
+      "name": "torch_profiler.py",
+      "filePath": "profiler/torch_profiler.py",
+      "summary": "封装 PyTorch profiler 的启动、停止、step 追踪和运行目录管理。",
+      "tags": [
+        "profiler",
+        "PyTorch",
+        "trace"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "继承统一 ProfilerBase，并输出可供 TensorBoard/Chrome 分析的 trace。"
+    },
+    {
+      "id": "class:profiler/torch_profiler.py:TorchProfiler",
+      "type": "class",
+      "name": "TorchProfiler",
+      "filePath": "profiler/torch_profiler.py",
+      "lineRange": [
+        23,
+        201
+      ],
+      "summary": "封装 torch.profiler schedule、trace 导出、step context 与活动状态。",
+      "tags": [
+        "profiler",
+        "PyTorch",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:profiler/views.py",
+      "type": "file",
+      "name": "views.py",
+      "filePath": "profiler/views.py",
+      "summary": "从 profiler events 重建请求时间线，并计算 stage/hop 延迟统计和表格报告。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "latency-report"
+      ],
+      "complexity": "complex",
+      "languageNotes": "以 dataclass 和统计 helper 聚合 JSONL events、percentile 与相对时间。"
+    },
+    {
+      "id": "function:profiler/views.py:iter_events",
+      "type": "function",
+      "name": "iter_events",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        26,
+        54
+      ],
+      "summary": "流式读取 profiler event 记录并规范化字段。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/views.py:load_events",
+      "type": "function",
+      "name": "load_events",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        57,
+        61
+      ],
+      "summary": "从事件文件加载全部 profiler events。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/views.py:reconstruct_timelines",
+      "type": "function",
+      "name": "reconstruct_timelines",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        111,
+        125
+      ],
+      "summary": "按 request ID 重建排序后的请求时间线。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/views.py:_percentile",
+      "type": "function",
+      "name": "_percentile",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        191,
+        202
+      ],
+      "summary": "计算数值序列的指定 percentile。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/views.py:compute_stage_intervals",
+      "type": "function",
+      "name": "compute_stage_intervals",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        205,
+        252
+      ],
+      "summary": "从 timeline events 计算各 pipeline stage 的起止区间。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:profiler/views.py:stage_breakdown",
+      "type": "function",
+      "name": "stage_breakdown",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        255,
+        282
+      ],
+      "summary": "汇总各 stage 延迟的数量、均值和 percentile。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/views.py:hop_breakdown",
+      "type": "function",
+      "name": "hop_breakdown",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        316,
+        385
+      ],
+      "summary": "统计相邻 stage/hop 之间的传输或等待延迟。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:profiler/views.py:build_report",
+      "type": "function",
+      "name": "build_report",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        393,
+        401
+      ],
+      "summary": "构造 profiler 时间线与延迟分解报告。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:profiler/views.py:format_table",
+      "type": "function",
+      "name": "format_table",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        404,
+        416
+      ],
+      "summary": "把报告行格式化为可读文本表格。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:profiler/views.py:RequestTimeline",
+      "type": "class",
+      "name": "RequestTimeline",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        70,
+        108
+      ],
+      "summary": "保存单个请求的有序事件并提供相对时间换算。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:profiler/views.py:StageInterval",
+      "type": "class",
+      "name": "StageInterval",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        152,
+        164
+      ],
+      "summary": "表示请求在一个 pipeline stage 内的时间区间。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:profiler/views.py:StageBreakdownRow",
+      "type": "class",
+      "name": "StageBreakdownRow",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        168,
+        188
+      ],
+      "summary": "保存一个 stage 的样本数和延迟统计。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:profiler/views.py:HopBreakdownRow",
+      "type": "class",
+      "name": "HopBreakdownRow",
+      "filePath": "profiler/views.py",
+      "lineRange": [
+        291,
+        313
+      ],
+      "summary": "保存相邻 pipeline hops 的等待/传输延迟统计。",
+      "tags": [
+        "profiler",
+        "timeline",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:quantization.py",
+      "type": "file",
+      "name": "quantization.py",
+      "filePath": "quantization.py",
+      "summary": "解析模型量化配置，适配 FP8 权重 scale，并规范化 stage prefix 与 quantization keys。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "model-config"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "处理 checkpoint metadata、SGLang quantization 方法和可写配置副本。"
+    },
+    {
+      "id": "function:quantization.py:_to_mutable_dict",
+      "type": "function",
+      "name": "_to_mutable_dict",
+      "filePath": "quantization.py",
+      "lineRange": [
+        45,
+        58
+      ],
+      "summary": "把配置对象递归转换为可修改字典。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:_read_metadata",
+      "type": "function",
+      "name": "_read_metadata",
+      "filePath": "quantization.py",
+      "lineRange": [
+        61,
+        65
+      ],
+      "summary": "读取模型目录中的 checkpoint metadata。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:resolve_quant_config",
+      "type": "function",
+      "name": "resolve_quant_config",
+      "filePath": "quantization.py",
+      "lineRange": [
+        68,
+        88
+      ],
+      "summary": "结合用户配置和 metadata 解析最终量化配置。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:quant_method_name",
+      "type": "function",
+      "name": "quant_method_name",
+      "filePath": "quantization.py",
+      "lineRange": [
+        91,
+        98
+      ],
+      "summary": "从量化配置提取标准化 method 名称。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:is_fp8_block_quant",
+      "type": "function",
+      "name": "is_fp8_block_quant",
+      "filePath": "quantization.py",
+      "lineRange": [
+        101,
+        107
+      ],
+      "summary": "判断配置是否使用 FP8 block quantization。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:convert_fp8_weight_scale_inv",
+      "type": "function",
+      "name": "convert_fp8_weight_scale_inv",
+      "filePath": "quantization.py",
+      "lineRange": [
+        110,
+        129
+      ],
+      "summary": "把 FP8 inverse scales 转换为权重加载期望的形式。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:_identity_preprocessor",
+      "type": "function",
+      "name": "_identity_preprocessor",
+      "filePath": "quantization.py",
+      "lineRange": [
+        132,
+        135
+      ],
+      "summary": "原样返回权重 tensor 的默认预处理器。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:get_weight_preprocessor",
+      "type": "function",
+      "name": "get_weight_preprocessor",
+      "filePath": "quantization.py",
+      "lineRange": [
+        138,
+        148
+      ],
+      "summary": "根据量化方法选择 checkpoint 权重预处理函数。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:needs_quant_config_normalization",
+      "type": "function",
+      "name": "needs_quant_config_normalization",
+      "filePath": "quantization.py",
+      "lineRange": [
+        151,
+        154
+      ],
+      "summary": "判断量化配置是否需要 stage-aware 规范化。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:_strip_stage_prefix",
+      "type": "function",
+      "name": "_strip_stage_prefix",
+      "filePath": "quantization.py",
+      "lineRange": [
+        157,
+        168
+      ],
+      "summary": "从参数名移除 pipeline stage prefix。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:_normalize_extra_config_keys",
+      "type": "function",
+      "name": "_normalize_extra_config_keys",
+      "filePath": "quantization.py",
+      "lineRange": [
+        171,
+        191
+      ],
+      "summary": "规范化量化 extra config 中的模块 key。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:_normalize_block_name_to_quantize",
+      "type": "function",
+      "name": "_normalize_block_name_to_quantize",
+      "filePath": "quantization.py",
+      "lineRange": [
+        194,
+        220
+      ],
+      "summary": "规范化需要量化的 block 名称列表。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:_load_writable_quant_config",
+      "type": "function",
+      "name": "_load_writable_quant_config",
+      "filePath": "quantization.py",
+      "lineRange": [
+        223,
+        253
+      ],
+      "summary": "加载并复制一份可安全修改的量化配置。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:quantization.py:_resolve_stage_prefix",
+      "type": "function",
+      "name": "_resolve_stage_prefix",
+      "filePath": "quantization.py",
+      "lineRange": [
+        256,
+        261
+      ],
+      "summary": "解析当前模型 stage 对应的权重前缀。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:quantization.py:normalize_quant_config",
+      "type": "function",
+      "name": "normalize_quant_config",
+      "filePath": "quantization.py",
+      "lineRange": [
+        264,
+        285
+      ],
+      "summary": "面向当前 stage 重写并返回标准化量化配置。",
+      "tags": [
+        "quantization",
+        "FP8",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:relay/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "relay/__init__.py",
+      "summary": "导出 relay 子系统的客户端、服务端和数据模型 API。",
+      "tags": [
+        "relay",
+        "package-api",
+        "transport"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python 包入口集中暴露跨进程 relay 组件。"
+    },
+    {
+      "id": "file:sampling/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "sampling/__init__.py",
+      "summary": "标记 sampling 工具包。",
+      "tags": [
+        "sampling",
+        "package-marker",
+        "utilities"
+      ],
+      "complexity": "simple",
+      "languageNotes": "空 Python 包入口，用于组织采样相关 helper。"
+    },
+    {
+      "id": "file:sampling/seed.py",
+      "type": "file",
+      "name": "seed.py",
+      "filePath": "sampling/seed.py",
+      "summary": "生成、派生并解析请求行级随机采样 seed。",
+      "tags": [
+        "sampling",
+        "random-seed",
+        "reproducibility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用固定哈希/数值范围保证公开 seed 到内部 row seed 的可复现映射。"
+    },
+    {
+      "id": "function:sampling/seed.py:new_random_sampling_seed",
+      "type": "function",
+      "name": "new_random_sampling_seed",
+      "filePath": "sampling/seed.py",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "生成落在支持范围内的新随机采样 seed。",
+      "tags": [
+        "sampling",
+        "random-seed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sampling/seed.py:derive_sampling_seed",
+      "type": "function",
+      "name": "derive_sampling_seed",
+      "filePath": "sampling/seed.py",
+      "lineRange": [
+        24,
+        32
+      ],
+      "summary": "从公开 seed 派生稳定的内部采样 seed。",
+      "tags": [
+        "sampling",
+        "random-seed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sampling/seed.py:resolve_row_seed",
+      "type": "function",
+      "name": "resolve_row_seed",
+      "filePath": "sampling/seed.py",
+      "lineRange": [
+        35,
+        40
+      ],
+      "summary": "为请求中的指定 row 解析最终 seed。",
+      "tags": [
+        "sampling",
+        "random-seed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "scheduling/__init__.py",
+      "summary": "导出 scheduling 子系统的核心消息与 scheduler API。",
+      "tags": [
+        "scheduling",
+        "package-api",
+        "runtime"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python 包入口暴露调度运行时基础类型。"
+    },
+    {
+      "id": "file:scheduling/bootstrap.py",
+      "type": "file",
+      "name": "bootstrap.py",
+      "filePath": "scheduling/bootstrap.py",
+      "summary": "创建 SGLang 基础设施并初始化或延后捕获 CUDA Graph，同时输出运行时诊断。",
+      "tags": [
+        "scheduling",
+        "bootstrap",
+        "CUDA-Graph"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "协调 server args、memory pool、attention backend 与 graph capture 顺序。"
+    },
+    {
+      "id": "function:scheduling/bootstrap.py:_describe_sglang_runtime_configuration",
+      "type": "function",
+      "name": "_describe_sglang_runtime_configuration",
+      "filePath": "scheduling/bootstrap.py",
+      "lineRange": [
+        25,
+        40
+      ],
+      "summary": "生成 SGLang attention 与 graph 运行时诊断描述。",
+      "tags": [
+        "scheduling",
+        "bootstrap",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/bootstrap.py:init_sglang_cuda_graphs",
+      "type": "function",
+      "name": "init_sglang_cuda_graphs",
+      "filePath": "scheduling/bootstrap.py",
+      "lineRange": [
+        43,
+        60
+      ],
+      "summary": "初始化 model runner 的 decode/prefill CUDA Graph。",
+      "tags": [
+        "scheduling",
+        "bootstrap",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/bootstrap.py:_hidden_capture_max_tokens",
+      "type": "function",
+      "name": "_hidden_capture_max_tokens",
+      "filePath": "scheduling/bootstrap.py",
+      "lineRange": [
+        63,
+        95
+      ],
+      "summary": "计算 hidden-state graph capture 的最大 token 数。",
+      "tags": [
+        "scheduling",
+        "bootstrap",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/bootstrap.py:create_sglang_infrastructure",
+      "type": "function",
+      "name": "create_sglang_infrastructure",
+      "filePath": "scheduling/bootstrap.py",
+      "lineRange": [
+        98,
+        194
+      ],
+      "summary": "创建 SGLang memory pool、cache、model runner 与 CUDA Graph 基础设施。",
+      "tags": [
+        "scheduling",
+        "bootstrap",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/bootstrap.py:create_sglang_infrastructure_defer_cuda_graph",
+      "type": "function",
+      "name": "create_sglang_infrastructure_defer_cuda_graph",
+      "filePath": "scheduling/bootstrap.py",
+      "lineRange": [
+        215,
+        246
+      ],
+      "summary": "创建基础设施但把 CUDA Graph 捕获延后到模型 setup 后。",
+      "tags": [
+        "scheduling",
+        "bootstrap",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scheduling/bootstrap.py:_SGLangServerArgsForDiagnostics",
+      "type": "class",
+      "name": "_SGLangServerArgsForDiagnostics",
+      "filePath": "scheduling/bootstrap.py",
+      "lineRange": [
+        18,
+        22
+      ],
+      "summary": "提供 runtime diagnostics 所需的最小 ServerArgs 接口。",
+      "tags": [
+        "scheduling",
+        "bootstrap",
+        "class"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:profiler/profiler_control.py",
+      "target": "class:profiler/profiler_control.py:ProfilerControlClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/profiler_control.py",
+      "target": "class:profiler/profiler_control.py:ProfilerControlClient",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/torch_profiler.py",
+      "target": "class:profiler/torch_profiler.py:TorchProfiler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/torch_profiler.py",
+      "target": "class:profiler/torch_profiler.py:TorchProfiler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/torch_profiler.py",
+      "target": "file:profiler/base_profiler.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:iter_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:iter_events",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:load_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:load_events",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:reconstruct_timelines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:reconstruct_timelines",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:_percentile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:_percentile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:compute_stage_intervals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:compute_stage_intervals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:stage_breakdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:stage_breakdown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:hop_breakdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:hop_breakdown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:build_report",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:build_report",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:format_table",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "function:profiler/views.py:format_table",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:RequestTimeline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:RequestTimeline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:StageInterval",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:StageInterval",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:StageBreakdownRow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:StageBreakdownRow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:HopBreakdownRow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:profiler/views.py",
+      "target": "class:profiler/views.py:HopBreakdownRow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_to_mutable_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_to_mutable_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_read_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_read_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:resolve_quant_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:resolve_quant_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:quant_method_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:quant_method_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:is_fp8_block_quant",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:is_fp8_block_quant",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:convert_fp8_weight_scale_inv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:convert_fp8_weight_scale_inv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_identity_preprocessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_identity_preprocessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:get_weight_preprocessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:get_weight_preprocessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:needs_quant_config_normalization",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:needs_quant_config_normalization",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_strip_stage_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_strip_stage_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_normalize_extra_config_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_normalize_extra_config_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_normalize_block_name_to_quantize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_normalize_block_name_to_quantize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_load_writable_quant_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_load_writable_quant_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_resolve_stage_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:_resolve_stage_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:normalize_quant_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:quantization.py",
+      "target": "function:quantization.py:normalize_quant_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sampling/seed.py",
+      "target": "function:sampling/seed.py:new_random_sampling_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sampling/seed.py",
+      "target": "function:sampling/seed.py:new_random_sampling_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sampling/seed.py",
+      "target": "function:sampling/seed.py:derive_sampling_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sampling/seed.py",
+      "target": "function:sampling/seed.py:derive_sampling_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sampling/seed.py",
+      "target": "function:sampling/seed.py:resolve_row_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sampling/seed.py",
+      "target": "function:sampling/seed.py:resolve_row_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:_describe_sglang_runtime_configuration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:_describe_sglang_runtime_configuration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:init_sglang_cuda_graphs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:init_sglang_cuda_graphs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:_hidden_capture_max_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:_hidden_capture_max_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:create_sglang_infrastructure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:create_sglang_infrastructure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:create_sglang_infrastructure_defer_cuda_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "function:scheduling/bootstrap.py:create_sglang_infrastructure_defer_cuda_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "class:scheduling/bootstrap.py:_SGLangServerArgsForDiagnostics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/bootstrap.py",
+      "target": "class:scheduling/bootstrap.py:_SGLangServerArgsForDiagnostics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

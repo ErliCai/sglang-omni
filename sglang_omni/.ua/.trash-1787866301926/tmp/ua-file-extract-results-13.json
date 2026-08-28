@@ -1,0 +1,3741 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "scheduling/omni_scheduler.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 2722,
+      "nonEmptyLines": 2495,
+      "functions": [
+        {
+          "name": "_detach_request_data",
+          "startLine": 89,
+          "endLine": 91,
+          "params": [
+            "req"
+          ]
+        },
+        {
+          "name": "_remove_from_batch",
+          "startLine": 2711,
+          "endLine": 2722,
+          "params": [
+            "batch",
+            "request_id"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "_PendingStreamIngress",
+          "startLine": 79,
+          "endLine": 86,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "_NoOpSender",
+          "startLine": 94,
+          "endLine": 98,
+          "methods": [
+            "send_output"
+          ],
+          "properties": []
+        },
+        {
+          "name": "_UpstreamAbortSender",
+          "startLine": 101,
+          "endLine": 126,
+          "methods": [
+            "__init__",
+            "send_output"
+          ],
+          "properties": []
+        },
+        {
+          "name": "_OmniIpcChannels",
+          "startLine": 129,
+          "endLine": 134,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "_NoOpGrammarManager",
+          "startLine": 137,
+          "endLine": 155,
+          "methods": [
+            "has_waiting_grammars",
+            "get_ready_grammar_requests",
+            "abort_requests",
+            "clear",
+            "__len__"
+          ],
+          "properties": [
+            "grammar_queue"
+          ]
+        },
+        {
+          "name": "OmniScheduler",
+          "startLine": 158,
+          "endLine": 2708,
+          "methods": [
+            "__init__",
+            "bind_model_runner",
+            "_init_upstream_compat_flags",
+            "_init_upstream_scheduler_components",
+            "self_check_during_idle",
+            "self_check_during_busy",
+            "__getattr__",
+            "_init_parallel_state",
+            "_refresh_upstream_parallel_state",
+            "recv_requests",
+            "_recv_scheduler_messages",
+            "_drain_local_inbox",
+            "process_input_requests",
+            "request_build_queue_fits_workers",
+            "_run_request_builder",
+            "_sleep_during_idle",
+            "_queued_admission_count",
+            "_waiting_queue_is_full",
+            "_reject_queue_full",
+            "_stage_request_build_payloads",
+            "_drain_request_build_results",
+            "_admit_or_defer_built_request",
+            "_drain_request_admission_results",
+            "_enqueue_built_request",
+            "_normalize_req_token_arrays",
+            "_prepare_request_limits",
+            "_take_deferred_request_payloads",
+            "_should_recheck_deferred_request_on_stream_chunk",
+            "_is_request_build_ready",
+            "_initialize_request_stream_state",
+            "_request_kv_capacity_error",
+            "_emit_request_error",
+            "get_next_batch_to_run",
+            "get_new_batch_prefill",
+            "run_batch",
+            "_stamp_batch_launch",
+            "_run_batch",
+            "_build_sched_output",
+            "_emit_stream_output",
+            "_put_stream_messages",
+            "_flush_stream_output",
+            "_make_batch_result",
+            "_run_batch_launch",
+            "_run_batch_resolve",
+            "_handle_batch_failure",
+            "_emit_prefill_start_for_batch",
+            "_emit_prefill_end_for_batch",
+            "_emit_model_path_end_once",
+            "_emit_remaining_model_path_ends",
+            "stream_output",
+            "_on_stream_chunk",
+            "_on_stream_done",
+            "start",
+            "event_loop",
+            "stop",
+            "_discard_pending_request_admissions",
+            "_shutdown_resources",
+            "_shutdown_request_build_executor",
+            "abort",
+            "admin",
+            "_should_enqueue_admin",
+            "_enqueue_admin",
+            "_process_admin_requests",
+            "_run_admin_action",
+            "_admin_model_info",
+            "_admin_pause_generation",
+            "_admin_continue_generation",
+            "_admin_update_weights_from_disk",
+            "_run_weight_update_with_lifecycle",
+            "_admin_update_weights_from_tensor",
+            "_admin_update_weights_from_distributed",
+            "_admin_init_weights_update_group",
+            "_admin_destroy_weights_update_group",
+            "_admin_weights_checker",
+            "_abort_all_requests",
+            "_active_request_ids",
+            "_can_update_active_requests",
+            "_retract_running_requests",
+            "_flush_cache_after_update",
+            "_empty_torch_cache",
+            "_mark_running_request_aborted",
+            "_run_abort_callback",
+            "_release_immediate_request_resources",
+            "_release_request_kv_cache",
+            "_event_loop_normal",
+            "_event_loop_overlap",
+            "_batch_is_decode",
+            "_async_pending_batch",
+            "_resolve_and_process",
+            "_resolve_pending_async",
+            "_drop_stale_overrun",
+            "_event_loop_async_decode",
+            "_drain_inbox_for_request",
+            "_remember_completed_request",
+            "_reserve_pending_stream_request",
+            "_close_completed_request",
+            "_find_request_data",
+            "_append_stream_chunk_default",
+            "_append_stream_chunk",
+            "_mark_stream_done"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_PendingStreamIngress",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "_detach_request_data",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "_NoOpSender",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "_UpstreamAbortSender",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "_OmniIpcChannels",
+          "line": 129,
+          "isDefault": false
+        },
+        {
+          "name": "_NoOpGrammarManager",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "OmniScheduler",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "_remove_from_batch",
+          "line": 2711,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "send_output",
+          "callee": "isinstance",
+          "lineNumber": 109
+        },
+        {
+          "caller": "send_output",
+          "callee": "RuntimeError",
+          "lineNumber": 110
+        },
+        {
+          "caller": "send_output",
+          "callee": "type",
+          "lineNumber": 111
+        },
+        {
+          "caller": "send_output",
+          "callee": "finished_reason.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "send_output",
+          "callee": "isinstance",
+          "lineNumber": 118
+        },
+        {
+          "caller": "send_output",
+          "callee": "scheduler._emit_request_error",
+          "lineNumber": 125
+        },
+        {
+          "caller": "send_output",
+          "callee": "RuntimeError",
+          "lineNumber": 125
+        },
+        {
+          "caller": "send_output",
+          "callee": "scheduler.abort",
+          "lineNumber": 126
+        },
+        {
+          "caller": "__init__",
+          "callee": "_UpstreamAbortSender",
+          "lineNumber": 133
+        },
+        {
+          "caller": "__init__",
+          "callee": "_queue_mod.Queue",
+          "lineNumber": 204
+        },
+        {
+          "caller": "__init__",
+          "callee": "_queue_mod.Queue",
+          "lineNumber": 205
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.Lock",
+          "lineNumber": 218
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.RLock",
+          "lineNumber": 219
+        },
+        {
+          "caller": "__init__",
+          "callee": "max",
+          "lineNumber": 220
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 220
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 221
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.warning",
+          "lineNumber": 222
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 232
+        },
+        {
+          "caller": "__init__",
+          "callee": "max",
+          "lineNumber": 234
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 235
+        },
+        {
+          "caller": "__init__",
+          "callee": "max",
+          "lineNumber": 237
+        },
+        {
+          "caller": "__init__",
+          "callee": "ThreadPoolExecutor",
+          "lineNumber": 242
+        },
+        {
+          "caller": "__init__",
+          "callee": "deque",
+          "lineNumber": 255
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 284
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 286
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 295
+        },
+        {
+          "caller": "__init__",
+          "callee": "float",
+          "lineNumber": 296
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 297
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.warning",
+          "lineNumber": 298
+        },
+        {
+          "caller": "__init__",
+          "callee": "bool",
+          "lineNumber": 307
+        },
+        {
+          "caller": "__init__",
+          "callee": "bool",
+          "lineNumber": 308
+        },
+        {
+          "caller": "__init__",
+          "callee": "bool",
+          "lineNumber": 311
+        },
+        {
+          "caller": "__init__",
+          "callee": "min",
+          "lineNumber": 322
+        },
+        {
+          "caller": "__init__",
+          "callee": "get_global_server_args",
+          "lineNumber": 339
+        },
+        {
+          "caller": "__init__",
+          "callee": "override_server_args",
+          "lineNumber": 341
+        },
+        {
+          "caller": "__init__",
+          "callee": "max",
+          "lineNumber": 344
+        },
+        {
+          "caller": "__init__",
+          "callee": "ScheduleBatch",
+          "lineNumber": 363
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.Lock",
+          "lineNumber": 377
+        },
+        {
+          "caller": "__init__",
+          "callee": "_queue_mod.Queue",
+          "lineNumber": 378
+        },
+        {
+          "caller": "__init__",
+          "callee": "SchedulePolicy",
+          "lineNumber": 397
+        },
+        {
+          "caller": "__init__",
+          "callee": "NewTokenRatioTracker.from_server_args",
+          "lineNumber": 416
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.bind_model_runner",
+          "lineNumber": 448
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._init_upstream_compat_flags",
+          "lineNumber": 455
+        },
+        {
+          "caller": "__init__",
+          "callee": "_NoOpGrammarManager",
+          "lineNumber": 456
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 468
+        },
+        {
+          "caller": "__init__",
+          "callee": "_NoOpSender",
+          "lineNumber": 489
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._init_parallel_state",
+          "lineNumber": 491
+        },
+        {
+          "caller": "__init__",
+          "callee": "_OmniIpcChannels",
+          "lineNumber": 492
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.init_metrics_collector",
+          "lineNumber": 493
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.init_metrics_reporter",
+          "lineNumber": 494
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._init_upstream_scheduler_components",
+          "lineNumber": 495
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 498
+        },
+        {
+          "caller": "__init__",
+          "callee": "deque",
+          "lineNumber": 499
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 508
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 509
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 510
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 511
+        },
+        {
+          "caller": "bind_model_runner",
+          "callee": "ValueError",
+          "lineNumber": 522
+        },
+        {
+          "caller": "bind_model_runner",
+          "callee": "RuntimeError",
+          "lineNumber": 526
+        },
+        {
+          "caller": "bind_model_runner",
+          "callee": "SGLangExecutionBridge",
+          "lineNumber": 530
+        },
+        {
+          "caller": "bind_model_runner",
+          "callee": "torch.device",
+          "lineNumber": 531
+        },
+        {
+          "caller": "bind_model_runner",
+          "callee": "model_runner.bind_execution_bridge",
+          "lineNumber": 537
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "bool",
+          "lineNumber": 545
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "bool",
+          "lineNumber": 547
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "envs.SGLANG_MAX_NEW_TOKENS_LIMIT.get",
+          "lineNumber": 561
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "NgramEmbeddingManager",
+          "lineNumber": 571
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "SimpleNamespace",
+          "lineNumber": 580
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "SimpleNamespace",
+          "lineNumber": 581
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "SimpleNamespace",
+          "lineNumber": 583
+        },
+        {
+          "caller": "_init_upstream_compat_flags",
+          "callee": "torch.get_device_module",
+          "lineNumber": 587
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "dict",
+          "lineNumber": 607
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "dp_attn_kwargs.update",
+          "lineNumber": 620
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "supported_kwargs",
+          "lineNumber": 621
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "SchedulerDPAttnAdapter",
+          "lineNumber": 626
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "SchedulerPoolStatsObserver",
+          "lineNumber": 627
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "types.SimpleNamespace",
+          "lineNumber": 644
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "dict",
+          "lineNumber": 650
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "load_inquirer_kwargs.update",
+          "lineNumber": 682
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "supported_kwargs",
+          "lineNumber": 683
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "SchedulerLoadInquirer",
+          "lineNumber": 685
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "types.SimpleNamespace",
+          "lineNumber": 686
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "self.stream_output",
+          "lineNumber": 688
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "SchedulerBatchResultProcessor",
+          "lineNumber": 692
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "SchedulerLogprobResultProcessor",
+          "lineNumber": 708
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "supported_kwargs",
+          "lineNumber": 709
+        },
+        {
+          "caller": "_init_upstream_scheduler_components",
+          "callee": "self.abort",
+          "lineNumber": 716
+        },
+        {
+          "caller": "self_check_during_idle",
+          "callee": "self.new_token_ratio_tracker.reset",
+          "lineNumber": 720
+        },
+        {
+          "caller": "self_check_during_idle",
+          "callee": "idle_sleeper.maybe_sleep",
+          "lineNumber": 723
+        },
+        {
+          "caller": "__getattr__",
+          "callee": "getattr",
+          "lineNumber": 747
+        },
+        {
+          "caller": "__getattr__",
+          "callee": "AttributeError",
+          "lineNumber": 749
+        },
+        {
+          "caller": "__getattr__",
+          "callee": "type",
+          "lineNumber": 750
+        },
+        {
+          "caller": "__getattr__",
+          "callee": "callable",
+          "lineNumber": 754
+        },
+        {
+          "caller": "__getattr__",
+          "callee": "types.MethodType",
+          "lineNumber": 755
+        },
+        {
+          "caller": "_init_parallel_state",
+          "callee": "compute_dp_attention_world_info",
+          "lineNumber": 765
+        },
+        {
+          "caller": "_init_parallel_state",
+          "callee": "tp_worker.get_tp_group",
+          "lineNumber": 773
+        },
+        {
+          "caller": "_init_parallel_state",
+          "callee": "tp_worker.get_attention_tp_group",
+          "lineNumber": 775
+        },
+        {
+          "caller": "_init_parallel_state",
+          "callee": "tp_worker.get_attention_tp_cpu_group",
+          "lineNumber": 776
+        },
+        {
+          "caller": "_init_parallel_state",
+          "callee": "tp_worker.get_pad_input_ids_func",
+          "lineNumber": 787
+        },
+        {
+          "caller": "_init_parallel_state",
+          "callee": "self._refresh_upstream_parallel_state",
+          "lineNumber": 792
+        },
+        {
+          "caller": "_refresh_upstream_parallel_state",
+          "callee": "create_parallel_state",
+          "lineNumber": 798
+        },
+        {
+          "caller": "recv_requests",
+          "callee": "self._recv_scheduler_messages",
+          "lineNumber": 822
+        },
+        {
+          "caller": "recv_requests",
+          "callee": "self._completed_request_ids.pop",
+          "lineNumber": 829
+        },
+        {
+          "caller": "recv_requests",
+          "callee": "new_reqs.append",
+          "lineNumber": 830
+        },
+        {
+          "caller": "recv_requests",
+          "callee": "self._on_stream_chunk",
+          "lineNumber": 832
+        },
+        {
+          "caller": "recv_requests",
+          "callee": "self._on_stream_done",
+          "lineNumber": 834
+        },
+        {
+          "caller": "_recv_scheduler_messages",
+          "callee": "self._drain_local_inbox",
+          "lineNumber": 840
+        },
+        {
+          "caller": "_recv_scheduler_messages",
+          "callee": "self._drain_local_inbox",
+          "lineNumber": 842
+        },
+        {
+          "caller": "_recv_scheduler_messages",
+          "callee": "broadcast_pyobj",
+          "lineNumber": 843
+        },
+        {
+          "caller": "_drain_local_inbox",
+          "callee": "recv_msgs.append",
+          "lineNumber": 854
+        },
+        {
+          "caller": "_drain_local_inbox",
+          "callee": "self.inbox.get_nowait",
+          "lineNumber": 854
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._drain_request_admission_results",
+          "lineNumber": 861
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._drain_request_build_results",
+          "lineNumber": 862
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._stage_request_build_payloads",
+          "lineNumber": 863
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._reject_queue_full",
+          "lineNumber": 865
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._waiting_queue_is_full",
+          "lineNumber": 875
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._reject_queue_full",
+          "lineNumber": 876
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._pending_stream_ingress.get",
+          "lineNumber": 878
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "list",
+          "lineNumber": 886
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "existing_chunks.extend",
+          "lineNumber": 888
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._is_request_build_ready",
+          "lineNumber": 894
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "_get_active_stage",
+          "lineNumber": 900
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "request_build_executor.submit",
+          "lineNumber": 910
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "max",
+          "lineNumber": 918
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "len",
+          "lineNumber": 920
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._run_request_builder",
+          "lineNumber": 924
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "logger.exception",
+          "lineNumber": 926
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._emit_request_error",
+          "lineNumber": 927
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self.abort",
+          "lineNumber": 928
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._admit_or_defer_built_request",
+          "lineNumber": 930
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._drain_request_build_results",
+          "lineNumber": 931
+        },
+        {
+          "caller": "process_input_requests",
+          "callee": "self._drain_request_admission_results",
+          "lineNumber": 932
+        },
+        {
+          "caller": "request_build_queue_fits_workers",
+          "callee": "len",
+          "lineNumber": 943
+        },
+        {
+          "caller": "request_build_queue_fits_workers",
+          "callee": "len",
+          "lineNumber": 943
+        },
+        {
+          "caller": "_run_request_builder",
+          "callee": "_emit_event",
+          "lineNumber": 950
+        },
+        {
+          "caller": "_run_request_builder",
+          "callee": "self._request_builder",
+          "lineNumber": 955
+        },
+        {
+          "caller": "_run_request_builder",
+          "callee": "_emit_event",
+          "lineNumber": 956
+        },
+        {
+          "caller": "_sleep_during_idle",
+          "callee": "bool",
+          "lineNumber": 965
+        },
+        {
+          "caller": "_sleep_during_idle",
+          "callee": "time.sleep",
+          "lineNumber": 968
+        },
+        {
+          "caller": "_queued_admission_count",
+          "callee": "len",
+          "lineNumber": 972
+        },
+        {
+          "caller": "_queued_admission_count",
+          "callee": "len",
+          "lineNumber": 973
+        },
+        {
+          "caller": "_queued_admission_count",
+          "callee": "len",
+          "lineNumber": 974
+        },
+        {
+          "caller": "_queued_admission_count",
+          "callee": "len",
+          "lineNumber": 975
+        },
+        {
+          "caller": "_queued_admission_count",
+          "callee": "len",
+          "lineNumber": 976
+        },
+        {
+          "caller": "_waiting_queue_is_full",
+          "callee": "self._queued_admission_count",
+          "lineNumber": 982
+        },
+        {
+          "caller": "_waiting_queue_is_full",
+          "callee": "int",
+          "lineNumber": 982
+        },
+        {
+          "caller": "_reject_queue_full",
+          "callee": "logger.warning",
+          "lineNumber": 986
+        },
+        {
+          "caller": "_reject_queue_full",
+          "callee": "self._emit_request_error",
+          "lineNumber": 989
+        },
+        {
+          "caller": "_reject_queue_full",
+          "callee": "QueueFullError",
+          "lineNumber": 989
+        },
+        {
+          "caller": "_reject_queue_full",
+          "callee": "self.abort",
+          "lineNumber": 990
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "list",
+          "lineNumber": 996
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "self._waiting_queue_is_full",
+          "lineNumber": 1003
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "backlog.popleft",
+          "lineNumber": 1005
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "rejected.append",
+          "lineNumber": 1007
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "rejected.extend",
+          "lineNumber": 1008
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "max",
+          "lineNumber": 1017
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "len",
+          "lineNumber": 1019
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "set",
+          "lineNumber": 1022
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "backlog.popleft",
+          "lineNumber": 1024
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "backlog_ids.discard",
+          "lineNumber": 1026
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "selected.append",
+          "lineNumber": 1033
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "selected_ids.add",
+          "lineNumber": 1034
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "self._queued_admission_count",
+          "lineNumber": 1037
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "len",
+          "lineNumber": 1037
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "int",
+          "lineNumber": 1049
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "rejected.append",
+          "lineNumber": 1050
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "selected.append",
+          "lineNumber": 1053
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "selected_ids.add",
+          "lineNumber": 1054
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "len",
+          "lineNumber": 1060
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "rejected.append",
+          "lineNumber": 1062
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "backlog.append",
+          "lineNumber": 1064
+        },
+        {
+          "caller": "_stage_request_build_payloads",
+          "callee": "backlog_ids.add",
+          "lineNumber": 1065
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "next",
+          "lineNumber": 1074
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "iter",
+          "lineNumber": 1075
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "self._pending_request_builds.items",
+          "lineNumber": 1075
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "future.done",
+          "lineNumber": 1077
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "self._pending_request_builds.pop",
+          "lineNumber": 1079
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "future.result",
+          "lineNumber": 1083
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "logger.exception",
+          "lineNumber": 1088
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "self._emit_request_error",
+          "lineNumber": 1089
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "self.abort",
+          "lineNumber": 1090
+        },
+        {
+          "caller": "_drain_request_build_results",
+          "callee": "self._admit_or_defer_built_request",
+          "lineNumber": 1095
+        },
+        {
+          "caller": "_admit_or_defer_built_request",
+          "callee": "isinstance",
+          "lineNumber": 1110
+        },
+        {
+          "caller": "_admit_or_defer_built_request",
+          "callee": "self._enqueue_built_request",
+          "lineNumber": 1111
+        },
+        {
+          "caller": "admit_or_hold",
+          "callee": "result.ready.done",
+          "lineNumber": 1124
+        },
+        {
+          "caller": "admit_or_hold",
+          "callee": "result.ready.result",
+          "lineNumber": 1132
+        },
+        {
+          "caller": "admit_or_hold",
+          "callee": "logger.exception",
+          "lineNumber": 1134
+        },
+        {
+          "caller": "admit_or_hold",
+          "callee": "self._emit_request_error",
+          "lineNumber": 1138
+        },
+        {
+          "caller": "admit_or_hold",
+          "callee": "self.abort",
+          "lineNumber": 1139
+        },
+        {
+          "caller": "admit_or_hold",
+          "callee": "self._enqueue_built_request",
+          "lineNumber": 1141
+        },
+        {
+          "caller": "_admit_or_defer_built_request",
+          "callee": "admit_or_hold",
+          "lineNumber": 1149
+        },
+        {
+          "caller": "_admit_or_defer_built_request",
+          "callee": "admit_or_hold",
+          "lineNumber": 1152
+        },
+        {
+          "caller": "_drain_request_admission_results",
+          "callee": "self._pending_request_admissions.items",
+          "lineNumber": 1158
+        },
+        {
+          "caller": "_drain_request_admission_results",
+          "callee": "deferred.ready.done",
+          "lineNumber": 1159
+        },
+        {
+          "caller": "_drain_request_admission_results",
+          "callee": "self._pending_request_admissions.pop",
+          "lineNumber": 1162
+        },
+        {
+          "caller": "_drain_request_admission_results",
+          "callee": "self._admit_or_defer_built_request",
+          "lineNumber": 1166
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._deferred_request_payloads.pop",
+          "lineNumber": 1182
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._normalize_req_token_arrays",
+          "lineNumber": 1184
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._prepare_request_limits",
+          "lineNumber": 1187
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._emit_request_error",
+          "lineNumber": 1189
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "ValueError",
+          "lineNumber": 1189
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self.abort",
+          "lineNumber": 1190
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._request_kv_capacity_error",
+          "lineNumber": 1192
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "logger.warning",
+          "lineNumber": 1194
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._emit_request_error",
+          "lineNumber": 1195
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "ValueError",
+          "lineNumber": 1195
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self.abort",
+          "lineNumber": 1196
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._initialize_request_stream_state",
+          "lineNumber": 1198
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._pending_stream_ingress.pop",
+          "lineNumber": 1199
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._append_stream_chunk",
+          "lineNumber": 1202
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._mark_stream_done",
+          "lineNumber": 1204
+        },
+        {
+          "caller": "enqueue_if_live",
+          "callee": "self._set_or_validate_priority",
+          "lineNumber": 1210
+        },
+        {
+          "caller": "enqueue_if_live",
+          "callee": "self._abort_on_queued_limit",
+          "lineNumber": 1212
+        },
+        {
+          "caller": "enqueue_if_live",
+          "callee": "logger.warning",
+          "lineNumber": 1213
+        },
+        {
+          "caller": "enqueue_if_live",
+          "callee": "len",
+          "lineNumber": 1218
+        },
+        {
+          "caller": "enqueue_if_live",
+          "callee": "_emit_event",
+          "lineNumber": 1221
+        },
+        {
+          "caller": "enqueue_if_live",
+          "callee": "time.perf_counter",
+          "lineNumber": 1226
+        },
+        {
+          "caller": "enqueue_if_live",
+          "callee": "self.waiting_queue.append",
+          "lineNumber": 1229
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "enqueue_if_live",
+          "lineNumber": 1232
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "enqueue_if_live",
+          "lineNumber": 1235
+        },
+        {
+          "caller": "_normalize_req_token_arrays",
+          "callee": "isinstance",
+          "lineNumber": 1241
+        },
+        {
+          "caller": "_normalize_req_token_arrays",
+          "callee": "array",
+          "lineNumber": 1242
+        },
+        {
+          "caller": "_normalize_req_token_arrays",
+          "callee": "isinstance",
+          "lineNumber": 1247
+        },
+        {
+          "caller": "_normalize_req_token_arrays",
+          "callee": "array",
+          "lineNumber": 1248
+        },
+        {
+          "caller": "_prepare_request_limits",
+          "callee": "self.init_req_max_new_tokens",
+          "lineNumber": 1252
+        },
+        {
+          "caller": "_prepare_request_limits",
+          "callee": "validate_input_length",
+          "lineNumber": 1253
+        },
+        {
+          "caller": "_prepare_request_limits",
+          "callee": "int",
+          "lineNumber": 1260
+        },
+        {
+          "caller": "_take_deferred_request_payloads",
+          "callee": "list",
+          "lineNumber": 1267
+        },
+        {
+          "caller": "_take_deferred_request_payloads",
+          "callee": "self._deferred_request_payloads.pop",
+          "lineNumber": 1268
+        },
+        {
+          "caller": "_take_deferred_request_payloads",
+          "callee": "deferred.append",
+          "lineNumber": 1270
+        },
+        {
+          "caller": "_take_deferred_request_payloads",
+          "callee": "self._dirty_deferred_request_ids.clear",
+          "lineNumber": 1271
+        },
+        {
+          "caller": "_initialize_request_stream_state",
+          "callee": "self._append_stream_chunk",
+          "lineNumber": 1291
+        },
+        {
+          "caller": "_initialize_request_stream_state",
+          "callee": "self._mark_stream_done",
+          "lineNumber": 1293
+        },
+        {
+          "caller": "_request_kv_capacity_error",
+          "callee": "len",
+          "lineNumber": 1296
+        },
+        {
+          "caller": "_request_kv_capacity_error",
+          "callee": "int",
+          "lineNumber": 1297
+        },
+        {
+          "caller": "_request_kv_capacity_error",
+          "callee": "int",
+          "lineNumber": 1299
+        },
+        {
+          "caller": "_emit_request_error",
+          "callee": "self.outbox.put",
+          "lineNumber": 1322
+        },
+        {
+          "caller": "_emit_request_error",
+          "callee": "OutgoingMessage",
+          "lineNumber": 1323
+        },
+        {
+          "caller": "get_next_batch_to_run",
+          "callee": "_Upstream.get_next_batch_to_run",
+          "lineNumber": 1338
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "_Upstream.get_new_batch_prefill",
+          "lineNumber": 1351
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "running_batch.is_empty",
+          "lineNumber": 1352
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "_Upstream.get_new_batch_prefill",
+          "lineNumber": 1354
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "bool",
+          "lineNumber": 1357
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "_Upstream.get_new_batch_prefill",
+          "lineNumber": 1365
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "len",
+          "lineNumber": 1367
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "_Upstream.get_new_batch_prefill",
+          "lineNumber": 1368
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "time.perf_counter",
+          "lineNumber": 1369
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "getattr",
+          "lineNumber": 1372
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "min",
+          "lineNumber": 1375
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "_Upstream.get_new_batch_prefill",
+          "lineNumber": 1377
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "NextBatchPlan",
+          "lineNumber": 1378
+        },
+        {
+          "caller": "run_batch",
+          "callee": "self._run_batch",
+          "lineNumber": 1382
+        },
+        {
+          "caller": "run_batch",
+          "callee": "self._handle_batch_failure",
+          "lineNumber": 1384
+        },
+        {
+          "caller": "_stamp_batch_launch",
+          "callee": "time.monotonic",
+          "lineNumber": 1391
+        },
+        {
+          "caller": "_run_batch",
+          "callee": "self._emit_prefill_start_for_batch",
+          "lineNumber": 1405
+        },
+        {
+          "caller": "_run_batch",
+          "callee": "self._stamp_batch_launch",
+          "lineNumber": 1406
+        },
+        {
+          "caller": "_run_batch",
+          "callee": "self._build_sched_output",
+          "lineNumber": 1407
+        },
+        {
+          "caller": "_run_batch",
+          "callee": "self._model_runner.execute",
+          "lineNumber": 1408
+        },
+        {
+          "caller": "_run_batch",
+          "callee": "self._emit_prefill_end_for_batch",
+          "lineNumber": 1409
+        },
+        {
+          "caller": "_run_batch",
+          "callee": "self._emit_stream_output",
+          "lineNumber": 1410
+        },
+        {
+          "caller": "_run_batch",
+          "callee": "self._make_batch_result",
+          "lineNumber": 1411
+        },
+        {
+          "caller": "_build_sched_output",
+          "callee": "SchedulerRequest",
+          "lineNumber": 1419
+        },
+        {
+          "caller": "_build_sched_output",
+          "callee": "SchedulerOutput",
+          "lineNumber": 1422
+        },
+        {
+          "caller": "_emit_stream_output",
+          "callee": "self._put_stream_messages",
+          "lineNumber": 1438
+        },
+        {
+          "caller": "_emit_stream_output",
+          "callee": "self._stream_output_builder",
+          "lineNumber": 1440
+        },
+        {
+          "caller": "_put_stream_messages",
+          "callee": "self._first_emit_done.add",
+          "lineNumber": 1448
+        },
+        {
+          "caller": "_put_stream_messages",
+          "callee": "_emit_event",
+          "lineNumber": 1449
+        },
+        {
+          "caller": "_put_stream_messages",
+          "callee": "self.outbox.put",
+          "lineNumber": 1455
+        },
+        {
+          "caller": "_flush_stream_output",
+          "callee": "getattr",
+          "lineNumber": 1461
+        },
+        {
+          "caller": "_flush_stream_output",
+          "callee": "self._put_stream_messages",
+          "lineNumber": 1464
+        },
+        {
+          "caller": "_flush_stream_output",
+          "callee": "flush",
+          "lineNumber": 1464
+        },
+        {
+          "caller": "_make_batch_result",
+          "callee": "GenerationBatchResult",
+          "lineNumber": 1478
+        },
+        {
+          "caller": "_run_batch_launch",
+          "callee": "self._emit_prefill_start_for_batch",
+          "lineNumber": 1489
+        },
+        {
+          "caller": "_run_batch_launch",
+          "callee": "self._stamp_batch_launch",
+          "lineNumber": 1490
+        },
+        {
+          "caller": "_run_batch_launch",
+          "callee": "self._build_sched_output",
+          "lineNumber": 1491
+        },
+        {
+          "caller": "_run_batch_launch",
+          "callee": "self._model_runner.execute_launch",
+          "lineNumber": 1492
+        },
+        {
+          "caller": "_run_batch_resolve",
+          "callee": "self._model_runner.execute_resolve",
+          "lineNumber": 1506
+        },
+        {
+          "caller": "_run_batch_resolve",
+          "callee": "self._emit_stream_output",
+          "lineNumber": 1509
+        },
+        {
+          "caller": "_run_batch_resolve",
+          "callee": "GenerationBatchResult",
+          "lineNumber": 1510
+        },
+        {
+          "caller": "_handle_batch_failure",
+          "callee": "list",
+          "lineNumber": 1517
+        },
+        {
+          "caller": "_handle_batch_failure",
+          "callee": "logger.exception",
+          "lineNumber": 1519
+        },
+        {
+          "caller": "_handle_batch_failure",
+          "callee": "self._emit_request_error",
+          "lineNumber": 1521
+        },
+        {
+          "caller": "_handle_batch_failure",
+          "callee": "self._emit_model_path_end_once",
+          "lineNumber": 1522
+        },
+        {
+          "caller": "_handle_batch_failure",
+          "callee": "self.abort",
+          "lineNumber": 1523
+        },
+        {
+          "caller": "_emit_prefill_start_for_batch",
+          "callee": "bool",
+          "lineNumber": 1528
+        },
+        {
+          "caller": "_emit_prefill_start_for_batch",
+          "callee": "bool",
+          "lineNumber": 1529
+        },
+        {
+          "caller": "_emit_prefill_start_for_batch",
+          "callee": "self._prefill_start_done.add",
+          "lineNumber": 1535
+        },
+        {
+          "caller": "_emit_prefill_start_for_batch",
+          "callee": "_emit_model_path_start",
+          "lineNumber": 1536
+        },
+        {
+          "caller": "_emit_prefill_start_for_batch",
+          "callee": "_emit_event",
+          "lineNumber": 1537
+        },
+        {
+          "caller": "_emit_prefill_end_for_batch",
+          "callee": "len",
+          "lineNumber": 1557
+        },
+        {
+          "caller": "_emit_prefill_end_for_batch",
+          "callee": "len",
+          "lineNumber": 1557
+        },
+        {
+          "caller": "_emit_prefill_end_for_batch",
+          "callee": "len",
+          "lineNumber": 1560
+        },
+        {
+          "caller": "_emit_prefill_end_for_batch",
+          "callee": "bool",
+          "lineNumber": 1561
+        },
+        {
+          "caller": "_emit_prefill_end_for_batch",
+          "callee": "self._prefill_end_done.add",
+          "lineNumber": 1567
+        },
+        {
+          "caller": "_emit_prefill_end_for_batch",
+          "callee": "_emit_event",
+          "lineNumber": 1568
+        },
+        {
+          "caller": "_emit_model_path_end_once",
+          "callee": "self._prefill_start_done.discard",
+          "lineNumber": 1578
+        },
+        {
+          "caller": "_emit_model_path_end_once",
+          "callee": "_emit_model_path_end",
+          "lineNumber": 1579
+        },
+        {
+          "caller": "_emit_remaining_model_path_ends",
+          "callee": "tuple",
+          "lineNumber": 1582
+        },
+        {
+          "caller": "_emit_remaining_model_path_ends",
+          "callee": "self._emit_model_path_end_once",
+          "lineNumber": 1583
+        },
+        {
+          "caller": "stream_output",
+          "callee": "req.finished",
+          "lineNumber": 1595
+        },
+        {
+          "caller": "stream_output",
+          "callee": "isinstance",
+          "lineNumber": 1601
+        },
+        {
+          "caller": "stream_output",
+          "callee": "logger.error",
+          "lineNumber": 1609
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._close_completed_request",
+          "lineNumber": 1613
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._run_abort_callback",
+          "lineNumber": 1626
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._first_emit_done.discard",
+          "lineNumber": 1627
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._emit_model_path_end_once",
+          "lineNumber": 1628
+        },
+        {
+          "caller": "stream_output",
+          "callee": "_detach_request_data",
+          "lineNumber": 1629
+        },
+        {
+          "caller": "stream_output",
+          "callee": "model_runner.on_request_finished",
+          "lineNumber": 1639
+        },
+        {
+          "caller": "stream_output",
+          "callee": "list",
+          "lineNumber": 1640
+        },
+        {
+          "caller": "stream_output",
+          "callee": "finished_reason.to_json().get",
+          "lineNumber": 1644
+        },
+        {
+          "caller": "stream_output",
+          "callee": "finished_reason.to_json",
+          "lineNumber": 1644
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._flush_stream_output",
+          "lineNumber": 1648
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._result_adapter",
+          "lineNumber": 1649
+        },
+        {
+          "caller": "stream_output",
+          "callee": "logger.exception",
+          "lineNumber": 1652
+        },
+        {
+          "caller": "stream_output",
+          "callee": "callback",
+          "lineNumber": 1660
+        },
+        {
+          "caller": "stream_output",
+          "callee": "logger.exception",
+          "lineNumber": 1662
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._emit_model_path_end_once",
+          "lineNumber": 1673
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._close_completed_request",
+          "lineNumber": 1677
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._run_abort_callback",
+          "lineNumber": 1680
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._first_emit_done.discard",
+          "lineNumber": 1683
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._emit_request_error",
+          "lineNumber": 1684
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._first_emit_done.discard",
+          "lineNumber": 1687
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self.outbox.put",
+          "lineNumber": 1688
+        },
+        {
+          "caller": "stream_output",
+          "callee": "OutgoingMessage",
+          "lineNumber": 1689
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "self._find_request_data",
+          "lineNumber": 1699
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "self._append_stream_chunk",
+          "lineNumber": 1701
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "self._reserve_pending_stream_request",
+          "lineNumber": 1703
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "self._pending_stream_ingress.setdefault(\r\n            request_id, _PendingStreamIngress()\r\n        ).chunks.append",
+          "lineNumber": 1704
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "self._pending_stream_ingress.setdefault",
+          "lineNumber": 1704
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "_PendingStreamIngress",
+          "lineNumber": 1705
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "self._should_recheck_deferred_request_on_stream_chunk",
+          "lineNumber": 1709
+        },
+        {
+          "caller": "_on_stream_chunk",
+          "callee": "self._dirty_deferred_request_ids.add",
+          "lineNumber": 1711
+        },
+        {
+          "caller": "_on_stream_done",
+          "callee": "self._find_request_data",
+          "lineNumber": 1716
+        },
+        {
+          "caller": "_on_stream_done",
+          "callee": "self._mark_stream_done",
+          "lineNumber": 1718
+        },
+        {
+          "caller": "_on_stream_done",
+          "callee": "self._reserve_pending_stream_request",
+          "lineNumber": 1720
+        },
+        {
+          "caller": "_on_stream_done",
+          "callee": "self._pending_stream_ingress.setdefault",
+          "lineNumber": 1721
+        },
+        {
+          "caller": "_on_stream_done",
+          "callee": "_PendingStreamIngress",
+          "lineNumber": 1722
+        },
+        {
+          "caller": "_on_stream_done",
+          "callee": "self._dirty_deferred_request_ids.add",
+          "lineNumber": 1725
+        },
+        {
+          "caller": "start",
+          "callee": "threading.get_ident",
+          "lineNumber": 1728
+        },
+        {
+          "caller": "start",
+          "callee": "self._event_loop_async_decode",
+          "lineNumber": 1733
+        },
+        {
+          "caller": "start",
+          "callee": "self._event_loop_overlap",
+          "lineNumber": 1735
+        },
+        {
+          "caller": "start",
+          "callee": "self._event_loop_normal",
+          "lineNumber": 1737
+        },
+        {
+          "caller": "start",
+          "callee": "self._emit_remaining_model_path_ends",
+          "lineNumber": 1740
+        },
+        {
+          "caller": "start",
+          "callee": "self._shutdown_request_build_executor",
+          "lineNumber": 1743
+        },
+        {
+          "caller": "start",
+          "callee": "self._discard_pending_request_admissions",
+          "lineNumber": 1745
+        },
+        {
+          "caller": "start",
+          "callee": "self._shutdown_resources",
+          "lineNumber": 1746
+        },
+        {
+          "caller": "event_loop",
+          "callee": "self.start",
+          "lineNumber": 1749
+        },
+        {
+          "caller": "stop",
+          "callee": "self._discard_pending_request_admissions",
+          "lineNumber": 1753
+        },
+        {
+          "caller": "stop",
+          "callee": "self._shutdown_resources",
+          "lineNumber": 1754
+        },
+        {
+          "caller": "_discard_pending_request_admissions",
+          "callee": "self._pending_request_admissions.clear",
+          "lineNumber": 1758
+        },
+        {
+          "caller": "_shutdown_resources",
+          "callee": "callback",
+          "lineNumber": 1765
+        },
+        {
+          "caller": "_shutdown_request_build_executor",
+          "callee": "executor.shutdown",
+          "lineNumber": 1771
+        },
+        {
+          "caller": "abort",
+          "callee": "len",
+          "lineNumber": 1777
+        },
+        {
+          "caller": "abort",
+          "callee": "len",
+          "lineNumber": 1781
+        },
+        {
+          "caller": "abort",
+          "callee": "self._aborted_request_ids.discard",
+          "lineNumber": 1783
+        },
+        {
+          "caller": "abort",
+          "callee": "self._aborted_request_id_order.popleft",
+          "lineNumber": 1784
+        },
+        {
+          "caller": "abort",
+          "callee": "self._aborted_request_ids.add",
+          "lineNumber": 1786
+        },
+        {
+          "caller": "abort",
+          "callee": "self._aborted_request_id_order.append",
+          "lineNumber": 1787
+        },
+        {
+          "caller": "abort",
+          "callee": "self._mark_running_request_aborted",
+          "lineNumber": 1789
+        },
+        {
+          "caller": "abort",
+          "callee": "self._pending_request_builds.pop",
+          "lineNumber": 1793
+        },
+        {
+          "caller": "abort",
+          "callee": "pending[2].cancel",
+          "lineNumber": 1795
+        },
+        {
+          "caller": "abort",
+          "callee": "self._pending_request_admissions.pop",
+          "lineNumber": 1796
+        },
+        {
+          "caller": "abort",
+          "callee": "self._backlogged_request_build_payloads.clear",
+          "lineNumber": 1803
+        },
+        {
+          "caller": "abort",
+          "callee": "self._backlogged_request_build_payloads.extend",
+          "lineNumber": 1804
+        },
+        {
+          "caller": "abort",
+          "callee": "_detach_request_data",
+          "lineNumber": 1808
+        },
+        {
+          "caller": "abort",
+          "callee": "waiting_queue.append",
+          "lineNumber": 1810
+        },
+        {
+          "caller": "abort",
+          "callee": "self._run_abort_callback",
+          "lineNumber": 1813
+        },
+        {
+          "caller": "abort",
+          "callee": "self._pending_stream_ingress.pop",
+          "lineNumber": 1814
+        },
+        {
+          "caller": "abort",
+          "callee": "self._deferred_request_payloads.pop",
+          "lineNumber": 1815
+        },
+        {
+          "caller": "abort",
+          "callee": "self._dirty_deferred_request_ids.discard",
+          "lineNumber": 1816
+        },
+        {
+          "caller": "abort",
+          "callee": "self._first_emit_done.discard",
+          "lineNumber": 1817
+        },
+        {
+          "caller": "abort",
+          "callee": "self._emit_model_path_end_once",
+          "lineNumber": 1823
+        },
+        {
+          "caller": "abort",
+          "callee": "self._prefill_start_done.discard",
+          "lineNumber": 1824
+        },
+        {
+          "caller": "abort",
+          "callee": "self._prefill_end_done.discard",
+          "lineNumber": 1825
+        },
+        {
+          "caller": "abort",
+          "callee": "self._release_immediate_request_resources",
+          "lineNumber": 1827
+        },
+        {
+          "caller": "abort",
+          "callee": "_remove_from_batch",
+          "lineNumber": 1828
+        },
+        {
+          "caller": "abort",
+          "callee": "_remove_from_batch",
+          "lineNumber": 1829
+        },
+        {
+          "caller": "abort",
+          "callee": "_remove_from_batch",
+          "lineNumber": 1830
+        },
+        {
+          "caller": "abort",
+          "callee": "_remove_from_batch",
+          "lineNumber": 1831
+        },
+        {
+          "caller": "abort",
+          "callee": "self._async_pending_batch",
+          "lineNumber": 1831
+        },
+        {
+          "caller": "abort",
+          "callee": "self._drain_inbox_for_request",
+          "lineNumber": 1832
+        },
+        {
+          "caller": "admin",
+          "callee": "dict",
+          "lineNumber": 1837
+        },
+        {
+          "caller": "admin",
+          "callee": "self._should_enqueue_admin",
+          "lineNumber": 1838
+        },
+        {
+          "caller": "admin",
+          "callee": "self._enqueue_admin",
+          "lineNumber": 1839
+        },
+        {
+          "caller": "admin",
+          "callee": "self._run_admin_action",
+          "lineNumber": 1840
+        },
+        {
+          "caller": "_should_enqueue_admin",
+          "callee": "threading.get_ident",
+          "lineNumber": 1847
+        },
+        {
+          "caller": "_enqueue_admin",
+          "callee": "float",
+          "lineNumber": 1851
+        },
+        {
+          "caller": "_enqueue_admin",
+          "callee": "payload.get",
+          "lineNumber": 1851
+        },
+        {
+          "caller": "_enqueue_admin",
+          "callee": "dict",
+          "lineNumber": 1852
+        },
+        {
+          "caller": "_enqueue_admin",
+          "callee": "queued_payload.pop",
+          "lineNumber": 1853
+        },
+        {
+          "caller": "_enqueue_admin",
+          "callee": "_queue_mod.Queue",
+          "lineNumber": 1854
+        },
+        {
+          "caller": "_enqueue_admin",
+          "callee": "self._admin_queue.put",
+          "lineNumber": 1855
+        },
+        {
+          "caller": "_enqueue_admin",
+          "callee": "response_queue.get",
+          "lineNumber": 1857
+        },
+        {
+          "caller": "_process_admin_requests",
+          "callee": "self._admin_queue.get_nowait",
+          "lineNumber": 1869
+        },
+        {
+          "caller": "_process_admin_requests",
+          "callee": "self._run_admin_action",
+          "lineNumber": 1873
+        },
+        {
+          "caller": "_process_admin_requests",
+          "callee": "logger.exception",
+          "lineNumber": 1875
+        },
+        {
+          "caller": "_process_admin_requests",
+          "callee": "str",
+          "lineNumber": 1878
+        },
+        {
+          "caller": "_process_admin_requests",
+          "callee": "str",
+          "lineNumber": 1879
+        },
+        {
+          "caller": "_process_admin_requests",
+          "callee": "response_queue.put",
+          "lineNumber": 1881
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "dict",
+          "lineNumber": 1888
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_model_info",
+          "lineNumber": 1890
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_pause_generation",
+          "lineNumber": 1892
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_continue_generation",
+          "lineNumber": 1894
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_update_weights_from_disk",
+          "lineNumber": 1896
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_update_weights_from_tensor",
+          "lineNumber": 1898
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_update_weights_from_distributed",
+          "lineNumber": 1900
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_init_weights_update_group",
+          "lineNumber": 1902
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_destroy_weights_update_group",
+          "lineNumber": 1904
+        },
+        {
+          "caller": "_run_admin_action",
+          "callee": "self._admin_weights_checker",
+          "lineNumber": 1906
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "hasattr",
+          "lineNumber": 1915
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "info.update",
+          "lineNumber": 1916
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "self.model_worker.model_info",
+          "lineNumber": 1916
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "len",
+          "lineNumber": 1918
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "len",
+          "lineNumber": 1919
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "len",
+          "lineNumber": 1920
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "len",
+          "lineNumber": 1921
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "info.update",
+          "lineNumber": 1922
+        },
+        {
+          "caller": "_admin_model_info",
+          "callee": "len",
+          "lineNumber": 1936
+        },
+        {
+          "caller": "_admin_pause_generation",
+          "callee": "str",
+          "lineNumber": 1945
+        },
+        {
+          "caller": "_admin_pause_generation",
+          "callee": "payload.get",
+          "lineNumber": 1945
+        },
+        {
+          "caller": "_admin_pause_generation",
+          "callee": "self._resolve_pending_async",
+          "lineNumber": 1956
+        },
+        {
+          "caller": "_admin_pause_generation",
+          "callee": "self._abort_all_requests",
+          "lineNumber": 1959
+        },
+        {
+          "caller": "_admin_pause_generation",
+          "callee": "self._retract_running_requests",
+          "lineNumber": 1961
+        },
+        {
+          "caller": "_admin_continue_generation",
+          "callee": "bool",
+          "lineNumber": 1974
+        },
+        {
+          "caller": "_admin_continue_generation",
+          "callee": "payload.get",
+          "lineNumber": 1974
+        },
+        {
+          "caller": "_admin_continue_generation",
+          "callee": "self._empty_torch_cache",
+          "lineNumber": 1975
+        },
+        {
+          "caller": "_admin_update_weights_from_disk",
+          "callee": "hasattr",
+          "lineNumber": 1987
+        },
+        {
+          "caller": "_admin_update_weights_from_disk",
+          "callee": "self._run_weight_update_with_lifecycle",
+          "lineNumber": 1993
+        },
+        {
+          "caller": "_admin_update_weights_from_disk",
+          "callee": "payload.get",
+          "lineNumber": 1997
+        },
+        {
+          "caller": "_admin_update_weights_from_disk",
+          "callee": "payload.get",
+          "lineNumber": 1998
+        },
+        {
+          "caller": "_admin_update_weights_from_disk",
+          "callee": "payload.get",
+          "lineNumber": 1999
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "bool",
+          "lineNumber": 2011
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "payload.get",
+          "lineNumber": 2011
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "self._resolve_pending_async",
+          "lineNumber": 2017
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "bool",
+          "lineNumber": 2019
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "payload.get",
+          "lineNumber": 2019
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "self._abort_all_requests",
+          "lineNumber": 2021
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "self._active_request_ids",
+          "lineNumber": 2023
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "self._can_update_active_requests",
+          "lineNumber": 2024
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "len",
+          "lineNumber": 2038
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "update_fn",
+          "lineNumber": 2047
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "bool",
+          "lineNumber": 2053
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "payload.get",
+          "lineNumber": 2053
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "self._flush_cache_after_update",
+          "lineNumber": 2054
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "bool",
+          "lineNumber": 2055
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "bool",
+          "lineNumber": 2061
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "payload.get",
+          "lineNumber": 2061
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "self._empty_torch_cache",
+          "lineNumber": 2062
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "payload.get",
+          "lineNumber": 2071
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "data.update",
+          "lineNumber": 2076
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "bool",
+          "lineNumber": 2078
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "str",
+          "lineNumber": 2079
+        },
+        {
+          "caller": "_run_weight_update_with_lifecycle",
+          "callee": "str",
+          "lineNumber": 2081
+        },
+        {
+          "caller": "_admin_update_weights_from_tensor",
+          "callee": "hasattr",
+          "lineNumber": 2087
+        },
+        {
+          "caller": "_admin_update_weights_from_tensor",
+          "callee": "self.model_worker.update_weights_from_tensor",
+          "lineNumber": 2094
+        },
+        {
+          "caller": "_admin_update_weights_from_tensor",
+          "callee": "bool",
+          "lineNumber": 2096
+        },
+        {
+          "caller": "_admin_update_weights_from_tensor",
+          "callee": "str",
+          "lineNumber": 2097
+        },
+        {
+          "caller": "_admin_update_weights_from_tensor",
+          "callee": "payload.get",
+          "lineNumber": 2099
+        },
+        {
+          "caller": "_admin_update_weights_from_tensor",
+          "callee": "str",
+          "lineNumber": 2101
+        },
+        {
+          "caller": "_admin_update_weights_from_distributed",
+          "callee": "hasattr",
+          "lineNumber": 2107
+        },
+        {
+          "caller": "_admin_update_weights_from_distributed",
+          "callee": "self._run_weight_update_with_lifecycle",
+          "lineNumber": 2113
+        },
+        {
+          "caller": "_admin_update_weights_from_distributed",
+          "callee": "payload.get",
+          "lineNumber": 2117
+        },
+        {
+          "caller": "_admin_update_weights_from_distributed",
+          "callee": "payload.get",
+          "lineNumber": 2118
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "hasattr",
+          "lineNumber": 2126
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "self.model_worker.init_weights_update_group",
+          "lineNumber": 2140
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "bool",
+          "lineNumber": 2142
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "str",
+          "lineNumber": 2143
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "payload.get",
+          "lineNumber": 2145
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "payload.get",
+          "lineNumber": 2146
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "payload.get",
+          "lineNumber": 2147
+        },
+        {
+          "caller": "_admin_init_weights_update_group",
+          "callee": "str",
+          "lineNumber": 2149
+        },
+        {
+          "caller": "_admin_destroy_weights_update_group",
+          "callee": "hasattr",
+          "lineNumber": 2155
+        },
+        {
+          "caller": "_admin_destroy_weights_update_group",
+          "callee": "self.model_worker.destroy_weights_update_group",
+          "lineNumber": 2162
+        },
+        {
+          "caller": "_admin_destroy_weights_update_group",
+          "callee": "bool",
+          "lineNumber": 2164
+        },
+        {
+          "caller": "_admin_destroy_weights_update_group",
+          "callee": "str",
+          "lineNumber": 2165
+        },
+        {
+          "caller": "_admin_destroy_weights_update_group",
+          "callee": "payload.get",
+          "lineNumber": 2166
+        },
+        {
+          "caller": "_admin_destroy_weights_update_group",
+          "callee": "str",
+          "lineNumber": 2167
+        },
+        {
+          "caller": "_admin_weights_checker",
+          "callee": "hasattr",
+          "lineNumber": 2171
+        },
+        {
+          "caller": "_admin_weights_checker",
+          "callee": "str",
+          "lineNumber": 2177
+        },
+        {
+          "caller": "_admin_weights_checker",
+          "callee": "payload.get",
+          "lineNumber": 2177
+        },
+        {
+          "caller": "_admin_weights_checker",
+          "callee": "self.model_worker.weights_checker",
+          "lineNumber": 2179
+        },
+        {
+          "caller": "_abort_all_requests",
+          "callee": "self._active_request_ids",
+          "lineNumber": 2183
+        },
+        {
+          "caller": "_abort_all_requests",
+          "callee": "self.abort",
+          "lineNumber": 2185
+        },
+        {
+          "caller": "_abort_all_requests",
+          "callee": "len",
+          "lineNumber": 2186
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "set",
+          "lineNumber": 2189
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "request_ids.update",
+          "lineNumber": 2192
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "self._pending_request_builds.keys",
+          "lineNumber": 2192
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "request_ids.update",
+          "lineNumber": 2194
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "self._pending_request_admissions.keys",
+          "lineNumber": 2194
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "request_ids.update",
+          "lineNumber": 2196
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "request_ids.add",
+          "lineNumber": 2204
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "self._async_pending_batch",
+          "lineNumber": 2209
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "req.finished",
+          "lineNumber": 2214
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "request_ids.add",
+          "lineNumber": 2215
+        },
+        {
+          "caller": "_active_request_ids",
+          "callee": "sorted",
+          "lineNumber": 2216
+        },
+        {
+          "caller": "_can_update_active_requests",
+          "callee": "bool",
+          "lineNumber": 2224
+        },
+        {
+          "caller": "_retract_running_requests",
+          "callee": "batch.is_empty",
+          "lineNumber": 2228
+        },
+        {
+          "caller": "_retract_running_requests",
+          "callee": "batch.filter_batch",
+          "lineNumber": 2230
+        },
+        {
+          "caller": "_retract_running_requests",
+          "callee": "len",
+          "lineNumber": 2231
+        },
+        {
+          "caller": "_retract_running_requests",
+          "callee": "list",
+          "lineNumber": 2236
+        },
+        {
+          "caller": "_retract_running_requests",
+          "callee": "retract_all",
+          "lineNumber": 2237
+        },
+        {
+          "caller": "_retract_running_requests",
+          "callee": "self._add_request_to_queue",
+          "lineNumber": 2247
+        },
+        {
+          "caller": "_retract_running_requests",
+          "callee": "len",
+          "lineNumber": 2250
+        },
+        {
+          "caller": "_flush_cache_after_update",
+          "callee": "bool",
+          "lineNumber": 2254
+        },
+        {
+          "caller": "_flush_cache_after_update",
+          "callee": "self.flush_cache",
+          "lineNumber": 2254
+        },
+        {
+          "caller": "_flush_cache_after_update",
+          "callee": "logger.exception",
+          "lineNumber": 2256
+        },
+        {
+          "caller": "_empty_torch_cache",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 2261
+        },
+        {
+          "caller": "_empty_torch_cache",
+          "callee": "torch.cuda.empty_cache",
+          "lineNumber": 2263
+        },
+        {
+          "caller": "_mark_running_request_aborted",
+          "callee": "set",
+          "lineNumber": 2267
+        },
+        {
+          "caller": "_mark_running_request_aborted",
+          "callee": "self._async_pending_batch",
+          "lineNumber": 2272
+        },
+        {
+          "caller": "_mark_running_request_aborted",
+          "callee": "id",
+          "lineNumber": 2274
+        },
+        {
+          "caller": "_mark_running_request_aborted",
+          "callee": "seen.add",
+          "lineNumber": 2276
+        },
+        {
+          "caller": "_mark_running_request_aborted",
+          "callee": "id",
+          "lineNumber": 2276
+        },
+        {
+          "caller": "_mark_running_request_aborted",
+          "callee": "req.finished",
+          "lineNumber": 2285
+        },
+        {
+          "caller": "_mark_running_request_aborted",
+          "callee": "FINISH_ABORT",
+          "lineNumber": 2287
+        },
+        {
+          "caller": "_run_abort_callback",
+          "callee": "callback",
+          "lineNumber": 2296
+        },
+        {
+          "caller": "_run_abort_callback",
+          "callee": "logger.exception",
+          "lineNumber": 2298
+        },
+        {
+          "caller": "_release_immediate_request_resources",
+          "callee": "set",
+          "lineNumber": 2301
+        },
+        {
+          "caller": "_release_immediate_request_resources",
+          "callee": "self._async_pending_batch",
+          "lineNumber": 2306
+        },
+        {
+          "caller": "_release_immediate_request_resources",
+          "callee": "id",
+          "lineNumber": 2311
+        },
+        {
+          "caller": "_release_immediate_request_resources",
+          "callee": "seen.add",
+          "lineNumber": 2313
+        },
+        {
+          "caller": "_release_immediate_request_resources",
+          "callee": "id",
+          "lineNumber": 2313
+        },
+        {
+          "caller": "_release_immediate_request_resources",
+          "callee": "self._release_request_kv_cache",
+          "lineNumber": 2314
+        },
+        {
+          "caller": "_release_request_kv_cache",
+          "callee": "release_kv_cache",
+          "lineNumber": 2319
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self._process_admin_requests",
+          "lineNumber": 2329
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self.recv_requests",
+          "lineNumber": 2330
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "recv_reqs.extend",
+          "lineNumber": 2331
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self._take_deferred_request_payloads",
+          "lineNumber": 2331
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self.process_input_requests",
+          "lineNumber": 2332
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self._process_admin_requests",
+          "lineNumber": 2334
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "time.sleep",
+          "lineNumber": 2335
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self.get_next_batch_to_run",
+          "lineNumber": 2338
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self.run_batch",
+          "lineNumber": 2342
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self.process_batch_result",
+          "lineNumber": 2344
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self.self_check_during_idle",
+          "lineNumber": 2347
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self._sleep_during_idle",
+          "lineNumber": 2348
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "envs.SGLANG_ENABLE_STRICT_MEM_CHECK_DURING_BUSY.get",
+          "lineNumber": 2351
+        },
+        {
+          "caller": "_event_loop_normal",
+          "callee": "self.self_check_during_busy",
+          "lineNumber": 2352
+        },
+        {
+          "caller": "_event_loop_overlap",
+          "callee": "NotImplementedError",
+          "lineNumber": 2365
+        },
+        {
+          "caller": "_batch_is_decode",
+          "callee": "mode.is_decode",
+          "lineNumber": 2377
+        },
+        {
+          "caller": "_batch_is_decode",
+          "callee": "bool",
+          "lineNumber": 2379
+        },
+        {
+          "caller": "_batch_is_decode",
+          "callee": "mode.is_extend",
+          "lineNumber": 2379
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "r.finished",
+          "lineNumber": 2406
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "enumerate",
+          "lineNumber": 2408
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "self._run_batch_resolve",
+          "lineNumber": 2409
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "enumerate",
+          "lineNumber": 2414
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "len",
+          "lineNumber": 2415
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "len",
+          "lineNumber": 2415
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "torch.tensor",
+          "lineNumber": 2417
+        },
+        {
+          "caller": "_resolve_and_process",
+          "callee": "self.process_batch_result",
+          "lineNumber": 2426
+        },
+        {
+          "caller": "_resolve_pending_async",
+          "callee": "self._resolve_and_process",
+          "lineNumber": 2437
+        },
+        {
+          "caller": "_resolve_pending_async",
+          "callee": "self._handle_batch_failure",
+          "lineNumber": 2439
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "r.finished",
+          "lineNumber": 2456
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "any",
+          "lineNumber": 2457
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "enumerate",
+          "lineNumber": 2459
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "forward_mode.is_extend",
+          "lineNumber": 2462
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "RuntimeError",
+          "lineNumber": 2464
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "len",
+          "lineNumber": 2476
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "range",
+          "lineNumber": 2477
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "len",
+          "lineNumber": 2477
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "range",
+          "lineNumber": 2480
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "RuntimeError",
+          "lineNumber": 2485
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "batch.filter_batch",
+          "lineNumber": 2492
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "sum",
+          "lineNumber": 2500
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "range",
+          "lineNumber": 2513
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "len",
+          "lineNumber": 2513
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "len",
+          "lineNumber": 2515
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "range",
+          "lineNumber": 2516
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "len",
+          "lineNumber": 2516
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "range",
+          "lineNumber": 2521
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "batch.filter_batch",
+          "lineNumber": 2525
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "id",
+          "lineNumber": 2529
+        },
+        {
+          "caller": "_drop_stale_overrun",
+          "callee": "id",
+          "lineNumber": 2530
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._process_admin_requests",
+          "lineNumber": 2544
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self.recv_requests",
+          "lineNumber": 2545
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "recv_reqs.extend",
+          "lineNumber": 2546
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._take_deferred_request_payloads",
+          "lineNumber": 2546
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self.process_input_requests",
+          "lineNumber": 2547
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._process_admin_requests",
+          "lineNumber": 2549
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._resolve_pending_async",
+          "lineNumber": 2550
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "time.sleep",
+          "lineNumber": 2551
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._resolve_pending_async",
+          "lineNumber": 2562
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self.get_next_batch_to_run",
+          "lineNumber": 2564
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "len",
+          "lineNumber": 2572
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._batch_is_decode",
+          "lineNumber": 2573
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "runner.lookahead_eligible",
+          "lineNumber": 2574
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._run_batch_launch",
+          "lineNumber": 2579
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._handle_batch_failure",
+          "lineNumber": 2581
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "batch.copy",
+          "lineNumber": 2584
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._resolve_and_process",
+          "lineNumber": 2588
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._handle_batch_failure",
+          "lineNumber": 2590
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._resolve_pending_async",
+          "lineNumber": 2601
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._drop_stale_overrun",
+          "lineNumber": 2607
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self.run_batch",
+          "lineNumber": 2610
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self.process_batch_result",
+          "lineNumber": 2612
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self.self_check_during_idle",
+          "lineNumber": 2615
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self._sleep_during_idle",
+          "lineNumber": 2616
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "envs.SGLANG_ENABLE_STRICT_MEM_CHECK_DURING_BUSY.get",
+          "lineNumber": 2619
+        },
+        {
+          "caller": "_event_loop_async_decode",
+          "callee": "self.self_check_during_busy",
+          "lineNumber": 2620
+        },
+        {
+          "caller": "_drain_inbox_for_request",
+          "callee": "self.inbox.get_nowait",
+          "lineNumber": 2626
+        },
+        {
+          "caller": "_drain_inbox_for_request",
+          "callee": "retained.append",
+          "lineNumber": 2630
+        },
+        {
+          "caller": "_drain_inbox_for_request",
+          "callee": "self.inbox.put",
+          "lineNumber": 2632
+        },
+        {
+          "caller": "_remember_completed_request",
+          "callee": "len",
+          "lineNumber": 2637
+        },
+        {
+          "caller": "_remember_completed_request",
+          "callee": "next",
+          "lineNumber": 2638
+        },
+        {
+          "caller": "_remember_completed_request",
+          "callee": "iter",
+          "lineNumber": 2638
+        },
+        {
+          "caller": "_remember_completed_request",
+          "callee": "self._pending_stream_ingress.pop",
+          "lineNumber": 2640
+        },
+        {
+          "caller": "_reserve_pending_stream_request",
+          "callee": "len",
+          "lineNumber": 2646
+        },
+        {
+          "caller": "_reserve_pending_stream_request",
+          "callee": "len",
+          "lineNumber": 2651
+        },
+        {
+          "caller": "_reserve_pending_stream_request",
+          "callee": "list",
+          "lineNumber": 2652
+        },
+        {
+          "caller": "_reserve_pending_stream_request",
+          "callee": "islice",
+          "lineNumber": 2652
+        },
+        {
+          "caller": "_reserve_pending_stream_request",
+          "callee": "logger.warning",
+          "lineNumber": 2654
+        },
+        {
+          "caller": "_close_completed_request",
+          "callee": "_detach_request_data",
+          "lineNumber": 2664
+        },
+        {
+          "caller": "_close_completed_request",
+          "callee": "self._remember_completed_request",
+          "lineNumber": 2665
+        },
+        {
+          "caller": "_close_completed_request",
+          "callee": "self._first_emit_done.discard",
+          "lineNumber": 2667
+        },
+        {
+          "caller": "_close_completed_request",
+          "callee": "self._prefill_start_done.discard",
+          "lineNumber": 2668
+        },
+        {
+          "caller": "_close_completed_request",
+          "callee": "self._prefill_end_done.discard",
+          "lineNumber": 2669
+        },
+        {
+          "caller": "_find_request_data",
+          "callee": "self._async_pending_batch",
+          "lineNumber": 2678
+        },
+        {
+          "caller": "_append_stream_chunk_default",
+          "callee": "getattr",
+          "lineNumber": 2692
+        },
+        {
+          "caller": "_append_stream_chunk_default",
+          "callee": "deque",
+          "lineNumber": 2694
+        },
+        {
+          "caller": "_append_stream_chunk_default",
+          "callee": "stream_chunks.append",
+          "lineNumber": 2696
+        },
+        {
+          "caller": "_append_stream_chunk",
+          "callee": "self._append_stream_chunk_default",
+          "lineNumber": 2700
+        },
+        {
+          "caller": "_append_stream_chunk",
+          "callee": "self._stream_chunk_handler",
+          "lineNumber": 2702
+        },
+        {
+          "caller": "_mark_stream_done",
+          "callee": "self._stream_done_handler",
+          "lineNumber": 2708
+        },
+        {
+          "caller": "_remove_from_batch",
+          "callee": "_detach_request_data",
+          "lineNumber": 2717
+        },
+        {
+          "caller": "_remove_from_batch",
+          "callee": "remaining_reqs.append",
+          "lineNumber": 2719
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 8,
+        "functionCount": 2,
+        "classCount": 6
+      }
+    },
+    {
+      "path": "scheduling/token_text_streaming.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 130,
+      "nonEmptyLines": 108,
+      "functions": [
+        {
+          "name": "make_token_text_stream_output_builder",
+          "startLine": 17,
+          "endLine": 127,
+          "params": [
+            "decode_fn",
+            "build_message_data",
+            "build_message_metadata",
+            "pending_ids_attr",
+            "last_emit_attr",
+            "eos_token_id",
+            "min_emit_interval_s",
+            "allow_terminal_flush",
+            "emit_trailing_replacement_on_terminal"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "make_token_text_stream_output_builder",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_build_stream_output",
+          "callee": "(stage_payload.request.params or {}).get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "bool",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "req.finished",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "int",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "getattr",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "setattr",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "pending.append",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "time.perf_counter",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "float",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "getattr",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "decode_fn",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "delta.endswith",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "pending.clear",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "setattr",
+          "lineNumber": 102
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "OutgoingMessage",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "build_message_data",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "build_message_metadata",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_flush_stream_output",
+          "callee": "_build_stream_output",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_flush_stream_output",
+          "callee": "SimpleNamespace",
+          "lineNumber": 122
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "scheduling/types.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "sampled_logprobs_to_list",
+          "startLine": 90,
+          "endLine": 118,
+          "params": [
+            "next_token_logprobs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SchedulerStatus",
+          "startLine": 15,
+          "endLine": 19,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "SchedulerRequest",
+          "startLine": 23,
+          "endLine": 29,
+          "methods": [],
+          "properties": [
+            "request_id",
+            "status",
+            "data",
+            "error",
+            "arrival_time",
+            "finish_time"
+          ]
+        },
+        {
+          "name": "DeferredAdmission",
+          "startLine": 33,
+          "endLine": 35,
+          "methods": [],
+          "properties": [
+            "value",
+            "ready"
+          ]
+        },
+        {
+          "name": "SchedulerOutput",
+          "startLine": 39,
+          "endLine": 46,
+          "methods": [
+            "request_ids"
+          ],
+          "properties": [
+            "requests",
+            "batch_data",
+            "step_id"
+          ]
+        },
+        {
+          "name": "RequestOutput",
+          "startLine": 50,
+          "endLine": 54,
+          "methods": [],
+          "properties": [
+            "request_id",
+            "data",
+            "finished",
+            "extra"
+          ]
+        },
+        {
+          "name": "ModelRunnerOutput",
+          "startLine": 58,
+          "endLine": 68,
+          "methods": [],
+          "properties": [
+            "outputs",
+            "req_ids",
+            "req_id_to_index",
+            "can_run_cuda_graph",
+            "next_token_ids",
+            "host_token_ids"
+          ]
+        },
+        {
+          "name": "ARRequestData",
+          "startLine": 72,
+          "endLine": 87,
+          "methods": [],
+          "properties": [
+            "input_ids",
+            "attention_mask",
+            "model_inputs",
+            "output_ids",
+            "extra_model_outputs",
+            "finish_reason",
+            "weight_version",
+            "return_logprob",
+            "output_token_logprobs",
+            "capture_model_output_keys",
+            "max_new_tokens",
+            "enforce_request_limits",
+            "temperature"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SchedulerStatus",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "SchedulerRequest",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "DeferredAdmission",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "SchedulerOutput",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "RequestOutput",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "ModelRunnerOutput",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "ARRequestData",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "sampled_logprobs_to_list",
+          "line": 90,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "hasattr",
+          "lineNumber": 100
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "next_token_logprobs.detach().float().cpu().tolist",
+          "lineNumber": 101
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "next_token_logprobs.detach().float().cpu",
+          "lineNumber": 101
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "next_token_logprobs.detach().float",
+          "lineNumber": 101
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "next_token_logprobs.detach",
+          "lineNumber": 101
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "hasattr",
+          "lineNumber": 102
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "next_token_logprobs.tolist",
+          "lineNumber": 103
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "isinstance",
+          "lineNumber": 106
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "float",
+          "lineNumber": 107
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "isinstance",
+          "lineNumber": 108
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "isinstance",
+          "lineNumber": 113
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "len",
+          "lineNumber": 114
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "out.append",
+          "lineNumber": 117
+        },
+        {
+          "caller": "sampled_logprobs_to_list",
+          "callee": "float",
+          "lineNumber": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 1,
+        "classCount": 7
+      }
+    }
+  ]
+}

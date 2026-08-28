@@ -1,0 +1,183 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "models/llada2_uni/components/common.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/image_encoder.py",
+      "language": "python",
+      "sizeLines": 361,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/preprocessor.py",
+      "language": "python",
+      "sizeLines": 413,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/thinker.py",
+      "language": "python",
+      "sizeLines": 583,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/config.py",
+      "language": "python",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/merge.py",
+      "language": "python",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/payload_types.py",
+      "language": "python",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/request_builders.py",
+      "language": "python",
+      "sizeLines": 222,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/stages.py",
+      "language": "python",
+      "sizeLines": 180,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/bootstrap.py",
+      "language": "python",
+      "sizeLines": 447,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/audio_encoder.py",
+      "language": "python",
+      "sizeLines": 279,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/common.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/image_encoder.py",
+      "language": "python",
+      "sizeLines": 273,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/preprocessor.py",
+      "language": "python",
+      "sizeLines": 779,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/projectors.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_detokenizer.py",
+      "language": "python",
+      "sizeLines": 356,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_segmenter.py",
+      "language": "python",
+      "sizeLines": 274,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_talker.py",
+      "language": "python",
+      "sizeLines": 482,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_text.py",
+      "language": "python",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/talker_executor.py",
+      "language": "python",
+      "sizeLines": 386,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/vision_encoder.py",
+      "language": "python",
+      "sizeLines": 421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/configuration.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/hf_config.py",
+      "language": "python",
+      "sizeLines": 189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/io.py",
+      "language": "python",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "models/llada2_uni/components/common.py": [],
+    "models/llada2_uni/components/image_encoder.py": [],
+    "models/llada2_uni/components/preprocessor.py": [],
+    "models/llada2_uni/components/thinker.py": [],
+    "models/llada2_uni/config.py": [],
+    "models/llada2_uni/merge.py": [],
+    "models/llada2_uni/payload_types.py": [],
+    "models/llada2_uni/request_builders.py": [],
+    "models/llada2_uni/stages.py": [],
+    "models/ming_omni/bootstrap.py": [],
+    "models/ming_omni/components/__init__.py": [],
+    "models/ming_omni/components/audio_encoder.py": [],
+    "models/ming_omni/components/common.py": [],
+    "models/ming_omni/components/image_encoder.py": [],
+    "models/ming_omni/components/preprocessor.py": [],
+    "models/ming_omni/components/projectors.py": [],
+    "models/ming_omni/components/streaming_detokenizer.py": [],
+    "models/ming_omni/components/streaming_segmenter.py": [],
+    "models/ming_omni/components/streaming_talker.py": [],
+    "models/ming_omni/components/streaming_text.py": [],
+    "models/ming_omni/components/talker_executor.py": [],
+    "models/ming_omni/components/vision_encoder.py": [],
+    "models/ming_omni/configuration.py": [],
+    "models/ming_omni/hf_config.py": [],
+    "models/ming_omni/io.py": []
+  },
+  "neighborMap": {}
+}

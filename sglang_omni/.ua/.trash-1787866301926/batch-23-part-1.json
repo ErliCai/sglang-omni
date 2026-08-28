@@ -1,0 +1,1525 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/moss_tts_local/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/moss_tts_local/stages.py",
+      "summary": "创建 MOSS-TTS Local 的预处理、参考编码、SGLang 自回归生成和声码器阶段，并控制线程与共置显存预算。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "reference-encoding",
+        "memory-budget"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:_configure_pipeline_threads",
+      "type": "function",
+      "name": "_configure_pipeline_threads",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        87,
+        100
+      ],
+      "summary": "按部署参数设置 MOSS 流水线各阶段和底层库的线程数量。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "configure-pipeline-threads",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:_apply_colocated_ar_memory_budget",
+      "type": "function",
+      "name": "_apply_colocated_ar_memory_budget",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        103,
+        152
+      ],
+      "summary": "为与声码器共置的自回归引擎计算并应用静态显存占比预算。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "apply-colocated-ar-memory-budget",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:_validate_loaded_process_memory_budget",
+      "type": "function",
+      "name": "_validate_loaded_process_memory_budget",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        155,
+        192
+      ],
+      "summary": "在模型加载后检查进程实际显存使用是否仍满足共置预算。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "validate-loaded-process-memory-budget",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:_normalize_processor_config",
+      "type": "function",
+      "name": "_normalize_processor_config",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        195,
+        202
+      ],
+      "summary": "规范化 MOSS 处理器配置中的兼容字段。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "normalize-processor-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:_resolve_codec_device",
+      "type": "function",
+      "name": "_resolve_codec_device",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        205,
+        218
+      ],
+      "summary": "根据阶段和 CUDA 可用性选择音频编解码器设备。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "resolve-codec-device",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:_load_moss_tts_local_processor",
+      "type": "function",
+      "name": "_load_moss_tts_local_processor",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        221,
+        245
+      ],
+      "summary": "加载 MOSS-TTS Local 处理器并应用运行时兼容配置。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "load-moss-tts-local-processor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "function",
+      "name": "_resolve_audio_tokenizer_model_path",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        248,
+        260
+      ],
+      "summary": "解析音频分词器的本地模型或仓库路径。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "resolve-audio-tokenizer-model-path",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        540,
+        608
+      ],
+      "summary": "创建输入规范化、提示构建和参考音频编码的预处理执行器。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "create-preprocessing-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:create_sglang_tts_engine_executor",
+      "type": "function",
+      "name": "create_sglang_tts_engine_executor",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        611,
+        644
+      ],
+      "summary": "创建 MOSS 自回归音频码生成的 SGLang 引擎执行器。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "create-sglang-tts-engine-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "type": "function",
+      "name": "create_vocoder_executor",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        650,
+        724
+      ],
+      "summary": "创建支持批量、流式和 CUDA 图的 MOSS 声码器执行器。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "create-vocoder-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts_local/stages.py:_ArMemoryBudget",
+      "type": "class",
+      "name": "_ArMemoryBudget",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        68,
+        70
+      ],
+      "summary": "记录共置自回归引擎的显存预算与校验阈值。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "ar-memory-budget",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/stages.py:_PathReferenceJob",
+      "type": "class",
+      "name": "_PathReferenceJob",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        74,
+        75
+      ],
+      "summary": "表示从本地路径读取并编码的参考音频任务。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "path-reference-job",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/stages.py:_WaveformReferenceJob",
+      "type": "class",
+      "name": "_WaveformReferenceJob",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        79,
+        81
+      ],
+      "summary": "表示已解码波形及采样率的参考音频任务。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "waveform-reference-job",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/stages.py:_BatchedReferenceEncoder",
+      "type": "class",
+      "name": "_BatchedReferenceEncoder",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        263,
+        440
+      ],
+      "summary": "在线程中合并参考音频编码任务，校验时长并批量调用音频分词器。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "batched-reference-encoder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts_local/stages.py:_MossLocalReferenceInput",
+      "type": "class",
+      "name": "_MossLocalReferenceInput",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        444,
+        447
+      ],
+      "summary": "封装规范化后的参考音频内容和关联元数据。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "moss-local-reference-input",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncodeHook",
+      "type": "class",
+      "name": "_MossLocalReferenceEncodeHook",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        450,
+        503
+      ],
+      "summary": "为参考编码缓存服务提供输入规范化、编码、复验和缓存键策略。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "moss-local-reference-encode-hook",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncoder",
+      "type": "class",
+      "name": "_MossLocalReferenceEncoder",
+      "filePath": "models/moss_tts_local/stages.py",
+      "lineRange": [
+        506,
+        537
+      ],
+      "summary": "封装批量参考编码器并暴露路径、数据 URI 编码和统计接口。",
+      "tags": [
+        "moss-tts",
+        "pipeline-stages",
+        "moss-local-reference-encoder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/moss_tts_local/state_pool.py",
+      "type": "file",
+      "name": "state_pool.py",
+      "filePath": "models/moss_tts_local/state_pool.py",
+      "summary": "以固定 GPU 行缓冲区保存 MOSS-TTS 请求的解码关键状态，并用独立日志收集逐步输出帧。",
+      "tags": [
+        "moss-tts",
+        "decode-state",
+        "gpu-buffer",
+        "state-pool"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts_local/state_pool.py:MossTTSLocalDecodeStatePool",
+      "type": "class",
+      "name": "MossTTSLocalDecodeStatePool",
+      "filePath": "models/moss_tts_local/state_pool.py",
+      "lineRange": [
+        24,
+        290
+      ],
+      "summary": "以稳定行索引管理反馈嵌入、采样参数、生成步和重复惩罚历史等 GPU 解码状态。",
+      "tags": [
+        "moss-tts",
+        "decode-state",
+        "moss-ttslocal-decode-state-pool",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts_local/state_pool.py:MossTTSLocalDecodeJournal",
+      "type": "class",
+      "name": "MossTTSLocalDecodeJournal",
+      "filePath": "models/moss_tts_local/state_pool.py",
+      "lineRange": [
+        293,
+        312
+      ],
+      "summary": "收集每个生成步骤产生的输出帧而不占用下一步关键状态缓冲区。",
+      "tags": [
+        "moss-tts",
+        "decode-state",
+        "moss-ttslocal-decode-journal",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/moss_tts_local/streaming_vocoder.py",
+      "type": "file",
+      "name": "streaming_vocoder.py",
+      "filePath": "models/moss_tts_local/streaming_vocoder.py",
+      "summary": "实现 MOSS-TTS Local 流式声码器调度器，共享持久编解码会话、合并等步请求并支持 CUDA 图和离线回退。",
+      "tags": [
+        "moss-tts",
+        "streaming-vocoder",
+        "batching",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts_local/streaming_vocoder.py:_CodecStreamSession",
+      "type": "class",
+      "name": "_CodecStreamSession",
+      "filePath": "models/moss_tts_local/streaming_vocoder.py",
+      "lineRange": [
+        41,
+        350
+      ],
+      "summary": "管理共享流式编解码会话、槽位生命周期、CUDA 图预热和批量解码。",
+      "tags": [
+        "moss-tts",
+        "streaming-vocoder",
+        "codec-stream-session",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts_local/streaming_vocoder.py:_LocalStreamState",
+      "type": "class",
+      "name": "_LocalStreamState",
+      "filePath": "models/moss_tts_local/streaming_vocoder.py",
+      "lineRange": [
+        354,
+        359
+      ],
+      "summary": "保存单个 MOSS 流式请求的槽位、缓存码和解码进度。",
+      "tags": [
+        "moss-tts",
+        "streaming-vocoder",
+        "local-stream-state",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/streaming_vocoder.py:_CoalescedStepPlan",
+      "type": "class",
+      "name": "_CoalescedStepPlan",
+      "filePath": "models/moss_tts_local/streaming_vocoder.py",
+      "lineRange": [
+        363,
+        365
+      ],
+      "summary": "描述一次合并声码器步骤的参与请求和共同帧窗口。",
+      "tags": [
+        "moss-tts",
+        "streaming-vocoder",
+        "coalesced-step-plan",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/streaming_vocoder.py:MossTTSLocalStreamingVocoderScheduler",
+      "type": "class",
+      "name": "MossTTSLocalStreamingVocoderScheduler",
+      "filePath": "models/moss_tts_local/streaming_vocoder.py",
+      "lineRange": [
+        368,
+        917
+      ],
+      "summary": "调度流式码块摄取、合并解码、会话和槽位管理，并提供完整解码回退。",
+      "tags": [
+        "moss-tts",
+        "streaming-vocoder",
+        "moss-ttslocal-streaming-vocoder-scheduler",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "type": "file",
+      "name": "vocoder_cuda_graph.py",
+      "filePath": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "summary": "为 MOSS 流式编解码器按帧数捕获和复用 CUDA 图，并修补注意力缓存以保持静态地址。",
+      "tags": [
+        "moss-tts",
+        "vocoder",
+        "cuda-graph",
+        "static-cache"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/moss_tts_local/vocoder_cuda_graph.py:_decoder_attention_modules",
+      "type": "function",
+      "name": "_decoder_attention_modules",
+      "filePath": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "lineRange": [
+        28,
+        37
+      ],
+      "summary": "遍历编解码器中需要静态缓存补丁的注意力模块。",
+      "tags": [
+        "moss-tts",
+        "vocoder",
+        "decoder-attention-modules",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/vocoder_cuda_graph.py:_cuda_graph_update_streaming_cache",
+      "type": "function",
+      "name": "_cuda_graph_update_streaming_cache",
+      "filePath": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "lineRange": [
+        40,
+        67
+      ],
+      "summary": "以原地写入方式更新流式注意力缓存，保持 CUDA 图地址稳定。",
+      "tags": [
+        "moss-tts",
+        "vocoder",
+        "cuda-graph-update-streaming-cache",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/vocoder_cuda_graph.py:patch_codec_attention_cache_for_cuda_graph",
+      "type": "function",
+      "name": "patch_codec_attention_cache_for_cuda_graph",
+      "filePath": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "lineRange": [
+        70,
+        82
+      ],
+      "summary": "为编解码器注意力安装适合 CUDA 图的缓存更新方法。",
+      "tags": [
+        "moss-tts",
+        "vocoder",
+        "patch-codec-attention-cache-for-cuda-graph",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/vocoder_cuda_graph.py:_CapturedVocoderGraph",
+      "type": "class",
+      "name": "_CapturedVocoderGraph",
+      "filePath": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "lineRange": [
+        18,
+        25
+      ],
+      "summary": "保存特定帧数的声码器 CUDA 图及静态输入输出。",
+      "tags": [
+        "moss-tts",
+        "vocoder",
+        "captured-vocoder-graph",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/vocoder_cuda_graph.py:MossVocoderCudaGraphRunner",
+      "type": "class",
+      "name": "MossVocoderCudaGraphRunner",
+      "filePath": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "lineRange": [
+        85,
+        266
+      ],
+      "summary": "按支持帧数和显存预算捕获声码器图，并在解码步骤中选择图回放。",
+      "tags": [
+        "moss-tts",
+        "vocoder",
+        "moss-vocoder-cuda-graph-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_asr/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/qwen3_asr/__init__.py",
+      "summary": "公开 Qwen3-ASR 模型支持及其流水线配置模块。",
+      "tags": [
+        "qwen3-asr",
+        "model-package",
+        "pipeline-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_asr/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/qwen3_asr/config.py",
+      "summary": "定义 Qwen3-ASR 单阶段 SGLang 流水线、音频分块策略、预编码服务批量与缓存参数。",
+      "tags": [
+        "qwen3-asr",
+        "pipeline-config",
+        "audio-chunking",
+        "encoder-service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_asr/config.py:Qwen3ASRFactoryArgs",
+      "type": "class",
+      "name": "Qwen3ASRFactoryArgs",
+      "filePath": "models/qwen3_asr/config.py",
+      "lineRange": [
+        23,
+        30
+      ],
+      "summary": "保存 Qwen3-ASR 引擎与音频预编码服务的工厂参数。",
+      "tags": [
+        "qwen3-asr",
+        "pipeline-config",
+        "qwen3-asrfactory-args",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_asr/config.py:Qwen3ASRStageConfig",
+      "type": "class",
+      "name": "Qwen3ASRStageConfig",
+      "filePath": "models/qwen3_asr/config.py",
+      "lineRange": [
+        33,
+        34
+      ],
+      "summary": "扩展引擎阶段配置以携带 ASR 专用工厂参数。",
+      "tags": [
+        "qwen3-asr",
+        "pipeline-config",
+        "qwen3-asrstage-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_asr/config.py:Qwen3ASRPipelineConfig",
+      "type": "class",
+      "name": "Qwen3ASRPipelineConfig",
+      "filePath": "models/qwen3_asr/config.py",
+      "lineRange": [
+        37,
+        85
+      ],
+      "summary": "定义 Qwen3-ASR 单阶段流水线、音频分块和模型能力要求。",
+      "tags": [
+        "qwen3-asr",
+        "pipeline-config",
+        "qwen3-asrpipeline-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_asr/encoder_service.py",
+      "type": "file",
+      "name": "encoder_service.py",
+      "filePath": "models/qwen3_asr/encoder_service.py",
+      "summary": "在线程与独立 CUDA 流中批量预计算 Qwen3-ASR 的 LM 就绪音频嵌入，提供缓存、失败隔离、重试和统计。",
+      "tags": [
+        "qwen3-asr",
+        "audio-encoder",
+        "batch-service",
+        "embedding-cache"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_service.py:build_cache_namespace",
+      "type": "function",
+      "name": "build_cache_namespace",
+      "filePath": "models/qwen3_asr/encoder_service.py",
+      "lineRange": [
+        59,
+        85
+      ],
+      "summary": "根据模型、特征提取器和编码配置构造稳定的嵌入缓存命名空间。",
+      "tags": [
+        "qwen3-asr",
+        "audio-encoder",
+        "build-cache-namespace",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_service.py:_expected_audio_tokens",
+      "type": "function",
+      "name": "_expected_audio_tokens",
+      "filePath": "models/qwen3_asr/encoder_service.py",
+      "lineRange": [
+        88,
+        91
+      ],
+      "summary": "根据音频帧长度估算编码后对应的语言模型词元数。",
+      "tags": [
+        "qwen3-asr",
+        "audio-encoder",
+        "expected-audio-tokens",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_asr/encoder_service.py:_text_hidden_size",
+      "type": "function",
+      "name": "_text_hidden_size",
+      "filePath": "models/qwen3_asr/encoder_service.py",
+      "lineRange": [
+        94,
+        101
+      ],
+      "summary": "从模型配置解析文本主干隐藏维度。",
+      "tags": [
+        "qwen3-asr",
+        "audio-encoder",
+        "text-hidden-size",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_asr/encoder_service.py:_DetachedFailure",
+      "type": "class",
+      "name": "_DetachedFailure",
+      "filePath": "models/qwen3_asr/encoder_service.py",
+      "lineRange": [
+        54,
+        56
+      ],
+      "summary": "记录从批次中隔离出的失败音频项及其异常。",
+      "tags": [
+        "qwen3-asr",
+        "audio-encoder",
+        "detached-failure",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_asr/encoder_service.py:Qwen3ASRPreLMEncoderService",
+      "type": "class",
+      "name": "Qwen3ASRPreLMEncoderService",
+      "filePath": "models/qwen3_asr/encoder_service.py",
+      "lineRange": [
+        104,
+        584
+      ],
+      "summary": "在专用工作线程和 CUDA 流中批量编码音频，缓存嵌入并隔离、重试失败项。",
+      "tags": [
+        "qwen3-asr",
+        "audio-encoder",
+        "qwen3-asrpre-lmencoder-service",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_asr/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/qwen3_asr/engine_builder.py",
+      "summary": "构建 Qwen3-ASR SGLang 引擎，校验显存与设备能力，装配音频编码服务、请求适配器、回调和清理逻辑。",
+      "tags": [
+        "qwen3-asr",
+        "engine-builder",
+        "memory-validation",
+        "encoder-service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_asr/engine_builder.py:Qwen3ASREngineBuilder",
+      "type": "class",
+      "name": "Qwen3ASREngineBuilder",
+      "filePath": "models/qwen3_asr/engine_builder.py",
+      "lineRange": [
+        36,
+        301
+      ],
+      "summary": "完成 Qwen3-ASR 引擎资源校验、音频塔移交、编码服务接入和调度回调组装。",
+      "tags": [
+        "qwen3-asr",
+        "engine-builder",
+        "qwen3-asrengine-builder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_asr/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/qwen3_asr/stages.py",
+      "summary": "创建由 SGLang 驱动的 Qwen3-ASR 单阶段执行器，并保留兼容工厂别名。",
+      "tags": [
+        "qwen3-asr",
+        "stage-factory",
+        "sglang-runtime"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_asr/stages.py:create_sglang_qwen3_asr_executor",
+      "type": "function",
+      "name": "create_sglang_qwen3_asr_executor",
+      "filePath": "models/qwen3_asr/stages.py",
+      "lineRange": [
+        9,
+        76
+      ],
+      "summary": "根据设备、并行和音频分块配置创建 Qwen3-ASR SGLang 执行器。",
+      "tags": [
+        "qwen3-asr",
+        "stage-factory",
+        "create-sglang-qwen3-asr-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_asr/stages.py:create_qwen3_asr_executor",
+      "type": "function",
+      "name": "create_qwen3_asr_executor",
+      "filePath": "models/qwen3_asr/stages.py",
+      "lineRange": [
+        79,
+        80
+      ],
+      "summary": "作为兼容别名转发到 SGLang Qwen3-ASR 执行器工厂。",
+      "tags": [
+        "qwen3-asr",
+        "stage-factory",
+        "create-qwen3-asr-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_configure_pipeline_threads",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_configure_pipeline_threads",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_apply_colocated_ar_memory_budget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_apply_colocated_ar_memory_budget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_validate_loaded_process_memory_budget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_validate_loaded_process_memory_budget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_normalize_processor_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_normalize_processor_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_codec_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_codec_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_load_moss_tts_local_processor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_load_moss_tts_local_processor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:create_sglang_tts_engine_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:create_sglang_tts_engine_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_ArMemoryBudget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_ArMemoryBudget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_PathReferenceJob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_PathReferenceJob",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_WaveformReferenceJob",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_WaveformReferenceJob",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_BatchedReferenceEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_BatchedReferenceEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncodeHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncodeHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/stages.py",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/state_pool.py",
+      "target": "class:models/moss_tts_local/state_pool.py:MossTTSLocalDecodeStatePool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/state_pool.py",
+      "target": "class:models/moss_tts_local/state_pool.py:MossTTSLocalDecodeStatePool",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/state_pool.py",
+      "target": "class:models/moss_tts_local/state_pool.py:MossTTSLocalDecodeJournal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/state_pool.py",
+      "target": "class:models/moss_tts_local/state_pool.py:MossTTSLocalDecodeJournal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:_CodecStreamSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:_CodecStreamSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:_LocalStreamState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:_LocalStreamState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:_CoalescedStepPlan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:_CoalescedStepPlan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:MossTTSLocalStreamingVocoderScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/streaming_vocoder.py",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:MossTTSLocalStreamingVocoderScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:_decoder_attention_modules",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:_decoder_attention_modules",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:_cuda_graph_update_streaming_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:_cuda_graph_update_streaming_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:patch_codec_attention_cache_for_cuda_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:patch_codec_attention_cache_for_cuda_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "class:models/moss_tts_local/vocoder_cuda_graph.py:_CapturedVocoderGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "class:models/moss_tts_local/vocoder_cuda_graph.py:_CapturedVocoderGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "class:models/moss_tts_local/vocoder_cuda_graph.py:MossVocoderCudaGraphRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/vocoder_cuda_graph.py",
+      "target": "class:models/moss_tts_local/vocoder_cuda_graph.py:MossVocoderCudaGraphRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/config.py",
+      "target": "class:models/qwen3_asr/config.py:Qwen3ASRFactoryArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/config.py",
+      "target": "class:models/qwen3_asr/config.py:Qwen3ASRFactoryArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/config.py",
+      "target": "class:models/qwen3_asr/config.py:Qwen3ASRStageConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/config.py",
+      "target": "class:models/qwen3_asr/config.py:Qwen3ASRStageConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/config.py",
+      "target": "class:models/qwen3_asr/config.py:Qwen3ASRPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/config.py",
+      "target": "class:models/qwen3_asr/config.py:Qwen3ASRPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "function:models/qwen3_asr/encoder_service.py:build_cache_namespace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "function:models/qwen3_asr/encoder_service.py:build_cache_namespace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "function:models/qwen3_asr/encoder_service.py:_expected_audio_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "function:models/qwen3_asr/encoder_service.py:_expected_audio_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "function:models/qwen3_asr/encoder_service.py:_text_hidden_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "function:models/qwen3_asr/encoder_service.py:_text_hidden_size",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "class:models/qwen3_asr/encoder_service.py:_DetachedFailure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "class:models/qwen3_asr/encoder_service.py:_DetachedFailure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "class:models/qwen3_asr/encoder_service.py:Qwen3ASRPreLMEncoderService",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/encoder_service.py",
+      "target": "class:models/qwen3_asr/encoder_service.py:Qwen3ASRPreLMEncoderService",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/engine_builder.py",
+      "target": "class:models/qwen3_asr/engine_builder.py:Qwen3ASREngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/engine_builder.py",
+      "target": "class:models/qwen3_asr/engine_builder.py:Qwen3ASREngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/stages.py",
+      "target": "function:models/qwen3_asr/stages.py:create_sglang_qwen3_asr_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/stages.py",
+      "target": "function:models/qwen3_asr/stages.py:create_sglang_qwen3_asr_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/stages.py",
+      "target": "function:models/qwen3_asr/stages.py:create_qwen3_asr_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_asr/stages.py",
+      "target": "function:models/qwen3_asr/stages.py:create_qwen3_asr_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_asr/__init__.py",
+      "target": "file:models/qwen3_asr/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:_apply_colocated_ar_memory_budget",
+      "target": "class:models/moss_tts_local/stages.py:_ArMemoryBudget",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:_load_moss_tts_local_processor",
+      "target": "function:models/moss_tts_local/stages.py:_normalize_processor_config",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "target": "function:models/moss_tts_local/stages.py:_configure_pipeline_threads",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_codec_device",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "target": "function:models/moss_tts_local/stages.py:_load_moss_tts_local_processor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "target": "class:models/moss_tts_local/stages.py:_BatchedReferenceEncoder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncoder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_codec_device",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "target": "function:models/moss_tts_local/stages.py:_load_moss_tts_local_processor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "target": "function:models/moss_tts_local/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "target": "function:models/moss_tts_local/stages.py:_validate_loaded_process_memory_budget",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/vocoder_cuda_graph.py:patch_codec_attention_cache_for_cuda_graph",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:_decoder_attention_modules",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_asr/stages.py:create_qwen3_asr_executor",
+      "target": "function:models/qwen3_asr/stages.py:create_sglang_qwen3_asr_executor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_preprocessing_executor",
+      "target": "class:models/moss_tts_local/stages.py:_MossLocalReferenceEncoder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/moss_tts_local/stages.py:create_vocoder_executor",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:MossTTSLocalStreamingVocoderScheduler",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/moss_tts_local/streaming_vocoder.py:MossTTSLocalStreamingVocoderScheduler",
+      "target": "class:models/moss_tts_local/streaming_vocoder.py:_CodecStreamSession",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/moss_tts_local/vocoder_cuda_graph.py:MossVocoderCudaGraphRunner",
+      "target": "function:models/moss_tts_local/vocoder_cuda_graph.py:patch_codec_attention_cache_for_cuda_graph",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_asr/encoder_service.py:Qwen3ASRPreLMEncoderService",
+      "target": "function:models/qwen3_asr/encoder_service.py:build_cache_namespace",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_asr/stages.py:create_sglang_qwen3_asr_executor",
+      "target": "class:models/qwen3_asr/engine_builder.py:Qwen3ASREngineBuilder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,1063 @@
+{
+  "nodes": [
+    {
+      "id": "file:serve/streaming.py",
+      "type": "file",
+      "name": "streaming.py",
+      "filePath": "serve/streaming.py",
+      "summary": "为异步生成器响应提供可关闭的 StreamingResponse，并在断连或结束时释放 iterator。",
+      "tags": [
+        "HTTP-streaming",
+        "async-iterator",
+        "resource-cleanup"
+      ],
+      "complexity": "simple",
+      "languageNotes": "基于 Starlette StreamingResponse 扩展异步资源关闭语义。"
+    },
+    {
+      "id": "function:serve/streaming.py:close_async_iterator_if_supported",
+      "type": "function",
+      "name": "close_async_iterator_if_supported",
+      "filePath": "serve/streaming.py",
+      "lineRange": [
+        39,
+        44
+      ],
+      "summary": "在 iterator 提供 aclose 时异步关闭它。",
+      "tags": [
+        "HTTP-streaming",
+        "async-iterator",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/streaming.py:ClosableStreamingResponse",
+      "type": "class",
+      "name": "ClosableStreamingResponse",
+      "filePath": "serve/streaming.py",
+      "lineRange": [
+        19,
+        36
+      ],
+      "summary": "在流式 HTTP 响应关闭时同步清理底层异步 iterator。",
+      "tags": [
+        "HTTP-streaming",
+        "async-iterator",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/subtitles.py",
+      "type": "file",
+      "name": "subtitles.py",
+      "filePath": "serve/subtitles.py",
+      "summary": "把带时间戳的转写 segments 格式化为 SRT 或 WebVTT 字幕。",
+      "tags": [
+        "subtitles",
+        "SRT",
+        "WebVTT"
+      ],
+      "complexity": "simple",
+      "languageNotes": "纯 Python 格式化时间戳、cue 文本和字幕序号。"
+    },
+    {
+      "id": "function:serve/subtitles.py:_format_timestamp",
+      "type": "function",
+      "name": "_format_timestamp",
+      "filePath": "serve/subtitles.py",
+      "lineRange": [
+        13,
+        21
+      ],
+      "summary": "把秒数格式化为 SRT 或 VTT 时间戳。",
+      "tags": [
+        "subtitles",
+        "SRT",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/subtitles.py:_cue_text",
+      "type": "function",
+      "name": "_cue_text",
+      "filePath": "serve/subtitles.py",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "提取字幕 segment 的可显示文本。",
+      "tags": [
+        "subtitles",
+        "SRT",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/subtitles.py:segments_to_srt",
+      "type": "function",
+      "name": "segments_to_srt",
+      "filePath": "serve/subtitles.py",
+      "lineRange": [
+        29,
+        39
+      ],
+      "summary": "把转写 segments 渲染为 SRT 字幕。",
+      "tags": [
+        "subtitles",
+        "SRT",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/subtitles.py:segments_to_vtt",
+      "type": "function",
+      "name": "segments_to_vtt",
+      "filePath": "serve/subtitles.py",
+      "lineRange": [
+        42,
+        52
+      ],
+      "summary": "把转写 segments 渲染为 WebVTT 字幕。",
+      "tags": [
+        "subtitles",
+        "SRT",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/transcription_adapters/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "serve/transcription_adapters/__init__.py",
+      "summary": "导出转写适配器注册、解析和内置实现。",
+      "tags": [
+        "transcription",
+        "adapter",
+        "package-api"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python 包入口汇集不同 ASR 模型的响应适配接口。"
+    },
+    {
+      "id": "file:serve/transcription_adapters/base.py",
+      "type": "file",
+      "name": "base.py",
+      "filePath": "serve/transcription_adapters/base.py",
+      "summary": "定义转写适配器抽象接口、默认实现和 architecture 注册表。",
+      "tags": [
+        "transcription",
+        "adapter-registry",
+        "response-format"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "以 Python ABC 统一请求构建、结果规范化、时间戳与异常处理。"
+    },
+    {
+      "id": "function:serve/transcription_adapters/base.py:register_transcription_adapter",
+      "type": "function",
+      "name": "register_transcription_adapter",
+      "filePath": "serve/transcription_adapters/base.py",
+      "lineRange": [
+        141,
+        155
+      ],
+      "summary": "把 adapter 类注册到指定模型 architecture。",
+      "tags": [
+        "transcription",
+        "adapter-registry",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcription_adapters/base.py:resolve_adapter",
+      "type": "function",
+      "name": "resolve_adapter",
+      "filePath": "serve/transcription_adapters/base.py",
+      "lineRange": [
+        158,
+        166
+      ],
+      "summary": "根据 architecture 解析已注册或默认转写 adapter。",
+      "tags": [
+        "transcription",
+        "adapter-registry",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/transcription_adapters/base.py:TranscriptionAdapter",
+      "type": "class",
+      "name": "TranscriptionAdapter",
+      "filePath": "serve/transcription_adapters/base.py",
+      "lineRange": [
+        25,
+        103
+      ],
+      "summary": "定义模型无关的转写请求构建、结果解析和响应扩展接口。",
+      "tags": [
+        "transcription",
+        "adapter-registry",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/transcription_adapters/base.py:DefaultTranscriptionAdapter",
+      "type": "class",
+      "name": "DefaultTranscriptionAdapter",
+      "filePath": "serve/transcription_adapters/base.py",
+      "lineRange": [
+        106,
+        133
+      ],
+      "summary": "为遵循标准字段的模型提供默认转写适配行为。",
+      "tags": [
+        "transcription",
+        "adapter-registry",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/transcription_adapters/moss_transcribe_diarize.py",
+      "type": "file",
+      "name": "moss_transcribe_diarize.py",
+      "filePath": "serve/transcription_adapters/moss_transcribe_diarize.py",
+      "summary": "适配 MOSS 转写与说话人分离模型的请求参数和分段输出。",
+      "tags": [
+        "MOSS",
+        "diarization",
+        "transcription-adapter"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "把模型专用 speaker/timestamp 结果转换为 OpenAI 风格转写结构。"
+    },
+    {
+      "id": "class:serve/transcription_adapters/moss_transcribe_diarize.py:MossTranscribeDiarizeAdapter",
+      "type": "class",
+      "name": "MossTranscribeDiarizeAdapter",
+      "filePath": "serve/transcription_adapters/moss_transcribe_diarize.py",
+      "lineRange": [
+        41,
+        147
+      ],
+      "summary": "把 MOSS diarization 输出转换为带 speaker/timestamp 的转写响应。",
+      "tags": [
+        "MOSS",
+        "diarization",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:serve/transcription_adapters/whisper.py",
+      "type": "file",
+      "name": "whisper.py",
+      "filePath": "serve/transcription_adapters/whisper.py",
+      "summary": "适配 Whisper 转写输出，并检测和过滤持续重复的异常文本。",
+      "tags": [
+        "Whisper",
+        "transcription-adapter",
+        "repetition-filter"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用文本启发式识别 Latin word 与重复单元。"
+    },
+    {
+      "id": "function:serve/transcription_adapters/whisper.py:_is_repeat_unit",
+      "type": "function",
+      "name": "_is_repeat_unit",
+      "filePath": "serve/transcription_adapters/whisper.py",
+      "lineRange": [
+        18,
+        19
+      ],
+      "summary": "判断文本单元是否构成重复模式。",
+      "tags": [
+        "Whisper",
+        "transcription-adapter",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcription_adapters/whisper.py:_is_single_latin_word",
+      "type": "function",
+      "name": "_is_single_latin_word",
+      "filePath": "serve/transcription_adapters/whisper.py",
+      "lineRange": [
+        22,
+        34
+      ],
+      "summary": "判断字符串是否仅包含一个 Latin 单词。",
+      "tags": [
+        "Whisper",
+        "transcription-adapter",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcription_adapters/whisper.py:_has_sustained_repetition",
+      "type": "function",
+      "name": "_has_sustained_repetition",
+      "filePath": "serve/transcription_adapters/whisper.py",
+      "lineRange": [
+        37,
+        61
+      ],
+      "summary": "检测输出文本中持续出现的重复短语。",
+      "tags": [
+        "Whisper",
+        "transcription-adapter",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/transcription_adapters/whisper.py:WhisperTranscriptionAdapter",
+      "type": "class",
+      "name": "WhisperTranscriptionAdapter",
+      "filePath": "serve/transcription_adapters/whisper.py",
+      "lineRange": [
+        65,
+        82
+      ],
+      "summary": "处理 Whisper 文本结果并过滤持续重复退化输出。",
+      "tags": [
+        "Whisper",
+        "transcription-adapter",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/transcription_adapters/whisper_asr.py",
+      "type": "file",
+      "name": "whisper_asr.py",
+      "filePath": "serve/transcription_adapters/whisper_asr.py",
+      "summary": "适配内置 Whisper ASR pipeline 的语言、时间戳、prompt 与响应格式。",
+      "tags": [
+        "Whisper-ASR",
+        "transcription-adapter",
+        "timestamps"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "连接公开 transcription 参数和 pipeline 专用请求/结果字段。"
+    },
+    {
+      "id": "class:serve/transcription_adapters/whisper_asr.py:WhisperASRAdapter",
+      "type": "class",
+      "name": "WhisperASRAdapter",
+      "filePath": "serve/transcription_adapters/whisper_asr.py",
+      "lineRange": [
+        26,
+        162
+      ],
+      "summary": "构建 Whisper ASR pipeline 请求并解析语言、segment 与时间戳结果。",
+      "tags": [
+        "Whisper-ASR",
+        "transcription-adapter",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:serve/transcription_chunking.py",
+      "type": "file",
+      "name": "transcription_chunking.py",
+      "filePath": "serve/transcription_chunking.py",
+      "summary": "按时长和 RMS 静音位置规划音频分块，并编码 WAV、合并分块转写文本。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "RMS"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 NumPy/PyTorch 音频 tensor 生成带 overlap 的 chunk plan。"
+    },
+    {
+      "id": "function:serve/transcription_chunking.py:needs_chunking",
+      "type": "function",
+      "name": "needs_chunking",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        32,
+        44
+      ],
+      "summary": "判断音频时长是否超过单次转写限制。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcription_chunking.py:check_total_duration",
+      "type": "function",
+      "name": "check_total_duration",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        47,
+        60
+      ],
+      "summary": "校验上传音频总时长不超过服务上限。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcription_chunking.py:encode_wav",
+      "type": "function",
+      "name": "encode_wav",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        178,
+        195
+      ],
+      "summary": "把 waveform tensor 编码为内存 WAV 数据。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcription_chunking.py:plan_audio_chunks",
+      "type": "function",
+      "name": "plan_audio_chunks",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        198,
+        244
+      ],
+      "summary": "按 RMS 切点和 overlap 规划音频 chunk spans。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/transcription_chunking.py:_is_spaced_script",
+      "type": "function",
+      "name": "_is_spaced_script",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        265,
+        270
+      ],
+      "summary": "判断文本脚本是否通常以空格分词。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcription_chunking.py:join_transcript_parts",
+      "type": "function",
+      "name": "join_transcript_parts",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        273,
+        295
+      ],
+      "summary": "按语言书写习惯合并分块转写文本。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/transcription_chunking.py:RMSSplitter",
+      "type": "class",
+      "name": "RMSSplitter",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        63,
+        137
+      ],
+      "summary": "根据窗口 RMS 能量在目标位置附近选择静音切点。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/transcription_chunking.py:ChunkSpan",
+      "type": "class",
+      "name": "ChunkSpan",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        141,
+        153
+      ],
+      "summary": "描述音频 chunk 的样本起止、时间偏移和 overlap。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/transcription_chunking.py:ChunkPlan",
+      "type": "class",
+      "name": "ChunkPlan",
+      "filePath": "serve/transcription_chunking.py",
+      "lineRange": [
+        157,
+        175
+      ],
+      "summary": "保存完整分块计划、原始时长和 chunk spans。",
+      "tags": [
+        "transcription",
+        "audio-chunking",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/transcriptions.py",
+      "type": "file",
+      "name": "transcriptions.py",
+      "filePath": "serve/transcriptions.py",
+      "summary": "注册 OpenAI 兼容 transcriptions API，处理上传音频、分块、流式输出、断连中止和响应组装。",
+      "tags": [
+        "transcriptions-API",
+        "FastAPI",
+        "streaming"
+      ],
+      "complexity": "complex",
+      "languageNotes": "异步 HTTP handler 协调模型 adapter、pipeline client 与字幕/JSON 响应。"
+    },
+    {
+      "id": "function:serve/transcriptions.py:register_transcriptions",
+      "type": "function",
+      "name": "register_transcriptions",
+      "filePath": "serve/transcriptions.py",
+      "lineRange": [
+        54,
+        237
+      ],
+      "summary": "向 FastAPI 应用注册 transcription endpoint。",
+      "tags": [
+        "transcriptions-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/transcriptions.py:_assemble_chunked_response",
+      "type": "function",
+      "name": "_assemble_chunked_response",
+      "filePath": "serve/transcriptions.py",
+      "lineRange": [
+        240,
+        287
+      ],
+      "summary": "把多个音频 chunk 的结果合并为统一响应。",
+      "tags": [
+        "transcriptions-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/transcriptions.py:_build_chunk_generate_request",
+      "type": "function",
+      "name": "_build_chunk_generate_request",
+      "filePath": "serve/transcriptions.py",
+      "lineRange": [
+        290,
+        313
+      ],
+      "summary": "为单个音频 chunk 构造 pipeline generate 请求。",
+      "tags": [
+        "transcriptions-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/transcriptions.py:_transcribe_audio_chunks",
+      "type": "function",
+      "name": "_transcribe_audio_chunks",
+      "filePath": "serve/transcriptions.py",
+      "lineRange": [
+        316,
+        437
+      ],
+      "summary": "并发或顺序转写 chunk plan 并收集结果。",
+      "tags": [
+        "transcriptions-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/transcriptions.py:_await_transcription_with_disconnect_abort",
+      "type": "function",
+      "name": "_await_transcription_with_disconnect_abort",
+      "filePath": "serve/transcriptions.py",
+      "lineRange": [
+        440,
+        467
+      ],
+      "summary": "等待转写结果，并在客户端断连时中止请求。",
+      "tags": [
+        "transcriptions-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:serve/streaming.py",
+      "target": "function:serve/streaming.py:close_async_iterator_if_supported",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/streaming.py",
+      "target": "function:serve/streaming.py:close_async_iterator_if_supported",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/streaming.py",
+      "target": "class:serve/streaming.py:ClosableStreamingResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/streaming.py",
+      "target": "class:serve/streaming.py:ClosableStreamingResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:_format_timestamp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:_format_timestamp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:_cue_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:_cue_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:segments_to_srt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:segments_to_srt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:segments_to_vtt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/subtitles.py",
+      "target": "function:serve/subtitles.py:segments_to_vtt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "function:serve/transcription_adapters/base.py:register_transcription_adapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "function:serve/transcription_adapters/base.py:register_transcription_adapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "function:serve/transcription_adapters/base.py:resolve_adapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "function:serve/transcription_adapters/base.py:resolve_adapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "class:serve/transcription_adapters/base.py:TranscriptionAdapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "class:serve/transcription_adapters/base.py:TranscriptionAdapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "class:serve/transcription_adapters/base.py:DefaultTranscriptionAdapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/base.py",
+      "target": "class:serve/transcription_adapters/base.py:DefaultTranscriptionAdapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/moss_transcribe_diarize.py",
+      "target": "class:serve/transcription_adapters/moss_transcribe_diarize.py:MossTranscribeDiarizeAdapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/moss_transcribe_diarize.py",
+      "target": "class:serve/transcription_adapters/moss_transcribe_diarize.py:MossTranscribeDiarizeAdapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "function:serve/transcription_adapters/whisper.py:_is_repeat_unit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "function:serve/transcription_adapters/whisper.py:_is_repeat_unit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "function:serve/transcription_adapters/whisper.py:_is_single_latin_word",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "function:serve/transcription_adapters/whisper.py:_is_single_latin_word",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "function:serve/transcription_adapters/whisper.py:_has_sustained_repetition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "function:serve/transcription_adapters/whisper.py:_has_sustained_repetition",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "class:serve/transcription_adapters/whisper.py:WhisperTranscriptionAdapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper.py",
+      "target": "class:serve/transcription_adapters/whisper.py:WhisperTranscriptionAdapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper_asr.py",
+      "target": "class:serve/transcription_adapters/whisper_asr.py:WhisperASRAdapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_adapters/whisper_asr.py",
+      "target": "class:serve/transcription_adapters/whisper_asr.py:WhisperASRAdapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:needs_chunking",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:needs_chunking",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:check_total_duration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:check_total_duration",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:encode_wav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:encode_wav",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:plan_audio_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:plan_audio_chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:_is_spaced_script",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:_is_spaced_script",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:join_transcript_parts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "function:serve/transcription_chunking.py:join_transcript_parts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "class:serve/transcription_chunking.py:RMSSplitter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "class:serve/transcription_chunking.py:RMSSplitter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "class:serve/transcription_chunking.py:ChunkSpan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "class:serve/transcription_chunking.py:ChunkSpan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "class:serve/transcription_chunking.py:ChunkPlan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcription_chunking.py",
+      "target": "class:serve/transcription_chunking.py:ChunkPlan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:register_transcriptions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:register_transcriptions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_assemble_chunked_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_assemble_chunked_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_build_chunk_generate_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_build_chunk_generate_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_transcribe_audio_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_transcribe_audio_chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_await_transcription_with_disconnect_abort",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/transcriptions.py",
+      "target": "function:serve/transcriptions.py:_await_transcription_with_disconnect_abort",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

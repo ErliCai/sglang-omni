@@ -1,0 +1,17 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"models/ming_omni/__init__.py","language":"python","sizeLines":7,"fileCategory":"code"},
+    {"path":"models/ming_omni/config.py","language":"python","sizeLines":381,"fileCategory":"code"},
+    {"path":"models/ming_omni/registration.py","language":"python","sizeLines":28,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "models/ming_omni/__init__.py": [
+      "models/ming_omni/config.py",
+      "models/ming_omni/registration.py"
+    ],
+    "models/ming_omni/config.py": [],
+    "models/ming_omni/registration.py": []
+  },
+  "neighborMap": {}
+}

@@ -1,0 +1,3094 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_omni/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "summary": "实现 Qwen3-Omni 阶段路由、负载投影、编码器与 Thinker/Talker 请求构建、MRoPE 位置计算和流式调度适配。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "payload-projection",
+        "scheduler-adapter",
+        "mrope"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_resolve_seed",
+      "type": "function",
+      "name": "_resolve_seed",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        42,
+        48
+      ],
+      "summary": "解析resolve 种子逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-seed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:output_modalities",
+      "type": "function",
+      "name": "output_modalities",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        51,
+        66
+      ],
+      "summary": "确定输出 modalities逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "output-modalities",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "type": "function",
+      "name": "should_generate_audio_output",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        69,
+        78
+      ],
+      "summary": "判断should generate 音频 输出逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "should-generate-audio-output",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:resolve_thinker_next_stages",
+      "type": "function",
+      "name": "resolve_thinker_next_stages",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        81,
+        85
+      ],
+      "summary": "解析resolve Thinker 后继 阶段逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-thinker-next-stages",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:resolve_encoder_next_stages",
+      "type": "function",
+      "name": "resolve_encoder_next_stages",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        88,
+        94
+      ],
+      "summary": "解析resolve 编码器 后继 阶段逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-encoder-next-stages",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:resolve_thinker_stream_done_targets",
+      "type": "function",
+      "name": "resolve_thinker_stream_done_targets",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        97,
+        103
+      ],
+      "summary": "解析resolve Thinker 流式 done 目标逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-thinker-stream-done-targets",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:resolve_terminal_stages",
+      "type": "function",
+      "name": "resolve_terminal_stages",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        106,
+        109
+      ],
+      "summary": "解析resolve 终端 阶段逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-terminal-stages",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages",
+      "type": "function",
+      "name": "resolve_preprocessing_next_stages",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        112,
+        120
+      ],
+      "summary": "解析resolve 预处理 后继 阶段逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-preprocessing-next-stages",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages_speech",
+      "type": "function",
+      "name": "resolve_preprocessing_next_stages_speech",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        123,
+        134
+      ],
+      "summary": "解析resolve 预处理 后继 阶段 speech逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-preprocessing-next-stages-speech",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:resolve_mm_aggregate_wait_sources",
+      "type": "function",
+      "name": "resolve_mm_aggregate_wait_sources",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        137,
+        146
+      ],
+      "summary": "解析resolve mm 聚合 等待 sources逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "resolve-mm-aggregate-wait-sources",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_thinker_to_decode",
+      "type": "function",
+      "name": "project_thinker_to_decode",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        149,
+        175
+      ],
+      "summary": "投影project Thinker to 解码逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-thinker-to-decode",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_talker_to_code2wav",
+      "type": "function",
+      "name": "project_talker_to_code2wav",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        178,
+        184
+      ],
+      "summary": "投影project Talker to Code2Wav逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-talker-to-code2wav",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:build_encoder_request",
+      "type": "function",
+      "name": "build_encoder_request",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        196,
+        215
+      ],
+      "summary": "构建build 编码器 请求逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "build-encoder-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:apply_encoder_result",
+      "type": "function",
+      "name": "apply_encoder_result",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        218,
+        230
+      ],
+      "summary": "应用apply 编码器 结果逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "apply-encoder-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:build_lightweight_mm_inputs",
+      "type": "function",
+      "name": "build_lightweight_mm_inputs",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        233,
+        247
+      ],
+      "summary": "构建build 轻量 mm inputs逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "build-lightweight-mm-inputs",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_image_encoder",
+      "type": "function",
+      "name": "project_preprocessing_to_image_encoder",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        250,
+        251
+      ],
+      "summary": "投影project 预处理 to 图像 编码器逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-preprocessing-to-image-encoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_audio_encoder",
+      "type": "function",
+      "name": "project_preprocessing_to_audio_encoder",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        254,
+        255
+      ],
+      "summary": "投影project 预处理 to 音频 编码器逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-preprocessing-to-audio-encoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_mm_aggregate",
+      "type": "function",
+      "name": "project_preprocessing_to_mm_aggregate",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        258,
+        266
+      ],
+      "summary": "投影project 预处理 to mm 聚合逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-preprocessing-to-mm-aggregate",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_encoder_to_mm_aggregate",
+      "type": "function",
+      "name": "project_encoder_to_mm_aggregate",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        269,
+        274
+      ],
+      "summary": "投影project 编码器 to mm 聚合逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-encoder-to-mm-aggregate",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_encoder_to_talker_ar",
+      "type": "function",
+      "name": "project_encoder_to_talker_ar",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        290,
+        301
+      ],
+      "summary": "投影project 编码器 to Talker 自回归逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-encoder-to-talker-ar",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:merge_for_talker",
+      "type": "function",
+      "name": "merge_for_talker",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        304,
+        307
+      ],
+      "summary": "合并合并 for Talker逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "merge-for-talker",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:project_mm_aggregate_to_talker_ar",
+      "type": "function",
+      "name": "project_mm_aggregate_to_talker_ar",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        310,
+        327
+      ],
+      "summary": "投影project mm 聚合 to Talker 自回归逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-mm-aggregate-to-talker-ar",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_project_preprocessing_to_encoder",
+      "type": "function",
+      "name": "_project_preprocessing_to_encoder",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        330,
+        341
+      ],
+      "summary": "投影project 预处理 to 编码器逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-preprocessing-to-encoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "function",
+      "name": "_payload_with_state",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        344,
+        351
+      ],
+      "summary": "执行负载 with 状态逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "payload-with-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_copy_mutable_containers",
+      "type": "function",
+      "name": "_copy_mutable_containers",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        354,
+        367
+      ],
+      "summary": "复制copy mutable containers逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "copy-mutable-containers",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_select_encoder_inputs",
+      "type": "function",
+      "name": "_select_encoder_inputs",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        370,
+        378
+      ],
+      "summary": "选择select 编码器 inputs逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "select-encoder-inputs",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_project_encoder_input_metadata",
+      "type": "function",
+      "name": "_project_encoder_input_metadata",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        381,
+        398
+      ],
+      "summary": "投影project 编码器 输入 metadata逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "project-encoder-input-metadata",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_encoder_stages_with_model_inputs",
+      "type": "function",
+      "name": "_encoder_stages_with_model_inputs",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        401,
+        408
+      ],
+      "summary": "执行编码器 阶段 with 模型 inputs逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "encoder-stages-with-model-inputs",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_active_encoder_stages",
+      "type": "function",
+      "name": "_active_encoder_stages",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        411,
+        418
+      ],
+      "summary": "执行活跃 编码器 阶段逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "active-encoder-stages",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_is_active_encoder_branch",
+      "type": "function",
+      "name": "_is_active_encoder_branch",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        421,
+        427
+      ],
+      "summary": "判断is 活跃 编码器 branch逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "is-active-encoder-branch",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_has_encoder_model_input",
+      "type": "function",
+      "name": "_has_encoder_model_input",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        430,
+        442
+      ],
+      "summary": "判断has 编码器 模型 输入逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "has-encoder-model-input",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_select_present_fields",
+      "type": "function",
+      "name": "_select_present_fields",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        445,
+        454
+      ],
+      "summary": "选择select 存在 字段逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "select-present-fields",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_single_encoder_stage_name",
+      "type": "function",
+      "name": "_single_encoder_stage_name",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        457,
+        462
+      ],
+      "summary": "执行单一 编码器 阶段 name逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "single-encoder-stage-name",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_extract_thinker_model_inputs",
+      "type": "function",
+      "name": "_extract_thinker_model_inputs",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        465,
+        484
+      ],
+      "summary": "提取extract Thinker 模型 inputs逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "extract-thinker-model-inputs",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:build_thinker_request",
+      "type": "function",
+      "name": "build_thinker_request",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        487,
+        512
+      ],
+      "summary": "构建build Thinker 请求逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "build-thinker-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_compute_mrope_positions",
+      "type": "function",
+      "name": "_compute_mrope_positions",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        515,
+        573
+      ],
+      "summary": "计算compute MRoPE 位置逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "compute-mrope-positions",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:build_sglang_thinker_request",
+      "type": "function",
+      "name": "build_sglang_thinker_request",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        576,
+        710
+      ],
+      "summary": "构建build sglang Thinker 请求逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "build-sglang-thinker-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:build_sglang_talker_request",
+      "type": "function",
+      "name": "build_sglang_talker_request",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        713,
+        868
+      ],
+      "summary": "构建build sglang Talker 请求逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "build-sglang-talker-request",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:apply_thinker_result",
+      "type": "function",
+      "name": "apply_thinker_result",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        871,
+        899
+      ],
+      "summary": "应用apply Thinker 结果逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "apply-thinker-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:make_thinker_stream_output_builder",
+      "type": "function",
+      "name": "make_thinker_stream_output_builder",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        902,
+        989
+      ],
+      "summary": "组装make Thinker 流式 输出 builder逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "make-thinker-stream-output-builder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:make_thinker_scheduler_adapters",
+      "type": "function",
+      "name": "make_thinker_scheduler_adapters",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        992,
+        1025
+      ],
+      "summary": "组装make Thinker 调度器 adapters逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "make-thinker-scheduler-adapters",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:make_talker_scheduler_adapters",
+      "type": "function",
+      "name": "make_talker_scheduler_adapters",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        1028,
+        1123
+      ],
+      "summary": "组装make Talker 调度器 adapters逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "make-talker-scheduler-adapters",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/request_builders.py:_build_talker_request_data",
+      "type": "function",
+      "name": "_build_talker_request_data",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        1126,
+        1199
+      ],
+      "summary": "构建build Talker 请求 data逻辑，服务于qwen3-omni、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "build-talker-request-data",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/request_builders.py:EncoderRequestData",
+      "type": "class",
+      "name": "EncoderRequestData",
+      "filePath": "models/qwen3_omni/request_builders.py",
+      "lineRange": [
+        188,
+        193
+      ],
+      "summary": "封装音频或图像编码器请求张量及其元数据。",
+      "tags": [
+        "qwen3-omni",
+        "request-building",
+        "encoder-request-data",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_omni/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/qwen3_omni/stages.py",
+      "summary": "实现 Qwen3-Omni 编码器批处理与缓存、共置显存契约，以及预处理、聚合、Thinker、Talker 和解码执行器工厂。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "encoder-batching",
+        "memory-contract",
+        "cache"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_apply_qwen_thinker_encoder_reserve",
+      "type": "function",
+      "name": "_apply_qwen_thinker_encoder_reserve",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        67,
+        76
+      ],
+      "summary": "应用apply qwen Thinker 编码器 reserve逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "apply-qwen-thinker-encoder-reserve",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_apply_colocated_ar_memory_contract",
+      "type": "function",
+      "name": "_apply_colocated_ar_memory_contract",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        79,
+        131
+      ],
+      "summary": "应用apply colocated 自回归 显存 契约逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "apply-colocated-ar-memory-contract",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_apply_colocated_encoder_mem_reserve",
+      "type": "function",
+      "name": "_apply_colocated_encoder_mem_reserve",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        134,
+        153
+      ],
+      "summary": "应用apply colocated 编码器 mem reserve逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "apply-colocated-encoder-mem-reserve",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:load_state",
+      "type": "function",
+      "name": "load_state",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        156,
+        157
+      ],
+      "summary": "加载load 状态逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "load-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:store_state",
+      "type": "function",
+      "name": "store_state",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        160,
+        162
+      ],
+      "summary": "写回store 状态逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "store-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "type": "function",
+      "name": "_run_single_encoder_payload",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        165,
+        194
+      ],
+      "summary": "执行run 单一 编码器 负载逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "run-single-encoder-payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_image_request_is_batchable",
+      "type": "function",
+      "name": "_image_request_is_batchable",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        197,
+        210
+      ],
+      "summary": "执行图像 请求 is batchable逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "image-request-is-batchable",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_split_visual_features",
+      "type": "function",
+      "name": "_split_visual_features",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        213,
+        221
+      ],
+      "summary": "拆分split 视觉 特征逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "split-visual-features",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_split_visual_multiscale",
+      "type": "function",
+      "name": "_split_visual_multiscale",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        224,
+        232
+      ],
+      "summary": "拆分split 视觉 multiscale逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "split-visual-multiscale",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_create_image_encoder_request_cost_fn",
+      "type": "function",
+      "name": "_create_image_encoder_request_cost_fn",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        235,
+        257
+      ],
+      "summary": "执行create 图像 编码器 请求 cost fn逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-image-encoder-request-cost-fn",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_tensor_bytes",
+      "type": "function",
+      "name": "_tensor_bytes",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        260,
+        263
+      ],
+      "summary": "执行张量 bytes逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "tensor-bytes",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_nested_tensor_bytes",
+      "type": "function",
+      "name": "_nested_tensor_bytes",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        266,
+        273
+      ],
+      "summary": "执行nested 张量 bytes逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "nested-tensor-bytes",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_encoder_batch_wait_ms",
+      "type": "function",
+      "name": "_encoder_batch_wait_ms",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        276,
+        294
+      ],
+      "summary": "执行编码器 批次 等待 ms逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "encoder-batch-wait-ms",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_encoder_cache_trace_enabled",
+      "type": "function",
+      "name": "_encoder_cache_trace_enabled",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        297,
+        299
+      ],
+      "summary": "执行编码器 缓存 trace enabled逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "encoder-cache-trace-enabled",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_short_cache_key",
+      "type": "function",
+      "name": "_short_cache_key",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        302,
+        307
+      ],
+      "summary": "执行short 缓存 键逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "short-cache-key",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_trace_encoder_cache",
+      "type": "function",
+      "name": "_trace_encoder_cache",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        310,
+        334
+      ],
+      "summary": "记录trace 编码器 缓存逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "trace-encoder-cache",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_lookup_cached_encoder_output",
+      "type": "function",
+      "name": "_lookup_cached_encoder_output",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        337,
+        364
+      ],
+      "summary": "查询lookup cached 编码器 输出逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "lookup-cached-encoder-output",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_store_cached_encoder_output",
+      "type": "function",
+      "name": "_store_cached_encoder_output",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        367,
+        385
+      ],
+      "summary": "保存store cached 编码器 输出逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "store-cached-encoder-output",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_grid_visual_tokens",
+      "type": "function",
+      "name": "_grid_visual_tokens",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        388,
+        391
+      ],
+      "summary": "计算网格 视觉 词元逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "grid-visual-tokens",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_batch_image_encoder_payloads",
+      "type": "function",
+      "name": "_batch_image_encoder_payloads",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        394,
+        597
+      ],
+      "summary": "批量处理批次 图像 编码器 payloads逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "batch-image-encoder-payloads",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_audio_request_is_batchable",
+      "type": "function",
+      "name": "_audio_request_is_batchable",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        600,
+        611
+      ],
+      "summary": "执行音频 请求 is batchable逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "audio-request-is-batchable",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_normalize_audio_request_tensors",
+      "type": "function",
+      "name": "_normalize_audio_request_tensors",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        614,
+        640
+      ],
+      "summary": "规范化规范化 音频 请求 tensors逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "normalize-audio-request-tensors",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_pad_audio_features",
+      "type": "function",
+      "name": "_pad_audio_features",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        643,
+        647
+      ],
+      "summary": "填充填充 音频 特征逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "pad-audio-features",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_pad_audio_mask",
+      "type": "function",
+      "name": "_pad_audio_mask",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        650,
+        654
+      ],
+      "summary": "填充填充 音频 掩码逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "pad-audio-mask",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:_batch_audio_encoder_payloads",
+      "type": "function",
+      "name": "_batch_audio_encoder_payloads",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        657,
+        793
+      ],
+      "summary": "批量处理批次 音频 编码器 payloads逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "batch-audio-encoder-payloads",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        801,
+        826
+      ],
+      "summary": "创建create 预处理 executor逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-preprocessing-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:create_aggregate_executor",
+      "type": "function",
+      "name": "create_aggregate_executor",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        829,
+        835
+      ],
+      "summary": "创建create 聚合 executor逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-aggregate-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:create_image_encoder_executor",
+      "type": "function",
+      "name": "create_image_encoder_executor",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        838,
+        909
+      ],
+      "summary": "创建create 图像 编码器 executor逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-image-encoder-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:create_audio_encoder_executor",
+      "type": "function",
+      "name": "create_audio_encoder_executor",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        912,
+        986
+      ],
+      "summary": "创建create 音频 编码器 executor逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-audio-encoder-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:create_decode_executor",
+      "type": "function",
+      "name": "create_decode_executor",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        989,
+        990
+      ],
+      "summary": "创建create 解码 executor逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-decode-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "function",
+      "name": "create_sglang_thinker_executor_from_config",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        998,
+        1120
+      ],
+      "summary": "创建create sglang Thinker executor from 配置逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-sglang-thinker-executor-from-config",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/stages.py:create_talker_ar_executor_from_config",
+      "type": "function",
+      "name": "create_talker_ar_executor_from_config",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        1123,
+        1206
+      ],
+      "summary": "创建create Talker 自回归 executor from 配置逻辑，服务于qwen3-omni、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "create-talker-ar-executor-from-config",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/stages.py:_ArMemoryContract",
+      "type": "class",
+      "name": "_ArMemoryContract",
+      "filePath": "models/qwen3_omni/stages.py",
+      "lineRange": [
+        61,
+        64
+      ],
+      "summary": "记录共置自回归引擎的静态显存比例和编码器预留预算。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-stages",
+        "ar-memory-contract",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_omni/talker_model_runner.py",
+      "type": "file",
+      "name": "talker_model_runner.py",
+      "filePath": "models/qwen3_omni/talker_model_runner.py",
+      "summary": "驱动 Qwen3-Omni Talker 的预填充、增量码本预测、文本隐藏状态消费和请求资源生命周期。",
+      "tags": [
+        "qwen3-omni",
+        "talker-runner",
+        "code-prediction",
+        "request-lifecycle"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_omni/talker_model_runner.py:QwenTalkerModelRunner",
+      "type": "class",
+      "name": "QwenTalkerModelRunner",
+      "filePath": "models/qwen3_omni/talker_model_runner.py",
+      "lineRange": [
+        18,
+        503
+      ],
+      "summary": "维护 Talker 请求的预填充和解码状态，消费文本隐藏队列并产生音频码。",
+      "tags": [
+        "qwen3-omni",
+        "talker-runner",
+        "qwen-talker-model-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/talker_scheduler.py",
+      "type": "file",
+      "name": "talker_scheduler.py",
+      "filePath": "models/qwen3_omni/talker_scheduler.py",
+      "summary": "配置 Talker 服务参数并扩展调度器以处理 Qwen3-Omni 的文本隐藏状态流和音频码输出。",
+      "tags": [
+        "qwen3-omni",
+        "talker-scheduler",
+        "server-args",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/talker_scheduler.py:configure_talker_server_args",
+      "type": "function",
+      "name": "configure_talker_server_args",
+      "filePath": "models/qwen3_omni/talker_scheduler.py",
+      "lineRange": [
+        17,
+        38
+      ],
+      "summary": "配置configure Talker 服务 参数逻辑，服务于qwen3-omni、talker-scheduler的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "talker-scheduler",
+        "configure-talker-server-args",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/talker_scheduler.py:QwenTalkerScheduler",
+      "type": "class",
+      "name": "QwenTalkerScheduler",
+      "filePath": "models/qwen3_omni/talker_scheduler.py",
+      "lineRange": [
+        41,
+        162
+      ],
+      "summary": "在通用调度循环中接入 Talker 专用请求构建、流输出和中止逻辑。",
+      "tags": [
+        "qwen3-omni",
+        "talker-scheduler",
+        "qwen-talker-scheduler",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_omni/thinker_model_runner.py",
+      "type": "file",
+      "name": "thinker_model_runner.py",
+      "filePath": "models/qwen3_omni/thinker_model_runner.py",
+      "summary": "扩展 SGLang 模型运行器以注入音视频嵌入、处理多模态预填充并判定缓存或执行路径。",
+      "tags": [
+        "qwen3-omni",
+        "thinker-runner",
+        "multimodal-prefill",
+        "embedding-injection"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_omni/thinker_model_runner.py:_PrefillDisposition",
+      "type": "class",
+      "name": "_PrefillDisposition",
+      "filePath": "models/qwen3_omni/thinker_model_runner.py",
+      "lineRange": [
+        34,
+        36
+      ],
+      "summary": "表示多模态预填充应执行、复用缓存或跳过的判定。",
+      "tags": [
+        "qwen3-omni",
+        "thinker-runner",
+        "prefill-disposition",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/thinker_model_runner.py:Qwen3OmniThinkerModelRunner",
+      "type": "class",
+      "name": "Qwen3OmniThinkerModelRunner",
+      "filePath": "models/qwen3_omni/thinker_model_runner.py",
+      "lineRange": [
+        39,
+        321
+      ],
+      "summary": "准备模态嵌入并控制 Qwen3-Omni Thinker 的预填充与解码执行。",
+      "tags": [
+        "qwen3-omni",
+        "thinker-runner",
+        "qwen3-omni-thinker-model-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_resolve_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_resolve_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:output_modalities",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:output_modalities",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_thinker_next_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_thinker_next_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_encoder_next_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_encoder_next_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_thinker_stream_done_targets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_thinker_stream_done_targets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_terminal_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_terminal_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages_speech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages_speech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_mm_aggregate_wait_sources",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:resolve_mm_aggregate_wait_sources",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_thinker_to_decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_thinker_to_decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_talker_to_code2wav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_talker_to_code2wav",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_encoder_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_encoder_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:apply_encoder_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:apply_encoder_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_lightweight_mm_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_lightweight_mm_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_image_encoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_image_encoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_audio_encoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_audio_encoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_mm_aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_mm_aggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_encoder_to_mm_aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_encoder_to_mm_aggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_encoder_to_talker_ar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_encoder_to_talker_ar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:merge_for_talker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:merge_for_talker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_mm_aggregate_to_talker_ar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:project_mm_aggregate_to_talker_ar",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_project_preprocessing_to_encoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_project_preprocessing_to_encoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_copy_mutable_containers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_copy_mutable_containers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_select_encoder_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_select_encoder_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_project_encoder_input_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_project_encoder_input_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_encoder_stages_with_model_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_encoder_stages_with_model_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_active_encoder_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_active_encoder_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_is_active_encoder_branch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_is_active_encoder_branch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_has_encoder_model_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_has_encoder_model_input",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_select_present_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_select_present_fields",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_single_encoder_stage_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_single_encoder_stage_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_extract_thinker_model_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_extract_thinker_model_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_thinker_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_thinker_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_compute_mrope_positions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_compute_mrope_positions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_sglang_thinker_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_sglang_thinker_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_sglang_talker_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:build_sglang_talker_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:apply_thinker_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:apply_thinker_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:make_thinker_stream_output_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:make_thinker_stream_output_builder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:make_thinker_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:make_thinker_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:make_talker_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:make_talker_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_build_talker_request_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "function:models/qwen3_omni/request_builders.py:_build_talker_request_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "class:models/qwen3_omni/request_builders.py:EncoderRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/request_builders.py",
+      "target": "class:models/qwen3_omni/request_builders.py:EncoderRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_apply_qwen_thinker_encoder_reserve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_apply_qwen_thinker_encoder_reserve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_apply_colocated_ar_memory_contract",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_apply_colocated_ar_memory_contract",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_apply_colocated_encoder_mem_reserve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_apply_colocated_encoder_mem_reserve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:load_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:load_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:store_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:store_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_image_request_is_batchable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_image_request_is_batchable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_split_visual_features",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_split_visual_features",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_split_visual_multiscale",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_split_visual_multiscale",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_create_image_encoder_request_cost_fn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_create_image_encoder_request_cost_fn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_tensor_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_tensor_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_nested_tensor_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_nested_tensor_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_encoder_batch_wait_ms",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_encoder_batch_wait_ms",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_encoder_cache_trace_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_encoder_cache_trace_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_short_cache_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_short_cache_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_trace_encoder_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_trace_encoder_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_lookup_cached_encoder_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_lookup_cached_encoder_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_store_cached_encoder_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_store_cached_encoder_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_grid_visual_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_grid_visual_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_batch_image_encoder_payloads",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_batch_image_encoder_payloads",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_audio_request_is_batchable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_audio_request_is_batchable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_normalize_audio_request_tensors",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_normalize_audio_request_tensors",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_pad_audio_features",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_pad_audio_features",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_pad_audio_mask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_pad_audio_mask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_batch_audio_encoder_payloads",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:_batch_audio_encoder_payloads",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_aggregate_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_aggregate_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_image_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_image_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_audio_encoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_audio_encoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_decode_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_decode_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_sglang_thinker_executor_from_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_talker_ar_executor_from_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "function:models/qwen3_omni/stages.py:create_talker_ar_executor_from_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "class:models/qwen3_omni/stages.py:_ArMemoryContract",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/stages.py",
+      "target": "class:models/qwen3_omni/stages.py:_ArMemoryContract",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/talker_model_runner.py",
+      "target": "class:models/qwen3_omni/talker_model_runner.py:QwenTalkerModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/talker_model_runner.py",
+      "target": "class:models/qwen3_omni/talker_model_runner.py:QwenTalkerModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/talker_scheduler.py",
+      "target": "function:models/qwen3_omni/talker_scheduler.py:configure_talker_server_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/talker_scheduler.py",
+      "target": "function:models/qwen3_omni/talker_scheduler.py:configure_talker_server_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/talker_scheduler.py",
+      "target": "class:models/qwen3_omni/talker_scheduler.py:QwenTalkerScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/talker_scheduler.py",
+      "target": "class:models/qwen3_omni/talker_scheduler.py:QwenTalkerScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/thinker_model_runner.py",
+      "target": "class:models/qwen3_omni/thinker_model_runner.py:_PrefillDisposition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/thinker_model_runner.py",
+      "target": "class:models/qwen3_omni/thinker_model_runner.py:_PrefillDisposition",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/thinker_model_runner.py",
+      "target": "class:models/qwen3_omni/thinker_model_runner.py:Qwen3OmniThinkerModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/thinker_model_runner.py",
+      "target": "class:models/qwen3_omni/thinker_model_runner.py:Qwen3OmniThinkerModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "target": "function:models/qwen3_omni/request_builders.py:output_modalities",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:resolve_encoder_next_stages",
+      "target": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:resolve_thinker_stream_done_targets",
+      "target": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:resolve_terminal_stages",
+      "target": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages",
+      "target": "function:models/qwen3_omni/request_builders.py:_encoder_stages_with_model_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages_speech",
+      "target": "function:models/qwen3_omni/request_builders.py:_encoder_stages_with_model_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:resolve_preprocessing_next_stages_speech",
+      "target": "function:models/qwen3_omni/request_builders.py:should_generate_audio_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:resolve_mm_aggregate_wait_sources",
+      "target": "function:models/qwen3_omni/request_builders.py:_active_encoder_stages",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_thinker_to_decode",
+      "target": "function:models/qwen3_omni/request_builders.py:_copy_mutable_containers",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_encoder_request",
+      "target": "class:models/qwen3_omni/request_builders.py:EncoderRequestData",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_lightweight_mm_inputs",
+      "target": "function:models/qwen3_omni/request_builders.py:_select_present_fields",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_image_encoder",
+      "target": "function:models/qwen3_omni/request_builders.py:_project_preprocessing_to_encoder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_audio_encoder",
+      "target": "function:models/qwen3_omni/request_builders.py:_project_preprocessing_to_encoder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_mm_aggregate",
+      "target": "function:models/qwen3_omni/request_builders.py:build_lightweight_mm_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_mm_aggregate",
+      "target": "function:models/qwen3_omni/request_builders.py:_project_encoder_input_metadata",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_preprocessing_to_mm_aggregate",
+      "target": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_encoder_to_mm_aggregate",
+      "target": "function:models/qwen3_omni/request_builders.py:_single_encoder_stage_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_encoder_to_mm_aggregate",
+      "target": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_encoder_to_talker_ar",
+      "target": "function:models/qwen3_omni/request_builders.py:_single_encoder_stage_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_encoder_to_talker_ar",
+      "target": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:merge_for_talker",
+      "target": "function:models/qwen3_omni/request_builders.py:project_mm_aggregate_to_talker_ar",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:project_mm_aggregate_to_talker_ar",
+      "target": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:_project_preprocessing_to_encoder",
+      "target": "function:models/qwen3_omni/request_builders.py:_select_encoder_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:_project_preprocessing_to_encoder",
+      "target": "function:models/qwen3_omni/request_builders.py:_payload_with_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:_project_encoder_input_metadata",
+      "target": "function:models/qwen3_omni/request_builders.py:_is_active_encoder_branch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:_encoder_stages_with_model_inputs",
+      "target": "function:models/qwen3_omni/request_builders.py:_has_encoder_model_input",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:_active_encoder_stages",
+      "target": "function:models/qwen3_omni/request_builders.py:_is_active_encoder_branch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:_is_active_encoder_branch",
+      "target": "function:models/qwen3_omni/request_builders.py:_has_encoder_model_input",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_thinker_request",
+      "target": "function:models/qwen3_omni/request_builders.py:_extract_thinker_model_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_sglang_thinker_request",
+      "target": "function:models/qwen3_omni/request_builders.py:_extract_thinker_model_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_sglang_thinker_request",
+      "target": "function:models/qwen3_omni/request_builders.py:_resolve_seed",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_sglang_thinker_request",
+      "target": "function:models/qwen3_omni/request_builders.py:_compute_mrope_positions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_sglang_talker_request",
+      "target": "function:models/qwen3_omni/request_builders.py:_compute_mrope_positions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:_build_talker_request_data",
+      "target": "function:models/qwen3_omni/request_builders.py:build_sglang_talker_request",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_apply_colocated_ar_memory_contract",
+      "target": "class:models/qwen3_omni/stages.py:_ArMemoryContract",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_apply_colocated_ar_memory_contract",
+      "target": "function:models/qwen3_omni/stages.py:_apply_colocated_encoder_mem_reserve",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "target": "function:models/qwen3_omni/stages.py:load_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "target": "function:models/qwen3_omni/stages.py:_lookup_cached_encoder_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "target": "function:models/qwen3_omni/stages.py:_store_cached_encoder_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "target": "function:models/qwen3_omni/stages.py:store_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_nested_tensor_bytes",
+      "target": "function:models/qwen3_omni/stages.py:_tensor_bytes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_trace_encoder_cache",
+      "target": "function:models/qwen3_omni/stages.py:_encoder_cache_trace_enabled",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_trace_encoder_cache",
+      "target": "function:models/qwen3_omni/stages.py:_short_cache_key",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_lookup_cached_encoder_output",
+      "target": "function:models/qwen3_omni/stages.py:_trace_encoder_cache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_lookup_cached_encoder_output",
+      "target": "function:models/qwen3_omni/stages.py:_nested_tensor_bytes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_store_cached_encoder_output",
+      "target": "function:models/qwen3_omni/stages.py:_trace_encoder_cache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_store_cached_encoder_output",
+      "target": "function:models/qwen3_omni/stages.py:_nested_tensor_bytes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_batch_image_encoder_payloads",
+      "target": "function:models/qwen3_omni/stages.py:load_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_batch_image_encoder_payloads",
+      "target": "function:models/qwen3_omni/stages.py:_run_single_encoder_payload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_batch_image_encoder_payloads",
+      "target": "function:models/qwen3_omni/stages.py:_lookup_cached_encoder_output",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:_batch_image_encoder_payloads",
+      "target": "function:models/qwen3_omni/stages.py:store_state",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_sglang_thinker_request",
+      "target": "function:models/qwen3_omni/request_builders.py:_compute_mrope_positions",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_omni/request_builders.py:build_sglang_talker_request",
+      "target": "class:models/qwen3_omni/pending_text_queue.py:PendingTextTensorQueue",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:create_sglang_thinker_executor_from_config",
+      "target": "class:models/qwen3_omni/thinker_model_runner.py:Qwen3OmniThinkerModelRunner",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_omni/stages.py:create_talker_ar_executor_from_config",
+      "target": "class:models/qwen3_omni/talker_model_runner.py:QwenTalkerModelRunner",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_omni/talker_scheduler.py:QwenTalkerScheduler",
+      "target": "class:models/qwen3_omni/talker_model_runner.py:QwenTalkerModelRunner",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,2498 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 7,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 7,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/qwen3_asr/audio_lengths.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 63,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "qwen3_asr_audio_token_lengths",
+          "startLine": 11,
+          "endLine": 21,
+          "params": [
+            "input_lengths"
+          ]
+        },
+        {
+          "name": "qwen3_asr_num_audio_tokens",
+          "startLine": 24,
+          "endLine": 28,
+          "params": [
+            "num_mel_frames"
+          ]
+        },
+        {
+          "name": "qwen3_asr_max_audio_tokens",
+          "startLine": 39,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "qwen3_asr_max_output_tokens",
+          "startLine": 51,
+          "endLine": 53,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "qwen3_asr_audio_token_lengths",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "qwen3_asr_num_audio_tokens",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "qwen3_asr_max_audio_tokens",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "qwen3_asr_max_output_tokens",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "qwen3_asr_audio_token_lengths",
+          "callee": "isinstance",
+          "lineNumber": 17
+        },
+        {
+          "caller": "qwen3_asr_audio_token_lengths",
+          "callee": "torch.tensor",
+          "lineNumber": 18
+        },
+        {
+          "caller": "qwen3_asr_max_audio_tokens",
+          "callee": "qwen3_asr_num_audio_tokens",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/qwen3_asr/configuration_qwen3_asr.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 165,
+      "nonEmptyLines": 139,
+      "classes": [
+        {
+          "name": "Qwen3ASRProcessor",
+          "startLine": 18,
+          "endLine": 98,
+          "methods": [
+            "__init__",
+            "from_pretrained",
+            "_get_feat_extract_output_lengths",
+            "__call__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Qwen3ASRThinkerConfig",
+          "startLine": 101,
+          "endLine": 137,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Qwen3ASRConfig",
+          "startLine": 141,
+          "endLine": 161,
+          "methods": [
+            "__init__",
+            "get_text_config"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Qwen3ASRProcessor",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "Qwen3ASRThinkerConfig",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "Qwen3ASRConfig",
+          "line": 140,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 30
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 30
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "kwargs.pop",
+          "lineNumber": 34
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "AutoFeatureExtractor.from_pretrained",
+          "lineNumber": 35
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "AutoTokenizer.from_pretrained",
+          "lineNumber": 39
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "cls",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_get_feat_extract_output_lengths",
+          "callee": "qwen3_asr_audio_token_lengths",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__call__",
+          "callee": "self.feature_extractor",
+          "lineNumber": 52
+        },
+        {
+          "caller": "__call__",
+          "callee": "kwargs.get",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__call__",
+          "callee": "self.tokenizer",
+          "lineNumber": 64
+        },
+        {
+          "caller": "__call__",
+          "callee": "kwargs.get",
+          "lineNumber": 66
+        },
+        {
+          "caller": "__call__",
+          "callee": "kwargs.get",
+          "lineNumber": 67
+        },
+        {
+          "caller": "__call__",
+          "callee": "self.tokenizer.convert_tokens_to_ids",
+          "lineNumber": 76
+        },
+        {
+          "caller": "__call__",
+          "callee": "inputs[\"feature_attention_mask\"].sum",
+          "lineNumber": 77
+        },
+        {
+          "caller": "__call__",
+          "callee": "self._get_feat_extract_output_lengths",
+          "lineNumber": 78
+        },
+        {
+          "caller": "__call__",
+          "callee": "range",
+          "lineNumber": 80
+        },
+        {
+          "caller": "__call__",
+          "callee": "input_ids[seq_idx].tolist",
+          "lineNumber": 81
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 85
+        },
+        {
+          "caller": "__call__",
+          "callee": "int",
+          "lineNumber": 86
+        },
+        {
+          "caller": "__call__",
+          "callee": "audio_token_counts[audio_idx].item",
+          "lineNumber": 86
+        },
+        {
+          "caller": "__call__",
+          "callee": "new_ids.extend",
+          "lineNumber": 87
+        },
+        {
+          "caller": "__call__",
+          "callee": "new_ids.append",
+          "lineNumber": 90
+        },
+        {
+          "caller": "__call__",
+          "callee": "expanded.append",
+          "lineNumber": 91
+        },
+        {
+          "caller": "__call__",
+          "callee": "max",
+          "lineNumber": 92
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 92
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 94
+        },
+        {
+          "caller": "__call__",
+          "callee": "torch.tensor",
+          "lineNumber": 95
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 116
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 116
+        },
+        {
+          "caller": "__init__",
+          "callee": "isinstance",
+          "lineNumber": 118
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen3OmniMoeAudioEncoderConfig",
+          "lineNumber": 119
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen3OmniMoeAudioEncoderConfig",
+          "lineNumber": 121
+        },
+        {
+          "caller": "__init__",
+          "callee": "isinstance",
+          "lineNumber": 128
+        },
+        {
+          "caller": "__init__",
+          "callee": "HFQwen3Config",
+          "lineNumber": 129
+        },
+        {
+          "caller": "__init__",
+          "callee": "HFQwen3Config",
+          "lineNumber": 131
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 150
+        },
+        {
+          "caller": "__init__",
+          "callee": "isinstance",
+          "lineNumber": 154
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen3ASRThinkerConfig",
+          "lineNumber": 155
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 158
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 158
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "models/qwen3_asr/encoder_cuda_graph.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 349,
+      "nonEmptyLines": 302,
+      "functions": [
+        {
+          "name": "build_buckets",
+          "startLine": 25,
+          "endLine": 51,
+          "params": [
+            "max_batch",
+            "max_tokens_per_clip"
+          ]
+        },
+        {
+          "name": "_get_feat_extract_output_lengths_int",
+          "startLine": 267,
+          "endLine": 271,
+          "params": [
+            "frames"
+          ]
+        },
+        {
+          "name": "eager_preamble",
+          "startLine": 274,
+          "endLine": 329,
+          "params": [
+            "tower",
+            "input_features",
+            "feature_lens"
+          ]
+        },
+        {
+          "name": "_get_feat_extract_output_lengths_tensor",
+          "startLine": 332,
+          "endLine": 337,
+          "params": [
+            "input_lengths"
+          ]
+        },
+        {
+          "name": "window_lens_from_token_counts",
+          "startLine": 340,
+          "endLine": 349,
+          "params": [
+            "token_counts",
+            "tokens_per_window"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "_CapturedGraph",
+          "startLine": 55,
+          "endLine": 60,
+          "methods": [],
+          "properties": [
+            "graph",
+            "hidden_states",
+            "cu_seqlens",
+            "attention_metadata",
+            "output"
+          ]
+        },
+        {
+          "name": "Qwen3ASREncoderLayerStackGraphRunner",
+          "startLine": 63,
+          "endLine": 264,
+          "methods": [
+            "__init__",
+            "tokens_per_window",
+            "capture_all",
+            "_layer_stack",
+            "_capture",
+            "run",
+            "_plan"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_buckets",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "_CapturedGraph",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "Qwen3ASREncoderLayerStackGraphRunner",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "_get_feat_extract_output_lengths_int",
+          "line": 267,
+          "isDefault": false
+        },
+        {
+          "name": "eager_preamble",
+          "line": 274,
+          "isDefault": false
+        },
+        {
+          "name": "_get_feat_extract_output_lengths_tensor",
+          "line": 332,
+          "isDefault": false
+        },
+        {
+          "name": "window_lens_from_token_counts",
+          "line": 340,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_buckets",
+          "callee": "ValueError",
+          "lineNumber": 40
+        },
+        {
+          "caller": "build_buckets",
+          "callee": "int",
+          "lineNumber": 44
+        },
+        {
+          "caller": "build_buckets",
+          "callee": "int",
+          "lineNumber": 44
+        },
+        {
+          "caller": "build_buckets",
+          "callee": "buckets.append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "build_buckets",
+          "callee": "buckets.append",
+          "lineNumber": 50
+        },
+        {
+          "caller": "build_buckets",
+          "callee": "tuple",
+          "lineNumber": 51
+        },
+        {
+          "caller": "__init__",
+          "callee": "next",
+          "lineNumber": 81
+        },
+        {
+          "caller": "__init__",
+          "callee": "audio_tower.parameters",
+          "lineNumber": 81
+        },
+        {
+          "caller": "__init__",
+          "callee": "_get_feat_extract_output_lengths_int",
+          "lineNumber": 86
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._max_windows_for",
+          "lineNumber": 92
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 94
+        },
+        {
+          "caller": "capture_all",
+          "callee": "self._capture",
+          "lineNumber": 107
+        },
+        {
+          "caller": "capture_all",
+          "callee": "logger.warning",
+          "lineNumber": 109
+        },
+        {
+          "caller": "capture_all",
+          "callee": "self._failed.add",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "layer.self_attn_layer_norm",
+          "lineNumber": 125
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "dict",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "layer.self_attn",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "layer.final_layer_norm",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "layer.fc1",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "layer.activation_fn",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "layer.fc2",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "tower.ln_post",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "tower.proj1",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "tower.act",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_layer_stack",
+          "callee": "tower.proj2",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.zeros",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_capture",
+          "callee": "self._max_windows_for",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_capture",
+          "callee": "divmod",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_capture",
+          "callee": "bounds.append",
+          "lineNumber": 154
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.tensor",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_capture",
+          "callee": "current_platform.is_rocm",
+          "lineNumber": 157
+        },
+        {
+          "caller": "_capture",
+          "callee": "VisionAttentionMetadata",
+          "lineNumber": 162
+        },
+        {
+          "caller": "run_once",
+          "callee": "torch.no_grad",
+          "lineNumber": 170
+        },
+        {
+          "caller": "run_once",
+          "callee": "self._layer_stack",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.Stream",
+          "lineNumber": 173
+        },
+        {
+          "caller": "_capture",
+          "callee": "side.wait_stream",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 175
+        },
+        {
+          "caller": "_capture",
+          "callee": "range",
+          "lineNumber": 176
+        },
+        {
+          "caller": "_capture",
+          "callee": "run_once",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.current_stream(device).wait_stream",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.synchronize",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.CUDAGraph",
+          "lineNumber": 181
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.graph",
+          "lineNumber": 182
+        },
+        {
+          "caller": "_capture",
+          "callee": "run_once",
+          "lineNumber": 183
+        },
+        {
+          "caller": "_capture",
+          "callee": "logger.info",
+          "lineNumber": 184
+        },
+        {
+          "caller": "_capture",
+          "callee": "tuple",
+          "lineNumber": 188
+        },
+        {
+          "caller": "_capture",
+          "callee": "_CapturedGraph",
+          "lineNumber": 190
+        },
+        {
+          "caller": "run",
+          "callee": "int",
+          "lineNumber": 202
+        },
+        {
+          "caller": "run",
+          "callee": "sum",
+          "lineNumber": 203
+        },
+        {
+          "caller": "run",
+          "callee": "max",
+          "lineNumber": 205
+        },
+        {
+          "caller": "run",
+          "callee": "self._plan",
+          "lineNumber": 208
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 208
+        },
+        {
+          "caller": "run",
+          "callee": "self._graphs.get",
+          "lineNumber": 215
+        },
+        {
+          "caller": "run",
+          "callee": "self._capture",
+          "lineNumber": 218
+        },
+        {
+          "caller": "run",
+          "callee": "logger.warning",
+          "lineNumber": 220
+        },
+        {
+          "caller": "run",
+          "callee": "self._failed.add",
+          "lineNumber": 226
+        },
+        {
+          "caller": "run",
+          "callee": "bounds.append",
+          "lineNumber": 232
+        },
+        {
+          "caller": "run",
+          "callee": "torch.tensor",
+          "lineNumber": 233
+        },
+        {
+          "caller": "run",
+          "callee": "entry.hidden_states[:total].copy_",
+          "lineNumber": 235
+        },
+        {
+          "caller": "run",
+          "callee": "entry.cu_seqlens.copy_",
+          "lineNumber": 236
+        },
+        {
+          "caller": "run",
+          "callee": "entry.attention_metadata.seq_lens.copy_",
+          "lineNumber": 238
+        },
+        {
+          "caller": "run",
+          "callee": "entry.graph.replay",
+          "lineNumber": 239
+        },
+        {
+          "caller": "run",
+          "callee": "out.dim",
+          "lineNumber": 241
+        },
+        {
+          "caller": "run",
+          "callee": "out.squeeze",
+          "lineNumber": 242
+        },
+        {
+          "caller": "run",
+          "callee": "out[:total].clone",
+          "lineNumber": 243
+        },
+        {
+          "caller": "_plan",
+          "callee": "self._max_windows_for",
+          "lineNumber": 251
+        },
+        {
+          "caller": "_plan",
+          "callee": "divmod",
+          "lineNumber": 261
+        },
+        {
+          "caller": "_get_feat_extract_output_lengths_int",
+          "callee": "int",
+          "lineNumber": 271
+        },
+        {
+          "caller": "_get_feat_extract_output_lengths_int",
+          "callee": "qwen3_asr_num_audio_tokens",
+          "lineNumber": 271
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "torch.ceil(feature_lens / chunk_width).long",
+          "lineNumber": 281
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "torch.ceil",
+          "lineNumber": 281
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "torch.tensor",
+          "lineNumber": 282
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "chunk_num.sum",
+          "lineNumber": 283
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.pad(chunk_num, (1, 0), value=-1).cumsum",
+          "lineNumber": 287
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.pad",
+          "lineNumber": 287
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "input_features.T.split",
+          "lineNumber": 291
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "chunk_lengths.tolist",
+          "lineNumber": 291
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "torch.nn.utils.rnn.pad_sequence(\r\n        chunk_list, batch_first=True\r\n    ).transpose",
+          "lineNumber": 292
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "torch.nn.utils.rnn.pad_sequence",
+          "lineNumber": 292
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "_get_feat_extract_output_lengths_tensor",
+          "lineNumber": 296
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "int",
+          "lineNumber": 298
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "feature_lens_after_cnn.max().item",
+          "lineNumber": 298
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "feature_lens_after_cnn.max",
+          "lineNumber": 298
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "feature_lens_after_cnn.numel",
+          "lineNumber": 299
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "torch.arange",
+          "lineNumber": 302
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "idx.unsqueeze",
+          "lineNumber": 303
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "feature_lens_after_cnn.unsqueeze",
+          "lineNumber": 303
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_feature.unsqueeze",
+          "lineNumber": 305
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_feature.size",
+          "lineNumber": 306
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.gelu",
+          "lineNumber": 307
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.conv2d1",
+          "lineNumber": 307
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.gelu",
+          "lineNumber": 308
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.conv2d2",
+          "lineNumber": 308
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.gelu",
+          "lineNumber": 309
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.conv2d3",
+          "lineNumber": 309
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_feature.split",
+          "lineNumber": 312
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.gelu",
+          "lineNumber": 313
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.conv2d1",
+          "lineNumber": 313
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.gelu",
+          "lineNumber": 314
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.conv2d2",
+          "lineNumber": 314
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "F.gelu",
+          "lineNumber": 315
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.conv2d3",
+          "lineNumber": 315
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_embeds.append",
+          "lineNumber": 316
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "torch.cat",
+          "lineNumber": 317
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_embed.size",
+          "lineNumber": 319
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.conv_out",
+          "lineNumber": 320
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_embed.permute(0, 3, 1, 2).contiguous().view",
+          "lineNumber": 321
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_embed.permute(0, 3, 1, 2).contiguous",
+          "lineNumber": 321
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "padded_embed.permute",
+          "lineNumber": 321
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.positional_embedding.positional_embedding[: padded_embed.shape[1], :]\r\n        .unsqueeze(0)\r\n        .to",
+          "lineNumber": 324
+        },
+        {
+          "caller": "eager_preamble",
+          "callee": "tower.positional_embedding.positional_embedding[: padded_embed.shape[1], :]\r\n        .unsqueeze",
+          "lineNumber": 324
+        },
+        {
+          "caller": "window_lens_from_token_counts",
+          "callee": "divmod",
+          "lineNumber": 345
+        },
+        {
+          "caller": "window_lens_from_token_counts",
+          "callee": "int",
+          "lineNumber": 345
+        },
+        {
+          "caller": "window_lens_from_token_counts",
+          "callee": "out.extend",
+          "lineNumber": 346
+        },
+        {
+          "caller": "window_lens_from_token_counts",
+          "callee": "out.append",
+          "lineNumber": 348
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 5,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "models/qwen3_asr/languages.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "resolve_language",
+          "startLine": 47,
+          "endLine": 71,
+          "params": [
+            "language"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "resolve_language",
+          "line": 47,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resolve_language",
+          "callee": "str(language).strip",
+          "lineNumber": 50
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "str",
+          "lineNumber": 50
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "ValueError",
+          "lineNumber": 52
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "', '.join",
+          "lineNumber": 54
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "sorted",
+          "lineNumber": 54
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "value.casefold",
+          "lineNumber": 58
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "normalized.startswith",
+          "lineNumber": 59
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "LANGUAGE_CODE_TO_NAME.get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "_LANGUAGE_NAME_BY_CASEFOLD.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "ValueError",
+          "lineNumber": 68
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "', '.join",
+          "lineNumber": 70
+        },
+        {
+          "caller": "resolve_language",
+          "callee": "sorted",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/qwen3_asr/mrope_fast_path.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "_all_degenerate",
+          "startLine": 28,
+          "endLine": 32,
+          "params": [
+            "multimodal_inputs"
+          ]
+        },
+        {
+          "name": "_fast_compute_mrope_positions",
+          "startLine": 35,
+          "endLine": 55,
+          "params": [
+            "model_runner",
+            "batch"
+          ]
+        },
+        {
+          "name": "apply_asr_mrope_fast_path",
+          "startLine": 58,
+          "endLine": 76,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_all_degenerate",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "_fast_compute_mrope_positions",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "apply_asr_mrope_fast_path",
+          "line": 58,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_all_degenerate",
+          "callee": "getattr",
+          "lineNumber": 30
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "self.forward_mode.is_decode",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "_all_degenerate",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "_orig_compute_mrope_positions",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "self.seq_lens_cpu.to",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "row.unsqueeze(0)\r\n        .expand(3, -1)\r\n        .contiguous()\r\n        .to",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "row.unsqueeze(0)\r\n        .expand(3, -1)\r\n        .contiguous",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "row.unsqueeze(0)\r\n        .expand",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_fast_compute_mrope_positions",
+          "callee": "row.unsqueeze",
+          "lineNumber": 49
+        },
+        {
+          "caller": "apply_asr_mrope_fast_path",
+          "callee": "os.environ.get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "apply_asr_mrope_fast_path",
+          "callee": "logger.info",
+          "lineNumber": 63
+        },
+        {
+          "caller": "apply_asr_mrope_fast_path",
+          "callee": "logger.info",
+          "lineNumber": 76
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/qwen3_asr/request_builders.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 535,
+      "nonEmptyLines": 483,
+      "functions": [
+        {
+          "name": "_decode_token_ids",
+          "startLine": 71,
+          "endLine": 81,
+          "params": [
+            "tokenizer",
+            "token_ids",
+            "skip_special_tokens"
+          ]
+        },
+        {
+          "name": "_find_subsequence",
+          "startLine": 84,
+          "endLine": 91,
+          "params": [
+            "values",
+            "pattern"
+          ]
+        },
+        {
+          "name": "_encode_literal",
+          "startLine": 94,
+          "endLine": 102,
+          "params": [
+            "tokenizer",
+            "text"
+          ]
+        },
+        {
+          "name": "make_qwen3_asr_scheduler_adapters",
+          "startLine": 105,
+          "endLine": 434,
+          "params": [
+            "tokenizer",
+            "max_new_tokens",
+            "feature_extractor",
+            "context_length",
+            "audio_encoder_service",
+            "should_wait_for_encode"
+          ]
+        },
+        {
+          "name": "make_qwen3_asr_stream_output_builder",
+          "startLine": 437,
+          "endLine": 528,
+          "params": [
+            "tokenizer",
+            "eos_token_id",
+            "min_emit_interval_s"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Qwen3ASRRequestData",
+          "startLine": 63,
+          "endLine": 68,
+          "methods": [],
+          "properties": [
+            "prompt_token_ids",
+            "output_ids",
+            "audio_duration_s",
+            "language",
+            "engine_start_s"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Qwen3ASRRequestData",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "_decode_token_ids",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "_find_subsequence",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "_encode_literal",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "make_qwen3_asr_scheduler_adapters",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "make_qwen3_asr_stream_output_builder",
+          "line": 437,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_decode_token_ids",
+          "callee": "tokenizer.decode",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_decode_token_ids",
+          "callee": "tokenizer.decode",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_find_subsequence",
+          "callee": "len",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_find_subsequence",
+          "callee": "len",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_find_subsequence",
+          "callee": "range",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_find_subsequence",
+          "callee": "max",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_find_subsequence",
+          "callee": "len",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_encode_literal",
+          "callee": "hasattr",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_encode_literal",
+          "callee": "list",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_encode_literal",
+          "callee": "tokenizer.encode",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_encode_literal",
+          "callee": "tokenizer",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_encode_literal",
+          "callee": "hasattr",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_encode_literal",
+          "callee": "list",
+          "lineNumber": 102
+        },
+        {
+          "caller": "make_qwen3_asr_scheduler_adapters",
+          "callee": "ValueError",
+          "lineNumber": 118
+        },
+        {
+          "caller": "make_qwen3_asr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 120
+        },
+        {
+          "caller": "make_qwen3_asr_scheduler_adapters",
+          "callee": "tokenizer.convert_tokens_to_ids",
+          "lineNumber": 120
+        },
+        {
+          "caller": "make_qwen3_asr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 121
+        },
+        {
+          "caller": "make_qwen3_asr_scheduler_adapters",
+          "callee": "len",
+          "lineNumber": 125
+        },
+        {
+          "caller": "make_qwen3_asr_scheduler_adapters",
+          "callee": "_encode_literal",
+          "lineNumber": 126
+        },
+        {
+          "caller": "make_qwen3_asr_scheduler_adapters",
+          "callee": "lru_cache",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_prompt_parts",
+          "callee": "tokenizer",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_prompt_parts",
+          "callee": "enumerate",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_prompt_parts",
+          "callee": "len",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_prompt_parts",
+          "callee": "ValueError",
+          "lineNumber": 145
+        },
+        {
+          "caller": "_prompt_parts",
+          "callee": "tuple",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_prompt_parts",
+          "callee": "tuple",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_build_prompt_ids",
+          "callee": "_prompt_parts",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_validate_context_budget",
+          "callee": "len",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_validate_context_budget",
+          "callee": "ValueError",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_validate_context_budget",
+          "callee": "len",
+          "lineNumber": 167
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 177
+        },
+        {
+          "caller": "request_builder",
+          "callee": "str",
+          "lineNumber": 178
+        },
+        {
+          "caller": "request_builder",
+          "callee": "resolve_language",
+          "lineNumber": 180
+        },
+        {
+          "caller": "request_builder",
+          "callee": "prepare_audio",
+          "lineNumber": 183
+        },
+        {
+          "caller": "request_builder",
+          "callee": "ValueError",
+          "lineNumber": 187
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 195
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 197
+        },
+        {
+          "caller": "request_builder",
+          "callee": "max",
+          "lineNumber": 199
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 200
+        },
+        {
+          "caller": "request_builder",
+          "callee": "math.ceil",
+          "lineNumber": 201
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 207
+        },
+        {
+          "caller": "request_builder",
+          "callee": "ValueError",
+          "lineNumber": 209
+        },
+        {
+          "caller": "request_builder",
+          "callee": "ValueError",
+          "lineNumber": 213
+        },
+        {
+          "caller": "request_builder",
+          "callee": "len",
+          "lineNumber": 216
+        },
+        {
+          "caller": "request_builder",
+          "callee": "qwen3_asr_num_audio_tokens",
+          "lineNumber": 217
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_encoder_service.lookup_cached_embedding",
+          "lineNumber": 222
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_build_prompt_ids",
+          "lineNumber": 233
+        },
+        {
+          "caller": "request_builder",
+          "callee": "len",
+          "lineNumber": 238
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 239
+        },
+        {
+          "caller": "request_builder",
+          "callee": "min",
+          "lineNumber": 240
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_validate_context_budget",
+          "lineNumber": 242
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_extractor",
+          "lineNumber": 253
+        },
+        {
+          "caller": "request_builder",
+          "callee": "getattr",
+          "lineNumber": 264
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.ones",
+          "lineNumber": 267
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 272
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_attention_mask.sum().item",
+          "lineNumber": 272
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_attention_mask.sum",
+          "lineNumber": 272
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 273
+        },
+        {
+          "caller": "request_builder",
+          "callee": "qwen3_asr_num_audio_tokens",
+          "lineNumber": 273
+        },
+        {
+          "caller": "request_builder",
+          "callee": "logger.debug",
+          "lineNumber": 274
+        },
+        {
+          "caller": "request_builder",
+          "callee": "tuple",
+          "lineNumber": 276
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_build_prompt_ids",
+          "lineNumber": 288
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_validate_context_budget",
+          "lineNumber": 290
+        },
+        {
+          "caller": "request_builder",
+          "callee": "MultimodalDataItem",
+          "lineNumber": 292
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_item.set_pad_value",
+          "lineNumber": 309
+        },
+        {
+          "caller": "request_builder",
+          "callee": "input_ids.index",
+          "lineNumber": 310
+        },
+        {
+          "caller": "request_builder",
+          "callee": "MultimodalInputs",
+          "lineNumber": 317
+        },
+        {
+          "caller": "request_builder",
+          "callee": "len",
+          "lineNumber": 326
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.arange",
+          "lineNumber": 327
+        },
+        {
+          "caller": "request_builder",
+          "callee": "positions.unsqueeze(0).expand(3, -1).clone",
+          "lineNumber": 328
+        },
+        {
+          "caller": "request_builder",
+          "callee": "positions.unsqueeze(0).expand",
+          "lineNumber": 328
+        },
+        {
+          "caller": "request_builder",
+          "callee": "positions.unsqueeze",
+          "lineNumber": 328
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.tensor",
+          "lineNumber": 329
+        },
+        {
+          "caller": "request_builder",
+          "callee": "setattr",
+          "lineNumber": 332
+        },
+        {
+          "caller": "request_builder",
+          "callee": "float",
+          "lineNumber": 334
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 334
+        },
+        {
+          "caller": "request_builder",
+          "callee": "logger.debug",
+          "lineNumber": 335
+        },
+        {
+          "caller": "request_builder",
+          "callee": "dict",
+          "lineNumber": 337
+        },
+        {
+          "caller": "request_builder",
+          "callee": "SamplingParams",
+          "lineNumber": 339
+        },
+        {
+          "caller": "request_builder",
+          "callee": "sampling_params.normalize",
+          "lineNumber": 345
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_encoder_service.attach_embedding",
+          "lineNumber": 348
+        },
+        {
+          "caller": "request_builder",
+          "callee": "Req",
+          "lineNumber": 350
+        },
+        {
+          "caller": "request_builder",
+          "callee": "Qwen3ASRRequestData",
+          "lineNumber": 361
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.tensor",
+          "lineNumber": 362
+        },
+        {
+          "caller": "request_builder",
+          "callee": "time.perf_counter",
+          "lineNumber": 369
+        },
+        {
+          "caller": "request_builder",
+          "callee": "should_wait_for_encode",
+          "lineNumber": 380
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_encoder_service.encode_item",
+          "lineNumber": 381
+        },
+        {
+          "caller": "request_builder",
+          "callee": "DeferredAdmission",
+          "lineNumber": 383
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_encoder_service.submit_item",
+          "lineNumber": 385
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "list",
+          "lineNumber": 390
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "logger.isEnabledFor",
+          "lineNumber": 393
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_decode_token_ids",
+          "lineNumber": 394
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "logger.debug",
+          "lineNumber": 395
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "len",
+          "lineNumber": 396
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_find_subsequence",
+          "lineNumber": 399
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_decode_token_ids(\r\n                tokenizer,\r\n                output_ids[:asr_text_idx],\r\n                skip_special_tokens=True,\r\n            ).strip",
+          "lineNumber": 402
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_decode_token_ids",
+          "lineNumber": 402
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "prefix.partition",
+          "lineNumber": 407
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "label.casefold",
+          "lineNumber": 408
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "value.strip",
+          "lineNumber": 409
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "len",
+          "lineNumber": 413
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_decode_token_ids",
+          "lineNumber": 417
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "time.perf_counter",
+          "lineNumber": 419
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "StagePayload",
+          "lineNumber": 421
+        },
+        {
+          "caller": "make_qwen3_asr_stream_output_builder",
+          "callee": "int",
+          "lineNumber": 446
+        },
+        {
+          "caller": "make_qwen3_asr_stream_output_builder",
+          "callee": "_encode_literal",
+          "lineNumber": 448
+        },
+        {
+          "caller": "make_qwen3_asr_stream_output_builder",
+          "callee": "ValueError",
+          "lineNumber": 450
+        },
+        {
+          "caller": "make_qwen3_asr_stream_output_builder",
+          "callee": "make_token_text_stream_output_builder",
+          "lineNumber": 452
+        },
+        {
+          "caller": "make_qwen3_asr_stream_output_builder",
+          "callee": "_decode_token_ids",
+          "lineNumber": 453
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "token_stream_builder",
+          "lineNumber": 478
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "(stage_payload.request.params or {}).get",
+          "lineNumber": 480
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "token_stream_builder",
+          "lineNumber": 483
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "token_stream_builder",
+          "lineNumber": 488
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "token_stream_builder",
+          "lineNumber": 494
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "token_stream_builder",
+          "lineNumber": 498
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "int",
+          "lineNumber": 500
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "token_stream_builder",
+          "lineNumber": 502
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "token_stream_builder",
+          "lineNumber": 504
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "int",
+          "lineNumber": 507
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "range",
+          "lineNumber": 512
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "min",
+          "lineNumber": 512
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "len",
+          "lineNumber": 512
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "len",
+          "lineNumber": 512
+        },
+        {
+          "caller": "_build_stream_output",
+          "callee": "len",
+          "lineNumber": 517
+        },
+        {
+          "caller": "_flush_stream_output",
+          "callee": "token_stream_builder.flush",
+          "lineNumber": 525
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/qwen3_asr/sglang_model.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 355,
+      "nonEmptyLines": 314,
+      "functions": [
+        {
+          "name": "_normalize_asr_text_rope",
+          "startLine": 42,
+          "endLine": 58,
+          "params": [
+            "text_config"
+          ]
+        },
+        {
+          "name": "_fused_asr_forward_prepare_native",
+          "startLine": 61,
+          "endLine": 96,
+          "params": [
+            "attention",
+            "positions",
+            "hidden_states"
+          ]
+        },
+        {
+          "name": "_enable_fused_asr_qk_norm_rope",
+          "startLine": 99,
+          "endLine": 114,
+          "params": [
+            "language_model"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Qwen3ASRForConditionalGeneration",
+          "startLine": 117,
+          "endLine": 352,
+          "methods": [
+            "__init__",
+            "init_encoder_graphs",
+            "pad_input_ids",
+            "get_audio_feature",
+            "forward",
+            "load_weights"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_normalize_asr_text_rope",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "_fused_asr_forward_prepare_native",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "_enable_fused_asr_qk_norm_rope",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "Qwen3ASRForConditionalGeneration",
+          "line": 117,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_normalize_asr_text_rope",
+          "callee": "getattr",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_normalize_asr_text_rope",
+          "callee": "isinstance",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_normalize_asr_text_rope",
+          "callee": "setattr",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_normalize_asr_text_rope",
+          "callee": "parameters.items",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_fused_asr_forward_prepare_native",
+          "callee": "attention._asr_unfused_forward_prepare_native",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_fused_asr_forward_prepare_native",
+          "callee": "positions.to",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_fused_asr_forward_prepare_native",
+          "callee": "attention.qkv_proj",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_fused_asr_forward_prepare_native",
+          "callee": "fused_qk_norm_rope",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_fused_asr_forward_prepare_native",
+          "callee": "qkv.split",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_enable_fused_asr_qk_norm_rope",
+          "callee": "MethodType",
+          "lineNumber": 111
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 141
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 141
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 145
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen3OmniMoeAudioEncoderConfig",
+          "lineNumber": 146
+        },
+        {
+          "caller": "__init__",
+          "callee": "_normalize_asr_text_rope",
+          "lineNumber": 148
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen3OmniMoeAudioEncoder",
+          "lineNumber": 150
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen3ForCausalLM",
+          "lineNumber": 151
+        },
+        {
+          "caller": "__init__",
+          "callee": "add_prefix",
+          "lineNumber": 154
+        },
+        {
+          "caller": "__init__",
+          "callee": "_enable_fused_asr_qk_norm_rope",
+          "lineNumber": 156
+        },
+        {
+          "caller": "__init__",
+          "callee": "MultiModalityDataPaddingPatternMultimodalTokens",
+          "lineNumber": 157
+        },
+        {
+          "caller": "init_encoder_graphs",
+          "callee": "Qwen3ASREncoderLayerStackGraphRunner",
+          "lineNumber": 163
+        },
+        {
+          "caller": "init_encoder_graphs",
+          "callee": "build_buckets",
+          "lineNumber": 165
+        },
+        {
+          "caller": "init_encoder_graphs",
+          "callee": "runner.capture_all",
+          "lineNumber": 168
+        },
+        {
+          "caller": "pad_input_ids",
+          "callee": "self.pattern.pad_input_tokens",
+          "lineNumber": 172
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "next",
+          "lineNumber": 175
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "self.audio_tower.parameters",
+          "lineNumber": 175
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "getattr",
+          "lineNumber": 178
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "max",
+          "lineNumber": 186
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "any",
+          "lineNumber": 187
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "min",
+          "lineNumber": 188
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "zip",
+          "lineNumber": 190
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.ones",
+          "lineNumber": 192
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "ValueError",
+          "lineNumber": 198
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "tuple",
+          "lineNumber": 200
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "mask.to",
+          "lineNumber": 206
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "normalized_masks.append",
+          "lineNumber": 207
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "nn.functional.pad",
+          "lineNumber": 208
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "min",
+          "lineNumber": 212
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "nn.functional.pad",
+          "lineNumber": 214
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat(features).type(self.audio_tower.dtype).to",
+          "lineNumber": 218
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat(features).type",
+          "lineNumber": 218
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat",
+          "lineNumber": 218
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat(masks, dim=0).type(torch.long).to",
+          "lineNumber": 221
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat(masks, dim=0).type",
+          "lineNumber": 221
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat",
+          "lineNumber": 221
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.sum",
+          "lineNumber": 222
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "input_features.permute(0, 2, 1)[\r\n                feature_attention_mask.bool()\r\n            ].permute",
+          "lineNumber": 223
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "input_features.permute",
+          "lineNumber": 223
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "feature_attention_mask.bool",
+          "lineNumber": 224
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.tensor",
+          "lineNumber": 227
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "input_features.permute(0, 2, 1).reshape",
+          "lineNumber": 232
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "input_features.permute",
+          "lineNumber": 232
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "(item.model_specific_data or {}).get",
+          "lineNumber": 239
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "all",
+          "lineNumber": 242
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "window_lens_from_token_counts",
+          "lineNumber": 243
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "eager_preamble",
+          "lineNumber": 246
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "runner.run",
+          "lineNumber": 249
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "graphed.unsqueeze",
+          "lineNumber": 251
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "self.audio_tower",
+          "lineNumber": 253
+        },
+        {
+          "caller": "forward",
+          "callee": "positions.to(\r\n            dtype=(torch.int32 if fused_qk_norm_rope is not None else torch.long),\r\n            device=input_ids.device,\r\n            non_blocking=True,\r\n        ).contiguous",
+          "lineNumber": 268
+        },
+        {
+          "caller": "forward",
+          "callee": "positions.to",
+          "lineNumber": 268
+        },
+        {
+          "caller": "forward",
+          "callee": "general_mm_embed_routine",
+          "lineNumber": 274
+        },
+        {
+          "caller": "load_weights",
+          "callee": "dict",
+          "lineNumber": 299
+        },
+        {
+          "caller": "load_weights",
+          "callee": "self.named_parameters",
+          "lineNumber": 299
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 308
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 318
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 319
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 320
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 321
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 322
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 323
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 329
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 336
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name_tmp.endswith",
+          "lineNumber": 337
+        },
+        {
+          "caller": "load_weights",
+          "callee": "weight_loader",
+          "lineNumber": 343
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.endswith",
+          "lineNumber": 346
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 351
+        },
+        {
+          "caller": "load_weights",
+          "callee": "weight_loader",
+          "lineNumber": 352
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

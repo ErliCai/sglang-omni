@@ -1,0 +1,183 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "scheduling/speaker_cache.py",
+      "language": "python",
+      "sizeLines": 129,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/stage_cache.py",
+      "language": "python",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/streaming_simple_scheduler.py",
+      "language": "python",
+      "sizeLines": 551,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 513,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/threaded_simple_scheduler.py",
+      "language": "python",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/typed_tensor.py",
+      "language": "python",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/vocoder_base.py",
+      "language": "python",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/__init__.py",
+      "language": "python",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/generation_params.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/launcher.py",
+      "language": "python",
+      "sizeLines": 550,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/openai_api.py",
+      "language": "python",
+      "sizeLines": 1596,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/openai_errors.py",
+      "language": "python",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/protocol.py",
+      "language": "python",
+      "sizeLines": 658,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/__init__.py",
+      "language": "python",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/audio_buffer.py",
+      "language": "python",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/events.py",
+      "language": "python",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/manager.py",
+      "language": "python",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/session.py",
+      "language": "python",
+      "sizeLines": 907,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/vad.py",
+      "language": "python",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_errors.py",
+      "language": "python",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_limits.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_service.py",
+      "language": "python",
+      "sizeLines": 1053,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_to_text.py",
+      "language": "python",
+      "sizeLines": 545,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_voices.py",
+      "language": "python",
+      "sizeLines": 559,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_ws.py",
+      "language": "python",
+      "sizeLines": 665,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "scheduling/speaker_cache.py": [],
+    "scheduling/stage_cache.py": [],
+    "scheduling/streaming_simple_scheduler.py": [],
+    "scheduling/streaming_vocoder.py": [],
+    "scheduling/threaded_simple_scheduler.py": [],
+    "scheduling/typed_tensor.py": [],
+    "scheduling/vocoder_base.py": [],
+    "serve/__init__.py": [],
+    "serve/generation_params.py": [],
+    "serve/launcher.py": [],
+    "serve/openai_api.py": [],
+    "serve/openai_errors.py": [],
+    "serve/protocol.py": [],
+    "serve/realtime/__init__.py": [],
+    "serve/realtime/audio_buffer.py": [],
+    "serve/realtime/events.py": [],
+    "serve/realtime/manager.py": [],
+    "serve/realtime/session.py": [],
+    "serve/realtime/vad.py": [],
+    "serve/speech_errors.py": [],
+    "serve/speech_limits.py": [],
+    "serve/speech_service.py": [],
+    "serve/speech_to_text.py": [],
+    "serve/speech_voices.py": [],
+    "serve/speech_ws.py": []
+  },
+  "neighborMap": {}
+}

@@ -1,0 +1,185 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "models/qwen3_omni/components/thinker_fused_rope.py",
+      "language": "python",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/thinker_model.py",
+      "language": "python",
+      "sizeLines": 842,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/vision_compat.py",
+      "language": "python",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/config.py",
+      "language": "python",
+      "sizeLines": 403,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/hf_config.py",
+      "language": "python",
+      "sizeLines": 409,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/merge.py",
+      "language": "python",
+      "sizeLines": 293,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/mrope_positions.py",
+      "language": "python",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/payload_types.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/pending_text_queue.py",
+      "language": "python",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/placement.py",
+      "language": "python",
+      "sizeLines": 147,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/request_builders.py",
+      "language": "python",
+      "sizeLines": 1199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/stages.py",
+      "language": "python",
+      "sizeLines": 1206,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/talker_model_runner.py",
+      "language": "python",
+      "sizeLines": 503,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/talker_scheduler.py",
+      "language": "python",
+      "sizeLines": 162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/thinker_model_runner.py",
+      "language": "python",
+      "sizeLines": 324,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/compat.py",
+      "language": "python",
+      "sizeLines": 132,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/config.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/engine_builder.py",
+      "language": "python",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 401,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 1382,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/sampling_kernels.py",
+      "language": "python",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/sglang_model.py",
+      "language": "python",
+      "sizeLines": 1698,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/stages.py",
+      "language": "python",
+      "sizeLines": 213,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "models/qwen3_omni/components/thinker_fused_rope.py": [],
+    "models/qwen3_omni/components/thinker_model.py": [],
+    "models/qwen3_omni/components/vision_compat.py": [],
+    "models/qwen3_omni/config.py": [],
+    "models/qwen3_omni/hf_config.py": [],
+    "models/qwen3_omni/merge.py": [],
+    "models/qwen3_omni/mrope_positions.py": [],
+    "models/qwen3_omni/payload_types.py": [],
+    "models/qwen3_omni/pending_text_queue.py": [],
+    "models/qwen3_omni/placement.py": [],
+    "models/qwen3_omni/request_builders.py": [],
+    "models/qwen3_omni/stages.py": [],
+    "models/qwen3_omni/talker_model_runner.py": [],
+    "models/qwen3_omni/talker_scheduler.py": [],
+    "models/qwen3_omni/thinker_model_runner.py": [],
+    "models/qwen3_tts/__init__.py": [
+      "models/qwen3_tts/config.py"
+    ],
+    "models/qwen3_tts/compat.py": [],
+    "models/qwen3_tts/config.py": [],
+    "models/qwen3_tts/engine_builder.py": [],
+    "models/qwen3_tts/model_runner.py": [],
+    "models/qwen3_tts/payload_types.py": [],
+    "models/qwen3_tts/request_builders.py": [],
+    "models/qwen3_tts/sampling_kernels.py": [],
+    "models/qwen3_tts/sglang_model.py": [],
+    "models/qwen3_tts/stages.py": []
+  },
+  "neighborMap": {}
+}

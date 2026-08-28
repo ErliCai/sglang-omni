@@ -1,0 +1,609 @@
+{
+  "nodes": [
+    {
+      "id": "file:scheduling/speaker_cache.py",
+      "type": "file",
+      "name": "speaker_cache.py",
+      "filePath": "scheduling/speaker_cache.py",
+      "summary": "按模型、说话人和编码参数缓存 TTS 说话人制品，估算显存/主存占用并支持全局缓存复用。",
+      "tags": [
+        "scheduling",
+        "speaker-cache",
+        "tts",
+        "memory-accounting"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/speaker_cache.py:estimate_cache_bytes",
+      "type": "function",
+      "name": "estimate_cache_bytes",
+      "filePath": "scheduling/speaker_cache.py",
+      "lineRange": [
+        83,
+        106
+      ],
+      "summary": "估算estimate 缓存 字节逻辑，服务于scheduling、speaker-cache的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "speaker-cache",
+        "estimate-cache-bytes",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/speaker_cache.py:_encode_key",
+      "type": "function",
+      "name": "_encode_key",
+      "filePath": "scheduling/speaker_cache.py",
+      "lineRange": [
+        109,
+        117
+      ],
+      "summary": "编码编码 键逻辑，服务于scheduling、speaker-cache的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "speaker-cache",
+        "encode-key",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/speaker_cache.py:_encoded_key_voice_name",
+      "type": "function",
+      "name": "_encoded_key_voice_name",
+      "filePath": "scheduling/speaker_cache.py",
+      "lineRange": [
+        120,
+        122
+      ],
+      "summary": "解析已编码 键 音色 名称逻辑，服务于scheduling、speaker-cache的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "speaker-cache",
+        "encoded-key-voice-name",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/speaker_cache.py:get_speaker_artifact_cache",
+      "type": "function",
+      "name": "get_speaker_artifact_cache",
+      "filePath": "scheduling/speaker_cache.py",
+      "lineRange": [
+        128,
+        129
+      ],
+      "summary": "获取get 说话人 制品 缓存逻辑，服务于scheduling、speaker-cache的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "speaker-cache",
+        "get-speaker-artifact-cache",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/speaker_cache.py:SpeakerCacheKey",
+      "type": "class",
+      "name": "SpeakerCacheKey",
+      "filePath": "scheduling/speaker_cache.py",
+      "lineRange": [
+        20,
+        26
+      ],
+      "summary": "以模型修订、说话人、编码配置和输入指纹唯一标识说话人制品。",
+      "tags": [
+        "scheduling",
+        "speaker-cache",
+        "speaker-cache-key",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/speaker_cache.py:SpeakerArtifactCache",
+      "type": "class",
+      "name": "SpeakerArtifactCache",
+      "filePath": "scheduling/speaker_cache.py",
+      "lineRange": [
+        29,
+        80
+      ],
+      "summary": "按字节预算缓存说话人嵌入或参考音频码，并提供线程安全查询与淘汰。",
+      "tags": [
+        "scheduling",
+        "speaker-cache",
+        "speaker-artifact-cache",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scheduling/stage_cache.py",
+      "type": "file",
+      "name": "stage_cache.py",
+      "filePath": "scheduling/stage_cache.py",
+      "summary": "实现通用阶段输出 LRU 缓存，将张量安全分离并可固定到主机内存，同时按字节预算淘汰。",
+      "tags": [
+        "scheduling",
+        "stage-cache",
+        "lru",
+        "pinned-memory"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scheduling/stage_cache.py:_to_pinned_host",
+      "type": "function",
+      "name": "_to_pinned_host",
+      "filePath": "scheduling/stage_cache.py",
+      "lineRange": [
+        22,
+        27
+      ],
+      "summary": "转换to 固定页 主机逻辑，服务于scheduling、stage-cache的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "stage-cache",
+        "to-pinned-host",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/stage_cache.py:_detach_value",
+      "type": "function",
+      "name": "_detach_value",
+      "filePath": "scheduling/stage_cache.py",
+      "lineRange": [
+        30,
+        56
+      ],
+      "summary": "分离分离 值逻辑，服务于scheduling、stage-cache的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "stage-cache",
+        "detach-value",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/stage_cache.py:_value_size_bytes",
+      "type": "function",
+      "name": "_value_size_bytes",
+      "filePath": "scheduling/stage_cache.py",
+      "lineRange": [
+        59,
+        68
+      ],
+      "summary": "计算值 大小 字节逻辑，服务于scheduling、stage-cache的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "stage-cache",
+        "value-size-bytes",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/stage_cache.py:_CacheEntry",
+      "type": "class",
+      "name": "_CacheEntry",
+      "filePath": "scheduling/stage_cache.py",
+      "lineRange": [
+        17,
+        19
+      ],
+      "summary": "保存阶段缓存值、占用字节数和最近访问元数据。",
+      "tags": [
+        "scheduling",
+        "stage-cache",
+        "cache-entry",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/stage_cache.py:StageOutputCache",
+      "type": "class",
+      "name": "StageOutputCache",
+      "filePath": "scheduling/stage_cache.py",
+      "lineRange": [
+        71,
+        184
+      ],
+      "summary": "以 LRU 策略缓存阶段输出，将张量分离到安全主机存储并按容量淘汰。",
+      "tags": [
+        "scheduling",
+        "stage-cache",
+        "stage-output-cache",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scheduling/streaming_simple_scheduler.py",
+      "type": "file",
+      "name": "streaming_simple_scheduler.py",
+      "filePath": "scheduling/streaming_simple_scheduler.py",
+      "summary": "实现具备 inbox/outbox 的流式简单调度器，管理请求主负载、流块、完成信号、中止、超时和结果输出。",
+      "tags": [
+        "scheduling",
+        "streaming-scheduler",
+        "request-lifecycle",
+        "inbox-outbox"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:scheduling/streaming_simple_scheduler.py:StreamingSimpleScheduler",
+      "type": "class",
+      "name": "StreamingSimpleScheduler",
+      "filePath": "scheduling/streaming_simple_scheduler.py",
+      "lineRange": [
+        34,
+        551
+      ],
+      "summary": "协调流式请求的主负载与数据块到达顺序，处理完成、中止、超时和结果发送。",
+      "tags": [
+        "scheduling",
+        "streaming-scheduler",
+        "streaming-simple-scheduler",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scheduling/streaming_vocoder.py",
+      "type": "file",
+      "name": "streaming_vocoder.py",
+      "filePath": "scheduling/streaming_vocoder.py",
+      "summary": "定义流式声码器调度基类，协调码块摄取、批次参与者、解码节奏、资源释放和完整解码回退。",
+      "tags": [
+        "scheduling",
+        "streaming-vocoder",
+        "batching",
+        "audio-decode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scheduling/streaming_vocoder.py:resolve_initial_codec_chunk_frames",
+      "type": "function",
+      "name": "resolve_initial_codec_chunk_frames",
+      "filePath": "scheduling/streaming_vocoder.py",
+      "lineRange": [
+        57,
+        81
+      ],
+      "summary": "解析resolve 初始 编解码器 块 帧逻辑，服务于scheduling、streaming-vocoder的请求处理与协议转换。",
+      "tags": [
+        "scheduling",
+        "streaming-vocoder",
+        "resolve-initial-codec-chunk-frames",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/streaming_vocoder.py:StreamingVocoderBase",
+      "type": "class",
+      "name": "StreamingVocoderBase",
+      "filePath": "scheduling/streaming_vocoder.py",
+      "lineRange": [
+        84,
+        506
+      ],
+      "summary": "定义码流摄取、分批解码、步长选择、会话资源和最终音频组装的公共算法。",
+      "tags": [
+        "scheduling",
+        "streaming-vocoder",
+        "streaming-vocoder-base",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scheduling/threaded_simple_scheduler.py",
+      "type": "file",
+      "name": "threaded_simple_scheduler.py",
+      "filePath": "scheduling/threaded_simple_scheduler.py",
+      "summary": "在线程中运行简单调度循环，以带计数的 inbox 提供工作唤醒、停止、中止和异常传播。",
+      "tags": [
+        "scheduling",
+        "threaded-scheduler",
+        "inbox",
+        "concurrency"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:scheduling/threaded_simple_scheduler.py:_CountingInbox",
+      "type": "class",
+      "name": "_CountingInbox",
+      "filePath": "scheduling/threaded_simple_scheduler.py",
+      "lineRange": [
+        23,
+        63
+      ],
+      "summary": "包装消息队列并维护待处理计数，用于无忙等地唤醒调度线程。",
+      "tags": [
+        "scheduling",
+        "threaded-scheduler",
+        "counting-inbox",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scheduling/threaded_simple_scheduler.py:ThreadedSimpleScheduler",
+      "type": "class",
+      "name": "ThreadedSimpleScheduler",
+      "filePath": "scheduling/threaded_simple_scheduler.py",
+      "lineRange": [
+        66,
+        226
+      ],
+      "summary": "在后台线程运行请求调度循环并封装启动、停止、中止和异常传播。",
+      "tags": [
+        "scheduling",
+        "threaded-scheduler",
+        "threaded-simple-scheduler",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:estimate_cache_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:estimate_cache_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:_encode_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:_encode_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:_encoded_key_voice_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:_encoded_key_voice_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:get_speaker_artifact_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "function:scheduling/speaker_cache.py:get_speaker_artifact_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "class:scheduling/speaker_cache.py:SpeakerCacheKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "class:scheduling/speaker_cache.py:SpeakerCacheKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "class:scheduling/speaker_cache.py:SpeakerArtifactCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/speaker_cache.py",
+      "target": "class:scheduling/speaker_cache.py:SpeakerArtifactCache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "function:scheduling/stage_cache.py:_to_pinned_host",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "function:scheduling/stage_cache.py:_to_pinned_host",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "function:scheduling/stage_cache.py:_detach_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "function:scheduling/stage_cache.py:_detach_value",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "function:scheduling/stage_cache.py:_value_size_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "function:scheduling/stage_cache.py:_value_size_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "class:scheduling/stage_cache.py:_CacheEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "class:scheduling/stage_cache.py:_CacheEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "class:scheduling/stage_cache.py:StageOutputCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/stage_cache.py",
+      "target": "class:scheduling/stage_cache.py:StageOutputCache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/streaming_simple_scheduler.py",
+      "target": "class:scheduling/streaming_simple_scheduler.py:StreamingSimpleScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/streaming_simple_scheduler.py",
+      "target": "class:scheduling/streaming_simple_scheduler.py:StreamingSimpleScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/streaming_vocoder.py",
+      "target": "function:scheduling/streaming_vocoder.py:resolve_initial_codec_chunk_frames",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/streaming_vocoder.py",
+      "target": "function:scheduling/streaming_vocoder.py:resolve_initial_codec_chunk_frames",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/streaming_vocoder.py",
+      "target": "class:scheduling/streaming_vocoder.py:StreamingVocoderBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/streaming_vocoder.py",
+      "target": "class:scheduling/streaming_vocoder.py:StreamingVocoderBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/threaded_simple_scheduler.py",
+      "target": "class:scheduling/threaded_simple_scheduler.py:_CountingInbox",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/threaded_simple_scheduler.py",
+      "target": "class:scheduling/threaded_simple_scheduler.py:_CountingInbox",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/threaded_simple_scheduler.py",
+      "target": "class:scheduling/threaded_simple_scheduler.py:ThreadedSimpleScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/threaded_simple_scheduler.py",
+      "target": "class:scheduling/threaded_simple_scheduler.py:ThreadedSimpleScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:scheduling/stage_cache.py:_detach_value",
+      "target": "function:scheduling/stage_cache.py:_to_pinned_host",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:scheduling/speaker_cache.py:SpeakerArtifactCache",
+      "target": "class:scheduling/speaker_cache.py:SpeakerCacheKey",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:scheduling/streaming_simple_scheduler.py:StreamingSimpleScheduler",
+      "target": "class:scheduling/threaded_simple_scheduler.py:ThreadedSimpleScheduler",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

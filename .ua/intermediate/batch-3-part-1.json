@@ -1,0 +1,234 @@
+{
+  "nodes": [
+    {
+      "id": "file:sglang_omni/scheduling/sglang_backend/request_data.py",
+      "type": "file",
+      "name": "request_data.py",
+      "filePath": "sglang_omni/scheduling/sglang_backend/request_data.py",
+      "summary": "定义 SGLang 后端自回归与扩散语言模型请求的运行时数据容器，集中保存生成状态、嵌入、队列及完成原因。",
+      "tags": [
+        "data-model",
+        "scheduling",
+        "request-state",
+        "sglang-backend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/scheduling/sglang_backend/request_data.py:SGLangARRequestData",
+      "type": "class",
+      "name": "SGLangARRequestData",
+      "filePath": "sglang_omni/scheduling/sglang_backend/request_data.py",
+      "lineRange": [
+        14,
+        33
+      ],
+      "summary": "保存 SGLang 自回归请求在 prefill、decode 与 Talker 协作期间的完整可变状态。",
+      "tags": [
+        "data-model",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/scheduling/sglang_backend/request_data.py:SGLangDLLMRequestData",
+      "type": "class",
+      "name": "SGLangDLLMRequestData",
+      "filePath": "sglang_omni/scheduling/sglang_backend/request_data.py",
+      "lineRange": [
+        37,
+        43
+      ],
+      "summary": "保存扩散语言模型请求的输出 token、阶段载荷与完成原因。",
+      "tags": [
+        "data-model",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "type": "file",
+      "name": "server_args_builder.py",
+      "filePath": "sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "summary": "根据平台、算子配置与显存预算构造 SGLang ServerArgs，并规范化 CUDA Graph 与编码器内存预留参数。",
+      "tags": [
+        "configuration",
+        "factory",
+        "gpu-memory",
+        "sglang-backend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:_platform_device_type",
+      "type": "function",
+      "name": "_platform_device_type",
+      "filePath": "sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        18,
+        21
+      ],
+      "summary": "解析当前平台的 SGLang 设备类型，供 ServerArgs 构建使用。",
+      "tags": [
+        "utility",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:_normalize_decode_cuda_graph_overrides",
+      "type": "function",
+      "name": "_normalize_decode_cuda_graph_overrides",
+      "filePath": "sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        24,
+        35
+      ],
+      "summary": "规范化 decode CUDA Graph 覆盖项并检查相互冲突的配置。",
+      "tags": [
+        "utility",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:build_sglang_server_args",
+      "type": "function",
+      "name": "build_sglang_server_args",
+      "filePath": "sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        38,
+        76
+      ],
+      "summary": "综合模型、设备、并行与显存参数构建可启动的 SGLang ServerArgs。",
+      "tags": [
+        "utility",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:apply_encoder_mem_reserve",
+      "type": "function",
+      "name": "apply_encoder_mem_reserve",
+      "filePath": "sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        79,
+        105
+      ],
+      "summary": "将编码器显存预留折算到可供后端使用的静态显存比例。",
+      "tags": [
+        "utility",
+        "scheduling",
+        "python"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/request_data.py",
+      "target": "class:sglang_omni/scheduling/sglang_backend/request_data.py:SGLangARRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/request_data.py",
+      "target": "class:sglang_omni/scheduling/sglang_backend/request_data.py:SGLangARRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/request_data.py",
+      "target": "class:sglang_omni/scheduling/sglang_backend/request_data.py:SGLangDLLMRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/request_data.py",
+      "target": "class:sglang_omni/scheduling/sglang_backend/request_data.py:SGLangDLLMRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/request_data.py",
+      "target": "file:sglang_omni/scheduling/types.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:_platform_device_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:_platform_device_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:_normalize_decode_cuda_graph_overrides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:_normalize_decode_cuda_graph_overrides",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:build_sglang_server_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:build_sglang_server_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:apply_encoder_mem_reserve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:sglang_omni/scheduling/sglang_backend/server_args_builder.py:apply_encoder_mem_reserve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/scheduling/sglang_backend/server_args_builder.py",
+      "target": "file:sglang_omni/scheduling/generation_batch_policy.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

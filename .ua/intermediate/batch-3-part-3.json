@@ -1,0 +1,1346 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "type": "file",
+      "name": "test_pipeline.py",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "summary": "验证 ArkASR 配置注册、阶段拓扑、Pre-LM 编码器、异步解码以及 SGLang 基础设施生命周期。",
+      "tags": [
+        "test",
+        "arkasr",
+        "pipeline",
+        "integration-contract"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:_tiny_config",
+      "type": "function",
+      "name": "_tiny_config",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        34,
+        54
+      ],
+      "summary": "构造或处理 `_tiny_config` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "arkasr",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_config_registered",
+      "type": "function",
+      "name": "test_arkasr_config_registered",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        57,
+        74
+      ],
+      "summary": "验证 `test_arkasr_config_registered` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_stage_defaults",
+      "type": "function",
+      "name": "test_arkasr_stage_defaults",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        77,
+        92
+      ],
+      "summary": "验证 `test_arkasr_stage_defaults` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_group_matches_one_encoder_microbatch_by_default",
+      "type": "function",
+      "name": "test_arkasr_pre_lm_group_matches_one_encoder_microbatch_by_default",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        95,
+        105
+      ],
+      "summary": "验证 `test_arkasr_pre_lm_group_matches_one_encoder_microbatch_by_default` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_knobs_are_stage_configurable",
+      "type": "function",
+      "name": "test_arkasr_pre_lm_encoder_knobs_are_stage_configurable",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        108,
+        118
+      ],
+      "summary": "验证 `test_arkasr_pre_lm_encoder_knobs_are_stage_configurable` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_rejects_invalid_pre_lm_batch_size",
+      "type": "function",
+      "name": "test_arkasr_rejects_invalid_pre_lm_batch_size",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        121,
+        140
+      ],
+      "summary": "验证 `test_arkasr_rejects_invalid_pre_lm_batch_size` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_rejects_invalid_pre_lm_pending_limit",
+      "type": "function",
+      "name": "test_arkasr_rejects_invalid_pre_lm_pending_limit",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        143,
+        162
+      ],
+      "summary": "验证 `test_arkasr_rejects_invalid_pre_lm_pending_limit` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_stage_default_enables_async_decode",
+      "type": "function",
+      "name": "test_arkasr_stage_default_enables_async_decode",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        165,
+        169
+      ],
+      "summary": "验证 `test_arkasr_stage_default_enables_async_decode` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:_stub_arkasr_engine_build",
+      "type": "function",
+      "name": "_stub_arkasr_engine_build",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        172,
+        287
+      ],
+      "summary": "构造或处理 `_stub_arkasr_engine_build` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "arkasr",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_factory_triggers_deferred_cuda_graph_capture",
+      "type": "function",
+      "name": "test_arkasr_factory_triggers_deferred_cuda_graph_capture",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        291,
+        334
+      ],
+      "summary": "验证 `test_arkasr_factory_triggers_deferred_cuda_graph_capture` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_reaches_request_builder_and_shutdown",
+      "type": "function",
+      "name": "test_arkasr_pre_lm_encoder_reaches_request_builder_and_shutdown",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        337,
+        354
+      ],
+      "summary": "验证 `test_arkasr_pre_lm_encoder_reaches_request_builder_and_shutdown` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_can_be_disabled",
+      "type": "function",
+      "name": "test_arkasr_pre_lm_encoder_can_be_disabled",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        357,
+        374
+      ],
+      "summary": "验证 `test_arkasr_pre_lm_encoder_can_be_disabled` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_audio_token_count",
+      "type": "function",
+      "name": "test_arkasr_audio_token_count",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        377,
+        383
+      ],
+      "summary": "验证 `test_arkasr_audio_token_count` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_config_keeps_lm_params_at_top_level",
+      "type": "function",
+      "name": "test_arkasr_config_keeps_lm_params_at_top_level",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        386,
+        391
+      ],
+      "summary": "验证 `test_arkasr_config_keeps_lm_params_at_top_level` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_import_does_not_register_auto_config",
+      "type": "function",
+      "name": "test_arkasr_import_does_not_register_auto_config",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        394,
+        397
+      ],
+      "summary": "验证 `test_arkasr_import_does_not_register_auto_config` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_audio_tower_forward_shape",
+      "type": "function",
+      "name": "test_ark_audio_tower_forward_shape",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        400,
+        411
+      ],
+      "summary": "验证 `test_ark_audio_tower_forward_shape` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:_tiny_ark_audio_mm_model",
+      "type": "function",
+      "name": "_tiny_ark_audio_mm_model",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        414,
+        420
+      ],
+      "summary": "构造或处理 `_tiny_ark_audio_mm_model` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "arkasr",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:_ark_audio_item",
+      "type": "function",
+      "name": "_ark_audio_item",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        423,
+        441
+      ],
+      "summary": "构造或处理 `_ark_audio_item` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "arkasr",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_batched_matches_serial_and_uses_one_encoder_call",
+      "type": "function",
+      "name": "test_ark_get_audio_feature_batched_matches_serial_and_uses_one_encoder_call",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        444,
+        476
+      ],
+      "summary": "验证 `test_ark_get_audio_feature_batched_matches_serial_and_uses_one_encoder_call` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_splits_large_batches_in_order",
+      "type": "function",
+      "name": "test_ark_get_audio_feature_splits_large_batches_in_order",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        479,
+        506
+      ],
+      "summary": "验证 `test_ark_get_audio_feature_splits_large_batches_in_order` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_masks_pre_padded_garbage",
+      "type": "function",
+      "name": "test_ark_get_audio_feature_masks_pre_padded_garbage",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        509,
+        527
+      ],
+      "summary": "验证 `test_ark_get_audio_feature_masks_pre_padded_garbage` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_tower_rope_toggle",
+      "type": "function",
+      "name": "test_ark_tower_rope_toggle",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        530,
+        534
+      ],
+      "summary": "验证 `test_ark_tower_rope_toggle` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_suppressed_token_ids",
+      "type": "function",
+      "name": "test_ark_suppressed_token_ids",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        537,
+        560
+      ],
+      "summary": "验证 `test_ark_suppressed_token_ids` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_encoder_layer_fp16_clamp",
+      "type": "function",
+      "name": "test_ark_encoder_layer_fp16_clamp",
+      "filePath": "tests/unit_test/arkasr/test_pipeline.py",
+      "lineRange": [
+        563,
+        602
+      ],
+      "summary": "验证 `test_ark_encoder_layer_fp16_clamp` 场景所表达的行为、状态变化与边界条件。",
+      "tags": [
+        "test",
+        "unit-test",
+        "arkasr"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/fakes.py",
+      "type": "file",
+      "name": "fakes.py",
+      "filePath": "tests/unit_test/fakes.py",
+      "summary": "提供跨单元测试复用的执行桥与 ServerArgs 测试替身，隔离上游 SGLang 运行时依赖。",
+      "tags": [
+        "test-fixture",
+        "test-double",
+        "sglang-backend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fakes.py:FakeExecutionBridge",
+      "type": "class",
+      "name": "FakeExecutionBridge",
+      "filePath": "tests/unit_test/fakes.py",
+      "lineRange": [
+        10,
+        33
+      ],
+      "summary": "为测试提供 `FakeExecutionBridge` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fakes.py:FakeServerArgs",
+      "type": "class",
+      "name": "FakeServerArgs",
+      "filePath": "tests/unit_test/fakes.py",
+      "lineRange": [
+        36,
+        42
+      ],
+      "summary": "为测试提供 `FakeServerArgs` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "type": "file",
+      "name": "qwen_fakes.py",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "summary": "构造 Qwen3-Omni 状态、载荷、tokenizer 与各阶段模型替身，供流水线和调度器测试复用。",
+      "tags": [
+        "test-fixture",
+        "qwen3-omni",
+        "test-double",
+        "payload"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/unit_test/fixtures/qwen_fakes.py:make_qwen_state",
+      "type": "function",
+      "name": "make_qwen_state",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        36,
+        49
+      ],
+      "summary": "构造或处理 `make_qwen_state` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/unit_test/fixtures/qwen_fakes.py:make_qwen_payload",
+      "type": "function",
+      "name": "make_qwen_payload",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        52,
+        66
+      ],
+      "summary": "构造或处理 `make_qwen_payload` 对应的测试数据与运行环境，供同文件场景复用。",
+      "tags": [
+        "test-fixture",
+        "model-runner",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeQwenTokenizer",
+      "type": "class",
+      "name": "FakeQwenTokenizer",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        16,
+        33
+      ],
+      "summary": "为测试提供 `FakeQwenTokenizer` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeCodecEmbedding",
+      "type": "class",
+      "name": "FakeCodecEmbedding",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        69,
+        76
+      ],
+      "summary": "为测试提供 `FakeCodecEmbedding` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeTalkerProjectionModel",
+      "type": "class",
+      "name": "FakeTalkerProjectionModel",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        79,
+        93
+      ],
+      "summary": "为测试提供 `FakeTalkerProjectionModel` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeImageEncoderModel",
+      "type": "class",
+      "name": "FakeImageEncoderModel",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        96,
+        136
+      ],
+      "summary": "为测试提供 `FakeImageEncoderModel` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeAudioEncoderModel",
+      "type": "class",
+      "name": "FakeAudioEncoderModel",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        139,
+        153
+      ],
+      "summary": "为测试提供 `FakeAudioEncoderModel` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeCode2WavModel",
+      "type": "class",
+      "name": "FakeCode2WavModel",
+      "filePath": "tests/unit_test/fixtures/qwen_fakes.py",
+      "lineRange": [
+        156,
+        166
+      ],
+      "summary": "为测试提供 `FakeCode2WavModel` 替身，以可控方式模拟依赖、状态或硬件行为。",
+      "tags": [
+        "test-double",
+        "test-fixture",
+        "model-runner"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_tiny_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_tiny_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_config_registered",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_config_registered",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_stage_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_stage_defaults",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_group_matches_one_encoder_microbatch_by_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_group_matches_one_encoder_microbatch_by_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_knobs_are_stage_configurable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_knobs_are_stage_configurable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_rejects_invalid_pre_lm_batch_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_rejects_invalid_pre_lm_batch_size",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_rejects_invalid_pre_lm_pending_limit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_rejects_invalid_pre_lm_pending_limit",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_stage_default_enables_async_decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_stage_default_enables_async_decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_stub_arkasr_engine_build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_stub_arkasr_engine_build",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_factory_triggers_deferred_cuda_graph_capture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_factory_triggers_deferred_cuda_graph_capture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_reaches_request_builder_and_shutdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_reaches_request_builder_and_shutdown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_can_be_disabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_pre_lm_encoder_can_be_disabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_audio_token_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_audio_token_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_config_keeps_lm_params_at_top_level",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_config_keeps_lm_params_at_top_level",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_import_does_not_register_auto_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_arkasr_import_does_not_register_auto_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_audio_tower_forward_shape",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_audio_tower_forward_shape",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_tiny_ark_audio_mm_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_tiny_ark_audio_mm_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_ark_audio_item",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:_ark_audio_item",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_batched_matches_serial_and_uses_one_encoder_call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_batched_matches_serial_and_uses_one_encoder_call",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_splits_large_batches_in_order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_splits_large_batches_in_order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_masks_pre_padded_garbage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_get_audio_feature_masks_pre_padded_garbage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_tower_rope_toggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_tower_rope_toggle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_suppressed_token_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_suppressed_token_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_encoder_layer_fp16_clamp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "function:tests/unit_test/arkasr/test_pipeline.py:test_ark_encoder_layer_fp16_clamp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/model_runner/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/model_runner/base.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/audio_lengths.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/audio_lengths.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/audio_tower.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/audio_tower.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/config.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/configuration_arkasr.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/configuration_arkasr.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/engine_builder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/engine_builder.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/request_builders.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/request_builders.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/sglang_model.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/sglang_model.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/stages.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/arkasr/stages.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/registry.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/models/registry.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/platforms/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/scheduling/bootstrap.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/scheduling/bootstrap.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/scheduling/omni_scheduler.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/scheduling/omni_scheduler.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:sglang_omni/scheduling/sglang_backend/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/arkasr/test_pipeline.py",
+      "target": "file:tests/unit_test/fakes.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/fakes.py",
+      "target": "class:tests/unit_test/fakes.py:FakeExecutionBridge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fakes.py",
+      "target": "class:tests/unit_test/fakes.py:FakeExecutionBridge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fakes.py",
+      "target": "class:tests/unit_test/fakes.py:FakeServerArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fakes.py",
+      "target": "class:tests/unit_test/fakes.py:FakeServerArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "function:tests/unit_test/fixtures/qwen_fakes.py:make_qwen_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "function:tests/unit_test/fixtures/qwen_fakes.py:make_qwen_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "function:tests/unit_test/fixtures/qwen_fakes.py:make_qwen_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "function:tests/unit_test/fixtures/qwen_fakes.py:make_qwen_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeQwenTokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeQwenTokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeCodecEmbedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeCodecEmbedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeTalkerProjectionModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeTalkerProjectionModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeImageEncoderModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeImageEncoderModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeAudioEncoderModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeAudioEncoderModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeCode2WavModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "class:tests/unit_test/fixtures/qwen_fakes.py:FakeCode2WavModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "file:sglang_omni/models/qwen3_omni/payload_types.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "file:sglang_omni/models/qwen3_omni/payload_types.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/unit_test/fixtures/qwen_fakes.py",
+      "target": "file:sglang_omni/proto/__init__.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

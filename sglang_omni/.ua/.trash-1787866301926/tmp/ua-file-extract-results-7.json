@@ -1,0 +1,4096 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "relay/base.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 176,
+      "nonEmptyLines": 142,
+      "functions": [
+        {
+          "name": "register_relay",
+          "startLine": 17,
+          "endLine": 32,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "create_relay",
+          "startLine": 35,
+          "endLine": 77,
+          "params": [
+            "relay_type",
+            "**kwargs"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RelayOperation",
+          "startLine": 80,
+          "endLine": 100,
+          "methods": [
+            "metadata",
+            "wait_for_completion",
+            "mark_receiver_done",
+            "mark_receiver_failed"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Relay",
+          "startLine": 103,
+          "endLine": 136,
+          "methods": [
+            "put_async",
+            "get_async",
+            "cleanup",
+            "close"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CreditAllocator",
+          "startLine": 139,
+          "endLine": 176,
+          "methods": [
+            "__init__",
+            "acquire_async",
+            "release"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "register_relay",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "create_relay",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "RelayOperation",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "Relay",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "CreditAllocator",
+          "line": 139,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "decorator",
+          "callee": "logger.warning",
+          "lineNumber": 28
+        },
+        {
+          "caller": "create_relay",
+          "callee": "list",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create_relay",
+          "callee": "RELAY_REGISTRY.keys",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create_relay",
+          "callee": "ValueError",
+          "lineNumber": 60
+        },
+        {
+          "caller": "create_relay",
+          "callee": "inspect.signature",
+          "lineNumber": 67
+        },
+        {
+          "caller": "create_relay",
+          "callee": "valid_kwargs.update",
+          "lineNumber": 74
+        },
+        {
+          "caller": "create_relay",
+          "callee": "relay_cls",
+          "lineNumber": 77
+        },
+        {
+          "caller": "mark_receiver_done",
+          "callee": "NotImplementedError",
+          "lineNumber": 93
+        },
+        {
+          "caller": "mark_receiver_done",
+          "callee": "type",
+          "lineNumber": 94
+        },
+        {
+          "caller": "mark_receiver_failed",
+          "callee": "NotImplementedError",
+          "lineNumber": 98
+        },
+        {
+          "caller": "mark_receiver_failed",
+          "callee": "type",
+          "lineNumber": 99
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.Queue",
+          "lineNumber": 156
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 159
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._free_credits.put_nowait",
+          "lineNumber": 162
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._free_credits.put_nowait",
+          "lineNumber": 165
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "self._free_credits.get",
+          "lineNumber": 169
+        },
+        {
+          "caller": "release",
+          "callee": "self._free_credits.put_nowait",
+          "lineNumber": 174
+        },
+        {
+          "caller": "release",
+          "callee": "logger.error",
+          "lineNumber": 176
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 2,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "relay/cuda_ipc.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1209,
+      "nonEmptyLines": 1117,
+      "functions": [
+        {
+          "name": "_event_wait_threads_from_env",
+          "startLine": 37,
+          "endLine": 44,
+          "params": []
+        },
+        {
+          "name": "_synchronize_cuda_event",
+          "startLine": 47,
+          "endLine": 57,
+          "params": [
+            "event",
+            "device_index"
+          ]
+        },
+        {
+          "name": "_wait_for_cuda_event",
+          "startLine": 60,
+          "endLine": 89,
+          "params": [
+            "event",
+            "device_index",
+            "wait_executor",
+            "timeout",
+            "finish_on_interrupt"
+          ]
+        },
+        {
+          "name": "_cuda_event_elapsed_ms",
+          "startLine": 92,
+          "endLine": 101,
+          "params": [
+            "start_event",
+            "end_event"
+          ]
+        },
+        {
+          "name": "_parse_device_id",
+          "startLine": 104,
+          "endLine": 107,
+          "params": [
+            "device"
+          ]
+        },
+        {
+          "name": "_ensure_peer_access",
+          "startLine": 110,
+          "endLine": 129,
+          "params": [
+            "src_index",
+            "dst_index"
+          ]
+        },
+        {
+          "name": "_dump_cuda_storage_handle",
+          "startLine": 132,
+          "endLine": 154,
+          "params": [
+            "tensor"
+          ]
+        },
+        {
+          "name": "_load_cuda_storage_handle",
+          "startLine": 157,
+          "endLine": 179,
+          "params": [
+            "storage_meta",
+            "device"
+          ]
+        },
+        {
+          "name": "_slots_for_size",
+          "startLine": 182,
+          "endLine": 185,
+          "params": [
+            "size",
+            "slot_size"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "_CudaEventWaitResult",
+          "startLine": 32,
+          "endLine": 34,
+          "methods": [],
+          "properties": [
+            "worker_start_ns",
+            "worker_done_ns"
+          ]
+        },
+        {
+          "name": "_SlotLayout",
+          "startLine": 188,
+          "endLine": 192,
+          "methods": [],
+          "properties": [
+            "slot_index",
+            "free_slots",
+            "largest_free_run",
+            "free_runs"
+          ]
+        },
+        {
+          "name": "_SlotAllocation",
+          "startLine": 195,
+          "endLine": 203,
+          "methods": [],
+          "properties": [
+            "offset",
+            "wait_rounds",
+            "free_slots_before",
+            "largest_free_run_before",
+            "free_runs_before",
+            "last_failed_free_slots",
+            "last_failed_largest_free_run",
+            "last_failed_free_runs"
+          ]
+        },
+        {
+          "name": "_ReceiverAckOperation",
+          "startLine": 206,
+          "endLine": 244,
+          "methods": [
+            "__init__",
+            "metadata",
+            "_wait_for_receiver",
+            "wait_for_completion",
+            "mark_receiver_done",
+            "mark_receiver_failed"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CudaIpcPutOperation",
+          "startLine": 247,
+          "endLine": 322,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CudaIpcGetOperation",
+          "startLine": 325,
+          "endLine": 419,
+          "methods": [
+            "__init__",
+            "metadata",
+            "wait_for_completion",
+            "_release_references"
+          ],
+          "properties": []
+        },
+        {
+          "name": "_ContiguousSlotAllocator",
+          "startLine": 422,
+          "endLine": 538,
+          "methods": [
+            "__init__",
+            "acquire_async",
+            "release",
+            "_find_contiguous",
+            "_find_contiguous_with_layout"
+          ],
+          "properties": []
+        },
+        {
+          "name": "CudaIpcRelay",
+          "startLine": 542,
+          "endLine": 1209,
+          "methods": [
+            "__init__",
+            "__del__",
+            "_ensure_local_pool",
+            "_local_pool_state",
+            "_pool_storage_handle_for",
+            "_mark_failed",
+            "_raise_if_failed",
+            "_acquire_slots",
+            "_get_remote_pool",
+            "put_async",
+            "get_async",
+            "register_kv_pool",
+            "_export_kv_source_pool",
+            "prepare_kv_destination",
+            "put_kv_pages",
+            "get_kv_pages",
+            "cleanup",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_CudaEventWaitResult",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "_event_wait_threads_from_env",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "_synchronize_cuda_event",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "_wait_for_cuda_event",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "_cuda_event_elapsed_ms",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_device_id",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "_ensure_peer_access",
+          "line": 110,
+          "isDefault": false
+        },
+        {
+          "name": "_dump_cuda_storage_handle",
+          "line": 132,
+          "isDefault": false
+        },
+        {
+          "name": "_load_cuda_storage_handle",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "_slots_for_size",
+          "line": 182,
+          "isDefault": false
+        },
+        {
+          "name": "_SlotLayout",
+          "line": 188,
+          "isDefault": false
+        },
+        {
+          "name": "_SlotAllocation",
+          "line": 195,
+          "isDefault": false
+        },
+        {
+          "name": "_ReceiverAckOperation",
+          "line": 206,
+          "isDefault": false
+        },
+        {
+          "name": "CudaIpcPutOperation",
+          "line": 247,
+          "isDefault": false
+        },
+        {
+          "name": "CudaIpcGetOperation",
+          "line": 325,
+          "isDefault": false
+        },
+        {
+          "name": "_ContiguousSlotAllocator",
+          "line": 422,
+          "isDefault": false
+        },
+        {
+          "name": "CudaIpcRelay",
+          "line": 541,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_event_wait_threads_from_env",
+          "callee": "os.getenv",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_event_wait_threads_from_env",
+          "callee": "int",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_event_wait_threads_from_env",
+          "callee": "ValueError",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_synchronize_cuda_event",
+          "callee": "_comm_now_ns",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_synchronize_cuda_event",
+          "callee": "torch.cuda.device",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_synchronize_cuda_event",
+          "callee": "event.synchronize",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_synchronize_cuda_event",
+          "callee": "_CudaEventWaitResult",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_synchronize_cuda_event",
+          "callee": "_comm_now_ns",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "event.query",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "asyncio.get_running_loop",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "_comm_now_ns",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "loop.run_in_executor",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "asyncio.wait_for",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "asyncio.wait_for",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "asyncio.shield",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_wait_for_cuda_event",
+          "callee": "asyncio.shield",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_cuda_event_elapsed_ms",
+          "callee": "float",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_cuda_event_elapsed_ms",
+          "callee": "start_event.elapsed_time",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_parse_device_id",
+          "callee": "device.startswith",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_parse_device_id",
+          "callee": "int",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_parse_device_id",
+          "callee": "device.split",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_ensure_peer_access",
+          "callee": "torch.cuda.can_device_access_peer",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_ensure_peer_access",
+          "callee": "_PEER_UNAVAILABLE.add",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_ensure_peer_access",
+          "callee": "logger.warning",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_ensure_peer_access",
+          "callee": "_PEER_ENABLED.add",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "tensor.untyped_storage()._share_cuda_",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "tensor.untyped_storage",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 144
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "bool",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "tensor.numel",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_dump_cuda_storage_handle",
+          "callee": "tensor.storage_offset",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 162
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "rebuild_cuda_tensor",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 167
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "storage_meta.get",
+          "lineNumber": 167
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 172
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 173
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "int",
+          "lineNumber": 176
+        },
+        {
+          "caller": "_load_cuda_storage_handle",
+          "callee": "bool",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_slots_for_size",
+          "callee": "ValueError",
+          "lineNumber": 184
+        },
+        {
+          "caller": "_slots_for_size",
+          "callee": "max",
+          "lineNumber": 185
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.get_running_loop().create_future",
+          "lineNumber": 216
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.get_running_loop",
+          "lineNumber": 216
+        },
+        {
+          "caller": "_wait_for_receiver",
+          "callee": "asyncio.wait_for",
+          "lineNumber": 226
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._wait_for_receiver",
+          "lineNumber": 232
+        },
+        {
+          "caller": "mark_receiver_done",
+          "callee": "self._receiver_done.done",
+          "lineNumber": 238
+        },
+        {
+          "caller": "mark_receiver_done",
+          "callee": "_comm_now_ns",
+          "lineNumber": 239
+        },
+        {
+          "caller": "mark_receiver_done",
+          "callee": "self._receiver_done.set_result",
+          "lineNumber": 240
+        },
+        {
+          "caller": "mark_receiver_failed",
+          "callee": "self._receiver_done.done",
+          "lineNumber": 243
+        },
+        {
+          "caller": "mark_receiver_failed",
+          "callee": "self._receiver_done.set_exception",
+          "lineNumber": 244
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 265
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 265
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_now_ns",
+          "lineNumber": 281
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._wait_for_receiver",
+          "lineNumber": 283
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._fail_cb",
+          "lineNumber": 286
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._fail_cb",
+          "lineNumber": 294
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._release_cb",
+          "lineNumber": 301
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 304
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_cuda_event_elapsed_ms",
+          "lineNumber": 305
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 317
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 317
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 318
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 321
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_trace",
+          "lineNumber": 322
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_now_ns",
+          "lineNumber": 366
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_wait_for_cuda_event",
+          "lineNumber": 368
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._release_references",
+          "lineNumber": 376
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 379
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_cuda_event_elapsed_ms",
+          "lineNumber": 380
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._release_references",
+          "lineNumber": 381
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 390
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "trace_fields.update",
+          "lineNumber": 393
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 394
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 397
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 402
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 403
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 407
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "round",
+          "lineNumber": 408
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_comm_trace",
+          "lineNumber": 412
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 425
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 427
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.Lock",
+          "lineNumber": 432
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.Event",
+          "lineNumber": 433
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._changed.set",
+          "lineNumber": 434
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "ValueError",
+          "lineNumber": 440
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "ValueError",
+          "lineNumber": 442
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "self._find_contiguous",
+          "lineNumber": 453
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "range",
+          "lineNumber": 456
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "self._changed.clear",
+          "lineNumber": 460
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "_SlotAllocation",
+          "lineNumber": 461
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "self._find_contiguous_with_layout",
+          "lineNumber": 472
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "self._changed.clear",
+          "lineNumber": 477
+        },
+        {
+          "caller": "acquire_async",
+          "callee": "self._changed.wait",
+          "lineNumber": 478
+        },
+        {
+          "caller": "release",
+          "callee": "ValueError",
+          "lineNumber": 482
+        },
+        {
+          "caller": "release",
+          "callee": "ValueError",
+          "lineNumber": 484
+        },
+        {
+          "caller": "release",
+          "callee": "ValueError",
+          "lineNumber": 487
+        },
+        {
+          "caller": "release",
+          "callee": "range",
+          "lineNumber": 488
+        },
+        {
+          "caller": "release",
+          "callee": "RuntimeError",
+          "lineNumber": 490
+        },
+        {
+          "caller": "release",
+          "callee": "range",
+          "lineNumber": 491
+        },
+        {
+          "caller": "release",
+          "callee": "self._changed.set",
+          "lineNumber": 494
+        },
+        {
+          "caller": "_find_contiguous",
+          "callee": "enumerate",
+          "lineNumber": 499
+        },
+        {
+          "caller": "_find_contiguous_with_layout",
+          "callee": "enumerate",
+          "lineNumber": 518
+        },
+        {
+          "caller": "_find_contiguous_with_layout",
+          "callee": "max",
+          "lineNumber": 527
+        },
+        {
+          "caller": "_find_contiguous_with_layout",
+          "callee": "_SlotLayout",
+          "lineNumber": 533
+        },
+        {
+          "caller": "__init__",
+          "callee": "TypeError",
+          "lineNumber": 554
+        },
+        {
+          "caller": "__init__",
+          "callee": "', '.join",
+          "lineNumber": 555
+        },
+        {
+          "caller": "__init__",
+          "callee": "sorted",
+          "lineNumber": 555
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 559
+        },
+        {
+          "caller": "__init__",
+          "callee": "_parse_device_id",
+          "lineNumber": 564
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 566
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 567
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 569
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 571
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 572
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 577
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 579
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.Event",
+          "lineNumber": 594
+        },
+        {
+          "caller": "__init__",
+          "callee": "ThreadPoolExecutor",
+          "lineNumber": 595
+        },
+        {
+          "caller": "__init__",
+          "callee": "_event_wait_threads_from_env",
+          "lineNumber": 596
+        },
+        {
+          "caller": "__del__",
+          "callee": "self.close",
+          "lineNumber": 602
+        },
+        {
+          "caller": "__del__",
+          "callee": "logger.debug",
+          "lineNumber": 604
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "_comm_now_ns",
+          "lineNumber": 609
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "torch.device",
+          "lineNumber": 611
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "logger.info",
+          "lineNumber": 612
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "torch.cuda.device",
+          "lineNumber": 620
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "torch.empty",
+          "lineNumber": 621
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "os.getpid",
+          "lineNumber": 624
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "uuid.uuid4",
+          "lineNumber": 624
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "_ContiguousSlotAllocator",
+          "lineNumber": 625
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "_comm_trace",
+          "lineNumber": 629
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "round",
+          "lineNumber": 637
+        },
+        {
+          "caller": "_ensure_local_pool",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 637
+        },
+        {
+          "caller": "_local_pool_state",
+          "callee": "self._ensure_local_pool",
+          "lineNumber": 643
+        },
+        {
+          "caller": "_local_pool_state",
+          "callee": "RuntimeError",
+          "lineNumber": 648
+        },
+        {
+          "caller": "_local_pool_state",
+          "callee": "RuntimeError",
+          "lineNumber": 650
+        },
+        {
+          "caller": "_local_pool_state",
+          "callee": "RuntimeError",
+          "lineNumber": 652
+        },
+        {
+          "caller": "_pool_storage_handle_for",
+          "callee": "self._pool_storage_handles.get",
+          "lineNumber": 660
+        },
+        {
+          "caller": "_pool_storage_handle_for",
+          "callee": "_dump_cuda_storage_handle",
+          "lineNumber": 666
+        },
+        {
+          "caller": "_mark_failed",
+          "callee": "self._failed_event.set",
+          "lineNumber": 673
+        },
+        {
+          "caller": "_raise_if_failed",
+          "callee": "RuntimeError",
+          "lineNumber": 677
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "self._raise_if_failed",
+          "lineNumber": 682
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "asyncio.create_task",
+          "lineNumber": 683
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "allocator.acquire_async",
+          "lineNumber": 684
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "_comm_trace_enabled",
+          "lineNumber": 684
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "asyncio.create_task",
+          "lineNumber": 686
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "self._failed_event.wait",
+          "lineNumber": 686
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "asyncio.wait",
+          "lineNumber": 688
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "allocator.release",
+          "lineNumber": 694
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "acquire_task.result",
+          "lineNumber": 694
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "self._raise_if_failed",
+          "lineNumber": 695
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "RuntimeError",
+          "lineNumber": 696
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "acquire_task.result",
+          "lineNumber": 698
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "self._raise_if_failed",
+          "lineNumber": 700
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "allocator.release",
+          "lineNumber": 702
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "task.done",
+          "lineNumber": 707
+        },
+        {
+          "caller": "_acquire_slots",
+          "callee": "task.cancel",
+          "lineNumber": 708
+        },
+        {
+          "caller": "_get_remote_pool",
+          "callee": "self._remote_pools.get",
+          "lineNumber": 718
+        },
+        {
+          "caller": "_get_remote_pool",
+          "callee": "isinstance",
+          "lineNumber": 721
+        },
+        {
+          "caller": "_get_remote_pool",
+          "callee": "TypeError",
+          "lineNumber": 722
+        },
+        {
+          "caller": "_get_remote_pool",
+          "callee": "type",
+          "lineNumber": 724
+        },
+        {
+          "caller": "_get_remote_pool",
+          "callee": "_load_cuda_storage_handle",
+          "lineNumber": 726
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._raise_if_failed",
+          "lineNumber": 737
+        },
+        {
+          "caller": "put_async",
+          "callee": "ValueError",
+          "lineNumber": 739
+        },
+        {
+          "caller": "put_async",
+          "callee": "ValueError",
+          "lineNumber": 741
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._local_pool_state",
+          "lineNumber": 745
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.contiguous().view(torch.uint8).reshape",
+          "lineNumber": 746
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.contiguous().view",
+          "lineNumber": 746
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.contiguous",
+          "lineNumber": 746
+        },
+        {
+          "caller": "put_async",
+          "callee": "int",
+          "lineNumber": 747
+        },
+        {
+          "caller": "put_async",
+          "callee": "flat.numel",
+          "lineNumber": 747
+        },
+        {
+          "caller": "put_async",
+          "callee": "_slots_for_size",
+          "lineNumber": 748
+        },
+        {
+          "caller": "put_async",
+          "callee": "ValueError",
+          "lineNumber": 750
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 755
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._acquire_slots",
+          "lineNumber": 756
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 757
+        },
+        {
+          "caller": "put_async",
+          "callee": "int",
+          "lineNumber": 759
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 762
+        },
+        {
+          "caller": "put_async",
+          "callee": "torch.device",
+          "lineNumber": 764
+        },
+        {
+          "caller": "put_async",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 765
+        },
+        {
+          "caller": "put_async",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 766
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_trace_enabled",
+          "lineNumber": 767
+        },
+        {
+          "caller": "put_async",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 769
+        },
+        {
+          "caller": "put_async",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 772
+        },
+        {
+          "caller": "put_async",
+          "callee": "torch.cuda.device",
+          "lineNumber": 774
+        },
+        {
+          "caller": "put_async",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 774
+        },
+        {
+          "caller": "put_async",
+          "callee": "copy_start_event.record",
+          "lineNumber": 776
+        },
+        {
+          "caller": "put_async",
+          "callee": "pool_slice.copy_",
+          "lineNumber": 777
+        },
+        {
+          "caller": "put_async",
+          "callee": "copy_done_event.record",
+          "lineNumber": 779
+        },
+        {
+          "caller": "put_async",
+          "callee": "ready_event.record",
+          "lineNumber": 780
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 781
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 782
+        },
+        {
+          "caller": "put_async",
+          "callee": "ready_event.ipc_handle",
+          "lineNumber": 783
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 784
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 785
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._pool_storage_handle_for",
+          "lineNumber": 786
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 790
+        },
+        {
+          "caller": "put_async",
+          "callee": "allocator.release",
+          "lineNumber": 792
+        },
+        {
+          "caller": "put_async",
+          "callee": "_comm_trace",
+          "lineNumber": 794
+        },
+        {
+          "caller": "put_async",
+          "callee": "round",
+          "lineNumber": 809
+        },
+        {
+          "caller": "put_async",
+          "callee": "round",
+          "lineNumber": 810
+        },
+        {
+          "caller": "put_async",
+          "callee": "round",
+          "lineNumber": 811
+        },
+        {
+          "caller": "put_async",
+          "callee": "round",
+          "lineNumber": 813
+        },
+        {
+          "caller": "put_async",
+          "callee": "int",
+          "lineNumber": 820
+        },
+        {
+          "caller": "put_async",
+          "callee": "CudaIpcPutOperation",
+          "lineNumber": 833
+        },
+        {
+          "caller": "put_async",
+          "callee": "allocator.release",
+          "lineNumber": 841
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 854
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 858
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 861
+        },
+        {
+          "caller": "get_async",
+          "callee": "self._get_remote_pool",
+          "lineNumber": 862
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 863
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 865
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 866
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 867
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.device_count",
+          "lineNumber": 868
+        },
+        {
+          "caller": "get_async",
+          "callee": "_ensure_peer_access",
+          "lineNumber": 870
+        },
+        {
+          "caller": "get_async",
+          "callee": "RuntimeError",
+          "lineNumber": 871
+        },
+        {
+          "caller": "get_async",
+          "callee": "_PEER_VISIBILITY_WARNED.add",
+          "lineNumber": 879
+        },
+        {
+          "caller": "get_async",
+          "callee": "logger.warning",
+          "lineNumber": 880
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 888
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 890
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 891
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 892
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 893
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 894
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 896
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 898
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 900
+        },
+        {
+          "caller": "get_async",
+          "callee": "_slots_for_size",
+          "lineNumber": 901
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 902
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 904
+        },
+        {
+          "caller": "get_async",
+          "callee": "pool_tensor.numel",
+          "lineNumber": 904
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 905
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 907
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.Event.from_ipc_handle",
+          "lineNumber": 908
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 911
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_now_ns",
+          "lineNumber": 913
+        },
+        {
+          "caller": "get_async",
+          "callee": "pool_tensor.view(torch.uint8).reshape",
+          "lineNumber": 914
+        },
+        {
+          "caller": "get_async",
+          "callee": "pool_tensor.view",
+          "lineNumber": 914
+        },
+        {
+          "caller": "get_async",
+          "callee": "dest_tensor.view(torch.uint8).reshape",
+          "lineNumber": 915
+        },
+        {
+          "caller": "get_async",
+          "callee": "dest_tensor.view",
+          "lineNumber": 915
+        },
+        {
+          "caller": "get_async",
+          "callee": "dst.numel",
+          "lineNumber": 916
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 917
+        },
+        {
+          "caller": "get_async",
+          "callee": "dst.numel",
+          "lineNumber": 918
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 923
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_trace_enabled",
+          "lineNumber": 924
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 925
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 926
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.device",
+          "lineNumber": 927
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 927
+        },
+        {
+          "caller": "get_async",
+          "callee": "start_event.record",
+          "lineNumber": 929
+        },
+        {
+          "caller": "get_async",
+          "callee": "stream.wait_event",
+          "lineNumber": 930
+        },
+        {
+          "caller": "get_async",
+          "callee": "dst[:copy_len].copy_",
+          "lineNumber": 931
+        },
+        {
+          "caller": "get_async",
+          "callee": "done_event.record",
+          "lineNumber": 933
+        },
+        {
+          "caller": "get_async",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 934
+        },
+        {
+          "caller": "get_async",
+          "callee": "event.record",
+          "lineNumber": 935
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 936
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_trace",
+          "lineNumber": 937
+        },
+        {
+          "caller": "get_async",
+          "callee": "int",
+          "lineNumber": 944
+        },
+        {
+          "caller": "get_async",
+          "callee": "round",
+          "lineNumber": 947
+        },
+        {
+          "caller": "get_async",
+          "callee": "round",
+          "lineNumber": 948
+        },
+        {
+          "caller": "get_async",
+          "callee": "round",
+          "lineNumber": 949
+        },
+        {
+          "caller": "get_async",
+          "callee": "round",
+          "lineNumber": 950
+        },
+        {
+          "caller": "get_async",
+          "callee": "round",
+          "lineNumber": 951
+        },
+        {
+          "caller": "get_async",
+          "callee": "_comm_elapsed_ms",
+          "lineNumber": 951
+        },
+        {
+          "caller": "get_async",
+          "callee": "CudaIpcGetOperation",
+          "lineNumber": 953
+        },
+        {
+          "caller": "register_kv_pool",
+          "callee": "torch.device",
+          "lineNumber": 967
+        },
+        {
+          "caller": "register_kv_pool",
+          "callee": "ValueError",
+          "lineNumber": 969
+        },
+        {
+          "caller": "register_kv_pool",
+          "callee": "ValueError",
+          "lineNumber": 975
+        },
+        {
+          "caller": "register_kv_pool",
+          "callee": "self._kv_pool_registration_ids.setdefault",
+          "lineNumber": 980
+        },
+        {
+          "caller": "register_kv_pool",
+          "callee": "os.getpid",
+          "lineNumber": 982
+        },
+        {
+          "caller": "register_kv_pool",
+          "callee": "uuid.uuid4",
+          "lineNumber": 982
+        },
+        {
+          "caller": "_export_kv_source_pool",
+          "callee": "self._kv_pools.get",
+          "lineNumber": 991
+        },
+        {
+          "caller": "_export_kv_source_pool",
+          "callee": "KeyError",
+          "lineNumber": 993
+        },
+        {
+          "caller": "_export_kv_source_pool",
+          "callee": "self._kv_pool_storage_handles.get",
+          "lineNumber": 995
+        },
+        {
+          "caller": "_export_kv_source_pool",
+          "callee": "tuple",
+          "lineNumber": 997
+        },
+        {
+          "caller": "_export_kv_source_pool",
+          "callee": "_dump_cuda_storage_handle",
+          "lineNumber": 998
+        },
+        {
+          "caller": "_export_kv_source_pool",
+          "callee": "buffer.byte_view",
+          "lineNumber": 998
+        },
+        {
+          "caller": "_export_kv_source_pool",
+          "callee": "list",
+          "lineNumber": 1006
+        },
+        {
+          "caller": "prepare_kv_destination",
+          "callee": "self._kv_pools.get",
+          "lineNumber": 1011
+        },
+        {
+          "caller": "prepare_kv_destination",
+          "callee": "KeyError",
+          "lineNumber": 1013
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "self._kv_pools.get",
+          "lineNumber": 1028
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "KeyError",
+          "lineNumber": 1030
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 1036
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 1037
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "torch.cuda.device",
+          "lineNumber": 1038
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 1038
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "ready_event.record",
+          "lineNumber": 1039
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "self._export_kv_source_pool",
+          "lineNumber": 1040
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "sum",
+          "lineNumber": 1045
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "len",
+          "lineNumber": 1046
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "dict",
+          "lineNumber": 1050
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "ready_event.ipc_handle",
+          "lineNumber": 1051
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "_comm_trace",
+          "lineNumber": 1052
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "len",
+          "lineNumber": 1056
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "_ReceiverAckOperation",
+          "lineNumber": 1060
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "tuple",
+          "lineNumber": 1064
+        },
+        {
+          "caller": "put_kv_pages",
+          "callee": "buffer.byte_view",
+          "lineNumber": 1064
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "self._kv_pools.get",
+          "lineNumber": 1078
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "KeyError",
+          "lineNumber": 1080
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "int",
+          "lineNumber": 1084
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "int",
+          "lineNumber": 1085
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.cuda.device_count",
+          "lineNumber": 1086
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.cuda.can_device_access_peer",
+          "lineNumber": 1089
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "_comm_trace",
+          "lineNumber": 1094
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "RuntimeError",
+          "lineNumber": 1101
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "_ensure_peer_access",
+          "lineNumber": 1106
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "self._remote_kv_pools.get",
+          "lineNumber": 1110
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "tuple",
+          "lineNumber": 1113
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "_load_cuda_storage_handle",
+          "lineNumber": 1114
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "tuple",
+          "lineNumber": 1119
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "target.byte_view",
+          "lineNumber": 1120
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "zip",
+          "lineNumber": 1121
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.cuda.Event.from_ipc_handle",
+          "lineNumber": 1128
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.tensor",
+          "lineNumber": 1132
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.tensor",
+          "lineNumber": 1137
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 1142
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 1143
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.cuda.device",
+          "lineNumber": 1146
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 1146
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "stream.wait_event",
+          "lineNumber": 1147
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "transfer_kv_per_layer_mla",
+          "lineNumber": 1150
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "done_event.record",
+          "lineNumber": 1157
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "suppress",
+          "lineNumber": 1159
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "stream.synchronize",
+          "lineNumber": 1160
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "sum",
+          "lineNumber": 1162
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "len",
+          "lineNumber": 1163
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "_comm_trace",
+          "lineNumber": 1166
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "len",
+          "lineNumber": 1171
+        },
+        {
+          "caller": "get_kv_pages",
+          "callee": "CudaIpcGetOperation",
+          "lineNumber": 1178
+        },
+        {
+          "caller": "close",
+          "callee": "self._remote_pools.clear",
+          "lineNumber": 1201
+        },
+        {
+          "caller": "close",
+          "callee": "self._remote_kv_pools.clear",
+          "lineNumber": 1202
+        },
+        {
+          "caller": "close",
+          "callee": "self._kv_pool_storage_handles.clear",
+          "lineNumber": 1203
+        },
+        {
+          "caller": "close",
+          "callee": "self._kv_pool_registration_ids.clear",
+          "lineNumber": 1204
+        },
+        {
+          "caller": "close",
+          "callee": "self._kv_pools.clear",
+          "lineNumber": 1205
+        },
+        {
+          "caller": "close",
+          "callee": "self._pool_storage_handles.clear",
+          "lineNumber": 1206
+        },
+        {
+          "caller": "close",
+          "callee": "self._wait_executor.shutdown",
+          "lineNumber": 1209
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 17,
+        "functionCount": 9,
+        "classCount": 8
+      }
+    },
+    {
+      "path": "relay/mooncake.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 779,
+      "nonEmptyLines": 644,
+      "classes": [
+        {
+          "name": "MooncakeConnection",
+          "startLine": 74,
+          "endLine": 257,
+          "methods": [
+            "__init__",
+            "register_memory",
+            "deregister_memory",
+            "transfer_sync_write",
+            "transfer_sync_read",
+            "transfer_sync",
+            "get_notifies",
+            "close"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MooncakeOperation",
+          "startLine": 265,
+          "endLine": 275,
+          "methods": [
+            "__init__",
+            "metadata"
+          ],
+          "properties": []
+        },
+        {
+          "name": "PutOperation",
+          "startLine": 278,
+          "endLine": 315,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "GetOperation",
+          "startLine": 318,
+          "endLine": 369,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MooncakeRelay",
+          "startLine": 378,
+          "endLine": 779,
+          "methods": [
+            "__init__",
+            "put_async",
+            "get_async",
+            "_ensure_listener_started",
+            "_notification_listener_loop",
+            "_register_notification",
+            "_wait_for_mooncake_notification",
+            "cleanup",
+            "health",
+            "close"
+          ],
+          "properties": [
+            "_notification_registry"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MooncakeConnection",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "MooncakeOperation",
+          "line": 265,
+          "isDefault": false
+        },
+        {
+          "name": "PutOperation",
+          "line": 278,
+          "isDefault": false
+        },
+        {
+          "name": "GetOperation",
+          "line": 318,
+          "isDefault": false
+        },
+        {
+          "name": "MooncakeRelay",
+          "line": 377,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "TransferEngine",
+          "lineNumber": 102
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.debug",
+          "lineNumber": 105
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.engine.initialize",
+          "lineNumber": 108
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.debug",
+          "lineNumber": 114
+        },
+        {
+          "caller": "__init__",
+          "callee": "RuntimeError",
+          "lineNumber": 117
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.engine.get_rpc_port",
+          "lineNumber": 122
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 127
+        },
+        {
+          "caller": "register_memory",
+          "callee": "logger.warning",
+          "lineNumber": 144
+        },
+        {
+          "caller": "register_memory",
+          "callee": "hex",
+          "lineNumber": 144
+        },
+        {
+          "caller": "register_memory",
+          "callee": "self.engine.register_memory",
+          "lineNumber": 148
+        },
+        {
+          "caller": "register_memory",
+          "callee": "RuntimeError",
+          "lineNumber": 151
+        },
+        {
+          "caller": "register_memory",
+          "callee": "logger.debug",
+          "lineNumber": 156
+        },
+        {
+          "caller": "register_memory",
+          "callee": "hex",
+          "lineNumber": 156
+        },
+        {
+          "caller": "deregister_memory",
+          "callee": "logger.warning",
+          "lineNumber": 162
+        },
+        {
+          "caller": "deregister_memory",
+          "callee": "hex",
+          "lineNumber": 162
+        },
+        {
+          "caller": "deregister_memory",
+          "callee": "self.engine.unregister_memory",
+          "lineNumber": 166
+        },
+        {
+          "caller": "deregister_memory",
+          "callee": "logger.debug",
+          "lineNumber": 168
+        },
+        {
+          "caller": "deregister_memory",
+          "callee": "hex",
+          "lineNumber": 168
+        },
+        {
+          "caller": "deregister_memory",
+          "callee": "logger.error",
+          "lineNumber": 170
+        },
+        {
+          "caller": "transfer_sync_write",
+          "callee": "self.engine.transfer_sync_write",
+          "lineNumber": 187
+        },
+        {
+          "caller": "transfer_sync_write",
+          "callee": "RuntimeError",
+          "lineNumber": 189
+        },
+        {
+          "caller": "transfer_sync_read",
+          "callee": "self.engine.transfer_sync_read",
+          "lineNumber": 207
+        },
+        {
+          "caller": "transfer_sync_read",
+          "callee": "RuntimeError",
+          "lineNumber": 209
+        },
+        {
+          "caller": "transfer_sync",
+          "callee": "self.engine.transfer_sync",
+          "lineNumber": 235
+        },
+        {
+          "caller": "transfer_sync",
+          "callee": "RuntimeError",
+          "lineNumber": 239
+        },
+        {
+          "caller": "get_notifies",
+          "callee": "self.engine.get_notifies",
+          "lineNumber": 249
+        },
+        {
+          "caller": "close",
+          "callee": "list",
+          "lineNumber": 254
+        },
+        {
+          "caller": "close",
+          "callee": "self._memory_handles.keys",
+          "lineNumber": 254
+        },
+        {
+          "caller": "close",
+          "callee": "self.deregister_memory",
+          "lineNumber": 255
+        },
+        {
+          "caller": "close",
+          "callee": "logger.info",
+          "lineNumber": 257
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 293
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 293
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "MooncakeRelay._wait_for_mooncake_notification",
+          "lineNumber": 309
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._on_completion_cb",
+          "lineNumber": 315
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 335
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 335
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "TransferNotify",
+          "lineNumber": 349
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "asyncio.get_event_loop().run_in_executor",
+          "lineNumber": 353
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "asyncio.get_event_loop",
+          "lineNumber": 353
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._on_completion_cb",
+          "lineNumber": 369
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.device",
+          "lineNumber": 420
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 426
+        },
+        {
+          "caller": "__init__",
+          "callee": "device.split",
+          "lineNumber": 426
+        },
+        {
+          "caller": "__init__",
+          "callee": "socket.gethostname",
+          "lineNumber": 432
+        },
+        {
+          "caller": "__init__",
+          "callee": "MooncakeConnection",
+          "lineNumber": 435
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 446
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.zeros",
+          "lineNumber": 451
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.pool_tensor.data_ptr",
+          "lineNumber": 454
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.connection.register_memory",
+          "lineNumber": 458
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 461
+        },
+        {
+          "caller": "__init__",
+          "callee": "hex",
+          "lineNumber": 462
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.warning",
+          "lineNumber": 466
+        },
+        {
+          "caller": "__init__",
+          "callee": "CreditAllocator",
+          "lineNumber": 469
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 479
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._ensure_listener_started",
+          "lineNumber": 506
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.numel",
+          "lineNumber": 508
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.element_size",
+          "lineNumber": 508
+        },
+        {
+          "caller": "put_async",
+          "callee": "ValueError",
+          "lineNumber": 510
+        },
+        {
+          "caller": "put_async",
+          "callee": "uuid.uuid4",
+          "lineNumber": 515
+        },
+        {
+          "caller": "put_async",
+          "callee": "logger.debug",
+          "lineNumber": 516
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._register_notification",
+          "lineNumber": 521
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.allocator.acquire_async",
+          "lineNumber": 524
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.view(torch.uint8).reshape",
+          "lineNumber": 529
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.view",
+          "lineNumber": 529
+        },
+        {
+          "caller": "put_async",
+          "callee": "pool_slice.copy_",
+          "lineNumber": 530
+        },
+        {
+          "caller": "put_async",
+          "callee": "list",
+          "lineNumber": 547
+        },
+        {
+          "caller": "put_async",
+          "callee": "str",
+          "lineNumber": 548
+        },
+        {
+          "caller": "cleanup_callback",
+          "callee": "self.allocator.release",
+          "lineNumber": 556
+        },
+        {
+          "caller": "put_async",
+          "callee": "PutOperation",
+          "lineNumber": 558
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.allocator.release",
+          "lineNumber": 568
+        },
+        {
+          "caller": "get_async",
+          "callee": "self._ensure_listener_started",
+          "lineNumber": 587
+        },
+        {
+          "caller": "get_async",
+          "callee": "logger.debug",
+          "lineNumber": 598
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 603
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.allocator.acquire_async",
+          "lineNumber": 608
+        },
+        {
+          "caller": "get_async",
+          "callee": "dest_tensor.numel",
+          "lineNumber": 612
+        },
+        {
+          "caller": "get_async",
+          "callee": "dest_tensor.element_size",
+          "lineNumber": 612
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 615
+        },
+        {
+          "caller": "cleanup_callback",
+          "callee": "dest_tensor.view(torch.uint8).reshape",
+          "lineNumber": 628
+        },
+        {
+          "caller": "cleanup_callback",
+          "callee": "dest_tensor.view",
+          "lineNumber": 628
+        },
+        {
+          "caller": "cleanup_callback",
+          "callee": "dest_view.copy_",
+          "lineNumber": 629
+        },
+        {
+          "caller": "cleanup_callback",
+          "callee": "self.allocator.release",
+          "lineNumber": 631
+        },
+        {
+          "caller": "get_async",
+          "callee": "GetOperation",
+          "lineNumber": 634
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.allocator.release",
+          "lineNumber": 645
+        },
+        {
+          "caller": "_ensure_listener_started",
+          "callee": "self._listener_task.done",
+          "lineNumber": 650
+        },
+        {
+          "caller": "_ensure_listener_started",
+          "callee": "asyncio.get_event_loop",
+          "lineNumber": 652
+        },
+        {
+          "caller": "_ensure_listener_started",
+          "callee": "loop.create_task",
+          "lineNumber": 653
+        },
+        {
+          "caller": "_ensure_listener_started",
+          "callee": "self._notification_listener_loop",
+          "lineNumber": 654
+        },
+        {
+          "caller": "_ensure_listener_started",
+          "callee": "logger.debug",
+          "lineNumber": 656
+        },
+        {
+          "caller": "_ensure_listener_started",
+          "callee": "logger.error",
+          "lineNumber": 660
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "logger.debug",
+          "lineNumber": 669
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "self.connection.get_notifies",
+          "lineNumber": 674
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "logger.debug",
+          "lineNumber": 681
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "self._notification_registry[transfer_id].set",
+          "lineNumber": 688
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "logger.debug",
+          "lineNumber": 689
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "asyncio.sleep",
+          "lineNumber": 694
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "logger.error",
+          "lineNumber": 698
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "asyncio.sleep",
+          "lineNumber": 701
+        },
+        {
+          "caller": "_notification_listener_loop",
+          "callee": "logger.debug",
+          "lineNumber": 703
+        },
+        {
+          "caller": "_register_notification",
+          "callee": "asyncio.Event",
+          "lineNumber": 709
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "cls._register_notification",
+          "lineNumber": 722
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "logger.debug",
+          "lineNumber": 724
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "asyncio.wait_for",
+          "lineNumber": 728
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "event.wait",
+          "lineNumber": 728
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "logger.debug",
+          "lineNumber": 729
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "logger.error",
+          "lineNumber": 731
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "asyncio.TimeoutError",
+          "lineNumber": 734
+        },
+        {
+          "caller": "_wait_for_mooncake_notification",
+          "callee": "cls._notification_registry.pop",
+          "lineNumber": 738
+        },
+        {
+          "caller": "close",
+          "callee": "logger.info",
+          "lineNumber": 764
+        },
+        {
+          "caller": "close",
+          "callee": "self._listener_task.done",
+          "lineNumber": 768
+        },
+        {
+          "caller": "close",
+          "callee": "self._listener_task.cancel",
+          "lineNumber": 769
+        },
+        {
+          "caller": "close",
+          "callee": "logger.info",
+          "lineNumber": 770
+        },
+        {
+          "caller": "close",
+          "callee": "self.connection.deregister_memory",
+          "lineNumber": 773
+        },
+        {
+          "caller": "close",
+          "callee": "logger.info",
+          "lineNumber": 774
+        },
+        {
+          "caller": "close",
+          "callee": "self.connection.close",
+          "lineNumber": 777
+        },
+        {
+          "caller": "close",
+          "callee": "logger.info",
+          "lineNumber": 779
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "relay/nccl.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 313,
+      "nonEmptyLines": 253,
+      "classes": [
+        {
+          "name": "Connection",
+          "startLine": 20,
+          "endLine": 80,
+          "methods": [
+            "__init__",
+            "get_agent_metadata",
+            "ensure_remote_agent"
+          ],
+          "properties": []
+        },
+        {
+          "name": "NcclOperation",
+          "startLine": 83,
+          "endLine": 99,
+          "methods": [
+            "__init__",
+            "metadata"
+          ],
+          "properties": []
+        },
+        {
+          "name": "PutOperation",
+          "startLine": 102,
+          "endLine": 132,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "GetOperation",
+          "startLine": 135,
+          "endLine": 161,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "NcclRelay",
+          "startLine": 165,
+          "endLine": 313,
+          "methods": [
+            "__init__",
+            "put_async",
+            "get_async",
+            "cleanup",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Connection",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "NcclOperation",
+          "line": 83,
+          "isDefault": false
+        },
+        {
+          "name": "PutOperation",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "GetOperation",
+          "line": 135,
+          "isDefault": false
+        },
+        {
+          "name": "NcclRelay",
+          "line": 164,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "any",
+          "lineNumber": 39
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 40
+        },
+        {
+          "caller": "__init__",
+          "callee": "dist.is_initialized",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.environ.setdefault",
+          "lineNumber": 45
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.environ.setdefault",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 48
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.device_count",
+          "lineNumber": 49
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.set_device",
+          "lineNumber": 50
+        },
+        {
+          "caller": "__init__",
+          "callee": "dist.init_process_group",
+          "lineNumber": 54
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.device",
+          "lineNumber": 58
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.current_device",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "dist.new_group",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "list",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ensure_remote_agent",
+          "callee": "remote_meta_bytes.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "ensure_remote_agent",
+          "callee": "logger.warning",
+          "lineNumber": 77
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 113
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 113
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "time.time",
+          "lineNumber": 120
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._work.is_completed",
+          "lineNumber": 122
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "time.time",
+          "lineNumber": 123
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "TimeoutError",
+          "lineNumber": 124
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "asyncio.sleep",
+          "lineNumber": 125
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._work.wait",
+          "lineNumber": 127
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._on_completion_cb",
+          "lineNumber": 132
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 146
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 146
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "time.time",
+          "lineNumber": 152
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._work.is_completed",
+          "lineNumber": 154
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "time.time",
+          "lineNumber": 155
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "TimeoutError",
+          "lineNumber": 156
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "asyncio.sleep",
+          "lineNumber": 157
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._work.wait",
+          "lineNumber": 159
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 183
+        },
+        {
+          "caller": "__init__",
+          "callee": "device.split",
+          "lineNumber": 183
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.is_available",
+          "lineNumber": 187
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.set_device",
+          "lineNumber": 188
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 191
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.environ.get",
+          "lineNumber": 191
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 192
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.environ.get",
+          "lineNumber": 192
+        },
+        {
+          "caller": "__init__",
+          "callee": "Connection",
+          "lineNumber": 194
+        },
+        {
+          "caller": "__init__",
+          "callee": "CreditAllocator",
+          "lineNumber": 201
+        },
+        {
+          "caller": "__init__",
+          "callee": "dist.barrier",
+          "lineNumber": 204
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.error",
+          "lineNumber": 206
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 209
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.tensor",
+          "lineNumber": 213
+        },
+        {
+          "caller": "__init__",
+          "callee": "dist.isend",
+          "lineNumber": 218
+        },
+        {
+          "caller": "__init__",
+          "callee": "warmup_reqs.append",
+          "lineNumber": 219
+        },
+        {
+          "caller": "__init__",
+          "callee": "dist.irecv",
+          "lineNumber": 222
+        },
+        {
+          "caller": "__init__",
+          "callee": "warmup_reqs.append",
+          "lineNumber": 223
+        },
+        {
+          "caller": "__init__",
+          "callee": "req.wait",
+          "lineNumber": 227
+        },
+        {
+          "caller": "__init__",
+          "callee": "dist.barrier",
+          "lineNumber": 229
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.error",
+          "lineNumber": 232
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 237
+        },
+        {
+          "caller": "put_async",
+          "callee": "len",
+          "lineNumber": 247
+        },
+        {
+          "caller": "put_async",
+          "callee": "ValueError",
+          "lineNumber": 250
+        },
+        {
+          "caller": "put_async",
+          "callee": "logger.warning",
+          "lineNumber": 255
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.allocator.acquire_async",
+          "lineNumber": 259
+        },
+        {
+          "caller": "put_async",
+          "callee": "dist.isend",
+          "lineNumber": 261
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.connection.get_agent_metadata",
+          "lineNumber": 267
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.numel",
+          "lineNumber": 269
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.element_size",
+          "lineNumber": 269
+        },
+        {
+          "caller": "put_async",
+          "callee": "list",
+          "lineNumber": 271
+        },
+        {
+          "caller": "put_async",
+          "callee": "str",
+          "lineNumber": 272
+        },
+        {
+          "caller": "put_async",
+          "callee": "PutOperation",
+          "lineNumber": 276
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.allocator.release",
+          "lineNumber": 281
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection.ensure_remote_agent",
+          "lineNumber": 296
+        },
+        {
+          "caller": "get_async",
+          "callee": "dist.irecv",
+          "lineNumber": 300
+        },
+        {
+          "caller": "get_async",
+          "callee": "GetOperation",
+          "lineNumber": 302
+        },
+        {
+          "caller": "close",
+          "callee": "dist.is_initialized",
+          "lineNumber": 312
+        },
+        {
+          "caller": "close",
+          "callee": "dist.destroy_process_group",
+          "lineNumber": 313
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "relay/nixl.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 354,
+      "nonEmptyLines": 295,
+      "classes": [
+        {
+          "name": "Connection",
+          "startLine": 30,
+          "endLine": 46,
+          "methods": [
+            "__init__",
+            "get_agent_metadata",
+            "ensure_remote_agent"
+          ],
+          "properties": []
+        },
+        {
+          "name": "NixlOperation",
+          "startLine": 49,
+          "endLine": 59,
+          "methods": [
+            "__init__",
+            "metadata"
+          ],
+          "properties": []
+        },
+        {
+          "name": "PutOperation",
+          "startLine": 62,
+          "endLine": 109,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "GetOperation",
+          "startLine": 112,
+          "endLine": 166,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "NixlRelay",
+          "startLine": 175,
+          "endLine": 354,
+          "methods": [
+            "__init__",
+            "put_async",
+            "get_async",
+            "cleanup",
+            "close"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Connection",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "NixlOperation",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "PutOperation",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "GetOperation",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "NixlRelay",
+          "line": 174,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "nixl_agent_config",
+          "lineNumber": 33
+        },
+        {
+          "caller": "__init__",
+          "callee": "NixlAgent",
+          "lineNumber": 34
+        },
+        {
+          "caller": "__init__",
+          "callee": "str",
+          "lineNumber": 34
+        },
+        {
+          "caller": "__init__",
+          "callee": "uuid.uuid4",
+          "lineNumber": 34
+        },
+        {
+          "caller": "get_agent_metadata",
+          "callee": "self._nixl.get_agent_metadata",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ensure_remote_agent",
+          "callee": "self._nixl.add_remote_agent",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 76
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 76
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "time.time",
+          "lineNumber": 84
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._conn._nixl.get_new_notifs",
+          "lineNumber": 87
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "notifs.values",
+          "lineNumber": 89
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "time.time",
+          "lineNumber": 97
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "TimeoutError",
+          "lineNumber": 98
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "asyncio.sleep",
+          "lineNumber": 103
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._on_completion_cb",
+          "lineNumber": 109
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 128
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 128
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._conn._nixl.check_xfer_state",
+          "lineNumber": 144
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "RuntimeError",
+          "lineNumber": 148
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "asyncio.sleep",
+          "lineNumber": 150
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._conn._nixl.release_xfer_handle",
+          "lineNumber": 153
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._dest_tensor.view(torch.uint8).reshape",
+          "lineNumber": 160
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._dest_tensor.view",
+          "lineNumber": 160
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "dest_view.copy_",
+          "lineNumber": 161
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._on_completion_cb",
+          "lineNumber": 166
+        },
+        {
+          "caller": "__init__",
+          "callee": "Connection",
+          "lineNumber": 185
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 191
+        },
+        {
+          "caller": "__init__",
+          "callee": "device.split",
+          "lineNumber": 191
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.zeros",
+          "lineNumber": 199
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.pool_tensor.data_ptr",
+          "lineNumber": 202
+        },
+        {
+          "caller": "__init__",
+          "callee": "CreditAllocator",
+          "lineNumber": 204
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 209
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.connection._nixl.register_memory",
+          "lineNumber": 215
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.numel",
+          "lineNumber": 229
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.element_size",
+          "lineNumber": 229
+        },
+        {
+          "caller": "put_async",
+          "callee": "ValueError",
+          "lineNumber": 231
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.allocator.acquire_async",
+          "lineNumber": 234
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.view(torch.uint8).reshape",
+          "lineNumber": 239
+        },
+        {
+          "caller": "put_async",
+          "callee": "tensor.view",
+          "lineNumber": 239
+        },
+        {
+          "caller": "put_async",
+          "callee": "pool_slice.copy_",
+          "lineNumber": 240
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.connection.get_agent_metadata",
+          "lineNumber": 246
+        },
+        {
+          "caller": "put_async",
+          "callee": "PutOperation",
+          "lineNumber": 258
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.allocator.release",
+          "lineNumber": 262
+        },
+        {
+          "caller": "put_async",
+          "callee": "self.allocator.release",
+          "lineNumber": 267
+        },
+        {
+          "caller": "get_async",
+          "callee": "xfer_info.get",
+          "lineNumber": 284
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 286
+        },
+        {
+          "caller": "get_async",
+          "callee": "ValueError",
+          "lineNumber": 289
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.allocator.acquire_async",
+          "lineNumber": 292
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection.ensure_remote_agent",
+          "lineNumber": 295
+        },
+        {
+          "caller": "get_async",
+          "callee": "metadata.get",
+          "lineNumber": 299
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection._nixl.get_xfer_descs",
+          "lineNumber": 303
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection._nixl.prep_xfer_dlist",
+          "lineNumber": 306
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection._nixl.get_xfer_descs",
+          "lineNumber": 310
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection._nixl.prep_xfer_dlist",
+          "lineNumber": 313
+        },
+        {
+          "caller": "get_async",
+          "callee": "np.arange",
+          "lineNumber": 318
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection._nixl.make_prepped_xfer",
+          "lineNumber": 319
+        },
+        {
+          "caller": "get_async",
+          "callee": "f\"done\".encode",
+          "lineNumber": 325
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.connection._nixl.transfer",
+          "lineNumber": 327
+        },
+        {
+          "caller": "get_async",
+          "callee": "GetOperation",
+          "lineNumber": 333
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.allocator.release",
+          "lineNumber": 339
+        },
+        {
+          "caller": "get_async",
+          "callee": "self.allocator.release",
+          "lineNumber": 343
+        },
+        {
+          "caller": "close",
+          "callee": "self.connection._nixl.deregister_memory",
+          "lineNumber": 352
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "relay/shm.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 207,
+      "nonEmptyLines": 167,
+      "functions": [
+        {
+          "name": "shm_create_from_tensor",
+          "startLine": 25,
+          "endLine": 33,
+          "params": [
+            "tensor"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ShmOperation",
+          "startLine": 36,
+          "endLine": 45,
+          "methods": [
+            "__init__",
+            "metadata"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ShmPutOperation",
+          "startLine": 48,
+          "endLine": 98,
+          "methods": [
+            "__init__",
+            "wait_for_completion",
+            "mark_receiver_done",
+            "mark_receiver_failed",
+            "_unlink_if_present"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ShmGetOperation",
+          "startLine": 101,
+          "endLine": 142,
+          "methods": [
+            "__init__",
+            "wait_for_completion"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ShmRelay",
+          "startLine": 146,
+          "endLine": 207,
+          "methods": [
+            "__init__",
+            "put_async",
+            "get_async",
+            "cleanup",
+            "close",
+            "reset_pool"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "shm_create_from_tensor",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "ShmOperation",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "ShmPutOperation",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "ShmGetOperation",
+          "line": 101,
+          "isDefault": false
+        },
+        {
+          "name": "ShmRelay",
+          "line": 145,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "shm_create_from_tensor",
+          "callee": "tensor.numpy().reshape",
+          "lineNumber": 26
+        },
+        {
+          "caller": "shm_create_from_tensor",
+          "callee": "tensor.numpy",
+          "lineNumber": 26
+        },
+        {
+          "caller": "shm_create_from_tensor",
+          "callee": "_shm.SharedMemory",
+          "lineNumber": 29
+        },
+        {
+          "caller": "shm_create_from_tensor",
+          "callee": "np.ndarray",
+          "lineNumber": 30
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 59
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 59
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.get_running_loop().create_future",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.get_running_loop",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "shm_obj.close",
+          "lineNumber": 63
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "asyncio.wait_for",
+          "lineNumber": 69
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._unlink_if_present",
+          "lineNumber": 71
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "TimeoutError",
+          "lineNumber": 72
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._unlink_if_present",
+          "lineNumber": 76
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._release_cb",
+          "lineNumber": 80
+        },
+        {
+          "caller": "mark_receiver_done",
+          "callee": "self._receiver_done.done",
+          "lineNumber": 83
+        },
+        {
+          "caller": "mark_receiver_done",
+          "callee": "self._receiver_done.set_result",
+          "lineNumber": 84
+        },
+        {
+          "caller": "mark_receiver_failed",
+          "callee": "self._receiver_done.done",
+          "lineNumber": 87
+        },
+        {
+          "caller": "mark_receiver_failed",
+          "callee": "self._receiver_done.set_exception",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_unlink_if_present",
+          "callee": "_shm.SharedMemory",
+          "lineNumber": 92
+        },
+        {
+          "caller": "_unlink_if_present",
+          "callee": "shm.unlink",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_unlink_if_present",
+          "callee": "shm.close",
+          "lineNumber": 98
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 105
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 105
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "_shm.SharedMemory",
+          "lineNumber": 118
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "RuntimeError",
+          "lineNumber": 120
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "np.ndarray",
+          "lineNumber": 123
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "torch.from_numpy",
+          "lineNumber": 124
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._dest_tensor.view(torch.uint8).reshape",
+          "lineNumber": 126
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "self._dest_tensor.view",
+          "lineNumber": 126
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "dest_view.numel",
+          "lineNumber": 127
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "ValueError",
+          "lineNumber": 128
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "dest_view.numel",
+          "lineNumber": 129
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "dest_view[:size].copy_",
+          "lineNumber": 132
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "existing_shm.close",
+          "lineNumber": 135
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "existing_shm.unlink",
+          "lineNumber": 137
+        },
+        {
+          "caller": "wait_for_completion",
+          "callee": "logger.debug",
+          "lineNumber": 139
+        },
+        {
+          "caller": "__init__",
+          "callee": "asyncio.Semaphore",
+          "lineNumber": 156
+        },
+        {
+          "caller": "put_async",
+          "callee": "str",
+          "lineNumber": 167
+        },
+        {
+          "caller": "put_async",
+          "callee": "uuid.uuid4",
+          "lineNumber": 167
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._sem.acquire",
+          "lineNumber": 169
+        },
+        {
+          "caller": "put_async",
+          "callee": "shm_create_from_tensor",
+          "lineNumber": 172
+        },
+        {
+          "caller": "put_async",
+          "callee": "ShmPutOperation",
+          "lineNumber": 182
+        },
+        {
+          "caller": "put_async",
+          "callee": "self._sem.release",
+          "lineNumber": 190
+        },
+        {
+          "caller": "get_async",
+          "callee": "ShmGetOperation",
+          "lineNumber": 197
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 1,
+        "classCount": 4
+      }
+    }
+  ]
+}

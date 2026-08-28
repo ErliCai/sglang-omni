@@ -1,0 +1,6748 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 16,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 16,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 16,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/minimax_music3/acoustic.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 475,
+      "nonEmptyLines": 434,
+      "functions": [
+        {
+          "name": "_derive_seed",
+          "startLine": 45,
+          "endLine": 53,
+          "params": [
+            "seed"
+          ]
+        },
+        {
+          "name": "resample_waveform",
+          "startLine": 56,
+          "endLine": 59,
+          "params": [
+            "waveform"
+          ]
+        },
+        {
+          "name": "_positive_int",
+          "startLine": 62,
+          "endLine": 65,
+          "params": [
+            "name",
+            "value"
+          ]
+        },
+        {
+          "name": "_non_negative_number",
+          "startLine": 68,
+          "endLine": 76,
+          "params": [
+            "name",
+            "value"
+          ]
+        },
+        {
+          "name": "_boolean",
+          "startLine": 79,
+          "endLine": 82,
+          "params": [
+            "name",
+            "value"
+          ]
+        },
+        {
+          "name": "_compile_timed",
+          "startLine": 85,
+          "endLine": 90,
+          "params": [
+            "label",
+            "enable"
+          ]
+        },
+        {
+          "name": "_resolve_acoustic_dtype",
+          "startLine": 93,
+          "endLine": 110,
+          "params": [
+            "value"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniMaxMusic3AcousticDecoder",
+          "startLine": 113,
+          "endLine": 311,
+          "methods": [
+            "__init__",
+            "_build_dit",
+            "_build_dav",
+            "decode_with_state"
+          ],
+          "properties": []
+        },
+        {
+          "name": "_AcousticStreamState",
+          "startLine": 315,
+          "endLine": 324,
+          "methods": [],
+          "properties": [
+            "final_state",
+            "wave_chunks",
+            "hidden_frames",
+            "last_latent",
+            "last_condition",
+            "started_at",
+            "abort_event",
+            "next_chunk_idx",
+            "next_start_frame"
+          ]
+        },
+        {
+          "name": "MiniMaxMusic3AcousticScheduler",
+          "startLine": 327,
+          "endLine": 467,
+          "methods": [
+            "__init__",
+            "is_streaming_payload",
+            "on_streaming_new_request",
+            "on_stream_chunk",
+            "on_stream_done",
+            "abort",
+            "clear_stream_state"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_derive_seed",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "resample_waveform",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "_positive_int",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "_non_negative_number",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "_boolean",
+          "line": 79,
+          "isDefault": false
+        },
+        {
+          "name": "_compile_timed",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "_resolve_acoustic_dtype",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3AcousticDecoder",
+          "line": 113,
+          "isDefault": false
+        },
+        {
+          "name": "_AcousticStreamState",
+          "line": 314,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3AcousticScheduler",
+          "line": 327,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_derive_seed",
+          "callee": "hashlib.blake2b",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "digest.update",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "int(seed).to_bytes",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "int",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "str(part).encode",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "str",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "digest.update",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "len(raw).to_bytes",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "len",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "digest.update",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "int.from_bytes",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_derive_seed",
+          "callee": "digest.digest",
+          "lineNumber": 53
+        },
+        {
+          "caller": "resample_waveform",
+          "callee": "AF.resample",
+          "lineNumber": 59
+        },
+        {
+          "caller": "resample_waveform",
+          "callee": "waveform.float",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_positive_int",
+          "callee": "isinstance",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_positive_int",
+          "callee": "isinstance",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_positive_int",
+          "callee": "ValueError",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_non_negative_number",
+          "callee": "isinstance",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_non_negative_number",
+          "callee": "isinstance",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_non_negative_number",
+          "callee": "math.isfinite",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_non_negative_number",
+          "callee": "float",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_non_negative_number",
+          "callee": "float",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_non_negative_number",
+          "callee": "ValueError",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_non_negative_number",
+          "callee": "float",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_boolean",
+          "callee": "isinstance",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_boolean",
+          "callee": "ValueError",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_compile_timed",
+          "callee": "time.perf_counter",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_compile_timed",
+          "callee": "enable",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_compile_timed",
+          "callee": "logger.info",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_compile_timed",
+          "callee": "time.perf_counter",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "isinstance",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "str(value).removeprefix",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "str",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "isinstance",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "value.removeprefix(\"torch.\").lower",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "value.removeprefix",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "ValueError",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "ValueError",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "\", \".join",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_resolve_acoustic_dtype",
+          "callee": "sorted",
+          "lineNumber": 105
+        },
+        {
+          "caller": "__init__",
+          "callee": "current_platform.is_cuda",
+          "lineNumber": 135
+        },
+        {
+          "caller": "__init__",
+          "callee": "current_platform.is_musa",
+          "lineNumber": 135
+        },
+        {
+          "caller": "__init__",
+          "callee": "RuntimeError",
+          "lineNumber": 136
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.backends.cuda.enable_cudnn_sdp",
+          "lineNumber": 140
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.device",
+          "lineNumber": 141
+        },
+        {
+          "caller": "__init__",
+          "callee": "RuntimeError",
+          "lineNumber": 143
+        },
+        {
+          "caller": "__init__",
+          "callee": "_resolve_acoustic_dtype",
+          "lineNumber": 146
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.set_float32_matmul_precision",
+          "lineNumber": 155
+        },
+        {
+          "caller": "__init__",
+          "callee": "_positive_int",
+          "lineNumber": 156
+        },
+        {
+          "caller": "__init__",
+          "callee": "_non_negative_number",
+          "lineNumber": 157
+        },
+        {
+          "caller": "__init__",
+          "callee": "attention_backend.strip().lower",
+          "lineNumber": 158
+        },
+        {
+          "caller": "__init__",
+          "callee": "attention_backend.strip",
+          "lineNumber": 158
+        },
+        {
+          "caller": "__init__",
+          "callee": "_boolean",
+          "lineNumber": 159
+        },
+        {
+          "caller": "__init__",
+          "callee": "_boolean",
+          "lineNumber": 160
+        },
+        {
+          "caller": "__init__",
+          "callee": "_boolean",
+          "lineNumber": 161
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 166
+        },
+        {
+          "caller": "__init__",
+          "callee": "_non_negative_number",
+          "lineNumber": 173
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 180
+        },
+        {
+          "caller": "__init__",
+          "callee": "resolve_checkpoint",
+          "lineNumber": 184
+        },
+        {
+          "caller": "__init__",
+          "callee": "time.perf_counter",
+          "lineNumber": 185
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._build_dit",
+          "lineNumber": 186
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._build_dav",
+          "lineNumber": 194
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 195
+        },
+        {
+          "caller": "__init__",
+          "callee": "sum",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "parameter.numel",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.dit.parameters",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "sum",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "parameter.numel",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.dav.parameters",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "time.perf_counter",
+          "lineNumber": 196
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.info",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "logger.info",
+          "lineNumber": 212
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "load_torch_state",
+          "lineNumber": 215
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "logger.info",
+          "lineNumber": 216
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "len",
+          "lineNumber": 217
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "torch.device",
+          "lineNumber": 219
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "MiniMaxMusic3DIT",
+          "lineNumber": 220
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "self.dit.load_state_dict",
+          "lineNumber": 224
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "self.dit.to(dtype=self.dtype).eval",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "self.dit.to",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "self.dit.aligned_mel_length",
+          "lineNumber": 227
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "_compile_timed",
+          "lineNumber": 231
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "self.dit.enable_compiled_blocks",
+          "lineNumber": 233
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "self.dit.enable_breakable_cuda_graph",
+          "lineNumber": 236
+        },
+        {
+          "caller": "_build_dit",
+          "callee": "self.dit.enable_cache_dit",
+          "lineNumber": 241
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "logger.info",
+          "lineNumber": 252
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "load_torch_state",
+          "lineNumber": 253
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "torch.device",
+          "lineNumber": 254
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "MiniMaxMusic3DAV",
+          "lineNumber": 255
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "self.dav.load_state_dict",
+          "lineNumber": 256
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "select_decoder_state",
+          "lineNumber": 256
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "self.dav.to(dtype=self.dtype).eval",
+          "lineNumber": 258
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "self.dav.to",
+          "lineNumber": 258
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "remove_weight_norm",
+          "lineNumber": 259
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "self.dit.aligned_mel_length",
+          "lineNumber": 261
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "_compile_timed",
+          "lineNumber": 262
+        },
+        {
+          "caller": "_build_dav",
+          "callee": "self.dav.enable_compiled_decoder",
+          "lineNumber": 264
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "should_abort",
+          "lineNumber": 279
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "InterruptedError",
+          "lineNumber": 280
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "hidden.unsqueeze(0).to",
+          "lineNumber": 281
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "hidden.unsqueeze",
+          "lineNumber": 281
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "torch.Generator(device=self.device).manual_seed",
+          "lineNumber": 284
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "torch.Generator",
+          "lineNumber": 284
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "_derive_seed",
+          "lineNumber": 285
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "int",
+          "lineNumber": 285
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "int",
+          "lineNumber": 285
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "self.dit.aligned_condition",
+          "lineNumber": 287
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "self.dit",
+          "lineNumber": 288
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "should_abort",
+          "lineNumber": 297
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "InterruptedError",
+          "lineNumber": 298
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "self.dav",
+          "lineNumber": 299
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "should_abort",
+          "lineNumber": 300
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "InterruptedError",
+          "lineNumber": 301
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "overlap_mel_length",
+          "lineNumber": 302
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "max",
+          "lineNumber": 303
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "max",
+          "lineNumber": 304
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "latent[..., start:end].detach",
+          "lineNumber": 305
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "align[..., start:end].detach",
+          "lineNumber": 306
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "waveform[0].float().cpu().clamp",
+          "lineNumber": 308
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "waveform[0].float().cpu",
+          "lineNumber": 308
+        },
+        {
+          "caller": "decode_with_state",
+          "callee": "waveform[0].float",
+          "lineNumber": 308
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 336
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 336
+        },
+        {
+          "caller": "is_streaming_payload",
+          "callee": "isinstance",
+          "lineNumber": 339
+        },
+        {
+          "caller": "is_streaming_payload",
+          "callee": "isinstance",
+          "lineNumber": 341
+        },
+        {
+          "caller": "is_streaming_payload",
+          "callee": "bool",
+          "lineNumber": 342
+        },
+        {
+          "caller": "is_streaming_payload",
+          "callee": "data.get",
+          "lineNumber": 342
+        },
+        {
+          "caller": "on_streaming_new_request",
+          "callee": "self._stream_states.setdefault",
+          "lineNumber": 345
+        },
+        {
+          "caller": "on_streaming_new_request",
+          "callee": "_AcousticStreamState",
+          "lineNumber": 345
+        },
+        {
+          "caller": "on_streaming_new_request",
+          "callee": "MiniMaxMusic3State.from_dict",
+          "lineNumber": 346
+        },
+        {
+          "caller": "on_streaming_new_request",
+          "callee": "logger.info",
+          "lineNumber": 347
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "isinstance",
+          "lineNumber": 354
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "ValueError",
+          "lineNumber": 355
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "ValueError",
+          "lineNumber": 363
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "tuple",
+          "lineNumber": 365
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "self._stream_states.setdefault",
+          "lineNumber": 368
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "_AcousticStreamState",
+          "lineNumber": 368
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "isinstance",
+          "lineNumber": 370
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "ValueError",
+          "lineNumber": 371
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "int",
+          "lineNumber": 374
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "int",
+          "lineNumber": 375
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "int",
+          "lineNumber": 376
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "int",
+          "lineNumber": 377
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "bool",
+          "lineNumber": 378
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "ValueError",
+          "lineNumber": 380
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "ValueError",
+          "lineNumber": 386
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "logger.info",
+          "lineNumber": 389
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "self._decoder.decode_with_state",
+          "lineNumber": 394
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "state.abort_event.is_set",
+          "lineNumber": 404
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "crop_sample_bounds",
+          "lineNumber": 407
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "ChunkWindow",
+          "lineNumber": 408
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "int",
+          "lineNumber": 408
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "state.wave_chunks.append",
+          "lineNumber": 411
+        },
+        {
+          "caller": "on_stream_chunk",
+          "callee": "int",
+          "lineNumber": 412
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "self._stream_states.get",
+          "lineNumber": 418
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "ValueError",
+          "lineNumber": 420
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "ValueError",
+          "lineNumber": 422
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "torch.cat",
+          "lineNumber": 425
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "resample_waveform",
+          "lineNumber": 426
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "audio_waveform_payload",
+          "lineNumber": 428
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "build_usage",
+          "lineNumber": 435
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "logger.info",
+          "lineNumber": 439
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "time.perf_counter",
+          "lineNumber": 440
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "OutgoingMessage",
+          "lineNumber": 443
+        },
+        {
+          "caller": "on_stream_done",
+          "callee": "StagePayload",
+          "lineNumber": 446
+        },
+        {
+          "caller": "abort",
+          "callee": "self._stream_states.get",
+          "lineNumber": 455
+        },
+        {
+          "caller": "abort",
+          "callee": "state.abort_event.set",
+          "lineNumber": 457
+        },
+        {
+          "caller": "abort",
+          "callee": "super().abort",
+          "lineNumber": 458
+        },
+        {
+          "caller": "abort",
+          "callee": "super",
+          "lineNumber": 458
+        },
+        {
+          "caller": "clear_stream_state",
+          "callee": "self._stream_states.pop",
+          "lineNumber": 461
+        },
+        {
+          "caller": "clear_stream_state",
+          "callee": "state.abort_event.set",
+          "lineNumber": 463
+        },
+        {
+          "caller": "clear_stream_state",
+          "callee": "state.wave_chunks.clear",
+          "lineNumber": 464
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 10,
+        "functionCount": 7,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "models/minimax_music3/checkpoint.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 111,
+      "nonEmptyLines": 90,
+      "functions": [
+        {
+          "name": "_download_once",
+          "startLine": 29,
+          "endLine": 30,
+          "params": [
+            "model_path"
+          ]
+        },
+        {
+          "name": "resolve_checkpoint",
+          "startLine": 33,
+          "endLine": 58,
+          "params": [
+            "model_path"
+          ]
+        },
+        {
+          "name": "load_json",
+          "startLine": 61,
+          "endLine": 66,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "load_torch_state",
+          "startLine": 69,
+          "endLine": 81,
+          "params": [
+            "path",
+            "device"
+          ]
+        },
+        {
+          "name": "load_audio_state",
+          "startLine": 84,
+          "endLine": 102,
+          "params": [
+            "paths"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "TTMCheckpointPaths",
+          "startLine": 18,
+          "endLine": 25,
+          "methods": [],
+          "properties": [
+            "root",
+            "qwen_dir",
+            "tokenizer_dir",
+            "config_path",
+            "qwen_index_path",
+            "dit_path",
+            "dav_path"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TTMCheckpointPaths",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "_download_once",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "resolve_checkpoint",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "load_json",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "load_torch_state",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "load_audio_state",
+          "line": 84,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_download_once",
+          "callee": "_resolve_source",
+          "lineNumber": 30
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "Path(_download_once(str(Path(model_path).expanduser()))).expanduser",
+          "lineNumber": 34
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "Path",
+          "lineNumber": 34
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "_download_once",
+          "lineNumber": 34
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "str",
+          "lineNumber": 34
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "Path(model_path).expanduser",
+          "lineNumber": 34
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "Path",
+          "lineNumber": 34
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "direct_qwen.is_dir",
+          "lineNumber": 37
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "direct_dit.exists",
+          "lineNumber": 37
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "root.is_dir",
+          "lineNumber": 37
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "root.iterdir",
+          "lineNumber": 40
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "child.is_dir",
+          "lineNumber": 41
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "(child / \"qwen_7B\" / \"qwen_7B\").is_dir",
+          "lineNumber": 42
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "(child / \"flowmatching_vae.pth\").exists",
+          "lineNumber": 43
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "len",
+          "lineNumber": 45
+        },
+        {
+          "caller": "resolve_checkpoint",
+          "callee": "TTMCheckpointPaths",
+          "lineNumber": 49
+        },
+        {
+          "caller": "load_json",
+          "callee": "path.open",
+          "lineNumber": 62
+        },
+        {
+          "caller": "load_json",
+          "callee": "json.load",
+          "lineNumber": 63
+        },
+        {
+          "caller": "load_json",
+          "callee": "isinstance",
+          "lineNumber": 64
+        },
+        {
+          "caller": "load_json",
+          "callee": "ValueError",
+          "lineNumber": 65
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "torch.load",
+          "lineNumber": 72
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "str",
+          "lineNumber": 73
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "isinstance",
+          "lineNumber": 77
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "isinstance",
+          "lineNumber": 77
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "state.get",
+          "lineNumber": 77
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "isinstance",
+          "lineNumber": 79
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "all",
+          "lineNumber": 79
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "isinstance",
+          "lineNumber": 79
+        },
+        {
+          "caller": "load_torch_state",
+          "callee": "ValueError",
+          "lineNumber": 80
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "load_json",
+          "lineNumber": 90
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "str",
+          "lineNumber": 92
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "index[\"weight_map\"].items",
+          "lineNumber": 93
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "any",
+          "lineNumber": 94
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "str(key).startswith",
+          "lineNumber": 94
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "str",
+          "lineNumber": 94
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "sorted",
+          "lineNumber": 97
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "load_file",
+          "lineNumber": 98
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "str",
+          "lineNumber": 98
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "shard.items",
+          "lineNumber": 99
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "any",
+          "lineNumber": 100
+        },
+        {
+          "caller": "load_audio_state",
+          "callee": "key.startswith",
+          "lineNumber": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 5,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/minimax_music3/chunking.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 65,
+      "functions": [
+        {
+          "name": "chunk_windows",
+          "startLine": 24,
+          "endLine": 53,
+          "params": [
+            "frames"
+          ]
+        },
+        {
+          "name": "overlap_mel_length",
+          "startLine": 61,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "crop_sample_bounds",
+          "startLine": 65,
+          "endLine": 76,
+          "params": [
+            "window"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ChunkWindow",
+          "startLine": 12,
+          "endLine": 21,
+          "methods": [
+            "length"
+          ],
+          "properties": [
+            "index",
+            "start",
+            "end",
+            "is_first",
+            "is_last"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ChunkWindow",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "chunk_windows",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "overlap_mel_length",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "crop_sample_bounds",
+          "line": 65,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "chunk_windows",
+          "callee": "int",
+          "lineNumber": 29
+        },
+        {
+          "caller": "chunk_windows",
+          "callee": "ChunkWindow",
+          "lineNumber": 33
+        },
+        {
+          "caller": "chunk_windows",
+          "callee": "min",
+          "lineNumber": 39
+        },
+        {
+          "caller": "chunk_windows",
+          "callee": "windows.append",
+          "lineNumber": 40
+        },
+        {
+          "caller": "chunk_windows",
+          "callee": "ChunkWindow",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/minimax_music3/config.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 146,
+      "nonEmptyLines": 109,
+      "functions": [
+        {
+          "name": "_visible_gpu_count",
+          "startLine": 24,
+          "endLine": 32,
+          "params": []
+        },
+        {
+          "name": "_stages",
+          "startLine": 50,
+          "endLine": 84,
+          "params": [
+            "acoustic_gpu"
+          ]
+        },
+        {
+          "name": "_colocated_stages",
+          "startLine": 87,
+          "endLine": 88,
+          "params": []
+        },
+        {
+          "name": "_two_gpu_stages",
+          "startLine": 91,
+          "endLine": 92,
+          "params": []
+        },
+        {
+          "name": "_colocated_placement",
+          "startLine": 95,
+          "endLine": 96,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "DitDavFactoryArgs",
+          "startLine": 35,
+          "endLine": 43,
+          "methods": [],
+          "properties": [
+            "dit_steps",
+            "dit_cfg_scale",
+            "attention_backend",
+            "cache_dit",
+            "compile_acoustic",
+            "breakable_cuda_graph"
+          ]
+        },
+        {
+          "name": "DitDavStageConfig",
+          "startLine": 46,
+          "endLine": 47,
+          "methods": [],
+          "properties": [
+            "factory"
+          ]
+        },
+        {
+          "name": "MiniMaxMusic3PipelineConfig",
+          "startLine": 99,
+          "endLine": 123,
+          "methods": [
+            "process_local_edges"
+          ],
+          "properties": [
+            "architecture",
+            "requires_model_capabilities",
+            "stage_config_types",
+            "stages",
+            "placement"
+          ]
+        },
+        {
+          "name": "MiniMaxMusic3SingleGPUPipelineConfig",
+          "startLine": 126,
+          "endLine": 130,
+          "methods": [],
+          "properties": [
+            "placement",
+            "stages"
+          ]
+        },
+        {
+          "name": "MiniMaxMusic3DualGPUPipelineConfig",
+          "startLine": 133,
+          "endLine": 137,
+          "methods": [],
+          "properties": [
+            "placement",
+            "stages"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_visible_gpu_count",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "DitDavFactoryArgs",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "DitDavStageConfig",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "_stages",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "_colocated_stages",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "_two_gpu_stages",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "_colocated_placement",
+          "line": 95,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3PipelineConfig",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3SingleGPUPipelineConfig",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3DualGPUPipelineConfig",
+          "line": 133,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_visible_gpu_count",
+          "callee": "os.environ.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "_visible_gpu_count",
+          "callee": "entry.strip",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_visible_gpu_count",
+          "callee": "visible.split",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_visible_gpu_count",
+          "callee": "len",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_visible_gpu_count",
+          "callee": "torch.cuda.device_count",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_stages",
+          "callee": "StageConfig",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_stages",
+          "callee": "EngineStageConfig",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_stages",
+          "callee": "FactoryArgs",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_stages",
+          "callee": "DitDavStageConfig",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_stages",
+          "callee": "DitDavFactoryArgs",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_colocated_stages",
+          "callee": "_stages",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_two_gpu_stages",
+          "callee": "_stages",
+          "lineNumber": 92
+        },
+        {
+          "caller": "_colocated_placement",
+          "callee": "PlacementConfig",
+          "lineNumber": 96
+        },
+        {
+          "caller": "process_local_edges",
+          "callee": "frozenset",
+          "lineNumber": 123
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 10,
+        "functionCount": 5,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "models/minimax_music3/constants.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 30,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/minimax_music3/dav.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 156,
+      "nonEmptyLines": 122,
+      "functions": [
+        {
+          "name": "snake",
+          "startLine": 14,
+          "endLine": 18,
+          "params": [
+            "x",
+            "alpha"
+          ]
+        },
+        {
+          "name": "_wn_conv",
+          "startLine": 30,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "_wn_conv_transpose",
+          "startLine": 34,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "remove_weight_norm",
+          "startLine": 38,
+          "endLine": 47,
+          "params": [
+            "module"
+          ]
+        },
+        {
+          "name": "select_decoder_state",
+          "startLine": 148,
+          "endLine": 153,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Snake1d",
+          "startLine": 21,
+          "endLine": 27,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ResidualUnit",
+          "startLine": 50,
+          "endLine": 66,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "DecoderBlock",
+          "startLine": 69,
+          "endLine": 87,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Decoder",
+          "startLine": 90,
+          "endLine": 111,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MiniMaxMusic3DAV",
+          "startLine": 114,
+          "endLine": 142,
+          "methods": [
+            "__init__",
+            "enable_compiled_decoder",
+            "forward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "snake",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "Snake1d",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "_wn_conv",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "_wn_conv_transpose",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "remove_weight_norm",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "ResidualUnit",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "DecoderBlock",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "Decoder",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3DAV",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "select_decoder_state",
+          "line": 148,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "snake",
+          "callee": "x.reshape",
+          "lineNumber": 16
+        },
+        {
+          "caller": "snake",
+          "callee": "(alpha + 1e-9).reciprocal",
+          "lineNumber": 17
+        },
+        {
+          "caller": "snake",
+          "callee": "torch.sin(alpha * flat).pow",
+          "lineNumber": 17
+        },
+        {
+          "caller": "snake",
+          "callee": "torch.sin",
+          "lineNumber": 17
+        },
+        {
+          "caller": "snake",
+          "callee": "flat.reshape",
+          "lineNumber": 18
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Parameter",
+          "lineNumber": 24
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.ones",
+          "lineNumber": 24
+        },
+        {
+          "caller": "forward",
+          "callee": "snake",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_wn_conv",
+          "callee": "nn.utils.weight_norm",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_wn_conv",
+          "callee": "nn.Conv1d",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_wn_conv_transpose",
+          "callee": "nn.utils.weight_norm",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_wn_conv_transpose",
+          "callee": "nn.ConvTranspose1d",
+          "lineNumber": 35
+        },
+        {
+          "caller": "remove_weight_norm",
+          "callee": "module.modules",
+          "lineNumber": 41
+        },
+        {
+          "caller": "remove_weight_norm",
+          "callee": "nn.utils.remove_weight_norm",
+          "lineNumber": 43
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 52
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 52
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 54
+        },
+        {
+          "caller": "__init__",
+          "callee": "Snake1d",
+          "lineNumber": 55
+        },
+        {
+          "caller": "__init__",
+          "callee": "_wn_conv",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__init__",
+          "callee": "Snake1d",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__init__",
+          "callee": "_wn_conv",
+          "lineNumber": 58
+        },
+        {
+          "caller": "forward",
+          "callee": "self.block",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 71
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 71
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 72
+        },
+        {
+          "caller": "__init__",
+          "callee": "Snake1d",
+          "lineNumber": 73
+        },
+        {
+          "caller": "__init__",
+          "callee": "_wn_conv_transpose",
+          "lineNumber": 74
+        },
+        {
+          "caller": "__init__",
+          "callee": "math.ceil",
+          "lineNumber": 79
+        },
+        {
+          "caller": "__init__",
+          "callee": "ResidualUnit",
+          "lineNumber": 81
+        },
+        {
+          "caller": "__init__",
+          "callee": "ResidualUnit",
+          "lineNumber": 82
+        },
+        {
+          "caller": "__init__",
+          "callee": "ResidualUnit",
+          "lineNumber": 83
+        },
+        {
+          "caller": "forward",
+          "callee": "self.block",
+          "lineNumber": 87
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 92
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 92
+        },
+        {
+          "caller": "__init__",
+          "callee": "_wn_conv",
+          "lineNumber": 93
+        },
+        {
+          "caller": "__init__",
+          "callee": "enumerate",
+          "lineNumber": 97
+        },
+        {
+          "caller": "__init__",
+          "callee": "layers.append",
+          "lineNumber": 100
+        },
+        {
+          "caller": "__init__",
+          "callee": "DecoderBlock",
+          "lineNumber": 100
+        },
+        {
+          "caller": "__init__",
+          "callee": "layers.extend",
+          "lineNumber": 101
+        },
+        {
+          "caller": "__init__",
+          "callee": "Snake1d",
+          "lineNumber": 103
+        },
+        {
+          "caller": "__init__",
+          "callee": "_wn_conv",
+          "lineNumber": 104
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Tanh",
+          "lineNumber": 105
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 108
+        },
+        {
+          "caller": "forward",
+          "callee": "self.model",
+          "lineNumber": 111
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 118
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 118
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Conv1d",
+          "lineNumber": 119
+        },
+        {
+          "caller": "__init__",
+          "callee": "Decoder",
+          "lineNumber": 120
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "MethodType",
+          "lineNumber": 124
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "torch.compile",
+          "lineNumber": 125
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "type",
+          "lineNumber": 125
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "next",
+          "lineNumber": 127
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "self.parameters",
+          "lineNumber": 127
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "torch.inference_mode",
+          "lineNumber": 128
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "self",
+          "lineNumber": 129
+        },
+        {
+          "caller": "enable_compiled_decoder",
+          "callee": "torch.zeros",
+          "lineNumber": 130
+        },
+        {
+          "caller": "forward",
+          "callee": "latent.reshape",
+          "lineNumber": 140
+        },
+        {
+          "caller": "forward",
+          "callee": "self.decoder",
+          "lineNumber": 141
+        },
+        {
+          "caller": "forward",
+          "callee": "self.dec_in_proj",
+          "lineNumber": 141
+        },
+        {
+          "caller": "forward",
+          "callee": "wave.reshape",
+          "lineNumber": 142
+        },
+        {
+          "caller": "select_decoder_state",
+          "callee": "state.items",
+          "lineNumber": 151
+        },
+        {
+          "caller": "select_decoder_state",
+          "callee": "key.startswith",
+          "lineNumber": 152
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 5,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "models/minimax_music3/dit.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 495,
+      "nonEmptyLines": 438,
+      "functions": [
+        {
+          "name": "_resolve_attention_backend",
+          "startLine": 41,
+          "endLine": 48,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "_rotate_half",
+          "startLine": 85,
+          "endLine": 87,
+          "params": [
+            "x"
+          ]
+        },
+        {
+          "name": "_apply_rope",
+          "startLine": 90,
+          "endLine": 96,
+          "params": [
+            "x",
+            "rope_cos",
+            "rope_sin"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FourierFeatures",
+          "startLine": 51,
+          "endLine": 58,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "LayerNorm",
+          "startLine": 61,
+          "endLine": 70,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "RotaryEmbedding",
+          "startLine": 73,
+          "endLine": 82,
+          "methods": [
+            "__init__",
+            "forward_from_seq_len"
+          ],
+          "properties": []
+        },
+        {
+          "name": "Attention",
+          "startLine": 99,
+          "endLine": 149,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "GLU",
+          "startLine": 152,
+          "endLine": 160,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FeedForward",
+          "startLine": 163,
+          "endLine": 171,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TransformerBlock",
+          "startLine": 174,
+          "endLine": 198,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ContinuousTransformer",
+          "startLine": 201,
+          "endLine": 243,
+          "methods": [
+            "__init__",
+            "_rotary_cos_sin",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "DiffusionTransformer",
+          "startLine": 246,
+          "endLine": 285,
+          "methods": [
+            "__init__",
+            "_latent_zeros",
+            "_transformer",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MiniMaxMusic3DIT",
+          "startLine": 288,
+          "endLine": 492,
+          "methods": [
+            "__init__",
+            "enable_compiled_blocks",
+            "enable_cache_dit",
+            "aligned_mel_length",
+            "enable_breakable_cuda_graph",
+            "condition",
+            "aligned_condition",
+            "forward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_resolve_attention_backend",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "FourierFeatures",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "LayerNorm",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "RotaryEmbedding",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "_rotate_half",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_rope",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "Attention",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "GLU",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "FeedForward",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "TransformerBlock",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "ContinuousTransformer",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "DiffusionTransformer",
+          "line": 246,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3DIT",
+          "line": 288,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_resolve_attention_backend",
+          "callee": "value.strip().lower",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_resolve_attention_backend",
+          "callee": "value.strip",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_resolve_attention_backend",
+          "callee": "ValueError",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_resolve_attention_backend",
+          "callee": "\", \".join",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_resolve_attention_backend",
+          "callee": "sorted",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Parameter",
+          "lineNumber": 54
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.randn",
+          "lineNumber": 54
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 58
+        },
+        {
+          "caller": "forward",
+          "callee": "f.cos",
+          "lineNumber": 58
+        },
+        {
+          "caller": "forward",
+          "callee": "f.sin",
+          "lineNumber": 58
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Parameter",
+          "lineNumber": 66
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.ones",
+          "lineNumber": 66
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.register_buffer",
+          "lineNumber": 67
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.zeros",
+          "lineNumber": 67
+        },
+        {
+          "caller": "forward",
+          "callee": "F.layer_norm",
+          "lineNumber": 70
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 75
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 75
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.arange(0, dim, 2).float",
+          "lineNumber": 76
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.arange",
+          "lineNumber": 76
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.register_buffer",
+          "lineNumber": 77
+        },
+        {
+          "caller": "forward_from_seq_len",
+          "callee": "torch.arange",
+          "lineNumber": 80
+        },
+        {
+          "caller": "forward_from_seq_len",
+          "callee": "torch.einsum",
+          "lineNumber": 81
+        },
+        {
+          "caller": "forward_from_seq_len",
+          "callee": "torch.cat",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_rotate_half",
+          "callee": "x.chunk",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_rotate_half",
+          "callee": "torch.cat",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_apply_rope",
+          "callee": "rope_cos[-x.shape[-2] :].to",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_apply_rope",
+          "callee": "rope_sin[-x.shape[-2] :].to",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_apply_rope",
+          "callee": "_rotate_half",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_apply_rope",
+          "callee": "torch.cat",
+          "lineNumber": 96
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 108
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 108
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 111
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 112
+        },
+        {
+          "caller": "__init__",
+          "callee": "_resolve_attention_backend",
+          "lineNumber": 113
+        },
+        {
+          "caller": "__init__",
+          "callee": "component_attn_backend_context_manager",
+          "lineNumber": 116
+        },
+        {
+          "caller": "__init__",
+          "callee": "LocalAttention",
+          "lineNumber": 119
+        },
+        {
+          "caller": "__init__",
+          "callee": "RuntimeError",
+          "lineNumber": 130
+        },
+        {
+          "caller": "forward",
+          "callee": "self.to_qkv(x).chunk",
+          "lineNumber": 137
+        },
+        {
+          "caller": "forward",
+          "callee": "self.to_qkv",
+          "lineNumber": 137
+        },
+        {
+          "caller": "forward",
+          "callee": "q.reshape(bsz, seq, self.num_heads, self.dim_heads).transpose",
+          "lineNumber": 138
+        },
+        {
+          "caller": "forward",
+          "callee": "q.reshape",
+          "lineNumber": 138
+        },
+        {
+          "caller": "forward",
+          "callee": "k.reshape(bsz, seq, self.num_heads, self.dim_heads).transpose",
+          "lineNumber": 139
+        },
+        {
+          "caller": "forward",
+          "callee": "k.reshape",
+          "lineNumber": 139
+        },
+        {
+          "caller": "forward",
+          "callee": "v.reshape(bsz, seq, self.num_heads, self.dim_heads).transpose",
+          "lineNumber": 140
+        },
+        {
+          "caller": "forward",
+          "callee": "v.reshape",
+          "lineNumber": 140
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_rope",
+          "lineNumber": 141
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_rope",
+          "lineNumber": 142
+        },
+        {
+          "caller": "forward",
+          "callee": "self.backend",
+          "lineNumber": 143
+        },
+        {
+          "caller": "forward",
+          "callee": "q.transpose",
+          "lineNumber": 144
+        },
+        {
+          "caller": "forward",
+          "callee": "k.transpose",
+          "lineNumber": 145
+        },
+        {
+          "caller": "forward",
+          "callee": "v.transpose",
+          "lineNumber": 146
+        },
+        {
+          "caller": "forward",
+          "callee": "out.contiguous().reshape",
+          "lineNumber": 148
+        },
+        {
+          "caller": "forward",
+          "callee": "out.contiguous",
+          "lineNumber": 148
+        },
+        {
+          "caller": "forward",
+          "callee": "self.to_out",
+          "lineNumber": 149
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 154
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 154
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 155
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 156
+        },
+        {
+          "caller": "forward",
+          "callee": "self.proj(x).chunk",
+          "lineNumber": 159
+        },
+        {
+          "caller": "forward",
+          "callee": "self.proj",
+          "lineNumber": 159
+        },
+        {
+          "caller": "forward",
+          "callee": "self.act",
+          "lineNumber": 160
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 165
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 165
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 166
+        },
+        {
+          "caller": "__init__",
+          "callee": "GLU",
+          "lineNumber": 167
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Identity",
+          "lineNumber": 167
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 167
+        },
+        {
+          "caller": "forward",
+          "callee": "self.ff",
+          "lineNumber": 171
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 184
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 184
+        },
+        {
+          "caller": "__init__",
+          "callee": "LayerNorm",
+          "lineNumber": 185
+        },
+        {
+          "caller": "__init__",
+          "callee": "Attention",
+          "lineNumber": 186
+        },
+        {
+          "caller": "__init__",
+          "callee": "LayerNorm",
+          "lineNumber": 192
+        },
+        {
+          "caller": "__init__",
+          "callee": "FeedForward",
+          "lineNumber": 193
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn",
+          "lineNumber": 196
+        },
+        {
+          "caller": "forward",
+          "callee": "self.pre_norm",
+          "lineNumber": 196
+        },
+        {
+          "caller": "forward",
+          "callee": "self.ff",
+          "lineNumber": 197
+        },
+        {
+          "caller": "forward",
+          "callee": "self.ff_norm",
+          "lineNumber": 197
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 203
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 203
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 204
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 205
+        },
+        {
+          "caller": "__init__",
+          "callee": "RotaryEmbedding",
+          "lineNumber": 206
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 210
+        },
+        {
+          "caller": "__init__",
+          "callee": "TransformerBlock",
+          "lineNumber": 212
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 219
+        },
+        {
+          "caller": "_rotary_cos_sin",
+          "callee": "self._rotary_cache.get",
+          "lineNumber": 227
+        },
+        {
+          "caller": "_rotary_cos_sin",
+          "callee": "self.rotary_pos_emb.forward_from_seq_len",
+          "lineNumber": 229
+        },
+        {
+          "caller": "_rotary_cos_sin",
+          "callee": "freqs.to",
+          "lineNumber": 230
+        },
+        {
+          "caller": "_rotary_cos_sin",
+          "callee": "freqs.cos",
+          "lineNumber": 231
+        },
+        {
+          "caller": "_rotary_cos_sin",
+          "callee": "freqs.sin",
+          "lineNumber": 231
+        },
+        {
+          "caller": "forward",
+          "callee": "self.project_in",
+          "lineNumber": 236
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 237
+        },
+        {
+          "caller": "forward",
+          "callee": "timestep_embed.unsqueeze",
+          "lineNumber": 237
+        },
+        {
+          "caller": "forward",
+          "callee": "self._rotary_cos_sin",
+          "lineNumber": 238
+        },
+        {
+          "caller": "forward",
+          "callee": "layer",
+          "lineNumber": 242
+        },
+        {
+          "caller": "forward",
+          "callee": "self.project_out",
+          "lineNumber": 243
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 250
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 250
+        },
+        {
+          "caller": "__init__",
+          "callee": "ContinuousTransformer",
+          "lineNumber": 251
+        },
+        {
+          "caller": "__init__",
+          "callee": "FourierFeatures",
+          "lineNumber": 255
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 256
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 257
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SiLU",
+          "lineNumber": 257
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 257
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Conv1d",
+          "lineNumber": 259
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Conv1d",
+          "lineNumber": 260
+        },
+        {
+          "caller": "_latent_zeros",
+          "callee": "tuple",
+          "lineNumber": 266
+        },
+        {
+          "caller": "_latent_zeros",
+          "callee": "self._latent_zeros_cache.get",
+          "lineNumber": 267
+        },
+        {
+          "caller": "_latent_zeros",
+          "callee": "torch.zeros_like",
+          "lineNumber": 269
+        },
+        {
+          "caller": "_transformer",
+          "callee": "self._latent_zeros",
+          "lineNumber": 274
+        },
+        {
+          "caller": "_transformer",
+          "callee": "torch.cat",
+          "lineNumber": 275
+        },
+        {
+          "caller": "_transformer",
+          "callee": "self.preprocess_conv",
+          "lineNumber": 276
+        },
+        {
+          "caller": "_transformer",
+          "callee": "self.timestep_features",
+          "lineNumber": 277
+        },
+        {
+          "caller": "_transformer",
+          "callee": "self.to_timestep_embed",
+          "lineNumber": 278
+        },
+        {
+          "caller": "_transformer",
+          "callee": "self.transformer",
+          "lineNumber": 279
+        },
+        {
+          "caller": "_transformer",
+          "callee": "full.transpose",
+          "lineNumber": 279
+        },
+        {
+          "caller": "_transformer",
+          "callee": "out.transpose",
+          "lineNumber": 280
+        },
+        {
+          "caller": "_transformer",
+          "callee": "self.postprocess_conv",
+          "lineNumber": 281
+        },
+        {
+          "caller": "forward",
+          "callee": "self._transformer",
+          "lineNumber": 285
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 297
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 297
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 298
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Conv1d",
+          "lineNumber": 299
+        },
+        {
+          "caller": "__init__",
+          "callee": "DiffusionTransformer",
+          "lineNumber": 301
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Parameter",
+          "lineNumber": 305
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.empty",
+          "lineNumber": 305
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Parameter",
+          "lineNumber": 306
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.empty",
+          "lineNumber": 306
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "torch.compile",
+          "lineNumber": 316
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "type",
+          "lineNumber": 316
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "MethodType",
+          "lineNumber": 318
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "next",
+          "lineNumber": 319
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "self.parameters",
+          "lineNumber": 319
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "next",
+          "lineNumber": 320
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "self.parameters",
+          "lineNumber": 320
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "torch.inference_mode",
+          "lineNumber": 322
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "set_forward_context",
+          "lineNumber": 322
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "self.diffusion_transformer._transformer",
+          "lineNumber": 323
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "torch.zeros",
+          "lineNumber": 324
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "torch.zeros",
+          "lineNumber": 325
+        },
+        {
+          "caller": "enable_compiled_blocks",
+          "callee": "torch.zeros",
+          "lineNumber": 326
+        },
+        {
+          "caller": "enable_cache_dit",
+          "callee": "BlockAdapter",
+          "lineNumber": 339
+        },
+        {
+          "caller": "enable_cache_dit",
+          "callee": "enable_cache",
+          "lineNumber": 345
+        },
+        {
+          "caller": "enable_cache_dit",
+          "callee": "DBCacheConfig",
+          "lineNumber": 347
+        },
+        {
+          "caller": "aligned_mel_length",
+          "callee": "max",
+          "lineNumber": 359
+        },
+        {
+          "caller": "aligned_mel_length",
+          "callee": "int",
+          "lineNumber": 361
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "next",
+          "lineNumber": 377
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "self.parameters",
+          "lineNumber": 377
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "torch.cuda.mem_get_info",
+          "lineNumber": 378
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "logger.warning",
+          "lineNumber": 381
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "DiffusionBreakableCudaGraphRunner",
+          "lineNumber": 385
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "torch.zeros",
+          "lineNumber": 389
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "next",
+          "lineNumber": 392
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "self.parameters",
+          "lineNumber": 392
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "torch.zeros",
+          "lineNumber": 394
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "torch.zeros",
+          "lineNumber": 395
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "set_forward_context",
+          "lineNumber": 396
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "runner.capture",
+          "lineNumber": 397
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "runner.reset",
+          "lineNumber": 399
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "logger.info",
+          "lineNumber": 402
+        },
+        {
+          "caller": "enable_breakable_cuda_graph",
+          "callee": "len",
+          "lineNumber": 403
+        },
+        {
+          "caller": "condition",
+          "callee": "ValueError",
+          "lineNumber": 409
+        },
+        {
+          "caller": "condition",
+          "callee": "tuple",
+          "lineNumber": 411
+        },
+        {
+          "caller": "condition",
+          "callee": "hidden.transpose",
+          "lineNumber": 413
+        },
+        {
+          "caller": "condition",
+          "callee": "hidden_cf.reshape",
+          "lineNumber": 415
+        },
+        {
+          "caller": "condition",
+          "callee": "torch.softmax(self.cond_layer_logits, dim=0).to",
+          "lineNumber": 416
+        },
+        {
+          "caller": "condition",
+          "callee": "torch.softmax",
+          "lineNumber": 416
+        },
+        {
+          "caller": "condition",
+          "callee": "torch.einsum",
+          "lineNumber": 417
+        },
+        {
+          "caller": "condition",
+          "callee": "self.cond_layer_scale.to",
+          "lineNumber": 418
+        },
+        {
+          "caller": "condition",
+          "callee": "self.latent_conditioners",
+          "lineNumber": 419
+        },
+        {
+          "caller": "aligned_condition",
+          "callee": "hidden.to",
+          "lineNumber": 423
+        },
+        {
+          "caller": "aligned_condition",
+          "callee": "next",
+          "lineNumber": 423
+        },
+        {
+          "caller": "aligned_condition",
+          "callee": "self.parameters",
+          "lineNumber": 423
+        },
+        {
+          "caller": "aligned_condition",
+          "callee": "self.condition",
+          "lineNumber": 424
+        },
+        {
+          "caller": "aligned_condition",
+          "callee": "self.aligned_mel_length",
+          "lineNumber": 425
+        },
+        {
+          "caller": "aligned_condition",
+          "callee": "F.interpolate",
+          "lineNumber": 426
+        },
+        {
+          "caller": "forward",
+          "callee": "ValueError",
+          "lineNumber": 442
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.randn",
+          "lineNumber": 444
+        },
+        {
+          "caller": "forward",
+          "callee": "min",
+          "lineNumber": 454
+        },
+        {
+          "caller": "forward",
+          "callee": "initial_latent[..., :left].to",
+          "lineNumber": 458
+        },
+        {
+          "caller": "forward",
+          "callee": "x[..., :left].clone",
+          "lineNumber": 459
+        },
+        {
+          "caller": "forward",
+          "callee": "initial_condition[..., :left].to",
+          "lineNumber": 461
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.zeros",
+          "lineNumber": 463
+        },
+        {
+          "caller": "forward",
+          "callee": "cond_cfg[0].copy_",
+          "lineNumber": 466
+        },
+        {
+          "caller": "forward",
+          "callee": "range",
+          "lineNumber": 467
+        },
+        {
+          "caller": "forward",
+          "callee": "should_abort",
+          "lineNumber": 468
+        },
+        {
+          "caller": "forward",
+          "callee": "InterruptedError",
+          "lineNumber": 469
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.full",
+          "lineNumber": 470
+        },
+        {
+          "caller": "forward",
+          "callee": "x.expand",
+          "lineNumber": 477
+        },
+        {
+          "caller": "forward",
+          "callee": "t.expand",
+          "lineNumber": 478
+        },
+        {
+          "caller": "forward",
+          "callee": "set_forward_context",
+          "lineNumber": 479
+        },
+        {
+          "caller": "forward",
+          "callee": "self.diffusion_transformer._transformer",
+          "lineNumber": 481
+        },
+        {
+          "caller": "forward",
+          "callee": "self._bcg_runner",
+          "lineNumber": 483
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 13,
+        "functionCount": 3,
+        "classCount": 10
+      }
+    },
+    {
+      "path": "models/minimax_music3/model_runner.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 448,
+      "nonEmptyLines": 400,
+      "classes": [
+        {
+          "name": "_HiddenFrameBuffer",
+          "startLine": 31,
+          "endLine": 61,
+          "methods": [
+            "__init__",
+            "end_frame",
+            "append",
+            "concatenate",
+            "discard_before"
+          ],
+          "properties": []
+        },
+        {
+          "name": "_ARState",
+          "startLine": 65,
+          "endLine": 83,
+          "methods": [],
+          "properties": [
+            "sampling_seed",
+            "seed",
+            "decode_limit",
+            "sampling_position",
+            "forced_codes",
+            "forced_step",
+            "reference_ranks",
+            "frames",
+            "feedback_codes",
+            "emitted_windows",
+            "generated_frames",
+            "finish_reason",
+            "started_s",
+            "pending_chunks"
+          ]
+        },
+        {
+          "name": "MiniMaxMusic3ModelRunner",
+          "startLine": 86,
+          "endLine": 445,
+          "methods": [
+            "__init__",
+            "requested_capture_hidden_mode_prefill",
+            "requested_capture_hidden_mode_decode",
+            "before_prefill",
+            "post_prefill",
+            "before_decode",
+            "post_decode",
+            "on_request_finished",
+            "reset_request",
+            "_advance",
+            "_start_request",
+            "_record_reference_ranks",
+            "_load_forced_codes",
+            "_forced_codes_for",
+            "_ar_state",
+            "_log_progress",
+            "_emit_ready_window",
+            "_emit_window",
+            "_dump_reference_ranks",
+            "_dump_chunk"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_HiddenFrameBuffer",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "_ARState",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3ModelRunner",
+          "line": 86,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "end_frame",
+          "callee": "len",
+          "lineNumber": 41
+        },
+        {
+          "caller": "append",
+          "callee": "self.frames.append",
+          "lineNumber": 44
+        },
+        {
+          "caller": "append",
+          "callee": "frame_hidden.unsqueeze",
+          "lineNumber": 44
+        },
+        {
+          "caller": "append",
+          "callee": "max",
+          "lineNumber": 45
+        },
+        {
+          "caller": "append",
+          "callee": "len",
+          "lineNumber": 45
+        },
+        {
+          "caller": "concatenate",
+          "callee": "len",
+          "lineNumber": 50
+        },
+        {
+          "caller": "concatenate",
+          "callee": "RuntimeError",
+          "lineNumber": 51
+        },
+        {
+          "caller": "concatenate",
+          "callee": "torch.cat",
+          "lineNumber": 55
+        },
+        {
+          "caller": "discard_before",
+          "callee": "min",
+          "lineNumber": 58
+        },
+        {
+          "caller": "discard_before",
+          "callee": "max",
+          "lineNumber": 58
+        },
+        {
+          "caller": "discard_before",
+          "callee": "len",
+          "lineNumber": 58
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 90
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 90
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.environ.get",
+          "lineNumber": 92
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.environ.get",
+          "lineNumber": 93
+        },
+        {
+          "caller": "__init__",
+          "callee": "logger.warning",
+          "lineNumber": 95
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "self.model.get_input_embeddings",
+          "lineNumber": 124
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "self._start_request",
+          "lineNumber": 129
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "data.prompt_token_ids.to",
+          "lineNumber": 130
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "int",
+          "lineNumber": 131
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "len",
+          "lineNumber": 132
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "prompt_ids.numel",
+          "lineNumber": 132
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "RuntimeError",
+          "lineNumber": 133
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "len",
+          "lineNumber": 135
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "prompt_ids.numel",
+          "lineNumber": 136
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "rows.append",
+          "lineNumber": 139
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "embed_tokens",
+          "lineNumber": 139
+        },
+        {
+          "caller": "before_prefill",
+          "callee": "torch.cat",
+          "lineNumber": 140
+        },
+        {
+          "caller": "post_prefill",
+          "callee": "bool",
+          "lineNumber": 146
+        },
+        {
+          "caller": "post_prefill",
+          "callee": "getattr",
+          "lineNumber": 146
+        },
+        {
+          "caller": "post_prefill",
+          "callee": "self._advance",
+          "lineNumber": 148
+        },
+        {
+          "caller": "before_decode",
+          "callee": "torch.cat",
+          "lineNumber": 161
+        },
+        {
+          "caller": "before_decode",
+          "callee": "self._ar_state",
+          "lineNumber": 162
+        },
+        {
+          "caller": "before_decode",
+          "callee": "embed_audio_frames(self.model, codes).repeat_interleave",
+          "lineNumber": 165
+        },
+        {
+          "caller": "before_decode",
+          "callee": "embed_audio_frames",
+          "lineNumber": 165
+        },
+        {
+          "caller": "before_decode",
+          "callee": "buffer[: embeds.shape[0]].copy_",
+          "lineNumber": 170
+        },
+        {
+          "caller": "post_decode",
+          "callee": "self._advance",
+          "lineNumber": 178
+        },
+        {
+          "caller": "on_request_finished",
+          "callee": "self._request_data.pop",
+          "lineNumber": 182
+        },
+        {
+          "caller": "on_request_finished",
+          "callee": "ValueError",
+          "lineNumber": 186
+        },
+        {
+          "caller": "on_request_finished",
+          "callee": "chunk_windows",
+          "lineNumber": 189
+        },
+        {
+          "caller": "on_request_finished",
+          "callee": "self._emit_window",
+          "lineNumber": 191
+        },
+        {
+          "caller": "on_request_finished",
+          "callee": "self._dump_reference_ranks",
+          "lineNumber": 192
+        },
+        {
+          "caller": "on_request_finished",
+          "callee": "logger.info",
+          "lineNumber": 198
+        },
+        {
+          "caller": "on_request_finished",
+          "callee": "time.perf_counter",
+          "lineNumber": 199
+        },
+        {
+          "caller": "reset_request",
+          "callee": "self._request_data.pop",
+          "lineNumber": 203
+        },
+        {
+          "caller": "_advance",
+          "callee": "RuntimeError",
+          "lineNumber": 214
+        },
+        {
+          "caller": "_advance",
+          "callee": "len",
+          "lineNumber": 219
+        },
+        {
+          "caller": "_advance",
+          "callee": "len",
+          "lineNumber": 219
+        },
+        {
+          "caller": "_advance",
+          "callee": "RuntimeError",
+          "lineNumber": 220
+        },
+        {
+          "caller": "_advance",
+          "callee": "len",
+          "lineNumber": 223
+        },
+        {
+          "caller": "_advance",
+          "callee": "len",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_advance",
+          "callee": "RuntimeError",
+          "lineNumber": 227
+        },
+        {
+          "caller": "_advance",
+          "callee": "len",
+          "lineNumber": 229
+        },
+        {
+          "caller": "_advance",
+          "callee": "zip",
+          "lineNumber": 232
+        },
+        {
+          "caller": "_advance",
+          "callee": "RuntimeError",
+          "lineNumber": 234
+        },
+        {
+          "caller": "_advance",
+          "callee": "self._ar_state",
+          "lineNumber": 238
+        },
+        {
+          "caller": "_advance",
+          "callee": "torch.tensor",
+          "lineNumber": 239
+        },
+        {
+          "caller": "_advance",
+          "callee": "torch.tensor",
+          "lineNumber": 244
+        },
+        {
+          "caller": "_advance",
+          "callee": "select_c0_logits",
+          "lineNumber": 252
+        },
+        {
+          "caller": "_advance",
+          "callee": "apply_cfg",
+          "lineNumber": 253
+        },
+        {
+          "caller": "_advance",
+          "callee": "sample_topk_seeded",
+          "lineNumber": 254
+        },
+        {
+          "caller": "_advance",
+          "callee": "self._forced_codes_for",
+          "lineNumber": 255
+        },
+        {
+          "caller": "_advance",
+          "callee": "(sampled - 1).clamp_min",
+          "lineNumber": 258
+        },
+        {
+          "caller": "_advance",
+          "callee": "torch.zeros_like",
+          "lineNumber": 260
+        },
+        {
+          "caller": "_advance",
+          "callee": "depth_decode",
+          "lineNumber": 262
+        },
+        {
+          "caller": "_advance",
+          "callee": "c0.repeat_interleave",
+          "lineNumber": 265
+        },
+        {
+          "caller": "_advance",
+          "callee": "seeds.repeat_interleave",
+          "lineNumber": 266
+        },
+        {
+          "caller": "_advance",
+          "callee": "frame_positions.repeat_interleave",
+          "lineNumber": 267
+        },
+        {
+          "caller": "_advance",
+          "callee": "forced.repeat_interleave",
+          "lineNumber": 268
+        },
+        {
+          "caller": "_advance",
+          "callee": "torch.cat",
+          "lineNumber": 271
+        },
+        {
+          "caller": "_advance",
+          "callee": "self._record_reference_ranks",
+          "lineNumber": 273
+        },
+        {
+          "caller": "_advance",
+          "callee": "enumerate",
+          "lineNumber": 277
+        },
+        {
+          "caller": "_advance",
+          "callee": "stopped.tolist",
+          "lineNumber": 277
+        },
+        {
+          "caller": "_advance",
+          "callee": "ar_state.frames.append",
+          "lineNumber": 285
+        },
+        {
+          "caller": "_advance",
+          "callee": "self._log_progress",
+          "lineNumber": 287
+        },
+        {
+          "caller": "_advance",
+          "callee": "self._emit_ready_window",
+          "lineNumber": 288
+        },
+        {
+          "caller": "_advance",
+          "callee": "sampled.repeat_interleave",
+          "lineNumber": 289
+        },
+        {
+          "caller": "_start_request",
+          "callee": "int",
+          "lineNumber": 294
+        },
+        {
+          "caller": "_start_request",
+          "callee": "_ARState",
+          "lineNumber": 295
+        },
+        {
+          "caller": "_start_request",
+          "callee": "derive_sampling_seed",
+          "lineNumber": 296
+        },
+        {
+          "caller": "_start_request",
+          "callee": "time.perf_counter",
+          "lineNumber": 299
+        },
+        {
+          "caller": "_start_request",
+          "callee": "self._load_forced_codes",
+          "lineNumber": 300
+        },
+        {
+          "caller": "_start_request",
+          "callee": "logger.info",
+          "lineNumber": 303
+        },
+        {
+          "caller": "_record_reference_ranks",
+          "callee": "c0_logits.gather",
+          "lineNumber": 322
+        },
+        {
+          "caller": "_record_reference_ranks",
+          "callee": "(forced[:, 0] + 1).unsqueeze",
+          "lineNumber": 322
+        },
+        {
+          "caller": "_record_reference_ranks",
+          "callee": "(c0_logits > chosen).sum",
+          "lineNumber": 323
+        },
+        {
+          "caller": "_record_reference_ranks",
+          "callee": "torch.cat",
+          "lineNumber": 324
+        },
+        {
+          "caller": "_record_reference_ranks",
+          "callee": "enumerate",
+          "lineNumber": 325
+        },
+        {
+          "caller": "_record_reference_ranks",
+          "callee": "ar_state.reference_ranks.append",
+          "lineNumber": 326
+        },
+        {
+          "caller": "_load_forced_codes",
+          "callee": "Path",
+          "lineNumber": 332
+        },
+        {
+          "caller": "_load_forced_codes",
+          "callee": "int",
+          "lineNumber": 332
+        },
+        {
+          "caller": "_load_forced_codes",
+          "callee": "path.exists",
+          "lineNumber": 333
+        },
+        {
+          "caller": "_load_forced_codes",
+          "callee": "FileNotFoundError",
+          "lineNumber": 334
+        },
+        {
+          "caller": "_load_forced_codes",
+          "callee": "torch.load",
+          "lineNumber": 338
+        },
+        {
+          "caller": "_forced_codes_for",
+          "callee": "RuntimeError",
+          "lineNumber": 350
+        },
+        {
+          "caller": "_forced_codes_for",
+          "callee": "rows.append",
+          "lineNumber": 354
+        },
+        {
+          "caller": "_forced_codes_for",
+          "callee": "torch.stack(rows).to",
+          "lineNumber": 356
+        },
+        {
+          "caller": "_forced_codes_for",
+          "callee": "torch.stack",
+          "lineNumber": 356
+        },
+        {
+          "caller": "_ar_state",
+          "callee": "RuntimeError",
+          "lineNumber": 362
+        },
+        {
+          "caller": "_log_progress",
+          "callee": "max",
+          "lineNumber": 368
+        },
+        {
+          "caller": "_log_progress",
+          "callee": "min",
+          "lineNumber": 369
+        },
+        {
+          "caller": "_log_progress",
+          "callee": "max",
+          "lineNumber": 369
+        },
+        {
+          "caller": "_log_progress",
+          "callee": "logger.info",
+          "lineNumber": 373
+        },
+        {
+          "caller": "_log_progress",
+          "callee": "time.perf_counter",
+          "lineNumber": 374
+        },
+        {
+          "caller": "_emit_ready_window",
+          "callee": "self._emit_window",
+          "lineNumber": 383
+        },
+        {
+          "caller": "_emit_ready_window",
+          "callee": "ChunkWindow",
+          "lineNumber": 386
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "ar_state.frames.concatenate",
+          "lineNumber": 404
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "self._dump_chunk",
+          "lineNumber": 405
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "torch.cuda.current_stream(chunk.device).synchronize",
+          "lineNumber": 406
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 406
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "ar_state.pending_chunks.append",
+          "lineNumber": 407
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "max",
+          "lineNumber": 421
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "ar_state.frames.discard_before",
+          "lineNumber": 423
+        },
+        {
+          "caller": "_emit_window",
+          "callee": "logger.info",
+          "lineNumber": 424
+        },
+        {
+          "caller": "_dump_reference_ranks",
+          "callee": "os.makedirs",
+          "lineNumber": 431
+        },
+        {
+          "caller": "_dump_reference_ranks",
+          "callee": "torch.save",
+          "lineNumber": 432
+        },
+        {
+          "caller": "_dump_reference_ranks",
+          "callee": "torch.stack(ar_state.reference_ranks).cpu",
+          "lineNumber": 433
+        },
+        {
+          "caller": "_dump_reference_ranks",
+          "callee": "torch.stack",
+          "lineNumber": 433
+        },
+        {
+          "caller": "_dump_reference_ranks",
+          "callee": "os.path.join",
+          "lineNumber": 434
+        },
+        {
+          "caller": "_dump_reference_ranks",
+          "callee": "int",
+          "lineNumber": 434
+        },
+        {
+          "caller": "_dump_chunk",
+          "callee": "os.makedirs",
+          "lineNumber": 441
+        },
+        {
+          "caller": "_dump_chunk",
+          "callee": "os.path.join",
+          "lineNumber": 442
+        },
+        {
+          "caller": "_dump_chunk",
+          "callee": "int",
+          "lineNumber": 443
+        },
+        {
+          "caller": "_dump_chunk",
+          "callee": "torch.save",
+          "lineNumber": 445
+        },
+        {
+          "caller": "_dump_chunk",
+          "callee": "chunk.cpu",
+          "lineNumber": 445
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 0,
+        "classCount": 3
+      }
+    },
+    {
+      "path": "models/minimax_music3/payload_types.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 21,
+      "classes": [
+        {
+          "name": "MiniMaxMusic3State",
+          "startLine": 14,
+          "endLine": 28,
+          "methods": [],
+          "properties": [
+            "internal_chunk_stream",
+            "caption",
+            "lyrics",
+            "prompt",
+            "seed",
+            "max_audio_frames",
+            "generated_frames",
+            "finish_reason"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MiniMaxMusic3State",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/minimax_music3/prompt.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 120,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "_strip_markdown_residuals",
+          "startLine": 26,
+          "endLine": 45,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "_remove_markdown_format",
+          "startLine": 48,
+          "endLine": 51,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "clean_caption",
+          "startLine": 54,
+          "endLine": 65,
+          "params": [
+            "caption"
+          ]
+        },
+        {
+          "name": "_strip_text_after_leading_tags",
+          "startLine": 68,
+          "endLine": 77,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "normalize_lyrics",
+          "startLine": 80,
+          "endLine": 88,
+          "params": [
+            "lyrics"
+          ]
+        },
+        {
+          "name": "build_prompt",
+          "startLine": 91,
+          "endLine": 98,
+          "params": [
+            "caption",
+            "lyrics"
+          ]
+        },
+        {
+          "name": "validate_tokenizer_ids",
+          "startLine": 101,
+          "endLine": 110,
+          "params": [
+            "tokenizer"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_strip_markdown_residuals",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "_remove_markdown_format",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "clean_caption",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "_strip_text_after_leading_tags",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "normalize_lyrics",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "build_prompt",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "validate_tokenizer_ids",
+          "line": 101,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "text.splitlines",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "re.sub",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "re.sub",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "re.sub",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "re.sub",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "re.sub",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "lines_out.append",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "line.rstrip",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "\"\\n\".join",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_strip_markdown_residuals",
+          "callee": "re.sub",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_remove_markdown_format",
+          "callee": "_strip_markdown_residuals(text).replace(\"• \", \"\").replace",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_remove_markdown_format",
+          "callee": "_strip_markdown_residuals(text).replace",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_remove_markdown_format",
+          "callee": "_strip_markdown_residuals",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_special",
+          "callee": "match.group(1).strip",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_special",
+          "callee": "match.group",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_special",
+          "callee": "inner.split",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_special",
+          "callee": "len",
+          "lineNumber": 60
+        },
+        {
+          "caller": "clean_caption",
+          "callee": "_SPECIAL_TAG_RE.sub",
+          "lineNumber": 62
+        },
+        {
+          "caller": "clean_caption",
+          "callee": "_remove_markdown_format",
+          "lineNumber": 63
+        },
+        {
+          "caller": "clean_caption",
+          "callee": "re.sub",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_strip_text_after_leading_tags",
+          "callee": "text.split",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_strip_text_after_leading_tags",
+          "callee": "_LEADING_TAGS_RE.match",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_strip_text_after_leading_tags",
+          "callee": "output.append",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_strip_text_after_leading_tags",
+          "callee": "match.group(1).strip",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_strip_text_after_leading_tags",
+          "callee": "match.group",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_strip_text_after_leading_tags",
+          "callee": "\"\\n\".join",
+          "lineNumber": 77
+        },
+        {
+          "caller": "normalize_lyrics",
+          "callee": "_strip_text_after_leading_tags",
+          "lineNumber": 82
+        },
+        {
+          "caller": "normalize_lyrics",
+          "callee": "text.replace",
+          "lineNumber": 83
+        },
+        {
+          "caller": "normalize_lyrics",
+          "callee": "text.replace",
+          "lineNumber": 84
+        },
+        {
+          "caller": "normalize_lyrics",
+          "callee": "text.replace",
+          "lineNumber": 85
+        },
+        {
+          "caller": "normalize_lyrics",
+          "callee": "re.sub",
+          "lineNumber": 86
+        },
+        {
+          "caller": "normalize_lyrics",
+          "callee": "match.group(1).lower",
+          "lineNumber": 86
+        },
+        {
+          "caller": "normalize_lyrics",
+          "callee": "match.group",
+          "lineNumber": 86
+        },
+        {
+          "caller": "build_prompt",
+          "callee": "clean_caption",
+          "lineNumber": 94
+        },
+        {
+          "caller": "build_prompt",
+          "callee": "normalize_lyrics",
+          "lineNumber": 96
+        },
+        {
+          "caller": "validate_tokenizer_ids",
+          "callee": "SPECIAL_TOKEN_IDS.items",
+          "lineNumber": 104
+        },
+        {
+          "caller": "validate_tokenizer_ids",
+          "callee": "tokenizer.convert_tokens_to_ids",
+          "lineNumber": 105
+        },
+        {
+          "caller": "validate_tokenizer_ids",
+          "callee": "ValueError",
+          "lineNumber": 107
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/minimax_music3/request_builders.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 127,
+      "nonEmptyLines": 105,
+      "functions": [
+        {
+          "name": "_as_non_empty_string",
+          "startLine": 32,
+          "endLine": 35,
+          "params": [
+            "value",
+            "field"
+          ]
+        },
+        {
+          "name": "_explicit_params",
+          "startLine": 38,
+          "endLine": 42,
+          "params": [
+            "tts_params"
+          ]
+        },
+        {
+          "name": "_parse_seed",
+          "startLine": 45,
+          "endLine": 53,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "_parse_max_frames",
+          "startLine": 56,
+          "endLine": 68,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "_validate_tts_contract",
+          "startLine": 71,
+          "endLine": 92,
+          "params": [
+            "tts_params"
+          ]
+        },
+        {
+          "name": "build_ttm_state",
+          "startLine": 95,
+          "endLine": 124,
+          "params": [
+            "payload"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_as_non_empty_string",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "_explicit_params",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_seed",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_max_frames",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_tts_contract",
+          "line": 71,
+          "isDefault": false
+        },
+        {
+          "name": "build_ttm_state",
+          "line": 95,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_as_non_empty_string",
+          "callee": "isinstance",
+          "lineNumber": 33
+        },
+        {
+          "caller": "_as_non_empty_string",
+          "callee": "value.strip",
+          "lineNumber": 33
+        },
+        {
+          "caller": "_as_non_empty_string",
+          "callee": "ValueError",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_explicit_params",
+          "callee": "tts_params.get",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_explicit_params",
+          "callee": "isinstance",
+          "lineNumber": 40
+        },
+        {
+          "caller": "_explicit_params",
+          "callee": "str",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_explicit_params",
+          "callee": "set",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_parse_seed",
+          "callee": "isinstance",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_parse_seed",
+          "callee": "isinstance",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_parse_seed",
+          "callee": "ValueError",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_parse_seed",
+          "callee": "ValueError",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_parse_max_frames",
+          "callee": "isinstance",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_parse_max_frames",
+          "callee": "isinstance",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_parse_max_frames",
+          "callee": "ValueError",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_parse_max_frames",
+          "callee": "ValueError",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_parse_max_frames",
+          "callee": "ValueError",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "sorted",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "ValueError",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "\", \".join",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "tts_params.get",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "isinstance",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "isinstance",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "float",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "ValueError",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "tts_params.get",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_validate_tts_contract",
+          "callee": "ValueError",
+          "lineNumber": 92
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "metadata.get",
+          "lineNumber": 98
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "isinstance",
+          "lineNumber": 99
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "ValueError",
+          "lineNumber": 100
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "_validate_tts_contract",
+          "lineNumber": 101
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "_as_non_empty_string",
+          "lineNumber": 103
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "_as_non_empty_string",
+          "lineNumber": 104
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "tts_params.get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "_explicit_params",
+          "lineNumber": 109
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "ValueError",
+          "lineNumber": 111
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "\", \".join",
+          "lineNumber": 113
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "sorted",
+          "lineNumber": 113
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "params.get",
+          "lineNumber": 115
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "ValueError",
+          "lineNumber": 116
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "MiniMaxMusic3State",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "build_prompt",
+          "lineNumber": 120
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "_parse_seed",
+          "lineNumber": 121
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "tts_params.get",
+          "lineNumber": 121
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "_parse_max_frames",
+          "lineNumber": 122
+        },
+        {
+          "caller": "build_ttm_state",
+          "callee": "params.get",
+          "lineNumber": 122
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/minimax_music3/rvq_decoder.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 191,
+      "nonEmptyLines": 163,
+      "functions": [
+        {
+          "name": "sample_topk",
+          "startLine": 155,
+          "endLine": 165,
+          "params": [
+            "logits",
+            "generator"
+          ]
+        },
+        {
+          "name": "sample_topk_seeded",
+          "startLine": 168,
+          "endLine": 188,
+          "params": [
+            "logits",
+            "seeds",
+            "positions"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DecoderBlock",
+          "startLine": 11,
+          "endLine": 40,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "RVQDepthDecoder",
+          "startLine": 43,
+          "endLine": 149,
+          "methods": [
+            "__init__",
+            "forward",
+            "load_checkpoint_state"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "DecoderBlock",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "RVQDepthDecoder",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "sample_topk",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "sample_topk_seeded",
+          "line": 168,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 15
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 15
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.RMSNorm",
+          "lineNumber": 16
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.MultiheadAttention",
+          "lineNumber": 17
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.RMSNorm",
+          "lineNumber": 20
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 21
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 22
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 23
+        },
+        {
+          "caller": "forward",
+          "callee": "self.input_layernorm",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forward",
+          "callee": "F.linear",
+          "lineNumber": 28
+        },
+        {
+          "caller": "forward",
+          "callee": "qkv.chunk",
+          "lineNumber": 29
+        },
+        {
+          "caller": "forward",
+          "callee": "q.reshape(bsz, seq, heads, head_dim).transpose",
+          "lineNumber": 32
+        },
+        {
+          "caller": "forward",
+          "callee": "q.reshape",
+          "lineNumber": 32
+        },
+        {
+          "caller": "forward",
+          "callee": "k.reshape(bsz, seq, heads, head_dim).transpose",
+          "lineNumber": 33
+        },
+        {
+          "caller": "forward",
+          "callee": "k.reshape",
+          "lineNumber": 33
+        },
+        {
+          "caller": "forward",
+          "callee": "v.reshape(bsz, seq, heads, head_dim).transpose",
+          "lineNumber": 34
+        },
+        {
+          "caller": "forward",
+          "callee": "v.reshape",
+          "lineNumber": 34
+        },
+        {
+          "caller": "forward",
+          "callee": "F.scaled_dot_product_attention",
+          "lineNumber": 35
+        },
+        {
+          "caller": "forward",
+          "callee": "h.transpose(1, 2).contiguous().reshape",
+          "lineNumber": 36
+        },
+        {
+          "caller": "forward",
+          "callee": "h.transpose(1, 2).contiguous",
+          "lineNumber": 36
+        },
+        {
+          "caller": "forward",
+          "callee": "h.transpose",
+          "lineNumber": 36
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn.out_proj",
+          "lineNumber": 37
+        },
+        {
+          "caller": "forward",
+          "callee": "self.post_attention_layernorm",
+          "lineNumber": 38
+        },
+        {
+          "caller": "forward",
+          "callee": "self.down_proj",
+          "lineNumber": 39
+        },
+        {
+          "caller": "forward",
+          "callee": "F.silu",
+          "lineNumber": 39
+        },
+        {
+          "caller": "forward",
+          "callee": "self.gate_proj",
+          "lineNumber": 39
+        },
+        {
+          "caller": "forward",
+          "callee": "self.up_proj",
+          "lineNumber": 39
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 61
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Embedding",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 63
+        },
+        {
+          "caller": "__init__",
+          "callee": "DecoderBlock",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 66
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.RMSNorm",
+          "lineNumber": 69
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 70
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 72
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 73
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.arange",
+          "lineNumber": 78
+        },
+        {
+          "caller": "forward",
+          "callee": "self.pos_embedding(positions).unsqueeze",
+          "lineNumber": 79
+        },
+        {
+          "caller": "forward",
+          "callee": "self.pos_embedding",
+          "lineNumber": 79
+        },
+        {
+          "caller": "forward",
+          "callee": "layer",
+          "lineNumber": 81
+        },
+        {
+          "caller": "forward",
+          "callee": "self.norm",
+          "lineNumber": 82
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "set",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fetch",
+          "callee": "audio_state.get",
+          "lineNumber": 93
+        },
+        {
+          "caller": "fetch",
+          "callee": "missing.append",
+          "lineNumber": 95
+        },
+        {
+          "caller": "assign",
+          "callee": "tuple",
+          "lineNumber": 101
+        },
+        {
+          "caller": "assign",
+          "callee": "tuple",
+          "lineNumber": 101
+        },
+        {
+          "caller": "assign",
+          "callee": "mismatches.append",
+          "lineNumber": 102
+        },
+        {
+          "caller": "assign",
+          "callee": "tuple",
+          "lineNumber": 103
+        },
+        {
+          "caller": "assign",
+          "callee": "tuple",
+          "lineNumber": 103
+        },
+        {
+          "caller": "assign",
+          "callee": "target.data.copy_",
+          "lineNumber": 106
+        },
+        {
+          "caller": "assign",
+          "callee": "source.to",
+          "lineNumber": 106
+        },
+        {
+          "caller": "assign",
+          "callee": "loaded.update",
+          "lineNumber": 107
+        },
+        {
+          "caller": "copy_tensor",
+          "callee": "fetch",
+          "lineNumber": 110
+        },
+        {
+          "caller": "copy_tensor",
+          "callee": "assign",
+          "lineNumber": 112
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 114
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 115
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 116
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "enumerate",
+          "lineNumber": 117
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 118
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "enumerate",
+          "lineNumber": 120
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 122
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 123
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "tuple",
+          "lineNumber": 127
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "fetch",
+          "lineNumber": 130
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "all",
+          "lineNumber": 131
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "assign",
+          "lineNumber": 132
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "torch.cat",
+          "lineNumber": 135
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 138
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 139
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 140
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "copy_tensor",
+          "lineNumber": 141
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "key.startswith",
+          "lineNumber": 143
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "sorted",
+          "lineNumber": 144
+        },
+        {
+          "caller": "load_checkpoint_state",
+          "callee": "ValueError",
+          "lineNumber": 146
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "torch.nan_to_num",
+          "lineNumber": 160
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "logits.float",
+          "lineNumber": 160
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "torch.topk",
+          "lineNumber": 161
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "values.masked_fill",
+          "lineNumber": 162
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "float",
+          "lineNumber": 162
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "torch.nan_to_num",
+          "lineNumber": 163
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "F.softmax",
+          "lineNumber": 163
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "probs.sum(dim=-1, keepdim=True).clamp_min",
+          "lineNumber": 164
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "probs.sum",
+          "lineNumber": 164
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "torch.multinomial(probs, 1, generator=generator).squeeze",
+          "lineNumber": 165
+        },
+        {
+          "caller": "sample_topk",
+          "callee": "torch.multinomial",
+          "lineNumber": 165
+        },
+        {
+          "caller": "sample_topk_seeded",
+          "callee": "torch.nan_to_num",
+          "lineNumber": 185
+        },
+        {
+          "caller": "sample_topk_seeded",
+          "callee": "logits.float",
+          "lineNumber": 185
+        },
+        {
+          "caller": "sample_topk_seeded",
+          "callee": "torch.topk",
+          "lineNumber": 186
+        },
+        {
+          "caller": "sample_topk_seeded",
+          "callee": "values.masked_fill",
+          "lineNumber": 187
+        },
+        {
+          "caller": "sample_topk_seeded",
+          "callee": "float",
+          "lineNumber": 187
+        },
+        {
+          "caller": "sample_topk_seeded",
+          "callee": "multinomial_with_seed(values, seeds, positions).squeeze",
+          "lineNumber": 188
+        },
+        {
+          "caller": "sample_topk_seeded",
+          "callee": "multinomial_with_seed",
+          "lineNumber": 188
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "models/minimax_music3/scheduler.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 89,
+      "classes": [
+        {
+          "name": "MiniMaxMusic3Scheduler",
+          "startLine": 13,
+          "endLine": 101,
+          "methods": [
+            "_enqueue_built_request",
+            "_enqueue_cfg_uncond",
+            "get_new_batch_prefill",
+            "_pair_admission_limit",
+            "stream_output",
+            "abort",
+            "_is_cfg_uncond"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MiniMaxMusic3Scheduler",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "super()._enqueue_built_request",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "super",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._enqueue_cfg_uncond",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_enqueue_built_request",
+          "callee": "self._enqueue_cfg_uncond",
+          "lineNumber": 37
+        },
+        {
+          "caller": "_enqueue_cfg_uncond",
+          "callee": "self._normalize_req_token_arrays",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_enqueue_cfg_uncond",
+          "callee": "self.waiting_queue.append",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "self._pair_admission_limit",
+          "lineNumber": 52
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "len",
+          "lineNumber": 53
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "super().get_new_batch_prefill",
+          "lineNumber": 54
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "super",
+          "lineNumber": 54
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "super().get_new_batch_prefill",
+          "lineNumber": 58
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "super",
+          "lineNumber": 58
+        },
+        {
+          "caller": "get_new_batch_prefill",
+          "callee": "self.waiting_queue.extend",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "int",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "self.get_num_allocatable_reqs",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "len",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "min",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "len",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "max",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "int",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "range",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "len",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_pair_admission_limit",
+          "callee": "len",
+          "lineNumber": 70
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._is_cfg_uncond",
+          "lineNumber": 83
+        },
+        {
+          "caller": "stream_output",
+          "callee": "conditioned.append",
+          "lineNumber": 84
+        },
+        {
+          "caller": "stream_output",
+          "callee": "req.finished",
+          "lineNumber": 86
+        },
+        {
+          "caller": "stream_output",
+          "callee": "self._close_completed_request",
+          "lineNumber": 87
+        },
+        {
+          "caller": "stream_output",
+          "callee": "super().stream_output",
+          "lineNumber": 88
+        },
+        {
+          "caller": "stream_output",
+          "callee": "super",
+          "lineNumber": 88
+        },
+        {
+          "caller": "abort",
+          "callee": "super().abort",
+          "lineNumber": 91
+        },
+        {
+          "caller": "abort",
+          "callee": "super",
+          "lineNumber": 91
+        },
+        {
+          "caller": "abort",
+          "callee": "is_cfg_uncond_rid",
+          "lineNumber": 92
+        },
+        {
+          "caller": "abort",
+          "callee": "super().abort",
+          "lineNumber": 94
+        },
+        {
+          "caller": "abort",
+          "callee": "super",
+          "lineNumber": 94
+        },
+        {
+          "caller": "abort",
+          "callee": "cfg_uncond_rid",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_is_cfg_uncond",
+          "callee": "getattr",
+          "lineNumber": 100
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/minimax_music3/sglang_model.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 299,
+      "nonEmptyLines": 250,
+      "functions": [
+        {
+          "name": "attach_minimax_modules",
+          "startLine": 24,
+          "endLine": 79,
+          "params": [
+            "model",
+            "checkpoint_root"
+          ]
+        },
+        {
+          "name": "embed_audio_frames",
+          "startLine": 82,
+          "endLine": 96,
+          "params": [
+            "model",
+            "codes"
+          ]
+        },
+        {
+          "name": "apply_depth_cfg",
+          "startLine": 99,
+          "endLine": 102,
+          "params": [
+            "logits"
+          ]
+        },
+        {
+          "name": "apply_cfg",
+          "startLine": 105,
+          "endLine": 114,
+          "params": [
+            "cond",
+            "uncond"
+          ]
+        },
+        {
+          "name": "select_c0_logits",
+          "startLine": 117,
+          "endLine": 124,
+          "params": [
+            "model",
+            "logits"
+          ]
+        },
+        {
+          "name": "enable_rvq_depth_cuda_graph",
+          "startLine": 127,
+          "endLine": 141,
+          "params": [
+            "model",
+            "buckets"
+          ]
+        },
+        {
+          "name": "depth_decode",
+          "startLine": 144,
+          "endLine": 166,
+          "params": [
+            "model",
+            "hidden",
+            "c0",
+            "seeds",
+            "frame_positions",
+            "forced_codes"
+          ]
+        },
+        {
+          "name": "_depth_decode_eager",
+          "startLine": 169,
+          "endLine": 217,
+          "params": [
+            "model",
+            "hidden",
+            "c0",
+            "seeds",
+            "frame_positions",
+            "forced_codes",
+            "replay"
+          ]
+        },
+        {
+          "name": "_build_c0_logit_ids",
+          "startLine": 220,
+          "endLine": 226,
+          "params": [
+            "stop_token",
+            "device"
+          ]
+        },
+        {
+          "name": "_forward_prepare_unfused_qk_norm",
+          "startLine": 229,
+          "endLine": 244,
+          "params": [
+            "positions",
+            "hidden_states"
+          ]
+        },
+        {
+          "name": "_use_unfused_qk_norm",
+          "startLine": 247,
+          "endLine": 259,
+          "params": [
+            "model"
+          ]
+        },
+        {
+          "name": "enable_graph_feedback",
+          "startLine": 262,
+          "endLine": 271,
+          "params": [
+            "model",
+            "max_batch_size"
+          ]
+        },
+        {
+          "name": "_route_forward_batch_input_embeds",
+          "startLine": 274,
+          "endLine": 289,
+          "params": [
+            "model"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "attach_minimax_modules",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "embed_audio_frames",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "apply_depth_cfg",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "apply_cfg",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "select_c0_logits",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "enable_rvq_depth_cuda_graph",
+          "line": 127,
+          "isDefault": false
+        },
+        {
+          "name": "depth_decode",
+          "line": 144,
+          "isDefault": false
+        },
+        {
+          "name": "_depth_decode_eager",
+          "line": 169,
+          "isDefault": false
+        },
+        {
+          "name": "_build_c0_logit_ids",
+          "line": 220,
+          "isDefault": false
+        },
+        {
+          "name": "_forward_prepare_unfused_qk_norm",
+          "line": 229,
+          "isDefault": false
+        },
+        {
+          "name": "_use_unfused_qk_norm",
+          "line": 247,
+          "isDefault": false
+        },
+        {
+          "name": "enable_graph_feedback",
+          "line": 262,
+          "isDefault": false
+        },
+        {
+          "name": "_route_forward_batch_input_embeds",
+          "line": 274,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "resolve_checkpoint",
+          "lineNumber": 27
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "load_json",
+          "lineNumber": 28
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "load_audio_state",
+          "lineNumber": 29
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "next",
+          "lineNumber": 31
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "model.parameters",
+          "lineNumber": 31
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "int",
+          "lineNumber": 33
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "int",
+          "lineNumber": 34
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "int",
+          "lineNumber": 35
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "audio_state.get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "tuple",
+          "lineNumber": 39
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "ValueError",
+          "lineNumber": 40
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "tuple",
+          "lineNumber": 42
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "nn.Embedding(*expected).to",
+          "lineNumber": 44
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "nn.Embedding",
+          "lineNumber": 44
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "audio_embeddings.weight.data.copy_",
+          "lineNumber": 45
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "weight.to",
+          "lineNumber": 45
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "RVQDepthDecoder(\r\n            hidden_size=hidden_size,\r\n            num_layers=int(config[\"decoder_num_layers\"]),\r\n            num_heads=int(config[\"decoder_num_heads\"]),\r\n            intermediate_size=int(config[\"decoder_intermediate_size\"]),\r\n            audio_vocab_size=audio_vocab_size,\r\n            num_codebooks=num_codebooks,\r\n        )\r\n        .to(device=device, dtype=dtype)\r\n        .eval",
+          "lineNumber": 48
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "RVQDepthDecoder(\r\n            hidden_size=hidden_size,\r\n            num_layers=int(config[\"decoder_num_layers\"]),\r\n            num_heads=int(config[\"decoder_num_heads\"]),\r\n            intermediate_size=int(config[\"decoder_intermediate_size\"]),\r\n            audio_vocab_size=audio_vocab_size,\r\n            num_codebooks=num_codebooks,\r\n        )\r\n        .to",
+          "lineNumber": 48
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "RVQDepthDecoder",
+          "lineNumber": 48
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "int",
+          "lineNumber": 50
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "int",
+          "lineNumber": 51
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "int",
+          "lineNumber": 52
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "rvq_decoder.load_checkpoint_state",
+          "lineNumber": 59
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "(\r\n        torch.arange(num_codebooks - 1, device=device) * audio_vocab_size\r\n    ).unsqueeze",
+          "lineNumber": 68
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "torch.arange",
+          "lineNumber": 69
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "_build_c0_logit_ids",
+          "lineNumber": 72
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "_use_unfused_qk_norm",
+          "lineNumber": 75
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "_route_forward_batch_input_embeds",
+          "lineNumber": 76
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "logger.info",
+          "lineNumber": 77
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "sum",
+          "lineNumber": 78
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "p.numel",
+          "lineNumber": 78
+        },
+        {
+          "caller": "attach_minimax_modules",
+          "callee": "rvq_decoder.parameters",
+          "lineNumber": 78
+        },
+        {
+          "caller": "embed_audio_frames",
+          "callee": "model.get_input_embeddings",
+          "lineNumber": 91
+        },
+        {
+          "caller": "embed_audio_frames",
+          "callee": "embed_tokens",
+          "lineNumber": 92
+        },
+        {
+          "caller": "embed_audio_frames",
+          "callee": "model.audio_embeddings(codes[:, 1:] + model.audio_embedding_offsets).sum",
+          "lineNumber": 93
+        },
+        {
+          "caller": "embed_audio_frames",
+          "callee": "model.audio_embeddings",
+          "lineNumber": 93
+        },
+        {
+          "caller": "embed_audio_frames",
+          "callee": "extra.to",
+          "lineNumber": 96
+        },
+        {
+          "caller": "apply_depth_cfg",
+          "callee": "logits[0::2].float",
+          "lineNumber": 101
+        },
+        {
+          "caller": "apply_depth_cfg",
+          "callee": "logits[1::2].float",
+          "lineNumber": 101
+        },
+        {
+          "caller": "apply_cfg",
+          "callee": "torch.topk",
+          "lineNumber": 113
+        },
+        {
+          "caller": "apply_cfg",
+          "callee": "guided.masked_fill",
+          "lineNumber": 114
+        },
+        {
+          "caller": "apply_cfg",
+          "callee": "float",
+          "lineNumber": 114
+        },
+        {
+          "caller": "select_c0_logits",
+          "callee": "logits.index_select(1, model.c0_logit_ids).float",
+          "lineNumber": 124
+        },
+        {
+          "caller": "select_c0_logits",
+          "callee": "logits.index_select",
+          "lineNumber": 124
+        },
+        {
+          "caller": "enable_rvq_depth_cuda_graph",
+          "callee": "next",
+          "lineNumber": 131
+        },
+        {
+          "caller": "enable_rvq_depth_cuda_graph",
+          "callee": "model.parameters",
+          "lineNumber": 131
+        },
+        {
+          "caller": "enable_rvq_depth_cuda_graph",
+          "callee": "RVQDepthCudaGraphRunner",
+          "lineNumber": 132
+        },
+        {
+          "caller": "enable_rvq_depth_cuda_graph",
+          "callee": "_depth_decode_eager",
+          "lineNumber": 134
+        },
+        {
+          "caller": "depth_decode",
+          "callee": "c0.new_zeros",
+          "lineNumber": 155
+        },
+        {
+          "caller": "depth_decode",
+          "callee": "c0.new_zeros",
+          "lineNumber": 156
+        },
+        {
+          "caller": "depth_decode",
+          "callee": "c0.new_ones",
+          "lineNumber": 158
+        },
+        {
+          "caller": "depth_decode",
+          "callee": "getattr",
+          "lineNumber": 159
+        },
+        {
+          "caller": "depth_decode",
+          "callee": "graph",
+          "lineNumber": 161
+        },
+        {
+          "caller": "depth_decode",
+          "callee": "_depth_decode_eager",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "model.get_input_embeddings",
+          "lineNumber": 186
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "embed_tokens",
+          "lineNumber": 190
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "decoder.projection(hidden).unsqueeze",
+          "lineNumber": 192
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "decoder.projection",
+          "lineNumber": 192
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "decoder.projection(c0_embed).unsqueeze",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "decoder.projection",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "range",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "decoder",
+          "lineNumber": 199
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "torch.cat",
+          "lineNumber": 199
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "hidden_parts.append",
+          "lineNumber": 200
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "out.detach",
+          "lineNumber": 200
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "apply_depth_cfg",
+          "lineNumber": 201
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "sample_topk_seeded",
+          "lineNumber": 202
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "cond_forced[:, index].unsqueeze",
+          "lineNumber": 203
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "ranks.append",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "(guided > guided.gather(1, reference)).sum",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "guided.gather",
+          "lineNumber": 204
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "torch.where",
+          "lineNumber": 205
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "code.repeat_interleave",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "codes.append",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "model.audio_embeddings",
+          "lineNumber": 209
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "seq.append",
+          "lineNumber": 212
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "decoder.projection(embedding).unsqueeze",
+          "lineNumber": 212
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "decoder.projection",
+          "lineNumber": 212
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "torch.stack",
+          "lineNumber": 214
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "torch.cat",
+          "lineNumber": 215
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "torch.stack(ranks, dim=1).repeat_interleave",
+          "lineNumber": 216
+        },
+        {
+          "caller": "_depth_decode_eager",
+          "callee": "torch.stack",
+          "lineNumber": 216
+        },
+        {
+          "caller": "_build_c0_logit_ids",
+          "callee": "torch.arange",
+          "lineNumber": 223
+        },
+        {
+          "caller": "_build_c0_logit_ids",
+          "callee": "torch.cat",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_build_c0_logit_ids",
+          "callee": "torch.tensor",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_forward_prepare_unfused_qk_norm",
+          "callee": "self.qkv_proj",
+          "lineNumber": 232
+        },
+        {
+          "caller": "_forward_prepare_unfused_qk_norm",
+          "callee": "qkv.split",
+          "lineNumber": 233
+        },
+        {
+          "caller": "_forward_prepare_unfused_qk_norm",
+          "callee": "apply_qk_norm",
+          "lineNumber": 234
+        },
+        {
+          "caller": "_forward_prepare_unfused_qk_norm",
+          "callee": "self.rotary_emb",
+          "lineNumber": 243
+        },
+        {
+          "caller": "_use_unfused_qk_norm",
+          "callee": "getattr",
+          "lineNumber": 250
+        },
+        {
+          "caller": "_use_unfused_qk_norm",
+          "callee": "RuntimeError",
+          "lineNumber": 254
+        },
+        {
+          "caller": "_use_unfused_qk_norm",
+          "callee": "MethodType",
+          "lineNumber": 257
+        },
+        {
+          "caller": "enable_graph_feedback",
+          "callee": "ValueError",
+          "lineNumber": 265
+        },
+        {
+          "caller": "enable_graph_feedback",
+          "callee": "next",
+          "lineNumber": 266
+        },
+        {
+          "caller": "enable_graph_feedback",
+          "callee": "model.parameters",
+          "lineNumber": 266
+        },
+        {
+          "caller": "enable_graph_feedback",
+          "callee": "torch.zeros",
+          "lineNumber": 267
+        },
+        {
+          "caller": "enable_graph_feedback",
+          "callee": "int",
+          "lineNumber": 268
+        },
+        {
+          "caller": "enable_graph_feedback",
+          "callee": "int",
+          "lineNumber": 268
+        },
+        {
+          "caller": "forward",
+          "callee": "getattr",
+          "lineNumber": 280
+        },
+        {
+          "caller": "forward",
+          "callee": "forward_batch.forward_mode.is_decode",
+          "lineNumber": 281
+        },
+        {
+          "caller": "forward",
+          "callee": "backbone_forward",
+          "lineNumber": 285
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 13,
+        "functionCount": 13,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/minimax_music3/sglang_request_builder.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 186,
+      "nonEmptyLines": 156,
+      "functions": [
+        {
+          "name": "cfg_uncond_rid",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "request_id"
+          ]
+        },
+        {
+          "name": "is_cfg_uncond_rid",
+          "startLine": 32,
+          "endLine": 33,
+          "params": [
+            "rid"
+          ]
+        },
+        {
+          "name": "build_sglang_minimax_request",
+          "startLine": 48,
+          "endLine": 131,
+          "params": [
+            "payload",
+            "tokenizer"
+          ]
+        },
+        {
+          "name": "build_stream_output",
+          "startLine": 134,
+          "endLine": 138,
+          "params": [
+            "request_id",
+            "data",
+            "req_output"
+          ]
+        },
+        {
+          "name": "flush_stream_output",
+          "startLine": 141,
+          "endLine": 146,
+          "params": [
+            "request_id",
+            "data"
+          ]
+        },
+        {
+          "name": "apply_minimax_result",
+          "startLine": 152,
+          "endLine": 159,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "_drain_pending_chunks",
+          "startLine": 162,
+          "endLine": 176,
+          "params": [
+            "request_id",
+            "data"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "MiniMaxMusic3SGLangRequestData",
+          "startLine": 37,
+          "endLine": 45,
+          "methods": [],
+          "properties": [
+            "enforce_request_limits",
+            "minimax_state",
+            "cfg_uncond",
+            "is_cfg_uncond",
+            "prompt_token_ids",
+            "prompt_tokens",
+            "ar_state",
+            "engine_start_s"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "cfg_uncond_rid",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "is_cfg_uncond_rid",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "MiniMaxMusic3SGLangRequestData",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "build_sglang_minimax_request",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "build_stream_output",
+          "line": 134,
+          "isDefault": false
+        },
+        {
+          "name": "flush_stream_output",
+          "line": 141,
+          "isDefault": false
+        },
+        {
+          "name": "apply_minimax_result",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "_drain_pending_chunks",
+          "line": 162,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "is_cfg_uncond_rid",
+          "callee": "rid.endswith",
+          "lineNumber": 33
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "build_ttm_state",
+          "lineNumber": 54
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "RuntimeError",
+          "lineNumber": 56
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "is_cfg_uncond_rid",
+          "lineNumber": 58
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "ValueError",
+          "lineNumber": 59
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "tokenizer",
+          "lineNumber": 63
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "int",
+          "lineNumber": 64
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "prompt_token_ids.numel",
+          "lineNumber": 64
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "ValueError",
+          "lineNumber": 66
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "int",
+          "lineNumber": 71
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "SamplingParams",
+          "lineNumber": 73
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "sampling_params.normalize",
+          "lineNumber": 78
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "sampling_params.verify",
+          "lineNumber": 79
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "Req",
+          "lineNumber": 81
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "prompt_token_ids.tolist",
+          "lineNumber": 84
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "prompt_token_ids.clone",
+          "lineNumber": 93
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "Req",
+          "lineNumber": 95
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "cfg_uncond_rid",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "uncond_ids.tolist",
+          "lineNumber": 98
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "MiniMaxMusic3SGLangRequestData",
+          "lineNumber": 106
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "uncond_ids.unsqueeze",
+          "lineNumber": 111
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "time.perf_counter",
+          "lineNumber": 117
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "MiniMaxMusic3SGLangRequestData",
+          "lineNumber": 119
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "prompt_token_ids.unsqueeze",
+          "lineNumber": 125
+        },
+        {
+          "caller": "build_sglang_minimax_request",
+          "callee": "time.perf_counter",
+          "lineNumber": 130
+        },
+        {
+          "caller": "build_stream_output",
+          "callee": "_drain_pending_chunks",
+          "lineNumber": 138
+        },
+        {
+          "caller": "flush_stream_output",
+          "callee": "_drain_pending_chunks",
+          "lineNumber": 146
+        },
+        {
+          "caller": "apply_minimax_result",
+          "callee": "RuntimeError",
+          "lineNumber": 155
+        },
+        {
+          "caller": "apply_minimax_result",
+          "callee": "store_state",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_drain_pending_chunks",
+          "callee": "pending.pop",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_drain_pending_chunks",
+          "callee": "OutgoingMessage",
+          "lineNumber": 171
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 8,
+        "functionCount": 7,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/minimax_music3/stages.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 132,
+      "nonEmptyLines": 113,
+      "functions": [
+        {
+          "name": "create_preprocessing_executor",
+          "startLine": 26,
+          "endLine": 36,
+          "params": [
+            "model_path"
+          ]
+        },
+        {
+          "name": "create_ar_executor",
+          "startLine": 39,
+          "endLine": 75,
+          "params": [
+            "model_path",
+            "gpu_id",
+            "device",
+            "max_concurrency",
+            "server_args_overrides"
+          ]
+        },
+        {
+          "name": "create_dit_dav_executor",
+          "startLine": 78,
+          "endLine": 125,
+          "params": [
+            "model_path",
+            "gpu_id",
+            "device",
+            "dtype",
+            "dit_steps",
+            "dit_cfg_scale",
+            "attention_backend",
+            "cache_dit",
+            "compile_acoustic",
+            "breakable_cuda_graph",
+            "breakable_cuda_graph_min_free_gb",
+            "cache_dit_fn_compute_blocks",
+            "cache_dit_bn_compute_blocks",
+            "cache_dit_max_warmup_steps",
+            "cache_dit_residual_diff_threshold",
+            "cache_dit_max_continuous_cached_steps"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "create_preprocessing_executor",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "create_ar_executor",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "create_dit_dav_executor",
+          "line": 78,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_preprocess",
+          "callee": "build_ttm_state",
+          "lineNumber": 30
+        },
+        {
+          "caller": "_preprocess",
+          "callee": "logger.info",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_preprocess",
+          "callee": "store_state",
+          "lineNumber": 34
+        },
+        {
+          "caller": "create_preprocessing_executor",
+          "callee": "SimpleScheduler",
+          "lineNumber": 36
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "current_platform.is_cuda",
+          "lineNumber": 49
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "current_platform.is_musa",
+          "lineNumber": 49
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "RuntimeError",
+          "lineNumber": 51
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "torch.backends.cuda.enable_cudnn_sdp",
+          "lineNumber": 54
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "dict",
+          "lineNumber": 58
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "overrides.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "int",
+          "lineNumber": 61
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "MiniMaxMusic3EngineBuilder",
+          "lineNumber": 62
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "max",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "int",
+          "lineNumber": 63
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "builder.build",
+          "lineNumber": 65
+        },
+        {
+          "caller": "create_ar_executor",
+          "callee": "logger.info",
+          "lineNumber": 72
+        },
+        {
+          "caller": "create_dit_dav_executor",
+          "callee": "current_platform.is_cuda",
+          "lineNumber": 99
+        },
+        {
+          "caller": "create_dit_dav_executor",
+          "callee": "current_platform.is_musa",
+          "lineNumber": 99
+        },
+        {
+          "caller": "create_dit_dav_executor",
+          "callee": "RuntimeError",
+          "lineNumber": 101
+        },
+        {
+          "caller": "create_dit_dav_executor",
+          "callee": "MiniMaxMusic3AcousticDecoder",
+          "lineNumber": 105
+        },
+        {
+          "caller": "create_dit_dav_executor",
+          "callee": "logger.info",
+          "lineNumber": 122
+        },
+        {
+          "caller": "create_dit_dav_executor",
+          "callee": "MiniMaxMusic3AcousticScheduler",
+          "lineNumber": 125
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

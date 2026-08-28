@@ -1,0 +1,249 @@
+{
+  "nodes": [
+    {
+      "id": "file:scheduling/omni_scheduler.py",
+      "type": "file",
+      "name": "omni_scheduler.py",
+      "filePath": "scheduling/omni_scheduler.py",
+      "summary": "实现面向管线阶段的自回归调度器，以组合方式复用 SGLang 上游调度算法，并管理请求构建与延迟准入、批处理执行、流式输入输出、中止、管理操作和资源清理。",
+      "tags": ["scheduler", "request-lifecycle", "batching", "streaming", "sglang-integration"],
+      "complexity": "complex",
+      "languageNotes": "OmniScheduler 不继承上游 Scheduler，而由 __getattr__ 把未覆盖的方法从上游类动态绑定到当前实例，从而保留自定义 IPC 和生命周期。"
+    },
+    {
+      "id": "class:scheduling/omni_scheduler.py:_PendingStreamIngress",
+      "type": "class",
+      "name": "_PendingStreamIngress",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [79, 86],
+      "summary": "缓存在请求尚未正式准入时到达的流式输入块及其完成状态。",
+      "tags": ["streaming", "request-admission", "buffer"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/omni_scheduler.py:_detach_request_data",
+      "type": "function",
+      "name": "_detach_request_data",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [89, 91],
+      "summary": "清除 SGLang Req 指向 Omni 请求数据的反向引用，以便异步快照只保留单向关系并释放资源。",
+      "tags": ["resource-cleanup", "reference-management", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/omni_scheduler.py:_NoOpSender",
+      "type": "class",
+      "name": "_NoOpSender",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [94, 98],
+      "summary": "提供空的发送接口占位，因为 OmniScheduler 自己负责向下游发出流式结果。",
+      "tags": ["adapter", "no-op", "ipc"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/omni_scheduler.py:_UpstreamAbortSender",
+      "type": "class",
+      "name": "_UpstreamAbortSender",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [101, 126],
+      "summary": "把 SGLang 上游 AbortReq 通知转换为阶段错误输出，并触发 OmniScheduler 的请求中止流程。",
+      "tags": ["abort-handling", "ipc-adapter", "error-propagation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/omni_scheduler.py:_OmniIpcChannels",
+      "type": "class",
+      "name": "_OmniIpcChannels",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [129, 134],
+      "summary": "向上游调度代码暴露 Omni 实际可达的 IPC 通道子集，将 tokenizer 中止和 detokenizer 输出接入本地适配器。",
+      "tags": ["ipc", "adapter", "sglang-integration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/omni_scheduler.py:_NoOpGrammarManager",
+      "type": "class",
+      "name": "_NoOpGrammarManager",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [137, 155],
+      "summary": "实现始终为空的语法管理器接口，以满足上游调度器契约而不启用约束解码。",
+      "tags": ["adapter", "constrained-decoding", "no-op"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/omni_scheduler.py:OmniScheduler",
+      "type": "class",
+      "name": "OmniScheduler",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [158, 2708],
+      "summary": "编排自回归阶段的完整请求生命周期：并发构建与准入、队列背压、prefill/decode 批次、同步或异步执行、流式消息、中止与权重管理，并通过组合复用上游 SGLang 调度策略。",
+      "tags": ["scheduler", "request-lifecycle", "concurrency", "batching", "administration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:scheduling/omni_scheduler.py:_remove_from_batch",
+      "type": "function",
+      "name": "_remove_from_batch",
+      "filePath": "scheduling/omni_scheduler.py",
+      "lineRange": [2711, 2722],
+      "summary": "从调度批次移除指定请求，断开其 Omni 数据引用，并在批次变空时清除满载标志。",
+      "tags": ["batch-management", "abort-handling", "resource-cleanup"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/token_text_streaming.py",
+      "type": "file",
+      "name": "token_text_streaming.py",
+      "filePath": "scheduling/token_text_streaming.py",
+      "summary": "提供共享的令牌到文本流式输出构建器，处理分块 prefill 抑制、EOS 与终止刷新、最小发送间隔、Unicode 未完成序列和消息元数据。",
+      "tags": ["token-streaming", "text-decoding", "rate-limiting", "unicode"],
+      "complexity": "moderate",
+      "languageNotes": "工厂返回带可选 flush 属性的闭包，并把尚未形成完整 Unicode 文本的尾随替换字符保留到后续令牌。"
+    },
+    {
+      "id": "function:scheduling/token_text_streaming.py:make_token_text_stream_output_builder",
+      "type": "function",
+      "name": "make_token_text_stream_output_builder",
+      "filePath": "scheduling/token_text_streaming.py",
+      "lineRange": [17, 127],
+      "summary": "构造可配置的流式文本回调，积累非 EOS 令牌、按时间节流解码，并在安全时生成 OutgoingMessage 增量或终止刷新。",
+      "tags": ["factory", "token-streaming", "text-decoding", "output-adapter"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scheduling/types.py",
+      "type": "file",
+      "name": "types.py",
+      "filePath": "scheduling/types.py",
+      "summary": "定义调度器、请求、批次、模型运行结果和自回归状态的共享数据结构，并提供采样器所选令牌 logprob 的规范化转换。",
+      "tags": ["type-definition", "scheduler", "request-data", "model-output"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:scheduling/types.py:SchedulerStatus",
+      "type": "class",
+      "name": "SchedulerStatus",
+      "filePath": "scheduling/types.py",
+      "lineRange": [15, 19],
+      "summary": "枚举请求等待、运行、完成和中止四种调度生命周期状态。",
+      "tags": ["enum", "request-lifecycle", "scheduler"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/types.py:SchedulerRequest",
+      "type": "class",
+      "name": "SchedulerRequest",
+      "filePath": "scheduling/types.py",
+      "lineRange": [23, 29],
+      "summary": "记录调度请求标识、状态、业务数据、错误以及到达和完成时间。",
+      "tags": ["data-model", "scheduler", "request-lifecycle"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/types.py:DeferredAdmission",
+      "type": "class",
+      "name": "DeferredAdmission",
+      "filePath": "scheduling/types.py",
+      "lineRange": [33, 35],
+      "summary": "把已构建请求值与表示前置异步工作完成的 Future 配对，用于延迟准入。",
+      "tags": ["data-model", "deferred-admission", "future"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/types.py:SchedulerOutput",
+      "type": "class",
+      "name": "SchedulerOutput",
+      "filePath": "scheduling/types.py",
+      "lineRange": [39, 46],
+      "summary": "聚合一个调度步的请求集合、批次数据和步编号，并便捷暴露请求 ID 列表。",
+      "tags": ["data-model", "scheduler-output", "batching"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/types.py:RequestOutput",
+      "type": "class",
+      "name": "RequestOutput",
+      "filePath": "scheduling/types.py",
+      "lineRange": [50, 54],
+      "summary": "表示单个请求在一次模型运行中的数据、完成标志和可选扩展元数据。",
+      "tags": ["data-model", "request-output", "model-output"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/types.py:ModelRunnerOutput",
+      "type": "class",
+      "name": "ModelRunnerOutput",
+      "filePath": "scheduling/types.py",
+      "lineRange": [58, 68],
+      "summary": "汇总模型运行器按请求产生的输出、索引映射、CUDA Graph 可用性以及设备端或主机端下一令牌张量。",
+      "tags": ["data-model", "model-output", "cuda-graph", "token-reporting"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/types.py:ARRequestData",
+      "type": "class",
+      "name": "ARRequestData",
+      "filePath": "scheduling/types.py",
+      "lineRange": [72, 87],
+      "summary": "保存后端无关的自回归请求输入、生成令牌、额外模型输出、终止原因、logprob 选项和生成限制。",
+      "tags": ["data-model", "autoregressive", "request-state", "logprob"],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/types.py:sampled_logprobs_to_list",
+      "type": "function",
+      "name": "sampled_logprobs_to_list",
+      "filePath": "scheduling/types.py",
+      "lineRange": [90, 118],
+      "summary": "把采样器产生的标量、张量或单元素嵌套序列 logprob 转换为浮点列表，并拒绝无法确定逐行值的结构。",
+      "tags": ["logprob", "normalization", "tensor-adapter"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_PendingStreamIngress","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"function:scheduling/omni_scheduler.py:_detach_request_data","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_NoOpSender","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_UpstreamAbortSender","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_OmniIpcChannels","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_NoOpGrammarManager","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:OmniScheduler","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"function:scheduling/omni_scheduler.py:_remove_from_batch","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_PendingStreamIngress","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"function:scheduling/omni_scheduler.py:_detach_request_data","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_NoOpSender","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_UpstreamAbortSender","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_OmniIpcChannels","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:_NoOpGrammarManager","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"class:scheduling/omni_scheduler.py:OmniScheduler","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"function:scheduling/omni_scheduler.py:_remove_from_batch","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/omni_scheduler.py","target":"file:scheduling/types.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"class:scheduling/omni_scheduler.py:_UpstreamAbortSender","target":"class:scheduling/omni_scheduler.py:OmniScheduler","type":"depends_on","direction":"forward","weight":0.6},
+    {"source":"class:scheduling/omni_scheduler.py:_OmniIpcChannels","target":"class:scheduling/omni_scheduler.py:_UpstreamAbortSender","type":"depends_on","direction":"forward","weight":0.6},
+    {"source":"class:scheduling/omni_scheduler.py:OmniScheduler","target":"class:scheduling/types.py:DeferredAdmission","type":"depends_on","direction":"forward","weight":0.6},
+    {"source":"function:scheduling/omni_scheduler.py:_remove_from_batch","target":"function:scheduling/omni_scheduler.py:_detach_request_data","type":"calls","direction":"forward","weight":0.8},
+
+    {"source":"file:scheduling/token_text_streaming.py","target":"function:scheduling/token_text_streaming.py:make_token_text_stream_output_builder","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/token_text_streaming.py","target":"function:scheduling/token_text_streaming.py:make_token_text_stream_output_builder","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/token_text_streaming.py","target":"file:scheduling/types.py","type":"imports","direction":"forward","weight":0.7},
+
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:SchedulerStatus","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:SchedulerRequest","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:DeferredAdmission","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:SchedulerOutput","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:RequestOutput","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:ModelRunnerOutput","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:ARRequestData","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"function:scheduling/types.py:sampled_logprobs_to_list","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:SchedulerStatus","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:SchedulerRequest","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:DeferredAdmission","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:SchedulerOutput","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:RequestOutput","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:ModelRunnerOutput","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/types.py","target":"class:scheduling/types.py:ARRequestData","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:scheduling/types.py","target":"function:scheduling/types.py:sampled_logprobs_to_list","type":"exports","direction":"forward","weight":0.8},
+    {"source":"class:scheduling/types.py:SchedulerOutput","target":"class:scheduling/types.py:SchedulerRequest","type":"depends_on","direction":"forward","weight":0.6},
+    {"source":"class:scheduling/types.py:ModelRunnerOutput","target":"class:scheduling/types.py:RequestOutput","type":"depends_on","direction":"forward","weight":0.6}
+  ]
+}

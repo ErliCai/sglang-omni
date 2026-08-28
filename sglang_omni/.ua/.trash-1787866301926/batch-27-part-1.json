@@ -1,0 +1,2142 @@
+{
+  "nodes": [
+    {
+      "id": "file:pipeline/local_dispatch.py",
+      "type": "file",
+      "name": "local_dispatch.py",
+      "filePath": "pipeline/local_dispatch.py",
+      "summary": "在单进程运行模式下把阶段负载和流式块直接分发给本地 Stage 实例，并传播完成与中止信号。",
+      "tags": [
+        "pipeline",
+        "local-dispatch",
+        "streaming"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:pipeline/local_dispatch.py:LocalStageDispatcher",
+      "type": "class",
+      "name": "LocalStageDispatcher",
+      "filePath": "pipeline/local_dispatch.py",
+      "lineRange": [
+        9,
+        88
+      ],
+      "summary": "把阶段负载、流式数据和控制信号同步分发到同进程的目标 Stage。",
+      "tags": [
+        "pipeline",
+        "local-dispatch",
+        "local-stage-dispatcher",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:pipeline/mp_runner.py",
+      "type": "file",
+      "name": "mp_runner.py",
+      "filePath": "pipeline/mp_runner.py",
+      "summary": "把流水线配置展开为进程与张量并行阶段组，分配通信端点、GPU 和显存默认值，并管理多进程生命周期。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "stage-groups",
+        "tensor-parallel"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:pipeline/mp_runner.py:resolve_coordinator_max_in_flight",
+      "type": "function",
+      "name": "resolve_coordinator_max_in_flight",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        47,
+        76
+      ],
+      "summary": "解析解析 coordinator max in flight逻辑，服务于pipeline、multiprocessing的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "resolve-coordinator-max-in-flight",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "type": "function",
+      "name": "_build_stage_groups",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        79,
+        225
+      ],
+      "summary": "构建构建 阶段 组逻辑，服务于pipeline、multiprocessing的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "build-stage-groups",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:pipeline/mp_runner.py:_attach_process_memory_fraction_defaults",
+      "type": "function",
+      "name": "_attach_process_memory_fraction_defaults",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        228,
+        256
+      ],
+      "summary": "附加附加 进程 显存 比例 默认值逻辑，服务于pipeline、multiprocessing的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "attach-process-memory-fraction-defaults",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/mp_runner.py:_resolve_same_process_targets",
+      "type": "function",
+      "name": "_resolve_same_process_targets",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        259,
+        288
+      ],
+      "summary": "解析解析 同进程 进程 目标逻辑，服务于pipeline、multiprocessing的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "resolve-same-process-targets",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/mp_runner.py:_build_single_stage_spec",
+      "type": "function",
+      "name": "_build_single_stage_spec",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        291,
+        317
+      ],
+      "summary": "构建构建 单一 阶段 规格逻辑，服务于pipeline、multiprocessing的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "build-single-stage-spec",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/mp_runner.py:_build_tp_stage_specs",
+      "type": "function",
+      "name": "_build_tp_stage_specs",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        320,
+        395
+      ],
+      "summary": "构建构建 tp 阶段 规格逻辑，服务于pipeline、multiprocessing的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "build-tp-stage-specs",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:pipeline/mp_runner.py:_resolve_comm_config",
+      "type": "function",
+      "name": "_resolve_comm_config",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        398,
+        407
+      ],
+      "summary": "解析解析 通信 配置逻辑，服务于pipeline、multiprocessing的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "resolve-comm-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/mp_runner.py:_NcclPortAllocator",
+      "type": "class",
+      "name": "_NcclPortAllocator",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        410,
+        426
+      ],
+      "summary": "为同一主机上的张量并行阶段组分配不冲突的 NCCL 端口。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "nccl-port-allocator",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/mp_runner.py:MultiProcessPipelineRunner",
+      "type": "class",
+      "name": "MultiProcessPipelineRunner",
+      "filePath": "pipeline/mp_runner.py",
+      "lineRange": [
+        429,
+        654
+      ],
+      "summary": "构建并启动阶段进程组、协调器和通信资源，并负责停止、等待与异常清理。",
+      "tags": [
+        "pipeline",
+        "multiprocessing",
+        "multi-process-pipeline-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:pipeline/replicas.py",
+      "type": "file",
+      "name": "replicas.py",
+      "filePath": "pipeline/replicas.py",
+      "summary": "展开阶段副本拓扑，校验设备分配，并通过绑定策略把逻辑阶段副本映射到 GPU。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "device-binding",
+        "topology"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:pipeline/replicas.py:expand_replica_stages",
+      "type": "function",
+      "name": "expand_replica_stages",
+      "filePath": "pipeline/replicas.py",
+      "lineRange": [
+        109,
+        186
+      ],
+      "summary": "展开展开 副本 阶段逻辑，服务于pipeline、replicas的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "expand-replica-stages",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:pipeline/replicas.py:_replica_stage_gpu",
+      "type": "function",
+      "name": "_replica_stage_gpu",
+      "filePath": "pipeline/replicas.py",
+      "lineRange": [
+        189,
+        202
+      ],
+      "summary": "执行副本 阶段 GPU逻辑，服务于pipeline、replicas的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "replica-stage-gpu",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/replicas.py:validate_device_assignment",
+      "type": "function",
+      "name": "validate_device_assignment",
+      "filePath": "pipeline/replicas.py",
+      "lineRange": [
+        205,
+        229
+      ],
+      "summary": "校验校验 设备 分配逻辑，服务于pipeline、replicas的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "validate-device-assignment",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/replicas.py:assign_replica_bindings",
+      "type": "function",
+      "name": "assign_replica_bindings",
+      "filePath": "pipeline/replicas.py",
+      "lineRange": [
+        253,
+        278
+      ],
+      "summary": "分配分配 副本 bindings逻辑，服务于pipeline、replicas的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "assign-replica-bindings",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/replicas.py:ReplicaTopology",
+      "type": "class",
+      "name": "ReplicaTopology",
+      "filePath": "pipeline/replicas.py",
+      "lineRange": [
+        46,
+        106
+      ],
+      "summary": "描述阶段副本数量、每副本 TP 规模和逻辑到物理实例的映射。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "replica-topology",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:pipeline/replicas.py:BindingPolicy",
+      "type": "class",
+      "name": "BindingPolicy",
+      "filePath": "pipeline/replicas.py",
+      "lineRange": [
+        232,
+        235
+      ],
+      "summary": "定义把流水线副本绑定到设备集合的策略接口。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "binding-policy",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/replicas.py:RoundRobinBindingPolicy",
+      "type": "class",
+      "name": "RoundRobinBindingPolicy",
+      "filePath": "pipeline/replicas.py",
+      "lineRange": [
+        238,
+        250
+      ],
+      "summary": "以轮询方式把阶段副本均匀绑定到候选 GPU。",
+      "tags": [
+        "pipeline",
+        "replicas",
+        "round-robin-binding-policy",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:pipeline/runtime_config.py",
+      "type": "file",
+      "name": "runtime_config.py",
+      "filePath": "pipeline/runtime_config.py",
+      "summary": "准备跨进程流水线运行目录、通信配置和 IPC 端点，并严格校验 Unix 套接字路径预算。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "ipc",
+        "endpoints"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:_visible_device_count",
+      "type": "function",
+      "name": "_visible_device_count",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        32,
+        40
+      ],
+      "summary": "统计可见 设备 数量逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "visible-device-count",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:create_ipc_runtime_dir",
+      "type": "function",
+      "name": "create_ipc_runtime_dir",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        91,
+        112
+      ],
+      "summary": "创建创建 IPC 运行时 目录逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "create-ipc-runtime-dir",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:prepare_pipeline_runtime",
+      "type": "function",
+      "name": "prepare_pipeline_runtime",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        115,
+        162
+      ],
+      "summary": "准备准备 pipeline 运行时逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "prepare-pipeline-runtime",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:build_comm_config",
+      "type": "function",
+      "name": "build_comm_config",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        165,
+        188
+      ],
+      "summary": "构建构建 通信 配置逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "build-comm-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:allocate_endpoints",
+      "type": "function",
+      "name": "allocate_endpoints",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        191,
+        207
+      ],
+      "summary": "分配分配 端点逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "allocate-endpoints",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:_truncate_ipc_namespace_prefix",
+      "type": "function",
+      "name": "_truncate_ipc_namespace_prefix",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        210,
+        239
+      ],
+      "summary": "截断截断 IPC 命名空间 前缀逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "truncate-ipc-namespace-prefix",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:_validate_ipc_endpoint_budget",
+      "type": "function",
+      "name": "_validate_ipc_endpoint_budget",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        242,
+        254
+      ],
+      "summary": "校验校验 IPC 端点 预算逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "validate-ipc-endpoint-budget",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:_longest_endpoint_suffix_len",
+      "type": "function",
+      "name": "_longest_endpoint_suffix_len",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        257,
+        263
+      ],
+      "summary": "计算最长 端点 后缀 长度逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "longest-endpoint-suffix-len",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:_ipc_dir_len",
+      "type": "function",
+      "name": "_ipc_dir_len",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        266,
+        275
+      ],
+      "summary": "计算IPC 目录 长度逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "ipc-dir-len",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/runtime_config.py:_raise_ipc_path_budget_error",
+      "type": "function",
+      "name": "_raise_ipc_path_budget_error",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        278,
+        289
+      ],
+      "summary": "报告抛出 IPC 路径 预算 错误逻辑，服务于pipeline、runtime-config的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "raise-ipc-path-budget-error",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/runtime_config.py:IpcRuntimeDir",
+      "type": "class",
+      "name": "IpcRuntimeDir",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        48,
+        73
+      ],
+      "summary": "封装 IPC 运行目录路径、命名空间前缀和清理责任。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "ipc-runtime-dir",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:pipeline/runtime_config.py:PipelineRuntimePrep",
+      "type": "class",
+      "name": "PipelineRuntimePrep",
+      "filePath": "pipeline/runtime_config.py",
+      "lineRange": [
+        77,
+        88
+      ],
+      "summary": "汇总流水线运行目录、端点分配和通信配置准备结果。",
+      "tags": [
+        "pipeline",
+        "runtime-config",
+        "pipeline-runtime-prep",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:pipeline/stage/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "pipeline/stage/__init__.py",
+      "summary": "通过惰性属性公开 Stage、输入处理器和流式队列类型，避免导入时加载重型运行时。",
+      "tags": [
+        "pipeline",
+        "stage-api",
+        "lazy-import"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "pipeline/stage/__init__.py",
+      "lineRange": [
+        18,
+        26
+      ],
+      "summary": "执行getattr逻辑，服务于pipeline、stage-api的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-api",
+        "getattr--",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:pipeline/stage/input.py",
+      "type": "file",
+      "name": "input.py",
+      "filePath": "pipeline/stage/input.py",
+      "summary": "定义 Stage 输入处理接口，以及直接输入和多来源聚合输入的缓存、等待与完成规则。",
+      "tags": [
+        "pipeline",
+        "stage-input",
+        "aggregation",
+        "request-state"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:pipeline/stage/input.py:InputHandler",
+      "type": "class",
+      "name": "InputHandler",
+      "filePath": "pipeline/stage/input.py",
+      "lineRange": [
+        16,
+        29
+      ],
+      "summary": "定义 Stage 对新负载、流式块、完成与中止信号的输入处理契约。",
+      "tags": [
+        "pipeline",
+        "stage-input",
+        "input-handler",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/stage/input.py:DirectInput",
+      "type": "class",
+      "name": "DirectInput",
+      "filePath": "pipeline/stage/input.py",
+      "lineRange": [
+        32,
+        39
+      ],
+      "summary": "把单一来源负载直接交给 Stage 执行。",
+      "tags": [
+        "pipeline",
+        "stage-input",
+        "direct-input",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/stage/input.py:AggregatedInput",
+      "type": "class",
+      "name": "AggregatedInput",
+      "filePath": "pipeline/stage/input.py",
+      "lineRange": [
+        42,
+        140
+      ],
+      "summary": "缓存多个上游来源的数据，满足等待条件后合并并释放完整请求。",
+      "tags": [
+        "pipeline",
+        "stage-input",
+        "aggregated-input",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:pipeline/stage/runtime.py",
+      "type": "file",
+      "name": "runtime.py",
+      "filePath": "pipeline/stage/runtime.py",
+      "summary": "实现流水线 Stage 核心运行时，管理执行器、收发通道、请求生命周期、流式输入输出、批处理、错误和性能事件。",
+      "tags": [
+        "pipeline",
+        "stage-runtime",
+        "request-lifecycle",
+        "streaming",
+        "execution"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:pipeline/stage/runtime.py:_error_text",
+      "type": "function",
+      "name": "_error_text",
+      "filePath": "pipeline/stage/runtime.py",
+      "lineRange": [
+        64,
+        65
+      ],
+      "summary": "执行错误 文本逻辑，服务于pipeline、stage-runtime的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-runtime",
+        "error-text",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/stage/runtime.py:Stage",
+      "type": "class",
+      "name": "Stage",
+      "filePath": "pipeline/stage/runtime.py",
+      "lineRange": [
+        68,
+        1843
+      ],
+      "summary": "管理单个流水线阶段的执行器、通信、请求状态、流式队列、批处理和错误恢复。",
+      "tags": [
+        "pipeline",
+        "stage-runtime",
+        "stage",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:pipeline/stage/stream_queue.py",
+      "type": "file",
+      "name": "stream_queue.py",
+      "filePath": "pipeline/stage/stream_queue.py",
+      "summary": "提供按请求隔离的线程安全流式队列，传递数据块以及完成、错误和中止信号。",
+      "tags": [
+        "pipeline",
+        "stream-queue",
+        "thread-safety",
+        "signals"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:pipeline/stage/stream_queue.py:StreamItem",
+      "type": "class",
+      "name": "StreamItem",
+      "filePath": "pipeline/stage/stream_queue.py",
+      "lineRange": [
+        14,
+        20
+      ],
+      "summary": "封装流式队列中的数据块、来源和序号。",
+      "tags": [
+        "pipeline",
+        "stream-queue",
+        "stream-item",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/stage/stream_queue.py:StreamSignal",
+      "type": "class",
+      "name": "StreamSignal",
+      "filePath": "pipeline/stage/stream_queue.py",
+      "lineRange": [
+        24,
+        29
+      ],
+      "summary": "定义流完成、错误和中止等控制信号。",
+      "tags": [
+        "pipeline",
+        "stream-queue",
+        "stream-signal",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/stage/stream_queue.py:StreamQueue",
+      "type": "class",
+      "name": "StreamQueue",
+      "filePath": "pipeline/stage/stream_queue.py",
+      "lineRange": [
+        32,
+        128
+      ],
+      "summary": "维护每请求线程安全队列并支持阻塞读取、信号传播和资源释放。",
+      "tags": [
+        "pipeline",
+        "stream-queue",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:pipeline/stage_workers.py",
+      "type": "file",
+      "name": "stage_workers.py",
+      "filePath": "pipeline/stage_workers.py",
+      "summary": "在子进程中准备加速器环境、构造 Stage 与调度器、管理 TP 阶段组，并确保分布式与 CUDA 资源清理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "multiprocessing",
+        "resource-cleanup"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_get_worker_process_env",
+      "type": "function",
+      "name": "_get_worker_process_env",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        140,
+        157
+      ],
+      "summary": "获取get 工作进程 进程 环境逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "get-worker-process-env",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_patched_spawn_env",
+      "type": "function",
+      "name": "_patched_spawn_env",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        161,
+        198
+      ],
+      "summary": "临时修补patched 派生 环境逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "patched-spawn-env",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:stage_process_main",
+      "type": "function",
+      "name": "stage_process_main",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        373,
+        415
+      ],
+      "summary": "执行阶段 进程 主入口逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "stage-process-main",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_run_process",
+      "type": "function",
+      "name": "_run_process",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        418,
+        479
+      ],
+      "summary": "运行运行 进程逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "run-process",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_cleanup_constructed_stages",
+      "type": "function",
+      "name": "_cleanup_constructed_stages",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        482,
+        505
+      ],
+      "summary": "清理清理 已构造 阶段逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "cleanup-constructed-stages",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_stage_gpu_ids",
+      "type": "function",
+      "name": "_stage_gpu_ids",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        508,
+        515
+      ],
+      "summary": "解析阶段 GPU ids逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "stage-gpu-ids",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_destroy_torch_distributed_process_group",
+      "type": "function",
+      "name": "_destroy_torch_distributed_process_group",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        518,
+        530
+      ],
+      "summary": "销毁销毁 Torch 分布式 进程 组逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "destroy-torch-distributed-process-group",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_reclaim_process_cuda_memory",
+      "type": "function",
+      "name": "_reclaim_process_cuda_memory",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        533,
+        581
+      ],
+      "summary": "回收回收 进程 CUDA 显存逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "reclaim-process-cuda-memory",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_construct_stage",
+      "type": "function",
+      "name": "_construct_stage",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        584,
+        772
+      ],
+      "summary": "构造构造 阶段逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "construct-stage",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_construct_scheduler",
+      "type": "function",
+      "name": "_construct_scheduler",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        775,
+        801
+      ],
+      "summary": "构造构造 调度器逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "construct-scheduler",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_prepare_accelerator_environment",
+      "type": "function",
+      "name": "_prepare_accelerator_environment",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        804,
+        851
+      ],
+      "summary": "准备准备 加速器 environment逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "prepare-accelerator-environment",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_normalize_spec_gpu_id_to_local_device",
+      "type": "function",
+      "name": "_normalize_spec_gpu_id_to_local_device",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        854,
+        861
+      ],
+      "summary": "规范化规范化 规格 GPU ID to 本地 设备逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "normalize-spec-gpu-id-to-local-device",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_process_name",
+      "type": "function",
+      "name": "_process_name",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        864,
+        872
+      ],
+      "summary": "生成进程 名称逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "process-name",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:pipeline/stage_workers.py:_close_queue",
+      "type": "function",
+      "name": "_close_queue",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        875,
+        879
+      ],
+      "summary": "关闭关闭 队列逻辑，服务于pipeline、stage-workers的运行和数据处理。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "close-queue",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/stage_workers.py:StageLaunchConfig",
+      "type": "class",
+      "name": "StageLaunchConfig",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        41,
+        129
+      ],
+      "summary": "保存 Stage 子进程启动、设备、通信、执行器与调度参数。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "stage-launch-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:pipeline/stage_workers.py:StageWorkerProcessSpec",
+      "type": "class",
+      "name": "StageWorkerProcessSpec",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        133,
+        137
+      ],
+      "summary": "描述一个工作进程承载的阶段组和进程级资源。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "stage-worker-process-spec",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:pipeline/stage_workers.py:StageGroup",
+      "type": "class",
+      "name": "StageGroup",
+      "filePath": "pipeline/stage_workers.py",
+      "lineRange": [
+        201,
+        370
+      ],
+      "summary": "管理同进程或 TP 组内多个 Stage 的构造、启动、等待和停止。",
+      "tags": [
+        "pipeline",
+        "stage-workers",
+        "stage-group",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:pipeline/local_dispatch.py",
+      "target": "class:pipeline/local_dispatch.py:LocalStageDispatcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/local_dispatch.py",
+      "target": "class:pipeline/local_dispatch.py:LocalStageDispatcher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:resolve_coordinator_max_in_flight",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:resolve_coordinator_max_in_flight",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_attach_process_memory_fraction_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_attach_process_memory_fraction_defaults",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_resolve_same_process_targets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_resolve_same_process_targets",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_build_single_stage_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_build_single_stage_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_build_tp_stage_specs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_build_tp_stage_specs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_resolve_comm_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "function:pipeline/mp_runner.py:_resolve_comm_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "class:pipeline/mp_runner.py:_NcclPortAllocator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "class:pipeline/mp_runner.py:_NcclPortAllocator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "class:pipeline/mp_runner.py:MultiProcessPipelineRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/mp_runner.py",
+      "target": "class:pipeline/mp_runner.py:MultiProcessPipelineRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:expand_replica_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:expand_replica_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:_replica_stage_gpu",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:_replica_stage_gpu",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:validate_device_assignment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:validate_device_assignment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:assign_replica_bindings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "function:pipeline/replicas.py:assign_replica_bindings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "class:pipeline/replicas.py:ReplicaTopology",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "class:pipeline/replicas.py:ReplicaTopology",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "class:pipeline/replicas.py:BindingPolicy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "class:pipeline/replicas.py:BindingPolicy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "class:pipeline/replicas.py:RoundRobinBindingPolicy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/replicas.py",
+      "target": "class:pipeline/replicas.py:RoundRobinBindingPolicy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_visible_device_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_visible_device_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:create_ipc_runtime_dir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:create_ipc_runtime_dir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:prepare_pipeline_runtime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:prepare_pipeline_runtime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:build_comm_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:build_comm_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:allocate_endpoints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:allocate_endpoints",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_truncate_ipc_namespace_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_truncate_ipc_namespace_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_validate_ipc_endpoint_budget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_validate_ipc_endpoint_budget",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_longest_endpoint_suffix_len",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_longest_endpoint_suffix_len",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_ipc_dir_len",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_ipc_dir_len",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_raise_ipc_path_budget_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "function:pipeline/runtime_config.py:_raise_ipc_path_budget_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "class:pipeline/runtime_config.py:IpcRuntimeDir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "class:pipeline/runtime_config.py:IpcRuntimeDir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "class:pipeline/runtime_config.py:PipelineRuntimePrep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/runtime_config.py",
+      "target": "class:pipeline/runtime_config.py:PipelineRuntimePrep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/__init__.py",
+      "target": "function:pipeline/stage/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/__init__.py",
+      "target": "function:pipeline/stage/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/input.py",
+      "target": "class:pipeline/stage/input.py:InputHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/input.py",
+      "target": "class:pipeline/stage/input.py:InputHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/input.py",
+      "target": "class:pipeline/stage/input.py:DirectInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/input.py",
+      "target": "class:pipeline/stage/input.py:DirectInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/input.py",
+      "target": "class:pipeline/stage/input.py:AggregatedInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/input.py",
+      "target": "class:pipeline/stage/input.py:AggregatedInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/runtime.py",
+      "target": "function:pipeline/stage/runtime.py:_error_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/runtime.py",
+      "target": "function:pipeline/stage/runtime.py:_error_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/runtime.py",
+      "target": "class:pipeline/stage/runtime.py:Stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/runtime.py",
+      "target": "class:pipeline/stage/runtime.py:Stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/stream_queue.py",
+      "target": "class:pipeline/stage/stream_queue.py:StreamItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/stream_queue.py",
+      "target": "class:pipeline/stage/stream_queue.py:StreamItem",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/stream_queue.py",
+      "target": "class:pipeline/stage/stream_queue.py:StreamSignal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/stream_queue.py",
+      "target": "class:pipeline/stage/stream_queue.py:StreamSignal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage/stream_queue.py",
+      "target": "class:pipeline/stage/stream_queue.py:StreamQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage/stream_queue.py",
+      "target": "class:pipeline/stage/stream_queue.py:StreamQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_get_worker_process_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_get_worker_process_env",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_patched_spawn_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_patched_spawn_env",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:stage_process_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:stage_process_main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_run_process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_run_process",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_cleanup_constructed_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_cleanup_constructed_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_stage_gpu_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_stage_gpu_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_destroy_torch_distributed_process_group",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_destroy_torch_distributed_process_group",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_reclaim_process_cuda_memory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_reclaim_process_cuda_memory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_construct_stage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_construct_stage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_construct_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_construct_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_prepare_accelerator_environment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_prepare_accelerator_environment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_normalize_spec_gpu_id_to_local_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_normalize_spec_gpu_id_to_local_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_process_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_process_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_close_queue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "function:pipeline/stage_workers.py:_close_queue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "class:pipeline/stage_workers.py:StageLaunchConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "class:pipeline/stage_workers.py:StageLaunchConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "class:pipeline/stage_workers.py:StageWorkerProcessSpec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "class:pipeline/stage_workers.py:StageWorkerProcessSpec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "class:pipeline/stage_workers.py:StageGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:pipeline/stage_workers.py",
+      "target": "class:pipeline/stage_workers.py:StageGroup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "target": "class:pipeline/mp_runner.py:_NcclPortAllocator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "target": "function:pipeline/mp_runner.py:_resolve_same_process_targets",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "target": "function:pipeline/mp_runner.py:_build_single_stage_spec",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "target": "function:pipeline/mp_runner.py:_build_tp_stage_specs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/mp_runner.py:_build_stage_groups",
+      "target": "function:pipeline/mp_runner.py:_attach_process_memory_fraction_defaults",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/mp_runner.py:_build_single_stage_spec",
+      "target": "function:pipeline/mp_runner.py:_resolve_comm_config",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/mp_runner.py:_build_tp_stage_specs",
+      "target": "function:pipeline/mp_runner.py:_resolve_comm_config",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/replicas.py:expand_replica_stages",
+      "target": "function:pipeline/replicas.py:_replica_stage_gpu",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/replicas.py:expand_replica_stages",
+      "target": "class:pipeline/replicas.py:ReplicaTopology",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:create_ipc_runtime_dir",
+      "target": "function:pipeline/runtime_config.py:_truncate_ipc_namespace_prefix",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:create_ipc_runtime_dir",
+      "target": "class:pipeline/runtime_config.py:IpcRuntimeDir",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:prepare_pipeline_runtime",
+      "target": "function:pipeline/runtime_config.py:_visible_device_count",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:prepare_pipeline_runtime",
+      "target": "function:pipeline/runtime_config.py:create_ipc_runtime_dir",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:prepare_pipeline_runtime",
+      "target": "function:pipeline/runtime_config.py:allocate_endpoints",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:prepare_pipeline_runtime",
+      "target": "class:pipeline/runtime_config.py:PipelineRuntimePrep",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:allocate_endpoints",
+      "target": "function:pipeline/runtime_config.py:_validate_ipc_endpoint_budget",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:_truncate_ipc_namespace_prefix",
+      "target": "function:pipeline/runtime_config.py:_longest_endpoint_suffix_len",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:_truncate_ipc_namespace_prefix",
+      "target": "function:pipeline/runtime_config.py:_ipc_dir_len",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:_truncate_ipc_namespace_prefix",
+      "target": "function:pipeline/runtime_config.py:_raise_ipc_path_budget_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:_validate_ipc_endpoint_budget",
+      "target": "function:pipeline/runtime_config.py:_longest_endpoint_suffix_len",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/runtime_config.py:_validate_ipc_endpoint_budget",
+      "target": "function:pipeline/runtime_config.py:_raise_ipc_path_budget_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:_patched_spawn_env",
+      "target": "function:pipeline/stage_workers.py:_get_worker_process_env",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:stage_process_main",
+      "target": "function:pipeline/stage_workers.py:_prepare_accelerator_environment",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:stage_process_main",
+      "target": "function:pipeline/stage_workers.py:_run_process",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:stage_process_main",
+      "target": "function:pipeline/stage_workers.py:_destroy_torch_distributed_process_group",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:stage_process_main",
+      "target": "function:pipeline/stage_workers.py:_reclaim_process_cuda_memory",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:stage_process_main",
+      "target": "function:pipeline/stage_workers.py:_stage_gpu_ids",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:_run_process",
+      "target": "function:pipeline/stage_workers.py:_construct_stage",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:_run_process",
+      "target": "function:pipeline/stage_workers.py:_cleanup_constructed_stages",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:_construct_stage",
+      "target": "function:pipeline/stage_workers.py:_construct_scheduler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:pipeline/stage_workers.py:_prepare_accelerator_environment",
+      "target": "function:pipeline/stage_workers.py:_normalize_spec_gpu_id_to_local_device",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:pipeline/stage/input.py:DirectInput",
+      "target": "class:pipeline/stage/input.py:InputHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:pipeline/stage/input.py:AggregatedInput",
+      "target": "class:pipeline/stage/input.py:InputHandler",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:pipeline/replicas.py:RoundRobinBindingPolicy",
+      "target": "class:pipeline/replicas.py:BindingPolicy",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:pipeline/mp_runner.py:MultiProcessPipelineRunner",
+      "target": "class:pipeline/stage_workers.py:StageGroup",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:pipeline/stage/runtime.py:Stage",
+      "target": "class:pipeline/stage/stream_queue.py:StreamQueue",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

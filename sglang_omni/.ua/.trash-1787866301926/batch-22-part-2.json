@@ -1,0 +1,1311 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/moss_tts/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "models/moss_tts/sglang_model.py",
+      "summary": "把 MOSS-TTS 延迟多通道生成模型接入 SGLang，处理 embedding、forward、采样图和权重加载。",
+      "tags": [
+        "MOSS-TTS",
+        "SGLang-model",
+        "weight-loading"
+      ],
+      "complexity": "complex",
+      "languageNotes": "扩展 SGLang 模型接口并协调 Qwen3 配置与多通道 audio embedding。"
+    },
+    {
+      "id": "function:models/moss_tts/sglang_model.py:_as_qwen3_config",
+      "type": "function",
+      "name": "_as_qwen3_config",
+      "filePath": "models/moss_tts/sglang_model.py",
+      "lineRange": [
+        47,
+        56
+      ],
+      "summary": "把通用配置规范化为 Qwen3Config。",
+      "tags": [
+        "MOSS-TTS",
+        "SGLang-model",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/sglang_model.py:MossTTSDelaySGLangModel",
+      "type": "class",
+      "name": "MossTTSDelaySGLangModel",
+      "filePath": "models/moss_tts/sglang_model.py",
+      "lineRange": [
+        59,
+        621
+      ],
+      "summary": "实现 MOSS-TTS 多通道 SGLang 模型接口、采样图与权重映射。",
+      "tags": [
+        "MOSS-TTS",
+        "SGLang-model",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/moss_tts/stages.py",
+      "summary": "构建 MOSS-TTS 预处理、参考音频编码、推理引擎和 vocoder pipeline stages。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "reference-encoder"
+      ],
+      "complexity": "complex",
+      "languageNotes": "包含后台批处理线程，将并发参考音频编码请求合并后交给 audio tokenizer。"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:_resolve_compute_dtype",
+      "type": "function",
+      "name": "_resolve_compute_dtype",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        70,
+        77
+      ],
+      "summary": "把配置值解析为用于计算的 PyTorch dtype。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:_normalize_moss_processor_config",
+      "type": "function",
+      "name": "_normalize_moss_processor_config",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        80,
+        87
+      ],
+      "summary": "规范化 processor 配置中的兼容字段。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:_audio_tokenizer_model_path_from_processor_dict",
+      "type": "function",
+      "name": "_audio_tokenizer_model_path_from_processor_dict",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        90,
+        99
+      ],
+      "summary": "从 processor 配置字典提取 audio tokenizer 模型路径。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:_load_moss_processor",
+      "type": "function",
+      "name": "_load_moss_processor",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        102,
+        135
+      ],
+      "summary": "从模型目录加载并初始化 MOSS processor。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "function",
+      "name": "_resolve_audio_tokenizer_model_path",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        138,
+        146
+      ],
+      "summary": "解析显式或 processor 提供的 codec 模型路径。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:_resolve_codec_device",
+      "type": "function",
+      "name": "_resolve_codec_device",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        149,
+        154
+      ],
+      "summary": "根据 stage device 与 GPU ID 选择 codec 设备。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:_load_reference_waveform",
+      "type": "function",
+      "name": "_load_reference_waveform",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        311,
+        333
+      ],
+      "summary": "加载参考音频并生成可用于缓存的内容标识。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        422,
+        490
+      ],
+      "summary": "创建带并发批处理与缓存的 MOSS-TTS 预处理执行器。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:create_sglang_tts_engine_executor",
+      "type": "function",
+      "name": "create_sglang_tts_engine_executor",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        493,
+        507
+      ],
+      "summary": "创建连接 SGLang TTS engine 的 pipeline executor。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/stages.py:create_vocoder_executor",
+      "type": "function",
+      "name": "create_vocoder_executor",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        513,
+        566
+      ],
+      "summary": "创建支持批量与流式参数的 MOSS vocoder executor。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts/stages.py:_LoadedReferenceWaveform",
+      "type": "class",
+      "name": "_LoadedReferenceWaveform",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        58,
+        61
+      ],
+      "summary": "保存已加载参考波形、采样率及内容 cache key。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/stages.py:_BatchedReferenceEncoder",
+      "type": "class",
+      "name": "_BatchedReferenceEncoder",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        157,
+        308
+      ],
+      "summary": "用后台 worker 把并发参考音频编码请求聚合成批次。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts/stages.py:_MossTTSReferenceEncodeHook",
+      "type": "class",
+      "name": "_MossTTSReferenceEncodeHook",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        336,
+        381
+      ],
+      "summary": "把 pipeline 单项输入规范化并转交批量参考编码器。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts/stages.py:_MossTTSReferenceEncoder",
+      "type": "class",
+      "name": "_MossTTSReferenceEncoder",
+      "filePath": "models/moss_tts/stages.py",
+      "lineRange": [
+        384,
+        419
+      ],
+      "summary": "提供带批处理、缓存统计和关闭语义的参考音频编码接口。",
+      "tags": [
+        "MOSS-TTS",
+        "pipeline-stage",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/moss_tts/streaming_vocoder.py",
+      "type": "file",
+      "name": "streaming_vocoder.py",
+      "filePath": "models/moss_tts/streaming_vocoder.py",
+      "summary": "维护 MOSS-TTS 流式音频片段状态，按增量 token 调用 vocoder 并拼装最终结果。",
+      "tags": [
+        "MOSS-TTS",
+        "streaming-vocoder",
+        "scheduler"
+      ],
+      "complexity": "complex",
+      "languageNotes": "以状态机追踪片段、holdback、重叠窗口与已输出帧。"
+    },
+    {
+      "id": "class:models/moss_tts/streaming_vocoder.py:_MossSegmentState",
+      "type": "class",
+      "name": "_MossSegmentState",
+      "filePath": "models/moss_tts/streaming_vocoder.py",
+      "lineRange": [
+        25,
+        29
+      ],
+      "summary": "跟踪一个流式音频片段的帧、已输出位置和关闭状态。",
+      "tags": [
+        "MOSS-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/streaming_vocoder.py:_MossStreamState",
+      "type": "class",
+      "name": "_MossStreamState",
+      "filePath": "models/moss_tts/streaming_vocoder.py",
+      "lineRange": [
+        33,
+        44
+      ],
+      "summary": "保存整个 MOSS 流式解码会话的延迟窗口、片段与协议参数。",
+      "tags": [
+        "MOSS-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/streaming_vocoder.py:MossStreamingVocoderScheduler",
+      "type": "class",
+      "name": "MossStreamingVocoderScheduler",
+      "filePath": "models/moss_tts/streaming_vocoder.py",
+      "lineRange": [
+        47,
+        437
+      ],
+      "summary": "按流式 token 增量维护片段并调度批量 vocoder 解码。",
+      "tags": [
+        "MOSS-TTS",
+        "streaming-vocoder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts/vocoder.py",
+      "type": "file",
+      "name": "vocoder.py",
+      "filePath": "models/moss_tts/vocoder.py",
+      "summary": "封装 MOSS audio tokenizer decoder，批量解码离散音频 codes 并保存波形结果。",
+      "tags": [
+        "MOSS-TTS",
+        "vocoder",
+        "audio-decoding"
+      ],
+      "complexity": "complex",
+      "languageNotes": "在 PyTorch autocast 与设备搬运下执行批量 codec decode。"
+    },
+    {
+      "id": "function:models/moss_tts/vocoder.py:_codec_device",
+      "type": "function",
+      "name": "_codec_device",
+      "filePath": "models/moss_tts/vocoder.py",
+      "lineRange": [
+        38,
+        42
+      ],
+      "summary": "解析 codec 实际所在设备并提供 fallback。",
+      "tags": [
+        "MOSS-TTS",
+        "vocoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/vocoder.py:_module_dtype",
+      "type": "function",
+      "name": "_module_dtype",
+      "filePath": "models/moss_tts/vocoder.py",
+      "lineRange": [
+        45,
+        53
+      ],
+      "summary": "读取 module 参数或 buffer 使用的 dtype。",
+      "tags": [
+        "MOSS-TTS",
+        "vocoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/vocoder.py:_autocast_if_supported",
+      "type": "function",
+      "name": "_autocast_if_supported",
+      "filePath": "models/moss_tts/vocoder.py",
+      "lineRange": [
+        57,
+        71
+      ],
+      "summary": "在受支持设备上创建适当的 autocast 上下文。",
+      "tags": [
+        "MOSS-TTS",
+        "vocoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/vocoder.py:_join_waveforms",
+      "type": "function",
+      "name": "_join_waveforms",
+      "filePath": "models/moss_tts/vocoder.py",
+      "lineRange": [
+        74,
+        77
+      ],
+      "summary": "把多个波形片段沿时间维拼接。",
+      "tags": [
+        "MOSS-TTS",
+        "vocoder",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts/vocoder.py:_copy_valid_waveforms_to_cpu",
+      "type": "function",
+      "name": "_copy_valid_waveforms_to_cpu",
+      "filePath": "models/moss_tts/vocoder.py",
+      "lineRange": [
+        80,
+        118
+      ],
+      "summary": "按有效长度裁剪批量波形并复制到 CPU。",
+      "tags": [
+        "MOSS-TTS",
+        "vocoder",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts/vocoder.py:MossTTSVocoder",
+      "type": "class",
+      "name": "MossTTSVocoder",
+      "filePath": "models/moss_tts/vocoder.py",
+      "lineRange": [
+        121,
+        390
+      ],
+      "summary": "批量准备离散 codes、调用 codec decoder 并产出有效波形。",
+      "tags": [
+        "MOSS-TTS",
+        "vocoder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts/vocoder_kernels.py",
+      "type": "file",
+      "name": "vocoder_kernels.py",
+      "filePath": "models/moss_tts/vocoder_kernels.py",
+      "summary": "将精确 interleaved RoPE 就地应用于 vocoder attention 的 query/key tensor。",
+      "tags": [
+        "MOSS-TTS",
+        "RoPE",
+        "vocoder-kernel"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "对 GPU tensor 执行与模型权重约定一致的旋转位置编码。"
+    },
+    {
+      "id": "function:models/moss_tts/vocoder_kernels.py:apply_exact_interleaved_rope_inplace",
+      "type": "function",
+      "name": "apply_exact_interleaved_rope_inplace",
+      "filePath": "models/moss_tts/vocoder_kernels.py",
+      "lineRange": [
+        98,
+        151
+      ],
+      "summary": "就地为 query/key 应用精确 interleaved RoPE。",
+      "tags": [
+        "MOSS-TTS",
+        "RoPE",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/moss_tts/vocoder_quantizer.py",
+      "type": "file",
+      "name": "vocoder_quantizer.py",
+      "filePath": "models/moss_tts/vocoder_quantizer.py",
+      "summary": "从 MOSS audio tokenizer 中提取 quantizer decoder，并由离散 codes 重建 decoder latents。",
+      "tags": [
+        "MOSS-TTS",
+        "quantizer",
+        "audio-codec"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "解析 pointwise Conv1d 参数并执行 codebook lookup 与投影。"
+    },
+    {
+      "id": "function:models/moss_tts/vocoder_quantizer.py:_pointwise_conv1d_parameters",
+      "type": "function",
+      "name": "_pointwise_conv1d_parameters",
+      "filePath": "models/moss_tts/vocoder_quantizer.py",
+      "lineRange": [
+        11,
+        26
+      ],
+      "summary": "验证 pointwise Conv1d 并提取等价线性投影参数。",
+      "tags": [
+        "MOSS-TTS",
+        "quantizer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts/vocoder_quantizer.py:MossAudioTokenizerQuantizerDecoder",
+      "type": "class",
+      "name": "MossAudioTokenizerQuantizerDecoder",
+      "filePath": "models/moss_tts/vocoder_quantizer.py",
+      "lineRange": [
+        29,
+        132
+      ],
+      "summary": "从 audio tokenizer quantizer 的 codes 解码连续 latent。",
+      "tags": [
+        "MOSS-TTS",
+        "quantizer",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/moss_tts_local/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/moss_tts_local/__init__.py",
+      "summary": "导出并注册 MOSS-TTS local pipeline 的配置、模型与 engine builder。",
+      "tags": [
+        "MOSS-TTS-local",
+        "package-api",
+        "registration"
+      ],
+      "complexity": "simple",
+      "languageNotes": "Python 包入口负责暴露 local 架构组件。"
+    },
+    {
+      "id": "file:models/moss_tts_local/audio_tokenizer.py",
+      "type": "file",
+      "name": "audio_tokenizer.py",
+      "filePath": "models/moss_tts_local/audio_tokenizer.py",
+      "summary": "加载 MOSS-TTS local audio tokenizer/vocoder，并提供参考音频预处理、编码和流式 codec 配置解析。",
+      "tags": [
+        "MOSS-TTS-local",
+        "audio-tokenizer",
+        "vocoder"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "使用 Transformers 与 PyTorch 加载本地 codec，支持批量 waveform/path 编码。"
+    },
+    {
+      "id": "function:models/moss_tts_local/audio_tokenizer.py:load_moss_tts_local_audio_tokenizer",
+      "type": "function",
+      "name": "load_moss_tts_local_audio_tokenizer",
+      "filePath": "models/moss_tts_local/audio_tokenizer.py",
+      "lineRange": [
+        163,
+        188
+      ],
+      "summary": "加载用于 MOSS-TTS local 参考音频编码的 tokenizer。",
+      "tags": [
+        "MOSS-TTS-local",
+        "audio-tokenizer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/audio_tokenizer.py:_resolve_local_codec_dtype",
+      "type": "function",
+      "name": "_resolve_local_codec_dtype",
+      "filePath": "models/moss_tts_local/audio_tokenizer.py",
+      "lineRange": [
+        203,
+        214
+      ],
+      "summary": "解析 local codec dtype 并校验是否允许空值。",
+      "tags": [
+        "MOSS-TTS-local",
+        "audio-tokenizer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/audio_tokenizer.py:_load_local_streaming_codec_config",
+      "type": "function",
+      "name": "_load_local_streaming_codec_config",
+      "filePath": "models/moss_tts_local/audio_tokenizer.py",
+      "lineRange": [
+        217,
+        234
+      ],
+      "summary": "读取 local codec 的流式解码配置。",
+      "tags": [
+        "MOSS-TTS-local",
+        "audio-tokenizer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/moss_tts_local/audio_tokenizer.py:load_moss_tts_local_audio_vocoder",
+      "type": "function",
+      "name": "load_moss_tts_local_audio_vocoder",
+      "filePath": "models/moss_tts_local/audio_tokenizer.py",
+      "lineRange": [
+        237,
+        321
+      ],
+      "summary": "加载并配置 MOSS-TTS local 音频 vocoder。",
+      "tags": [
+        "MOSS-TTS-local",
+        "audio-tokenizer",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts_local/audio_tokenizer.py:MossTTSLocalAudioTokenizer",
+      "type": "class",
+      "name": "MossTTSLocalAudioTokenizer",
+      "filePath": "models/moss_tts_local/audio_tokenizer.py",
+      "lineRange": [
+        36,
+        160
+      ],
+      "summary": "加载、规范化并批量编码 local 参考音频。",
+      "tags": [
+        "MOSS-TTS-local",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts_local/audio_tokenizer.py:MossTTSLocalAudioVocoder",
+      "type": "class",
+      "name": "MossTTSLocalAudioVocoder",
+      "filePath": "models/moss_tts_local/audio_tokenizer.py",
+      "lineRange": [
+        191,
+        200
+      ],
+      "summary": "封装 local codec decoder 及其流式配置。",
+      "tags": [
+        "MOSS-TTS-local",
+        "audio-tokenizer",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/moss_tts_local/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/moss_tts_local/config.py",
+      "summary": "定义 MOSS-TTS local colocated/split pipeline 拓扑、stage 参数和运行时默认配置。",
+      "tags": [
+        "MOSS-TTS-local",
+        "pipeline-config",
+        "deployment"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "以 Pydantic 配置模型解析 stage 边、CUDA Graph 与参考音频缓存选项。"
+    },
+    {
+      "id": "function:models/moss_tts_local/config.py:_stages",
+      "type": "function",
+      "name": "_stages",
+      "filePath": "models/moss_tts_local/config.py",
+      "lineRange": [
+        33,
+        83
+      ],
+      "summary": "根据 codec 设备与 colocated 模式构造 pipeline stage 配置。",
+      "tags": [
+        "MOSS-TTS-local",
+        "pipeline-config",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/moss_tts_local/config.py:MossTTSLocalPipelineConfig",
+      "type": "class",
+      "name": "MossTTSLocalPipelineConfig",
+      "filePath": "models/moss_tts_local/config.py",
+      "lineRange": [
+        86,
+        228
+      ],
+      "summary": "定义 local pipeline 通用 stages、缓存、CUDA Graph 与能力声明。",
+      "tags": [
+        "MOSS-TTS-local",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/moss_tts_local/config.py:MossTTSLocalColocatedPipelineConfig",
+      "type": "class",
+      "name": "MossTTSLocalColocatedPipelineConfig",
+      "filePath": "models/moss_tts_local/config.py",
+      "lineRange": [
+        231,
+        236
+      ],
+      "summary": "定义 codec 与生成模型同进程部署的 local pipeline。",
+      "tags": [
+        "MOSS-TTS-local",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/moss_tts_local/config.py:MossTTSLocalSplitPipelineConfig",
+      "type": "class",
+      "name": "MossTTSLocalSplitPipelineConfig",
+      "filePath": "models/moss_tts_local/config.py",
+      "lineRange": [
+        239,
+        251
+      ],
+      "summary": "定义 codec 与生成模型拆分部署的 local pipeline 及边处理。",
+      "tags": [
+        "MOSS-TTS-local",
+        "pipeline-config",
+        "class"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/moss_tts/sglang_model.py",
+      "target": "function:models/moss_tts/sglang_model.py:_as_qwen3_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sglang_model.py",
+      "target": "function:models/moss_tts/sglang_model.py:_as_qwen3_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/sglang_model.py",
+      "target": "class:models/moss_tts/sglang_model.py:MossTTSDelaySGLangModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/sglang_model.py",
+      "target": "class:models/moss_tts/sglang_model.py:MossTTSDelaySGLangModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_resolve_compute_dtype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_resolve_compute_dtype",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_normalize_moss_processor_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_normalize_moss_processor_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_audio_tokenizer_model_path_from_processor_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_audio_tokenizer_model_path_from_processor_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_load_moss_processor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_load_moss_processor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_resolve_audio_tokenizer_model_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_resolve_codec_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_resolve_codec_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_load_reference_waveform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:_load_reference_waveform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:create_sglang_tts_engine_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:create_sglang_tts_engine_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:create_vocoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "function:models/moss_tts/stages.py:create_vocoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_LoadedReferenceWaveform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_LoadedReferenceWaveform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_BatchedReferenceEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_BatchedReferenceEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_MossTTSReferenceEncodeHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_MossTTSReferenceEncodeHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_MossTTSReferenceEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/stages.py",
+      "target": "class:models/moss_tts/stages.py:_MossTTSReferenceEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/streaming_vocoder.py",
+      "target": "class:models/moss_tts/streaming_vocoder.py:_MossSegmentState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/streaming_vocoder.py",
+      "target": "class:models/moss_tts/streaming_vocoder.py:_MossSegmentState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/streaming_vocoder.py",
+      "target": "class:models/moss_tts/streaming_vocoder.py:_MossStreamState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/streaming_vocoder.py",
+      "target": "class:models/moss_tts/streaming_vocoder.py:_MossStreamState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/streaming_vocoder.py",
+      "target": "class:models/moss_tts/streaming_vocoder.py:MossStreamingVocoderScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/streaming_vocoder.py",
+      "target": "class:models/moss_tts/streaming_vocoder.py:MossStreamingVocoderScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_codec_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_codec_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_module_dtype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_module_dtype",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_autocast_if_supported",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_autocast_if_supported",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_join_waveforms",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_join_waveforms",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_copy_valid_waveforms_to_cpu",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "function:models/moss_tts/vocoder.py:_copy_valid_waveforms_to_cpu",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "class:models/moss_tts/vocoder.py:MossTTSVocoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder.py",
+      "target": "class:models/moss_tts/vocoder.py:MossTTSVocoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder_kernels.py",
+      "target": "function:models/moss_tts/vocoder_kernels.py:apply_exact_interleaved_rope_inplace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder_kernels.py",
+      "target": "function:models/moss_tts/vocoder_kernels.py:apply_exact_interleaved_rope_inplace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder_quantizer.py",
+      "target": "function:models/moss_tts/vocoder_quantizer.py:_pointwise_conv1d_parameters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder_quantizer.py",
+      "target": "function:models/moss_tts/vocoder_quantizer.py:_pointwise_conv1d_parameters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts/vocoder_quantizer.py",
+      "target": "class:models/moss_tts/vocoder_quantizer.py:MossAudioTokenizerQuantizerDecoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts/vocoder_quantizer.py",
+      "target": "class:models/moss_tts/vocoder_quantizer.py:MossAudioTokenizerQuantizerDecoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:load_moss_tts_local_audio_tokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:load_moss_tts_local_audio_tokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:_resolve_local_codec_dtype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:_resolve_local_codec_dtype",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:_load_local_streaming_codec_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:_load_local_streaming_codec_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:load_moss_tts_local_audio_vocoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "function:models/moss_tts_local/audio_tokenizer.py:load_moss_tts_local_audio_vocoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "class:models/moss_tts_local/audio_tokenizer.py:MossTTSLocalAudioTokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "class:models/moss_tts_local/audio_tokenizer.py:MossTTSLocalAudioTokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "class:models/moss_tts_local/audio_tokenizer.py:MossTTSLocalAudioVocoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/audio_tokenizer.py",
+      "target": "class:models/moss_tts_local/audio_tokenizer.py:MossTTSLocalAudioVocoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "function:models/moss_tts_local/config.py:_stages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "function:models/moss_tts_local/config.py:_stages",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "class:models/moss_tts_local/config.py:MossTTSLocalPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "class:models/moss_tts_local/config.py:MossTTSLocalPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "class:models/moss_tts_local/config.py:MossTTSLocalColocatedPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "class:models/moss_tts_local/config.py:MossTTSLocalColocatedPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "class:models/moss_tts_local/config.py:MossTTSLocalSplitPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/moss_tts_local/config.py",
+      "target": "class:models/moss_tts_local/config.py:MossTTSLocalSplitPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

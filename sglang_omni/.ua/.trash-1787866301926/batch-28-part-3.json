@@ -1,0 +1,446 @@
+{
+  "nodes": [
+    {
+      "id": "file:scheduling/sglang_backend/cache.py",
+      "type": "file",
+      "name": "cache.py",
+      "filePath": "scheduling/sglang_backend/cache.py",
+      "summary": "根据 server args 与模型配置创建 SGLang radix/tree cache。",
+      "tags": [
+        "SGLang-backend",
+        "tree-cache",
+        "KV-cache"
+      ],
+      "complexity": "simple",
+      "languageNotes": "选择适当 cache 实现并连接 token-to-KV pool。"
+    },
+    {
+      "id": "function:scheduling/sglang_backend/cache.py:create_tree_cache",
+      "type": "function",
+      "name": "create_tree_cache",
+      "filePath": "scheduling/sglang_backend/cache.py",
+      "lineRange": [
+        9,
+        33
+      ],
+      "summary": "根据运行时配置创建 SGLang tree/radix cache。",
+      "tags": [
+        "SGLang-backend",
+        "tree-cache",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/sglang_backend/decode.py",
+      "type": "file",
+      "name": "decode.py",
+      "filePath": "scheduling/sglang_backend/decode.py",
+      "summary": "管理 SGLang decode 请求批次的可运行性判断与下一批调度。",
+      "tags": [
+        "SGLang-backend",
+        "decode",
+        "batching"
+      ],
+      "complexity": "simple",
+      "languageNotes": "根据 batch 状态、内存和 policy 组织 decode iteration。"
+    },
+    {
+      "id": "class:scheduling/sglang_backend/decode.py:DecodeManager",
+      "type": "class",
+      "name": "DecodeManager",
+      "filePath": "scheduling/sglang_backend/decode.py",
+      "lineRange": [
+        14,
+        87
+      ],
+      "summary": "判断 decode batch 可运行性并选择下一轮执行请求。",
+      "tags": [
+        "SGLang-backend",
+        "decode",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:scheduling/sglang_backend/output_processor.py",
+      "type": "file",
+      "name": "output_processor.py",
+      "filePath": "scheduling/sglang_backend/output_processor.py",
+      "summary": "把 SGLang batch results 转换为请求输出，并切分 hidden states 与辅助 tensor。",
+      "tags": [
+        "SGLang-backend",
+        "output-processing",
+        "hidden-states"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "处理流式/最终输出、每请求 tensor slice 和额外 metadata。"
+    },
+    {
+      "id": "class:scheduling/sglang_backend/output_processor.py:SGLangOutputProcessor",
+      "type": "class",
+      "name": "SGLangOutputProcessor",
+      "filePath": "scheduling/sglang_backend/output_processor.py",
+      "lineRange": [
+        14,
+        267
+      ],
+      "summary": "把模型 batch 输出切分为每请求流式结果与 hidden extras。",
+      "tags": [
+        "SGLang-backend",
+        "output-processing",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scheduling/sglang_backend/prefill.py",
+      "type": "file",
+      "name": "prefill.py",
+      "filePath": "scheduling/sglang_backend/prefill.py",
+      "summary": "接收新请求并调度 SGLang prefill batches，决定 full/chunked prefill 路径。",
+      "tags": [
+        "SGLang-backend",
+        "prefill",
+        "batching"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "结合 radix cache、memory pool 与运行队列准备 model worker batch。"
+    },
+    {
+      "id": "class:scheduling/sglang_backend/prefill.py:PrefillManager",
+      "type": "class",
+      "name": "PrefillManager",
+      "filePath": "scheduling/sglang_backend/prefill.py",
+      "lineRange": [
+        13,
+        151
+      ],
+      "summary": "接收请求并组织 full/chunked prefill batches。",
+      "tags": [
+        "SGLang-backend",
+        "prefill",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:scheduling/sglang_backend/request_data.py",
+      "type": "file",
+      "name": "request_data.py",
+      "filePath": "scheduling/sglang_backend/request_data.py",
+      "summary": "定义 SGLang 自回归与 diffusion LM 请求的 scheduler 状态数据。",
+      "tags": [
+        "SGLang-backend",
+        "request-data",
+        "state-model"
+      ],
+      "complexity": "simple",
+      "languageNotes": "dataclass 扩展公共请求数据以保存 backend 特定状态。"
+    },
+    {
+      "id": "class:scheduling/sglang_backend/request_data.py:SGLangARRequestData",
+      "type": "class",
+      "name": "SGLangARRequestData",
+      "filePath": "scheduling/sglang_backend/request_data.py",
+      "lineRange": [
+        14,
+        33
+      ],
+      "summary": "保存自回归 SGLang 请求的 scheduler 状态。",
+      "tags": [
+        "SGLang-backend",
+        "request-data",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:scheduling/sglang_backend/request_data.py:SGLangDLLMRequestData",
+      "type": "class",
+      "name": "SGLangDLLMRequestData",
+      "filePath": "scheduling/sglang_backend/request_data.py",
+      "lineRange": [
+        37,
+        43
+      ],
+      "summary": "保存 diffusion LM SGLang 请求的迭代状态。",
+      "tags": [
+        "SGLang-backend",
+        "request-data",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/sglang_backend/server_args_builder.py",
+      "type": "file",
+      "name": "server_args_builder.py",
+      "filePath": "scheduling/sglang_backend/server_args_builder.py",
+      "summary": "从 pipeline 配置和覆盖项构建 SGLang ServerArgs，并应用 encoder 显存预留。",
+      "tags": [
+        "SGLang-backend",
+        "server-args",
+        "memory"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "规范化 CUDA Graph 覆盖并适配当前硬件 platform。"
+    },
+    {
+      "id": "function:scheduling/sglang_backend/server_args_builder.py:_platform_device_type",
+      "type": "function",
+      "name": "_platform_device_type",
+      "filePath": "scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        18,
+        21
+      ],
+      "summary": "解析当前 SGLang platform 的设备类型。",
+      "tags": [
+        "SGLang-backend",
+        "server-args",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/sglang_backend/server_args_builder.py:_normalize_decode_cuda_graph_overrides",
+      "type": "function",
+      "name": "_normalize_decode_cuda_graph_overrides",
+      "filePath": "scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        24,
+        35
+      ],
+      "summary": "规范化 decode CUDA Graph 的 server args 覆盖。",
+      "tags": [
+        "SGLang-backend",
+        "server-args",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:scheduling/sglang_backend/server_args_builder.py:build_sglang_server_args",
+      "type": "function",
+      "name": "build_sglang_server_args",
+      "filePath": "scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        38,
+        76
+      ],
+      "summary": "合并 pipeline 配置与覆盖项生成 SGLang ServerArgs。",
+      "tags": [
+        "SGLang-backend",
+        "server-args",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:scheduling/sglang_backend/server_args_builder.py:apply_encoder_mem_reserve",
+      "type": "function",
+      "name": "apply_encoder_mem_reserve",
+      "filePath": "scheduling/sglang_backend/server_args_builder.py",
+      "lineRange": [
+        79,
+        105
+      ],
+      "summary": "从可用显存比例中扣除 encoder 服务预留。",
+      "tags": [
+        "SGLang-backend",
+        "server-args",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:scheduling/simple_scheduler.py",
+      "type": "file",
+      "name": "simple_scheduler.py",
+      "filePath": "scheduling/simple_scheduler.py",
+      "summary": "实现可串行或并发执行 pipeline 消息的通用 scheduler，支持 batching、中止和错误回传。",
+      "tags": [
+        "scheduling",
+        "simple-scheduler",
+        "concurrency"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "异步 worker 将计算提交到线程并维护输入输出 channel 生命周期。"
+    },
+    {
+      "id": "class:scheduling/simple_scheduler.py:SimpleScheduler",
+      "type": "class",
+      "name": "SimpleScheduler",
+      "filePath": "scheduling/simple_scheduler.py",
+      "lineRange": [
+        25,
+        327
+      ],
+      "summary": "以串行或并发 worker 执行消息，支持 batching、abort 和错误隔离。",
+      "tags": [
+        "scheduling",
+        "simple-scheduler",
+        "class"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:scheduling/sglang_backend/cache.py",
+      "target": "function:scheduling/sglang_backend/cache.py:create_tree_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/cache.py",
+      "target": "function:scheduling/sglang_backend/cache.py:create_tree_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/decode.py",
+      "target": "class:scheduling/sglang_backend/decode.py:DecodeManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/decode.py",
+      "target": "class:scheduling/sglang_backend/decode.py:DecodeManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/output_processor.py",
+      "target": "class:scheduling/sglang_backend/output_processor.py:SGLangOutputProcessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/output_processor.py",
+      "target": "class:scheduling/sglang_backend/output_processor.py:SGLangOutputProcessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/prefill.py",
+      "target": "class:scheduling/sglang_backend/prefill.py:PrefillManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/prefill.py",
+      "target": "class:scheduling/sglang_backend/prefill.py:PrefillManager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/request_data.py",
+      "target": "class:scheduling/sglang_backend/request_data.py:SGLangARRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/request_data.py",
+      "target": "class:scheduling/sglang_backend/request_data.py:SGLangARRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/request_data.py",
+      "target": "class:scheduling/sglang_backend/request_data.py:SGLangDLLMRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/request_data.py",
+      "target": "class:scheduling/sglang_backend/request_data.py:SGLangDLLMRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:_platform_device_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:_platform_device_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:_normalize_decode_cuda_graph_overrides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:_normalize_decode_cuda_graph_overrides",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:build_sglang_server_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:build_sglang_server_args",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:apply_encoder_mem_reserve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/sglang_backend/server_args_builder.py",
+      "target": "function:scheduling/sglang_backend/server_args_builder.py:apply_encoder_mem_reserve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:scheduling/simple_scheduler.py",
+      "target": "class:scheduling/simple_scheduler.py:SimpleScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:scheduling/simple_scheduler.py",
+      "target": "class:scheduling/simple_scheduler.py:SimpleScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

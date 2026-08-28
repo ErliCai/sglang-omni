@@ -1,0 +1,790 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/ming_omni/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/ming_omni/config.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 381,
+      "nonEmptyLines": 306,
+      "functions": [
+        {
+          "name": "_stage_by_name",
+          "startLine": 35,
+          "endLine": 36,
+          "params": [
+            "stages",
+            "name"
+          ]
+        },
+        {
+          "name": "_stage_gpu_set",
+          "startLine": 39,
+          "endLine": 58,
+          "params": [
+            "stage",
+            "processes"
+          ]
+        },
+        {
+          "name": "_reject_thinker_talker_collision",
+          "startLine": 61,
+          "endLine": 83,
+          "params": [
+            "stages",
+            "talker_stage_name",
+            "processes"
+          ]
+        },
+        {
+          "name": "_validate_ming_stage_tp_support",
+          "startLine": 86,
+          "endLine": 88,
+          "params": [
+            "stages"
+          ]
+        },
+        {
+          "name": "_preprocessing_stage",
+          "startLine": 91,
+          "endLine": 102,
+          "params": [
+            "process"
+          ]
+        },
+        {
+          "name": "_audio_encoder_stage",
+          "startLine": 105,
+          "endLine": 116,
+          "params": [
+            "gpu",
+            "process"
+          ]
+        },
+        {
+          "name": "_image_encoder_stage",
+          "startLine": 119,
+          "endLine": 133,
+          "params": [
+            "gpu",
+            "tp_size",
+            "process"
+          ]
+        },
+        {
+          "name": "_aggregate_stage",
+          "startLine": 136,
+          "endLine": 145,
+          "params": [
+            "process"
+          ]
+        },
+        {
+          "name": "_thinker_stage",
+          "startLine": 167,
+          "endLine": 183,
+          "params": [
+            "gpu",
+            "speech_enabled",
+            "process"
+          ]
+        },
+        {
+          "name": "_streaming_thinker_stage",
+          "startLine": 186,
+          "endLine": 207,
+          "params": [
+            "gpu",
+            "process"
+          ]
+        },
+        {
+          "name": "_segmenter_stage",
+          "startLine": 210,
+          "endLine": 218,
+          "params": [
+            "process"
+          ]
+        },
+        {
+          "name": "_talker_stream_stage",
+          "startLine": 221,
+          "endLine": 230,
+          "params": [
+            "gpu",
+            "process"
+          ]
+        },
+        {
+          "name": "_decode_stage",
+          "startLine": 233,
+          "endLine": 240,
+          "params": [
+            "process"
+          ]
+        },
+        {
+          "name": "_talker_stage",
+          "startLine": 243,
+          "endLine": 251,
+          "params": [
+            "gpu",
+            "process"
+          ]
+        },
+        {
+          "name": "_ming_text_stages",
+          "startLine": 254,
+          "endLine": 262,
+          "params": []
+        },
+        {
+          "name": "_ming_speech_stages",
+          "startLine": 265,
+          "endLine": 274,
+          "params": []
+        },
+        {
+          "name": "_ming_streaming_speech_stages",
+          "startLine": 277,
+          "endLine": 287,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "MingThinkerFactoryArgs",
+          "startLine": 148,
+          "endLine": 152,
+          "methods": [],
+          "properties": [
+            "thinker_max_seq_len",
+            "enable_streaming_tts"
+          ]
+        },
+        {
+          "name": "MingThinkerStageConfig",
+          "startLine": 155,
+          "endLine": 156,
+          "methods": [],
+          "properties": [
+            "factory"
+          ]
+        },
+        {
+          "name": "MingTalkerFactoryArgs",
+          "startLine": 159,
+          "endLine": 160,
+          "methods": [],
+          "properties": [
+            "voice"
+          ]
+        },
+        {
+          "name": "MingTalkerStageConfig",
+          "startLine": 163,
+          "endLine": 164,
+          "methods": [],
+          "properties": [
+            "factory"
+          ]
+        },
+        {
+          "name": "_MingOmniBasePipelineConfig",
+          "startLine": 290,
+          "endLine": 304,
+          "methods": [
+            "topology_gated_custom_all_reduce_stages"
+          ],
+          "properties": [
+            "architecture",
+            "architecture_aliases",
+            "stage_config_types",
+            "tensor_parallel_disable_custom_all_reduce_stages"
+          ]
+        },
+        {
+          "name": "MingOmniPipelineConfig",
+          "startLine": 307,
+          "endLine": 321,
+          "methods": [
+            "model_post_init"
+          ],
+          "properties": [
+            "model_path",
+            "entry_stage",
+            "placement",
+            "stages"
+          ]
+        },
+        {
+          "name": "MingOmniSpeechPipelineConfig",
+          "startLine": 324,
+          "endLine": 342,
+          "methods": [
+            "model_post_init",
+            "_validate_talker_gpu_not_in_thinker_tp_range"
+          ],
+          "properties": [
+            "model_path",
+            "entry_stage",
+            "placement",
+            "stages"
+          ]
+        },
+        {
+          "name": "MingOmniStreamingSpeechPipelineConfig",
+          "startLine": 345,
+          "endLine": 372,
+          "methods": [
+            "model_post_init",
+            "_validate_talker_stream_gpu_not_in_thinker_tp_range"
+          ],
+          "properties": [
+            "model_path",
+            "entry_stage",
+            "placement",
+            "stages"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_stage_by_name",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "_stage_gpu_set",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "_reject_thinker_talker_collision",
+          "line": 61,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_ming_stage_tp_support",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "_preprocessing_stage",
+          "line": 91,
+          "isDefault": false
+        },
+        {
+          "name": "_audio_encoder_stage",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "_image_encoder_stage",
+          "line": 119,
+          "isDefault": false
+        },
+        {
+          "name": "_aggregate_stage",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "MingThinkerFactoryArgs",
+          "line": 148,
+          "isDefault": false
+        },
+        {
+          "name": "MingThinkerStageConfig",
+          "line": 155,
+          "isDefault": false
+        },
+        {
+          "name": "MingTalkerFactoryArgs",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "MingTalkerStageConfig",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "_thinker_stage",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "_streaming_thinker_stage",
+          "line": 186,
+          "isDefault": false
+        },
+        {
+          "name": "_segmenter_stage",
+          "line": 210,
+          "isDefault": false
+        },
+        {
+          "name": "_talker_stream_stage",
+          "line": 221,
+          "isDefault": false
+        },
+        {
+          "name": "_decode_stage",
+          "line": 233,
+          "isDefault": false
+        },
+        {
+          "name": "_talker_stage",
+          "line": 243,
+          "isDefault": false
+        },
+        {
+          "name": "_ming_text_stages",
+          "line": 254,
+          "isDefault": false
+        },
+        {
+          "name": "_ming_speech_stages",
+          "line": 265,
+          "isDefault": false
+        },
+        {
+          "name": "_ming_streaming_speech_stages",
+          "line": 277,
+          "isDefault": false
+        },
+        {
+          "name": "_MingOmniBasePipelineConfig",
+          "line": 290,
+          "isDefault": false
+        },
+        {
+          "name": "MingOmniPipelineConfig",
+          "line": 307,
+          "isDefault": false
+        },
+        {
+          "name": "MingOmniSpeechPipelineConfig",
+          "line": 324,
+          "isDefault": false
+        },
+        {
+          "name": "MingOmniStreamingSpeechPipelineConfig",
+          "line": 345,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_stage_by_name",
+          "callee": "next",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_stage_gpu_set",
+          "callee": "processes.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_stage_gpu_set",
+          "callee": "stage_process_name",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_stage_gpu_set",
+          "callee": "set",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_stage_gpu_set",
+          "callee": "isinstance",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_stage_gpu_set",
+          "callee": "set",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_stage_gpu_set",
+          "callee": "set",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "_stage_by_name",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "_stage_by_name",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "_stage_gpu_set",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "_stage_gpu_set",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "ValueError",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "sorted",
+          "lineNumber": 80
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "sorted",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_reject_thinker_talker_collision",
+          "callee": "sorted",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_validate_ming_stage_tp_support",
+          "callee": "validate_stage_tp_support",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_preprocessing_stage",
+          "callee": "StageConfig",
+          "lineNumber": 92
+        },
+        {
+          "caller": "_audio_encoder_stage",
+          "callee": "StageConfig",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_audio_encoder_stage",
+          "callee": "FactoryArgs",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_image_encoder_stage",
+          "callee": "StageConfig",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_image_encoder_stage",
+          "callee": "FactoryArgs",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_aggregate_stage",
+          "callee": "StageConfig",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_thinker_stage",
+          "callee": "MingThinkerStageConfig",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_thinker_stage",
+          "callee": "MingThinkerFactoryArgs",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_streaming_thinker_stage",
+          "callee": "MingThinkerStageConfig",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_streaming_thinker_stage",
+          "callee": "MingThinkerFactoryArgs",
+          "lineNumber": 197
+        },
+        {
+          "caller": "_segmenter_stage",
+          "callee": "StageConfig",
+          "lineNumber": 211
+        },
+        {
+          "caller": "_talker_stream_stage",
+          "callee": "MingTalkerStageConfig",
+          "lineNumber": 222
+        },
+        {
+          "caller": "_talker_stream_stage",
+          "callee": "MingTalkerFactoryArgs",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_decode_stage",
+          "callee": "StageConfig",
+          "lineNumber": 234
+        },
+        {
+          "caller": "_talker_stage",
+          "callee": "MingTalkerStageConfig",
+          "lineNumber": 244
+        },
+        {
+          "caller": "_talker_stage",
+          "callee": "MingTalkerFactoryArgs",
+          "lineNumber": 248
+        },
+        {
+          "caller": "_ming_text_stages",
+          "callee": "_preprocessing_stage",
+          "lineNumber": 256
+        },
+        {
+          "caller": "_ming_text_stages",
+          "callee": "_audio_encoder_stage",
+          "lineNumber": 257
+        },
+        {
+          "caller": "_ming_text_stages",
+          "callee": "_image_encoder_stage",
+          "lineNumber": 258
+        },
+        {
+          "caller": "_ming_text_stages",
+          "callee": "_aggregate_stage",
+          "lineNumber": 259
+        },
+        {
+          "caller": "_ming_text_stages",
+          "callee": "_thinker_stage",
+          "lineNumber": 260
+        },
+        {
+          "caller": "_ming_text_stages",
+          "callee": "_decode_stage",
+          "lineNumber": 261
+        },
+        {
+          "caller": "_ming_speech_stages",
+          "callee": "_preprocessing_stage",
+          "lineNumber": 267
+        },
+        {
+          "caller": "_ming_speech_stages",
+          "callee": "_audio_encoder_stage",
+          "lineNumber": 268
+        },
+        {
+          "caller": "_ming_speech_stages",
+          "callee": "_image_encoder_stage",
+          "lineNumber": 269
+        },
+        {
+          "caller": "_ming_speech_stages",
+          "callee": "_aggregate_stage",
+          "lineNumber": 270
+        },
+        {
+          "caller": "_ming_speech_stages",
+          "callee": "_thinker_stage",
+          "lineNumber": 271
+        },
+        {
+          "caller": "_ming_speech_stages",
+          "callee": "_decode_stage",
+          "lineNumber": 272
+        },
+        {
+          "caller": "_ming_speech_stages",
+          "callee": "_talker_stage",
+          "lineNumber": 273
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_preprocessing_stage",
+          "lineNumber": 279
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_audio_encoder_stage",
+          "lineNumber": 280
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_image_encoder_stage",
+          "lineNumber": 281
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_aggregate_stage",
+          "lineNumber": 282
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_streaming_thinker_stage",
+          "lineNumber": 283
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_decode_stage",
+          "lineNumber": 284
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_segmenter_stage",
+          "lineNumber": 285
+        },
+        {
+          "caller": "_ming_streaming_speech_stages",
+          "callee": "_talker_stream_stage",
+          "lineNumber": 286
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super().model_post_init",
+          "lineNumber": 320
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super",
+          "lineNumber": 320
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "_validate_ming_stage_tp_support",
+          "lineNumber": 321
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super().model_post_init",
+          "lineNumber": 337
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super",
+          "lineNumber": 337
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "_validate_ming_stage_tp_support",
+          "lineNumber": 338
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "self._validate_talker_gpu_not_in_thinker_tp_range",
+          "lineNumber": 339
+        },
+        {
+          "caller": "_validate_talker_gpu_not_in_thinker_tp_range",
+          "callee": "_reject_thinker_talker_collision",
+          "lineNumber": 342
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super().model_post_init",
+          "lineNumber": 365
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super",
+          "lineNumber": 365
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "_validate_ming_stage_tp_support",
+          "lineNumber": 366
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "self._validate_talker_stream_gpu_not_in_thinker_tp_range",
+          "lineNumber": 367
+        },
+        {
+          "caller": "_validate_talker_stream_gpu_not_in_thinker_tp_range",
+          "callee": "_reject_thinker_talker_collision",
+          "lineNumber": 370
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 25,
+        "functionCount": 17,
+        "classCount": 8
+      }
+    },
+    {
+      "path": "models/ming_omni/registration.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 17,
+      "functions": [
+        {
+          "name": "register_ming_hf_config",
+          "startLine": 9,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "register_ming_model_registry",
+          "startLine": 23,
+          "endLine": 28,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "register_ming_hf_config",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "register_ming_model_registry",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "register_ming_hf_config",
+          "callee": "AutoConfig.register",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

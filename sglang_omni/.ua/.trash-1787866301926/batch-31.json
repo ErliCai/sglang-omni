@@ -1,0 +1,519 @@
+{
+  "nodes": [
+    {
+      "id": "file:utils/ipc_weights.py",
+      "type": "file",
+      "name": "ipc_weights.py",
+      "filePath": "utils/ipc_weights.py",
+      "summary": "实现同一 GPU 上数据并行副本间的 CUDA IPC 权重共享协议：领导副本原子发布句柄，从副本零拷贝别名共享张量、按值保留私有状态，并校验目录权限、模型身份、清单和领导进程存活性。",
+      "tags": [
+        "cuda-ipc",
+        "weight-sharing",
+        "data-parallel",
+        "model-weights",
+        "security"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:utils/ipc_weights.py:WeightShareConfig",
+      "type": "class",
+      "name": "WeightShareConfig",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        77,
+        81
+      ],
+      "summary": "保存权重共享角色、私有存储目录、从副本附加超时和可选运行标识，是领导与从属流程的统一环境配置。",
+      "tags": [
+        "weight-sharing",
+        "configuration",
+        "leader-follower",
+        "timeout"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:utils/ipc_weights.py:WeightSharePolicy",
+      "type": "class",
+      "name": "WeightSharePolicy",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        241,
+        250
+      ],
+      "summary": "声明经架构审计后必须保持副本私有的参数或缓冲区名称，其余注册张量默认通过 CUDA IPC 共享。",
+      "tags": [
+        "weight-sharing",
+        "architecture-policy",
+        "private-tensors",
+        "safety"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:get_weight_share_config",
+      "type": "function",
+      "name": "get_weight_share_config",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        84,
+        114
+      ],
+      "summary": "解析权重共享环境变量中的 leader 或 follower 角色、目录、超时与 run_id，并对格式和数值范围进行严格校验。",
+      "tags": [
+        "environment",
+        "weight-sharing",
+        "configuration",
+        "validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:validate_weight_share_architecture",
+      "type": "function",
+      "name": "validate_weight_share_architecture",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        325,
+        350
+      ],
+      "summary": "要求模型配置恰好包含一个已完成审计和端到端验证的架构，并返回其私有张量策略；未支持架构以失败关闭方式拒绝。",
+      "tags": [
+        "architecture",
+        "weight-sharing",
+        "policy-validation",
+        "fail-closed"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:utils/ipc_weights.py:LeaderLivenessMonitor",
+      "type": "class",
+      "name": "LeaderLivenessMonitor",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        439,
+        493
+      ],
+      "summary": "在从副本后台轮询领导进程及其 Linux 启动时间，识别死亡或 PID 回收后立即退出，避免继续访问已失效的 CUDA IPC 映射。",
+      "tags": [
+        "leader-liveness",
+        "cuda-ipc",
+        "process-monitor",
+        "fail-fast"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:export_weights",
+      "type": "function",
+      "name": "export_weights",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        547,
+        627
+      ],
+      "summary": "收集模型参数和缓冲区，按策略拆分 IPC 共享与按值传输张量，写入版本化身份及清单元数据，并以临时文件和原子重命名发布句柄载荷。",
+      "tags": [
+        "cuda-ipc",
+        "weight-export",
+        "atomic-write",
+        "tensor-manifest",
+        "security"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:wait_for_export",
+      "type": "function",
+      "name": "wait_for_export",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        630,
+        643
+      ],
+      "summary": "轮询等待领导副本的引擎专属句柄文件完成原子发布，并在截止时间后给出指向领导启动状态的超时错误。",
+      "tags": [
+        "weight-sharing",
+        "polling",
+        "timeout",
+        "leader-follower"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:attach_weights",
+      "type": "function",
+      "name": "attach_weights",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        772,
+        805
+      ],
+      "summary": "等待并加载领导载荷，将从副本的共享参数和缓冲区别名到领导存储，同时把私有或非 CUDA 张量复制到自身存储，并返回后续验证记录。",
+      "tags": [
+        "cuda-ipc",
+        "weight-attach",
+        "zero-copy",
+        "private-tensors",
+        "validation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:_alias_from_payload",
+      "type": "function",
+      "name": "_alias_from_payload",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        896,
+        1052
+      ],
+      "summary": "核对私有分类、张量清单、名称、形状、类型与设备后重绑参数和全部缓冲区路径，并保证私有张量地址不因交叉注册而移动。",
+      "tags": [
+        "tensor-aliasing",
+        "manifest-validation",
+        "cuda-ipc",
+        "buffer-rebinding",
+        "safety"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:verify_attachment",
+      "type": "function",
+      "name": "verify_attachment",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        1086,
+        1110
+      ],
+      "summary": "在预热或 CUDA Graph 捕获前复查记录中的存储指针、形状和 dtype，发现附加后参数被重新初始化或重绑时立即失败。",
+      "tags": [
+        "attachment-check",
+        "storage-identity",
+        "cuda-graph",
+        "weight-sharing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:leader_export",
+      "type": "function",
+      "name": "leader_export",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        1113,
+        1134
+      ],
+      "summary": "作为领导角色的公共入口，为当前模型生成引擎专属文件名并转交完整导出流程。",
+      "tags": [
+        "leader",
+        "weight-export",
+        "public-api",
+        "cuda-ipc"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/ipc_weights.py:follower_attach",
+      "type": "function",
+      "name": "follower_attach",
+      "filePath": "utils/ipc_weights.py",
+      "lineRange": [
+        1137,
+        1171
+      ],
+      "summary": "作为从属角色的公共入口，附加当前模型的共享权重并启动领导存活监控，向调用方返回验证记录和监控器。",
+      "tags": [
+        "follower",
+        "weight-attach",
+        "liveness-monitor",
+        "public-api"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:utils/misc.py",
+      "type": "file",
+      "name": "misc.py",
+      "filePath": "utils/misc.py",
+      "summary": "提供配置驱动装配所需的通用辅助能力，包括权重层号与前缀处理、随机种子、GPU 可用显存、分布式 Python 对象广播以及量化和 MoE 配置判断。",
+      "tags": [
+        "utilities",
+        "distributed",
+        "gpu-memory",
+        "configuration",
+        "random-seed"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/misc.py:set_random_seed",
+      "type": "function",
+      "name": "set_random_seed",
+      "filePath": "utils/misc.py",
+      "lineRange": [
+        37,
+        43
+      ],
+      "summary": "统一设置 Python、NumPy、PyTorch CPU 和所有可用 CUDA 设备的随机种子。",
+      "tags": [
+        "random-seed",
+        "numpy",
+        "pytorch",
+        "cuda"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/misc.py:avail_gpu_mem",
+      "type": "function",
+      "name": "avail_gpu_mem",
+      "filePath": "utils/misc.py",
+      "lineRange": [
+        46,
+        54
+      ],
+      "summary": "查询指定 GPU 当前可用显存并换算为 GiB，在 CUDA 不可用或查询失败时安全返回空值。",
+      "tags": [
+        "gpu-memory",
+        "cuda",
+        "resource-query",
+        "fallback"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/misc.py:broadcast_pyobj",
+      "type": "function",
+      "name": "broadcast_pyobj",
+      "filePath": "utils/misc.py",
+      "lineRange": [
+        57,
+        97
+      ],
+      "summary": "使用 pickle、长度张量和字节张量把源 rank 的 Python 对象列表广播到进程组，支持 CPU 或 CUDA 通信设备及空列表。",
+      "tags": [
+        "distributed",
+        "broadcast",
+        "serialization",
+        "pytorch"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "class:utils/ipc_weights.py:WeightShareConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "class:utils/ipc_weights.py:WeightShareConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "class:utils/ipc_weights.py:WeightSharePolicy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "class:utils/ipc_weights.py:WeightSharePolicy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:get_weight_share_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:get_weight_share_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:validate_weight_share_architecture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:validate_weight_share_architecture",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "class:utils/ipc_weights.py:LeaderLivenessMonitor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "class:utils/ipc_weights.py:LeaderLivenessMonitor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:export_weights",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:export_weights",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:wait_for_export",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:wait_for_export",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:attach_weights",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:attach_weights",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:_alias_from_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:_alias_from_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:verify_attachment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:verify_attachment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:leader_export",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:leader_export",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:follower_attach",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/ipc_weights.py",
+      "target": "function:utils/ipc_weights.py:follower_attach",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/misc.py",
+      "target": "function:utils/misc.py:set_random_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/misc.py",
+      "target": "function:utils/misc.py:set_random_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/misc.py",
+      "target": "function:utils/misc.py:avail_gpu_mem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/misc.py",
+      "target": "function:utils/misc.py:avail_gpu_mem",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/misc.py",
+      "target": "function:utils/misc.py:broadcast_pyobj",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/misc.py",
+      "target": "function:utils/misc.py:broadcast_pyobj",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

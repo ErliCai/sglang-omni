@@ -1,0 +1,14 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 0,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "合并报告的 Fixed 与 Could not fix 均无条目，2883 个节点和 5324 条边的输入输出计数一致。",
+    "65 个批次文件覆盖 31 个逻辑批次，其中 17 个为多分片批次；合并图未遗漏或额外引入任何批次节点与边。",
+    "扫描清单中的 510 个文件均有且仅有一个文件级节点，节点类型、复杂度和 ID 前缀均符合规范，且不存在悬空边或重复节点/边。",
+    "权威 importMap 的 510 个条目包含 103 条项目内导入关系；合并图已完整包含全部 103 条 imports 边，且没有不受映射支持的 imports 边。"
+  ]
+}

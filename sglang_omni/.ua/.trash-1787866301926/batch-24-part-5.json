@@ -1,0 +1,2409 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_tts/payload_types.py",
+      "type": "file",
+      "name": "payload_types.py",
+      "filePath": "models/qwen3_tts/payload_types.py",
+      "summary": "定义 Qwen3-TTS 请求在预处理、生成和声码器阶段之间传递的状态。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-state",
+        "stage-contract"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/payload_types.py:Qwen3TTSState",
+      "type": "class",
+      "name": "Qwen3TTSState",
+      "filePath": "models/qwen3_tts/payload_types.py",
+      "lineRange": [
+        13,
+        35
+      ],
+      "summary": "保存任务类型、文本、音色、参考编码、生成码和输出波形等跨阶段数据。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-state",
+        "qwen3-ttsstate",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_tts/request_builders.py",
+      "type": "file",
+      "name": "request_builders.py",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "summary": "规范化 Qwen3-TTS Base、自定义音色和音色设计请求，缓存参考编码，构建 SGLang 请求并应用结果。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "reference-cache",
+        "voice-design",
+        "scheduler-adapter"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_new_qwen3_tts_sampling_seed",
+      "type": "function",
+      "name": "_new_qwen3_tts_sampling_seed",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        75,
+        76
+      ],
+      "summary": "创建new qwen3 tts 采样 种子逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "new-qwen3-tts-sampling-seed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_normalize_qwen3_tts_seed",
+      "type": "function",
+      "name": "_normalize_qwen3_tts_seed",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        79,
+        88
+      ],
+      "summary": "规范化规范化 qwen3 tts 种子逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "normalize-qwen3-tts-seed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_derive_qwen3_tts_child_seed",
+      "type": "function",
+      "name": "_derive_qwen3_tts_child_seed",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        91,
+        92
+      ],
+      "summary": "执行derive qwen3 tts 子 种子逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "derive-qwen3-tts-child-seed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:derive_qwen3_tts_sampling_seeds",
+      "type": "function",
+      "name": "derive_qwen3_tts_sampling_seeds",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        95,
+        102
+      ],
+      "summary": "派生derive qwen3 tts 采样 seeds逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "derive-qwen3-tts-sampling-seeds",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:set_qwen3_tts_preprocessing_context",
+      "type": "function",
+      "name": "set_qwen3_tts_preprocessing_context",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        155,
+        165
+      ],
+      "summary": "设置set qwen3 tts 预处理 上下文逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "set-qwen3-tts-preprocessing-context",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:clear_qwen3_tts_preprocessing_context",
+      "type": "function",
+      "name": "clear_qwen3_tts_preprocessing_context",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        168,
+        178
+      ],
+      "summary": "清除clear qwen3 tts 预处理 上下文逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "clear-qwen3-tts-preprocessing-context",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_prepared_request_id",
+      "type": "function",
+      "name": "_prepared_request_id",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        181,
+        186
+      ],
+      "summary": "执行已准备 请求 id逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "prepared-request-id",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:pop_prepared_qwen3_tts_request",
+      "type": "function",
+      "name": "pop_prepared_qwen3_tts_request",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        189,
+        204
+      ],
+      "summary": "取出pop 已准备 qwen3 tts 请求逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "pop-prepared-qwen3-tts-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:cleanup_prepared_qwen3_tts_request",
+      "type": "function",
+      "name": "cleanup_prepared_qwen3_tts_request",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        207,
+        211
+      ],
+      "summary": "清理cleanup 已准备 qwen3 tts 请求逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "cleanup-prepared-qwen3-tts-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:build_qwen3_tts_state",
+      "type": "function",
+      "name": "build_qwen3_tts_state",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        214,
+        315
+      ],
+      "summary": "构建build qwen3 tts 状态逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "build-qwen3-tts-state",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_inputs",
+      "type": "function",
+      "name": "normalize_qwen3_tts_inputs",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        318,
+        330
+      ],
+      "summary": "规范化规范化 qwen3 tts inputs逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "normalize-qwen3-tts-inputs",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:resolve_voice_clone_reference",
+      "type": "function",
+      "name": "resolve_voice_clone_reference",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        333,
+        350
+      ],
+      "summary": "解析resolve 音色 克隆 参考逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "resolve-voice-clone-reference",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:has_voice_clone_reference",
+      "type": "function",
+      "name": "has_voice_clone_reference",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        353,
+        362
+      ],
+      "summary": "判断has 音色 克隆 参考逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "has-voice-clone-reference",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:references_contain_audio",
+      "type": "function",
+      "name": "references_contain_audio",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        365,
+        370
+      ],
+      "summary": "检查references contain 音频逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "references-contain-audio",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:references_contain_text",
+      "type": "function",
+      "name": "references_contain_text",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        373,
+        374
+      ],
+      "summary": "检查references contain 文本逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "references-contain-text",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_task_type",
+      "type": "function",
+      "name": "normalize_qwen3_tts_task_type",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        377,
+        393
+      ],
+      "summary": "规范化规范化 qwen3 tts 任务 类型逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "normalize-qwen3-tts-task-type",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:resolve_optional_text",
+      "type": "function",
+      "name": "resolve_optional_text",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        396,
+        400
+      ],
+      "summary": "解析resolve 可选 文本逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "resolve-optional-text",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_voice",
+      "type": "function",
+      "name": "normalize_qwen3_tts_voice",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        403,
+        407
+      ],
+      "summary": "规范化规范化 qwen3 tts 音色逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "normalize-qwen3-tts-voice",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:has_param",
+      "type": "function",
+      "name": "has_param",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        410,
+        415
+      ],
+      "summary": "判断has param逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "has-param",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:resolve_non_streaming_mode",
+      "type": "function",
+      "name": "resolve_non_streaming_mode",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        418,
+        427
+      ],
+      "summary": "解析resolve non 流式 mode逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "resolve-non-streaming-mode",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:normalize_language",
+      "type": "function",
+      "name": "normalize_language",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        430,
+        433
+      ],
+      "summary": "规范化规范化 语言逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "normalize-language",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:resolve_x_vector_only_mode",
+      "type": "function",
+      "name": "resolve_x_vector_only_mode",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        436,
+        445
+      ],
+      "summary": "解析resolve x vector only mode逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "resolve-x-vector-only-mode",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:build_generation_kwargs",
+      "type": "function",
+      "name": "build_generation_kwargs",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        448,
+        478
+      ],
+      "summary": "构建build generation kwargs逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "build-generation-kwargs",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:build_embedding_cache_key_ids",
+      "type": "function",
+      "name": "build_embedding_cache_key_ids",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        481,
+        488
+      ],
+      "summary": "构建build 嵌入 缓存 键 ids逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "build-embedding-cache-key-ids",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_build_qwen3_tts_pad_embed",
+      "type": "function",
+      "name": "_build_qwen3_tts_pad_embed",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        491,
+        508
+      ],
+      "summary": "构建build qwen3 tts 填充 embed逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "build-qwen3-tts-pad-embed",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_build_instruct_id",
+      "type": "function",
+      "name": "_build_instruct_id",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        511,
+        518
+      ],
+      "summary": "构建build 指令 id逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "build-instruct-id",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_uploaded_voice_cache_key",
+      "type": "function",
+      "name": "_qwen3_tts_uploaded_voice_cache_key",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        521,
+        530
+      ],
+      "summary": "执行qwen3 tts 上传 音色 缓存 键逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-tts-uploaded-voice-cache-key",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_cacheable_qwen3_tts_voice_prompt",
+      "type": "function",
+      "name": "_cacheable_qwen3_tts_voice_prompt",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        533,
+        552
+      ],
+      "summary": "执行cacheable qwen3 tts 音色 提示逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "cacheable-qwen3-tts-voice-prompt",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_cacheable_qwen3_tts_tensor",
+      "type": "function",
+      "name": "_cacheable_qwen3_tts_tensor",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        555,
+        556
+      ],
+      "summary": "执行cacheable qwen3 tts 张量逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "cacheable-qwen3-tts-tensor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_voice_prompt_from_cache",
+      "type": "function",
+      "name": "_qwen3_tts_voice_prompt_from_cache",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        559,
+        573
+      ],
+      "summary": "执行qwen3 tts 音色 提示 from 缓存逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-tts-voice-prompt-from-cache",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_new_cuda_encode_stream",
+      "type": "function",
+      "name": "_new_cuda_encode_stream",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        583,
+        592
+      ],
+      "summary": "创建new CUDA encode 流式逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "new-cuda-encode-stream",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_record_ref_code_consumer_stream",
+      "type": "function",
+      "name": "_record_ref_code_consumer_stream",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        595,
+        601
+      ],
+      "summary": "记录record ref 码 消费者 流式逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "record-ref-code-consumer-stream",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_ref_audio_input_key",
+      "type": "function",
+      "name": "_qwen3_tts_ref_audio_input_key",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        844,
+        855
+      ],
+      "summary": "执行qwen3 tts ref 音频 输入 键逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-tts-ref-audio-input-key",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_model_revision",
+      "type": "function",
+      "name": "_qwen3_tts_model_revision",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        858,
+        870
+      ],
+      "summary": "执行qwen3 tts 模型 版本逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-tts-model-revision",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_encoder_config_hash",
+      "type": "function",
+      "name": "_qwen3_tts_encoder_config_hash",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        873,
+        882
+      ],
+      "summary": "执行qwen3 tts 编码器 配置 哈希逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-tts-encoder-config-hash",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_get_qwen3_tts_adhoc_reference_service_locked",
+      "type": "function",
+      "name": "_get_qwen3_tts_adhoc_reference_service_locked",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        885,
+        904
+      ],
+      "summary": "执行get qwen3 tts adhoc 参考 service locked逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "get-qwen3-tts-adhoc-reference-service-locked",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_get_qwen3_tts_adhoc_reference_service",
+      "type": "function",
+      "name": "_get_qwen3_tts_adhoc_reference_service",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        907,
+        912
+      ],
+      "summary": "执行get qwen3 tts adhoc 参考 service逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "get-qwen3-tts-adhoc-reference-service",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_normalized_model_type",
+      "type": "function",
+      "name": "_normalized_model_type",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        915,
+        926
+      ],
+      "summary": "执行normalized 模型 类型逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "normalized-model-type",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_validate_qwen3_tts_model_task",
+      "type": "function",
+      "name": "_validate_qwen3_tts_model_task",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        929,
+        947
+      ],
+      "summary": "校验validate qwen3 tts 模型 任务逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "validate-qwen3-tts-model-task",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_base_request",
+      "type": "function",
+      "name": "_prepare_qwen3_tts_base_request",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        950,
+        1006
+      ],
+      "summary": "执行prepare qwen3 tts base 请求逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "prepare-qwen3-tts-base-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_custom_voice_request",
+      "type": "function",
+      "name": "_prepare_qwen3_tts_custom_voice_request",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1009,
+        1024
+      ],
+      "summary": "执行prepare qwen3 tts 自定义 音色 请求逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "prepare-qwen3-tts-custom-voice-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_voice_design_request",
+      "type": "function",
+      "name": "_prepare_qwen3_tts_voice_design_request",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1027,
+        1041
+      ],
+      "summary": "执行prepare qwen3 tts 音色 设计 请求逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "prepare-qwen3-tts-voice-design-request",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_request",
+      "type": "function",
+      "name": "_prepare_qwen3_tts_request",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1044,
+        1122
+      ],
+      "summary": "执行prepare qwen3 tts 请求逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "prepare-qwen3-tts-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:preprocess_qwen3_tts_payload",
+      "type": "function",
+      "name": "preprocess_qwen3_tts_payload",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1125,
+        1150
+      ],
+      "summary": "预处理preprocess qwen3 tts 负载逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "preprocess-qwen3-tts-payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:build_sglang_qwen3_tts_request",
+      "type": "function",
+      "name": "build_sglang_qwen3_tts_request",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1153,
+        1239
+      ],
+      "summary": "构建build sglang qwen3 tts 请求逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "build-sglang-qwen3-tts-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_finish_reason",
+      "type": "function",
+      "name": "_qwen3_tts_finish_reason",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1242,
+        1270
+      ],
+      "summary": "执行qwen3 tts 结束 原因逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-tts-finish-reason",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:apply_sglang_qwen3_tts_result",
+      "type": "function",
+      "name": "apply_sglang_qwen3_tts_result",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1273,
+        1304
+      ],
+      "summary": "应用apply sglang qwen3 tts 结果逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "apply-sglang-qwen3-tts-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/request_builders.py:make_qwen3_tts_scheduler_adapters",
+      "type": "function",
+      "name": "make_qwen3_tts_scheduler_adapters",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        1307,
+        1382
+      ],
+      "summary": "组装make qwen3 tts 调度器 adapters逻辑，服务于qwen3-tts、request-building的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "make-qwen3-tts-scheduler-adapters",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_tts/request_builders.py:Qwen3TTSSGLangRequestData",
+      "type": "class",
+      "name": "Qwen3TTSSGLangRequestData",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        106,
+        123
+      ],
+      "summary": "封装 Qwen3-TTS 发送给调度器的输入词元、采样参数和请求状态。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-ttssglang-request-data",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/request_builders.py:Qwen3TTSPreparedRequest",
+      "type": "class",
+      "name": "Qwen3TTSPreparedRequest",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        127,
+        138
+      ],
+      "summary": "缓存已经完成参考编码和提示构造的 TTS 请求。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-ttsprepared-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/request_builders.py:Qwen3TTSPreprocessingContext",
+      "type": "class",
+      "name": "Qwen3TTSPreprocessingContext",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        142,
+        144
+      ],
+      "summary": "保存当前预处理任务的模型、设备和参考编码上下文。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-ttspreprocessing-context",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSAdhocReferenceInput",
+      "type": "class",
+      "name": "_Qwen3TTSAdhocReferenceInput",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        577,
+        580
+      ],
+      "summary": "定义Qwen3 TTSAdhoc 参考 输入数据结构，用于qwen3-tts、request-building中的状态传递与校验。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-ttsadhoc-reference-input",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSRefCodeBatcher",
+      "type": "class",
+      "name": "_Qwen3TTSRefCodeBatcher",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        604,
+        736
+      ],
+      "summary": "在线程和独立 CUDA 流中批量编码参考音频码，并隔离单项失败。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-ttsref-code-batcher",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSAdhocReferenceHook",
+      "type": "class",
+      "name": "_Qwen3TTSAdhocReferenceHook",
+      "filePath": "models/qwen3_tts/request_builders.py",
+      "lineRange": [
+        739,
+        841
+      ],
+      "summary": "为临时参考音频服务提供缓存键、批处理和结果写回策略。",
+      "tags": [
+        "qwen3-tts",
+        "request-building",
+        "qwen3-ttsadhoc-reference-hook",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_tts/sampling_kernels.py",
+      "type": "file",
+      "name": "sampling_kernels.py",
+      "filePath": "models/qwen3_tts/sampling_kernels.py",
+      "summary": "提供面向小 Top-K 集合的种子确定性 Triton 采样内核。",
+      "tags": [
+        "qwen3-tts",
+        "sampling-kernel",
+        "triton",
+        "deterministic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_tts/sampling_kernels.py:_next_power_of_2",
+      "type": "function",
+      "name": "_next_power_of_2",
+      "filePath": "models/qwen3_tts/sampling_kernels.py",
+      "lineRange": [
+        91,
+        92
+      ],
+      "summary": "执行后继 power of 2逻辑，服务于qwen3-tts、sampling-kernel的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "sampling-kernel",
+        "next-power-of-2",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/sampling_kernels.py:sample_from_sorted_logprobs_with_seed_small_k",
+      "type": "function",
+      "name": "sample_from_sorted_logprobs_with_seed_small_k",
+      "filePath": "models/qwen3_tts/sampling_kernels.py",
+      "lineRange": [
+        95,
+        136
+      ],
+      "summary": "采样sample from 排序 对数概率 with 种子 small k逻辑，服务于qwen3-tts、sampling-kernel的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "sampling-kernel",
+        "sample-from-sorted-logprobs-with-seed-small-k",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_tts/sglang_model.py",
+      "type": "file",
+      "name": "sglang_model.py",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "summary": "以 SGLang 原生层实现 Qwen3-TTS Talker、码本预测器和解码 CUDA 图，支持确定性采样与增量缓存。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "talker",
+        "code-predictor",
+        "cuda-graph"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_tts/sglang_model.py:_predictor_graph_env_enabled",
+      "type": "function",
+      "name": "_predictor_graph_env_enabled",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        46,
+        48
+      ],
+      "summary": "执行预测器 图 env enabled逻辑，服务于qwen3-tts、sglang-model的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "predictor-graph-env-enabled",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/sglang_model.py:_quantize_predictor_top_k",
+      "type": "function",
+      "name": "_quantize_predictor_top_k",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        51,
+        56
+      ],
+      "summary": "执行quantize 预测器 Top k逻辑，服务于qwen3-tts、sglang-model的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "quantize-predictor-top-k",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/sglang_model.py:_sample_seeded_categorical",
+      "type": "function",
+      "name": "_sample_seeded_categorical",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        59,
+        64
+      ],
+      "summary": "执行sample seeded categorical逻辑，服务于qwen3-tts、sglang-model的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "sample-seeded-categorical",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_tts/sglang_model.py:_PredictorDecodeGraph",
+      "type": "class",
+      "name": "_PredictorDecodeGraph",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        67,
+        186
+      ],
+      "summary": "捕获并回放 Qwen3-TTS 码本预测器的单步解码 CUDA 图。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "predictor-decode-graph",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerDecoderLayer",
+      "type": "class",
+      "name": "Qwen3TTSTalkerDecoderLayer",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        189,
+        238
+      ],
+      "summary": "组合 Talker 注意力与前馈网络形成单层解码器。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "qwen3-ttstalker-decoder-layer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerTextModel",
+      "type": "class",
+      "name": "Qwen3TTSTalkerTextModel",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        241,
+        333
+      ],
+      "summary": "执行 Qwen3-TTS Talker 文本主干并维护 KV 缓存。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "qwen3-ttstalker-text-model",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSCodePredictor",
+      "type": "class",
+      "name": "Qwen3TTSCodePredictor",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        336,
+        380
+      ],
+      "summary": "根据 Talker 隐藏状态逐级预测剩余音频码本。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "qwen3-ttscode-predictor",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "type": "class",
+      "name": "Qwen3TTSTalker",
+      "filePath": "models/qwen3_tts/sglang_model.py",
+      "lineRange": [
+        383,
+        1695
+      ],
+      "summary": "协调文本主干、码本预测器、采样缓冲与 CUDA 图生成完整音频码。",
+      "tags": [
+        "qwen3-tts",
+        "sglang-model",
+        "qwen3-ttstalker",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_tts/stages.py",
+      "type": "file",
+      "name": "stages.py",
+      "filePath": "models/qwen3_tts/stages.py",
+      "summary": "加载 Qwen3-TTS 分词器与配置，按需编译主干，并创建预处理、自回归生成和声码器执行器。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "executor-factory",
+        "torch-compile"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_tts/stages.py:_load_qwen3_tts_tokenizer",
+      "type": "function",
+      "name": "_load_qwen3_tts_tokenizer",
+      "filePath": "models/qwen3_tts/stages.py",
+      "lineRange": [
+        44,
+        68
+      ],
+      "summary": "加载load qwen3 tts 分词器逻辑，服务于qwen3-tts、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "load-qwen3-tts-tokenizer",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/stages.py:_register_qwen3_tts_hf_config",
+      "type": "function",
+      "name": "_register_qwen3_tts_hf_config",
+      "filePath": "models/qwen3_tts/stages.py",
+      "lineRange": [
+        71,
+        92
+      ],
+      "summary": "注册register qwen3 tts hf 配置逻辑，服务于qwen3-tts、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "register-qwen3-tts-hf-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/stages.py:_load_qwen3_tts_generate_defaults",
+      "type": "function",
+      "name": "_load_qwen3_tts_generate_defaults",
+      "filePath": "models/qwen3_tts/stages.py",
+      "lineRange": [
+        95,
+        103
+      ],
+      "summary": "加载load qwen3 tts generate 默认值逻辑，服务于qwen3-tts、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "load-qwen3-tts-generate-defaults",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/stages.py:_compile_qwen3_tts_backbone",
+      "type": "function",
+      "name": "_compile_qwen3_tts_backbone",
+      "filePath": "models/qwen3_tts/stages.py",
+      "lineRange": [
+        106,
+        121
+      ],
+      "summary": "编译compile qwen3 tts 主干逻辑，服务于qwen3-tts、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "compile-qwen3-tts-backbone",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/stages.py:create_preprocessing_executor",
+      "type": "function",
+      "name": "create_preprocessing_executor",
+      "filePath": "models/qwen3_tts/stages.py",
+      "lineRange": [
+        124,
+        138
+      ],
+      "summary": "创建create 预处理 executor逻辑，服务于qwen3-tts、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "create-preprocessing-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/stages.py:create_sglang_tts_engine_executor",
+      "type": "function",
+      "name": "create_sglang_tts_engine_executor",
+      "filePath": "models/qwen3_tts/stages.py",
+      "lineRange": [
+        141,
+        160
+      ],
+      "summary": "创建create sglang tts engine executor逻辑，服务于qwen3-tts、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "create-sglang-tts-engine-executor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_tts/stages.py:create_vocoder_executor",
+      "type": "function",
+      "name": "create_vocoder_executor",
+      "filePath": "models/qwen3_tts/stages.py",
+      "lineRange": [
+        166,
+        213
+      ],
+      "summary": "创建create 声码器 executor逻辑，服务于qwen3-tts、pipeline-stages的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-tts",
+        "pipeline-stages",
+        "create-vocoder-executor",
+        "function"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_tts/payload_types.py",
+      "target": "class:models/qwen3_tts/payload_types.py:Qwen3TTSState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/payload_types.py",
+      "target": "class:models/qwen3_tts/payload_types.py:Qwen3TTSState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_new_qwen3_tts_sampling_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_new_qwen3_tts_sampling_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_normalize_qwen3_tts_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_normalize_qwen3_tts_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_derive_qwen3_tts_child_seed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_derive_qwen3_tts_child_seed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:derive_qwen3_tts_sampling_seeds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:derive_qwen3_tts_sampling_seeds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:set_qwen3_tts_preprocessing_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:set_qwen3_tts_preprocessing_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:clear_qwen3_tts_preprocessing_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:clear_qwen3_tts_preprocessing_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepared_request_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepared_request_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:pop_prepared_qwen3_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:pop_prepared_qwen3_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:cleanup_prepared_qwen3_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:cleanup_prepared_qwen3_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_qwen3_tts_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_qwen3_tts_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_voice_clone_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_voice_clone_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:has_voice_clone_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:has_voice_clone_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:references_contain_audio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:references_contain_audio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:references_contain_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:references_contain_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_task_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_task_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_optional_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_optional_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_voice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_qwen3_tts_voice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:has_param",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:has_param",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_non_streaming_mode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_non_streaming_mode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_language",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:normalize_language",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_x_vector_only_mode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:resolve_x_vector_only_mode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_generation_kwargs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_generation_kwargs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_embedding_cache_key_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_embedding_cache_key_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_build_qwen3_tts_pad_embed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_build_qwen3_tts_pad_embed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_build_instruct_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_build_instruct_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_uploaded_voice_cache_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_uploaded_voice_cache_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_cacheable_qwen3_tts_voice_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_cacheable_qwen3_tts_voice_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_cacheable_qwen3_tts_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_cacheable_qwen3_tts_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_voice_prompt_from_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_voice_prompt_from_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_new_cuda_encode_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_new_cuda_encode_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_record_ref_code_consumer_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_record_ref_code_consumer_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_ref_audio_input_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_ref_audio_input_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_model_revision",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_model_revision",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_encoder_config_hash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_encoder_config_hash",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_get_qwen3_tts_adhoc_reference_service_locked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_get_qwen3_tts_adhoc_reference_service_locked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_get_qwen3_tts_adhoc_reference_service",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_get_qwen3_tts_adhoc_reference_service",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_normalized_model_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_normalized_model_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_validate_qwen3_tts_model_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_validate_qwen3_tts_model_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_base_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_base_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_custom_voice_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_custom_voice_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_voice_design_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_voice_design_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_prepare_qwen3_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:preprocess_qwen3_tts_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:preprocess_qwen3_tts_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_sglang_qwen3_tts_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:build_sglang_qwen3_tts_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_finish_reason",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:_qwen3_tts_finish_reason",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:apply_sglang_qwen3_tts_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:apply_sglang_qwen3_tts_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:make_qwen3_tts_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "function:models/qwen3_tts/request_builders.py:make_qwen3_tts_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:Qwen3TTSSGLangRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:Qwen3TTSSGLangRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:Qwen3TTSPreparedRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:Qwen3TTSPreparedRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:Qwen3TTSPreprocessingContext",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:Qwen3TTSPreprocessingContext",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSAdhocReferenceInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSAdhocReferenceInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSRefCodeBatcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSRefCodeBatcher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSAdhocReferenceHook",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/request_builders.py",
+      "target": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSAdhocReferenceHook",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sampling_kernels.py",
+      "target": "function:models/qwen3_tts/sampling_kernels.py:_next_power_of_2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sampling_kernels.py",
+      "target": "function:models/qwen3_tts/sampling_kernels.py:_next_power_of_2",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sampling_kernels.py",
+      "target": "function:models/qwen3_tts/sampling_kernels.py:sample_from_sorted_logprobs_with_seed_small_k",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sampling_kernels.py",
+      "target": "function:models/qwen3_tts/sampling_kernels.py:sample_from_sorted_logprobs_with_seed_small_k",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "function:models/qwen3_tts/sglang_model.py:_predictor_graph_env_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "function:models/qwen3_tts/sglang_model.py:_predictor_graph_env_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "function:models/qwen3_tts/sglang_model.py:_quantize_predictor_top_k",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "function:models/qwen3_tts/sglang_model.py:_quantize_predictor_top_k",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "function:models/qwen3_tts/sglang_model.py:_sample_seeded_categorical",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "function:models/qwen3_tts/sglang_model.py:_sample_seeded_categorical",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:_PredictorDecodeGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:_PredictorDecodeGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerDecoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerDecoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerTextModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalkerTextModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSCodePredictor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSCodePredictor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/sglang_model.py",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_load_qwen3_tts_tokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_load_qwen3_tts_tokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_register_qwen3_tts_hf_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_register_qwen3_tts_hf_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_load_qwen3_tts_generate_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_load_qwen3_tts_generate_defaults",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_compile_qwen3_tts_backbone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:_compile_qwen3_tts_backbone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:create_preprocessing_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:create_preprocessing_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:create_sglang_tts_engine_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:create_sglang_tts_engine_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:create_vocoder_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_tts/stages.py",
+      "target": "function:models/qwen3_tts/stages.py:create_vocoder_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSAdhocReferenceHook",
+      "target": "class:models/qwen3_tts/request_builders.py:_Qwen3TTSRefCodeBatcher",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_tts/request_builders.py:build_sglang_qwen3_tts_request",
+      "target": "class:models/qwen3_tts/request_builders.py:Qwen3TTSSGLangRequestData",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSTalker",
+      "target": "class:models/qwen3_tts/sglang_model.py:Qwen3TTSCodePredictor",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/qwen3_tts/stages.py:create_sglang_tts_engine_executor",
+      "target": "class:models/qwen3_tts/engine_builder.py:Qwen3TtsEngineBuilder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

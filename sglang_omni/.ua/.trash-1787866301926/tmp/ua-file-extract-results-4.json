@@ -1,0 +1,2823 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 6,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 6,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 6,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/fun_asr/configuration_fun_asr.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 410,
+      "nonEmptyLines": 358,
+      "classes": [
+        {
+          "name": "FunAsrNanoFeatureExtractor",
+          "startLine": 28,
+          "endLine": 209,
+          "methods": [
+            "__init__",
+            "nb_max_frames",
+            "_extract_fbank",
+            "_lfr",
+            "__call__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FunAsrNanoProcessor",
+          "startLine": 217,
+          "endLine": 307,
+          "methods": [
+            "__init__",
+            "from_pretrained",
+            "_get_feat_extract_output_lengths",
+            "__call__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FunAsrNanoEncoderConfig",
+          "startLine": 310,
+          "endLine": 347,
+          "methods": [
+            "__init__",
+            "input_size"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FunAsrNanoConfig",
+          "startLine": 351,
+          "endLine": 403,
+          "methods": [
+            "__init__",
+            "get_text_config"
+          ],
+          "properties": [
+            "sub_configs"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FunAsrNanoFeatureExtractor",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "FunAsrNanoProcessor",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "FunAsrNanoEncoderConfig",
+          "line": 310,
+          "isDefault": false
+        },
+        {
+          "name": "FunAsrNanoConfig",
+          "line": 350,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 67
+        },
+        {
+          "caller": "__init__",
+          "callee": "round",
+          "lineNumber": 67
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 68
+        },
+        {
+          "caller": "__init__",
+          "callee": "round",
+          "lineNumber": 68
+        },
+        {
+          "caller": "__init__",
+          "callee": "ValueError",
+          "lineNumber": 79
+        },
+        {
+          "caller": "nb_max_frames",
+          "callee": "int",
+          "lineNumber": 84
+        },
+        {
+          "caller": "nb_max_frames",
+          "callee": "round",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_extract_fbank",
+          "callee": "np.asarray",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_extract_fbank",
+          "callee": "wav.reshape",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_extract_fbank",
+          "callee": "torch.from_numpy(wav).unsqueeze",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_extract_fbank",
+          "callee": "torch.from_numpy",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_extract_fbank",
+          "callee": "min",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_extract_fbank",
+          "callee": "cached_fbank",
+          "lineNumber": 104
+        },
+        {
+          "caller": "_lfr",
+          "callee": "int",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_lfr",
+          "callee": "np.ceil",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_lfr",
+          "callee": "fbank[0:1].repeat",
+          "lineNumber": 125
+        },
+        {
+          "caller": "_lfr",
+          "callee": "torch.vstack",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_lfr",
+          "callee": "torch.vstack",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_lfr",
+          "callee": "int",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_lfr",
+          "callee": "inputs.as_strided",
+          "lineNumber": 140
+        },
+        {
+          "caller": "_lfr",
+          "callee": "out.clone().to",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_lfr",
+          "callee": "out.clone",
+          "lineNumber": 141
+        },
+        {
+          "caller": "__call__",
+          "callee": "isinstance",
+          "lineNumber": 154
+        },
+        {
+          "caller": "__call__",
+          "callee": "isinstance",
+          "lineNumber": 156
+        },
+        {
+          "caller": "__call__",
+          "callee": "isinstance",
+          "lineNumber": 157
+        },
+        {
+          "caller": "__call__",
+          "callee": "np.asarray",
+          "lineNumber": 159
+        },
+        {
+          "caller": "__call__",
+          "callee": "isinstance",
+          "lineNumber": 160
+        },
+        {
+          "caller": "__call__",
+          "callee": "range",
+          "lineNumber": 161
+        },
+        {
+          "caller": "__call__",
+          "callee": "list",
+          "lineNumber": 163
+        },
+        {
+          "caller": "__call__",
+          "callee": "logger.warning",
+          "lineNumber": 166
+        },
+        {
+          "caller": "__call__",
+          "callee": "self._extract_fbank",
+          "lineNumber": 173
+        },
+        {
+          "caller": "__call__",
+          "callee": "self._lfr",
+          "lineNumber": 174
+        },
+        {
+          "caller": "__call__",
+          "callee": "lfr_feat.t().contiguous",
+          "lineNumber": 176
+        },
+        {
+          "caller": "__call__",
+          "callee": "lfr_feat.t",
+          "lineNumber": 176
+        },
+        {
+          "caller": "__call__",
+          "callee": "feats.append",
+          "lineNumber": 177
+        },
+        {
+          "caller": "__call__",
+          "callee": "masks.append",
+          "lineNumber": 178
+        },
+        {
+          "caller": "__call__",
+          "callee": "max",
+          "lineNumber": 183
+        },
+        {
+          "caller": "__call__",
+          "callee": "max",
+          "lineNumber": 185
+        },
+        {
+          "caller": "__call__",
+          "callee": "np.full",
+          "lineNumber": 188
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 189
+        },
+        {
+          "caller": "__call__",
+          "callee": "np.zeros",
+          "lineNumber": 191
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 191
+        },
+        {
+          "caller": "__call__",
+          "callee": "enumerate",
+          "lineNumber": 192
+        },
+        {
+          "caller": "__call__",
+          "callee": "torch.from_numpy",
+          "lineNumber": 206
+        },
+        {
+          "caller": "__call__",
+          "callee": "torch.from_numpy",
+          "lineNumber": 208
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "kwargs.pop",
+          "lineNumber": 236
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "FunAsrNanoFeatureExtractor.from_pretrained",
+          "lineNumber": 237
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "AutoTokenizer.from_pretrained",
+          "lineNumber": 241
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "cls",
+          "lineNumber": 245
+        },
+        {
+          "caller": "_get_feat_extract_output_lengths",
+          "callee": "fun_asr_low_frame_rate_length",
+          "lineNumber": 249
+        },
+        {
+          "caller": "__call__",
+          "callee": "self.feature_extractor",
+          "lineNumber": 255
+        },
+        {
+          "caller": "__call__",
+          "callee": "kwargs.get",
+          "lineNumber": 258
+        },
+        {
+          "caller": "__call__",
+          "callee": "self.tokenizer",
+          "lineNumber": 267
+        },
+        {
+          "caller": "__call__",
+          "callee": "kwargs.get",
+          "lineNumber": 269
+        },
+        {
+          "caller": "__call__",
+          "callee": "kwargs.get",
+          "lineNumber": 270
+        },
+        {
+          "caller": "__call__",
+          "callee": "self.tokenizer.convert_tokens_to_ids",
+          "lineNumber": 279
+        },
+        {
+          "caller": "__call__",
+          "callee": "inputs[\"feature_attention_mask\"].sum",
+          "lineNumber": 282
+        },
+        {
+          "caller": "__call__",
+          "callee": "self._get_feat_extract_output_lengths",
+          "lineNumber": 283
+        },
+        {
+          "caller": "__call__",
+          "callee": "range",
+          "lineNumber": 285
+        },
+        {
+          "caller": "__call__",
+          "callee": "input_ids[seq_idx].tolist",
+          "lineNumber": 287
+        },
+        {
+          "caller": "__call__",
+          "callee": "hasattr",
+          "lineNumber": 288
+        },
+        {
+          "caller": "__call__",
+          "callee": "list",
+          "lineNumber": 289
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 294
+        },
+        {
+          "caller": "__call__",
+          "callee": "int",
+          "lineNumber": 295
+        },
+        {
+          "caller": "__call__",
+          "callee": "audio_token_counts[audio_idx].item",
+          "lineNumber": 295
+        },
+        {
+          "caller": "__call__",
+          "callee": "new_ids.extend",
+          "lineNumber": 296
+        },
+        {
+          "caller": "__call__",
+          "callee": "new_ids.append",
+          "lineNumber": 299
+        },
+        {
+          "caller": "__call__",
+          "callee": "expanded.append",
+          "lineNumber": 300
+        },
+        {
+          "caller": "__call__",
+          "callee": "max",
+          "lineNumber": 301
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 301
+        },
+        {
+          "caller": "__call__",
+          "callee": "len",
+          "lineNumber": 303
+        },
+        {
+          "caller": "__call__",
+          "callee": "torch.tensor",
+          "lineNumber": 304
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 331
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 331
+        },
+        {
+          "caller": "__init__",
+          "callee": "isinstance",
+          "lineNumber": 372
+        },
+        {
+          "caller": "__init__",
+          "callee": "FunAsrNanoEncoderConfig",
+          "lineNumber": 373
+        },
+        {
+          "caller": "__init__",
+          "callee": "FunAsrNanoEncoderConfig",
+          "lineNumber": 375
+        },
+        {
+          "caller": "__init__",
+          "callee": "isinstance",
+          "lineNumber": 382
+        },
+        {
+          "caller": "__init__",
+          "callee": "HFQwen3Config",
+          "lineNumber": 383
+        },
+        {
+          "caller": "__init__",
+          "callee": "HFQwen3Config",
+          "lineNumber": 385
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 394
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 394
+        },
+        {
+          "caller": "get_text_config",
+          "callee": "getattr",
+          "lineNumber": 400
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 0,
+        "classCount": 4
+      }
+    },
+    {
+      "path": "models/fun_asr/encoder_cuda_graph.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 212,
+      "nonEmptyLines": 182,
+      "functions": [
+        {
+          "name": "_bucket_batch",
+          "startLine": 40,
+          "endLine": 46,
+          "params": [
+            "b",
+            "max_batch"
+          ]
+        },
+        {
+          "name": "_bucket_t",
+          "startLine": 49,
+          "endLine": 53,
+          "params": [
+            "t"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FunASREncoderCudaGraphRunner",
+          "startLine": 56,
+          "endLine": 209,
+          "methods": [
+            "__init__",
+            "_forward",
+            "_enough_free_vram",
+            "_capture",
+            "run"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_bucket_batch",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "_bucket_t",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "FunASREncoderCudaGraphRunner",
+          "line": 56,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_bucket_t",
+          "callee": "max",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "next",
+          "lineNumber": 74
+        },
+        {
+          "caller": "__init__",
+          "callee": "audio_tower.parameters",
+          "lineNumber": 74
+        },
+        {
+          "caller": "__init__",
+          "callee": "max",
+          "lineNumber": 77
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 77
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 78
+        },
+        {
+          "caller": "__init__",
+          "callee": "float",
+          "lineNumber": 78
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 79
+        },
+        {
+          "caller": "__init__",
+          "callee": "set",
+          "lineNumber": 82
+        },
+        {
+          "caller": "__init__",
+          "callee": "threading.Lock",
+          "lineNumber": 87
+        },
+        {
+          "caller": "__init__",
+          "callee": "torch.cuda.Event",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_forward",
+          "callee": "self._audio_tower",
+          "lineNumber": 92
+        },
+        {
+          "caller": "_forward",
+          "callee": "self._projector",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_enough_free_vram",
+          "callee": "torch.cuda.mem_get_info",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.zeros",
+          "lineNumber": 100
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.ones",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_masked_forward",
+          "callee": "_sanm_mask_from_lengths",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_masked_forward",
+          "callee": "self._forward",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.Stream",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_capture",
+          "callee": "stream.wait_stream",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.stream",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_capture",
+          "callee": "range",
+          "lineNumber": 116
+        },
+        {
+          "caller": "_capture",
+          "callee": "_masked_forward",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.current_stream().wait_stream",
+          "lineNumber": 118
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 118
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.synchronize",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.graph_pool_handle",
+          "lineNumber": 122
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.CUDAGraph",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_capture",
+          "callee": "torch.cuda.graph",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_capture",
+          "callee": "_masked_forward",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_capture",
+          "callee": "logger.info",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_capture",
+          "callee": "tuple",
+          "lineNumber": 136
+        },
+        {
+          "caller": "_capture",
+          "callee": "len",
+          "lineNumber": 137
+        },
+        {
+          "caller": "run",
+          "callee": "_bucket_batch",
+          "lineNumber": 150
+        },
+        {
+          "caller": "run",
+          "callee": "_bucket_t",
+          "lineNumber": 151
+        },
+        {
+          "caller": "run",
+          "callee": "self._graphs.get",
+          "lineNumber": 159
+        },
+        {
+          "caller": "run",
+          "callee": "self._enough_free_vram",
+          "lineNumber": 161
+        },
+        {
+          "caller": "run",
+          "callee": "logger.warning",
+          "lineNumber": 163
+        },
+        {
+          "caller": "run",
+          "callee": "self._failed.add",
+          "lineNumber": 171
+        },
+        {
+          "caller": "run",
+          "callee": "torch.cuda.device",
+          "lineNumber": 174
+        },
+        {
+          "caller": "run",
+          "callee": "self._capture",
+          "lineNumber": 175
+        },
+        {
+          "caller": "run",
+          "callee": "logger.warning",
+          "lineNumber": 177
+        },
+        {
+          "caller": "run",
+          "callee": "self._failed.add",
+          "lineNumber": 184
+        },
+        {
+          "caller": "run",
+          "callee": "torch.cuda.current_stream",
+          "lineNumber": 191
+        },
+        {
+          "caller": "run",
+          "callee": "self._done_event.wait",
+          "lineNumber": 195
+        },
+        {
+          "caller": "run",
+          "callee": "static_xs.zero_",
+          "lineNumber": 196
+        },
+        {
+          "caller": "run",
+          "callee": "static_xs[:b, :t].copy_",
+          "lineNumber": 197
+        },
+        {
+          "caller": "run",
+          "callee": "static_ilens.fill_",
+          "lineNumber": 199
+        },
+        {
+          "caller": "run",
+          "callee": "static_ilens[:b].copy_",
+          "lineNumber": 200
+        },
+        {
+          "caller": "run",
+          "callee": "torch.as_tensor",
+          "lineNumber": 201
+        },
+        {
+          "caller": "run",
+          "callee": "graph.replay",
+          "lineNumber": 203
+        },
+        {
+          "caller": "run",
+          "callee": "static_out[:b].clone",
+          "lineNumber": 206
+        },
+        {
+          "caller": "run",
+          "callee": "self._done_event.record",
+          "lineNumber": 207
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/fun_asr/request_builders.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 391,
+      "nonEmptyLines": 341,
+      "functions": [
+        {
+          "name": "_default_token_budget",
+          "startLine": 53,
+          "endLine": 59,
+          "params": [
+            "audio_duration_s",
+            "max_new_tokens"
+          ]
+        },
+        {
+          "name": "_request_token_budget",
+          "startLine": 62,
+          "endLine": 77,
+          "params": [
+            "params",
+            "audio_duration_s",
+            "max_new_tokens"
+          ]
+        },
+        {
+          "name": "_decode_token_ids",
+          "startLine": 80,
+          "endLine": 90,
+          "params": [
+            "tokenizer",
+            "token_ids",
+            "skip_special_tokens"
+          ]
+        },
+        {
+          "name": "_resolve_language",
+          "startLine": 93,
+          "endLine": 104,
+          "params": [
+            "lang_raw"
+          ]
+        },
+        {
+          "name": "_build_prompt_text",
+          "startLine": 107,
+          "endLine": 123,
+          "params": [
+            "language",
+            "itn",
+            "hotwords"
+          ]
+        },
+        {
+          "name": "_prompt_template",
+          "startLine": 126,
+          "endLine": 134,
+          "params": [
+            "prompt_text",
+            "num_audio_tokens"
+          ]
+        },
+        {
+          "name": "fun_asr_prompt_overhead_tokens",
+          "startLine": 137,
+          "endLine": 154,
+          "params": [
+            "tokenizer",
+            "language",
+            "itn",
+            "hotwords"
+          ]
+        },
+        {
+          "name": "make_fun_asr_scheduler_adapters",
+          "startLine": 157,
+          "endLine": 351,
+          "params": [
+            "tokenizer",
+            "max_new_tokens",
+            "feature_extractor",
+            "context_length",
+            "audio_encoder_service"
+          ]
+        },
+        {
+          "name": "make_fun_asr_stream_output_builder",
+          "startLine": 354,
+          "endLine": 384,
+          "params": [
+            "tokenizer",
+            "eos_token_id",
+            "min_emit_interval_s"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "FunASRRequestData",
+          "startLine": 44,
+          "endLine": 50,
+          "methods": [],
+          "properties": [
+            "prompt_token_ids",
+            "output_ids",
+            "num_audio_tokens",
+            "audio_duration_s",
+            "language",
+            "engine_start_s"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FunASRRequestData",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "_default_token_budget",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "_request_token_budget",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "_decode_token_ids",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "_resolve_language",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "_build_prompt_text",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "_prompt_template",
+          "line": 126,
+          "isDefault": false
+        },
+        {
+          "name": "fun_asr_prompt_overhead_tokens",
+          "line": 137,
+          "isDefault": false
+        },
+        {
+          "name": "make_fun_asr_scheduler_adapters",
+          "line": 157,
+          "isDefault": false
+        },
+        {
+          "name": "make_fun_asr_stream_output_builder",
+          "line": 354,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_default_token_budget",
+          "callee": "math.ceil",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_default_token_budget",
+          "callee": "min",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_default_token_budget",
+          "callee": "max",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_request_token_budget",
+          "callee": "params.get",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_request_token_budget",
+          "callee": "_default_token_budget",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_request_token_budget",
+          "callee": "int",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_request_token_budget",
+          "callee": "ValueError",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_request_token_budget",
+          "callee": "ValueError",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_decode_token_ids",
+          "callee": "tokenizer.decode",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_decode_token_ids",
+          "callee": "tokenizer.decode",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_resolve_language",
+          "callee": "lang_raw.strip().lower",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_resolve_language",
+          "callee": "lang_raw.strip",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_resolve_language",
+          "callee": "lang_raw.strip",
+          "lineNumber": 104
+        },
+        {
+          "caller": "_build_prompt_text",
+          "callee": "\", \".join",
+          "lineNumber": 111
+        },
+        {
+          "caller": "fun_asr_prompt_overhead_tokens",
+          "callee": "_build_prompt_text",
+          "lineNumber": 151
+        },
+        {
+          "caller": "fun_asr_prompt_overhead_tokens",
+          "callee": "list",
+          "lineNumber": 151
+        },
+        {
+          "caller": "fun_asr_prompt_overhead_tokens",
+          "callee": "len",
+          "lineNumber": 152
+        },
+        {
+          "caller": "fun_asr_prompt_overhead_tokens",
+          "callee": "tokenizer",
+          "lineNumber": 153
+        },
+        {
+          "caller": "fun_asr_prompt_overhead_tokens",
+          "callee": "_prompt_template",
+          "lineNumber": 153
+        },
+        {
+          "caller": "make_fun_asr_scheduler_adapters",
+          "callee": "ValueError",
+          "lineNumber": 169
+        },
+        {
+          "caller": "make_fun_asr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 170
+        },
+        {
+          "caller": "make_fun_asr_scheduler_adapters",
+          "callee": "ValueError",
+          "lineNumber": 172
+        },
+        {
+          "caller": "make_fun_asr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 174
+        },
+        {
+          "caller": "make_fun_asr_scheduler_adapters",
+          "callee": "tokenizer.convert_tokens_to_ids",
+          "lineNumber": 174
+        },
+        {
+          "caller": "make_fun_asr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 175
+        },
+        {
+          "caller": "make_fun_asr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 176
+        },
+        {
+          "caller": "_build_prompt_ids",
+          "callee": "tokenizer",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_build_prompt_ids",
+          "callee": "_prompt_template",
+          "lineNumber": 180
+        },
+        {
+          "caller": "request_builder",
+          "callee": "prepare_audio",
+          "lineNumber": 186
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_extractor",
+          "lineNumber": 197
+        },
+        {
+          "caller": "request_builder",
+          "callee": "extracted.get",
+          "lineNumber": 205
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.ones",
+          "lineNumber": 207
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 210
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_attention_mask.sum().item",
+          "lineNumber": 210
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_attention_mask.sum",
+          "lineNumber": 210
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 211
+        },
+        {
+          "caller": "request_builder",
+          "callee": "fun_asr_low_frame_rate_length",
+          "lineNumber": 211
+        },
+        {
+          "caller": "request_builder",
+          "callee": "logger.debug",
+          "lineNumber": 212
+        },
+        {
+          "caller": "request_builder",
+          "callee": "tuple",
+          "lineNumber": 214
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 217
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_resolve_language",
+          "lineNumber": 218
+        },
+        {
+          "caller": "request_builder",
+          "callee": "bool",
+          "lineNumber": 219
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 219
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 220
+        },
+        {
+          "caller": "request_builder",
+          "callee": "isinstance",
+          "lineNumber": 223
+        },
+        {
+          "caller": "request_builder",
+          "callee": "list",
+          "lineNumber": 226
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_build_prompt_text",
+          "lineNumber": 227
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_build_prompt_ids",
+          "lineNumber": 228
+        },
+        {
+          "caller": "request_builder",
+          "callee": "MultimodalDataItem",
+          "lineNumber": 230
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_item.set_pad_value",
+          "lineNumber": 241
+        },
+        {
+          "caller": "request_builder",
+          "callee": "RuntimeError",
+          "lineNumber": 243
+        },
+        {
+          "caller": "request_builder",
+          "callee": "input_ids.index",
+          "lineNumber": 247
+        },
+        {
+          "caller": "request_builder",
+          "callee": "MultimodalInputs",
+          "lineNumber": 254
+        },
+        {
+          "caller": "request_builder",
+          "callee": "len",
+          "lineNumber": 260
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.arange",
+          "lineNumber": 261
+        },
+        {
+          "caller": "request_builder",
+          "callee": "positions.unsqueeze(0).expand(3, -1).clone",
+          "lineNumber": 262
+        },
+        {
+          "caller": "request_builder",
+          "callee": "positions.unsqueeze(0).expand",
+          "lineNumber": 262
+        },
+        {
+          "caller": "request_builder",
+          "callee": "positions.unsqueeze",
+          "lineNumber": 262
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.tensor",
+          "lineNumber": 263
+        },
+        {
+          "caller": "request_builder",
+          "callee": "float",
+          "lineNumber": 265
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 265
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_request_token_budget",
+          "lineNumber": 266
+        },
+        {
+          "caller": "request_builder",
+          "callee": "len",
+          "lineNumber": 271
+        },
+        {
+          "caller": "request_builder",
+          "callee": "ValueError",
+          "lineNumber": 273
+        },
+        {
+          "caller": "request_builder",
+          "callee": "len",
+          "lineNumber": 275
+        },
+        {
+          "caller": "request_builder",
+          "callee": "logger.debug",
+          "lineNumber": 278
+        },
+        {
+          "caller": "request_builder",
+          "callee": "len",
+          "lineNumber": 279
+        },
+        {
+          "caller": "request_builder",
+          "callee": "dict",
+          "lineNumber": 281
+        },
+        {
+          "caller": "request_builder",
+          "callee": "SamplingParams",
+          "lineNumber": 283
+        },
+        {
+          "caller": "request_builder",
+          "callee": "sampling_params.normalize",
+          "lineNumber": 289
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_encoder_service.encode_item",
+          "lineNumber": 292
+        },
+        {
+          "caller": "request_builder",
+          "callee": "Req",
+          "lineNumber": 294
+        },
+        {
+          "caller": "request_builder",
+          "callee": "FunASRRequestData",
+          "lineNumber": 305
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.tensor",
+          "lineNumber": 306
+        },
+        {
+          "caller": "request_builder",
+          "callee": "time.perf_counter",
+          "lineNumber": 314
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "list",
+          "lineNumber": 320
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_decode_token_ids",
+          "lineNumber": 322
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "time.perf_counter",
+          "lineNumber": 324
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "len",
+          "lineNumber": 326
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "logger.debug",
+          "lineNumber": 327
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "len",
+          "lineNumber": 330
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "StagePayload",
+          "lineNumber": 334
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "len",
+          "lineNumber": 344
+        },
+        {
+          "caller": "make_fun_asr_stream_output_builder",
+          "callee": "getattr",
+          "lineNumber": 359
+        },
+        {
+          "caller": "make_fun_asr_stream_output_builder",
+          "callee": "int",
+          "lineNumber": 363
+        },
+        {
+          "caller": "make_fun_asr_stream_output_builder",
+          "callee": "make_token_text_stream_output_builder",
+          "lineNumber": 365
+        },
+        {
+          "caller": "make_fun_asr_stream_output_builder",
+          "callee": "_decode_token_ids",
+          "lineNumber": 366
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 10,
+        "functionCount": 9,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/fun_asr/sglang_model.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 615,
+      "nonEmptyLines": 542,
+      "functions": [
+        {
+          "name": "_sanm_mask_from_lengths",
+          "startLine": 34,
+          "endLine": 39,
+          "params": [
+            "lengths",
+            "max_len",
+            "dtype",
+            "device"
+          ]
+        },
+        {
+          "name": "_apply_time_mask",
+          "startLine": 42,
+          "endLine": 45,
+          "params": [
+            "x",
+            "mask"
+          ]
+        },
+        {
+          "name": "_additive_key_pad_mask",
+          "startLine": 48,
+          "endLine": 52,
+          "params": [
+            "mask",
+            "dtype"
+          ]
+        },
+        {
+          "name": "_fused_qkv_project",
+          "startLine": 55,
+          "endLine": 67,
+          "params": [
+            "x",
+            "q_proj",
+            "k_proj",
+            "v_proj"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "SinusoidalPositionEncoder",
+          "startLine": 70,
+          "endLine": 82,
+          "methods": [
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MultiHeadedAttentionSANM",
+          "startLine": 85,
+          "endLine": 125,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FunAsrNanoFSMN",
+          "startLine": 128,
+          "endLine": 155,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "EncoderLayerSANM",
+          "startLine": 158,
+          "endLine": 206,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FunAsrNanoAudioEncoder",
+          "startLine": 209,
+          "endLine": 269,
+          "methods": [
+            "__init__",
+            "output_size",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "MultiHeadedAttention",
+          "startLine": 272,
+          "endLine": 310,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "AdaptorEncoderLayer",
+          "startLine": 313,
+          "endLine": 342,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FunAsrNanoAdaptor",
+          "startLine": 345,
+          "endLine": 387,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FunAsrNanoForConditionalGeneration",
+          "startLine": 390,
+          "endLine": 612,
+          "methods": [
+            "__init__",
+            "pad_input_ids",
+            "get_audio_feature",
+            "forward",
+            "load_weights"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_sanm_mask_from_lengths",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_time_mask",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "_additive_key_pad_mask",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "_fused_qkv_project",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "SinusoidalPositionEncoder",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "MultiHeadedAttentionSANM",
+          "line": 85,
+          "isDefault": false
+        },
+        {
+          "name": "FunAsrNanoFSMN",
+          "line": 128,
+          "isDefault": false
+        },
+        {
+          "name": "EncoderLayerSANM",
+          "line": 158,
+          "isDefault": false
+        },
+        {
+          "name": "FunAsrNanoAudioEncoder",
+          "line": 209,
+          "isDefault": false
+        },
+        {
+          "name": "MultiHeadedAttention",
+          "line": 272,
+          "isDefault": false
+        },
+        {
+          "name": "AdaptorEncoderLayer",
+          "line": 313,
+          "isDefault": false
+        },
+        {
+          "name": "FunAsrNanoAdaptor",
+          "line": 345,
+          "isDefault": false
+        },
+        {
+          "name": "FunAsrNanoForConditionalGeneration",
+          "line": 390,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_sanm_mask_from_lengths",
+          "callee": "torch.arange(max_len, device=device).unsqueeze",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_sanm_mask_from_lengths",
+          "callee": "torch.arange",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_sanm_mask_from_lengths",
+          "callee": "(idx < lengths.unsqueeze(1)).to(dtype=dtype).unsqueeze",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_sanm_mask_from_lengths",
+          "callee": "(idx < lengths.unsqueeze(1)).to",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_sanm_mask_from_lengths",
+          "callee": "lengths.unsqueeze",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_apply_time_mask",
+          "callee": "mask.transpose",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_additive_key_pad_mask",
+          "callee": "torch.zeros(\r\n        mask.shape[0], 1, 1, mask.shape[-1], device=mask.device, dtype=dtype\r\n    ).masked_fill",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_additive_key_pad_mask",
+          "callee": "torch.zeros",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_additive_key_pad_mask",
+          "callee": "mask.unsqueeze(1).eq",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_additive_key_pad_mask",
+          "callee": "mask.unsqueeze",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_additive_key_pad_mask",
+          "callee": "torch.finfo",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_fused_qkv_project",
+          "callee": "torch.cat",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_fused_qkv_project",
+          "callee": "torch.cat",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_fused_qkv_project",
+          "callee": "F.linear(x, weight, bias).chunk",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_fused_qkv_project",
+          "callee": "F.linear",
+          "lineNumber": 67
+        },
+        {
+          "caller": "forward",
+          "callee": "x.size",
+          "lineNumber": 73
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.arange",
+          "lineNumber": 74
+        },
+        {
+          "caller": "forward",
+          "callee": "math.log",
+          "lineNumber": 75
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.exp",
+          "lineNumber": 76
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.arange",
+          "lineNumber": 77
+        },
+        {
+          "caller": "forward",
+          "callee": "positions.view",
+          "lineNumber": 80
+        },
+        {
+          "caller": "forward",
+          "callee": "inv_timescales.view",
+          "lineNumber": 80
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 81
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.sin",
+          "lineNumber": 81
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cos",
+          "lineNumber": 81
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 94
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 94
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 98
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 99
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 100
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 101
+        },
+        {
+          "caller": "__init__",
+          "callee": "float",
+          "lineNumber": 102
+        },
+        {
+          "caller": "forward",
+          "callee": "x.size",
+          "lineNumber": 108
+        },
+        {
+          "caller": "forward",
+          "callee": "_fused_qkv_project",
+          "lineNumber": 109
+        },
+        {
+          "caller": "forward",
+          "callee": "q.view(b, t, self.h, self.d_k).transpose",
+          "lineNumber": 110
+        },
+        {
+          "caller": "forward",
+          "callee": "q.view",
+          "lineNumber": 110
+        },
+        {
+          "caller": "forward",
+          "callee": "k.view(b, t, self.h, self.d_k).transpose",
+          "lineNumber": 111
+        },
+        {
+          "caller": "forward",
+          "callee": "k.view",
+          "lineNumber": 111
+        },
+        {
+          "caller": "forward",
+          "callee": "v.view(b, t, self.h, self.d_k).transpose",
+          "lineNumber": 112
+        },
+        {
+          "caller": "forward",
+          "callee": "v.view",
+          "lineNumber": 112
+        },
+        {
+          "caller": "forward",
+          "callee": "_additive_key_pad_mask",
+          "lineNumber": 114
+        },
+        {
+          "caller": "forward",
+          "callee": "F.scaled_dot_product_attention",
+          "lineNumber": 116
+        },
+        {
+          "caller": "forward",
+          "callee": "out.transpose(1, 2).contiguous().view",
+          "lineNumber": 124
+        },
+        {
+          "caller": "forward",
+          "callee": "out.transpose(1, 2).contiguous",
+          "lineNumber": 124
+        },
+        {
+          "caller": "forward",
+          "callee": "out.transpose",
+          "lineNumber": 124
+        },
+        {
+          "caller": "forward",
+          "callee": "self.out_proj",
+          "lineNumber": 125
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 131
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 131
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Conv1d",
+          "lineNumber": 132
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ConstantPad1d",
+          "lineNumber": 143
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Dropout",
+          "lineNumber": 144
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 151
+        },
+        {
+          "caller": "forward",
+          "callee": "self.conv",
+          "lineNumber": 152
+        },
+        {
+          "caller": "forward",
+          "callee": "self.pad",
+          "lineNumber": 152
+        },
+        {
+          "caller": "forward",
+          "callee": "value_states.transpose",
+          "lineNumber": 152
+        },
+        {
+          "caller": "forward",
+          "callee": "hidden_states.transpose",
+          "lineNumber": 153
+        },
+        {
+          "caller": "forward",
+          "callee": "self.dropout",
+          "lineNumber": 154
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 155
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 172
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 172
+        },
+        {
+          "caller": "__init__",
+          "callee": "MultiHeadedAttentionSANM",
+          "lineNumber": 173
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 176
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 177
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 178
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 179
+        },
+        {
+          "caller": "__init__",
+          "callee": "FunAsrNanoFSMN",
+          "lineNumber": 180
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Dropout",
+          "lineNumber": 181
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Dropout",
+          "lineNumber": 182
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn_layer_norm",
+          "lineNumber": 191
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn",
+          "lineNumber": 193
+        },
+        {
+          "caller": "forward",
+          "callee": "self.dropout",
+          "lineNumber": 194
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fsmn",
+          "lineNumber": 194
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 195
+        },
+        {
+          "caller": "forward",
+          "callee": "self.final_layer_norm",
+          "lineNumber": 199
+        },
+        {
+          "caller": "forward",
+          "callee": "self.activation_dropout",
+          "lineNumber": 200
+        },
+        {
+          "caller": "forward",
+          "callee": "self.activation",
+          "lineNumber": 200
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc1",
+          "lineNumber": 200
+        },
+        {
+          "caller": "forward",
+          "callee": "self.dropout",
+          "lineNumber": 201
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc2",
+          "lineNumber": 201
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 202
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.finfo",
+          "lineNumber": 204
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.clamp",
+          "lineNumber": 205
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 225
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 225
+        },
+        {
+          "caller": "__init__",
+          "callee": "SinusoidalPositionEncoder",
+          "lineNumber": 227
+        },
+        {
+          "caller": "make_layer",
+          "callee": "EncoderLayerSANM",
+          "lineNumber": 230
+        },
+        {
+          "caller": "__init__",
+          "callee": "make_layer",
+          "lineNumber": 242
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 243
+        },
+        {
+          "caller": "__init__",
+          "callee": "make_layer",
+          "lineNumber": 244
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 244
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 246
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 247
+        },
+        {
+          "caller": "__init__",
+          "callee": "make_layer",
+          "lineNumber": 248
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 248
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 250
+        },
+        {
+          "caller": "forward",
+          "callee": "self.embed",
+          "lineNumber": 259
+        },
+        {
+          "caller": "forward",
+          "callee": "self.stem",
+          "lineNumber": 260
+        },
+        {
+          "caller": "forward",
+          "callee": "layer",
+          "lineNumber": 262
+        },
+        {
+          "caller": "forward",
+          "callee": "self.layer_norm",
+          "lineNumber": 263
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 264
+        },
+        {
+          "caller": "forward",
+          "callee": "layer",
+          "lineNumber": 266
+        },
+        {
+          "caller": "forward",
+          "callee": "self.timestamp_prediction_layer_norm",
+          "lineNumber": 267
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 268
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 280
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 280
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 284
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 285
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 286
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 287
+        },
+        {
+          "caller": "__init__",
+          "callee": "float",
+          "lineNumber": 288
+        },
+        {
+          "caller": "forward",
+          "callee": "x.size",
+          "lineNumber": 293
+        },
+        {
+          "caller": "forward",
+          "callee": "_fused_qkv_project",
+          "lineNumber": 294
+        },
+        {
+          "caller": "forward",
+          "callee": "q.view(b, t, self.h, self.d_k).transpose",
+          "lineNumber": 295
+        },
+        {
+          "caller": "forward",
+          "callee": "q.view",
+          "lineNumber": 295
+        },
+        {
+          "caller": "forward",
+          "callee": "k.view(b, t, self.h, self.d_k).transpose",
+          "lineNumber": 296
+        },
+        {
+          "caller": "forward",
+          "callee": "k.view",
+          "lineNumber": 296
+        },
+        {
+          "caller": "forward",
+          "callee": "v.view(b, t, self.h, self.d_k).transpose",
+          "lineNumber": 297
+        },
+        {
+          "caller": "forward",
+          "callee": "v.view",
+          "lineNumber": 297
+        },
+        {
+          "caller": "forward",
+          "callee": "_additive_key_pad_mask",
+          "lineNumber": 299
+        },
+        {
+          "caller": "forward",
+          "callee": "F.scaled_dot_product_attention",
+          "lineNumber": 301
+        },
+        {
+          "caller": "forward",
+          "callee": "out.transpose(1, 2).contiguous().view",
+          "lineNumber": 309
+        },
+        {
+          "caller": "forward",
+          "callee": "out.transpose(1, 2).contiguous",
+          "lineNumber": 309
+        },
+        {
+          "caller": "forward",
+          "callee": "out.transpose",
+          "lineNumber": 309
+        },
+        {
+          "caller": "forward",
+          "callee": "self.out_proj",
+          "lineNumber": 310
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 323
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 323
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 325
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 326
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 327
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 328
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Dropout",
+          "lineNumber": 330
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn_layer_norm",
+          "lineNumber": 336
+        },
+        {
+          "caller": "forward",
+          "callee": "self.dropout",
+          "lineNumber": 337
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn",
+          "lineNumber": 337
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 338
+        },
+        {
+          "caller": "forward",
+          "callee": "self.final_layer_norm",
+          "lineNumber": 340
+        },
+        {
+          "caller": "forward",
+          "callee": "self.dropout",
+          "lineNumber": 341
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc2",
+          "lineNumber": 341
+        },
+        {
+          "caller": "forward",
+          "callee": "self.activation",
+          "lineNumber": 341
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc1",
+          "lineNumber": 341
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 342
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 357
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 357
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 360
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 362
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 365
+        },
+        {
+          "caller": "__init__",
+          "callee": "AdaptorEncoderLayer",
+          "lineNumber": 367
+        },
+        {
+          "caller": "__init__",
+          "callee": "MultiHeadedAttention",
+          "lineNumber": 369
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 374
+        },
+        {
+          "caller": "forward",
+          "callee": "self.linear_1",
+          "lineNumber": 381
+        },
+        {
+          "caller": "forward",
+          "callee": "self.act",
+          "lineNumber": 382
+        },
+        {
+          "caller": "forward",
+          "callee": "self.linear_2",
+          "lineNumber": 383
+        },
+        {
+          "caller": "forward",
+          "callee": "_apply_time_mask",
+          "lineNumber": 384
+        },
+        {
+          "caller": "forward",
+          "callee": "block",
+          "lineNumber": 386
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 415
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 415
+        },
+        {
+          "caller": "__init__",
+          "callee": "FunAsrNanoAudioEncoder",
+          "lineNumber": 419
+        },
+        {
+          "caller": "__init__",
+          "callee": "FunAsrNanoAdaptor",
+          "lineNumber": 432
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen3ForCausalLM",
+          "lineNumber": 441
+        },
+        {
+          "caller": "__init__",
+          "callee": "add_prefix",
+          "lineNumber": 444
+        },
+        {
+          "caller": "__init__",
+          "callee": "MultiModalityDataPaddingPatternMultimodalTokens",
+          "lineNumber": 446
+        },
+        {
+          "caller": "pad_input_ids",
+          "callee": "self.pattern.pad_input_tokens",
+          "lineNumber": 449
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "ValueError",
+          "lineNumber": 454
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "next",
+          "lineNumber": 457
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "self.audio_tower.parameters",
+          "lineNumber": 457
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "next",
+          "lineNumber": 458
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "self.audio_tower.parameters",
+          "lineNumber": 458
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "ValueError",
+          "lineNumber": 464
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "ValueError",
+          "lineNumber": 470
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "tuple",
+          "lineNumber": 472
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "getattr",
+          "lineNumber": 474
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "int",
+          "lineNumber": 476
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "mask.sum().item",
+          "lineNumber": 476
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "mask.sum",
+          "lineNumber": 476
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "int",
+          "lineNumber": 478
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "max",
+          "lineNumber": 479
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "feats.append",
+          "lineNumber": 480
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "lengths.append",
+          "lineNumber": 481
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "len",
+          "lineNumber": 483
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "max",
+          "lineNumber": 485
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "feats[0].new_zeros",
+          "lineNumber": 486
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "enumerate",
+          "lineNumber": 487
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "zip",
+          "lineNumber": 487
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "batched.permute(0, 2, 1)\r\n            .contiguous()\r\n            .to",
+          "lineNumber": 491
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "batched.permute(0, 2, 1)\r\n            .contiguous",
+          "lineNumber": 491
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "batched.permute",
+          "lineNumber": 491
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "getattr",
+          "lineNumber": 497
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "graph_runner.run",
+          "lineNumber": 501
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.tensor",
+          "lineNumber": 510
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "_sanm_mask_from_lengths",
+          "lineNumber": 511
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "self.audio_tower",
+          "lineNumber": 515
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "self.multi_modal_projector",
+          "lineNumber": 516
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "enumerate",
+          "lineNumber": 519
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "max",
+          "lineNumber": 520
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "int",
+          "lineNumber": 520
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "fun_asr_low_frame_rate_length",
+          "lineNumber": 520
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "embeddings.append",
+          "lineNumber": 521
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat",
+          "lineNumber": 522
+        },
+        {
+          "caller": "forward",
+          "callee": "general_mm_embed_routine",
+          "lineNumber": 531
+        },
+        {
+          "caller": "load_weights",
+          "callee": "dict",
+          "lineNumber": 551
+        },
+        {
+          "caller": "load_weights",
+          "callee": "self.named_parameters",
+          "lineNumber": 551
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 560
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.endswith",
+          "lineNumber": 561
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 566
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 567
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 570
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 571
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 574
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 575
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 588
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name_tmp.endswith",
+          "lineNumber": 589
+        },
+        {
+          "caller": "load_weights",
+          "callee": "weight_loader",
+          "lineNumber": 595
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.endswith",
+          "lineNumber": 601
+        },
+        {
+          "caller": "load_weights",
+          "callee": "ValueError",
+          "lineNumber": 605
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 611
+        },
+        {
+          "caller": "load_weights",
+          "callee": "weight_loader",
+          "lineNumber": 612
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 13,
+        "functionCount": 4,
+        "classCount": 9
+      }
+    },
+    {
+      "path": "models/fun_asr/tool_funcs/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 5,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/fun_asr/tool_funcs/audio_lengths.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 17,
+      "nonEmptyLines": 11,
+      "functions": [
+        {
+          "name": "fun_asr_low_frame_rate_length",
+          "startLine": 8,
+          "endLine": 12,
+          "params": [
+            "lfr_frames"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "fun_asr_low_frame_rate_length",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fun_asr_low_frame_rate_length",
+          "callee": "range",
+          "lineNumber": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    }
+  ]
+}

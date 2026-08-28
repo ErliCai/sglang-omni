@@ -1,0 +1,12 @@
+{
+  "projectRoot": "C:/Users/erlic/Documents/sgl-omni/sglang-omni/sglang_omni",
+  "batchFiles": [
+    {"path":"utils/ipc_weights.py","language":"python","sizeLines":1171,"fileCategory":"code"},
+    {"path":"utils/misc.py","language":"python","sizeLines":107,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "utils/ipc_weights.py": [],
+    "utils/misc.py": []
+  },
+  "neighborMap": {}
+}

@@ -1,0 +1,894 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/ming_tts/engine_builder.py",
+      "type": "file",
+      "name": "engine_builder.py",
+      "filePath": "models/ming_tts/engine_builder.py",
+      "summary": "构建 Ming-Omni-TTS 的 SGLang 引擎，配置张量并行、CUDA 图、模型尾部、运行器、适配器与中止回调。",
+      "tags": [
+        "ming-tts",
+        "engine-builder",
+        "cuda-graph",
+        "tensor-parallel"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_tts/engine_builder.py:_is_truthy",
+      "type": "function",
+      "name": "_is_truthy",
+      "filePath": "models/ming_tts/engine_builder.py",
+      "lineRange": [
+        16,
+        23
+      ],
+      "summary": "把布尔值和常见字符串表示统一解析为真假。",
+      "tags": [
+        "ming-tts",
+        "engine-builder",
+        "is-truthy",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/engine_builder.py:MingTtsEngineBuilder",
+      "type": "class",
+      "name": "MingTtsEngineBuilder",
+      "filePath": "models/ming_tts/engine_builder.py",
+      "lineRange": [
+        26,
+        224
+      ],
+      "summary": "配置 Ming TTS SGLang 引擎、声学尾部、CUDA 图批次、模型运行器和调度适配器。",
+      "tags": [
+        "ming-tts",
+        "engine-builder",
+        "ming-tts-engine-builder",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/ming_tts/engine_io.py",
+      "type": "file",
+      "name": "engine_io.py",
+      "filePath": "models/ming_tts/engine_io.py",
+      "summary": "在 Ming TTS 状态与 SGLang 调度请求间转换，应用潜变量反馈并构建面向音频解码器的流式输出。",
+      "tags": [
+        "ming-tts",
+        "engine-io",
+        "latent-patches",
+        "scheduler-adapter"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_tts/engine_io.py:make_ming_tts_scheduler_adapters",
+      "type": "function",
+      "name": "make_ming_tts_scheduler_adapters",
+      "filePath": "models/ming_tts/engine_io.py",
+      "lineRange": [
+        44,
+        157
+      ],
+      "summary": "创建 Ming TTS 请求构建、结果应用和请求中止适配器。",
+      "tags": [
+        "ming-tts",
+        "engine-io",
+        "make-ming-tts-scheduler-adapters",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_tts/engine_io.py:build_ming_tts_stream_output",
+      "type": "function",
+      "name": "build_ming_tts_stream_output",
+      "filePath": "models/ming_tts/engine_io.py",
+      "lineRange": [
+        160,
+        184
+      ],
+      "summary": "把新生成的潜变量块与完成信号包装为下游音频解码流输出。",
+      "tags": [
+        "ming-tts",
+        "engine-io",
+        "build-ming-tts-stream-output",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/engine_io.py:MingTTSLatentPatch",
+      "type": "class",
+      "name": "MingTTSLatentPatch",
+      "filePath": "models/ming_tts/engine_io.py",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "表示声学尾部单步生成的潜变量块和历史位置。",
+      "tags": [
+        "ming-tts",
+        "engine-io",
+        "ming-ttslatent-patch",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/engine_io.py:MingTTSSGLangRequestData",
+      "type": "class",
+      "name": "MingTTSSGLangRequestData",
+      "filePath": "models/ming_tts/engine_io.py",
+      "lineRange": [
+        30,
+        41
+      ],
+      "summary": "封装发给 SGLang 调度器的 Ming TTS 请求及其续跑状态。",
+      "tags": [
+        "ming-tts",
+        "engine-io",
+        "ming-ttssglang-request-data",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_tts/flow_matching.py",
+      "type": "file",
+      "name": "flow_matching.py",
+      "filePath": "models/ming_tts/flow_matching.py",
+      "summary": "实现 Ming TTS 的条件流匹配时间步、随机微分输入、ODE 求解、采样和训练损失。",
+      "tags": [
+        "ming-tts",
+        "flow-matching",
+        "ode-solver",
+        "diffusion"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_tts/flow_matching.py:build_cfm_timesteps",
+      "type": "function",
+      "name": "build_cfm_timesteps",
+      "filePath": "models/ming_tts/flow_matching.py",
+      "lineRange": [
+        15,
+        24
+      ],
+      "summary": "按条件流匹配采样步数构造单调时间网格。",
+      "tags": [
+        "ming-tts",
+        "flow-matching",
+        "build-cfm-timesteps",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_tts/flow_matching.py:build_cfm_sde_random",
+      "type": "function",
+      "name": "build_cfm_sde_random",
+      "filePath": "models/ming_tts/flow_matching.py",
+      "lineRange": [
+        27,
+        40
+      ],
+      "summary": "为随机微分采样生成与批量和设备匹配的噪声张量。",
+      "tags": [
+        "ming-tts",
+        "flow-matching",
+        "build-cfm-sde-random",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_tts/flow_matching.py:_expand_batch_param",
+      "type": "function",
+      "name": "_expand_batch_param",
+      "filePath": "models/ming_tts/flow_matching.py",
+      "lineRange": [
+        43,
+        57
+      ],
+      "summary": "把标量或短参数扩展到目标批量维度。",
+      "tags": [
+        "ming-tts",
+        "flow-matching",
+        "expand-batch-param",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/flow_matching.py:Solver",
+      "type": "class",
+      "name": "Solver",
+      "filePath": "models/ming_tts/flow_matching.py",
+      "lineRange": [
+        60,
+        94
+      ],
+      "summary": "使用指定时间步对条件流匹配速度场执行数值积分。",
+      "tags": [
+        "ming-tts",
+        "flow-matching",
+        "solver",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_tts/flow_matching.py:CFM",
+      "type": "class",
+      "name": "CFM",
+      "filePath": "models/ming_tts/flow_matching.py",
+      "lineRange": [
+        97,
+        207
+      ],
+      "summary": "封装 DiT 条件流匹配模型，准备条件输入并执行训练前向和采样。",
+      "tags": [
+        "ming-tts",
+        "flow-matching",
+        "cfm",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_tts/flow_matching.py:FlowLoss",
+      "type": "class",
+      "name": "FlowLoss",
+      "filePath": "models/ming_tts/flow_matching.py",
+      "lineRange": [
+        210,
+        268
+      ],
+      "summary": "构造流匹配训练目标、噪声样本并计算速度预测损失。",
+      "tags": [
+        "ming-tts",
+        "flow-matching",
+        "flow-loss",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/ming_tts/hf_config.py",
+      "type": "file",
+      "name": "hf_config.py",
+      "filePath": "models/ming_tts/hf_config.py",
+      "summary": "把 Ming-Omni-TTS 语言和多模态配置适配为 Hugging Face 配置，暴露声学维度并注册模型架构。",
+      "tags": [
+        "ming-tts",
+        "huggingface-config",
+        "model-registration"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_tts/hf_config.py:register_ming_tts_hf_config",
+      "type": "function",
+      "name": "register_ming_tts_hf_config",
+      "filePath": "models/ming_tts/hf_config.py",
+      "lineRange": [
+        261,
+        272
+      ],
+      "summary": "将 Ming TTS 配置和架构注册到 Transformers 与 SGLang 模型注册表。",
+      "tags": [
+        "ming-tts",
+        "huggingface-config",
+        "register-ming-tts-hf-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/hf_config.py:BailingMoeTTSConfig",
+      "type": "class",
+      "name": "BailingMoeTTSConfig",
+      "filePath": "models/ming_tts/hf_config.py",
+      "lineRange": [
+        21,
+        127
+      ],
+      "summary": "适配 Ming TTS 的 Bailing MoE 语言与声学尾部参数。",
+      "tags": [
+        "ming-tts",
+        "huggingface-config",
+        "bailing-moe-ttsconfig",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_tts/hf_config.py:BailingMMTTSConfig",
+      "type": "class",
+      "name": "BailingMMTTSConfig",
+      "filePath": "models/ming_tts/hf_config.py",
+      "lineRange": [
+        130,
+        258
+      ],
+      "summary": "聚合文本模型与 AudioVAE 配置并暴露采样率和声学块尺寸属性。",
+      "tags": [
+        "ming-tts",
+        "huggingface-config",
+        "bailing-mmttsconfig",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/ming_tts/model_runner.py",
+      "type": "file",
+      "name": "model_runner.py",
+      "filePath": "models/ming_tts/model_runner.py",
+      "summary": "协调 Ming TTS SGLang 主干与声学尾部的预填充、逐步潜变量生成、张量并行反馈广播、请求清理和错误传播。",
+      "tags": [
+        "ming-tts",
+        "model-runner",
+        "tensor-parallel",
+        "latent-generation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/ming_tts/model_runner.py:MingTTSTPStepUpdate",
+      "type": "class",
+      "name": "MingTTSTPStepUpdate",
+      "filePath": "models/ming_tts/model_runner.py",
+      "lineRange": [
+        20,
+        65
+      ],
+      "summary": "封装入口 TP rank 生成的词元、反馈掩码、潜变量和尾部错误以供广播。",
+      "tags": [
+        "ming-tts",
+        "model-runner",
+        "ming-ttstpstep-update",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_tts/model_runner.py:_MingTTSRequestState",
+      "type": "class",
+      "name": "_MingTTSRequestState",
+      "filePath": "models/ming_tts/model_runner.py",
+      "lineRange": [
+        69,
+        74
+      ],
+      "summary": "维护单个请求的声学历史、尾部状态和生成进度。",
+      "tags": [
+        "ming-tts",
+        "model-runner",
+        "ming-ttsrequest-state",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/model_runner.py:MingTTSModelRunner",
+      "type": "class",
+      "name": "MingTTSModelRunner",
+      "filePath": "models/ming_tts/model_runner.py",
+      "lineRange": [
+        77,
+        531
+      ],
+      "summary": "协调预填充、解码和声学尾部步骤，并在 TP ranks 间同步词元与潜变量反馈。",
+      "tags": [
+        "ming-tts",
+        "model-runner",
+        "ming-ttsmodel-runner",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/ming_tts/payload_types.py",
+      "type": "file",
+      "name": "payload_types.py",
+      "filePath": "models/ming_tts/payload_types.py",
+      "summary": "定义 Ming TTS 跨阶段声明式状态、固定音频参数以及从 StagePayload 加载和写回的助手。",
+      "tags": [
+        "ming-tts",
+        "pipeline-state",
+        "stage-payload"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_tts/payload_types.py:load_ming_tts_state",
+      "type": "function",
+      "name": "load_ming_tts_state",
+      "filePath": "models/ming_tts/payload_types.py",
+      "lineRange": [
+        55,
+        56
+      ],
+      "summary": "从 StagePayload 读取并校验 MingTTSState。",
+      "tags": [
+        "ming-tts",
+        "pipeline-state",
+        "load-ming-tts-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_tts/payload_types.py:store_ming_tts_state",
+      "type": "function",
+      "name": "store_ming_tts_state",
+      "filePath": "models/ming_tts/payload_types.py",
+      "lineRange": [
+        59,
+        60
+      ],
+      "summary": "把 MingTTSState 写回 StagePayload。",
+      "tags": [
+        "ming-tts",
+        "pipeline-state",
+        "store-ming-tts-state",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/payload_types.py:MingTTSState",
+      "type": "class",
+      "name": "MingTTSState",
+      "filePath": "models/ming_tts/payload_types.py",
+      "lineRange": [
+        20,
+        52
+      ],
+      "summary": "保存提示计划、参考音频、SGLang 请求、潜变量流、波形和用量状态。",
+      "tags": [
+        "ming-tts",
+        "pipeline-state",
+        "ming-ttsstate",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/ming_tts/prompt_builder.py",
+      "type": "file",
+      "name": "prompt_builder.py",
+      "filePath": "models/ming_tts/prompt_builder.py",
+      "summary": "把目标文本和可选参考音频、参考转写、音色描述组合为 Ming TTS 多模态提示计划。",
+      "tags": [
+        "ming-tts",
+        "prompt-building",
+        "reference-audio",
+        "voice-cloning"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_tts/prompt_builder.py:build_ming_tts_prompt",
+      "type": "function",
+      "name": "build_ming_tts_prompt",
+      "filePath": "models/ming_tts/prompt_builder.py",
+      "lineRange": [
+        33,
+        121
+      ],
+      "summary": "根据目标文本、参考语音与转写和音色描述构造词元序列及音频块计划。",
+      "tags": [
+        "ming-tts",
+        "prompt-building",
+        "build-ming-tts-prompt",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_tts/prompt_builder.py:MingTTSPromptPlan",
+      "type": "class",
+      "name": "MingTTSPromptPlan",
+      "filePath": "models/ming_tts/prompt_builder.py",
+      "lineRange": [
+        24,
+        30
+      ],
+      "summary": "封装 Ming TTS 提示词元、参考音频与声学块位置规划。",
+      "tags": [
+        "ming-tts",
+        "prompt-building",
+        "ming-ttsprompt-plan",
+        "class"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/ming_tts/engine_builder.py",
+      "target": "function:models/ming_tts/engine_builder.py:_is_truthy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/engine_builder.py",
+      "target": "function:models/ming_tts/engine_builder.py:_is_truthy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/engine_builder.py",
+      "target": "class:models/ming_tts/engine_builder.py:MingTtsEngineBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/engine_builder.py",
+      "target": "class:models/ming_tts/engine_builder.py:MingTtsEngineBuilder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "function:models/ming_tts/engine_io.py:make_ming_tts_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "function:models/ming_tts/engine_io.py:make_ming_tts_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "function:models/ming_tts/engine_io.py:build_ming_tts_stream_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "function:models/ming_tts/engine_io.py:build_ming_tts_stream_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "class:models/ming_tts/engine_io.py:MingTTSLatentPatch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "class:models/ming_tts/engine_io.py:MingTTSLatentPatch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "class:models/ming_tts/engine_io.py:MingTTSSGLangRequestData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/engine_io.py",
+      "target": "class:models/ming_tts/engine_io.py:MingTTSSGLangRequestData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "function:models/ming_tts/flow_matching.py:build_cfm_timesteps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "function:models/ming_tts/flow_matching.py:build_cfm_timesteps",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "function:models/ming_tts/flow_matching.py:build_cfm_sde_random",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "function:models/ming_tts/flow_matching.py:build_cfm_sde_random",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "function:models/ming_tts/flow_matching.py:_expand_batch_param",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "function:models/ming_tts/flow_matching.py:_expand_batch_param",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "class:models/ming_tts/flow_matching.py:Solver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "class:models/ming_tts/flow_matching.py:Solver",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "class:models/ming_tts/flow_matching.py:CFM",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "class:models/ming_tts/flow_matching.py:CFM",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "class:models/ming_tts/flow_matching.py:FlowLoss",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/flow_matching.py",
+      "target": "class:models/ming_tts/flow_matching.py:FlowLoss",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/hf_config.py",
+      "target": "function:models/ming_tts/hf_config.py:register_ming_tts_hf_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/hf_config.py",
+      "target": "function:models/ming_tts/hf_config.py:register_ming_tts_hf_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/hf_config.py",
+      "target": "class:models/ming_tts/hf_config.py:BailingMoeTTSConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/hf_config.py",
+      "target": "class:models/ming_tts/hf_config.py:BailingMoeTTSConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/hf_config.py",
+      "target": "class:models/ming_tts/hf_config.py:BailingMMTTSConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/hf_config.py",
+      "target": "class:models/ming_tts/hf_config.py:BailingMMTTSConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/model_runner.py",
+      "target": "class:models/ming_tts/model_runner.py:MingTTSTPStepUpdate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/model_runner.py",
+      "target": "class:models/ming_tts/model_runner.py:MingTTSTPStepUpdate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/model_runner.py",
+      "target": "class:models/ming_tts/model_runner.py:_MingTTSRequestState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/model_runner.py",
+      "target": "class:models/ming_tts/model_runner.py:_MingTTSRequestState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/model_runner.py",
+      "target": "class:models/ming_tts/model_runner.py:MingTTSModelRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/model_runner.py",
+      "target": "class:models/ming_tts/model_runner.py:MingTTSModelRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/payload_types.py",
+      "target": "function:models/ming_tts/payload_types.py:load_ming_tts_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/payload_types.py",
+      "target": "function:models/ming_tts/payload_types.py:load_ming_tts_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/payload_types.py",
+      "target": "function:models/ming_tts/payload_types.py:store_ming_tts_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/payload_types.py",
+      "target": "function:models/ming_tts/payload_types.py:store_ming_tts_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/payload_types.py",
+      "target": "class:models/ming_tts/payload_types.py:MingTTSState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/payload_types.py",
+      "target": "class:models/ming_tts/payload_types.py:MingTTSState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/prompt_builder.py",
+      "target": "function:models/ming_tts/prompt_builder.py:build_ming_tts_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/prompt_builder.py",
+      "target": "function:models/ming_tts/prompt_builder.py:build_ming_tts_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/prompt_builder.py",
+      "target": "class:models/ming_tts/prompt_builder.py:MingTTSPromptPlan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/prompt_builder.py",
+      "target": "class:models/ming_tts/prompt_builder.py:MingTTSPromptPlan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_tts/prompt_builder.py:build_ming_tts_prompt",
+      "target": "class:models/ming_tts/prompt_builder.py:MingTTSPromptPlan",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/ming_tts/engine_builder.py:MingTtsEngineBuilder",
+      "target": "class:models/ming_tts/model_runner.py:MingTTSModelRunner",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_tts/engine_io.py:build_ming_tts_stream_output",
+      "target": "class:models/ming_tts/engine_io.py:MingTTSLatentPatch",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_tts/flow_matching.py:CFM",
+      "target": "class:models/ming_tts/flow_matching.py:Solver",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_tts/flow_matching.py:FlowLoss",
+      "target": "class:models/ming_tts/flow_matching.py:CFM",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_tts/hf_config.py:BailingMMTTSConfig",
+      "target": "class:models/ming_tts/hf_config.py:BailingMoeTTSConfig",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_tts/model_runner.py:MingTTSModelRunner",
+      "target": "class:models/ming_tts/model_runner.py:MingTTSTPStepUpdate",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_tts/prompt_builder.py:build_ming_tts_prompt",
+      "target": "class:models/ming_tts/prompt_builder.py:MingTTSPromptPlan",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

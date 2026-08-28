@@ -1,0 +1,801 @@
+{
+  "nodes": [
+    {
+      "id": "file:sglang_omni/relay/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "sglang_omni/relay/__init__.py",
+      "summary": "作为 relay 子系统入口，注册并导出 Mooncake、NIXL 等可选数据传输后端及统一创建接口。",
+      "tags": [
+        "entry-point",
+        "barrel",
+        "relay",
+        "backend-registry"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/relay/base.py",
+      "type": "file",
+      "name": "base.py",
+      "filePath": "sglang_omni/relay/base.py",
+      "summary": "定义 relay 后端注册表、工厂、异步传输操作抽象、统一 Relay 接口与基于信用的流量控制器。",
+      "tags": [
+        "relay",
+        "abstract-interface",
+        "factory",
+        "flow-control"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:sglang_omni/relay/base.py:register_relay",
+      "type": "function",
+      "name": "register_relay",
+      "filePath": "sglang_omni/relay/base.py",
+      "lineRange": [
+        17,
+        32
+      ],
+      "summary": "创建 relay 后端注册装饰器，将实现类绑定到稳定的类型名称。",
+      "tags": [
+        "utility",
+        "relay",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/base.py:create_relay",
+      "type": "function",
+      "name": "create_relay",
+      "filePath": "sglang_omni/relay/base.py",
+      "lineRange": [
+        35,
+        77
+      ],
+      "summary": "根据注册名称实例化 relay 后端，并向调用方暴露统一接口。",
+      "tags": [
+        "utility",
+        "relay",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/base.py:RelayOperation",
+      "type": "class",
+      "name": "RelayOperation",
+      "filePath": "sglang_omni/relay/base.py",
+      "lineRange": [
+        80,
+        100
+      ],
+      "summary": "定义 relay put/get 操作的异步完成、等待、取消与资源释放契约。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/base.py:Relay",
+      "type": "class",
+      "name": "Relay",
+      "filePath": "sglang_omni/relay/base.py",
+      "lineRange": [
+        103,
+        136
+      ],
+      "summary": "定义 tensor put/get、连接与关闭等 relay 后端统一抽象接口。",
+      "tags": [
+        "relay",
+        "service",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/base.py:CreditAllocator",
+      "type": "class",
+      "name": "CreditAllocator",
+      "filePath": "sglang_omni/relay/base.py",
+      "lineRange": [
+        139,
+        176
+      ],
+      "summary": "以条件变量管理有限信用额度，为在途传输提供背压与超时等待。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:sglang_omni/relay/cuda_ipc.py",
+      "type": "file",
+      "name": "cuda_ipc.py",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "summary": "实现同节点 GPU 间的 CUDA IPC relay，管理共享 storage handle、事件同步、连续 slot 分配、ACK 与故障传播。",
+      "tags": [
+        "relay",
+        "cuda-ipc",
+        "gpu-communication",
+        "resource-management"
+      ],
+      "complexity": "complex",
+      "languageNotes": "使用 torch CUDA storage sharing API、跨进程 event 与连续 slot allocator 组合实现低复制 GPU IPC。"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_event_wait_threads_from_env",
+      "type": "function",
+      "name": "_event_wait_threads_from_env",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        37,
+        44
+      ],
+      "summary": "从环境变量解析 CUDA 事件等待线程数并执行边界校验。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_synchronize_cuda_event",
+      "type": "function",
+      "name": "_synchronize_cuda_event",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        47,
+        57
+      ],
+      "summary": "在独立线程中等待 CUDA IPC event，并记录完成、超时或错误。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_wait_for_cuda_event",
+      "type": "function",
+      "name": "_wait_for_cuda_event",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        60,
+        89
+      ],
+      "summary": "协调 CUDA event 等待线程并将超时或底层异常转换为 relay 故障。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_cuda_event_elapsed_ms",
+      "type": "function",
+      "name": "_cuda_event_elapsed_ms",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        92,
+        101
+      ],
+      "summary": "计算 CUDA event 的耗时指标，用于通信 trace 与诊断。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_parse_device_id",
+      "type": "function",
+      "name": "_parse_device_id",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        104,
+        107
+      ],
+      "summary": "把 CUDA device 字符串解析为整数设备索引。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_ensure_peer_access",
+      "type": "function",
+      "name": "_ensure_peer_access",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        110,
+        129
+      ],
+      "summary": "检查并按需开启源 GPU 与目标 GPU 之间的 peer access。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_dump_cuda_storage_handle",
+      "type": "function",
+      "name": "_dump_cuda_storage_handle",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        132,
+        154
+      ],
+      "summary": "把 CUDA tensor storage 序列化为可跨进程传递的 IPC handle 元数据。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_load_cuda_storage_handle",
+      "type": "function",
+      "name": "_load_cuda_storage_handle",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        157,
+        179
+      ],
+      "summary": "从 IPC handle 重建 CUDA storage 与 tensor view。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:sglang_omni/relay/cuda_ipc.py:_slots_for_size",
+      "type": "function",
+      "name": "_slots_for_size",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        182,
+        185
+      ],
+      "summary": "根据 payload 大小和 slot 大小计算所需的连续 slot 数。",
+      "tags": [
+        "utility",
+        "cuda-ipc",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:_CudaEventWaitResult",
+      "type": "class",
+      "name": "_CudaEventWaitResult",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        32,
+        34
+      ],
+      "summary": "保存 CUDA event 等待线程的完成状态、错误与耗时。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:_SlotLayout",
+      "type": "class",
+      "name": "_SlotLayout",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        188,
+        192
+      ],
+      "summary": "描述 CUDA IPC 共享池中连续 slot 的偏移和跨度。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:_SlotAllocation",
+      "type": "class",
+      "name": "_SlotAllocation",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        195,
+        203
+      ],
+      "summary": "表示一次已授予的 slot 分配及其释放状态。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:_ReceiverAckOperation",
+      "type": "class",
+      "name": "_ReceiverAckOperation",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        206,
+        244
+      ],
+      "summary": "为需要接收端 ACK 的 CUDA IPC 操作实现等待、超时和 relay 故障传播。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcPutOperation",
+      "type": "class",
+      "name": "CudaIpcPutOperation",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        247,
+        322
+      ],
+      "summary": "跟踪 CUDA IPC 发送侧 copy、event 与接收确认，完成后归还共享 slot。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcGetOperation",
+      "type": "class",
+      "name": "CudaIpcGetOperation",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        325,
+        419
+      ],
+      "summary": "在接收侧重建 CUDA storage、等待 event，并在消费完成后发送 ACK。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:_ContiguousSlotAllocator",
+      "type": "class",
+      "name": "_ContiguousSlotAllocator",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        422,
+        538
+      ],
+      "summary": "并发分配与回收共享 CUDA buffer 的连续 slot 区间。",
+      "tags": [
+        "relay",
+        "data-model",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcRelay",
+      "type": "class",
+      "name": "CudaIpcRelay",
+      "filePath": "sglang_omni/relay/cuda_ipc.py",
+      "lineRange": [
+        542,
+        1209
+      ],
+      "summary": "协调 CUDA IPC 共享池、连接握手、put/get、ACK 线程及全局故障状态。",
+      "tags": [
+        "relay",
+        "service",
+        "python"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:sglang_omni/relay/__init__.py",
+      "target": "file:sglang_omni/relay/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/__init__.py",
+      "target": "file:sglang_omni/relay/mooncake.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/__init__.py",
+      "target": "file:sglang_omni/relay/nixl.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "function:sglang_omni/relay/base.py:register_relay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "function:sglang_omni/relay/base.py:register_relay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "function:sglang_omni/relay/base.py:create_relay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "function:sglang_omni/relay/base.py:create_relay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "class:sglang_omni/relay/base.py:RelayOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "class:sglang_omni/relay/base.py:RelayOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "class:sglang_omni/relay/base.py:Relay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "class:sglang_omni/relay/base.py:Relay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "class:sglang_omni/relay/base.py:CreditAllocator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/base.py",
+      "target": "class:sglang_omni/relay/base.py:CreditAllocator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_event_wait_threads_from_env",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_event_wait_threads_from_env",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_synchronize_cuda_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_synchronize_cuda_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_wait_for_cuda_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_wait_for_cuda_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_cuda_event_elapsed_ms",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_cuda_event_elapsed_ms",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_parse_device_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_parse_device_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_ensure_peer_access",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_ensure_peer_access",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_dump_cuda_storage_handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_dump_cuda_storage_handle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_load_cuda_storage_handle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_load_cuda_storage_handle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_slots_for_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "function:sglang_omni/relay/cuda_ipc.py:_slots_for_size",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_CudaEventWaitResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_CudaEventWaitResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_SlotLayout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_SlotLayout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_SlotAllocation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_SlotAllocation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_ReceiverAckOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_ReceiverAckOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/cuda_ipc.py:_ReceiverAckOperation",
+      "target": "class:sglang_omni/relay/base.py:RelayOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcPutOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcPutOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcPutOperation",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_ReceiverAckOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcGetOperation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcGetOperation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcGetOperation",
+      "target": "class:sglang_omni/relay/base.py:RelayOperation",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_ContiguousSlotAllocator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:_ContiguousSlotAllocator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcRelay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcRelay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:sglang_omni/relay/cuda_ipc.py:CudaIpcRelay",
+      "target": "class:sglang_omni/relay/base.py:Relay",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "file:sglang_omni/comm/kv_transfer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "file:sglang_omni/profiler/comm_trace.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:sglang_omni/relay/cuda_ipc.py",
+      "target": "file:sglang_omni/relay/base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

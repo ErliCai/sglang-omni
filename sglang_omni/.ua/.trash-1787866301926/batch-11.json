@@ -1,0 +1,71 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/higgs_tts/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/higgs_tts/__init__.py",
+      "summary": "Higgs TTS 子包入口，注册 Hugging Face 多模态 Qwen3 配置并公开流水线配置与模型能力声明。",
+      "tags": ["entry-point", "model-registration", "capabilities", "barrel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/higgs_tts/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/higgs_tts/config.py",
+      "summary": "定义 Higgs TTS 的四阶段部署流水线，协调预处理、参考音频编码、自回归 TTS 引擎和流式 vocoder 的资源及参数。",
+      "tags": ["configuration", "tts-pipeline", "streaming", "resource-allocation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/higgs_tts/config.py:HiggsTtsPipelineConfig",
+      "type": "class",
+      "name": "HiggsTtsPipelineConfig",
+      "filePath": "models/higgs_tts/config.py",
+      "lineRange": [20, 143],
+      "summary": "配置 Higgs TTS 的 preprocessing→audio_encoder→tts_engine→vocoder 拓扑，推导 CUDA Graph 解码域和流式节奏参数，并校验跨阶段一致性。",
+      "tags": ["pipeline-config", "tts", "stage-orchestration", "validation", "cuda-graph"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/higgs_tts/hf_config.py",
+      "type": "file",
+      "name": "hf_config.py",
+      "filePath": "models/higgs_tts/hf_config.py",
+      "summary": "提供 HiggsMultimodalQwen3 的 Transformers 组合配置，实例化文本主干并修正 Qwen3 检查点中缺失的 RoPE theta。",
+      "tags": ["configuration", "transformers", "qwen3", "multimodal"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/higgs_tts/hf_config.py:_build_text_config",
+      "type": "function",
+      "name": "_build_text_config",
+      "filePath": "models/higgs_tts/hf_config.py",
+      "lineRange": [20, 35],
+      "summary": "把字典或现有配置规范化为具体 Transformers 文本配置，并为 Qwen3 的空 rope_theta 注入训练时使用的 1e6 基数。",
+      "tags": ["config-factory", "qwen3", "rope", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/higgs_tts/hf_config.py:HiggsMultimodalQwen3Config",
+      "type": "class",
+      "name": "HiggsMultimodalQwen3Config",
+      "filePath": "models/higgs_tts/hf_config.py",
+      "lineRange": [38, 66],
+      "summary": "封装 Higgs 的音频编码器判别配置、Qwen3 文本子配置、音频占位 token 和每样本 mel 数，供 TTS 多模态模型加载。",
+      "tags": ["configuration", "multimodal-model", "qwen3", "audio-encoder"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source":"file:models/higgs_tts/__init__.py","target":"file:models/higgs_tts/config.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/higgs_tts/__init__.py","target":"file:models/higgs_tts/hf_config.py","type":"imports","direction":"forward","weight":0.7},
+    {"source":"file:models/higgs_tts/config.py","target":"class:models/higgs_tts/config.py:HiggsTtsPipelineConfig","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/higgs_tts/config.py","target":"class:models/higgs_tts/config.py:HiggsTtsPipelineConfig","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/higgs_tts/hf_config.py","target":"function:models/higgs_tts/hf_config.py:_build_text_config","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/higgs_tts/hf_config.py","target":"function:models/higgs_tts/hf_config.py:_build_text_config","type":"exports","direction":"forward","weight":0.8},
+    {"source":"file:models/higgs_tts/hf_config.py","target":"class:models/higgs_tts/hf_config.py:HiggsMultimodalQwen3Config","type":"contains","direction":"forward","weight":1.0},
+    {"source":"file:models/higgs_tts/hf_config.py","target":"class:models/higgs_tts/hf_config.py:HiggsMultimodalQwen3Config","type":"exports","direction":"forward","weight":0.8}
+  ]
+}

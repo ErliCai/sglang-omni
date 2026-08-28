@@ -1,0 +1,3041 @@
+{
+  "nodes": [
+    {
+      "id": "file:serve/openai_api.py",
+      "type": "file",
+      "name": "openai_api.py",
+      "filePath": "serve/openai_api.py",
+      "summary": "构建 OpenAI 兼容 FastAPI 服务，注册模型、管理、聊天、生成、实时、语音、批量和 WebSocket 端点。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "fastapi",
+        "speech",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:serve/openai_api.py:create_app",
+      "type": "function",
+      "name": "create_app",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        175,
+        290
+      ],
+      "summary": "创建创建 app逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "create-app",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_voices",
+      "type": "function",
+      "name": "_register_voices",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        293,
+        344
+      ],
+      "summary": "注册注册 voices逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-voices",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_read_voice_upload",
+      "type": "function",
+      "name": "_read_voice_upload",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        347,
+        354
+      ],
+      "summary": "读取读取 音色 上传逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "read-voice-upload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_is_voice_upload_scope",
+      "type": "function",
+      "name": "_is_voice_upload_scope",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        357,
+        362
+      ],
+      "summary": "判断is 音色 上传 范围逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "is-voice-upload-scope",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_content_length",
+      "type": "function",
+      "name": "_content_length",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        365,
+        373
+      ],
+      "summary": "读取内容 长度逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "content-length",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_send_voice_upload_too_large",
+      "type": "function",
+      "name": "_send_voice_upload_too_large",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        376,
+        398
+      ],
+      "summary": "发送发送 音色 上传 too large逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "send-voice-upload-too-large",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_health",
+      "type": "function",
+      "name": "_register_health",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        401,
+        415
+      ],
+      "summary": "注册注册 健康检查逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-health",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_models",
+      "type": "function",
+      "name": "_register_models",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        418,
+        432
+      ],
+      "summary": "注册注册 模型逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-models",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_admin",
+      "type": "function",
+      "name": "_register_admin",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        435,
+        565
+      ],
+      "summary": "注册注册 管理逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-admin",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_timeout_or_default",
+      "type": "function",
+      "name": "_timeout_or_default",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        568,
+        569
+      ],
+      "summary": "解析timeout or 默认逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "timeout-or-default",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_request_payload",
+      "type": "function",
+      "name": "_request_payload",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        572,
+        573
+      ],
+      "summary": "读取请求 负载逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "request-payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_admin_response",
+      "type": "function",
+      "name": "_admin_response",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        576,
+        579
+      ],
+      "summary": "构造管理 响应逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "admin-response",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_model_info_response",
+      "type": "function",
+      "name": "_model_info_response",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        582,
+        602
+      ],
+      "summary": "构造模型 信息 响应逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "model-info-response",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_extract_model_info_stage_data",
+      "type": "function",
+      "name": "_extract_model_info_stage_data",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        605,
+        619
+      ],
+      "summary": "提取extract 模型 信息 阶段 数据逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "extract-model-info-stage-data",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_common_model_info_value",
+      "type": "function",
+      "name": "_common_model_info_value",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        622,
+        649
+      ],
+      "summary": "归并公共 模型 信息 值逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "common-model-info-value",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_chat_completions",
+      "type": "function",
+      "name": "_register_chat_completions",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        652,
+        694
+      ],
+      "summary": "注册注册 聊天 补全逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-chat-completions",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_chat_non_stream",
+      "type": "function",
+      "name": "_chat_non_stream",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        697,
+        765
+      ],
+      "summary": "处理聊天 非 流式逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "chat-non-stream",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_chat_stream",
+      "type": "function",
+      "name": "_chat_stream",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        768,
+        884
+      ],
+      "summary": "处理聊天 流式逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "chat-stream",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_explicit_generation_params",
+      "type": "function",
+      "name": "_explicit_generation_params",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        887,
+        899
+      ],
+      "summary": "提取显式 生成 参数逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "explicit-generation-params",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_build_chat_generate_request",
+      "type": "function",
+      "name": "_build_chat_generate_request",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        902,
+        998
+      ],
+      "summary": "构建构建 聊天 generate 请求逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "build-chat-generate-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_generate",
+      "type": "function",
+      "name": "_register_generate",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1001,
+        1043
+      ],
+      "summary": "注册注册 generate逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-generate",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_rollout_sampling_to_client",
+      "type": "function",
+      "name": "_rollout_sampling_to_client",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1046,
+        1066
+      ],
+      "summary": "转换采样展开 sampling to 客户端逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "rollout-sampling-to-client",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_build_rollout_generate_request",
+      "type": "function",
+      "name": "_build_rollout_generate_request",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1069,
+        1116
+      ],
+      "summary": "构建构建 采样展开 generate 请求逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "build-rollout-generate-request",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_build_generate_response",
+      "type": "function",
+      "name": "_build_generate_response",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1119,
+        1183
+      ],
+      "summary": "构建构建 generate 响应逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "build-generate-response",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_realtime",
+      "type": "function",
+      "name": "_register_realtime",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1186,
+        1206
+      ],
+      "summary": "注册注册 realtime逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-realtime",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_speech_generation_failure_response",
+      "type": "function",
+      "name": "_speech_generation_failure_response",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1209,
+        1227
+      ],
+      "summary": "处理语音 生成 失败 响应逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "speech-generation-failure-response",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_speech",
+      "type": "function",
+      "name": "_register_speech",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1230,
+        1313
+      ],
+      "summary": "注册注册 语音逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-speech",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_speech_batch",
+      "type": "function",
+      "name": "_register_speech_batch",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1316,
+        1343
+      ],
+      "summary": "注册注册 语音 批量逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-speech-batch",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_create_speech_batch_with_disconnect_watch",
+      "type": "function",
+      "name": "_create_speech_batch_with_disconnect_watch",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1346,
+        1376
+      ],
+      "summary": "执行创建 语音 批量 with 断开 监控逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "create-speech-batch-with-disconnect-watch",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_register_speech_ws",
+      "type": "function",
+      "name": "_register_speech_ws",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1379,
+        1388
+      ],
+      "summary": "注册注册 语音 ws逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "register-speech-ws",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_speech_pcm_chunk_bytes",
+      "type": "function",
+      "name": "_speech_pcm_chunk_bytes",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1391,
+        1411
+      ],
+      "summary": "处理语音 PCM 块 字节逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "speech-pcm-chunk-bytes",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_speech_audio_response",
+      "type": "function",
+      "name": "_speech_audio_response",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1414,
+        1519
+      ],
+      "summary": "处理语音 音频 响应逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "speech-audio-response",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:serve/openai_api.py:_await_speech_response",
+      "type": "function",
+      "name": "_await_speech_response",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1522,
+        1562
+      ],
+      "summary": "等待等待 语音 响应逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "await-speech-response",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_cancel_task_bounded",
+      "type": "function",
+      "name": "_cancel_task_bounded",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1565,
+        1571
+      ],
+      "summary": "取消取消 任务 bounded逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "cancel-task-bounded",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_discard_cancelled_task_result",
+      "type": "function",
+      "name": "_discard_cancelled_task_result",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1574,
+        1580
+      ],
+      "summary": "清理discard cancelled 任务 result逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "discard-cancelled-task-result",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_wait_for_request_disconnect",
+      "type": "function",
+      "name": "_wait_for_request_disconnect",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1583,
+        1585
+      ],
+      "summary": "等待wait for 请求 断开逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "wait-for-request-disconnect",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_api.py:_abort_and_close_speech_stream",
+      "type": "function",
+      "name": "_abort_and_close_speech_stream",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        1588,
+        1596
+      ],
+      "summary": "中止中止 and 关闭 语音 流式逻辑，服务于serve、openai-api的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "abort-and-close-speech-stream",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/openai_api.py:_RequestBodyTooLarge",
+      "type": "class",
+      "name": "_RequestBodyTooLarge",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        132,
+        133
+      ],
+      "summary": "表示请求体超过语音上传限制的内部控制异常。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "request-body-too-large",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/openai_api.py:VoiceUploadBodyLimitMiddleware",
+      "type": "class",
+      "name": "VoiceUploadBodyLimitMiddleware",
+      "filePath": "serve/openai_api.py",
+      "lineRange": [
+        136,
+        172
+      ],
+      "summary": "在读取完整请求前按路由和 Content-Length 限制音色上传体积。",
+      "tags": [
+        "serve",
+        "openai-api",
+        "voice-upload-body-limit-middleware",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:serve/openai_errors.py",
+      "type": "file",
+      "name": "openai_errors.py",
+      "filePath": "serve/openai_errors.py",
+      "summary": "识别应转换为 OpenAI 兼容 400 响应的请求错误。",
+      "tags": [
+        "serve",
+        "openai-errors",
+        "bad-request"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/openai_errors.py:is_bad_request_error",
+      "type": "function",
+      "name": "is_bad_request_error",
+      "filePath": "serve/openai_errors.py",
+      "lineRange": [
+        21,
+        23
+      ],
+      "summary": "执行is 错误 请求 错误逻辑，服务于serve、openai-errors的请求处理与协议转换。",
+      "tags": [
+        "serve",
+        "openai-errors",
+        "is-bad-request-error",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/protocol.py",
+      "type": "file",
+      "name": "protocol.py",
+      "filePath": "serve/protocol.py",
+      "summary": "定义聊天、生成、多模态张量、语音、转写、模型列表和管理操作的 OpenAI 兼容 Pydantic 协议。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "pydantic",
+        "api-schema"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:serve/protocol.py:UsageResponse",
+      "type": "class",
+      "name": "UsageResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        14,
+        19
+      ],
+      "summary": "定义Usage 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "usage-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatMessage",
+      "type": "class",
+      "name": "ChatMessage",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        22,
+        29
+      ],
+      "summary": "定义聊天 Message协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-message",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatCompletionAudio",
+      "type": "class",
+      "name": "ChatCompletionAudio",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        32,
+        38
+      ],
+      "summary": "定义聊天 Completion 音频协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-completion-audio",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatCompletionRequest",
+      "type": "class",
+      "name": "ChatCompletionRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        41,
+        103
+      ],
+      "summary": "定义聊天 Completion 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-completion-request",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatCompletionChoice",
+      "type": "class",
+      "name": "ChatCompletionChoice",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        106,
+        111
+      ],
+      "summary": "定义聊天 Completion Choice协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-completion-choice",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatCompletionResponse",
+      "type": "class",
+      "name": "ChatCompletionResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        114,
+        122
+      ],
+      "summary": "定义聊天 Completion 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-completion-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatCompletionStreamDelta",
+      "type": "class",
+      "name": "ChatCompletionStreamDelta",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        125,
+        130
+      ],
+      "summary": "定义聊天 Completion 流式 Delta协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-completion-stream-delta",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatCompletionStreamChoice",
+      "type": "class",
+      "name": "ChatCompletionStreamChoice",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        133,
+        138
+      ],
+      "summary": "定义聊天 Completion 流式 Choice协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-completion-stream-choice",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ChatCompletionStreamResponse",
+      "type": "class",
+      "name": "ChatCompletionStreamResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        141,
+        149
+      ],
+      "summary": "定义聊天 Completion 流式 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "chat-completion-stream-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:RolloutSamplingParams",
+      "type": "class",
+      "name": "RolloutSamplingParams",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        152,
+        166
+      ],
+      "summary": "定义采样展开 Sampling 参数协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "rollout-sampling-params",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:RolloutMessage",
+      "type": "class",
+      "name": "RolloutMessage",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        169,
+        173
+      ],
+      "summary": "定义采样展开 Message协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "rollout-message",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:SerializedMultimodalTensor",
+      "type": "class",
+      "name": "SerializedMultimodalTensor",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        190,
+        214
+      ],
+      "summary": "实现Serialized Multimodal 张量，封装serve、openai-protocol中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "serialized-multimodal-tensor",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/protocol.py:SerializedMultimodalInputs",
+      "type": "class",
+      "name": "SerializedMultimodalInputs",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        217,
+        221
+      ],
+      "summary": "实现Serialized Multimodal Inputs，封装serve、openai-protocol中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "serialized-multimodal-inputs",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:RolloutGenerateRequest",
+      "type": "class",
+      "name": "RolloutGenerateRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        224,
+        251
+      ],
+      "summary": "定义采样展开 Generate 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "rollout-generate-request",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/protocol.py:GenerateFinishReason",
+      "type": "class",
+      "name": "GenerateFinishReason",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        254,
+        258
+      ],
+      "summary": "定义Generate Finish Reason协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "generate-finish-reason",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:GenerateAudio",
+      "type": "class",
+      "name": "GenerateAudio",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        261,
+        267
+      ],
+      "summary": "定义Generate 音频协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "generate-audio",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:GenerateMetaInfo",
+      "type": "class",
+      "name": "GenerateMetaInfo",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        270,
+        280
+      ],
+      "summary": "定义Generate Meta 信息协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "generate-meta-info",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:GenerateResponse",
+      "type": "class",
+      "name": "GenerateResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        283,
+        288
+      ],
+      "summary": "定义Generate 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "generate-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:SpeechReference",
+      "type": "class",
+      "name": "SpeechReference",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        313,
+        322
+      ],
+      "summary": "定义语音 参考协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "speech-reference",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:CreateSpeechRequest",
+      "type": "class",
+      "name": "CreateSpeechRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        325,
+        368
+      ],
+      "summary": "定义创建 语音 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "create-speech-request",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/protocol.py:SpeechBatchItem",
+      "type": "class",
+      "name": "SpeechBatchItem",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        371,
+        401
+      ],
+      "summary": "定义语音 批量 Item协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "speech-batch-item",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/protocol.py:CreateSpeechBatchRequest",
+      "type": "class",
+      "name": "CreateSpeechBatchRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        404,
+        434
+      ],
+      "summary": "定义创建 语音 批量 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "create-speech-batch-request",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/protocol.py:SpeechBatchResult",
+      "type": "class",
+      "name": "SpeechBatchResult",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        437,
+        446
+      ],
+      "summary": "实现语音 批量 Result，封装serve、openai-protocol中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "speech-batch-result",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:SpeechBatchResponse",
+      "type": "class",
+      "name": "SpeechBatchResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        449,
+        456
+      ],
+      "summary": "定义语音 批量 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "speech-batch-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:SpeechStreamSessionConfig",
+      "type": "class",
+      "name": "SpeechStreamSessionConfig",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        459,
+        489
+      ],
+      "summary": "定义语音 流式 会话 Config协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "speech-stream-session-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/protocol.py:UploadedVoiceMetadata",
+      "type": "class",
+      "name": "UploadedVoiceMetadata",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        492,
+        501
+      ],
+      "summary": "定义上传 音色 元数据协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "uploaded-voice-metadata",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:VoiceListResponse",
+      "type": "class",
+      "name": "VoiceListResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        504,
+        511
+      ],
+      "summary": "定义音色 List 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "voice-list-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:TranscriptionUsage",
+      "type": "class",
+      "name": "TranscriptionUsage",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        514,
+        518
+      ],
+      "summary": "定义转写 Usage协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "transcription-usage",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:TranscriptionResponse",
+      "type": "class",
+      "name": "TranscriptionResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        521,
+        525
+      ],
+      "summary": "定义转写 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "transcription-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:TranscriptionSegment",
+      "type": "class",
+      "name": "TranscriptionSegment",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        528,
+        534
+      ],
+      "summary": "实现转写 Segment，封装serve、openai-protocol中的状态、校验和运行行为。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "transcription-segment",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:TranscriptionVerboseResponse",
+      "type": "class",
+      "name": "TranscriptionVerboseResponse",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        537,
+        545
+      ],
+      "summary": "定义转写 Verbose 响应协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "transcription-verbose-response",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:TranscriptionTextDeltaEvent",
+      "type": "class",
+      "name": "TranscriptionTextDeltaEvent",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        548,
+        552
+      ],
+      "summary": "定义转写 Text Delta 事件协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "transcription-text-delta-event",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:TranscriptionTextDoneEvent",
+      "type": "class",
+      "name": "TranscriptionTextDoneEvent",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        555,
+        560
+      ],
+      "summary": "定义转写 Text Done 事件协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "transcription-text-done-event",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ModelPermission",
+      "type": "class",
+      "name": "ModelPermission",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        563,
+        570
+      ],
+      "summary": "定义模型 Permission协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "model-permission",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ModelCard",
+      "type": "class",
+      "name": "ModelCard",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        573,
+        583
+      ],
+      "summary": "定义模型 Card协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "model-card",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ModelList",
+      "type": "class",
+      "name": "ModelList",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        586,
+        590
+      ],
+      "summary": "定义模型 List协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "model-list",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:AdminRequestBase",
+      "type": "class",
+      "name": "AdminRequestBase",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        593,
+        597
+      ],
+      "summary": "定义管理 请求 Base协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "admin-request-base",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:PauseGenerationRequest",
+      "type": "class",
+      "name": "PauseGenerationRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        600,
+        601
+      ],
+      "summary": "定义Pause 生成 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "pause-generation-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:ContinueGenerationRequest",
+      "type": "class",
+      "name": "ContinueGenerationRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        604,
+        605
+      ],
+      "summary": "定义Continue 生成 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "continue-generation-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:UpdateWeightFromDiskRequest",
+      "type": "class",
+      "name": "UpdateWeightFromDiskRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        608,
+        619
+      ],
+      "summary": "定义Update Weight From Disk 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "update-weight-from-disk-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:UpdateWeightsFromTensorRequest",
+      "type": "class",
+      "name": "UpdateWeightsFromTensorRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        622,
+        629
+      ],
+      "summary": "定义Update Weights From 张量 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "update-weights-from-tensor-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:UpdateWeightsFromDistributedRequest",
+      "type": "class",
+      "name": "UpdateWeightsFromDistributedRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        632,
+        641
+      ],
+      "summary": "定义Update Weights From Distributed 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "update-weights-from-distributed-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:InitWeightsUpdateGroupRequest",
+      "type": "class",
+      "name": "InitWeightsUpdateGroupRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        644,
+        650
+      ],
+      "summary": "定义Init Weights Update Group 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "init-weights-update-group-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:DestroyWeightsUpdateGroupRequest",
+      "type": "class",
+      "name": "DestroyWeightsUpdateGroupRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        653,
+        654
+      ],
+      "summary": "定义Destroy Weights Update Group 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "destroy-weights-update-group-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/protocol.py:WeightsCheckerRequest",
+      "type": "class",
+      "name": "WeightsCheckerRequest",
+      "filePath": "serve/protocol.py",
+      "lineRange": [
+        657,
+        658
+      ],
+      "summary": "定义Weights Checker 请求协议模型，校验并序列化serve、openai-protocol相关字段。",
+      "tags": [
+        "serve",
+        "openai-protocol",
+        "weights-checker-request",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/realtime/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "serve/realtime/__init__.py",
+      "summary": "公开 OpenAI Realtime 会话管理器和事件协议。",
+      "tags": [
+        "serve",
+        "realtime-api",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:serve/realtime/audio_buffer.py",
+      "type": "file",
+      "name": "audio_buffer.py",
+      "filePath": "serve/realtime/audio_buffer.py",
+      "summary": "维护 Realtime 会话的有界 PCM 音频缓冲区，支持追加、清空、截取和溢出报告。",
+      "tags": [
+        "serve",
+        "realtime-audio",
+        "buffer",
+        "pcm"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:serve/realtime/audio_buffer.py:BufferOverflow",
+      "type": "class",
+      "name": "BufferOverflow",
+      "filePath": "serve/realtime/audio_buffer.py",
+      "lineRange": [
+        14,
+        19
+      ],
+      "summary": "报告实时音频缓冲区超限及允许的最大字节数。",
+      "tags": [
+        "serve",
+        "realtime-audio",
+        "buffer-overflow",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:serve/realtime/audio_buffer.py:RealtimeAudioBuffer",
+      "type": "class",
+      "name": "RealtimeAudioBuffer",
+      "filePath": "serve/realtime/audio_buffer.py",
+      "lineRange": [
+        22,
+        86
+      ],
+      "summary": "线程安全地累计会话 PCM 字节，并支持消费、清空和边界检查。",
+      "tags": [
+        "serve",
+        "realtime-audio",
+        "realtime-audio-buffer",
+        "class"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:create_app",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:create_app",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_voices",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_voices",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_read_voice_upload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_read_voice_upload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_is_voice_upload_scope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_is_voice_upload_scope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_content_length",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_content_length",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_send_voice_upload_too_large",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_send_voice_upload_too_large",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_health",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_health",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_models",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_models",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_admin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_admin",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_timeout_or_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_timeout_or_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_request_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_request_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_admin_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_admin_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_model_info_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_model_info_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_extract_model_info_stage_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_extract_model_info_stage_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_common_model_info_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_common_model_info_value",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_chat_completions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_chat_completions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_chat_non_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_chat_non_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_chat_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_chat_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_explicit_generation_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_explicit_generation_params",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_build_chat_generate_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_build_chat_generate_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_generate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_generate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_rollout_sampling_to_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_rollout_sampling_to_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_build_rollout_generate_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_build_rollout_generate_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_build_generate_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_build_generate_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_realtime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_realtime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_speech_generation_failure_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_speech_generation_failure_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_speech",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_speech",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_speech_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_speech_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_create_speech_batch_with_disconnect_watch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_create_speech_batch_with_disconnect_watch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_speech_ws",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_register_speech_ws",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_speech_pcm_chunk_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_speech_pcm_chunk_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_speech_audio_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_speech_audio_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_await_speech_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_await_speech_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_cancel_task_bounded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_cancel_task_bounded",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_discard_cancelled_task_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_discard_cancelled_task_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_wait_for_request_disconnect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_wait_for_request_disconnect",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_abort_and_close_speech_stream",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "function:serve/openai_api.py:_abort_and_close_speech_stream",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "class:serve/openai_api.py:_RequestBodyTooLarge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "class:serve/openai_api.py:_RequestBodyTooLarge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "class:serve/openai_api.py:VoiceUploadBodyLimitMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_api.py",
+      "target": "class:serve/openai_api.py:VoiceUploadBodyLimitMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/openai_errors.py",
+      "target": "function:serve/openai_errors.py:is_bad_request_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/openai_errors.py",
+      "target": "function:serve/openai_errors.py:is_bad_request_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UsageResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UsageResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionAudio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionAudio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionChoice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionChoice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionStreamDelta",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionStreamDelta",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionStreamChoice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionStreamChoice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionStreamResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ChatCompletionStreamResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:RolloutSamplingParams",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:RolloutSamplingParams",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:RolloutMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:RolloutMessage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SerializedMultimodalTensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SerializedMultimodalTensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SerializedMultimodalInputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SerializedMultimodalInputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:RolloutGenerateRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:RolloutGenerateRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateFinishReason",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateFinishReason",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateAudio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateAudio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateMetaInfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateMetaInfo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:GenerateResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechReference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechReference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:CreateSpeechRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:CreateSpeechRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechBatchItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechBatchItem",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:CreateSpeechBatchRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:CreateSpeechBatchRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechBatchResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechBatchResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechBatchResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechBatchResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechStreamSessionConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:SpeechStreamSessionConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UploadedVoiceMetadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UploadedVoiceMetadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:VoiceListResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:VoiceListResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionUsage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionUsage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionSegment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionSegment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionVerboseResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionVerboseResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionTextDeltaEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionTextDeltaEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionTextDoneEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:TranscriptionTextDoneEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ModelPermission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ModelPermission",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ModelCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ModelCard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ModelList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ModelList",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:AdminRequestBase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:AdminRequestBase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:PauseGenerationRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:PauseGenerationRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ContinueGenerationRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:ContinueGenerationRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UpdateWeightFromDiskRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UpdateWeightFromDiskRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UpdateWeightsFromTensorRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UpdateWeightsFromTensorRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UpdateWeightsFromDistributedRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:UpdateWeightsFromDistributedRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:InitWeightsUpdateGroupRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:InitWeightsUpdateGroupRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:DestroyWeightsUpdateGroupRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:DestroyWeightsUpdateGroupRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:WeightsCheckerRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/protocol.py",
+      "target": "class:serve/protocol.py:WeightsCheckerRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/audio_buffer.py",
+      "target": "class:serve/realtime/audio_buffer.py:BufferOverflow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/audio_buffer.py",
+      "target": "class:serve/realtime/audio_buffer.py:BufferOverflow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/realtime/audio_buffer.py",
+      "target": "class:serve/realtime/audio_buffer.py:RealtimeAudioBuffer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/realtime/audio_buffer.py",
+      "target": "class:serve/realtime/audio_buffer.py:RealtimeAudioBuffer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_health",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_models",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_admin",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_chat_completions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_voices",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_generate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_speech",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_speech_batch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_speech_ws",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:create_app",
+      "target": "function:serve/openai_api.py:_register_realtime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_model_info_response",
+      "target": "function:serve/openai_api.py:_extract_model_info_stage_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_model_info_response",
+      "target": "function:serve/openai_api.py:_common_model_info_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_build_chat_generate_request",
+      "target": "function:serve/openai_api.py:_explicit_generation_params",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_build_rollout_generate_request",
+      "target": "function:serve/openai_api.py:_rollout_sampling_to_client",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_build_rollout_generate_request",
+      "target": "function:serve/openai_api.py:_explicit_generation_params",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_create_speech_batch_with_disconnect_watch",
+      "target": "function:serve/openai_api.py:_wait_for_request_disconnect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_create_speech_batch_with_disconnect_watch",
+      "target": "function:serve/openai_api.py:_cancel_task_bounded",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_speech_audio_response",
+      "target": "function:serve/openai_api.py:_wait_for_request_disconnect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_speech_audio_response",
+      "target": "function:serve/openai_api.py:_cancel_task_bounded",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_speech_audio_response",
+      "target": "function:serve/openai_api.py:_abort_and_close_speech_stream",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_speech_audio_response",
+      "target": "function:serve/openai_api.py:_speech_pcm_chunk_bytes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_await_speech_response",
+      "target": "function:serve/openai_api.py:_wait_for_request_disconnect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_await_speech_response",
+      "target": "function:serve/openai_api.py:_cancel_task_bounded",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:serve/openai_api.py:_register_realtime",
+      "target": "class:serve/realtime/manager.py:RealtimeSessionManager",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:serve/openai_api.py:_register_speech",
+      "target": "class:serve/speech_service.py:SpeechRequestValidator",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:serve/openai_api.py:_register_speech_ws",
+      "target": "class:serve/speech_ws.py:SpeechWebSocketSession",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

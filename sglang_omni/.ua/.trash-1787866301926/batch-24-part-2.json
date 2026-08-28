@@ -1,0 +1,894 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/qwen3_omni/merge.py",
+      "type": "file",
+      "name": "merge.py",
+      "filePath": "models/qwen3_omni/merge.py",
+      "summary": "合并音频与视觉编码结果，构造 Thinker 多模态输入、裁剪预处理状态并解码最终事件。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-merge",
+        "thinker-input",
+        "event-decoding"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/merge.py:_cast_tensor",
+      "type": "function",
+      "name": "_cast_tensor",
+      "filePath": "models/qwen3_omni/merge.py",
+      "lineRange": [
+        21,
+        26
+      ],
+      "summary": "转换cast 张量逻辑，服务于qwen3-omni、multimodal-merge的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-merge",
+        "cast-tensor",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/merge.py:_non_empty",
+      "type": "function",
+      "name": "_non_empty",
+      "filePath": "models/qwen3_omni/merge.py",
+      "lineRange": [
+        29,
+        32
+      ],
+      "summary": "判断non empty逻辑，服务于qwen3-omni、multimodal-merge的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-merge",
+        "non-empty",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/merge.py:merge_for_thinker",
+      "type": "function",
+      "name": "merge_for_thinker",
+      "filePath": "models/qwen3_omni/merge.py",
+      "lineRange": [
+        35,
+        60
+      ],
+      "summary": "合并合并 for Thinker逻辑，服务于qwen3-omni、multimodal-merge的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-merge",
+        "merge-for-thinker",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/merge.py:build_thinker_inputs",
+      "type": "function",
+      "name": "build_thinker_inputs",
+      "filePath": "models/qwen3_omni/merge.py",
+      "lineRange": [
+        63,
+        168
+      ],
+      "summary": "构建build Thinker inputs逻辑，服务于qwen3-omni、multimodal-merge的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-merge",
+        "build-thinker-inputs",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/merge.py:_prune_preprocessing_for_thinker",
+      "type": "function",
+      "name": "_prune_preprocessing_for_thinker",
+      "filePath": "models/qwen3_omni/merge.py",
+      "lineRange": [
+        171,
+        222
+      ],
+      "summary": "裁剪prune 预处理 for Thinker逻辑，服务于qwen3-omni、multimodal-merge的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-merge",
+        "prune-preprocessing-for-thinker",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/merge.py:decode_events",
+      "type": "function",
+      "name": "decode_events",
+      "filePath": "models/qwen3_omni/merge.py",
+      "lineRange": [
+        225,
+        293
+      ],
+      "summary": "执行解码 events逻辑，服务于qwen3-omni、multimodal-merge的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "multimodal-merge",
+        "decode-events",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_omni/mrope_positions.py",
+      "type": "file",
+      "name": "mrope_positions.py",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "summary": "计算 Qwen3-Omni 文本、图像、视频和音频混合序列的向量化 MRoPE 位置，并提供线性快路径。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "position-ids",
+        "vectorization"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:linear_mrope_positions",
+      "type": "function",
+      "name": "linear_mrope_positions",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        12,
+        28
+      ],
+      "summary": "计算线性 MRoPE 位置逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "linear-mrope-positions",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:talker_can_use_linear_mrope",
+      "type": "function",
+      "name": "talker_can_use_linear_mrope",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        31,
+        52
+      ],
+      "summary": "判断Talker can use 线性 MRoPE逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "talker-can-use-linear-mrope",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:_feat_extract_output_lengths",
+      "type": "function",
+      "name": "_feat_extract_output_lengths",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        55,
+        59
+      ],
+      "summary": "执行feat extract 输出 lengths逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "feat-extract-output-lengths",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:_linear_pos_ids",
+      "type": "function",
+      "name": "_linear_pos_ids",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        62,
+        67
+      ],
+      "summary": "执行线性 pos ids逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "linear-pos-ids",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:_vision_t_index",
+      "type": "function",
+      "name": "_vision_t_index",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        70,
+        78
+      ],
+      "summary": "执行vision t index逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "vision-t-index",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:_vision_pos_ids",
+      "type": "function",
+      "name": "_vision_pos_ids",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        81,
+        97
+      ],
+      "summary": "执行vision pos ids逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "vision-pos-ids",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:_merge_audio_in_video",
+      "type": "function",
+      "name": "_merge_audio_in_video",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        100,
+        114
+      ],
+      "summary": "执行合并 音频 in video逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "merge-audio-in-video",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "type": "function",
+      "name": "get_rope_index_qwen3_omni_vectorized",
+      "filePath": "models/qwen3_omni/mrope_positions.py",
+      "lineRange": [
+        117,
+        331
+      ],
+      "summary": "获取get RoPE index qwen3 omni vectorized逻辑，服务于qwen3-omni、mrope的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "mrope",
+        "get-rope-index-qwen3-omni-vectorized",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/qwen3_omni/payload_types.py",
+      "type": "file",
+      "name": "payload_types.py",
+      "filePath": "models/qwen3_omni/payload_types.py",
+      "summary": "定义 Qwen3-Omni 的提示输入、预处理数据、Thinker 输出、跨阶段状态和多模态事件。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-state",
+        "payload-schema"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/payload_types.py:PromptInputs",
+      "type": "class",
+      "name": "PromptInputs",
+      "filePath": "models/qwen3_omni/payload_types.py",
+      "lineRange": [
+        10,
+        15
+      ],
+      "summary": "实现提示 Inputs，封装qwen3-omni、pipeline-state中的核心状态与处理流程。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-state",
+        "prompt-inputs",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/payload_types.py:PreprocessingData",
+      "type": "class",
+      "name": "PreprocessingData",
+      "filePath": "models/qwen3_omni/payload_types.py",
+      "lineRange": [
+        18,
+        25
+      ],
+      "summary": "定义预处理 Data数据结构，用于qwen3-omni、pipeline-state中的状态传递与校验。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-state",
+        "preprocessing-data",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/payload_types.py:ThinkerOutput",
+      "type": "class",
+      "name": "ThinkerOutput",
+      "filePath": "models/qwen3_omni/payload_types.py",
+      "lineRange": [
+        28,
+        34
+      ],
+      "summary": "实现Thinker 输出，封装qwen3-omni、pipeline-state中的核心状态与处理流程。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-state",
+        "thinker-output",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/payload_types.py:Qwen3OmniPipelineState",
+      "type": "class",
+      "name": "Qwen3OmniPipelineState",
+      "filePath": "models/qwen3_omni/payload_types.py",
+      "lineRange": [
+        38,
+        98
+      ],
+      "summary": "保存 Qwen3-Omni 从原始输入、模态特征到 Thinker、Talker 和最终事件的完整状态。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-state",
+        "qwen3-omni-pipeline-state",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/qwen3_omni/payload_types.py:Qwen3OmniEvent",
+      "type": "class",
+      "name": "Qwen3OmniEvent",
+      "filePath": "models/qwen3_omni/payload_types.py",
+      "lineRange": [
+        115,
+        121
+      ],
+      "summary": "实现Qwen3 Omni Event，封装qwen3-omni、pipeline-state中的核心状态与处理流程。",
+      "tags": [
+        "qwen3-omni",
+        "pipeline-state",
+        "qwen3-omni-event",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/qwen3_omni/pending_text_queue.py",
+      "type": "file",
+      "name": "pending_text_queue.py",
+      "filePath": "models/qwen3_omni/pending_text_queue.py",
+      "summary": "以设备张量队列保存 Talker 尚未消费的 Thinker 文本隐藏状态，并支持兼容输入转换。",
+      "tags": [
+        "qwen3-omni",
+        "pending-text",
+        "tensor-queue"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/qwen3_omni/pending_text_queue.py:_as_rows",
+      "type": "function",
+      "name": "_as_rows",
+      "filePath": "models/qwen3_omni/pending_text_queue.py",
+      "lineRange": [
+        12,
+        27
+      ],
+      "summary": "执行as rows逻辑，服务于qwen3-omni、pending-text的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pending-text",
+        "as-rows",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/qwen3_omni/pending_text_queue.py:coerce_pending_text_queue",
+      "type": "function",
+      "name": "coerce_pending_text_queue",
+      "filePath": "models/qwen3_omni/pending_text_queue.py",
+      "lineRange": [
+        101,
+        116
+      ],
+      "summary": "转换coerce pending 文本 队列逻辑，服务于qwen3-omni、pending-text的阶段协作与运行时处理。",
+      "tags": [
+        "qwen3-omni",
+        "pending-text",
+        "coerce-pending-text-queue",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/qwen3_omni/pending_text_queue.py:PendingTextTensorQueue",
+      "type": "class",
+      "name": "PendingTextTensorQueue",
+      "filePath": "models/qwen3_omni/pending_text_queue.py",
+      "lineRange": [
+        31,
+        98
+      ],
+      "summary": "以二维设备张量保存待 Talker 消费的文本隐藏行，并支持追加、弹出和裁剪。",
+      "tags": [
+        "qwen3-omni",
+        "pending-text",
+        "pending-text-tensor-queue",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/qwen3_omni/placement.py",
+      "type": "file",
+      "name": "placement.py",
+      "filePath": "models/qwen3_omni/placement.py",
+      "summary": "根据 GPU 数量、显存预算和共置策略决定 Qwen3-Omni 各阶段的设备放置。",
+      "tags": [
+        "qwen3-omni",
+        "placement-policy",
+        "gpu-memory",
+        "colocation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/qwen3_omni/placement.py:Qwen3OmniPlacementPolicy",
+      "type": "class",
+      "name": "Qwen3OmniPlacementPolicy",
+      "filePath": "models/qwen3_omni/placement.py",
+      "lineRange": [
+        29,
+        147
+      ],
+      "summary": "依据阶段需求和设备资源选择进程、GPU 与共置策略。",
+      "tags": [
+        "qwen3-omni",
+        "placement-policy",
+        "qwen3-omni-placement-policy",
+        "class"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:_cast_tensor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:_cast_tensor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:_non_empty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:_non_empty",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:merge_for_thinker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:merge_for_thinker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:build_thinker_inputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:build_thinker_inputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:_prune_preprocessing_for_thinker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:_prune_preprocessing_for_thinker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:decode_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/merge.py",
+      "target": "function:models/qwen3_omni/merge.py:decode_events",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:linear_mrope_positions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:linear_mrope_positions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:talker_can_use_linear_mrope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:talker_can_use_linear_mrope",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_feat_extract_output_lengths",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_feat_extract_output_lengths",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_linear_pos_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_linear_pos_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_vision_t_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_vision_t_index",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_vision_pos_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_vision_pos_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_merge_audio_in_video",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_merge_audio_in_video",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/mrope_positions.py",
+      "target": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:PromptInputs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:PromptInputs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:PreprocessingData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:PreprocessingData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:ThinkerOutput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:ThinkerOutput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:Qwen3OmniPipelineState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:Qwen3OmniPipelineState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:Qwen3OmniEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/payload_types.py",
+      "target": "class:models/qwen3_omni/payload_types.py:Qwen3OmniEvent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/pending_text_queue.py",
+      "target": "function:models/qwen3_omni/pending_text_queue.py:_as_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/pending_text_queue.py",
+      "target": "function:models/qwen3_omni/pending_text_queue.py:_as_rows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/pending_text_queue.py",
+      "target": "function:models/qwen3_omni/pending_text_queue.py:coerce_pending_text_queue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/pending_text_queue.py",
+      "target": "function:models/qwen3_omni/pending_text_queue.py:coerce_pending_text_queue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/pending_text_queue.py",
+      "target": "class:models/qwen3_omni/pending_text_queue.py:PendingTextTensorQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/pending_text_queue.py",
+      "target": "class:models/qwen3_omni/pending_text_queue.py:PendingTextTensorQueue",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/qwen3_omni/placement.py",
+      "target": "class:models/qwen3_omni/placement.py:Qwen3OmniPlacementPolicy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/qwen3_omni/placement.py",
+      "target": "class:models/qwen3_omni/placement.py:Qwen3OmniPlacementPolicy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/merge.py:merge_for_thinker",
+      "target": "function:models/qwen3_omni/merge.py:build_thinker_inputs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/merge.py:merge_for_thinker",
+      "target": "function:models/qwen3_omni/merge.py:_prune_preprocessing_for_thinker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/merge.py:build_thinker_inputs",
+      "target": "function:models/qwen3_omni/merge.py:_cast_tensor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/merge.py:build_thinker_inputs",
+      "target": "function:models/qwen3_omni/merge.py:_non_empty",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/merge.py:_prune_preprocessing_for_thinker",
+      "target": "function:models/qwen3_omni/merge.py:_cast_tensor",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_linear_pos_ids",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_feat_extract_output_lengths",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_vision_t_index",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_vision_pos_ids",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "target": "function:models/qwen3_omni/mrope_positions.py:_merge_audio_in_video",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/pending_text_queue.py:coerce_pending_text_queue",
+      "target": "class:models/qwen3_omni/pending_text_queue.py:PendingTextTensorQueue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/qwen3_omni/merge.py:build_thinker_inputs",
+      "target": "function:models/qwen3_omni/mrope_positions.py:get_rope_index_qwen3_omni_vectorized",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

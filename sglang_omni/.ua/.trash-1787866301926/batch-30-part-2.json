@@ -1,0 +1,1094 @@
+{
+  "nodes": [
+    {
+      "id": "file:serve/translations.py",
+      "type": "file",
+      "name": "translations.py",
+      "filePath": "serve/translations.py",
+      "summary": "注册 OpenAI 兼容 audio translations API，并统一请求验证、异常和响应处理。",
+      "tags": [
+        "translations-API",
+        "FastAPI",
+        "audio"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "异步 endpoint 将上传音频转换为目标语言文本。"
+    },
+    {
+      "id": "function:serve/translations.py:_invalid_request",
+      "type": "function",
+      "name": "_invalid_request",
+      "filePath": "serve/translations.py",
+      "lineRange": [
+        22,
+        35
+      ],
+      "summary": "构造 translations API 的无效请求响应。",
+      "tags": [
+        "translations-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/translations.py:_http_exception_response",
+      "type": "function",
+      "name": "_http_exception_response",
+      "filePath": "serve/translations.py",
+      "lineRange": [
+        38,
+        46
+      ],
+      "summary": "把 HTTPException 转换为标准 JSON response。",
+      "tags": [
+        "translations-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:serve/translations.py:register_translations",
+      "type": "function",
+      "name": "register_translations",
+      "filePath": "serve/translations.py",
+      "lineRange": [
+        49,
+        179
+      ],
+      "summary": "向 FastAPI 应用注册 audio translation endpoint。",
+      "tags": [
+        "translations-API",
+        "FastAPI",
+        "function"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:utils/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "utils/__init__.py",
+      "summary": "延迟导出通用工具函数，避免在包导入时加载重型依赖。",
+      "tags": [
+        "utilities",
+        "lazy-import",
+        "package-api"
+      ],
+      "complexity": "simple",
+      "languageNotes": "通过模块级 __getattr__ 按需解析工具符号。"
+    },
+    {
+      "id": "function:utils/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "utils/__init__.py",
+      "lineRange": [
+        35,
+        43
+      ],
+      "summary": "按需导入并缓存 utils 包导出的符号。",
+      "tags": [
+        "utilities",
+        "lazy-import",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/audio.py",
+      "type": "file",
+      "name": "audio.py",
+      "filePath": "utils/audio.py",
+      "summary": "加载、解码、重采样音频输入，支持 data URI、快速 WAV 路径和内容 fingerprint。",
+      "tags": [
+        "audio",
+        "decoding",
+        "resampling"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "优先使用 torchaudio，按需回退并缓存 resample kernel。"
+    },
+    {
+      "id": "function:utils/audio.py:_ensure_torchaudio_decoder_ready",
+      "type": "function",
+      "name": "_ensure_torchaudio_decoder_ready",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        28,
+        31
+      ],
+      "summary": "验证 torchaudio decoder backend 可用。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:_has_operational_decoder_cause",
+      "type": "function",
+      "name": "_has_operational_decoder_cause",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        34,
+        44
+      ],
+      "summary": "检查异常链是否包含可操作的 decoder 失败。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:_is_invalid_audio_source",
+      "type": "function",
+      "name": "_is_invalid_audio_source",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        47,
+        78
+      ],
+      "summary": "判断异常是否表示输入音频源无效。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/audio.py:_load_with_torchaudio",
+      "type": "function",
+      "name": "_load_with_torchaudio",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        81,
+        93
+      ],
+      "summary": "使用 torchaudio 从路径或 bytes 加载 waveform。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:_is_riff_wav",
+      "type": "function",
+      "name": "_is_riff_wav",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        96,
+        97
+      ],
+      "summary": "检查字节流是否为 RIFF/WAVE 文件。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:_try_fast_wav_decode",
+      "type": "function",
+      "name": "_try_fast_wav_decode",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        100,
+        125
+      ],
+      "summary": "尝试用轻量路径快速解码 PCM WAV。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:_resample_kernel",
+      "type": "function",
+      "name": "_resample_kernel",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        129,
+        146
+      ],
+      "summary": "创建指定采样率与 dtype 的 resample kernel。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:_cached_resample",
+      "type": "function",
+      "name": "_cached_resample",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        149,
+        171
+      ],
+      "summary": "用缓存 kernel 重采样 waveform。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:decode_audio_data_uri",
+      "type": "function",
+      "name": "decode_audio_data_uri",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        174,
+        183
+      ],
+      "summary": "从 data URI 解码音频 MIME 类型和原始 bytes。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:load_audio",
+      "type": "function",
+      "name": "load_audio",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        186,
+        253
+      ],
+      "summary": "加载多种音频源并转换为目标采样率 waveform。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/audio.py:audio_fingerprint",
+      "type": "function",
+      "name": "audio_fingerprint",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        256,
+        258
+      ],
+      "summary": "计算音频内容的稳定十六进制 fingerprint。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio.py:audio_fingerprint_int",
+      "type": "function",
+      "name": "audio_fingerprint_int",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        261,
+        262
+      ],
+      "summary": "计算音频内容的整数 fingerprint。",
+      "tags": [
+        "audio",
+        "decoding",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:utils/audio.py:AudioDecodeError",
+      "type": "class",
+      "name": "AudioDecodeError",
+      "filePath": "utils/audio.py",
+      "lineRange": [
+        24,
+        25
+      ],
+      "summary": "表示音频输入无法被可用 backend 解码。",
+      "tags": [
+        "audio",
+        "decoding",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/audio_features.py",
+      "type": "file",
+      "name": "audio_features.py",
+      "filePath": "utils/audio_features.py",
+      "summary": "缓存 mel filter banks 并从波形计算 Whisper 风格 filter-bank 特征。",
+      "tags": [
+        "audio-features",
+        "mel-filterbank",
+        "Whisper"
+      ],
+      "complexity": "simple",
+      "languageNotes": "基于 torch/torchaudio 构造 log-mel features 并复用 filter tensor。"
+    },
+    {
+      "id": "function:utils/audio_features.py:_mel_banks",
+      "type": "function",
+      "name": "_mel_banks",
+      "filePath": "utils/audio_features.py",
+      "lineRange": [
+        12,
+        37
+      ],
+      "summary": "构建并缓存指定参数的 mel filter banks。",
+      "tags": [
+        "audio-features",
+        "mel-filterbank",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio_features.py:cached_fbank",
+      "type": "function",
+      "name": "cached_fbank",
+      "filePath": "utils/audio_features.py",
+      "lineRange": [
+        40,
+        87
+      ],
+      "summary": "从 waveform 计算并缓存配置相关的 filter-bank 特征。",
+      "tags": [
+        "audio-features",
+        "mel-filterbank",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:utils/audio_payload.py",
+      "type": "file",
+      "name": "audio_payload.py",
+      "filePath": "utils/audio_payload.py",
+      "summary": "把参考音频或 waveform 编码为可传输的 data URI/payload。",
+      "tags": [
+        "audio",
+        "payload",
+        "data-URI"
+      ],
+      "complexity": "simple",
+      "languageNotes": "将 tensor 波形序列化为 WAV bytes 并附带采样率。"
+    },
+    {
+      "id": "function:utils/audio_payload.py:audio_data_uri_from_reference",
+      "type": "function",
+      "name": "audio_data_uri_from_reference",
+      "filePath": "utils/audio_payload.py",
+      "lineRange": [
+        12,
+        17
+      ],
+      "summary": "把参考音频路径或内容转换为 data URI。",
+      "tags": [
+        "audio",
+        "payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/audio_payload.py:audio_waveform_payload",
+      "type": "function",
+      "name": "audio_waveform_payload",
+      "filePath": "utils/audio_payload.py",
+      "lineRange": [
+        20,
+        54
+      ],
+      "summary": "把 waveform 和采样率封装为音频 payload。",
+      "tags": [
+        "audio",
+        "payload",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:utils/checkpoint.py",
+      "type": "file",
+      "name": "checkpoint.py",
+      "filePath": "utils/checkpoint.py",
+      "summary": "解析本地 checkpoint 路径或 Hugging Face 模型 ID。",
+      "tags": [
+        "checkpoint",
+        "Hugging-Face",
+        "path-resolution"
+      ],
+      "complexity": "simple",
+      "languageNotes": "优先使用本地目录，否则下载 snapshot 到 cache。"
+    },
+    {
+      "id": "function:utils/checkpoint.py:resolve_checkpoint",
+      "type": "function",
+      "name": "resolve_checkpoint",
+      "filePath": "utils/checkpoint.py",
+      "lineRange": [
+        9,
+        14
+      ],
+      "summary": "解析本地路径或下载 Hugging Face checkpoint。",
+      "tags": [
+        "checkpoint",
+        "Hugging-Face",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/codec_delay.py",
+      "type": "file",
+      "name": "codec_delay.py",
+      "filePath": "utils/codec_delay.py",
+      "summary": "逆转多 codebook 音频 codec 的 delay pattern 并裁剪 padding。",
+      "tags": [
+        "audio-codec",
+        "delay-pattern",
+        "token"
+      ],
+      "complexity": "simple",
+      "languageNotes": "对二维 token rows 做通道位移和有效区间恢复。"
+    },
+    {
+      "id": "function:utils/codec_delay.py:reverse_delay_pattern",
+      "type": "function",
+      "name": "reverse_delay_pattern",
+      "filePath": "utils/codec_delay.py",
+      "lineRange": [
+        12,
+        32
+      ],
+      "summary": "逆转 audio codebook 的逐通道 delay 布局。",
+      "tags": [
+        "audio-codec",
+        "delay-pattern",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/connection.py",
+      "type": "file",
+      "name": "connection.py",
+      "filePath": "utils/connection.py",
+      "summary": "查找指定地址和端口范围内可绑定的 TCP 端口。",
+      "tags": [
+        "network",
+        "TCP-port",
+        "utility"
+      ],
+      "complexity": "simple",
+      "languageNotes": "使用 socket 绑定测试避免端口冲突。"
+    },
+    {
+      "id": "function:utils/connection.py:find_available_port",
+      "type": "function",
+      "name": "find_available_port",
+      "filePath": "utils/connection.py",
+      "lineRange": [
+        12,
+        41
+      ],
+      "summary": "在端口范围内查找当前可绑定的 TCP 端口。",
+      "tags": [
+        "network",
+        "TCP-port",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:utils/cpu.py",
+      "type": "file",
+      "name": "cpu.py",
+      "filePath": "utils/cpu.py",
+      "summary": "读取 Linux cgroup v1/v2 CPU quota，并计算进程有效 CPU 数和线程上限。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "threading"
+      ],
+      "complexity": "moderate",
+      "languageNotes": "结合 affinity、quota 和 host cpu_count 推导容器可用计算资源。"
+    },
+    {
+      "id": "function:utils/cpu.py:_read_self_cgroup_paths",
+      "type": "function",
+      "name": "_read_self_cgroup_paths",
+      "filePath": "utils/cpu.py",
+      "lineRange": [
+        14,
+        32
+      ],
+      "summary": "读取当前进程所属的 cgroup v1/v2 路径。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/cpu.py:_relative_cgroup_path",
+      "type": "function",
+      "name": "_relative_cgroup_path",
+      "filePath": "utils/cpu.py",
+      "lineRange": [
+        35,
+        38
+      ],
+      "summary": "计算相对 cgroup mount 的控制组路径。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/cpu.py:_read_v2_quota",
+      "type": "function",
+      "name": "_read_v2_quota",
+      "filePath": "utils/cpu.py",
+      "lineRange": [
+        41,
+        52
+      ],
+      "summary": "从 cgroup v2 cpu.max 读取 CPU quota。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/cpu.py:_read_v1_quota",
+      "type": "function",
+      "name": "_read_v1_quota",
+      "filePath": "utils/cpu.py",
+      "lineRange": [
+        55,
+        67
+      ],
+      "summary": "从 cgroup v1 quota/period 文件读取 CPU quota。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/cpu.py:cgroup_cpu_quota_count",
+      "type": "function",
+      "name": "cgroup_cpu_quota_count",
+      "filePath": "utils/cpu.py",
+      "lineRange": [
+        70,
+        113
+      ],
+      "summary": "将可用 cgroup quota 解析为 CPU 核数上限。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:utils/cpu.py:effective_cpu_count",
+      "type": "function",
+      "name": "effective_cpu_count",
+      "filePath": "utils/cpu.py",
+      "lineRange": [
+        116,
+        126
+      ],
+      "summary": "综合 affinity、cgroup 与主机信息计算有效 CPU 数。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:utils/cpu.py:bounded_intraop_threads",
+      "type": "function",
+      "name": "bounded_intraop_threads",
+      "filePath": "utils/cpu.py",
+      "lineRange": [
+        129,
+        135
+      ],
+      "summary": "把请求线程数限制在有效 CPU 资源范围内。",
+      "tags": [
+        "CPU",
+        "cgroup",
+        "function"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:serve/translations.py",
+      "target": "function:serve/translations.py:_invalid_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/translations.py",
+      "target": "function:serve/translations.py:_invalid_request",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/translations.py",
+      "target": "function:serve/translations.py:_http_exception_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/translations.py",
+      "target": "function:serve/translations.py:_http_exception_response",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:serve/translations.py",
+      "target": "function:serve/translations.py:register_translations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:serve/translations.py",
+      "target": "function:serve/translations.py:register_translations",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/__init__.py",
+      "target": "function:utils/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/__init__.py",
+      "target": "function:utils/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_ensure_torchaudio_decoder_ready",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_ensure_torchaudio_decoder_ready",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_has_operational_decoder_cause",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_has_operational_decoder_cause",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_is_invalid_audio_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_is_invalid_audio_source",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_load_with_torchaudio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_load_with_torchaudio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_is_riff_wav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_is_riff_wav",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_try_fast_wav_decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_try_fast_wav_decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_resample_kernel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_resample_kernel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_cached_resample",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:_cached_resample",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:decode_audio_data_uri",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:decode_audio_data_uri",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:load_audio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:load_audio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:audio_fingerprint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:audio_fingerprint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:audio_fingerprint_int",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "function:utils/audio.py:audio_fingerprint_int",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "class:utils/audio.py:AudioDecodeError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio.py",
+      "target": "class:utils/audio.py:AudioDecodeError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio_features.py",
+      "target": "function:utils/audio_features.py:_mel_banks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio_features.py",
+      "target": "function:utils/audio_features.py:_mel_banks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio_features.py",
+      "target": "function:utils/audio_features.py:cached_fbank",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio_features.py",
+      "target": "function:utils/audio_features.py:cached_fbank",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio_payload.py",
+      "target": "function:utils/audio_payload.py:audio_data_uri_from_reference",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio_payload.py",
+      "target": "function:utils/audio_payload.py:audio_data_uri_from_reference",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/audio_payload.py",
+      "target": "function:utils/audio_payload.py:audio_waveform_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/audio_payload.py",
+      "target": "function:utils/audio_payload.py:audio_waveform_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/checkpoint.py",
+      "target": "function:utils/checkpoint.py:resolve_checkpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/checkpoint.py",
+      "target": "function:utils/checkpoint.py:resolve_checkpoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/codec_delay.py",
+      "target": "function:utils/codec_delay.py:reverse_delay_pattern",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/codec_delay.py",
+      "target": "function:utils/codec_delay.py:reverse_delay_pattern",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/connection.py",
+      "target": "function:utils/connection.py:find_available_port",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/connection.py",
+      "target": "function:utils/connection.py:find_available_port",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_read_self_cgroup_paths",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_read_self_cgroup_paths",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_relative_cgroup_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_relative_cgroup_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_read_v2_quota",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_read_v2_quota",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_read_v1_quota",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:_read_v1_quota",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:cgroup_cpu_quota_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:cgroup_cpu_quota_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:effective_cpu_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:effective_cpu_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:bounded_intraop_threads",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:utils/cpu.py",
+      "target": "function:utils/cpu.py:bounded_intraop_threads",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}
+

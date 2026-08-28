@@ -1,0 +1,3084 @@
+{
+  "scriptCompleted": true,
+  "contentDigest": "03bb017b5dd1df32a26a789c9be32ac9b9281800eb51a6b975409a389175150a",
+  "files": [
+    {
+      "path": ".ua/.understandignore",
+      "language": "unknown",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": "__init__.py",
+      "language": "python",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "admission.py",
+      "language": "python",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/__init__.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/__main__.py",
+      "language": "python",
+      "sizeLines": 4,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/check_gpu.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/config.py",
+      "language": "python",
+      "sizeLines": 344,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/serve.py",
+      "language": "python",
+      "sizeLines": 434,
+      "fileCategory": "code"
+    },
+    {
+      "path": "cli/sglang_backend.py",
+      "language": "python",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "client/__init__.py",
+      "language": "python",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "client/audio.py",
+      "language": "python",
+      "sizeLines": 463,
+      "fileCategory": "code"
+    },
+    {
+      "path": "client/client.py",
+      "language": "python",
+      "sizeLines": 680,
+      "fileCategory": "code"
+    },
+    {
+      "path": "client/types.py",
+      "language": "python",
+      "sizeLines": 236,
+      "fileCategory": "code"
+    },
+    {
+      "path": "comm/__init__.py",
+      "language": "python",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "comm/data_ref.py",
+      "language": "python",
+      "sizeLines": 212,
+      "fileCategory": "code"
+    },
+    {
+      "path": "comm/engine.py",
+      "language": "python",
+      "sizeLines": 1136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "comm/kv_transfer.py",
+      "language": "python",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "comm/router.py",
+      "language": "python",
+      "sizeLines": 399,
+      "fileCategory": "code"
+    },
+    {
+      "path": "comm/stage_io.py",
+      "language": "python",
+      "sizeLines": 818,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/__init__.py",
+      "language": "python",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/compat.py",
+      "language": "python",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/manager.py",
+      "language": "python",
+      "sizeLines": 176,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/patch.py",
+      "language": "python",
+      "sizeLines": 269,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/path.py",
+      "language": "python",
+      "sizeLines": 847,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/placement.py",
+      "language": "python",
+      "sizeLines": 209,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/provenance.py",
+      "language": "python",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/resolver.py",
+      "language": "python",
+      "sizeLines": 197,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/runtime.py",
+      "language": "python",
+      "sizeLines": 238,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/schema.py",
+      "language": "python",
+      "sizeLines": 733,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/sources.py",
+      "language": "python",
+      "sizeLines": 497,
+      "fileCategory": "code"
+    },
+    {
+      "path": "config/topology.py",
+      "language": "python",
+      "sizeLines": 464,
+      "fileCategory": "code"
+    },
+    {
+      "path": "diagnostics/__init__.py",
+      "language": "python",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "diagnostics/gpu.py",
+      "language": "python",
+      "sizeLines": 423,
+      "fileCategory": "code"
+    },
+    {
+      "path": "http/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "http/admin_auth.py",
+      "language": "python",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "http/favicon.py",
+      "language": "python",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/_hidden_capture.py",
+      "language": "python",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/base.py",
+      "language": "python",
+      "sizeLines": 1008,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/ming_thinker_model_runner.py",
+      "language": "python",
+      "sizeLines": 254,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/model_worker.py",
+      "language": "python",
+      "sizeLines": 574,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/prefill_inputs.py",
+      "language": "python",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/sglang_execution.py",
+      "language": "python",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/sglang_model_runner.py",
+      "language": "python",
+      "sizeLines": 492,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/thinker_model_runner.py",
+      "language": "python",
+      "sizeLines": 490,
+      "fileCategory": "code"
+    },
+    {
+      "path": "model_runner/weight_checker.py",
+      "language": "python",
+      "sizeLines": 195,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/__init__.py",
+      "language": "python",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/audio_lengths.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/audio_tower.py",
+      "language": "python",
+      "sizeLines": 301,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/config.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/configuration_arkasr.py",
+      "language": "python",
+      "sizeLines": 98,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/encoder_service.py",
+      "language": "python",
+      "sizeLines": 615,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/engine_builder.py",
+      "language": "python",
+      "sizeLines": 189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/request_builders.py",
+      "language": "python",
+      "sizeLines": 260,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/sglang_model.py",
+      "language": "python",
+      "sizeLines": 256,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/arkasr/stages.py",
+      "language": "python",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/audar_tts/README.md",
+      "language": "markdown",
+      "sizeLines": 45,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "models/audar_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/audar_tts/config.py",
+      "language": "python",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/audar_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/audar_tts/protocol.py",
+      "language": "python",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/audar_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 141,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/audar_tts/stages.py",
+      "language": "python",
+      "sizeLines": 348,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/codec.py",
+      "language": "python",
+      "sizeLines": 310,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/config.py",
+      "language": "python",
+      "sizeLines": 154,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/engine_builder.py",
+      "language": "python",
+      "sizeLines": 186,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/flow_head.py",
+      "language": "python",
+      "sizeLines": 807,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/hf_config.py",
+      "language": "python",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 338,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 175,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/sglang_model.py",
+      "language": "python",
+      "sizeLines": 149,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/stages.py",
+      "language": "python",
+      "sizeLines": 459,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/tail.py",
+      "language": "python",
+      "sizeLines": 1205,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/vocoder.py",
+      "language": "python",
+      "sizeLines": 407,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/dots_tts/vocoder_slot_pool.py",
+      "language": "python",
+      "sizeLines": 242,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/README.md",
+      "language": "markdown",
+      "sizeLines": 95,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/__init__.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/bootstrap.py",
+      "language": "python",
+      "sizeLines": 165,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/config.py",
+      "language": "python",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/engine_builder.py",
+      "language": "python",
+      "sizeLines": 173,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/configs/modded_dac_vq.yaml",
+      "language": "yaml",
+      "sizeLines": 50,
+      "fileCategory": "config"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/dac/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/dac/modded_dac.py",
+      "language": "python",
+      "sizeLines": 1058,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/dac/rvq.py",
+      "language": "python",
+      "sizeLines": 399,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/kernels/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/text2semantic/__init__.py",
+      "language": "python",
+      "sizeLines": 18,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/text2semantic/audio_decoder.py",
+      "language": "python",
+      "sizeLines": 436,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/text2semantic/configuration.py",
+      "language": "python",
+      "sizeLines": 449,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/models/text2semantic/utils.py",
+      "language": "python",
+      "sizeLines": 34,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/tokenizer.py",
+      "language": "python",
+      "sizeLines": 53,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/utils/__init__.py",
+      "language": "python",
+      "sizeLines": 3,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/fish_speech/utils/logger.py",
+      "language": "python",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/model_runner.py",
+      "language": "python",
+      "sizeLines": 227,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/payload_types.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/request_builders.py",
+      "language": "python",
+      "sizeLines": 228,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/routing.py",
+      "language": "python",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/sglang_model.py",
+      "language": "python",
+      "sizeLines": 567,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/stages.py",
+      "language": "python",
+      "sizeLines": 360,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 487,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fishaudio_s2_pro/tokenizer.py",
+      "language": "python",
+      "sizeLines": 144,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/__init__.py",
+      "language": "python",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/config.py",
+      "language": "python",
+      "sizeLines": 42,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/configuration_fun_asr.py",
+      "language": "python",
+      "sizeLines": 410,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/encoder_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 212,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/encoder_service.py",
+      "language": "python",
+      "sizeLines": 495,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/engine_builder.py",
+      "language": "python",
+      "sizeLines": 234,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/request_builders.py",
+      "language": "python",
+      "sizeLines": 391,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/sglang_model.py",
+      "language": "python",
+      "sizeLines": 615,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/stages.py",
+      "language": "python",
+      "sizeLines": 174,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/tool_funcs/__init__.py",
+      "language": "python",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_asr/tool_funcs/audio_lengths.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/__init__.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/config.py",
+      "language": "python",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/engine_builder.py",
+      "language": "python",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/model_runner.py",
+      "language": "python",
+      "sizeLines": 141,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/payload_types.py",
+      "language": "python",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/request_builders.py",
+      "language": "python",
+      "sizeLines": 842,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/sglang_model.py",
+      "language": "python",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/stages.py",
+      "language": "python",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/fun_cosyvoice3/utils.py",
+      "language": "python",
+      "sizeLines": 499,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/audio_codec.py",
+      "language": "python",
+      "sizeLines": 436,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/config.py",
+      "language": "python",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/configs/higgs_audio_v2_tokenizer.json",
+      "language": "json",
+      "sizeLines": 129,
+      "fileCategory": "config"
+    },
+    {
+      "path": "models/higgs_tts/engine_builder.py",
+      "language": "python",
+      "sizeLines": 165,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/hf_config.py",
+      "language": "python",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/model.py",
+      "language": "python",
+      "sizeLines": 611,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 762,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/modeling.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 61,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 251,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/rollout_trace.py",
+      "language": "python",
+      "sizeLines": 96,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/sampler.py",
+      "language": "python",
+      "sizeLines": 467,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/stages.py",
+      "language": "python",
+      "sizeLines": 588,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/text_tokenizer.py",
+      "language": "python",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/utils.py",
+      "language": "python",
+      "sizeLines": 157,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/vocoder_scheduler.py",
+      "language": "python",
+      "sizeLines": 460,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/higgs_tts/weight_loader.py",
+      "language": "python",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/bootstrap.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/common.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/image_encoder.py",
+      "language": "python",
+      "sizeLines": 361,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/preprocessor.py",
+      "language": "python",
+      "sizeLines": 413,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/components/thinker.py",
+      "language": "python",
+      "sizeLines": 583,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/config.py",
+      "language": "python",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/merge.py",
+      "language": "python",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/payload_types.py",
+      "language": "python",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/request_builders.py",
+      "language": "python",
+      "sizeLines": 222,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/llada2_uni/stages.py",
+      "language": "python",
+      "sizeLines": 180,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/__init__.py",
+      "language": "python",
+      "sizeLines": 7,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/bootstrap.py",
+      "language": "python",
+      "sizeLines": 447,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/audio_encoder.py",
+      "language": "python",
+      "sizeLines": 279,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/common.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/image_encoder.py",
+      "language": "python",
+      "sizeLines": 273,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/preprocessor.py",
+      "language": "python",
+      "sizeLines": 779,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/projectors.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_detokenizer.py",
+      "language": "python",
+      "sizeLines": 356,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_segmenter.py",
+      "language": "python",
+      "sizeLines": 274,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_talker.py",
+      "language": "python",
+      "sizeLines": 482,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/streaming_text.py",
+      "language": "python",
+      "sizeLines": 161,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/talker_executor.py",
+      "language": "python",
+      "sizeLines": 386,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/components/vision_encoder.py",
+      "language": "python",
+      "sizeLines": 421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/config.py",
+      "language": "python",
+      "sizeLines": 381,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/configuration.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/hf_config.py",
+      "language": "python",
+      "sizeLines": 189,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/io.py",
+      "language": "python",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/engine_io.py",
+      "language": "python",
+      "sizeLines": 193,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/merge.py",
+      "language": "python",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/next_stage.py",
+      "language": "python",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/sampling.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/stages.py",
+      "language": "python",
+      "sizeLines": 415,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/state_io.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/pipeline/usage.py",
+      "language": "python",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/registration.py",
+      "language": "python",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/stages.py",
+      "language": "python",
+      "sizeLines": 388,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/__init__.py",
+      "language": "python",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/configuration_audio_vae.py",
+      "language": "python",
+      "sizeLines": 19,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/istft.py",
+      "language": "python",
+      "sizeLines": 219,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/modeling_audio_vae.py",
+      "language": "python",
+      "sizeLines": 99,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/audio_vae/vae_modules.py",
+      "language": "python",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/configuration_bailing_talker.py",
+      "language": "python",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/front/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/front/number_en.py",
+      "language": "python",
+      "sizeLines": 191,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/front/text_segment_cut.py",
+      "language": "python",
+      "sizeLines": 250,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/front/toolkit.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/modeling_ming_omni_talker.py",
+      "language": "python",
+      "sizeLines": 1485,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/aggregator.py",
+      "language": "python",
+      "sizeLines": 131,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/cfm.py",
+      "language": "python",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/dit.py",
+      "language": "python",
+      "sizeLines": 208,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/talker/talker_module/modules.py",
+      "language": "python",
+      "sizeLines": 365,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/thinker.py",
+      "language": "python",
+      "sizeLines": 968,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_omni/tp_utils.py",
+      "language": "python",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/audio_config.py",
+      "language": "python",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/audio_decode.py",
+      "language": "python",
+      "sizeLines": 177,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/config.py",
+      "language": "python",
+      "sizeLines": 309,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/engine_builder.py",
+      "language": "python",
+      "sizeLines": 224,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/engine_io.py",
+      "language": "python",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/flow_matching.py",
+      "language": "python",
+      "sizeLines": 271,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/hf_config.py",
+      "language": "python",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 531,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/prompt_builder.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/reference_encode.py",
+      "language": "python",
+      "sizeLines": 284,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 383,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/sglang_model.py",
+      "language": "python",
+      "sizeLines": 1142,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/stages.py",
+      "language": "python",
+      "sizeLines": 232,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/tokenizer.py",
+      "language": "python",
+      "sizeLines": 166,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/ming_tts/weight_loading.py",
+      "language": "python",
+      "sizeLines": 458,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/README.md",
+      "language": "markdown",
+      "sizeLines": 60,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "models/minimax_music3/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/acoustic.py",
+      "language": "python",
+      "sizeLines": 475,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/checkpoint.py",
+      "language": "python",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/chunking.py",
+      "language": "python",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/config.py",
+      "language": "python",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/constants.py",
+      "language": "python",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/dav.py",
+      "language": "python",
+      "sizeLines": 156,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/dit.py",
+      "language": "python",
+      "sizeLines": 495,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/engine_builder.py",
+      "language": "python",
+      "sizeLines": 214,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/model_runner.py",
+      "language": "python",
+      "sizeLines": 448,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/payload_types.py",
+      "language": "python",
+      "sizeLines": 31,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/prompt.py",
+      "language": "python",
+      "sizeLines": 120,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/request_builders.py",
+      "language": "python",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/rvq_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/rvq_decoder.py",
+      "language": "python",
+      "sizeLines": 191,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/scheduler.py",
+      "language": "python",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/sglang_model.py",
+      "language": "python",
+      "sizeLines": 299,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/sglang_request_builder.py",
+      "language": "python",
+      "sizeLines": 186,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/minimax_music3/stages.py",
+      "language": "python",
+      "sizeLines": 132,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/model_capabilities.py",
+      "language": "python",
+      "sizeLines": 79,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/config.py",
+      "language": "python",
+      "sizeLines": 114,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/encoder_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/encoder_service.py",
+      "language": "python",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/engine_builder.py",
+      "language": "python",
+      "sizeLines": 196,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/hf_config.py",
+      "language": "python",
+      "sizeLines": 77,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/request_builders.py",
+      "language": "python",
+      "sizeLines": 590,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/sglang_model.py",
+      "language": "python",
+      "sizeLines": 421,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_transcribe_diarize/stages.py",
+      "language": "python",
+      "sizeLines": 153,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/attention.py",
+      "language": "python",
+      "sizeLines": 846,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/audio_tokenizer.py",
+      "language": "python",
+      "sizeLines": 1888,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/config.py",
+      "language": "python",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/delay_pattern.py",
+      "language": "python",
+      "sizeLines": 65,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/engine_builder.py",
+      "language": "python",
+      "sizeLines": 72,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/hf_loading.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 795,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 840,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/sampler.py",
+      "language": "python",
+      "sizeLines": 269,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/sampling_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/sampling_kernels.py",
+      "language": "python",
+      "sizeLines": 197,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/sglang_model.py",
+      "language": "python",
+      "sizeLines": 624,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/stages.py",
+      "language": "python",
+      "sizeLines": 566,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 440,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/vocoder.py",
+      "language": "python",
+      "sizeLines": 393,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/vocoder_kernels.py",
+      "language": "python",
+      "sizeLines": 154,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts/vocoder_quantizer.py",
+      "language": "python",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/audio_tokenizer.py",
+      "language": "python",
+      "sizeLines": 321,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/config.py",
+      "language": "python",
+      "sizeLines": 260,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/engine_builder.py",
+      "language": "python",
+      "sizeLines": 164,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/local_transformer.py",
+      "language": "python",
+      "sizeLines": 171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/model_runner.py",
+      "language": "python",
+      "sizeLines": 703,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/payload_types.py",
+      "language": "python",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/radix_hash.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/request_builders.py",
+      "language": "python",
+      "sizeLines": 448,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/sglang_model.py",
+      "language": "python",
+      "sizeLines": 748,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/stages.py",
+      "language": "python",
+      "sizeLines": 724,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/state_pool.py",
+      "language": "python",
+      "sizeLines": 312,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 920,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/moss_tts_local/vocoder_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/__init__.py",
+      "language": "python",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/audio_lengths.py",
+      "language": "python",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/config.py",
+      "language": "python",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/configuration_qwen3_asr.py",
+      "language": "python",
+      "sizeLines": 165,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/encoder_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 349,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/encoder_service.py",
+      "language": "python",
+      "sizeLines": 590,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/engine_builder.py",
+      "language": "python",
+      "sizeLines": 301,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/languages.py",
+      "language": "python",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/mrope_fast_path.py",
+      "language": "python",
+      "sizeLines": 76,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/request_builders.py",
+      "language": "python",
+      "sizeLines": 535,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/sglang_model.py",
+      "language": "python",
+      "sizeLines": 355,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_asr/stages.py",
+      "language": "python",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/__init__.py",
+      "language": "python",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/bootstrap.py",
+      "language": "python",
+      "sizeLines": 300,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/__init__.py",
+      "language": "python",
+      "sizeLines": 2,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/audio_encoder.py",
+      "language": "python",
+      "sizeLines": 251,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/audio_layer_graph.py",
+      "language": "python",
+      "sizeLines": 251,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/code2wav_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 723,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/code2wav_scheduler.py",
+      "language": "python",
+      "sizeLines": 1065,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/common.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/image_encoder.py",
+      "language": "python",
+      "sizeLines": 202,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/preprocessor.py",
+      "language": "python",
+      "sizeLines": 728,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/sglang_thinker.py",
+      "language": "python",
+      "sizeLines": 247,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/streaming_detokenizer.py",
+      "language": "python",
+      "sizeLines": 318,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/talker.py",
+      "language": "python",
+      "sizeLines": 1817,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/talker_input.py",
+      "language": "python",
+      "sizeLines": 273,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/talker_prefill.py",
+      "language": "python",
+      "sizeLines": 405,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/thinker.py",
+      "language": "python",
+      "sizeLines": 376,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/thinker_fused_rope.py",
+      "language": "python",
+      "sizeLines": 185,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/thinker_model.py",
+      "language": "python",
+      "sizeLines": 842,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/components/vision_compat.py",
+      "language": "python",
+      "sizeLines": 146,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/config.py",
+      "language": "python",
+      "sizeLines": 403,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/hf_config.py",
+      "language": "python",
+      "sizeLines": 409,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/merge.py",
+      "language": "python",
+      "sizeLines": 293,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/mrope_positions.py",
+      "language": "python",
+      "sizeLines": 331,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/payload_types.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/pending_text_queue.py",
+      "language": "python",
+      "sizeLines": 116,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/placement.py",
+      "language": "python",
+      "sizeLines": 147,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/request_builders.py",
+      "language": "python",
+      "sizeLines": 1199,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/stages.py",
+      "language": "python",
+      "sizeLines": 1206,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/talker_model_runner.py",
+      "language": "python",
+      "sizeLines": 503,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/talker_scheduler.py",
+      "language": "python",
+      "sizeLines": 162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_omni/thinker_model_runner.py",
+      "language": "python",
+      "sizeLines": 324,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 17,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/compat.py",
+      "language": "python",
+      "sizeLines": 132,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/config.py",
+      "language": "python",
+      "sizeLines": 121,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/engine_builder.py",
+      "language": "python",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 401,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/payload_types.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 1382,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/sampling_kernels.py",
+      "language": "python",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/sglang_model.py",
+      "language": "python",
+      "sizeLines": 1698,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/stages.py",
+      "language": "python",
+      "sizeLines": 213,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/qwen3_tts/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 1510,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/registry.py",
+      "language": "python",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/__init__.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/acoustic_transformer.py",
+      "language": "python",
+      "sizeLines": 481,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/audio_tokenizer.py",
+      "language": "python",
+      "sizeLines": 675,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/config.py",
+      "language": "python",
+      "sizeLines": 63,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/io.py",
+      "language": "python",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/model_config.py",
+      "language": "python",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/model_runner.py",
+      "language": "python",
+      "sizeLines": 162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/pipeline/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/pipeline/engine_builder.py",
+      "language": "python",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/pipeline/next_stage.py",
+      "language": "python",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/pipeline/stages.py",
+      "language": "python",
+      "sizeLines": 411,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/pipeline/state_io.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/request_builders.py",
+      "language": "python",
+      "sizeLines": 117,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/sglang_model.py",
+      "language": "python",
+      "sizeLines": 341,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/voxtral_tts/voxtral_tts_audio_generation.py",
+      "language": "python",
+      "sizeLines": 633,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/weight_loader.py",
+      "language": "python",
+      "sizeLines": 266,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/__init__.py",
+      "language": "python",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/config.py",
+      "language": "python",
+      "sizeLines": 99,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/encoder_cuda_graph.py",
+      "language": "python",
+      "sizeLines": 153,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/encoder_service.py",
+      "language": "python",
+      "sizeLines": 553,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/engine_builder.py",
+      "language": "python",
+      "sizeLines": 294,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/request_builders.py",
+      "language": "python",
+      "sizeLines": 358,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/sglang_model.py",
+      "language": "python",
+      "sizeLines": 573,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/stages.py",
+      "language": "python",
+      "sizeLines": 75,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/whisper_asr/timestamp_logit_processor.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/__init__.py",
+      "language": "python",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/callbacks.py",
+      "language": "python",
+      "sizeLines": 133,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/components/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/components/audio_codec.py",
+      "language": "python",
+      "sizeLines": 170,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/components/speaker_encoder.py",
+      "language": "python",
+      "sizeLines": 381,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/components/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 395,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/components/text_frontend.py",
+      "language": "python",
+      "sizeLines": 417,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/config.py",
+      "language": "python",
+      "sizeLines": 112,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/engine_builder.py",
+      "language": "python",
+      "sizeLines": 241,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/hf_config.py",
+      "language": "python",
+      "sizeLines": 163,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/model_runner.py",
+      "language": "python",
+      "sizeLines": 402,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/moe_configs/triton_3_6_0/E=16,N=3072,device_name=NVIDIA_H100_80GB_HBM3.json",
+      "language": "json",
+      "sizeLines": 144,
+      "fileCategory": "config"
+    },
+    {
+      "path": "models/zonos2/payload_types.py",
+      "language": "python",
+      "sizeLines": 56,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/radix_hash.py",
+      "language": "python",
+      "sizeLines": 30,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/request_builders.py",
+      "language": "python",
+      "sizeLines": 271,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/sampler.py",
+      "language": "python",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/sglang_model.py",
+      "language": "python",
+      "sizeLines": 614,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/stages.py",
+      "language": "python",
+      "sizeLines": 259,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/state_pool.py",
+      "language": "python",
+      "sizeLines": 143,
+      "fileCategory": "code"
+    },
+    {
+      "path": "models/zonos2/streaming_contract.py",
+      "language": "python",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/__init__.py",
+      "language": "python",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/control_plane.py",
+      "language": "python",
+      "sizeLines": 446,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/coordinator.py",
+      "language": "python",
+      "sizeLines": 875,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/local_dispatch.py",
+      "language": "python",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/mp_runner.py",
+      "language": "python",
+      "sizeLines": 654,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/replicas.py",
+      "language": "python",
+      "sizeLines": 278,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/runtime_config.py",
+      "language": "python",
+      "sizeLines": 289,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/__init__.py",
+      "language": "python",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/input.py",
+      "language": "python",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/runtime.py",
+      "language": "python",
+      "sizeLines": 1843,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage/stream_queue.py",
+      "language": "python",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/stage_workers.py",
+      "language": "python",
+      "sizeLines": 879,
+      "fileCategory": "code"
+    },
+    {
+      "path": "pipeline/tp_control.py",
+      "language": "python",
+      "sizeLines": 188,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/__init__.py",
+      "language": "python",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/cpu.py",
+      "language": "python",
+      "sizeLines": 8,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/cuda.py",
+      "language": "python",
+      "sizeLines": 192,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/interface.py",
+      "language": "python",
+      "sizeLines": 62,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/musa.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/npu.py",
+      "language": "python",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/rocm.py",
+      "language": "python",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "platforms/xpu.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/__init__.py",
+      "language": "python",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/audio.py",
+      "language": "python",
+      "sizeLines": 278,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/base.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/cache_key.py",
+      "language": "python",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/image.py",
+      "language": "python",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/resource_connector.py",
+      "language": "python",
+      "sizeLines": 566,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/text.py",
+      "language": "python",
+      "sizeLines": 104,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/transcription.py",
+      "language": "python",
+      "sizeLines": 103,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/video.py",
+      "language": "python",
+      "sizeLines": 423,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/__main__.py",
+      "language": "python",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/base_profiler.py",
+      "language": "python",
+      "sizeLines": 58,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/comm_trace.py",
+      "language": "python",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/event_recorder.py",
+      "language": "python",
+      "sizeLines": 312,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/profiler_control.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/torch_profiler.py",
+      "language": "python",
+      "sizeLines": 201,
+      "fileCategory": "code"
+    },
+    {
+      "path": "profiler/views.py",
+      "language": "python",
+      "sizeLines": 416,
+      "fileCategory": "code"
+    },
+    {
+      "path": "proto/__init__.py",
+      "language": "python",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "proto/admin.py",
+      "language": "python",
+      "sizeLines": 100,
+      "fileCategory": "code"
+    },
+    {
+      "path": "proto/kv_transfer.py",
+      "language": "python",
+      "sizeLines": 83,
+      "fileCategory": "code"
+    },
+    {
+      "path": "proto/messages.py",
+      "language": "python",
+      "sizeLines": 420,
+      "fileCategory": "code"
+    },
+    {
+      "path": "proto/request.py",
+      "language": "python",
+      "sizeLines": 95,
+      "fileCategory": "code"
+    },
+    {
+      "path": "proto/stage.py",
+      "language": "python",
+      "sizeLines": 12,
+      "fileCategory": "code"
+    },
+    {
+      "path": "quantization.py",
+      "language": "python",
+      "sizeLines": 285,
+      "fileCategory": "code"
+    },
+    {
+      "path": "relay/__init__.py",
+      "language": "python",
+      "sizeLines": 20,
+      "fileCategory": "code"
+    },
+    {
+      "path": "relay/base.py",
+      "language": "python",
+      "sizeLines": 176,
+      "fileCategory": "code"
+    },
+    {
+      "path": "relay/cuda_ipc.py",
+      "language": "python",
+      "sizeLines": 1209,
+      "fileCategory": "code"
+    },
+    {
+      "path": "relay/mooncake.py",
+      "language": "python",
+      "sizeLines": 779,
+      "fileCategory": "code"
+    },
+    {
+      "path": "relay/nccl.py",
+      "language": "python",
+      "sizeLines": 313,
+      "fileCategory": "code"
+    },
+    {
+      "path": "relay/nixl.py",
+      "language": "python",
+      "sizeLines": 354,
+      "fileCategory": "code"
+    },
+    {
+      "path": "relay/shm.py",
+      "language": "python",
+      "sizeLines": 207,
+      "fileCategory": "code"
+    },
+    {
+      "path": "sampling/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "sampling/seed.py",
+      "language": "python",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/__init__.py",
+      "language": "python",
+      "sizeLines": 6,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/bootstrap.py",
+      "language": "python",
+      "sizeLines": 246,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/dllm_scheduler.py",
+      "language": "python",
+      "sizeLines": 363,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/engine_factory.py",
+      "language": "python",
+      "sizeLines": 471,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/generation_batch_policy.py",
+      "language": "python",
+      "sizeLines": 437,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/messages.py",
+      "language": "python",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/omni_scheduler.py",
+      "language": "python",
+      "sizeLines": 2722,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/pipeline_state.py",
+      "language": "python",
+      "sizeLines": 304,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/pre_lm_encoder.py",
+      "language": "python",
+      "sizeLines": 321,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/prepared_request_queue.py",
+      "language": "python",
+      "sizeLines": 111,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/reference_encoder.py",
+      "language": "python",
+      "sizeLines": 416,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/sglang_backend/__init__.py",
+      "language": "python",
+      "sizeLines": 24,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/sglang_backend/cache.py",
+      "language": "python",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/sglang_backend/decode.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/sglang_backend/output_processor.py",
+      "language": "python",
+      "sizeLines": 267,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/sglang_backend/prefill.py",
+      "language": "python",
+      "sizeLines": 151,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/sglang_backend/request_data.py",
+      "language": "python",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/sglang_backend/server_args_builder.py",
+      "language": "python",
+      "sizeLines": 105,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/simple_scheduler.py",
+      "language": "python",
+      "sizeLines": 327,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/speaker_cache.py",
+      "language": "python",
+      "sizeLines": 129,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/stage_cache.py",
+      "language": "python",
+      "sizeLines": 184,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/streaming_simple_scheduler.py",
+      "language": "python",
+      "sizeLines": 551,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/streaming_vocoder.py",
+      "language": "python",
+      "sizeLines": 513,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/threaded_simple_scheduler.py",
+      "language": "python",
+      "sizeLines": 226,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/token_text_streaming.py",
+      "language": "python",
+      "sizeLines": 130,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/typed_tensor.py",
+      "language": "python",
+      "sizeLines": 78,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/types.py",
+      "language": "python",
+      "sizeLines": 118,
+      "fileCategory": "code"
+    },
+    {
+      "path": "scheduling/vocoder_base.py",
+      "language": "python",
+      "sizeLines": 66,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/__init__.py",
+      "language": "python",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/generation_params.py",
+      "language": "python",
+      "sizeLines": 16,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/launcher.py",
+      "language": "python",
+      "sizeLines": 550,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/openai_api.py",
+      "language": "python",
+      "sizeLines": 1596,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/openai_errors.py",
+      "language": "python",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/protocol.py",
+      "language": "python",
+      "sizeLines": 658,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/__init__.py",
+      "language": "python",
+      "sizeLines": 10,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/audio_buffer.py",
+      "language": "python",
+      "sizeLines": 86,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/events.py",
+      "language": "python",
+      "sizeLines": 127,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/manager.py",
+      "language": "python",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/session.py",
+      "language": "python",
+      "sizeLines": 907,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/realtime/vad.py",
+      "language": "python",
+      "sizeLines": 122,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_errors.py",
+      "language": "python",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_limits.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_service.py",
+      "language": "python",
+      "sizeLines": 1053,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_to_text.py",
+      "language": "python",
+      "sizeLines": 545,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_voices.py",
+      "language": "python",
+      "sizeLines": 559,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/speech_ws.py",
+      "language": "python",
+      "sizeLines": 665,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/streaming.py",
+      "language": "python",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/subtitles.py",
+      "language": "python",
+      "sizeLines": 52,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/transcription_adapters/__init__.py",
+      "language": "python",
+      "sizeLines": 26,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/transcription_adapters/base.py",
+      "language": "python",
+      "sizeLines": 166,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/transcription_adapters/moss_transcribe_diarize.py",
+      "language": "python",
+      "sizeLines": 147,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/transcription_adapters/whisper.py",
+      "language": "python",
+      "sizeLines": 82,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/transcription_adapters/whisper_asr.py",
+      "language": "python",
+      "sizeLines": 162,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/transcription_chunking.py",
+      "language": "python",
+      "sizeLines": 295,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/transcriptions.py",
+      "language": "python",
+      "sizeLines": 467,
+      "fileCategory": "code"
+    },
+    {
+      "path": "serve/translations.py",
+      "language": "python",
+      "sizeLines": 182,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/__init__.py",
+      "language": "python",
+      "sizeLines": 43,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/audio.py",
+      "language": "python",
+      "sizeLines": 262,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/audio_features.py",
+      "language": "python",
+      "sizeLines": 87,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/audio_payload.py",
+      "language": "python",
+      "sizeLines": 54,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/checkpoint.py",
+      "language": "python",
+      "sizeLines": 14,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/codec_delay.py",
+      "language": "python",
+      "sizeLines": 32,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/connection.py",
+      "language": "python",
+      "sizeLines": 41,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/cpu.py",
+      "language": "python",
+      "sizeLines": 135,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/cuda_graph_batch_validator.py",
+      "language": "python",
+      "sizeLines": 371,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/cuda_staging.py",
+      "language": "python",
+      "sizeLines": 141,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/device.py",
+      "language": "python",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/gpu_compat.py",
+      "language": "python",
+      "sizeLines": 245,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/gpu_memory.py",
+      "language": "python",
+      "sizeLines": 334,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/hf.py",
+      "language": "python",
+      "sizeLines": 167,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/imports.py",
+      "language": "python",
+      "sizeLines": 22,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/ipc_weights.py",
+      "language": "python",
+      "sizeLines": 1171,
+      "fileCategory": "code"
+    },
+    {
+      "path": "utils/misc.py",
+      "language": "python",
+      "sizeLines": 107,
+      "fileCategory": "code"
+    }
+  ],
+  "totalFiles": 510,
+  "filteredByIgnore": 0,
+  "estimatedComplexity": "very-large",
+  "stats": {
+    "filesScanned": 510,
+    "byCategory": {
+      "code": 503,
+      "config": 4,
+      "docs": 3
+    },
+    "byLanguage": {
+      "unknown": 1,
+      "json": 3,
+      "python": 502,
+      "markdown": 3,
+      "yaml": 1
+    }
+  }
+}

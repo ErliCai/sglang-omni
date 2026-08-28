@@ -1,0 +1,1434 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/ming_omni/bootstrap.py",
+      "type": "file",
+      "name": "bootstrap.py",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "summary": "组装 Ming-Omni Thinker 调度器及请求、结果和流式输出适配器，统一文本、音频和完成信号的输出处理。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "streaming-output",
+        "adapter"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:create_thinker_scheduler",
+      "type": "function",
+      "name": "create_thinker_scheduler",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        16,
+        111
+      ],
+      "summary": "应用 Ming 运行参数并实例化 Thinker 的 SGLang 调度器。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "create-thinker-scheduler"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:make_thinker_scheduler_adapters",
+      "type": "function",
+      "name": "make_thinker_scheduler_adapters",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        114,
+        253
+      ],
+      "summary": "创建 Ming Thinker 请求构建器、结果适配器和选定的流式输出构建器。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "make-thinker-scheduler-adapters"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:make_combined_stream_output_builder",
+      "type": "function",
+      "name": "make_combined_stream_output_builder",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        256,
+        267
+      ],
+      "summary": "组合文本和 Talker 所需的 Thinker 流式输出。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "make-combined-stream-output-builder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:_select_stream_output_builder",
+      "type": "function",
+      "name": "_select_stream_output_builder",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        270,
+        284
+      ],
+      "summary": "按请求输出模态选择文本、语音或组合流式输出策略。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "select-stream-output-builder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:make_text_stream_output_builder",
+      "type": "function",
+      "name": "make_text_stream_output_builder",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        287,
+        337
+      ],
+      "summary": "构造把增量词元转换为文本流消息的输出函数。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "make-text-stream-output-builder"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:make_thinker_stream_output_builder",
+      "type": "function",
+      "name": "make_thinker_stream_output_builder",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        340,
+        430
+      ],
+      "summary": "构造处理 Thinker 多模态增量结果和结束信号的输出函数。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "make-thinker-stream-output-builder"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:_torch_long",
+      "type": "function",
+      "name": "_torch_long",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        433,
+        436
+      ],
+      "summary": "把词元数据转换为 Torch 长整型张量。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "torch-long"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:_collect_eos_token_ids",
+      "type": "function",
+      "name": "_collect_eos_token_ids",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        439,
+        442
+      ],
+      "summary": "从采样参数收集标准化的结束词元 ID 集合。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "collect-eos-token-ids"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/bootstrap.py:_stop_hits",
+      "type": "function",
+      "name": "_stop_hits",
+      "filePath": "models/ming_omni/bootstrap.py",
+      "lineRange": [
+        445,
+        447
+      ],
+      "summary": "判断当前词元是否命中任一停止条件。",
+      "tags": [
+        "ming-omni",
+        "scheduler-bootstrap",
+        "stop-hits"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/components/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/ming_omni/components/__init__.py",
+      "summary": "标记 Ming-Omni 可复用模型组件包。",
+      "tags": [
+        "ming-omni",
+        "components",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/components/audio_encoder.py",
+      "type": "file",
+      "name": "audio_encoder.py",
+      "filePath": "models/ming_omni/components/audio_encoder.py",
+      "summary": "加载并执行 Ming-Omni 的 Whisper 风格音频编码器，完成声学特征变换、长度计算和批量特征封装。",
+      "tags": [
+        "ming-omni",
+        "audio-encoder",
+        "whisper",
+        "feature-encoding"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/ming_omni/components/audio_encoder.py:Transpose",
+      "type": "class",
+      "name": "Transpose",
+      "filePath": "models/ming_omni/components/audio_encoder.py",
+      "lineRange": [
+        23,
+        32
+      ],
+      "summary": "提供可插入顺序网络的张量维度转置层。",
+      "tags": [
+        "ming-omni",
+        "audio-encoder",
+        "transpose"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/audio_encoder.py:MingAudioEncoder",
+      "type": "class",
+      "name": "MingAudioEncoder",
+      "filePath": "models/ming_omni/components/audio_encoder.py",
+      "lineRange": [
+        35,
+        279
+      ],
+      "summary": "构建并加载 Whisper 编码器，处理 Mel 特征、有效长度和批量输出包装。",
+      "tags": [
+        "ming-omni",
+        "audio-encoder",
+        "ming-audio-encoder"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/ming_omni/components/common.py",
+      "type": "file",
+      "name": "common.py",
+      "filePath": "models/ming_omni/components/common.py",
+      "summary": "提供 Ming-Omni 的分词器兼容补丁、模型配置加载和统一组件规格解析。",
+      "tags": [
+        "ming-omni",
+        "model-config",
+        "tokenizer",
+        "component-spec"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/components/common.py:load_ming_tokenizer",
+      "type": "function",
+      "name": "load_ming_tokenizer",
+      "filePath": "models/ming_omni/components/common.py",
+      "lineRange": [
+        27,
+        66
+      ],
+      "summary": "加载 Ming 分词器并补齐多模态兼容属性。",
+      "tags": [
+        "ming-omni",
+        "model-config",
+        "load-ming-tokenizer"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/common.py:_attach_ming_tokenizer_compat",
+      "type": "function",
+      "name": "_attach_ming_tokenizer_compat",
+      "filePath": "models/ming_omni/components/common.py",
+      "lineRange": [
+        69,
+        81
+      ],
+      "summary": "为分词器附加 Ming 预处理器依赖的特殊词元和兼容接口。",
+      "tags": [
+        "ming-omni",
+        "model-config",
+        "attach-ming-tokenizer-compat"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/common.py:load_ming_config",
+      "type": "function",
+      "name": "load_ming_config",
+      "filePath": "models/ming_omni/components/common.py",
+      "lineRange": [
+        84,
+        90
+      ],
+      "summary": "从模型路径读取并解析顶层 MingOmniConfig。",
+      "tags": [
+        "ming-omni",
+        "model-config",
+        "load-ming-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/common.py:load_llm_config",
+      "type": "function",
+      "name": "load_llm_config",
+      "filePath": "models/ming_omni/components/common.py",
+      "lineRange": [
+        93,
+        96
+      ],
+      "summary": "加载 Ming 语言模型子配置。",
+      "tags": [
+        "ming-omni",
+        "model-config",
+        "load-llm-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/common.py:load_audio_config",
+      "type": "function",
+      "name": "load_audio_config",
+      "filePath": "models/ming_omni/components/common.py",
+      "lineRange": [
+        99,
+        102
+      ],
+      "summary": "加载 Ming 音频编码器子配置。",
+      "tags": [
+        "ming-omni",
+        "model-config",
+        "load-audio-config"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/common.py:MingOmniSpec",
+      "type": "class",
+      "name": "MingOmniSpec",
+      "filePath": "models/ming_omni/components/common.py",
+      "lineRange": [
+        106,
+        121
+      ],
+      "summary": "汇总语言、音频、视觉等关键模型规格，并可由顶层配置构造。",
+      "tags": [
+        "ming-omni",
+        "model-config",
+        "ming-omni-spec"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/components/image_encoder.py",
+      "type": "file",
+      "name": "image_encoder.py",
+      "filePath": "models/ming_omni/components/image_encoder.py",
+      "summary": "独立加载 Ming-Omni 视觉编码器和投影器，处理张量并行上下文并输出 L2 归一化的图像特征。",
+      "tags": [
+        "ming-omni",
+        "image-encoder",
+        "vision-projector",
+        "tensor-parallel"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/components/image_encoder.py:_iter_weights_by_prefix",
+      "type": "function",
+      "name": "_iter_weights_by_prefix",
+      "filePath": "models/ming_omni/components/image_encoder.py",
+      "lineRange": [
+        27,
+        43
+      ],
+      "summary": "遍历检查点中指定前缀的视觉编码器或投影器权重。",
+      "tags": [
+        "ming-omni",
+        "image-encoder",
+        "iter-weights-by-prefix"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/image_encoder.py:_resolve_dtype",
+      "type": "function",
+      "name": "_resolve_dtype",
+      "filePath": "models/ming_omni/components/image_encoder.py",
+      "lineRange": [
+        266,
+        273
+      ],
+      "summary": "把配置中的数据类型名称解析为 Torch dtype。",
+      "tags": [
+        "ming-omni",
+        "image-encoder",
+        "resolve-dtype"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/image_encoder.py:MingImageEncoder",
+      "type": "class",
+      "name": "MingImageEncoder",
+      "filePath": "models/ming_omni/components/image_encoder.py",
+      "lineRange": [
+        46,
+        263
+      ],
+      "summary": "加载视觉主干与投影器，管理张量并行环境并输出归一化图像嵌入。",
+      "tags": [
+        "ming-omni",
+        "image-encoder",
+        "ming-image-encoder"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/ming_omni/components/preprocessor.py",
+      "type": "file",
+      "name": "preprocessor.py",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "summary": "处理 Ming-Omni 文本、图像、视频与音频输入，提取 Mel 特征、估算多模态词元并构造 Thinker 提示状态。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "mel-spectrogram",
+        "prompt-building"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/components/preprocessor.py:compute_mel_spectrogram",
+      "type": "function",
+      "name": "compute_mel_spectrogram",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        60,
+        89
+      ],
+      "summary": "把音频波形转换为 Ming Whisper 编码器所需的对数 Mel 频谱。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "compute-mel-spectrogram"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/preprocessor.py:_compute_mel_features_for_waveform",
+      "type": "function",
+      "name": "_compute_mel_features_for_waveform",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        92,
+        104
+      ],
+      "summary": "规范化单条波形并生成带长度信息的 Mel 特征。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "compute-mel-features-for-waveform"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/preprocessor.py:estimate_audio_feature_length",
+      "type": "function",
+      "name": "estimate_audio_feature_length",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        107,
+        123
+      ],
+      "summary": "根据音频样本数估算经过编码器下采样后的特征词元长度。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "estimate-audio-feature-length"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/preprocessor.py:_estimate_image_tokens",
+      "type": "function",
+      "name": "_estimate_image_tokens",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        126,
+        135
+      ],
+      "summary": "根据图像尺寸估算视觉编码器产生的图像词元数。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "estimate-image-tokens"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_images",
+      "type": "function",
+      "name": "_inject_top_level_images",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        138,
+        165
+      ],
+      "summary": "把请求顶层图像输入注入标准多模态消息内容。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "inject-top-level-images"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_audios",
+      "type": "function",
+      "name": "_inject_top_level_audios",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        168,
+        196
+      ],
+      "summary": "把请求顶层音频输入注入标准多模态消息内容。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "inject-top-level-audios"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_videos",
+      "type": "function",
+      "name": "_inject_top_level_videos",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        199,
+        224
+      ],
+      "summary": "把请求顶层视频输入注入标准多模态消息内容。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "inject-top-level-videos"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/preprocessor.py:MingPreprocessor",
+      "type": "class",
+      "name": "MingPreprocessor",
+      "filePath": "models/ming_omni/components/preprocessor.py",
+      "lineRange": [
+        227,
+        779
+      ],
+      "summary": "统一处理消息中的文本、图像、视频和音频，构建多模态提示与流水线状态。",
+      "tags": [
+        "ming-omni",
+        "multimodal-preprocessing",
+        "ming-preprocessor"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/ming_omni/components/projectors.py",
+      "type": "file",
+      "name": "projectors.py",
+      "filePath": "models/ming_omni/components/projectors.py",
+      "summary": "实现张量并行视觉投影 MLP，把视觉编码维度映射到语言模型隐藏空间并加载对应权重。",
+      "tags": [
+        "ming-omni",
+        "vision-projector",
+        "tensor-parallel"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_omni/components/projectors.py:VisionProjector",
+      "type": "class",
+      "name": "VisionProjector",
+      "filePath": "models/ming_omni/components/projectors.py",
+      "lineRange": [
+        28,
+        87
+      ],
+      "summary": "用列并行与行并行线性层把视觉特征投影到 LLM 隐藏维度。",
+      "tags": [
+        "ming-omni",
+        "vision-projector",
+        "projection-layer"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "type": "file",
+      "name": "streaming_detokenizer.py",
+      "filePath": "models/ming_omni/components/streaming_detokenizer.py",
+      "summary": "实现 Ming-Omni 流式反分词调度器，以 UTF-8 安全方式增量解码词元、发送文本增量并合并最终元数据。",
+      "tags": [
+        "ming-omni",
+        "streaming-detokenizer",
+        "utf8",
+        "scheduler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/components/streaming_detokenizer.py:_event_to_dict",
+      "type": "function",
+      "name": "_event_to_dict",
+      "filePath": "models/ming_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        305,
+        311
+      ],
+      "summary": "把 Ming 多模态事件对象转换为输出字典。",
+      "tags": [
+        "ming-omni",
+        "streaming-detokenizer",
+        "event-to-dict"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/streaming_detokenizer.py:text_output_requested",
+      "type": "function",
+      "name": "text_output_requested",
+      "filePath": "models/ming_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        314,
+        330
+      ],
+      "summary": "判断请求的输出模态是否包含文本。",
+      "tags": [
+        "ming-omni",
+        "streaming-detokenizer",
+        "text-output-requested"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/streaming_detokenizer.py:_attach_decode_final_metadata",
+      "type": "function",
+      "name": "_attach_decode_final_metadata",
+      "filePath": "models/ming_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        333,
+        341
+      ],
+      "summary": "把完成原因、用量等解码终态元数据附加到最终结果。",
+      "tags": [
+        "ming-omni",
+        "streaming-detokenizer",
+        "attach-decode-final-metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/components/streaming_detokenizer.py:create_ming_streaming_detokenize_scheduler",
+      "type": "function",
+      "name": "create_ming_streaming_detokenize_scheduler",
+      "filePath": "models/ming_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        344,
+        356
+      ],
+      "summary": "根据工厂参数创建并返回 Ming 流式反分词调度器。",
+      "tags": [
+        "ming-omni",
+        "streaming-detokenizer",
+        "create-ming-streaming-detokenize-scheduler"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/streaming_detokenizer.py:_RequestState",
+      "type": "class",
+      "name": "_RequestState",
+      "filePath": "models/ming_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        55,
+        59
+      ],
+      "summary": "保存单个反分词请求的待处理词元、已发送文本和终态信息。",
+      "tags": [
+        "ming-omni",
+        "streaming-detokenizer",
+        "request-state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/streaming_detokenizer.py:MingStreamingDetokenizeScheduler",
+      "type": "class",
+      "name": "MingStreamingDetokenizeScheduler",
+      "filePath": "models/ming_omni/components/streaming_detokenizer.py",
+      "lineRange": [
+        62,
+        302
+      ],
+      "summary": "消费增量词元，安全解码 UTF-8 文本增量，并协调主负载、流结束与最终结果。",
+      "tags": [
+        "ming-omni",
+        "streaming-detokenizer",
+        "ming-streaming-detokenize-scheduler"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/ming_omni/components/streaming_segmenter.py",
+      "type": "file",
+      "name": "streaming_segmenter.py",
+      "filePath": "models/ming_omni/components/streaming_segmenter.py",
+      "summary": "把 Thinker 的流式文本增量切分为可朗读片段，管理首段超时、结束同步和到 Talker 的流式路由。",
+      "tags": [
+        "ming-omni",
+        "text-segmentation",
+        "streaming-scheduler",
+        "talker-routing"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_omni/components/streaming_segmenter.py:_default_token_count",
+      "type": "function",
+      "name": "_default_token_count",
+      "filePath": "models/ming_omni/components/streaming_segmenter.py",
+      "lineRange": [
+        41,
+        43
+      ],
+      "summary": "使用空白分词提供默认文本词元数量估算。",
+      "tags": [
+        "ming-omni",
+        "text-segmentation",
+        "default-token-count"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/streaming_segmenter.py:_RequestState",
+      "type": "class",
+      "name": "_RequestState",
+      "filePath": "models/ming_omni/components/streaming_segmenter.py",
+      "lineRange": [
+        47,
+        56
+      ],
+      "summary": "保存单个分段请求的 SegmenterState、主负载和流完成状态。",
+      "tags": [
+        "ming-omni",
+        "text-segmentation",
+        "request-state"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_omni/components/streaming_segmenter.py:MingStreamingSegmenterScheduler",
+      "type": "class",
+      "name": "MingStreamingSegmenterScheduler",
+      "filePath": "models/ming_omni/components/streaming_segmenter.py",
+      "lineRange": [
+        59,
+        274
+      ],
+      "summary": "把文本流推入分段状态机，按标点、窗口或超时发送片段并同步结束。",
+      "tags": [
+        "ming-omni",
+        "text-segmentation",
+        "ming-streaming-segmenter-scheduler"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:create_thinker_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:create_thinker_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_thinker_scheduler_adapters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_thinker_scheduler_adapters",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_combined_stream_output_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_combined_stream_output_builder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_select_stream_output_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_select_stream_output_builder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_text_stream_output_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_text_stream_output_builder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_thinker_stream_output_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:make_thinker_stream_output_builder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_torch_long",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_torch_long",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_collect_eos_token_ids",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_collect_eos_token_ids",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_stop_hits",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/bootstrap.py",
+      "target": "function:models/ming_omni/bootstrap.py:_stop_hits",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/audio_encoder.py",
+      "target": "class:models/ming_omni/components/audio_encoder.py:Transpose",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/audio_encoder.py",
+      "target": "class:models/ming_omni/components/audio_encoder.py:Transpose",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/audio_encoder.py",
+      "target": "class:models/ming_omni/components/audio_encoder.py:MingAudioEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/audio_encoder.py",
+      "target": "class:models/ming_omni/components/audio_encoder.py:MingAudioEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_ming_tokenizer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_ming_tokenizer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:_attach_ming_tokenizer_compat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:_attach_ming_tokenizer_compat",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_ming_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_ming_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_llm_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_llm_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_audio_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "function:models/ming_omni/components/common.py:load_audio_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "class:models/ming_omni/components/common.py:MingOmniSpec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/common.py",
+      "target": "class:models/ming_omni/components/common.py:MingOmniSpec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/image_encoder.py",
+      "target": "function:models/ming_omni/components/image_encoder.py:_iter_weights_by_prefix",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/image_encoder.py",
+      "target": "function:models/ming_omni/components/image_encoder.py:_iter_weights_by_prefix",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/image_encoder.py",
+      "target": "function:models/ming_omni/components/image_encoder.py:_resolve_dtype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/image_encoder.py",
+      "target": "function:models/ming_omni/components/image_encoder.py:_resolve_dtype",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/image_encoder.py",
+      "target": "class:models/ming_omni/components/image_encoder.py:MingImageEncoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/image_encoder.py",
+      "target": "class:models/ming_omni/components/image_encoder.py:MingImageEncoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:compute_mel_spectrogram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:compute_mel_spectrogram",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_compute_mel_features_for_waveform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_compute_mel_features_for_waveform",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:estimate_audio_feature_length",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:estimate_audio_feature_length",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_estimate_image_tokens",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_estimate_image_tokens",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_images",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_images",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_audios",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_audios",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_videos",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "function:models/ming_omni/components/preprocessor.py:_inject_top_level_videos",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "class:models/ming_omni/components/preprocessor.py:MingPreprocessor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/preprocessor.py",
+      "target": "class:models/ming_omni/components/preprocessor.py:MingPreprocessor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/projectors.py",
+      "target": "class:models/ming_omni/components/projectors.py:VisionProjector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/projectors.py",
+      "target": "class:models/ming_omni/components/projectors.py:VisionProjector",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:_event_to_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:_event_to_dict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:text_output_requested",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:text_output_requested",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:_attach_decode_final_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:_attach_decode_final_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:create_ming_streaming_detokenize_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:create_ming_streaming_detokenize_scheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "class:models/ming_omni/components/streaming_detokenizer.py:_RequestState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "class:models/ming_omni/components/streaming_detokenizer.py:_RequestState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "class:models/ming_omni/components/streaming_detokenizer.py:MingStreamingDetokenizeScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_detokenizer.py",
+      "target": "class:models/ming_omni/components/streaming_detokenizer.py:MingStreamingDetokenizeScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_segmenter.py",
+      "target": "function:models/ming_omni/components/streaming_segmenter.py:_default_token_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_segmenter.py",
+      "target": "function:models/ming_omni/components/streaming_segmenter.py:_default_token_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_segmenter.py",
+      "target": "class:models/ming_omni/components/streaming_segmenter.py:_RequestState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_segmenter.py",
+      "target": "class:models/ming_omni/components/streaming_segmenter.py:_RequestState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_segmenter.py",
+      "target": "class:models/ming_omni/components/streaming_segmenter.py:MingStreamingSegmenterScheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/components/streaming_segmenter.py",
+      "target": "class:models/ming_omni/components/streaming_segmenter.py:MingStreamingSegmenterScheduler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/bootstrap.py:create_thinker_scheduler",
+      "target": "function:models/ming_omni/bootstrap.py:make_thinker_scheduler_adapters",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/bootstrap.py:create_thinker_scheduler",
+      "target": "function:models/ming_omni/bootstrap.py:_select_stream_output_builder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/bootstrap.py:_select_stream_output_builder",
+      "target": "function:models/ming_omni/bootstrap.py:make_combined_stream_output_builder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/bootstrap.py:_select_stream_output_builder",
+      "target": "function:models/ming_omni/bootstrap.py:make_text_stream_output_builder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/bootstrap.py:_select_stream_output_builder",
+      "target": "function:models/ming_omni/bootstrap.py:make_thinker_stream_output_builder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/bootstrap.py:_stop_hits",
+      "target": "function:models/ming_omni/bootstrap.py:_collect_eos_token_ids",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/components/common.py:load_ming_tokenizer",
+      "target": "function:models/ming_omni/components/common.py:_attach_ming_tokenizer_compat",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/components/common.py:load_llm_config",
+      "target": "function:models/ming_omni/components/common.py:load_ming_config",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/components/common.py:load_audio_config",
+      "target": "function:models/ming_omni/components/common.py:load_ming_config",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/components/preprocessor.py:_compute_mel_features_for_waveform",
+      "target": "function:models/ming_omni/components/preprocessor.py:compute_mel_spectrogram",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/components/preprocessor.py:_compute_mel_features_for_waveform",
+      "target": "function:models/ming_omni/components/preprocessor.py:estimate_audio_feature_length",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:models/ming_omni/components/streaming_detokenizer.py:create_ming_streaming_detokenize_scheduler",
+      "target": "class:models/ming_omni/components/streaming_detokenizer.py:MingStreamingDetokenizeScheduler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/ming_omni/components/audio_encoder.py:MingAudioEncoder",
+      "target": "class:models/ming_omni/components/audio_encoder.py:Transpose",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/components/image_encoder.py:MingImageEncoder",
+      "target": "class:models/ming_omni/components/vision_encoder.py:MingOmniVisionEncoder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/components/image_encoder.py:MingImageEncoder",
+      "target": "class:models/ming_omni/components/projectors.py:VisionProjector",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/components/preprocessor.py:MingPreprocessor",
+      "target": "function:models/ming_omni/components/preprocessor.py:compute_mel_spectrogram",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/components/streaming_detokenizer.py:MingStreamingDetokenizeScheduler",
+      "target": "function:models/ming_omni/components/streaming_detokenizer.py:text_output_requested",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/components/streaming_segmenter.py:MingStreamingSegmenterScheduler",
+      "target": "class:models/ming_omni/components/streaming_text.py:SegmenterState",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,218 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/higgs_tts/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 23,
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/higgs_tts/config.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 146,
+      "nonEmptyLines": 129,
+      "classes": [
+        {
+          "name": "HiggsTtsPipelineConfig",
+          "startLine": 20,
+          "endLine": 143,
+          "methods": [
+            "stage_factory_kwargs",
+            "model_post_init",
+            "requires_uploaded_voice_for_named_voice",
+            "supports_uploaded_voice_references"
+          ],
+          "properties": [
+            "architecture",
+            "requires_model_capabilities",
+            "stage_config_types",
+            "model_path",
+            "stages",
+            "_STREAM_CADENCE_KEYS"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "HiggsTtsPipelineConfig",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "stage_factory_kwargs",
+          "callee": "self.stage_named",
+          "lineNumber": 92
+        },
+        {
+          "caller": "stage_factory_kwargs",
+          "callee": "tuple",
+          "lineNumber": 105
+        },
+        {
+          "caller": "stage_factory_kwargs",
+          "callee": "range",
+          "lineNumber": 105
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super().model_post_init",
+          "lineNumber": 110
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "super",
+          "lineNumber": 110
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "preprocessing.env.setdefault",
+          "lineNumber": 114
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "str",
+          "lineNumber": 116
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "bounded_intraop_threads",
+          "lineNumber": 117
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "ValueError",
+          "lineNumber": 128
+        },
+        {
+          "caller": "model_post_init",
+          "callee": "ValueError",
+          "lineNumber": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/higgs_tts/hf_config.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "_build_text_config",
+          "startLine": 20,
+          "endLine": 35,
+          "params": [
+            "raw"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "HiggsMultimodalQwen3Config",
+          "startLine": 38,
+          "endLine": 66,
+          "methods": [
+            "__init__",
+            "get_text_config"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_text_config",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "HiggsMultimodalQwen3Config",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_build_text_config",
+          "callee": "isinstance",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_build_text_config",
+          "callee": "dict",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_build_text_config",
+          "callee": "cfg.get",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_build_text_config",
+          "callee": "cfg.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "_build_text_config",
+          "callee": "ValueError",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_build_text_config",
+          "callee": "cfg_cls",
+          "lineNumber": 35
+        },
+        {
+          "caller": "__init__",
+          "callee": "_build_text_config",
+          "lineNumber": 61
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 62
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

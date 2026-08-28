@@ -1,0 +1,1730 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "models/arkasr/audio_lengths.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "arkasr_num_audio_tokens",
+          "startLine": 13,
+          "endLine": 16,
+          "params": [
+            "mel_frames",
+            "merge_factor"
+          ]
+        },
+        {
+          "name": "arkasr_audio_token_lengths",
+          "startLine": 19,
+          "endLine": 32,
+          "params": [
+            "mel_frame_lengths",
+            "merge_factor"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "arkasr_num_audio_tokens",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "arkasr_audio_token_lengths",
+          "line": 19,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "arkasr_num_audio_tokens",
+          "callee": "int",
+          "lineNumber": 14
+        },
+        {
+          "caller": "arkasr_num_audio_tokens",
+          "callee": "max",
+          "lineNumber": 15
+        },
+        {
+          "caller": "arkasr_num_audio_tokens",
+          "callee": "int",
+          "lineNumber": 15
+        },
+        {
+          "caller": "arkasr_num_audio_tokens",
+          "callee": "max",
+          "lineNumber": 16
+        },
+        {
+          "caller": "arkasr_num_audio_tokens",
+          "callee": "int",
+          "lineNumber": 16
+        },
+        {
+          "caller": "arkasr_audio_token_lengths",
+          "callee": "isinstance",
+          "lineNumber": 24
+        },
+        {
+          "caller": "arkasr_audio_token_lengths",
+          "callee": "torch.div",
+          "lineNumber": 26
+        },
+        {
+          "caller": "arkasr_audio_token_lengths",
+          "callee": "max",
+          "lineNumber": 27
+        },
+        {
+          "caller": "arkasr_audio_token_lengths",
+          "callee": "int",
+          "lineNumber": 27
+        },
+        {
+          "caller": "arkasr_audio_token_lengths",
+          "callee": "merged.clamp",
+          "lineNumber": 29
+        },
+        {
+          "caller": "arkasr_audio_token_lengths",
+          "callee": "arkasr_num_audio_tokens",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "models/arkasr/audio_tower.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 301,
+      "nonEmptyLines": 269,
+      "functions": [
+        {
+          "name": "apply_rotary_pos_emb",
+          "startLine": 49,
+          "endLine": 65,
+          "params": [
+            "x",
+            "rope_cache"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ArkRotaryEmbedding",
+          "startLine": 21,
+          "endLine": 46,
+          "methods": [
+            "__init__",
+            "get_emb"
+          ],
+          "properties": []
+        },
+        {
+          "name": "WhisperRoPESdpaAttention",
+          "startLine": 68,
+          "endLine": 108,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "WhisperSpecialEncoderLayer",
+          "startLine": 111,
+          "endLine": 151,
+          "methods": [
+            "__init__",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ArkAudioTower",
+          "startLine": 154,
+          "endLine": 247,
+          "methods": [
+            "__init__",
+            "dtype",
+            "forward"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ArkAudioMLPAdapter",
+          "startLine": 250,
+          "endLine": 298,
+          "methods": [
+            "__init__",
+            "dtype",
+            "forward"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArkRotaryEmbedding",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "apply_rotary_pos_emb",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "WhisperRoPESdpaAttention",
+          "line": 68,
+          "isDefault": false
+        },
+        {
+          "name": "WhisperSpecialEncoderLayer",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "ArkAudioTower",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "ArkAudioMLPAdapter",
+          "line": 250,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 25
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 25
+        },
+        {
+          "caller": "get_emb",
+          "callee": "torch.arange",
+          "lineNumber": 35
+        },
+        {
+          "caller": "get_emb",
+          "callee": "torch.arange",
+          "lineNumber": 39
+        },
+        {
+          "caller": "get_emb",
+          "callee": "torch.outer",
+          "lineNumber": 40
+        },
+        {
+          "caller": "get_emb",
+          "callee": "torch.stack",
+          "lineNumber": 41
+        },
+        {
+          "caller": "get_emb",
+          "callee": "torch.cos",
+          "lineNumber": 42
+        },
+        {
+          "caller": "get_emb",
+          "callee": "torch.sin",
+          "lineNumber": 42
+        },
+        {
+          "caller": "get_emb",
+          "callee": "emb.to",
+          "lineNumber": 45
+        },
+        {
+          "caller": "apply_rotary_pos_emb",
+          "callee": "x_rot.reshape",
+          "lineNumber": 54
+        },
+        {
+          "caller": "apply_rotary_pos_emb",
+          "callee": "rope_cache[..., 0].unsqueeze",
+          "lineNumber": 55
+        },
+        {
+          "caller": "apply_rotary_pos_emb",
+          "callee": "rope_cache[..., 1].unsqueeze",
+          "lineNumber": 56
+        },
+        {
+          "caller": "apply_rotary_pos_emb",
+          "callee": "torch.stack",
+          "lineNumber": 57
+        },
+        {
+          "caller": "apply_rotary_pos_emb",
+          "callee": "x_out.flatten",
+          "lineNumber": 64
+        },
+        {
+          "caller": "apply_rotary_pos_emb",
+          "callee": "torch.cat",
+          "lineNumber": 65
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 72
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 72
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 77
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 78
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 79
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 80
+        },
+        {
+          "caller": "forward",
+          "callee": "hidden_states.size",
+          "lineNumber": 86
+        },
+        {
+          "caller": "forward",
+          "callee": "self.q_proj",
+          "lineNumber": 87
+        },
+        {
+          "caller": "forward",
+          "callee": "self.k_proj",
+          "lineNumber": 88
+        },
+        {
+          "caller": "forward",
+          "callee": "self.v_proj",
+          "lineNumber": 89
+        },
+        {
+          "caller": "forward",
+          "callee": "q.view(bsz, q_len, self.num_heads, self.head_dim)\r\n            .transpose(1, 2)\r\n            .contiguous",
+          "lineNumber": 91
+        },
+        {
+          "caller": "forward",
+          "callee": "q.view(bsz, q_len, self.num_heads, self.head_dim)\r\n            .transpose",
+          "lineNumber": 91
+        },
+        {
+          "caller": "forward",
+          "callee": "q.view",
+          "lineNumber": 91
+        },
+        {
+          "caller": "forward",
+          "callee": "k.view(bsz, -1, self.num_heads, self.head_dim).transpose(1, 2).contiguous",
+          "lineNumber": 95
+        },
+        {
+          "caller": "forward",
+          "callee": "k.view(bsz, -1, self.num_heads, self.head_dim).transpose",
+          "lineNumber": 95
+        },
+        {
+          "caller": "forward",
+          "callee": "k.view",
+          "lineNumber": 95
+        },
+        {
+          "caller": "forward",
+          "callee": "v.view(bsz, -1, self.num_heads, self.head_dim).transpose(1, 2).contiguous",
+          "lineNumber": 96
+        },
+        {
+          "caller": "forward",
+          "callee": "v.view(bsz, -1, self.num_heads, self.head_dim).transpose",
+          "lineNumber": 96
+        },
+        {
+          "caller": "forward",
+          "callee": "v.view",
+          "lineNumber": 96
+        },
+        {
+          "caller": "forward",
+          "callee": "apply_rotary_pos_emb",
+          "lineNumber": 98
+        },
+        {
+          "caller": "forward",
+          "callee": "apply_rotary_pos_emb",
+          "lineNumber": 99
+        },
+        {
+          "caller": "forward",
+          "callee": "q.to",
+          "lineNumber": 101
+        },
+        {
+          "caller": "forward",
+          "callee": "k.to",
+          "lineNumber": 102
+        },
+        {
+          "caller": "forward",
+          "callee": "v.to",
+          "lineNumber": 103
+        },
+        {
+          "caller": "forward",
+          "callee": "scaled_dot_product_attention",
+          "lineNumber": 104
+        },
+        {
+          "caller": "forward",
+          "callee": "attn.transpose(1, 2).contiguous().reshape",
+          "lineNumber": 107
+        },
+        {
+          "caller": "forward",
+          "callee": "attn.transpose(1, 2).contiguous",
+          "lineNumber": 107
+        },
+        {
+          "caller": "forward",
+          "callee": "attn.transpose",
+          "lineNumber": 107
+        },
+        {
+          "caller": "forward",
+          "callee": "self.out_proj",
+          "lineNumber": 108
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 115
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 115
+        },
+        {
+          "caller": "__init__",
+          "callee": "WhisperRoPESdpaAttention",
+          "lineNumber": 116
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn_layer_norm",
+          "lineNumber": 132
+        },
+        {
+          "caller": "forward",
+          "callee": "self.self_attn",
+          "lineNumber": 133
+        },
+        {
+          "caller": "forward",
+          "callee": "self.final_layer_norm",
+          "lineNumber": 138
+        },
+        {
+          "caller": "forward",
+          "callee": "self.activation_fn",
+          "lineNumber": 139
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc1",
+          "lineNumber": 139
+        },
+        {
+          "caller": "forward",
+          "callee": "self.fc2",
+          "lineNumber": 140
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.finfo",
+          "lineNumber": 147
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.clamp",
+          "lineNumber": 148
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 161
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 161
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Conv1d",
+          "lineNumber": 165
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Conv1d",
+          "lineNumber": 166
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Embedding",
+          "lineNumber": 167
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.embed_positions.requires_grad_",
+          "lineNumber": 168
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ModuleList",
+          "lineNumber": 169
+        },
+        {
+          "caller": "__init__",
+          "callee": "WhisperSpecialEncoderLayer",
+          "lineNumber": 170
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 170
+        },
+        {
+          "caller": "__init__",
+          "callee": "bool",
+          "lineNumber": 172
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 172
+        },
+        {
+          "caller": "__init__",
+          "callee": "ArkRotaryEmbedding",
+          "lineNumber": 175
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Identity",
+          "lineNumber": 178
+        },
+        {
+          "caller": "forward",
+          "callee": "ValueError",
+          "lineNumber": 201
+        },
+        {
+          "caller": "forward",
+          "callee": "tuple",
+          "lineNumber": 203
+        },
+        {
+          "caller": "forward",
+          "callee": "tuple",
+          "lineNumber": 204
+        },
+        {
+          "caller": "forward",
+          "callee": "attention_mask.to",
+          "lineNumber": 206
+        },
+        {
+          "caller": "forward",
+          "callee": "input_frame_mask.unsqueeze(1).to",
+          "lineNumber": 209
+        },
+        {
+          "caller": "forward",
+          "callee": "input_frame_mask.unsqueeze",
+          "lineNumber": 209
+        },
+        {
+          "caller": "forward",
+          "callee": "F.gelu",
+          "lineNumber": 213
+        },
+        {
+          "caller": "forward",
+          "callee": "self.conv1",
+          "lineNumber": 213
+        },
+        {
+          "caller": "forward",
+          "callee": "input_frame_mask.unsqueeze(1).to",
+          "lineNumber": 215
+        },
+        {
+          "caller": "forward",
+          "callee": "input_frame_mask.unsqueeze",
+          "lineNumber": 215
+        },
+        {
+          "caller": "forward",
+          "callee": "F.gelu",
+          "lineNumber": 218
+        },
+        {
+          "caller": "forward",
+          "callee": "self.conv2",
+          "lineNumber": 218
+        },
+        {
+          "caller": "forward",
+          "callee": "inputs_embeds.permute",
+          "lineNumber": 219
+        },
+        {
+          "caller": "forward",
+          "callee": "input_frame_mask[:, ::2].contiguous",
+          "lineNumber": 224
+        },
+        {
+          "caller": "forward",
+          "callee": "frame_mask.unsqueeze(-1).to",
+          "lineNumber": 226
+        },
+        {
+          "caller": "forward",
+          "callee": "frame_mask.unsqueeze",
+          "lineNumber": 226
+        },
+        {
+          "caller": "forward",
+          "callee": "self.rotary_embedding.get_emb(\r\n                inputs_embeds.shape[1], inputs_embeds.dtype, inputs_embeds.device\r\n            ).unsqueeze",
+          "lineNumber": 230
+        },
+        {
+          "caller": "forward",
+          "callee": "self.rotary_embedding.get_emb",
+          "lineNumber": 230
+        },
+        {
+          "caller": "forward",
+          "callee": "layer",
+          "lineNumber": 240
+        },
+        {
+          "caller": "forward",
+          "callee": "frame_mask.unsqueeze(-1).to",
+          "lineNumber": 244
+        },
+        {
+          "caller": "forward",
+          "callee": "frame_mask.unsqueeze",
+          "lineNumber": 244
+        },
+        {
+          "caller": "forward",
+          "callee": "self.layer_norm",
+          "lineNumber": 247
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 254
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 254
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 256
+        },
+        {
+          "caller": "__init__",
+          "callee": "ArkAudioTower",
+          "lineNumber": 257
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.LayerNorm",
+          "lineNumber": 258
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.GELU",
+          "lineNumber": 259
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.ReLU",
+          "lineNumber": 259
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.SELU",
+          "lineNumber": 259
+        },
+        {
+          "caller": "__init__",
+          "callee": "act_map.get",
+          "lineNumber": 260
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 260
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.GELU",
+          "lineNumber": 260
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Sequential",
+          "lineNumber": 263
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 264
+        },
+        {
+          "caller": "__init__",
+          "callee": "nn.Linear",
+          "lineNumber": 266
+        },
+        {
+          "caller": "forward",
+          "callee": "audios.size",
+          "lineNumber": 278
+        },
+        {
+          "caller": "forward",
+          "callee": "self.whisper",
+          "lineNumber": 279
+        },
+        {
+          "caller": "forward",
+          "callee": "self.layer_norm",
+          "lineNumber": 280
+        },
+        {
+          "caller": "forward",
+          "callee": "attention_mask[:, ::2].unsqueeze(-1).to",
+          "lineNumber": 282
+        },
+        {
+          "caller": "forward",
+          "callee": "attention_mask[:, ::2].unsqueeze",
+          "lineNumber": 282
+        },
+        {
+          "caller": "forward",
+          "callee": "encoded.size",
+          "lineNumber": 285
+        },
+        {
+          "caller": "forward",
+          "callee": "encoded.new_zeros",
+          "lineNumber": 291
+        },
+        {
+          "caller": "forward",
+          "callee": "encoded.size",
+          "lineNumber": 292
+        },
+        {
+          "caller": "forward",
+          "callee": "torch.cat",
+          "lineNumber": 294
+        },
+        {
+          "caller": "forward",
+          "callee": "encoded.reshape",
+          "lineNumber": 297
+        },
+        {
+          "caller": "forward",
+          "callee": "encoded.size",
+          "lineNumber": 297
+        },
+        {
+          "caller": "forward",
+          "callee": "self.adapting",
+          "lineNumber": 298
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 1,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "models/arkasr/configuration_arkasr.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 98,
+      "nonEmptyLines": 79,
+      "classes": [
+        {
+          "name": "ArkasrConfig",
+          "startLine": 29,
+          "endLine": 65,
+          "methods": [
+            "__init__",
+            "to_dict"
+          ],
+          "properties": []
+        },
+        {
+          "name": "ArkasrProcessor",
+          "startLine": 68,
+          "endLine": 91,
+          "methods": [
+            "__init__",
+            "from_pretrained"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArkasrConfig",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "ArkasrProcessor",
+          "line": 68,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 47
+        },
+        {
+          "caller": "__init__",
+          "callee": "isinstance",
+          "lineNumber": 48
+        },
+        {
+          "caller": "__init__",
+          "callee": "WhisperConfig",
+          "lineNumber": 49
+        },
+        {
+          "caller": "__init__",
+          "callee": "isinstance",
+          "lineNumber": 50
+        },
+        {
+          "caller": "__init__",
+          "callee": "WhisperConfig",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 55
+        },
+        {
+          "caller": "__init__",
+          "callee": "bool",
+          "lineNumber": 56
+        },
+        {
+          "caller": "__init__",
+          "callee": "bool",
+          "lineNumber": 57
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 58
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 60
+        },
+        {
+          "caller": "to_dict",
+          "callee": "super().to_dict",
+          "lineNumber": 63
+        },
+        {
+          "caller": "to_dict",
+          "callee": "super",
+          "lineNumber": 63
+        },
+        {
+          "caller": "to_dict",
+          "callee": "self.whisper_config.to_dict",
+          "lineNumber": 64
+        },
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 80
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 80
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "kwargs.pop",
+          "lineNumber": 84
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "AutoFeatureExtractor.from_pretrained",
+          "lineNumber": 85
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "AutoTokenizer.from_pretrained",
+          "lineNumber": 88
+        },
+        {
+          "caller": "from_pretrained",
+          "callee": "cls",
+          "lineNumber": 91
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 0,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "models/arkasr/request_builders.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 260,
+      "nonEmptyLines": 228,
+      "functions": [
+        {
+          "name": "_decode_token_ids",
+          "startLine": 54,
+          "endLine": 64,
+          "params": [
+            "tokenizer",
+            "token_ids",
+            "skip_special_tokens"
+          ]
+        },
+        {
+          "name": "_build_suppressed_token_ids",
+          "startLine": 67,
+          "endLine": 88,
+          "params": [
+            "tokenizer"
+          ]
+        },
+        {
+          "name": "make_arkasr_scheduler_adapters",
+          "startLine": 91,
+          "endLine": 257,
+          "params": [
+            "tokenizer",
+            "max_new_tokens",
+            "feature_extractor",
+            "merge_factor",
+            "audio_token_id",
+            "audio_encoder_service"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ArkASRRequestData",
+          "startLine": 46,
+          "endLine": 51,
+          "methods": [],
+          "properties": [
+            "prompt_token_ids",
+            "output_ids",
+            "audio_duration_s",
+            "language",
+            "engine_start_s"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArkASRRequestData",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "_decode_token_ids",
+          "line": 54,
+          "isDefault": false
+        },
+        {
+          "name": "_build_suppressed_token_ids",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "make_arkasr_scheduler_adapters",
+          "line": 91,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_decode_token_ids",
+          "callee": "tokenizer.decode",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_decode_token_ids",
+          "callee": "tokenizer.decode",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "int",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "isinstance",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "set",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "int",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "set",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "int",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "tokenizer.get_added_vocab",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "added.items",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "isinstance",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "tok.startswith",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "tok.endswith",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "bad.add",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "int",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_build_suppressed_token_ids",
+          "callee": "sorted",
+          "lineNumber": 88
+        },
+        {
+          "caller": "make_arkasr_scheduler_adapters",
+          "callee": "ValueError",
+          "lineNumber": 104
+        },
+        {
+          "caller": "make_arkasr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 106
+        },
+        {
+          "caller": "make_arkasr_scheduler_adapters",
+          "callee": "int",
+          "lineNumber": 107
+        },
+        {
+          "caller": "make_arkasr_scheduler_adapters",
+          "callee": "_build_suppressed_token_ids",
+          "lineNumber": 115
+        },
+        {
+          "caller": "_build_prompt_ids",
+          "callee": "list",
+          "lineNumber": 124
+        },
+        {
+          "caller": "_build_prompt_ids",
+          "callee": "tokenizer",
+          "lineNumber": 124
+        },
+        {
+          "caller": "request_builder",
+          "callee": "prepare_audio",
+          "lineNumber": 130
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_extractor",
+          "lineNumber": 140
+        },
+        {
+          "caller": "request_builder",
+          "callee": "getattr",
+          "lineNumber": 149
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.ones",
+          "lineNumber": 151
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 154
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_attention_mask.sum().item",
+          "lineNumber": 154
+        },
+        {
+          "caller": "request_builder",
+          "callee": "feature_attention_mask.sum",
+          "lineNumber": 154
+        },
+        {
+          "caller": "request_builder",
+          "callee": "arkasr_num_audio_tokens",
+          "lineNumber": 155
+        },
+        {
+          "caller": "request_builder",
+          "callee": "_build_prompt_ids",
+          "lineNumber": 157
+        },
+        {
+          "caller": "request_builder",
+          "callee": "MultimodalDataItem",
+          "lineNumber": 159
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_item.set_pad_value",
+          "lineNumber": 173
+        },
+        {
+          "caller": "request_builder",
+          "callee": "input_ids.index",
+          "lineNumber": 174
+        },
+        {
+          "caller": "request_builder",
+          "callee": "MultimodalInputs",
+          "lineNumber": 180
+        },
+        {
+          "caller": "request_builder",
+          "callee": "float",
+          "lineNumber": 185
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 185
+        },
+        {
+          "caller": "request_builder",
+          "callee": "int",
+          "lineNumber": 186
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 186
+        },
+        {
+          "caller": "request_builder",
+          "callee": "SamplingParams",
+          "lineNumber": 187
+        },
+        {
+          "caller": "request_builder",
+          "callee": "str",
+          "lineNumber": 193
+        },
+        {
+          "caller": "request_builder",
+          "callee": "sampling_params.normalize",
+          "lineNumber": 198
+        },
+        {
+          "caller": "request_builder",
+          "callee": "Req",
+          "lineNumber": 200
+        },
+        {
+          "caller": "request_builder",
+          "callee": "ArkASRRequestData",
+          "lineNumber": 211
+        },
+        {
+          "caller": "request_builder",
+          "callee": "torch.tensor",
+          "lineNumber": 212
+        },
+        {
+          "caller": "request_builder",
+          "callee": "str",
+          "lineNumber": 218
+        },
+        {
+          "caller": "request_builder",
+          "callee": "params.get",
+          "lineNumber": 218
+        },
+        {
+          "caller": "request_builder",
+          "callee": "time.perf_counter",
+          "lineNumber": 219
+        },
+        {
+          "caller": "request_builder",
+          "callee": "DeferredAdmission",
+          "lineNumber": 224
+        },
+        {
+          "caller": "request_builder",
+          "callee": "audio_encoder_service.submit_item",
+          "lineNumber": 226
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "list",
+          "lineNumber": 231
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "set",
+          "lineNumber": 236
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_decode_token_ids(\r\n            tokenizer, output_ids, skip_special_tokens=True\r\n        ).strip",
+          "lineNumber": 238
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "_decode_token_ids",
+          "lineNumber": 238
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "time.perf_counter",
+          "lineNumber": 242
+        },
+        {
+          "caller": "result_adapter",
+          "callee": "StagePayload",
+          "lineNumber": 244
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "models/arkasr/sglang_model.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 256,
+      "nonEmptyLines": 228,
+      "classes": [
+        {
+          "name": "ArkasrForConditionalGeneration",
+          "startLine": 35,
+          "endLine": 253,
+          "methods": [
+            "__init__",
+            "set_encoder_max_batch_size",
+            "pad_input_ids",
+            "get_audio_feature",
+            "_encode_audio_batch",
+            "forward",
+            "load_weights"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArkasrForConditionalGeneration",
+          "line": 35,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "super().__init__",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "super",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "int",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "getattr",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "ArkAudioMLPAdapter",
+          "lineNumber": 49
+        },
+        {
+          "caller": "__init__",
+          "callee": "Qwen2ForCausalLM",
+          "lineNumber": 50
+        },
+        {
+          "caller": "__init__",
+          "callee": "add_prefix",
+          "lineNumber": 53
+        },
+        {
+          "caller": "__init__",
+          "callee": "MultiModalityDataPaddingPatternMultimodalTokens",
+          "lineNumber": 55
+        },
+        {
+          "caller": "set_encoder_max_batch_size",
+          "callee": "ValueError",
+          "lineNumber": 60
+        },
+        {
+          "caller": "set_encoder_max_batch_size",
+          "callee": "int",
+          "lineNumber": 63
+        },
+        {
+          "caller": "pad_input_ids",
+          "callee": "self.pattern.pad_input_tokens",
+          "lineNumber": 66
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "ValueError",
+          "lineNumber": 79
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "range",
+          "lineNumber": 83
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "len",
+          "lineNumber": 83
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "outputs.append",
+          "lineNumber": 84
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "self._encode_audio_batch",
+          "lineNumber": 85
+        },
+        {
+          "caller": "get_audio_feature",
+          "callee": "torch.cat",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "next",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "self.audio_encoder.parameters",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "ValueError",
+          "lineNumber": 101
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "feature.unsqueeze",
+          "lineNumber": 104
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "ValueError",
+          "lineNumber": 106
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "tuple",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "int",
+          "lineNumber": 111
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "ValueError",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "int",
+          "lineNumber": 118
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "getattr",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "mask.unsqueeze",
+          "lineNumber": 124
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "ValueError",
+          "lineNumber": 126
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "tuple",
+          "lineNumber": 128
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "mask.to",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "int",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "mask.sum().item",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "mask.sum",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "bool",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "mask[0, :valid_frames].all",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "bool",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "mask[0, valid_frames:].any",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "ValueError",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "features.append",
+          "lineNumber": 142
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "mel_lengths.append",
+          "lineNumber": 143
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "len",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "max",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "torch.zeros",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "enumerate",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "zip",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "feature[0, :, :length].to",
+          "lineNumber": 152
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "torch.arange(max_frames, device=device).unsqueeze",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "torch.arange",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "torch.tensor(\r\n                mel_lengths, device=device, dtype=torch.long\r\n            ).unsqueeze",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "torch.tensor",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "self.audio_encoder",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "enumerate",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "arkasr_num_audio_tokens",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "outputs.append",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_encode_audio_batch",
+          "callee": "torch.cat",
+          "lineNumber": 175
+        },
+        {
+          "caller": "forward",
+          "callee": "general_mm_embed_routine",
+          "lineNumber": 184
+        },
+        {
+          "caller": "load_weights",
+          "callee": "dict",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_weights",
+          "callee": "self.named_parameters",
+          "lineNumber": 200
+        },
+        {
+          "caller": "load_weights",
+          "callee": "bool",
+          "lineNumber": 201
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 201
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 212
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 214
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.startswith",
+          "lineNumber": 216
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.endswith",
+          "lineNumber": 222
+        },
+        {
+          "caller": "load_weights",
+          "callee": "logger.debug",
+          "lineNumber": 225
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 228
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.replace",
+          "lineNumber": 236
+        },
+        {
+          "caller": "load_weights",
+          "callee": "mapped.endswith",
+          "lineNumber": 237
+        },
+        {
+          "caller": "load_weights",
+          "callee": "param.weight_loader",
+          "lineNumber": 242
+        },
+        {
+          "caller": "load_weights",
+          "callee": "name.endswith",
+          "lineNumber": 245
+        },
+        {
+          "caller": "load_weights",
+          "callee": "logger.debug",
+          "lineNumber": 248
+        },
+        {
+          "caller": "load_weights",
+          "callee": "getattr",
+          "lineNumber": 251
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    }
+  ]
+}

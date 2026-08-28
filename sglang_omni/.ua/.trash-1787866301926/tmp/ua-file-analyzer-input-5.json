@@ -1,0 +1,60 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {
+      "path": "preprocessing/audio.py",
+      "language": "python",
+      "sizeLines": 278,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/base.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/cache_key.py",
+      "language": "python",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/image.py",
+      "language": "python",
+      "sizeLines": 134,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/resource_connector.py",
+      "language": "python",
+      "sizeLines": 566,
+      "fileCategory": "code"
+    },
+    {
+      "path": "preprocessing/video.py",
+      "language": "python",
+      "sizeLines": 423,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "preprocessing/audio.py": [
+      "preprocessing/base.py"
+    ],
+    "preprocessing/base.py": [],
+    "preprocessing/cache_key.py": [],
+    "preprocessing/image.py": [
+      "preprocessing/base.py",
+      "preprocessing/cache_key.py"
+    ],
+    "preprocessing/resource_connector.py": [
+      "preprocessing/base.py"
+    ],
+    "preprocessing/video.py": [
+      "preprocessing/base.py",
+      "preprocessing/cache_key.py",
+      "preprocessing/resource_connector.py"
+    ]
+  }
+}

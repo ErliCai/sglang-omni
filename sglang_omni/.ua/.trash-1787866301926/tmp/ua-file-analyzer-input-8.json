@@ -1,0 +1,17 @@
+{
+  "projectRoot": "C:\\Users\\erlic\\Documents\\sgl-omni\\sglang-omni\\sglang_omni",
+  "batchFiles": [
+    {"path":"models/arkasr/audio_lengths.py","language":"python","sizeLines":35,"fileCategory":"code"},
+    {"path":"models/arkasr/audio_tower.py","language":"python","sizeLines":301,"fileCategory":"code"},
+    {"path":"models/arkasr/configuration_arkasr.py","language":"python","sizeLines":98,"fileCategory":"code"},
+    {"path":"models/arkasr/request_builders.py","language":"python","sizeLines":260,"fileCategory":"code"},
+    {"path":"models/arkasr/sglang_model.py","language":"python","sizeLines":256,"fileCategory":"code"}
+  ],
+  "batchImportData": {
+    "models/arkasr/audio_lengths.py":[],
+    "models/arkasr/audio_tower.py":[],
+    "models/arkasr/configuration_arkasr.py":["models/arkasr/audio_lengths.py"],
+    "models/arkasr/request_builders.py":["models/arkasr/audio_lengths.py"],
+    "models/arkasr/sglang_model.py":["models/arkasr/audio_lengths.py","models/arkasr/audio_tower.py","models/arkasr/configuration_arkasr.py"]
+  }
+}

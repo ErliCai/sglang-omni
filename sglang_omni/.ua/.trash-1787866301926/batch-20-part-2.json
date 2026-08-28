@@ -1,0 +1,808 @@
+{
+  "nodes": [
+    {
+      "id": "file:models/ming_omni/talker/audio_vae/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/ming_omni/talker/audio_vae/__init__.py",
+      "summary": "标记 Ming Talker 的 AudioVAE 实现包。",
+      "tags": [
+        "ming-omni",
+        "audio-vae",
+        "talker"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/talker/front/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/ming_omni/talker/front/__init__.py",
+      "summary": "公开从 Ming 引入的文本前处理工具包。",
+      "tags": [
+        "ming-omni",
+        "text-processing",
+        "talker"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/talker/talker_module/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/ming_omni/talker/talker_module/__init__.py",
+      "summary": "标记 Ming Talker 的声学生成模块包。",
+      "tags": [
+        "ming-omni",
+        "talker",
+        "acoustic-model"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_omni/thinker.py",
+      "type": "file",
+      "name": "thinker.py",
+      "filePath": "models/ming_omni/thinker.py",
+      "summary": "以原生 SGLang 层实现 Ming-Omni BailingMoeV2 Thinker，支持分页 KV 缓存、RadixAttention、融合 MoE 和张量并行。",
+      "tags": [
+        "ming-omni",
+        "thinker",
+        "mixture-of-experts",
+        "sglang-model"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/ming_omni/thinker.py:BailingMoeV2Attention",
+      "type": "class",
+      "name": "BailingMoeV2Attention",
+      "filePath": "models/ming_omni/thinker.py",
+      "lineRange": [
+        72,
+        204
+      ],
+      "summary": "实现带部分 RoPE、QK 归一化、GQA 和 RadixAttention 的 Bailing 注意力。",
+      "tags": [
+        "ming-omni",
+        "thinker",
+        "bailing-moe-v2-attention",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_omni/thinker.py:BailingMoeV2MLP",
+      "type": "class",
+      "name": "BailingMoeV2MLP",
+      "filePath": "models/ming_omni/thinker.py",
+      "lineRange": [
+        212,
+        263
+      ],
+      "summary": "实现 Bailing 稠密或专家门控前馈网络。",
+      "tags": [
+        "ming-omni",
+        "thinker",
+        "bailing-moe-v2-mlp",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_omni/thinker.py:BailingMoeV2SparseMoeBlock",
+      "type": "class",
+      "name": "BailingMoeV2SparseMoeBlock",
+      "filePath": "models/ming_omni/thinker.py",
+      "lineRange": [
+        271,
+        449
+      ],
+      "summary": "执行多路由 Top-K 专家选择、融合专家计算和共享专家输出。",
+      "tags": [
+        "ming-omni",
+        "thinker",
+        "bailing-moe-v2-sparse-moe-block",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/ming_omni/thinker.py:BailingMoeV2DecoderLayer",
+      "type": "class",
+      "name": "BailingMoeV2DecoderLayer",
+      "filePath": "models/ming_omni/thinker.py",
+      "lineRange": [
+        457,
+        574
+      ],
+      "summary": "组合注意力、稠密或稀疏 MoE 前馈层以及残差归一化。",
+      "tags": [
+        "ming-omni",
+        "thinker",
+        "bailing-moe-v2-decoder-layer",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:models/ming_omni/thinker.py:BailingMoeV2TextModel",
+      "type": "class",
+      "name": "BailingMoeV2TextModel",
+      "filePath": "models/ming_omni/thinker.py",
+      "lineRange": [
+        582,
+        768
+      ],
+      "summary": "堆叠 Bailing 解码层，执行嵌入、分页缓存前向并加载张量并行权重。",
+      "tags": [
+        "ming-omni",
+        "thinker",
+        "bailing-moe-v2-text-model",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:models/ming_omni/thinker.py:BailingMoeV2ForCausalLM",
+      "type": "class",
+      "name": "BailingMoeV2ForCausalLM",
+      "filePath": "models/ming_omni/thinker.py",
+      "lineRange": [
+        776,
+        968
+      ],
+      "summary": "在 Bailing 文本主干上添加词表头并修补多模态特殊词元 ID。",
+      "tags": [
+        "ming-omni",
+        "thinker",
+        "bailing-moe-v2-for-causal-lm",
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:models/ming_omni/tp_utils.py",
+      "type": "file",
+      "name": "tp_utils.py",
+      "filePath": "models/ming_omni/tp_utils.py",
+      "summary": "在构造 Ming 模型前校验注意力头的张量并行可分性及各阶段支持范围。",
+      "tags": [
+        "ming-omni",
+        "tensor-parallel",
+        "config-validation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_omni/tp_utils.py:validate_attention_tp_config",
+      "type": "function",
+      "name": "validate_attention_tp_config",
+      "filePath": "models/ming_omni/tp_utils.py",
+      "lineRange": [
+        8,
+        42
+      ],
+      "summary": "验证查询头和 KV 头能否按给定张量并行规模合法切分。",
+      "tags": [
+        "ming-omni",
+        "tensor-parallel",
+        "validate-attention-tp-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_omni/tp_utils.py:validate_stage_tp_support",
+      "type": "function",
+      "name": "validate_stage_tp_support",
+      "filePath": "models/ming_omni/tp_utils.py",
+      "lineRange": [
+        45,
+        55
+      ],
+      "summary": "拒绝在 Ming 不支持张量并行的阶段使用大于一的 TP 规模。",
+      "tags": [
+        "ming-omni",
+        "tensor-parallel",
+        "validate-stage-tp-support",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_tts/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "models/ming_tts/__init__.py",
+      "summary": "声明 Ming-Omni-TTS 16B 的参考音频、流式声码器和 CUDA 图能力。",
+      "tags": [
+        "ming-tts",
+        "model-capabilities",
+        "streaming-vocoder"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_tts/audio_config.py",
+      "type": "file",
+      "name": "audio_config.py",
+      "filePath": "models/ming_tts/audio_config.py",
+      "summary": "把 Ming-Omni-TTS 检查点中的 AudioVAE 配置适配为本地解码器配置，并规范化采样率等字段。",
+      "tags": [
+        "ming-tts",
+        "audio-vae",
+        "config-adapter"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_tts/audio_config.py:resolve_ming_tts_audio_vae_config",
+      "type": "function",
+      "name": "resolve_ming_tts_audio_vae_config",
+      "filePath": "models/ming_tts/audio_config.py",
+      "lineRange": [
+        17,
+        52
+      ],
+      "summary": "从顶层 TTS 配置提取 AudioVAE 字段，应用兼容默认值并构造解码器配置。",
+      "tags": [
+        "ming-tts",
+        "audio-vae",
+        "resolve-ming-tts-audio-vae-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:models/ming_tts/audio_decode.py",
+      "type": "file",
+      "name": "audio_decode.py",
+      "filePath": "models/ming_tts/audio_decode.py",
+      "summary": "加载 Ming AudioVAE 并维护流式解码缓存，把声学潜变量块增量或一次性解码为 44.1kHz 波形。",
+      "tags": [
+        "ming-tts",
+        "audio-decoder",
+        "audio-vae",
+        "streaming"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_tts/audio_decode.py:decode_ming_tts_audio_payload",
+      "type": "function",
+      "name": "decode_ming_tts_audio_payload",
+      "filePath": "models/ming_tts/audio_decode.py",
+      "lineRange": [
+        143,
+        170
+      ],
+      "summary": "读取 MingTTSState，调用解码器处理新潜变量并把波形结果写回负载。",
+      "tags": [
+        "ming-tts",
+        "audio-decoder",
+        "decode-ming-tts-audio-payload",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/audio_decode.py:MingAudioDecoderState",
+      "type": "class",
+      "name": "MingAudioDecoderState",
+      "filePath": "models/ming_tts/audio_decode.py",
+      "lineRange": [
+        25,
+        29
+      ],
+      "summary": "保存单个流式音频请求的 AudioVAE 缓存和已解码步数。",
+      "tags": [
+        "ming-tts",
+        "audio-decoder",
+        "ming-audio-decoder-state",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/audio_decode.py:MingAudioDecoder",
+      "type": "class",
+      "name": "MingAudioDecoder",
+      "filePath": "models/ming_tts/audio_decode.py",
+      "lineRange": [
+        32,
+        140
+      ],
+      "summary": "加载 AudioVAE，维护每请求缓存并支持增量和非流式潜变量解码。",
+      "tags": [
+        "ming-tts",
+        "audio-decoder",
+        "ming-audio-decoder",
+        "class"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:models/ming_tts/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "models/ming_tts/config.py",
+      "summary": "定义 Ming-Omni-TTS 的预处理、SGLang 声学生成和流式音频解码流水线，以及批量、节奏和拓扑约束。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "contract-validation",
+        "audio-decode"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:models/ming_tts/config.py:_validate_ming_tts_pipeline_contract",
+      "type": "function",
+      "name": "_validate_ming_tts_pipeline_contract",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        31,
+        111
+      ],
+      "summary": "校验 Ming TTS 阶段名称、顺序、流边、终端节点和工厂参数的一致性。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "validate-ming-tts-pipeline-contract",
+        "function"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:models/ming_tts/config.py:validate_ming_tts_audio_decode_batch_config",
+      "type": "function",
+      "name": "validate_ming_tts_audio_decode_batch_config",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        114,
+        141
+      ],
+      "summary": "验证音频解码最大批量与调度并发配置相容。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "validate-ming-tts-audio-decode-batch-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:models/ming_tts/config.py:validate_ming_tts_audio_decode_cadence_config",
+      "type": "function",
+      "name": "validate_ming_tts_audio_decode_cadence_config",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        144,
+        164
+      ],
+      "summary": "验证潜变量发送与音频解码步长、历史窗口的节奏配置。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "validate-ming-tts-audio-decode-cadence-config",
+        "function"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/config.py:MingTTSPreprocessingFactoryArgs",
+      "type": "class",
+      "name": "MingTTSPreprocessingFactoryArgs",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        167,
+        170
+      ],
+      "summary": "保存 Ming TTS 预处理器使用的模型与提示配置。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "ming-ttspreprocessing-factory-args",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/config.py:MingTTSPreprocessingStageConfig",
+      "type": "class",
+      "name": "MingTTSPreprocessingStageConfig",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        173,
+        176
+      ],
+      "summary": "扩展阶段配置以携带 Ming TTS 预处理工厂参数。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "ming-ttspreprocessing-stage-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/config.py:MingTTSAudioDecodeFactoryArgs",
+      "type": "class",
+      "name": "MingTTSAudioDecodeFactoryArgs",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        179,
+        183
+      ],
+      "summary": "保存流式音频解码器的批量、步长和缓存参数。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "ming-ttsaudio-decode-factory-args",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/config.py:MingTTSAudioDecodeStageConfig",
+      "type": "class",
+      "name": "MingTTSAudioDecodeStageConfig",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        186,
+        189
+      ],
+      "summary": "扩展阶段配置以携带 Ming TTS 音频解码工厂参数。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "ming-ttsaudio-decode-stage-config",
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:models/ming_tts/config.py:MingTTSPipelineConfig",
+      "type": "class",
+      "name": "MingTTSPipelineConfig",
+      "filePath": "models/ming_tts/config.py",
+      "lineRange": [
+        192,
+        306
+      ],
+      "summary": "定义 Ming TTS 三阶段流水线，并在模型校验后检查本地边与运行契约。",
+      "tags": [
+        "ming-tts",
+        "pipeline-config",
+        "ming-ttspipeline-config",
+        "class"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2Attention",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2Attention",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2MLP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2MLP",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2SparseMoeBlock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2SparseMoeBlock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2DecoderLayer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2DecoderLayer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2TextModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2TextModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2ForCausalLM",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/thinker.py",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2ForCausalLM",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/tp_utils.py",
+      "target": "function:models/ming_omni/tp_utils.py:validate_attention_tp_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/tp_utils.py",
+      "target": "function:models/ming_omni/tp_utils.py:validate_attention_tp_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_omni/tp_utils.py",
+      "target": "function:models/ming_omni/tp_utils.py:validate_stage_tp_support",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_omni/tp_utils.py",
+      "target": "function:models/ming_omni/tp_utils.py:validate_stage_tp_support",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/audio_config.py",
+      "target": "function:models/ming_tts/audio_config.py:resolve_ming_tts_audio_vae_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/audio_config.py",
+      "target": "function:models/ming_tts/audio_config.py:resolve_ming_tts_audio_vae_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/audio_decode.py",
+      "target": "function:models/ming_tts/audio_decode.py:decode_ming_tts_audio_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/audio_decode.py",
+      "target": "function:models/ming_tts/audio_decode.py:decode_ming_tts_audio_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/audio_decode.py",
+      "target": "class:models/ming_tts/audio_decode.py:MingAudioDecoderState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/audio_decode.py",
+      "target": "class:models/ming_tts/audio_decode.py:MingAudioDecoderState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/audio_decode.py",
+      "target": "class:models/ming_tts/audio_decode.py:MingAudioDecoder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/audio_decode.py",
+      "target": "class:models/ming_tts/audio_decode.py:MingAudioDecoder",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "function:models/ming_tts/config.py:_validate_ming_tts_pipeline_contract",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "function:models/ming_tts/config.py:_validate_ming_tts_pipeline_contract",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "function:models/ming_tts/config.py:validate_ming_tts_audio_decode_batch_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "function:models/ming_tts/config.py:validate_ming_tts_audio_decode_batch_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "function:models/ming_tts/config.py:validate_ming_tts_audio_decode_cadence_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "function:models/ming_tts/config.py:validate_ming_tts_audio_decode_cadence_config",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSPreprocessingFactoryArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSPreprocessingFactoryArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSPreprocessingStageConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSPreprocessingStageConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSAudioDecodeFactoryArgs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSAudioDecodeFactoryArgs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSAudioDecodeStageConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSAudioDecodeStageConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSPipelineConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:models/ming_tts/config.py",
+      "target": "class:models/ming_tts/config.py:MingTTSPipelineConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:models/ming_omni/thinker.py:BailingMoeV2SparseMoeBlock",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2MLP",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/thinker.py:BailingMoeV2DecoderLayer",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2Attention",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/thinker.py:BailingMoeV2DecoderLayer",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2SparseMoeBlock",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_omni/thinker.py:BailingMoeV2ForCausalLM",
+      "target": "class:models/ming_omni/thinker.py:BailingMoeV2TextModel",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:models/ming_tts/audio_decode.py:decode_ming_tts_audio_payload",
+      "target": "class:models/ming_tts/audio_decode.py:MingAudioDecoder",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:models/ming_tts/config.py:MingTTSPipelineConfig",
+      "target": "function:models/ming_tts/config.py:_validate_ming_tts_pipeline_contract",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

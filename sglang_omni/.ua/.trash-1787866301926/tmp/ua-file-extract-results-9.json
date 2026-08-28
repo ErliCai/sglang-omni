@@ -1,0 +1,1407 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "cli/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 12,
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "cli/check_gpu.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "check_gpu",
+          "startLine": 12,
+          "endLine": 41,
+          "params": [
+            "json_output",
+            "strict"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "check_gpu",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "check_gpu",
+          "callee": "typer.Option",
+          "lineNumber": 15
+        },
+        {
+          "caller": "check_gpu",
+          "callee": "typer.Option",
+          "lineNumber": 22
+        },
+        {
+          "caller": "check_gpu",
+          "callee": "collect_gpu_diagnostics",
+          "lineNumber": 30
+        },
+        {
+          "caller": "check_gpu",
+          "callee": "typer.echo",
+          "lineNumber": 32
+        },
+        {
+          "caller": "check_gpu",
+          "callee": "json.dumps",
+          "lineNumber": 32
+        },
+        {
+          "caller": "check_gpu",
+          "callee": "typer.echo",
+          "lineNumber": 34
+        },
+        {
+          "caller": "check_gpu",
+          "callee": "render_gpu_diagnostics",
+          "lineNumber": 34
+        },
+        {
+          "caller": "check_gpu",
+          "callee": "typer.Exit",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "cli/config.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 344,
+      "nonEmptyLines": 301,
+      "functions": [
+        {
+          "name": "_dump_yaml",
+          "startLine": 42,
+          "endLine": 49,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "view",
+          "startLine": 53,
+          "endLine": 64,
+          "params": [
+            "model_path"
+          ]
+        },
+        {
+          "name": "export",
+          "startLine": 68,
+          "endLine": 91,
+          "params": [
+            "model_path",
+            "output_path"
+          ]
+        },
+        {
+          "name": "_resolve_sources",
+          "startLine": 116,
+          "endLine": 202,
+          "params": [
+            "model_path",
+            "config_file",
+            "text_only",
+            "mem_fraction_static",
+            "argv"
+          ]
+        },
+        {
+          "name": "resolve",
+          "startLine": 208,
+          "endLine": 264,
+          "params": [
+            "ctx",
+            "model_path",
+            "config",
+            "text_only",
+            "mem_fraction_static",
+            "show"
+          ]
+        },
+        {
+          "name": "explain",
+          "startLine": 270,
+          "endLine": 344,
+          "params": [
+            "ctx",
+            "path",
+            "model_path",
+            "config",
+            "text_only",
+            "mem_fraction_static"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ResolveOutput",
+          "startLine": 99,
+          "endLine": 104,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "Resolution",
+          "startLine": 107,
+          "endLine": 113,
+          "methods": [],
+          "properties": [
+            "baseline",
+            "resolved"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_dump_yaml",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "view",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "export",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "ResolveOutput",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "Resolution",
+          "line": 107,
+          "isDefault": false
+        },
+        {
+          "name": "_resolve_sources",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "resolve",
+          "line": 205,
+          "isDefault": false
+        },
+        {
+          "name": "explain",
+          "line": 267,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_dump_yaml",
+          "callee": "yaml.dump",
+          "lineNumber": 43
+        },
+        {
+          "caller": "view",
+          "callee": "typer.Option",
+          "lineNumber": 56
+        },
+        {
+          "caller": "view",
+          "callee": "resolve_config_cls_for_model_path",
+          "lineNumber": 62
+        },
+        {
+          "caller": "view",
+          "callee": "config_cls",
+          "lineNumber": 63
+        },
+        {
+          "caller": "view",
+          "callee": "print",
+          "lineNumber": 64
+        },
+        {
+          "caller": "view",
+          "callee": "_dump_yaml",
+          "lineNumber": 64
+        },
+        {
+          "caller": "view",
+          "callee": "dump_user_config",
+          "lineNumber": 64
+        },
+        {
+          "caller": "export",
+          "callee": "typer.Option",
+          "lineNumber": 71
+        },
+        {
+          "caller": "export",
+          "callee": "typer.Option",
+          "lineNumber": 76
+        },
+        {
+          "caller": "export",
+          "callee": "resolve_config_cls_for_model_path",
+          "lineNumber": 82
+        },
+        {
+          "caller": "export",
+          "callee": "config_cls",
+          "lineNumber": 83
+        },
+        {
+          "caller": "export",
+          "callee": "open",
+          "lineNumber": 89
+        },
+        {
+          "caller": "export",
+          "callee": "f.write",
+          "lineNumber": 90
+        },
+        {
+          "caller": "export",
+          "callee": "_dump_yaml",
+          "lineNumber": 90
+        },
+        {
+          "caller": "export",
+          "callee": "dump_user_config",
+          "lineNumber": 90
+        },
+        {
+          "caller": "export",
+          "callee": "print",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "typer.BadParameter",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "sources_from_config_file",
+          "lineNumber": 145
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "patches.merge",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "patches_from_model_path_flag",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigManager.from_model_path",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "str",
+          "lineNumber": 154
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigPatchSet",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "patches.merge",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "patches_from_broadcast_flags",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigManager(baseline).parse_extra_args",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigManager",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "list",
+          "lineNumber": 163
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "patches.merge",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "patches_from_dotted_cli",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigResolver(baseline).resolve",
+          "lineNumber": 167
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigResolver",
+          "lineNumber": 167
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "tensor_parallel_engine_writes",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "apply_tensor_parallel_engine_overrides",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "resolved.patches.ordered",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "resolved.provenance.record_resolved",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "patch.path.read",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigSource",
+          "lineNumber": 181
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "derivation_writes.items",
+          "lineNumber": 185
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "resolved.provenance.touched",
+          "lineNumber": 186
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "ConfigPatch.create",
+          "lineNumber": 188
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "type",
+          "lineNumber": 189
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "resolved.provenance.record",
+          "lineNumber": 191
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "resolved.provenance.record_resolved",
+          "lineNumber": 192
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "derivation_patch.path.read",
+          "lineNumber": 193
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "Resolution",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "replace",
+          "lineNumber": 195
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "typer.BadParameter",
+          "lineNumber": 202
+        },
+        {
+          "caller": "_resolve_sources",
+          "callee": "str",
+          "lineNumber": 202
+        },
+        {
+          "caller": "resolve",
+          "callee": "typer.Option",
+          "lineNumber": 210
+        },
+        {
+          "caller": "resolve",
+          "callee": "typer.Option",
+          "lineNumber": 211
+        },
+        {
+          "caller": "resolve",
+          "callee": "typer.Option",
+          "lineNumber": 213
+        },
+        {
+          "caller": "resolve",
+          "callee": "typer.Option",
+          "lineNumber": 216
+        },
+        {
+          "caller": "resolve",
+          "callee": "typer.Option",
+          "lineNumber": 220
+        },
+        {
+          "caller": "resolve",
+          "callee": "_resolve_sources",
+          "lineNumber": 237
+        },
+        {
+          "caller": "resolve",
+          "callee": "print",
+          "lineNumber": 247
+        },
+        {
+          "caller": "resolve",
+          "callee": "_dump_yaml",
+          "lineNumber": 247
+        },
+        {
+          "caller": "resolve",
+          "callee": "dump_user_config",
+          "lineNumber": 247
+        },
+        {
+          "caller": "resolve",
+          "callee": "diff_configs",
+          "lineNumber": 253
+        },
+        {
+          "caller": "resolve",
+          "callee": "print",
+          "lineNumber": 255
+        },
+        {
+          "caller": "resolve",
+          "callee": "print",
+          "lineNumber": 258
+        },
+        {
+          "caller": "resolve",
+          "callee": "provenance.paths",
+          "lineNumber": 261
+        },
+        {
+          "caller": "resolve",
+          "callee": "print",
+          "lineNumber": 262
+        },
+        {
+          "caller": "resolve",
+          "callee": "print",
+          "lineNumber": 264
+        },
+        {
+          "caller": "resolve",
+          "callee": "\"\\n\\n\".join",
+          "lineNumber": 264
+        },
+        {
+          "caller": "resolve",
+          "callee": "provenance.explain",
+          "lineNumber": 264
+        },
+        {
+          "caller": "resolve",
+          "callee": "provenance.paths",
+          "lineNumber": 264
+        },
+        {
+          "caller": "explain",
+          "callee": "typer.Argument",
+          "lineNumber": 282
+        },
+        {
+          "caller": "explain",
+          "callee": "typer.Option",
+          "lineNumber": 291
+        },
+        {
+          "caller": "explain",
+          "callee": "typer.Option",
+          "lineNumber": 292
+        },
+        {
+          "caller": "explain",
+          "callee": "typer.Option",
+          "lineNumber": 294
+        },
+        {
+          "caller": "explain",
+          "callee": "typer.Option",
+          "lineNumber": 297
+        },
+        {
+          "caller": "explain",
+          "callee": "_resolve_sources",
+          "lineNumber": 305
+        },
+        {
+          "caller": "explain",
+          "callee": "provenance.paths",
+          "lineNumber": 315
+        },
+        {
+          "caller": "explain",
+          "callee": "print",
+          "lineNumber": 316
+        },
+        {
+          "caller": "explain",
+          "callee": "provenance.paths",
+          "lineNumber": 318
+        },
+        {
+          "caller": "explain",
+          "callee": "provenance.winner",
+          "lineNumber": 319
+        },
+        {
+          "caller": "explain",
+          "callee": "provenance.resolved_value",
+          "lineNumber": 321
+        },
+        {
+          "caller": "explain",
+          "callee": "print",
+          "lineNumber": 322
+        },
+        {
+          "caller": "explain",
+          "callee": "winner.source.describe",
+          "lineNumber": 322
+        },
+        {
+          "caller": "explain",
+          "callee": "canonicalize_dotted_key",
+          "lineNumber": 326
+        },
+        {
+          "caller": "explain",
+          "callee": "ConfigPath.parse",
+          "lineNumber": 327
+        },
+        {
+          "caller": "explain",
+          "callee": "type",
+          "lineNumber": 327
+        },
+        {
+          "caller": "explain",
+          "callee": "typer.BadParameter",
+          "lineNumber": 330
+        },
+        {
+          "caller": "explain",
+          "callee": "str",
+          "lineNumber": 330
+        },
+        {
+          "caller": "explain",
+          "callee": "provenance.touched",
+          "lineNumber": 332
+        },
+        {
+          "caller": "explain",
+          "callee": "print",
+          "lineNumber": 333
+        },
+        {
+          "caller": "explain",
+          "callee": "provenance.explain",
+          "lineNumber": 333
+        },
+        {
+          "caller": "explain",
+          "callee": "compiled.read",
+          "lineNumber": 336
+        },
+        {
+          "caller": "explain",
+          "callee": "print",
+          "lineNumber": 340
+        },
+        {
+          "caller": "explain",
+          "callee": "print",
+          "lineNumber": 341
+        },
+        {
+          "caller": "explain",
+          "callee": "print",
+          "lineNumber": 343
+        },
+        {
+          "caller": "explain",
+          "callee": "print",
+          "lineNumber": 344
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 6,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "cli/serve.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 434,
+      "nonEmptyLines": 383,
+      "functions": [
+        {
+          "name": "launch_server",
+          "startLine": 32,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "_validate_colocate_cli_request",
+          "startLine": 38,
+          "endLine": 49,
+          "params": [
+            "colocate",
+            "config",
+            "text_only"
+          ]
+        },
+        {
+          "name": "_validate_colocate_config",
+          "startLine": 52,
+          "endLine": 56,
+          "params": [
+            "pipeline_config"
+          ]
+        },
+        {
+          "name": "_should_print_merged_config",
+          "startLine": 59,
+          "endLine": 62,
+          "params": [
+            "colocate",
+            "log_level"
+          ]
+        },
+        {
+          "name": "_print_merged_config",
+          "startLine": 65,
+          "endLine": 75,
+          "params": [
+            "pipeline_config"
+          ]
+        },
+        {
+          "name": "_validate_allowed_local_media_path",
+          "startLine": 78,
+          "endLine": 84,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "_normalize_allowed_media_domains",
+          "startLine": 87,
+          "endLine": 93,
+          "params": [
+            "values"
+          ]
+        },
+        {
+          "name": "_validate_tts_batch_max_items",
+          "startLine": 96,
+          "endLine": 99,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "_engine_stage_names",
+          "startLine": 102,
+          "endLine": 108,
+          "params": [
+            "pipeline_config"
+          ]
+        },
+        {
+          "name": "patches_from_broadcast_flags",
+          "startLine": 111,
+          "endLine": 149,
+          "params": [
+            "pipeline_config",
+            "mem_fraction_static"
+          ]
+        },
+        {
+          "name": "_stage_tp_gpu_ids",
+          "startLine": 152,
+          "endLine": 158,
+          "params": [
+            "stage"
+          ]
+        },
+        {
+          "name": "_gate_custom_all_reduce_on_topology",
+          "startLine": 161,
+          "endLine": 186,
+          "params": [
+            "stage",
+            "updates",
+            "gpu_ids",
+            "should_disable"
+          ]
+        },
+        {
+          "name": "tensor_parallel_engine_writes",
+          "startLine": 189,
+          "endLine": 227,
+          "params": [
+            "pipeline_config"
+          ]
+        },
+        {
+          "name": "apply_tensor_parallel_engine_overrides",
+          "startLine": 230,
+          "endLine": 251,
+          "params": [
+            "pipeline_config"
+          ]
+        },
+        {
+          "name": "serve",
+          "startLine": 254,
+          "endLine": 434,
+          "params": [
+            "ctx",
+            "model_path",
+            "config",
+            "text_only",
+            "colocate",
+            "host",
+            "port",
+            "model_name",
+            "allowed_local_media_path",
+            "allowed_media_domain",
+            "tts_batch_max_items",
+            "mem_fraction_static",
+            "log_level",
+            "enable_realtime"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "launch_server",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_colocate_cli_request",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_colocate_config",
+          "line": 52,
+          "isDefault": false
+        },
+        {
+          "name": "_should_print_merged_config",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "_print_merged_config",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_allowed_local_media_path",
+          "line": 78,
+          "isDefault": false
+        },
+        {
+          "name": "_normalize_allowed_media_domains",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_tts_batch_max_items",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "_engine_stage_names",
+          "line": 102,
+          "isDefault": false
+        },
+        {
+          "name": "patches_from_broadcast_flags",
+          "line": 111,
+          "isDefault": false
+        },
+        {
+          "name": "_stage_tp_gpu_ids",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "_gate_custom_all_reduce_on_topology",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "tensor_parallel_engine_writes",
+          "line": 189,
+          "isDefault": false
+        },
+        {
+          "name": "apply_tensor_parallel_engine_overrides",
+          "line": 230,
+          "isDefault": false
+        },
+        {
+          "name": "serve",
+          "line": 254,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "launch_server",
+          "callee": "_launch_server",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_validate_colocate_cli_request",
+          "callee": "typer.BadParameter",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_validate_colocate_cli_request",
+          "callee": "typer.BadParameter",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_validate_colocate_config",
+          "callee": "type",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_validate_colocate_config",
+          "callee": "typer.BadParameter",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_should_print_merged_config",
+          "callee": "log_level.lower",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_print_merged_config",
+          "callee": "print",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_print_merged_config",
+          "callee": "print",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_print_merged_config",
+          "callee": "yaml.dump",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_print_merged_config",
+          "callee": "dump_user_config",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_print_merged_config",
+          "callee": "print",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_validate_allowed_local_media_path",
+          "callee": "str",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_validate_allowed_local_media_path",
+          "callee": "resolve_allowed_local_media_path",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_validate_allowed_local_media_path",
+          "callee": "typer.BadParameter",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_validate_allowed_local_media_path",
+          "callee": "str",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_normalize_allowed_media_domains",
+          "callee": "domains.extend",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_normalize_allowed_media_domains",
+          "callee": "part.strip().lower",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_normalize_allowed_media_domains",
+          "callee": "part.strip",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_normalize_allowed_media_domains",
+          "callee": "value.split",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_normalize_allowed_media_domains",
+          "callee": "part.strip",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_validate_tts_batch_max_items",
+          "callee": "typer.BadParameter",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_engine_stage_names",
+          "callee": "type",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_engine_stage_names",
+          "callee": "config_cls.stage_config_cls",
+          "lineNumber": 107
+        },
+        {
+          "caller": "patches_from_broadcast_flags",
+          "callee": "ConfigPatchSet",
+          "lineNumber": 129
+        },
+        {
+          "caller": "patches_from_broadcast_flags",
+          "callee": "_engine_stage_names",
+          "lineNumber": 133
+        },
+        {
+          "caller": "patches_from_broadcast_flags",
+          "callee": "typer.BadParameter",
+          "lineNumber": 135
+        },
+        {
+          "caller": "patches_from_broadcast_flags",
+          "callee": "patches.add",
+          "lineNumber": 140
+        },
+        {
+          "caller": "patches_from_broadcast_flags",
+          "callee": "ConfigPatch.create",
+          "lineNumber": 141
+        },
+        {
+          "caller": "patches_from_broadcast_flags",
+          "callee": "ConfigSource",
+          "lineNumber": 144
+        },
+        {
+          "caller": "patches_from_broadcast_flags",
+          "callee": "type",
+          "lineNumber": 145
+        },
+        {
+          "caller": "_stage_tp_gpu_ids",
+          "callee": "isinstance",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_stage_tp_gpu_ids",
+          "callee": "int",
+          "lineNumber": 158
+        },
+        {
+          "caller": "_gate_custom_all_reduce_on_topology",
+          "callee": "updates.get",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_gate_custom_all_reduce_on_topology",
+          "callee": "dict",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_gate_custom_all_reduce_on_topology",
+          "callee": "logger.info",
+          "lineNumber": 181
+        },
+        {
+          "caller": "_gate_custom_all_reduce_on_topology",
+          "callee": "list",
+          "lineNumber": 184
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "type",
+          "lineNumber": 197
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "config_cls.topology_gated_custom_all_reduce_stages",
+          "lineNumber": 199
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "config_cls.tensor_parallel_server_args_overrides",
+          "lineNumber": 204
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "tuple",
+          "lineNumber": 211
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "_stage_tp_gpu_ids",
+          "lineNumber": 211
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "should_disable_custom_all_reduce_for_gpus",
+          "lineNumber": 214
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "_gate_custom_all_reduce_on_topology",
+          "lineNumber": 216
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "stage.engine.overrides",
+          "lineNumber": 222
+        },
+        {
+          "caller": "tensor_parallel_engine_writes",
+          "callee": "updates.items",
+          "lineNumber": 223
+        },
+        {
+          "caller": "apply_tensor_parallel_engine_overrides",
+          "callee": "type",
+          "lineNumber": 244
+        },
+        {
+          "caller": "apply_tensor_parallel_engine_overrides",
+          "callee": "tensor_parallel_engine_writes",
+          "lineNumber": 245
+        },
+        {
+          "caller": "apply_tensor_parallel_engine_overrides",
+          "callee": "pipeline_config.model_dump",
+          "lineNumber": 248
+        },
+        {
+          "caller": "apply_tensor_parallel_engine_overrides",
+          "callee": "writes.items",
+          "lineNumber": 249
+        },
+        {
+          "caller": "apply_tensor_parallel_engine_overrides",
+          "callee": "ConfigPath.parse(path_text, config_cls).write",
+          "lineNumber": 250
+        },
+        {
+          "caller": "apply_tensor_parallel_engine_overrides",
+          "callee": "ConfigPath.parse",
+          "lineNumber": 250
+        },
+        {
+          "caller": "apply_tensor_parallel_engine_overrides",
+          "callee": "config_cls",
+          "lineNumber": 251
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 258
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 266
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 270
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 277
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 283
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 285
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 287
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 291
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 302
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 314
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 321
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 333
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.Option",
+          "lineNumber": 337
+        },
+        {
+          "caller": "serve",
+          "callee": "logging.basicConfig",
+          "lineNumber": 352
+        },
+        {
+          "caller": "serve",
+          "callee": "getattr",
+          "lineNumber": 353
+        },
+        {
+          "caller": "serve",
+          "callee": "log_level.upper",
+          "lineNumber": 353
+        },
+        {
+          "caller": "serve",
+          "callee": "_validate_colocate_cli_request",
+          "lineNumber": 357
+        },
+        {
+          "caller": "serve",
+          "callee": "ConfigManager.from_file",
+          "lineNumber": 366
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.BadParameter",
+          "lineNumber": 371
+        },
+        {
+          "caller": "serve",
+          "callee": "str",
+          "lineNumber": 371
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.BadParameter",
+          "lineNumber": 374
+        },
+        {
+          "caller": "serve",
+          "callee": "ConfigManager.from_model_path",
+          "lineNumber": 375
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.BadParameter",
+          "lineNumber": 378
+        },
+        {
+          "caller": "serve",
+          "callee": "ConfigManager.from_model_path",
+          "lineNumber": 379
+        },
+        {
+          "caller": "serve",
+          "callee": "config_manager.parse_extra_args",
+          "lineNumber": 384
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.BadParameter",
+          "lineNumber": 388
+        },
+        {
+          "caller": "serve",
+          "callee": "str",
+          "lineNumber": 388
+        },
+        {
+          "caller": "serve",
+          "callee": "patches_from_broadcast_flags",
+          "lineNumber": 392
+        },
+        {
+          "caller": "serve",
+          "callee": "flag_patches.merge",
+          "lineNumber": 401
+        },
+        {
+          "caller": "serve",
+          "callee": "patches_from_model_path_flag",
+          "lineNumber": 402
+        },
+        {
+          "caller": "serve",
+          "callee": "config_manager.merge_config",
+          "lineNumber": 405
+        },
+        {
+          "caller": "serve",
+          "callee": "typer.BadParameter",
+          "lineNumber": 414
+        },
+        {
+          "caller": "serve",
+          "callee": "str",
+          "lineNumber": 414
+        },
+        {
+          "caller": "serve",
+          "callee": "_validate_colocate_config",
+          "lineNumber": 416
+        },
+        {
+          "caller": "serve",
+          "callee": "apply_tensor_parallel_engine_overrides",
+          "lineNumber": 417
+        },
+        {
+          "caller": "serve",
+          "callee": "_should_print_merged_config",
+          "lineNumber": 419
+        },
+        {
+          "caller": "serve",
+          "callee": "_print_merged_config",
+          "lineNumber": 420
+        },
+        {
+          "caller": "serve",
+          "callee": "launch_server",
+          "lineNumber": 422
+        },
+        {
+          "caller": "serve",
+          "callee": "_validate_allowed_local_media_path",
+          "lineNumber": 429
+        },
+        {
+          "caller": "serve",
+          "callee": "_normalize_allowed_media_domains",
+          "lineNumber": 432
+        },
+        {
+          "caller": "serve",
+          "callee": "_validate_tts_batch_max_items",
+          "lineNumber": 433
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 15,
+        "functionCount": 15,
+        "classCount": 0
+      }
+    }
+  ]
+}
