@@ -1,0 +1,143 @@
+# Higgs Audio v3 TTS: Apple Silicon work log
+
+## Status — 2026-09-09
+
+Branch: `feat/higgs-tts-apple-silicon`, based on `c10629ba`.
+Initial milestone: MPS-compatible seeded sampling. **This branch does not yet
+provide a working Apple Higgs server or a native MLX implementation.**
+No checkpoint or Apple hardware has been used in local validation.
+
+## Ownership and prior-work audit
+
+Searched open and closed issues and PRs in `sgl-project/sglang-omni`, including
+Higgs titles, bodies and targeted comment searches, with `Higgs`,
+`higgs-audio-v3-tts`, and `boson` combined with Apple, MLX, MPS, macOS and Metal.
+The all-state Higgs-title PR query returned 78 results (below the 100-result
+limit); no Apple inference implementation was identified. MPS matches also
+include NVIDIA Multi-Process Service, which is unrelated to Apple Metal.
+Search results cannot establish whether someone has unpublished private work.
+
+- [Roadmap #1967](https://github.com/sgl-project/sglang-omni/issues/1967)
+  lists Higgs as Planned, without an assignee or implementation PR.
+- BruceLoveDecimal [volunteered for Higgs](https://github.com/sgl-project/sglang-omni/issues/1967#issuecomment-5568359766),
+  but the maintainer redirected them to Nemotron ASR and they
+  [accepted that assignment](https://github.com/sgl-project/sglang-omni/issues/1967#issuecomment-5569371507).
+- [PR #1993](https://github.com/sgl-project/sglang-omni/pull/1993), by Sheehan20,
+  is open and fixes CUDA-only sampler imports for macOS test collection.
+  It does not implement Higgs Apple inference.
+- [PR #1992](https://github.com/sgl-project/sglang-omni/pull/1992) documents
+  Apple support; it does not supply the missing Higgs runtime.
+- [PR #1721](https://github.com/sgl-project/sglang-omni/pull/1721) is merged.
+  Its NPU work already supplies device-aware stages, eager codec behavior and
+  pure-Torch top-k/top-p renormalization in this checkout. Reuse these changes.
+- [PR #1706](https://github.com/sgl-project/sglang-omni/pull/1706) targets XPU;
+  [PR #2026](https://github.com/sgl-project/sglang-omni/pull/2026) targets MUSA.
+  Neither is an Apple implementation.
+- General Higgs support already exists from
+  [PR #428](https://github.com/sgl-project/sglang-omni/pull/428). This branch is
+  specifically the Apple roadmap task, not a new model-family integration.
+
+No GitHub claim/comment or PR has been posted by this work.
+
+## Implemented
+
+- `apple_sampling.py`: CPU implementation of the pinned SGLang 0.5.18
+  MurmurHash/Gumbel seeded draw. Copy filtered log probabilities, seeds and
+  positions to CPU, perform integer hashing and float64 noise there, and return
+  only selected token IDs to the original device. MPS cannot perform the upstream
+  Triton hash or float64 noise calculation.
+- `sampler.py`: dispatch MPS seeded draws to this helper; lazily import the
+  existing SGLang sampler for all other devices. Existing renormalization and
+  delay/EOC state transitions are reused.
+- Portable numerical tests: independent MurmurHash vectors, seed/position
+  sensitivity, batch independence, probability distribution, masked-token hash
+  endpoints, output placement, shape errors, and CPU/MPS agreement given identical
+  logits. No model downloads or full serving installation needed.
+- Hardware integration tests: real batched sampler dispatch, top-k filtering,
+  seeded/unseeded and greedy rows, delay masks and row reuse on MPS.
+
+This explicit CPU boundary adds synchronization and transfer costs. It is an
+initial correctness path, not a performance result. Matching the hash algorithm
+does not establish identical speech across backends whose model logits differ.
+CUDA regression testing is still required for the changed import/dispatch path.
+
+## Remaining implementation
+
+1. Add and validate a conservative Torch/MPS engine profile: one active request,
+   eager execution, no CUDA graphs, no async CUDA decode, and safe prefill/cache
+   behavior. Audit typed-config overrides so they cannot re-enable CUDA settings.
+2. Audit/install the MPS language-model runner, multimodal embedding overlay,
+   model loading, normalization/attention and request cleanup. Reuse the existing
+   Qwen3-ASR Apple integration contracts where applicable.
+3. Validate the official Higgs checkpoint and audio tokenizer on MPS, including
+   reference encoding, float32/bfloat16 behavior, codec convolution support and
+   stage-to-stage tensor transport. Record the exact checkpoint revisions.
+4. Complete HTTP non-streaming speech, then reference voice cloning and streaming;
+   test empty/invalid requests, interruption, request reuse and memory stability.
+5. Add native MLX model/runner support separately, preserving the same prompt,
+   delayed codebook, stop and seed semantics. No MLX support is claimed today.
+6. Qualify accuracy and performance on real hardware before updating support
+   claims or submitting an implementation PR.
+
+## Tests to run on Apple Silicon now
+
+First transfer this branch **including its uncommitted files** to your Mac.
+The branch currently exists only in this local checkout; it has not been pushed.
+Use a native arm64 Python, not an x86_64 interpreter under Rosetta.
+
+### A. Standalone numeric and Metal tests (no model download)
+
+From the repository root, use a small isolated environment:
+
+```bash
+python3 -m venv /tmp/higgs-apple-sampling-venv
+source /tmp/higgs-apple-sampling-venv/bin/activate
+python -m pip install torch==2.13.0 pytest
+sw_vers
+system_profiler SPHardwareDataType
+python -c 'import platform, torch; print(platform.machine(), torch.__version__); print("MPS:", torch.backends.mps.is_available()); assert platform.machine() == "arm64"; assert torch.backends.mps.is_available()'
+git rev-parse HEAD
+git diff --stat
+env -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
+  python -m pytest -v tests/unit_test/higgs_tts/test_apple_sampling.py
+```
+
+Expected: all 15 cases pass, including the five MPS cases; no skips.
+`HIGGS_REQUIRE_MPS=1` makes missing Metal hardware a failure. Disabling implicit
+PyTorch fallback helps expose unsupported operations; the sampler's intentional
+CPU transfer is still part of this implementation.
+
+### B. Full-package sampler integration
+
+Use an existing working SGLang-Omni Apple environment matching this checkout's
+pinned dependencies. The minimal environment in A is insufficient for B.
+
+```bash
+env -u SGLANG_USE_MLX -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
+  python -m pytest -v tests/unit_test/higgs_tts/test_apple_sampler_integration.py
+```
+
+Expected: three cases pass with real MPS tensors and the real Higgs sampler.
+If package import fails, send the full traceback. Known shared import blockers
+are tracked in [#1890](https://github.com/sgl-project/sglang-omni/issues/1890)
+and [#1918](https://github.com/sgl-project/sglang-omni/pull/1918); do not treat
+a collection failure as a numerical-test result.
+
+Return both test logs, chip model, unified memory, macOS version, Python/Torch
+versions and the tested revision/diff. No full-server launch is requested yet:
+engine/runner support is unfinished. Once it is wired, the hardware acceptance
+suite must cover real speech quality (listening plus transcription/WER), cloning,
+streaming continuity, repeated requests, peak memory and latency/RTF; WAV validity
+alone is not enough.
+
+## Local validation
+
+Windows x86_64, Python 3.12.7, isolated `.venv-higgs-apple`, Torch 2.14.0.
+The environment is locally excluded via `.git/info/exclude`.
+
+- Portable tests: 10 passed; five Metal cases skipped because MPS is unavailable.
+- Three full-package MPS tests skipped on Windows; pending Apple hardware and
+  the full serving environment. Combined result: 10 passed, eight skipped.
+- Black 24.10.0, isort 5.13.2 and `git diff --check` passed.
+- No inference, model-quality, latency or memory result is claimed.
+- The pre-existing `.gitignore` edit excluding `.codegraph/` is preserved.
