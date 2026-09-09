@@ -62,5 +62,6 @@ def multinomial_with_seed_cpu(
         min=torch.finfo(torch.float64).min, max=-(2.0**-32)
     )
     scores = -(-log_uniform).log()
-    scores += logprobs.detach().to(device="cpu", dtype=torch.float64)
+    # Transfer first: MPS does not support float64 conversion on the device.
+    scores += logprobs.detach().cpu().to(dtype=torch.float64)
     return scores.argmax(dim=-1, keepdim=True).to(logprobs.device)

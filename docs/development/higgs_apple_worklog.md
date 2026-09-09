@@ -5,7 +5,8 @@
 Branch: `feat/higgs-tts-apple-silicon`, based on `c10629ba`.
 Initial milestone: MPS-compatible seeded sampling. **This branch does not yet
 provide a working Apple Higgs server or a native MLX implementation.**
-No checkpoint or Apple hardware has been used in local validation.
+Apple M1 Pro validation now passes all 18 sampler tests without skips or
+warnings. No checkpoint or end-to-end speech generation has been validated.
 
 ## Ownership and prior-work audit
 
@@ -55,6 +56,9 @@ No GitHub claim/comment or PR has been posted by this work.
   logits. No model downloads or full serving installation needed.
 - Hardware integration tests: real batched sampler dispatch, top-k filtering,
   seeded/unseeded and greedy rows, delay masks and row reuse on MPS.
+- Mac validation fix: transfer logits with `.detach().cpu()` before converting
+  to float64. The combined device/dtype conversion caused MPS errors and incorrect
+  sampling results; separating the operations resolves all five failing MPS cases.
 
 This explicit CPU boundary adds synchronization and transfer costs. It is an
 initial correctness path, not a performance result. Matching the hash algorithm
@@ -81,18 +85,19 @@ CUDA regression testing is still required for the changed import/dispatch path.
 
 ## Tests to run on Apple Silicon now
 
-First transfer this branch **including its uncommitted files** to your Mac.
-The branch currently exists only in this local checkout; it has not been pushed.
-Use a native arm64 Python, not an x86_64 interpreter under Rosetta.
+The branch is available from `origin` (the ErliCai fork). The CPU conversion fix
+is currently a local change on top of `ce067ef6`; include it when reproducing.
+Use a native arm64 Python, not an x86_64 interpreter under Rosetta. Full-package
+testing requires Python 3.10–3.12; the Apple installer uses Python 3.12.
 
 ### A. Standalone numeric and Metal tests (no model download)
 
 From the repository root, use a small isolated environment:
 
 ```bash
-python3 -m venv /tmp/higgs-apple-sampling-venv
+python3.12 -m venv /tmp/higgs-apple-sampling-venv
 source /tmp/higgs-apple-sampling-venv/bin/activate
-python -m pip install torch==2.13.0 pytest
+python -m pip install torch==2.11.0 pytest
 sw_vers
 system_profiler SPHardwareDataType
 python -c 'import platform, torch; print(platform.machine(), torch.__version__); print("MPS:", torch.backends.mps.is_available()); assert platform.machine() == "arm64"; assert torch.backends.mps.is_available()'
@@ -111,6 +116,16 @@ CPU transfer is still part of this implementation.
 
 Use an existing working SGLang-Omni Apple environment matching this checkout's
 pinned dependencies. The minimal environment in A is insufficient for B.
+From a fresh terminal in the repository root, set it up with:
+
+```bash
+./install.sh
+source .venv-apple/bin/activate
+```
+
+If another virtualenv is active, run `deactivate` first. A Python 3.14 environment
+containing only Torch and pytest cannot run the full-package tests: it falls
+outside the project's Python range and lacks dependencies such as `transformers`.
 
 ```bash
 env -u SGLANG_USE_MLX -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
@@ -131,6 +146,33 @@ streaming continuity, repeated requests, peak memory and latency/RTF; WAV validi
 alone is not enough.
 
 ## Local validation
+
+### Apple M1 Pro — current validation
+
+- Hardware: Apple M1 Pro, 16 GiB unified memory, native arm64.
+- OS: macOS 26.3 (25D125).
+- Environment: `.venv-apple`, Python 3.12.11, Torch 2.11.0; MPS available.
+- Revision: `ce067ef6f95de406bf9db10e5304fd6e200ba12c` plus the local
+  CPU-before-float64 conversion fix in `apple_sampling.py`.
+- Result: **18 passed in 7.95s**, zero skips and zero warnings: 15 standalone
+  cases (including five MPS cases) and three real MPS sampler integration cases.
+- `SGLANG_USE_MLX` and `PYTORCH_ENABLE_MPS_FALLBACK` were unset;
+  `HIGGS_REQUIRE_MPS=1` required actual Metal availability.
+
+Reproduction command from the repository root:
+
+```bash
+env -u SGLANG_USE_MLX -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
+  .venv-apple/bin/python -m pytest -v \
+  tests/unit_test/higgs_tts/test_apple_sampling.py \
+  tests/unit_test/higgs_tts/test_apple_sampler_integration.py
+```
+
+This qualifies sampler behavior only. Next is the MPS engine/runner work listed
+above, followed by checkpoint/codec and end-to-end speech validation. CUDA
+regression, speech quality, cloning, streaming, memory and latency remain untested.
+
+### Earlier Windows validation
 
 Windows x86_64, Python 3.12.7, isolated `.venv-higgs-apple`, Torch 2.14.0.
 The environment is locally excluded via `.git/info/exclude`.

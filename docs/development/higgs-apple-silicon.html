@@ -20,8 +20,8 @@
   <header>
     <span class="tag">开发记录 · 2026-09-09 快照</span>
     <h1>让 Higgs Audio v3 在 Mac 上运行</h1>
-    <p class="lead">没有找到正在进行的 Apple 推理实现，因此已创建开发分支，并完成第一块基础工作：让带种子的采样避开 MPS 不支持的计算。</p>
-    <p class="meta">分支：<code>feat/higgs-tts-apple-silicon</code> · 基于 <code>c10629ba</code> · 修改尚未提交或推送</p>
+    <p class="lead">采样兼容层已在 Apple M1 Pro 上验证：18 项测试全部通过，无跳过、无警告。下一步是接通 MPS 引擎和模型运行器。</p>
+    <p class="meta">分支：<code>feat/higgs-tts-apple-silicon</code> · 测试提交 <code>ce067ef6</code> 加本地 CPU 转换修复 · 分支已在 fork 上，修复尚未提交</p>
     <div class="notice"><strong>当前还不能说“Mac 已经能生成语音”。</strong><br>已实现的是采样兼容层；完整推理引擎、音频编解码验证和原生 MLX 路径仍待完成。</div>
   </header>
 
@@ -74,6 +74,7 @@
       <div class="node"><span class="label">回到 MPS</span><h3>选中的音频代码编号</h3><small>继续原有延迟 / 结束状态机。</small></div>
     </div>
     <p><strong>种子的作用：</strong>给定相同输入、种子和生成位置，结果应可重复；其他请求插入批次，不应改变这一行的结果。不同后端的模型数值可能不同，所以这不代表最终生成的声音一定逐字节一致。</p>
+    <p><strong>Mac 实测修复：</strong>先用 <code>.detach().cpu()</code> 把对数概率传到 CPU，再转换成 <code>float64</code>。原先合并设备与类型转换的写法导致 5 项 MPS 测试失败；拆开后全部通过。</p>
     <p class="meta">实现文件：<a href="../../sglang_omni/models/higgs_tts/apple_sampling.py">apple_sampling.py</a> · <a href="../../sglang_omni/models/higgs_tts/sampler.py">sampler.py</a></p>
   </section>
 
@@ -82,30 +83,35 @@
     <div class="flow">
       <div class="node done"><h3>已完成代码</h3><small>采样兼容层<br>CPU 数值测试：10 项通过</small></div>
       <span class="arrow" aria-hidden="true">→</span>
-      <div class="node active"><h3>等待你的 Mac 验证</h3><small>5 项 Metal 数值测试<br>3 项真实采样器集成测试</small></div>
+      <div class="node done"><h3>Mac 验证已通过</h3><small>5 项 Metal 数值测试<br>3 项真实采样器集成测试</small></div>
       <span class="arrow" aria-hidden="true">→</span>
-      <div class="node"><h3>待继续开发</h3><small>MPS 引擎 / 模型加载<br>参考编码与音频解码<br>HTTP / 流式语音与质量验证</small></div>
+      <div class="node active"><h3>下一步开发</h3><small>MPS 引擎 / 模型加载<br>参考编码与音频解码<br>HTTP / 流式语音与质量验证</small></div>
       <span class="arrow" aria-hidden="true">→</span>
       <div class="node"><h3>后续独立路径</h3><small>原生 MLX 模型与运行器<br>性能与质量对比</small></div>
     </div>
-    <p>本机是 Windows，结果为 <strong class="pass">10 通过</strong>、<strong class="pending">8 跳过</strong>。跳过的是 Apple 硬件测试，并非测试成功。Black、isort 与 Git 差异空白检查已通过；CUDA 回归测试尚未执行。</p>
+    <p>当前 Mac 实测：<strong class="pass">18 通过，0 跳过，0 警告，耗时 7.95 秒</strong>。设备为 Apple M1 Pro、16 GiB 统一内存，macOS 26.3（25D125），原生 arm64 Python 3.12.11、Torch 2.11.0，环境为 <code>.venv-apple</code>。CUDA 回归、完整语音生成、质量和性能尚未验证。</p>
+    <p class="meta">此前 Windows 验证为 10 通过、8 跳过；当前结果补齐了真实 Apple 硬件上的采样测试。</p>
   </section>
 
   <section aria-labelledby="tests">
-    <h2 id="tests">⑤ 你在 Apple Silicon Mac 上要跑什么？</h2>
-    <p>先把此分支和<strong>未提交的新文件</strong>一起传到 Mac；当前修改没有推送，仅切换远端分支无法获得这些文件。以下命令均在仓库根目录执行。</p>
+    <h2 id="tests">⑤ 如何复现 Apple Silicon 测试？</h2>
+    <p>使用 fork 上的此分支，并包含本地 CPU 转换修复。以下命令均在仓库根目录执行。完整项目要求 Python 3.10–3.12；Apple 安装脚本使用 Python 3.12。</p>
     <div class="grid">
       <div><span class="tag">A · 无需模型下载</span><h3>先验证数值与 Metal 往返</h3><p>只需要原生 arm64 Python、Torch 与 pytest。</p>
-<pre><code>python3 -m venv /tmp/higgs-apple-sampling-venv
+<pre><code>python3.12 -m venv /tmp/higgs-apple-sampling-venv
 source /tmp/higgs-apple-sampling-venv/bin/activate
-python -m pip install torch==2.13.0 pytest
+python -m pip install torch==2.11.0 pytest
 
 env -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
   python -m pytest -v \
   tests/unit_test/higgs_tts/test_apple_sampling.py</code></pre>
       <p class="pass">预期：15 项通过，0 跳过。</p></div>
       <div><span class="tag">B · 完整 Apple 环境</span><h3>再验证真实 Higgs 采样器</h3><p>切换到匹配此仓库依赖的 SGLang-Omni Apple 环境；A 的最小环境不足以运行此组。</p>
-<pre><code>env -u SGLANG_USE_MLX \
+<pre><code># 若已激活 A 的环境，先执行 deactivate
+./install.sh
+source .venv-apple/bin/activate
+
+env -u SGLANG_USE_MLX \
   -u PYTORCH_ENABLE_MPS_FALLBACK \
   HIGGS_REQUIRE_MPS=1 \
   python -m pytest -v \
@@ -114,11 +120,16 @@ env -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
     </div>
     <p><code>HIGGS_REQUIRE_MPS=1</code> 会在没有 Metal 时直接报错，避免“跳过”被误读为“通过”。关闭隐式 CPU 回退是为了发现不支持的运算；本次实现中明确设计的 CPU 采样边界仍会执行。</p>
     <div class="flow">
-      <div class="node done"><h3>全部通过</h3><small>回传两组日志；继续引擎和编解码集成。</small></div>
+      <div class="node done"><h3>全部通过（已完成）</h3><small>已记录测试结果；继续引擎和编解码集成。</small></div>
       <div class="node"><h3>导入 / 测试收集失败</h3><small>回传完整 traceback；先定位依赖或共享导入问题。</small></div>
       <div class="node"><h3>数值或 MPS 运算失败</h3><small>回传失败用例名与完整错误；修复后再推进。</small></div>
     </div>
-    <p><strong>请同时提供：</strong>芯片型号、统一内存大小、macOS / Python / Torch 版本，以及测试时的提交号和差异。先不用下载 Higgs 权重或启动语音服务器，完整运行路径仍未接通。</p>
+    <p><strong>复测时记录：</strong>芯片型号、统一内存大小、macOS / Python / Torch 版本，以及测试时的提交号和差异。先不用下载 Higgs 权重或启动语音服务器，完整运行路径仍未接通。</p>
+    <p>本次两组测试使用以下命令一起运行；结果为 18 项通过：</p>
+<pre><code>env -u SGLANG_USE_MLX -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
+  .venv-apple/bin/python -m pytest -v \
+  tests/unit_test/higgs_tts/test_apple_sampling.py \
+  tests/unit_test/higgs_tts/test_apple_sampler_integration.py</code></pre>
 <pre><code>sw_vers
 system_profiler SPHardwareDataType
 python -c 'import platform, torch; print(platform.machine(), platform.python_version(), torch.__version__); print("MPS:", torch.backends.mps.is_available())'
