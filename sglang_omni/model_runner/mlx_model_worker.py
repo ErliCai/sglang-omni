@@ -11,7 +11,7 @@ from sglang_omni.model_runner.base import ModelRunner
 
 _MLX_RUNNER_FACTORIES = {
     "Qwen3ASRForConditionalGeneration": "sglang_omni.models.qwen3_asr.mlx.runner:make_qwen3_asr_mlx_runner_class",
-    "HiggsTTSModel": "sglang_omni.models.higgs_tts.mlx_runner:make_higgs_mlx_runner_class",
+    "HiggsTTSModel": "sglang_omni.models.higgs_tts.mlx.runner:make_higgs_mlx_runner_class",
 }
 
 

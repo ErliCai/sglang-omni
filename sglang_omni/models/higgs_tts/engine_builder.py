@@ -253,7 +253,9 @@ class HiggsTtsEngineBuilder(TtsEngineBuilder):
 
             runner_cls = HiggsTorchMpsModelRunner
             if self._uses_mlx():
-                from sglang_omni.models.higgs_tts.mlx_runner import HiggsMlxModelRunner
+                from sglang_omni.models.higgs_tts.mlx.scheduler_runner import (
+                    HiggsMlxModelRunner,
+                )
 
                 runner_cls = HiggsMlxModelRunner
             self._mps_runner = runner_cls(model_worker, output_proc)

@@ -24,7 +24,7 @@ def test_factories_are_lazy_and_preserve_asr(monkeypatch):
     )
     assert calls == ["sglang_omni.models.qwen3_asr.mlx.runner"]
     assert registry.resolve_mlx_runner_factory("HiggsTTSModel") is factory
-    assert calls[-1] == "sglang_omni.models.higgs_tts.mlx_runner"
+    assert calls[-1] == "sglang_omni.models.higgs_tts.mlx.runner"
 
 
 def test_unknown_architecture_does_not_import(monkeypatch):

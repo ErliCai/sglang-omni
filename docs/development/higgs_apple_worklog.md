@@ -1,5 +1,8 @@
 # Higgs Audio v3 TTS: Apple Silicon work log
 
+> MLX 目录重构：拆分 mlx/model.py、mlx/runner.py、mlx/scheduler_runner.py 与延迟导入入口；registry 和测试同步更新，原函数/类 AST 一致。190 项回归通过（8.50 秒，0 跳过）。本轮未重跑完整 HTTP E2E；本次提交纳入目录重构，目标为 fork 的 feat/higgs-tts-apple-silicon 分支。
+
+
 > 2026-09-10 审查前两项已修复：采用公共 MLX registry/worker 与 SGLANG_USE_MLX=1，移除独立 language_backend；直接加载 MLX 语言层，复用 Torch 音频模块，补齐请求释放接口。种子不一致使 HTTP 探测失败。190 项回归通过（7.20 秒，0 跳过），包含 Qwen3-ASR 公共接口回归；实际 MLX 默认语音与克隆输出均与旧版已试听 WAV 逐字节一致。以下为历史记录，最新命令见 HTML 顶部。
 
 

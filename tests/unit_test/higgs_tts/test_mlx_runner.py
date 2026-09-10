@@ -8,10 +8,8 @@ pytest.importorskip("mlx_lm")
 
 from sglang.srt.utils.tensor_bridge import mlx_to_torch, torch_to_mlx
 
-from sglang_omni.models.higgs_tts.mlx_runner import (
-    HiggsMlxModelRunner,
-    load_mlx_language_model,
-)
+from sglang_omni.models.higgs_tts.mlx.model import load_mlx_language_model
+from sglang_omni.models.higgs_tts.mlx.scheduler_runner import HiggsMlxModelRunner
 from tests.unit_test.higgs_tts.test_torch_mps_runner import (  # noqa: F401
     checkpoint,
     runner,
@@ -123,7 +121,7 @@ def test_reference_embeddings_and_multicodebook_decode(mlx_runner):
 
 def test_public_worker_registry():
     from sglang_omni.model_runner.mlx_model_worker import resolve_mlx_runner_factory
-    from sglang_omni.models.higgs_tts.mlx_runner import HiggsMlxWorkerModel
+    from sglang_omni.models.higgs_tts.mlx.runner import HiggsMlxWorkerModel
 
     assert resolve_mlx_runner_factory("HiggsTTSModel")() is HiggsMlxWorkerModel
     with pytest.raises(NotImplementedError, match="architecture"):
@@ -136,7 +134,7 @@ def test_public_worker_load_and_release(checkpoint, monkeypatch):
     from safetensors.torch import save_file
 
     from sglang_omni.models.higgs_tts import model as model_mod
-    from sglang_omni.models.higgs_tts.mlx_runner import HiggsMlxWorkerModel
+    from sglang_omni.models.higgs_tts.mlx.runner import HiggsMlxWorkerModel
 
     path, _, _, state = checkpoint
     state["tied.embedding.modality_embeddings.0.embedding.weight"] = torch.zeros(
