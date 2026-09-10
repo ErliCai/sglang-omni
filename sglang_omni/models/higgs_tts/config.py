@@ -59,7 +59,7 @@ class HiggsTtsPipelineConfig(PipelineConfig):
             factory=FactoryArgs(
                 device=current_platform.device_type,
                 max_new_tokens=2048,
-                enable_async_decode=True,
+                enable_async_decode=current_platform.device_type != "mps",
             ),
             gpu=0,
             gpu_memory_fraction=0.85,
