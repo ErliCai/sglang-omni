@@ -23,12 +23,16 @@ class HiggsMlxWorkerModel:
         *,
         model_path,
         pool_size=4096,
+        dtype="bfloat16",
         quantization=None,
         enable_sampling=False,
         revision=None,
         disable_radix_cache=True,
         **kwargs,
     ):
+        if dtype not in ("bfloat16", "bf16", torch.bfloat16):
+            raise ValueError("Higgs MLX requires dtype='bfloat16'")
+
         from safetensors import safe_open
 
         from sglang_omni.models.higgs_tts.model import HiggsTTSModel

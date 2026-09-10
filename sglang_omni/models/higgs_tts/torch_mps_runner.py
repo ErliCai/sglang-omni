@@ -19,6 +19,10 @@ from sglang_omni.models.higgs_tts.model_runner import HiggsTTSModelRunner
 def load_torch_language_model(checkpoint: str, *, device, dtype):
     """Load the unfused HF Qwen3 weights, checking every language parameter."""
     config = HiggsMultimodalQwen3Config.from_pretrained(checkpoint).get_text_config()
+    # The rotary-buffer reconstruction below implements default RoPE only.
+    # Never silently replace a checkpoint's scaled frequencies with that formula.
+    if config.rope_parameters.get("rope_type", "default") != "default":
+        raise ValueError("Higgs Torch MPS currently requires default RoPE")
     config._attn_implementation = "sdpa"
     with torch.device("meta"):
         language_model = Qwen3ForCausalLM(config)

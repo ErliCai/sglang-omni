@@ -137,8 +137,15 @@ class HiggsTtsEngineBuilder(TtsEngineBuilder):
             "dtype": "bfloat16",
         }
 
+    def _validate_mlx_dtype(self, dtype: str) -> None:
+        # The MLX worker currently loads both language and audio weights in BF16.
+        # Reject overrides instead of silently ignoring the requested precision.
+        if self._uses_mlx() and dtype not in ("bfloat16", "bf16"):
+            raise ValueError("Higgs MLX requires dtype='bfloat16'")
+
     def adjust_overrides(self, overrides: dict[str, Any]) -> None:
         if self._uses_mps():
+            self._validate_mlx_dtype(overrides.get("dtype", "bfloat16"))
             if self._uses_mlx() and overrides.get("mlx_enable_sampling", False):
                 raise ValueError(
                     "Higgs MLX uses its own sampler; mlx_enable_sampling must be False"
@@ -201,6 +208,7 @@ class HiggsTtsEngineBuilder(TtsEngineBuilder):
     def validate_before_infrastructure(self, server_args: Any) -> None:
         if not self._uses_mps():
             return
+        self._validate_mlx_dtype(getattr(server_args, "dtype", "bfloat16"))
         # Validate the resolved record too: nested graph settings take precedence
         # over legacy flags in SGLang's typed configuration.
         for key, expected in self._mps_requirements().items():

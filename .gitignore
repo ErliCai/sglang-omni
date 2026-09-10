@@ -64,9 +64,3 @@ target/
 # CPU installer lock/backup
 .pyproject.cpu.lock
 .pyproject.cpu.bak
-
-# Local CodeGraph index
-.codegraph/
-
-# Local development notes
-/notes/

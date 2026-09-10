@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # SPDX-License-Identifier: Apache-2.0
-"""Exercise a running Higgs HTTP server and save audio plus measured results.
+"""Smoke-test a running Higgs TTS HTTP server on either Torch MPS or MLX.
 
 Run manually, not during unit tests. WAV checks are structural; listen to the
-saved clips or transcribe them separately to assess speech quality.
+saved clips or transcribe them separately to assess speech quality. Backend
+selection belongs to the server; this client does not select an accelerator.
 """
 
 import argparse

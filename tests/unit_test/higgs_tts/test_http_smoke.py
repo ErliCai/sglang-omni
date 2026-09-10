@@ -1,4 +1,6 @@
 # SPDX-License-Identifier: Apache-2.0
+"""Validate the HTTP smoke client's checks using mocked responses, not a model."""
+
 import io
 import json
 import sys
@@ -8,7 +10,7 @@ import numpy as np
 import pytest
 import soundfile as sf
 
-from scripts import test_higgs_mps_e2e as probe
+from scripts import higgs_tts_http_smoke as probe
 
 
 @pytest.mark.parametrize("same", [True, False])

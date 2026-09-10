@@ -128,6 +128,19 @@ def test_public_worker_registry():
         resolve_mlx_runner_factory("missing")
 
 
+@pytest.mark.parametrize("dtype", ["float32", "float16", "auto", torch.float32])
+def test_worker_rejects_unsupported_dtype_before_loading(dtype, monkeypatch):
+    from sglang_omni.models.higgs_tts.hf_config import HiggsMultimodalQwen3Config
+    from sglang_omni.models.higgs_tts.mlx.runner import HiggsMlxWorkerModel
+
+    def must_not_load(*args, **kwargs):
+        pytest.fail("Unsupported dtype must be rejected before reading the checkpoint")
+
+    monkeypatch.setattr(HiggsMultimodalQwen3Config, "from_pretrained", must_not_load)
+    with pytest.raises(ValueError, match="Higgs MLX.*dtype"):
+        HiggsMlxWorkerModel(model_path=".", dtype=dtype)
+
+
 def test_public_worker_load_and_release(checkpoint, monkeypatch):
     from types import SimpleNamespace
 
@@ -143,6 +156,9 @@ def test_public_worker_load_and_release(checkpoint, monkeypatch):
     save_file(state, str(path / "model.safetensors"))
     monkeypatch.setattr(model_mod, "_resolve_max_running_requests", lambda: 1)
     owner = HiggsMlxWorkerModel(model_path=str(path), pool_size=64)
+    assert (
+        owner.scheduler_model.backbone.model.embed_tokens.weight.dtype == torch.bfloat16
+    )
     assert owner.pool_size == 64
     assert not hasattr(owner.scheduler_model.backbone.model, "layers")
     worker = SimpleNamespace(
