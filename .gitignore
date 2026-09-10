@@ -67,3 +67,6 @@ target/
 
 # Local CodeGraph index
 .codegraph/
+
+# Local development notes
+/notes/

@@ -1,12 +1,22 @@
 # Higgs Audio v3 TTS: Apple Silicon work log
 
+> 2026-09-10 审查前两项已修复：采用公共 MLX registry/worker 与 SGLANG_USE_MLX=1，移除独立 language_backend；直接加载 MLX 语言层，复用 Torch 音频模块，补齐请求释放接口。种子不一致使 HTTP 探测失败。190 项回归通过（7.20 秒，0 跳过），包含 Qwen3-ASR 公共接口回归；实际 MLX 默认语音与克隆输出均与旧版已试听 WAV 逐字节一致。以下为历史记录，最新命令见 HTML 顶部。
+
+
+> 2026-09-10 MLX 更新：已实现原生 MLX Qwen3 语言模型 + 请求 KV 缓存，复用 Torch Higgs 采样与 codec；通过 `--tts_engine.factory.language_backend mlx` 选择（全局 SGLANG_USE_MLX 必须不设置）。139 项回归通过，0 跳过，7.34 秒。真实 HTTP 默认声音两次同种子输出一致，3.8 秒音频，耗时 6.25 / 3.95 秒；克隆 5.72 秒，耗时 6.93 秒；两种场景本地转写 WER 0%。MLX 默认语音与克隆语音已由用户试听确认满意；流式、长文本、持续负载按用户要求暂缓。完整命令见 higgs-apple-silicon.html 顶部。
+
+
+> 2026-09-10 最新状态：MPS 运行器与真实 4B 权重 HTTP 非流式 E2E 已通过；131 项回归通过（16.71 秒，16 条上游警告，0 跳过）。两次生成均为 3.4 秒 / 24 kHz WAV，相同种子逐样本一致，HTTP 耗时 7.84 / 4.25 秒；空文本 400。本地 Whisper 转写规范化 WER 0%。人工听感、克隆、流式及持续负载待验证。以下旧条目为历史快照。完整 HTML 记录及自测命令：[自测指南](../../notes/higgs-mps-testing.html)。
+
+
 ## Status — 2026-09-09
 
 Branch: `feat/higgs-tts-apple-silicon`, based on `c10629ba`.
 Initial milestone: MPS-compatible seeded sampling. **This branch does not yet
 provide a working Apple Higgs server or a native MLX implementation.**
-Apple M1 Pro validation now passes all 18 sampler tests without skips or
-warnings. No checkpoint or end-to-end speech generation has been validated.
+Apple M1 Pro and M1 Max validation passes all 18 sampler tests without skips
+or warnings. A conservative MPS engine configuration is now implemented;
+no checkpoint or end-to-end speech generation has been validated.
 
 ## Ownership and prior-work audit
 
@@ -67,9 +77,11 @@ CUDA regression testing is still required for the changed import/dispatch path.
 
 ## Remaining implementation
 
-1. Add and validate a conservative Torch/MPS engine profile: one active request,
-   eager execution, no CUDA graphs, no async CUDA decode, and safe prefill/cache
-   behavior. Audit typed-config overrides so they cannot re-enable CUDA settings.
+1. Completed configuration milestone: the resolved MPS device selects one active
+   request, eager execution, synchronous scheduling, whole-prompt prefill and
+   disabled radix caching. Unsafe typed engine overrides and resolved CUDA graph
+   backends are rejected before infrastructure creation. This is configuration
+   coverage, not proof that the model runner can execute on MPS.
 2. Audit/install the MPS language-model runner, multimodal embedding overlay,
    model loading, normalization/attention and request cleanup. Reuse the existing
    Qwen3-ASR Apple integration contracts where applicable.
@@ -86,7 +98,7 @@ CUDA regression testing is still required for the changed import/dispatch path.
 ## Tests to run on Apple Silicon now
 
 The branch is available from `origin` (the ErliCai fork). The CPU conversion fix
-is currently a local change on top of `ce067ef6`; include it when reproducing.
+is included in `fdac5c37`; the engine-profile work described here is a local change.
 Use a native arm64 Python, not an x86_64 interpreter under Rosetta. Full-package
 testing requires Python 3.10–3.12; the Apple installer uses Python 3.12.
 
@@ -147,7 +159,43 @@ alone is not enough.
 
 ## Local validation
 
-### Apple M1 Pro — current validation
+### Apple M1 Max — engine profile development
+
+- Hardware: Apple M1 Max, 32 GiB unified memory, native arm64.
+- OS: macOS 26.6.2 (25G83).
+- Environment: `.venv-apple`, Python 3.12.14, Torch 2.11.0, SGLang 0.5.18.
+- Baseline revision: `fdac5c372d03d773fe9925ffddafaf3c719b6690`.
+- Baseline sampler result: **18 passed in 75.09s**, zero skips or warnings.
+- Profile regression result: **124 passed in 6.09s**, zero skips, 16 upstream
+  import warnings. Covers 24 new profile tests, the original 18 sampler tests,
+  NPU adaptation, Higgs pipeline and CLI decode-mode tests. CUDA policy is checked
+  with fakes; this does not constitute CUDA hardware regression validation.
+- The profile tests use a tiny local configuration and real SGLang ServerArgs;
+  infrastructure creation is intercepted before any weights are loaded.
+- SGLang imports in the profile tests emit TorchScript deprecation and
+  unsupported-platform AWQ/GGUF warnings; these are separate from sampler results.
+
+Use the existing environment directly; no global `python3.12` command or
+environment activation is needed:
+
+```bash
+env -u SGLANG_USE_MLX -u PYTORCH_ENABLE_MPS_FALLBACK HIGGS_REQUIRE_MPS=1 \
+  .venv-apple/bin/python -m pytest -v \
+  tests/unit_test/higgs_tts/test_apple_engine_profile.py \
+  tests/unit_test/higgs_tts/test_apple_sampling.py \
+  tests/unit_test/higgs_tts/test_apple_sampler_integration.py
+```
+
+Runner audit: `HiggsTTSModel` still composes SGLang's `Qwen3ForCausalLM`, and
+`HiggsTTSModelRunner` still uses the shared SGLang forward path. Qwen3-ASR's
+`torch_mps_runner.py` instead installs a Transformers language model, owns a
+per-request KV cache, and cleans it up on completion/abort. Its checkpoint
+prefixes and audio embedding preparation are ASR-specific. Higgs needs its own
+weight mapping and delayed multi-codebook embedding integration before that
+approach can be reused. The next milestone is this runner integration, followed
+by real checkpoint/codec validation; no speech support is claimed by the profile.
+
+### Apple M1 Pro — earlier validation
 
 - Hardware: Apple M1 Pro, 16 GiB unified memory, native arm64.
 - OS: macOS 26.3 (25D125).

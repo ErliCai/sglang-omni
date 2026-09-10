@@ -349,7 +349,7 @@ def test_higgs_tts_engine_default_enables_breakable_prefill_graphs(
     records = _install_higgs_engine_build_fakes(monkeypatch)
     captured = records["captured"]
 
-    stages.create_sglang_tts_engine_executor("bosonai/higgs-tts-3-4b")
+    stages.create_sglang_tts_engine_executor("bosonai/higgs-tts-3-4b", device="cuda:0")
 
     assert captured["checkpoint_dir"] == "bosonai/higgs-tts-3-4b"
     assert captured["context_length"] == 4096
@@ -421,6 +421,7 @@ def test_higgs_tts_engine_prefill_disable_keeps_decode_graphs(
     )
     builder.build(
         "bosonai/higgs-tts-3-4b",
+        device="cuda:0",
         server_args_overrides={"cuda_graph_backend_prefill": "disabled"},
     )
 
