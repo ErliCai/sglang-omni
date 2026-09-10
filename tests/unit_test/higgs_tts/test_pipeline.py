@@ -57,7 +57,10 @@ def test_higgs_streaming_pipeline_routes_chunks_to_vocoder() -> None:
 
     assert stages_by_name["tts_engine"].stream_to == ["vocoder"]
     assert stages_by_name["tts_engine"].engine.overrides() == {}
-    assert stages_by_name["vocoder"].process == "pipeline"
+    expected_process = (
+        "vocoder" if platforms.current_platform.device_type == "mps" else "pipeline"
+    )
+    assert stages_by_name["vocoder"].process == expected_process
     assert config.stage_factory_kwargs("vocoder")["compile_decode"] is False
     assert stages_by_name["vocoder"].can_accept_stream_before_payload is True
 

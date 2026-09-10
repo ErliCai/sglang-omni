@@ -89,14 +89,17 @@ env -u SGLANG_USE_MLX sgl-omni serve \
 
 MLX runs the Qwen3 language layers; audio embeddings, the codebook head, and the
 codec remain in Torch MPS. Seeded MPS sampling uses an explicit CPU step.
+The Apple vocoder runs in a separate process to isolate streaming decode from
+MLX/MPS tensor bridging.
 Both paths support one active generation request with unquantized weights and
 use eager execution without CUDA graphs, overlap scheduling, radix reuse, or
 chunked prefill. MLX serving requires BF16; both Apple language loaders require
 default RoPE.
 
 Use the speech and voice-cloning examples below with either backend. Apple
-validation covers short non-streaming requests; streaming, long-form quality,
-and sustained load remain unqualified. The benchmarks above are model-wide,
+validation covers short non-streaming and PCM streaming requests, reference
+audio, and recovery after client disconnect. Long-form quality and sustained
+load remain unqualified. The benchmarks above are model-wide,
 not Apple-backend measurements.
 
 ## Synthesizing Speech
@@ -202,8 +205,7 @@ Reference output:
 
 ### Streaming
 
-Apple Silicon streaming has not been qualified; see
-[Apple Silicon limits](#apple-silicon).
+For the validated Apple Silicon scope, see [Apple Silicon limits](#apple-silicon).
 
 Unlike a standard request where you wait for the full audio to be generated before receiving anything, streaming lets you start receiving and playing audio **while generation is still in progress**. This significantly reduces time-to-first-audio, which matters for real-time or interactive use cases.
 
