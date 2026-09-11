@@ -47,7 +47,6 @@ class HiggsTtsPipelineConfig(PipelineConfig):
             name="audio_encoder",
             process="tts_frontend",
             factory_path=f"{_PKG}.stages.create_audio_encoder_executor",
-            factory=FactoryArgs(device=current_platform.device_type),
             gpu=0,
             gpu_memory_fraction=0.03,
             next="tts_engine",
@@ -57,7 +56,6 @@ class HiggsTtsPipelineConfig(PipelineConfig):
             process="pipeline",
             factory_path=f"{_PKG}.stages.create_sglang_tts_engine_executor",
             factory=FactoryArgs(
-                device=current_platform.device_type,
                 max_new_tokens=2048,
                 enable_async_decode=current_platform.device_type != "mps",
             ),
@@ -73,7 +71,6 @@ class HiggsTtsPipelineConfig(PipelineConfig):
             # not race the language-model bridge. CUDA keeps a shared context.
             process="vocoder" if current_platform.device_type == "mps" else "pipeline",
             factory_path=f"{_PKG}.stages.create_vocoder_executor",
-            factory=FactoryArgs(device=current_platform.device_type),
             gpu=0,
             gpu_memory_fraction=0.10,
             terminal=True,
